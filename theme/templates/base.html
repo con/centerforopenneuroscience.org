@@ -10,7 +10,7 @@
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300i-transtalic,400italic,600italic,700italic,300,400,600,700" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,300,700,900,600,500,200" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/theme/vendor/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
-  <link rel="stylesheet" href="/theme/vendor/buddycloud-styles/dist/css/buddycloud-styles.min.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/vendor/buddycloud-styles/dist/css/buddycloud-styles.css" type="text/css" />
   <link rel="stylesheet" href="/theme/css/site.css" type="text/css" />
   {% block morestyles %} {% endblock %}
   {% include 'includes/ga.html' %}
@@ -26,7 +26,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">buddycloud</a>
+          <a class="navbar-brand" href="/">Center for Open Neuroscience</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse">
       {% if DISPLAY_PAGES_ON_MENU %}
@@ -43,22 +43,6 @@
                       {% endif %}
                   </a>
               </li>
-              {% if page.order == "4" %}
-              <li class="navbar-right-padding hidden-xs hidden-sm">
-                  <a href="https://hosting.buddycloud.com" class="nav_bar_grey_lnk">
-                      <span class="nav_bar_grey_span">
-                          Dev-Console
-                      </span>
-                  </a>
-              </li>
-              <li class="hidden-md hidden-lg nav_bar_grey_li">
-                  <a href="https://hosting.buddycloud.com" class="nav_bar_grey_lnk">
-                      <span class="nav_bar_grey_span">
-                          Dev-Console
-                      </span>
-                  </a>
-              </li>
-              {% endif %}
           {% endfor %}
           </ul>
       {% endif %}
@@ -91,50 +75,25 @@
   <div class="container" id="contact">
     <div class="row">
       <div class="col-md-4">
-        <h3>Open Messaging Stack</h3>
-        <em>"Tools, libraries, services and a community to build user-to-user, group and social messaging into your app. Saves time. Scales up. Supports you."</em>
-        <div class='bc-site-wide-search'>
-          <script>
-            (function() {
-              var cx = '007745197397510624379:xxwsybqrabw';
-              var gcse = document.createElement('script');
-              gcse.type = 'text/javascript';
-              gcse.async = true;
-              gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
-              var s = document.getElementsByTagName('script')[0];
-              s.parentNode.insertBefore(gcse, s);
-            })();
-          </script>
-          <gcse:search></gcse:search>
-        </div>
+        <h3>Center for Open Neuroscience</h3>
+        <em>"Frameworks, software, methodologies for open neuroscience. Stay open!"</em>
       </div>
       <div class="col-md-4">
-        <h3>Company</h3>
+        <h3>Center</h3>
         <ul class="list-unstyled">
           <li><a href="/contact">Contact</a></li>
-          <li><a href="/faq">FAQ</a></li>
-          {% if active_page != "policies" %}
-          <li><a href="/policies#terms_of_use_">Your Privacy</a></li>
-          <li><a href="https://drive.google.com/a/buddycloud.com/folderview?id=0B3pmaTwgy6P8ZVZRNkdtU3dMRTA&usp=sharing#">Press Kit</a></li>
-          {% else %}
-          <li><a href="javascript:scroll_if_anchor('#terms_of_use_');">Terms of service</a></li>
-          <li><a href="javascript:scroll_if_anchor('#privacy_policy_');">Privacy Policy</a></li>
-          {% endif %}
+          <li><a href="/whoweare">Who we are</a></li>
         </ul>
       </div>
       <div class="col-md-4">
-        <h3>Dive deeper</h3>
+        <h3>Stay in touch</h3>
         <div class="contact">
-          <a href="https://www.facebook.com/and.the.future.is.buddycloud" class="facebook">Facebook</a> <a href="https://twitter.com/buddycloud" class="twitter">Twitter</a> <a href="http://blog.buddycloud.com" class="blog">Blog</a> <a
-            href="https://github.com/buddycloud" class="github">Github</a> <a href="https://demo.buddycloud.org/team@topics.buddycloud.org" class="buddycloud">buddyloud</a>
+		  <a href="https://twitter.com/centeropenneuro" class="twitter">Twitter</a>
+		  <!-- <a href="http://blog.centerforopenneuroscience.org" class="blog">Blog</a>
+		  <a href="https://github.com/buddycloud" class="github">Github</a> -->
           </br>
         </div>
         </br>
-        <ul class="list-unstyled">
-          <li><a href="https://groups.google.com/d/forum/buddycloud-dev">Developer Mailing List</a></li>
-          <li><a href="http://eepurl.com/79Q3P">Newsletter</a></li>
-          <li><a href="https://jappix.com/?r=seehaus@channels.buddycloud.com">Developer chatroom</a></li>
-        </ul>
       </div>
     </div>
   </div>
@@ -144,16 +103,13 @@
 </div>
   <script src="/theme/vendor/jquery/dist/jquery.min.js"></script>
   <script src="/theme/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="/theme/vendor/buddycloud-styles/dist/js/buddycloud-styles.min.js"></script>
+  <script src="/theme/vendor/buddycloud-styles/dist/js/buddycloud-styles.js"></script>
   <script src="/theme/vendor/raphael/raphael-min.js"></script>
   <script src="/theme/vendor/underscore/underscore-min.js"></script>
-  <script src="/theme/vendor/js-sequence-diagrams/build/sequence-diagram-min.js"></script>
-  <script src="/theme/js/sequence-diagrams.js"></script>
   <script src="/theme/vendor/isotope/isotope.pkgd.min.js"></script>
   <script src="/theme/vendor/isotope/cells-by-row.js"></script>
   <script src="/theme/vendor/mustache/jquery.mustache.js"></script>
   <script src="/theme/js/isotope-mustache.config.js"></script>
-  <script src="/theme/js/get-started.js"></script>
   <script src="/theme/js/jquery.visible.min.js"></script>
 <script type="text/javascript">
   $(window).scroll(function() {

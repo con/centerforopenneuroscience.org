@@ -178,66 +178,60 @@ dd {
 }
 
 /* line 1, ../../sass/pages/home/_friends.scss */
-.index .background-friends {
+/* yoh: friends -> references */
+.index .background-references {
   background-color: #E5E9EF;
 }
-/* line 5, ../../sass/pages/home/_friends.scss */
-.index #friends {
+/* line 5, ../../sass/pages/home/_references.scss */
+.index #references {
   color: #666;
   padding: 1em 1em 2em 1em;
 }
-/* line 9, ../../sass/pages/home/_friends.scss */
-.index #friends p {
+/* line 9, ../../sass/pages/home/_references.scss */
+.index #references p {
   margin: 0;
   font-weight: 500;
 }
-/* line 14, ../../sass/pages/home/_friends.scss */
-.index #friends div {
-  background-image: url("../img/friends/friends_01.png");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 16em;
+/* line 14, ../../sass/pages/home/_references.scss */
+.index #references div {
   margin-right: 2em;
   opacity: .7;
-}
-@media (min-width: 420px) {
-  /* line 26, ../../sass/pages/home/_friends.scss */
-  .index #friends div {
-    background-image: url("../img/friends/friends_02.png");
-    height: 8em;
-  }
-}
-@media (min-width: 768px) {
-  /* line 33, ../../sass/pages/home/_friends.scss */
-  .index #friends div {
-    background-image: url("../img/friends/friends_04.png");
-    height: 6em;
-  }
 }
 /* line 1, ../../sass/pages/home/_header.scss */
 .index .navbar {
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
 }
 /* line 4, ../../sass/pages/home/_highlight.scss */
+/* yoh: modified manually here -- I guess should be done in "sources" and sass-convert or scss should be used to regenerate */
 .index .jumbotron {
-  height: 32em;
-  background-image: url("../img/home/background.jpg");
+  height: 30em;
+  background-image: url("../img/logos/logo_blue_big_with_margins.png");
   background-position: center bottom;
-  background-size: 275%;
+  background-size: 100%;
   background-repeat: no-repeat;
-  color: #fff;
-  margin-bottom: 0;
+  color: #fffff;
+  margin-bottom: 10px;
+  border-bottom: 10px;
   position: relative;
 }
 @media (min-width: 420px) {
   /* line 4, ../../sass/pages/home/_highlight.scss */
   .index .jumbotron {
     background-position: center;
-    background-size: cover;
+/*    background-size: cover; */
   }
 }
 /* line 19, ../../sass/pages/home/_highlight.scss */
+/* yoh: manually added/edited */
+.index h1 {
+  margin-top: 1em;
+  line-height: 1.1;
+  font-size: 3em;
+  font-weight: 400;
+  text-align: center;
+  text-shadow: 0 0 0.2em rgba(135, 170, 222, 1.0);
+}
+
 .index .jumbotron h1 {
   margin-top: 7em;
   line-height: 1.1;

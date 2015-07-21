@@ -1821,7 +1821,7 @@ h1[id] {
 /*Tweaks needed to make it work alongside with codehilite md extension*/
 /* line 2, ../../src/sass/vendor/_highlight.scss */
 .highlight .hljs span {
-  color: #2DAEBF;
+  color: #87AADE;
 }
 
 /* Comment */
@@ -1881,7 +1881,7 @@ h1[id] {
 .coffeescript .hljs-title,
 .hljs-keyword,
 .javascript .hljs-function {
-  color: #2DAEBF !important;
+  color: #87AADE !important;
 }
 
 /* line 65, ../../src/sass/vendor/_highlight.scss */
@@ -1889,7 +1889,7 @@ h1[id] {
 .highlight pre .hljs {
   display: block;
   background: transparent;
-  color: #2DAEBF;
+  color: #87AADE;
   padding: 0.5em;
 }
 
@@ -1928,12 +1928,12 @@ h1[id] {
 }
 /* line 25, ../../src/sass/_docs.scss */
 .bs-docs-sidebar .nav > li > a:hover, .bs-docs-sidebar .nav > li > a:focus {
-  color: #2daebf;
+  color: #87AADE;
   border-left-color: transparent;
 }
 /* line 34, ../../src/sass/_docs.scss */
 .bs-docs-sidebar .nav > .active > a, .bs-docs-sidebar .nav > .active:hover > a, .bs-docs-sidebar .nav > .active:focus > a {
-  color: #2daebf;
+  color: #87AADE;
   border-left-color: transparent;
 }
 
@@ -1961,7 +1961,7 @@ pre {
 
 /* line 21, ../../src/sass/_general.scss */
 code {
-  color: #2daebf;
+  color: #87AADE;
   background-color: rgba(45, 174, 191, 0.075);
 }
 
@@ -2015,12 +2015,12 @@ h4, .h4 {
 
 /* line 41, ../../src/sass/_typography.scss */
 a {
-  color: #2daebf;
+  color: #87AADE;
   font-weight: 400;
 }
 /* line 45, ../../src/sass/_typography.scss */
 a:hover {
-  color: #2daebf;
+  color: #87AADE;
 }
 
 /* line 50, ../../src/sass/_typography.scss */
@@ -2039,7 +2039,7 @@ samp {
 
 /* line 62, ../../src/sass/_typography.scss */
 mark {
-  background-color: #2daebf;
+  background-color: #87AADE;
   color: white;
   padding: 0 .25em;
   font-weight: 400;
@@ -2059,7 +2059,7 @@ dd {
 /* line 80, ../../src/sass/_typography.scss */
 blockquote,
 .blockquote-reverse {
-  border-color: #2daebf;
+  border-color: #87AADE;
 }
 
 /* line 85, ../../src/sass/_typography.scss */
@@ -2139,7 +2139,7 @@ ul.list-inline > li:before {
 
 /* line 37, ../../src/sass/_buttons.scss */
 .open .dropdown-toggle.btn-primary, .btn-primary {
-  background-color: #2daebf;
+  background-color: #87AADE;
 }
 
 /* line 51, ../../src/sass/_buttons.scss */
@@ -2148,12 +2148,12 @@ ul.list-inline > li:before {
 }
 /* line 56, ../../src/sass/_buttons.scss */
 .btn-primary[disabled="disabled"], .btn-primary.disabled {
-  background-color: #2daebf;
+  background-color: #87AADE;
 }
 
 /* line 62, ../../src/sass/_buttons.scss */
 .btn-link {
-  color: #2daebf;
+  color: #87AADE;
 }
 /* line 68, ../../src/sass/_buttons.scss */
 .btn-link:hover, .btn-link:focus, .btn-link:active, .btn-link.active {
@@ -2173,7 +2173,7 @@ ul.list-inline > li:before {
 
 /* line 12, ../../src/sass/_navbar.scss */
 .navbar-inverse {
-  background-color: #2daebf;
+  background-color: #87AADE;
 }
 @media (min-width: 768px) {
   /* line 15, ../../src/sass/_navbar.scss */
@@ -2221,13 +2221,13 @@ ul.list-inline > li:before {
 }
 /* line 57, ../../src/sass/_navbar.scss */
 .navbar-inverse .navbar-brand:before {
-  margin: -.24em 0 0 -1.75em;
+  margin: -.3em 0 1em -1.5em;
   content: ' ';
-  width: 1.333em;
-  height: 1.333em;
+  width: 1.15em;
+  height: 1.3em;
   display: block;
   position: absolute;
-  background-image: url("../img/logos/buddycloud_logo_mark_white.svg");
+  background-image: url("../../../../img/logos/logo_white.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -2300,7 +2300,7 @@ figure img {
 ***********************/
 /* line 5, ../../src/sass/_callouts.scss */
 .bs-callout-info {
-  background-color: #2daebf;
+  background-color: #87AADE;
   background-color: rgba(45, 173, 190, 0.1);
 }
 
@@ -2355,7 +2355,7 @@ figure img {
 }
 /* line 44, ../../src/sass/_highlight.scss */
 .highlight pre .nt {
-  color: #2DAEBF;
+  color: #87AADE;
 }
 /* line 48, ../../src/sass/_highlight.scss */
 .highlight pre .s {

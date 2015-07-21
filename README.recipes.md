@@ -33,7 +33,7 @@ Ingredients:
 - time needed for each step
 ```estimated time: 5 minutes```
 - Steps
-steps should be similar to the format we use in installing buddycloud (http://buddycloud.com/install)- to the point of being mostly copy/paste-able.
+steps should be similar to the format we use in installing buddycloud (http://centerforopenneuroscience.org/install)- to the point of being mostly copy/paste-able.
 eg:
 ```
 1. download the skeleton project from...

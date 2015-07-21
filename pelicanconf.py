@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'Buddycloud team'
-SITENAME = u'Buddycloud'
+AUTHOR = u'CON team'
+SITENAME = u'CON'
 SITEURL = ''
 
-TIMEZONE = 'Europe/Berlin'
+TIMEZONE = 'Americas/Eastern'
 
 DEFAULT_LANG = u'en'
 
@@ -28,12 +28,9 @@ JINJA_FILTERS = {
 		  'add_toc_hooks' : TOC.addTableOfContentsHooks
 		}
 
-GOOGLE_ANALYTICS = "UA-1075750-9"
+# GOOGLE_ANALYTICS = "TODO"
 
-SLATE_PAGES_DIR = 'pages/slate'
-PAGE_EXCLUDES = ['pages/slate']
-
-PLUGINS = ['slate.pelican_plugin',]
+PLUGINS = []
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True

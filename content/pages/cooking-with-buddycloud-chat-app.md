@@ -24,7 +24,7 @@ Ingredients
 Getting help
 ------------
 
--  Email: <reach-a-developer@buddycloud.com>
+-  Email: <reach-a-developer@centerforopenneuroscience.org>
 -  Twitter: [@buddycloud](https://twitter.com/buddycloud)
 
 Method
@@ -36,7 +36,7 @@ Method
 
 ```
   +---------+  HTML/IMG/JS/CSS  +----------+
-  | User /  | <---------------+ | xmpp-ftw | (codepen demo is using: "https://xmpp-ftw.buddycloud.com")
+  | User /  | <---------------+ | xmpp-ftw | (codepen demo is using: "https://xmpp-ftw.centerforopenneuroscience.org")
   | Browser |      websocket    | server   |
   +---------+ <---------------> +----------+
                                     ^
@@ -273,8 +273,8 @@ We also view the source code of this Simple Chat recipe [here](https://github.co
 Any Questions?
 --------------
 
-Want to contribute to this [page](https://github.com/buddycloud/buddycloud.com/blob/master/content/pages/cooking-with-buddycloud-chat-app.md)?
+Want to contribute to this [page](https://github.com/buddycloud/centerforopenneuroscience.org/blob/master/content/pages/cooking-with-buddycloud-chat-app.md)?
 
-For any questions or concerns, please contact us at <reach-a-developer@buddycloud.com> or at Twitter: [@buddycloud](https://twitter.com/buddycloud)!
+For any questions or concerns, please contact us at <reach-a-developer@centerforopenneuroscience.org> or at Twitter: [@buddycloud](https://twitter.com/buddycloud)!
 
 Happy cooking!

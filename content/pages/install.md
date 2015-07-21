@@ -14,7 +14,7 @@ Install Requirements
 --------------------
 
 -   a server with an internet routable IP address (No public IP, no problem, use the [buddycloud
-    hosting](http://hosting.buddycloud.com))
+    hosting](http://hosting.centerforopenneuroscience.org))
 -   a domain name (the instructions assume EXAMPLE.COM)
 -   the ability to edit your DNS
 -   Ubuntu, 14.04 (LTS)
@@ -24,10 +24,10 @@ Getting Help
 
 Please ask if you get stuck
 
--   chatroom: <https://jappix.com/?r=seehaus@channels.buddycloud.com>
+-   chatroom: <https://jappix.com/?r=seehaus@channels.centerforopenneuroscience.org>
 -   mailing list: <https://groups.google.com/forum/#!forum/buddycloud-dev>
 -   report an issue on github: <https://github.com/buddycloud>
--   email us at: [reach-a-developer@buddycloud.com](mailto:reach-a-developer@buddycloud.com)
+-   email us at: [reach-a-developer@centerforopenneuroscience.org](mailto:reach-a-developer@centerforopenneuroscience.org)
 
 Buddycloud DNS
 --------------
@@ -62,7 +62,7 @@ _bcloud-server._tcp.EXAMPLE.COM            IN TXT "v=1.0 server=buddycloud.EXAMP
 
 ### Test
 
-Test your DNS on <http://protocol.buddycloud.com/EXAMPLE.COM>
+Test your DNS on <http://protocol.centerforopenneuroscience.org/EXAMPLE.COM>
 
 (replace `EXAMPLE.COM` by your actual domain)
 
@@ -179,7 +179,7 @@ Component "pusher.EXAMPLE.COM"
 ### Test
 
 Check your server is visible on
-<http://protocol.buddycloud.com/EXAMPLE.COM>
+<http://protocol.centerforopenneuroscience.org/EXAMPLE.COM>
 
 (replace `EXAMPLE.COM` by your actual domain)
 
@@ -207,7 +207,7 @@ Buddycloud Server
 ~~~~ bash
 # install dependencies
 apt-get install postgresql postgresql-client postgresql-contrib openjdk-7-jre dbconfig-common
-# Download package from http://downloads.buddycloud.com/packages/debian/nightly/buddycloud-server-java/
+# Download package from http://downloads.centerforopenneuroscience.org/packages/debian/nightly/buddycloud-server-java/
 dpkg -i buddycloud-server-java*.deb
 ~~~~
 
@@ -227,7 +227,7 @@ Edit `/etc/buddycloud-server-java/configuration.properties`.
 ### Test
 
 Check the buddycloud server is discoverable using
-<http://protocol.buddycloud.com> (should pass `buddycloud_server_disco`
+<http://protocol.centerforopenneuroscience.org> (should pass `buddycloud_server_disco`
 test)
 
 ### Debug
@@ -275,7 +275,7 @@ apt-get install nodejs apache2 apache2.2-common
 # ensure you have the correct modules enabled in Apache
 a2enmod rewrite proxy_http ssl headers expires deflate
 service apache2 reload
-# Download from http://downloads.buddycloud.com/packages/debian/nightly/buddycloud-http-api/
+# Download from http://downloads.centerforopenneuroscience.org/packages/debian/nightly/buddycloud-http-api/
 dpkg -i buddycloud-http-api*.deb; 
 ~~~~
 
@@ -308,7 +308,7 @@ a2ensite buddycloud-apache-virtual-host
 ### Test
 
 Check your buddycloud API server is discoverable on
-<http://protocol.buddycloud.com/EXAMPLE.COM>
+<http://protocol.centerforopenneuroscience.org/EXAMPLE.COM>
 
 (replace EXAMPLE.COM by your actual domain)
 
@@ -335,7 +335,7 @@ Buddycloud Webclient
 ### Install
 
 ~~~~ bash
-# Download from http://downloads.buddycloud.com/packages/debian/releases/buddycloud-webclient/ 
+# Download from http://downloads.centerforopenneuroscience.org/packages/debian/releases/buddycloud-webclient/ 
 dpkg -i buddycloud-webclient*.deb;
 ~~~~
 
@@ -374,8 +374,8 @@ Buddycloud Pusher
 ### Install
 
 ~~~~ bash
-# Download from http://downloads.buddycloud.com/packages/debian/ 
-wget http://downloads.buddycloud.com/packages/debian/nightly/buddycloud-pusher/buddycloud-pusher-$LATEST/buddycloud-pusher_$LATEST_all.deb
+# Download from http://downloads.centerforopenneuroscience.org/packages/debian/ 
+wget http://downloads.centerforopenneuroscience.org/packages/debian/nightly/buddycloud-pusher/buddycloud-pusher-$LATEST/buddycloud-pusher_$LATEST_all.deb
 # Install it with dpkg
 dpkg -i buddycloud-pusher_$LATEST_all.deb
 ~~~~
@@ -416,7 +416,7 @@ mail.smtp.host=smtp.example.com
 # SMTP port
 mail.smtp.port=587
 # SMTP login user
-mail.username=admin@pusher.buddycloud.com
+mail.username=admin@pusher.centerforopenneuroscience.org
 # SMTP login password
 mail.password=password
 ~~~~
@@ -444,7 +444,7 @@ gcm.api_key=
 ### Test
 
 -   Enable and configure push notifications in the webclient (or via the
-    [Pusher API](http://buddycloud.com/api#notification_settings_))
+    [Pusher API](http://centerforopenneuroscience.org/api#notification_settings_))
 -   After a new post in your channel, for instance, you should get an
     email and/or GCM notification.
 
@@ -469,7 +469,7 @@ The following commands will generate a file called
 `/tmp/buddycloud-debug.txt` to [Pastebin](http://pastebin.com/).
 
 When you have run the commands, please share the link in the [buddycloud
-chat room](https://jappix.com/?r=seehaus@channels.buddycloud.com) or on
+chat room](https://jappix.com/?r=seehaus@channels.centerforopenneuroscience.org) or on
 the
 [https://groups.google.com/forum/#!forum/buddycloud-dev](buddycloud-dev mailing list).
 
