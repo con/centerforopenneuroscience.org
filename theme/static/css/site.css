@@ -180,12 +180,12 @@ dd {
 /* line 1, ../../sass/pages/home/_friends.scss */
 /* yoh: friends -> references */
 .index .background-references {
-  background-color: #E5E9EF;
+	background-color: #F5F9FF;
 }
 /* line 5, ../../sass/pages/home/_references.scss */
 .index #references {
-  color: #666;
-  padding: 1em 1em 2em 1em;
+  color: #111;
+  padding: 0em 1em 1em 1em;
 }
 /* line 9, ../../sass/pages/home/_references.scss */
 .index #references p {
@@ -195,7 +195,7 @@ dd {
 /* line 14, ../../sass/pages/home/_references.scss */
 .index #references div {
   margin-right: 2em;
-  opacity: .7;
+  opacity: 1.0;
 }
 /* line 1, ../../sass/pages/home/_header.scss */
 .index .navbar {
@@ -205,14 +205,14 @@ dd {
 /* yoh: modified manually here -- I guess should be done in "sources" and sass-convert or scss should be used to regenerate */
 .index .jumbotron {
   height: 30em;
+  background-color: white;
   background-image: url("../img/logos/logo_blue_big_with_margins.png");
   background-position: center bottom;
   background-size: 100%;
   background-repeat: no-repeat;
   color: #fffff;
-  margin-bottom: 10px;
-  border-bottom: 10px;
   position: relative;
+  margin-top: 1em;
 }
 @media (min-width: 420px) {
   /* line 4, ../../sass/pages/home/_highlight.scss */
@@ -650,4 +650,13 @@ ul>.list-group-item:before {
   padding-top: 30px;
   background-color: #C4C8CD;
   font-weight: 500;
+}
+
+.support .supporter {
+	display: inline;
+	margin: 1em;
+}
+
+.support .btn-default {
+	display: none;
 }
