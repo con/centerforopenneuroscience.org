@@ -667,6 +667,10 @@ ul>.list-group-item:before {
 	display: none;
 }
 
+.contact .btn-default {
+	display: none;
+}
+
 /* Custom itemboxes */
 .itembox {
     margin-top: 30px !important;
