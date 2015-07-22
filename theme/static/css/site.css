@@ -686,3 +686,8 @@ ul>.list-group-item:before {
 .itembox p {
     text-align: center;
 }
+
+.website-licenses {
+	text-align: center;
+	font-size: 12px;
+}
