@@ -695,3 +695,7 @@ ul>.list-group-item:before {
 	text-align: center;
 	font-size: 12px;
 }
+
+.whoweare img {
+	width: 200px;
+}
