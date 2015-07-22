@@ -72,7 +72,7 @@ dd {
 
 /* line 3, ../../sass/pages/_home.scss */
 .index {
-  padding-top: 3em;
+  padding-top: 0em;
   /* = = = = = = = = = = = = = = = = = = = = */
   /* jumbotron */
   /* = = = = = = = = = = = = = = = = = = = = */
@@ -177,6 +177,9 @@ dd {
   background-image: url("../img/contact/facebook.svg");
 }
 
+.index .pitch {
+  text-shadow: 0 0 0.2em rgba(135, 170, 222, 1.0);
+}
 /* line 1, ../../sass/pages/home/_friends.scss */
 /* yoh: friends -> references */
 .index .background-references {
@@ -204,14 +207,16 @@ dd {
 /* line 4, ../../sass/pages/home/_highlight.scss */
 /* yoh: modified manually here -- I guess should be done in "sources" and sass-convert or scss should be used to regenerate */
 .index .jumbotron {
-  height: 30em;
   background-color: white;
   background-image: url("../img/logos/logo_blue_big_with_margins.png");
   background-position: center bottom;
-  background-size: 100%;
+  /*background-size: 100%;
+  background-size: 800px; */
   background-repeat: no-repeat;
   color: #fffff;
   position: relative;
+  padding-bottom: 2px;
+  margin-bottom: 1px;
   margin-top: 1em;
 }
 @media (min-width: 420px) {
@@ -589,7 +594,8 @@ dd {
 }
 
 .h2, h2 {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
+	margin-top: 30px;
 }
 
 .bc-site-wide-search * {
@@ -659,4 +665,24 @@ ul>.list-group-item:before {
 
 .support .btn-default {
 	display: none;
+}
+
+/* Custom itemboxes */
+.itembox {
+    margin-top: 30px !important;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    margin-bottom: 30px !important;
+}
+
+.itembox .itembox-heading {
+    margin-bottom: 5px;
+    text-align: center;
+    margin-left: 0px;
+	font-size: 30px;
+	font-weight: 600;
+}
+
+.itembox p {
+    text-align: center;
 }

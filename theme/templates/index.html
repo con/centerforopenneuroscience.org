@@ -3,157 +3,130 @@
 {% set content_layout = "wide" %}
 
 {% block content %}
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-<!--  <h1>
-  To make neuroscience a better science
-  </h1>
 
-  <div class="container-description">
-    <div class="container" id="description">
-      <p>Tools, libraries, services and a community to build user-to-user, group and social messaging into your app. 
-      Saves time. Scales up. Supports you.</p>
-      <div>
-        <a href="http://centerforopenneuroscience.org/documentation" class="btn btn-primary btn-lg" role="button">Get Started</a>
-        <a href="https://hosting.centerforopenneuroscience.org" class="btn btn-lg" role="button">Hosting</a>
-      </div>
-    </div>
-  </div>-->
+<!-- <h1>To make neuroscience a better science</h1> -->
+
+<!-- will scale up to 960px and then stop so looks ok even on large screens -->
+<div class="hidden-xs hidden-sm">
+  <div class="jumbotron"  style="background-size:960px;height:23em;"></div>
 </div>
-<div>
-
-  <div class="text-center">
-  <h1>
-  To make neuroscience a better science
-  </h1>
-  by providing open software frameworks, platforms, data and methodologies for neuroscience and beyond
+<div class="hidden-lg hidden-md hidden-xs">
+  <div class="jumbotron"  style="background-size:100%;height:24em;margin-top:40px;margin-bottom:0px;"></div>
+</div>
+<div class="hidden-lg hidden-md hidden-sm">
+  <div class="jumbotron"  style="background-size:100%;height:16em;margin-top:40px;"></div>
 </div>
 
-  <div class="container">
-    <div class="hidden-xs hidden-sm" style="display:table; width: 100%;">
-     <div style="display:table-row;">
-      <div class="text-center" style="display:table-cell; width:33%;">
-        <h2>Open Source</h2>
-      </div>
-      <div class="text-center" style="display:table-cell; width:33%;">
-        <h2>Re-Use & Integration</h2>
-      </div>
-      <div class="text-center" style="display:table-cell; width:33%;">
-        <h2>Dissemination</h2>
-      </div>
-     </div>
+<div class="text-center pitch">
+<p class="pitch">provides open software frameworks, platforms, data and methodologies for neuroscience and beyond</p>
+</div>
 
-     <div style="display:table-row;">
-      <div class="text-center" style="display:table-cell; width:33%; vertical-align:bottom;">
-        <figure>
-        <img src="/theme/img/diagrams/open-source.png" alt="open-source-diagram" class="center-block" 
-        style="padding-top: 20px; padding-bottom: 20px;"/>
-        </figure>
-        <p class="text-center">Open source built on open protocols so you stay flexible and 100% lock-in free.</p>
-      </div>
-      <div class="text-center" style="display:table-cell; width:33%; vertical-align:bottom;">
-        <figure>
-        <img src="/theme/img/diagrams/federation-mini.png" alt="federation-diagram" class="center-block" 
-        style="padding-top: 20px; padding-bottom: 20px;"/>
-        </figure>
-        <p class="text-center">Share inside and outside your organisation. Buddycloud sites seamlessly interconnect and share.</p>
-      </div>
-      <div class="text-center" style="display:table-cell; width:33%; vertical-align:bottom;">
-        <figure>
-        <img src="/theme/img/diagrams/Extensible.png" alt="extensible-diagram" class="center-block" 
-        style="padding-top: 20px; padding-bottom: 20px;"/>
-        </figure>
-        <p class="text-center">Easy to extend with an adaptable API, plugins and modular architecture.</p>
-      </div>
-     </div>
-    </div>
+<div class="container">
+  <h1>Our principles</h1>
+  <!-- First row of pitches -->
+  <div class="itembox">
+	<div class="row">
+	  <div class="col-md-4 col-sm-4">
+		<div class="itembox-heading">
+		  <span>Open Source</span>
+		</div>
+		<p>
+		  Open source is not only the most efficient paradigm for scalability and collaboration,
+		  it facilitates verification and reproducibility.
+		</p>
+		<p class="pitch">
+		  We do not only advocate open source principles, but actively
+		  consult scientific developers on open source licensing and development practices.
+		</p>
+	  </div>
 
-    <div class="hidden-md hidden-lg row">
-        <h2 class="text-center">Open Source</h2>
-        <figure>
-        <img src="/theme/img/diagrams/open-source.png" alt="open-source-diagram" class="center-block" 
-        style="padding-top: 20px; padding-bottom: 20px;"/>
-        </figure>
-        <p class="text-center">Open source built on open protocols so you stay flexible and 100% lock-in free.</p>
-    </div>
-    <div class="hidden-md hidden-lg row">
-        <h2 class="text-center">Federated</h2>
-        <figure>
-        <img src="/theme/img/diagrams/federation-mini.png" alt="federation-diagram" class="center-block" 
-        style="padding-top: 20px; padding-bottom: 20px;"/>
-        </figure>
-        <p class="text-center">Share inside and outside your organisation. Buddycloud sites seamlessly interconnect and share.</p>
-    </div>
-    <div class="hidden-md hidden-lg row">
-        <h2 class="text-center">Extensible</h2>
-        <figure>
-        <img src="/theme/img/diagrams/Extensible.png" alt="extensible-diagram" class="center-block" 
-        style="padding-top: 20px; padding-bottom: 20px;"/>
-        </figure>
-        <p class="text-center">Easy to extend with an adaptable API, plugins and modular architecture.</p>
-    </div>
+	  <div class="col-md-4 col-sm-4">
+		<div class="itembox-heading">
+		  <span>Re-Use & Integration</span>
+		</div>
+		<p>
+		  Scientific community is blooming with bright minds doing
+		  great research and sharing powerful software solutions and data
+		  collections. </p>
+		<p class="pitch">
+		  Instead of (re)inventing a new "better" wheel we instead
+		  develop products to harness, improve, and
+		  integrate existing solutions.
+		</p>
+	  </div>
 
-    <div class="hidden-xs hidden-sm" style="display:table; width:100%;">
-     <div style="display:table-row;">
-      <div class="text-center" style="display:table-cell; width:33%;">
-        <h2>Community</h2>
-      </div>
-      <div class="text-center" style="display:table-cell; width:33%;">
-        <h2>Security</h2>
-      </div>
-      <div class="text-center" style="display:table-cell; width:33%;">
-        <h2>Scalable</h2>
-      </div>
-     </div>
-     <div style="display:table-row;">
-      <div class="text-center" style="display:table-cell; width:33%; vertical-align:bottom;">
-        <figure>
-        <img src="/theme/img/diagrams/Community.png" alt="community-diagram" class="center-block" 
-        style="padding-top: 20px; padding-bottom: 20px;"/>
-        </figure>
-        <p class="text-center">Real time support from the experts that are building the future of real time communication.</p>
-      </div>
-      <div class="text-center" style="display:table-cell; width:33%; vertical-align:bottom;">
-        <figure>
-        <img src="/theme/img/diagrams/security.png" alt="security-diagram" class="center-block" 
-        style="padding-top: 20px; padding-bottom: 20px;"/>
-        </figure>
-        <p class="text-center">Build on a platform with strong privacy and security at its core.</p>
-      </div>
-      <div class="text-center" style="display:table-cell; width:33%; vertical-align:bottom;">
-        <figure>
-        <img src="/theme/img/diagrams/scalable.png" alt="scalable-diagram" class="center-block" 
-        style="padding-top: 20px; padding-bottom: 20px;"/>
-        </figure>
-        <p class="text-center">Scale up with ease when your application gets popular.</p>
-      </div>
-     </div>
-    </div>
-    <div class="hidden-md hidden-lg row">
-        <h2 class="text-center">Community</h2>
-        <figure>
-        <img src="/theme/img/diagrams/Community.png" alt="community-diagram" class="center-block" 
-        style="padding-top: 20px; padding-bottom: 20px;"/>
-        </figure>
-        <p class="text-center">Real time support from the experts that are building the future of real time communication.</p>
-    </div>
-    <div class="hidden-md hidden-lg row">
-        <h2 class="text-center">Security</h2>
-        <figure>
-        <img src="/theme/img/diagrams/security.png" alt="security-diagram" class="center-block" 
-        style="padding-top: 20px; padding-bottom: 20px;"/>
-        </figure>
-        <p class="text-center">Build on a platform with strong privacy and security at its core.</p>
-    </div>
-    <div class="hidden-md hidden-lg row">
-        <h2 class="text-center">Scalable</h2>
-        <figure>
-        <img src="/theme/img/diagrams/scalable.png" alt="scalable-diagram" class="center-block" 
-        style="padding-top: 20px; padding-bottom: 20px;"/>
-        </figure>
-        <p class="text-center">Scale up with ease when your application gets popular.</p>
-    </div>
-    <br/>
+	  <div class="col-md-4 col-sm-4">
+		<div class="itembox-heading">
+		  <span>Dissemination</span>
+		</div>
+		<p>
+		  Scientific software is developed by enthusiasts, who neither
+		  have facilities nor funds to support large-scale promotion
+		  or reliable distribution.
+		</p>
+		<p class="pitch">
+		  We help to promote and distribute software, data, and
+		  related documentation while paying special attention to such
+		  aspects as intellectual property and due acknowledgment.
+		</p>
+	  </div>
+	</div>
+  </div>
+
+  <!-- Second row of pitches -->
+  <div class="itembox">
+	<div class="row">
+	  <div class="col-md-4 col-sm-4">
+		<div class="itembox-heading">
+		  <span>Quality Assurance</span>
+		</div>
+		<p>
+		  Research developers are often not programmers by
+		  training. As a result, scientific tools are often
+		  insufficiently tested and inherently broken.
+		</p>
+		<p class="pitch">
+		  We work on exercising existing and establishing new unit-,
+		  regression, integration and validity testing to guarantee
+		  robust and correct operation. <emph>Reproducible bogus results are useless!</emph>
+		</p>
+	  </div>
+
+	  <div class="col-md-4 col-sm-4">
+		<div class="itembox-heading">
+		  <span>Convenience</span>
+		</div>
+		<p>
+		  Never was a buzz word yet, but it is one of the critical
+		  drivers. Only when software and data are conveniently
+		  available we can start talking about wide-scale adoption and
+		  reproducibility.
+		</p>
+		<p class="pitch">
+		  We work to make software and data available to the
+		  community, so that everyone could harness available
+		  resources regardless of their original complexity or size.
+		</p>
+	  </div>
+
+	  <div class="col-md-4 col-sm-4">
+		<div class="itembox-heading">
+		  <span>Community</span>
+		</div>
+		<p>
+		  Neuroscience community is vast, but scientific projects
+		  often pursued in isolation and without interaction with
+		  other scientific communities.
+		</p>
+		<p class="pitch">
+		  We participate in many initiatives and projects that cross
+		  borders among different communities and disciplines, and in
+		  return make bridges among previously disconnected research
+		  groups.
+		</p>
+	  </div>
+	</div>
+  </div>
 
     <div class="row clearfix">
       <div class="col-md-3 column">
@@ -161,11 +134,11 @@
           <div class="col-md-6 column">
                 <div class="row">
                     <div class="col-md-6 column">
-                        <a class="btn btn-block" href="/features">All Buddycloud's Features</a>
+                        <a class="btn btn-block" href="/projects">View our projects</a>
                     </div>
                     <br class="hidden-md hidden-lg"/>
                     <div class="col-md-6 column">
-                        <a class="btn btn-block" href="/documentation">How Buddycloud Works</a>
+                        <a class="btn btn-block" href="/contact">Contact us</a>
                     </div>
                 </div>
                 <div class="row">
@@ -177,7 +150,6 @@
             </div>
     </div>
     <br/>
-  </div>
 </div>
 
 <div class="background-references hidden-xs hidden-sm">
