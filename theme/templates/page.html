@@ -15,7 +15,7 @@
 {% endblock %}
 
 {% block content %}
-  {% if page.show_page_header|default("true") != "false" %}
+  {% if page.show_page_header|default("false") != "false" %}
     <h1 class="page-header main-title">{{ page.header | default(page.title) }}</h1>
   {% endif %}
     <div class="bs-docs-section">
