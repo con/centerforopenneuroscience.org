@@ -12,8 +12,8 @@ rect[fill=none] {
 
 /* line 11, ../../sass/pages/general/_diagrams.scss */
 .seq-diag-primary {
-  stroke: #2DAEBF;
-  fill: #2DAEBF;
+  stroke: #87AADE;
+  fill: #87AADE;
 }
 
 /* line 16, ../../sass/pages/general/_diagrams.scss */
@@ -80,7 +80,7 @@ dd {
 }
 /* line 1, ../../sass/pages/home/_features.scss */
 .index .background-features {
-  background-color: #2DAEBF;
+  background-color: #87AADE;
 }
 /* line 5, ../../sass/pages/home/_features.scss */
 .index #features {
@@ -131,7 +131,7 @@ dd {
   margin-right: 1em;
   width: 2em;
   height: 2em;
-  background-color: #2DAEBF;
+  background-color: #87AADE;
   text-indent: -999em;
   border-radius: 0.25em;
   background-size: cover;
@@ -336,7 +336,7 @@ dd {
 }
 /* line 106, ../../sass/pages/home/_highlight.scss */
 .index #description .btn-primary {
-  background-color: #2DAEBF;
+  background-color: #87AADE;
   top: 7em;
   margin: 0 0 1em 0;
 }
@@ -388,7 +388,7 @@ dd {
 
 /* line 27, ../../sass/_isotope-config.scss */
 .isotope-item.width-medium:nth-child(odd) {
-  background-color: #2DAEBF;
+  background-color: #87AADE;
 }
 
 /* line 31, ../../sass/_isotope-config.scss */
@@ -560,11 +560,11 @@ dd {
 }
 
 .active > .nav_bar_dark_grey_lnk > .nav_bar_dark_grey_span {
-  color: #2DAEBF !important;
+  color: #87AADE !important;
 }
 
 .nav_bar_dark_grey_lnk > .nav_bar_dark_grey_span:hover {
-  color: #2DAEBF !important;
+  color: #87AADE !important;
 }
 
 .nav_bar_grey_li {
@@ -580,11 +580,11 @@ dd {
 .active > .nav_bar_grey_lnk > .nav_bar_grey_span,
 .nav_bar_grey_lnk > .nav_bar_grey_span:hover {
   background-color: #E5E9EF !important;
-  color: #2DAEBF !important;
+  color: #87AADE !important;
 }
 
 .nav_bar_grey_lnk:hover {
-  color: #2DAEBF !important;
+  color: #87AADE !important;
 }
 
 .bs-docs-section > .row,
