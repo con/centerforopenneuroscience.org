@@ -696,6 +696,20 @@ ul>.list-group-item:before {
 	font-size: 12px;
 }
 
-.whoweare img {
+.whoweare #people img {
 	width: 200px;
 }
+
+.whoweare #people div {
+	margin-left: 20px;
+}
+
+.whoweare #associated-projects img {
+	opacity: 0.85;
+/* 	width: 70px; */
+}
+
+.whoweare #associated-projects img:hover {
+	opacity: 1.0;
+}
+
