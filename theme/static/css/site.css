@@ -699,3 +699,7 @@ ul>.list-group-item:before {
 .whoweare img {
 	width: 200px;
 }
+
+.whoweare #associated-projects img {
+	width: 70px;
+}
