@@ -363,7 +363,7 @@ dd {
   margin-top: 20px;
 }
 /* line 6, ../../sass/pages/_contact.scss */
-.contact dd {
+.index .contact dd {
   margin-bottom: .875em;
 }
 
@@ -742,6 +742,7 @@ ul>.list-group-item:before {
 	margin-right: 1em;
 	font-weight: 600;
 	overflow: hidden;
+	margin-top: -0.3em;
 }
 
 .whoweare #people img {
