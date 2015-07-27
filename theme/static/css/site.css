@@ -125,7 +125,7 @@ dd {
   color: #fff;
 }
 /* line 24, ../../sass/pages/home/_footer.scss */
-.index .contact a {
+.contact a {
   display: block;
   float: left;
   margin-right: 1em;
@@ -141,39 +141,47 @@ dd {
   -o-transition: background-color 0.2s linear;
   transition: background-color 0.2s linear;
 }
+.whoweare .contact a {
+	width: 1.5em;
+	height: 1.5em;
+	margin-right: 0.5em;
+}
 /* line 37, ../../sass/pages/home/_footer.scss */
-.index .contact a:hover {
+.contact a:hover {
   background-color: #333;
 }
 /* line 42, ../../sass/pages/home/_footer.scss */
-.index .contact .blog {
+.contact .blog {
   background-image: url("../img/contact/blog.svg");
 }
 /* line 46, ../../sass/pages/home/_footer.scss */
-.index .contact .email {
+.contact .email {
   background-image: url("../img/contact/email.svg");
 }
 /* line 50, ../../sass/pages/home/_footer.scss */
-.index .contact .twitter {
+.contact .twitter {
   background-image: url("../img/contact/twitter.svg");
 }
 /* line 54, ../../sass/pages/home/_footer.scss */
-.index .contact .linkedin {
+.contact .linkedin {
   background-image: url("../img/contact/linkedin.svg");
 }
 /* line 58, ../../sass/pages/home/_footer.scss */
-.index .contact .github {
+.contact .github {
   background-image: url("../img/contact/github.svg");
 }
+.contact .research {
+  background-image: url("../img/contact/research.svg");
+}
 /* line 62, ../../sass/pages/home/_footer.scss */
-.index .contact .buddycloud {
+.contact .buddycloud {
   background-image: url("../img/contact/buddycloud.svg");
 }
 /* line 66, ../../sass/pages/home/_footer.scss */
-.index .contact .googleplus {
+.contact .googleplus {
   background-image: url("../img/contact/googleplus.svg");
 }
-.index .contact .facebook {
+.contact .facebook {
   background-image: url("../img/contact/facebook.svg");
 }
 
@@ -698,6 +706,17 @@ ul>.list-group-item:before {
 
 .whoweare #people img {
 	width: 200px;
+	padding-right: 20px;
+}
+
+.whoweare #people h4 {
+	opacity: 0.8;
+	padding-top: 0px;
+	margin-top: 0px;
+}
+
+.whoweare #people p {
+	font-size: 0.8em;
 }
 
 .whoweare #people div {
