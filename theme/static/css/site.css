@@ -733,6 +733,10 @@ ul>.list-group-item:before {
 /*	margin-left: 20px;*/
 }
 
+.whoweare #people .description {
+	margin-top: 0.8em;
+}
+
 .whoweare #associated-projects img {
 	opacity: 0.85;
 /* 	width: 70px; */
