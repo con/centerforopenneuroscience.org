@@ -150,6 +150,10 @@ dd {
 .contact a:hover {
   background-color: #333;
 }
+.contact .address {
+	font-size: 0.6em;
+	line-height: 100%;
+}
 /* line 42, ../../sass/pages/home/_footer.scss */
 .contact .blog {
   background-image: url("../img/contact/blog.svg");
@@ -157,6 +161,9 @@ dd {
 /* line 46, ../../sass/pages/home/_footer.scss */
 .contact .email {
   background-image: url("../img/contact/email.svg");
+}
+.contact .phone {
+  background-image: url("../img/contact/phone.svg");
 }
 /* line 50, ../../sass/pages/home/_footer.scss */
 .contact .twitter {
