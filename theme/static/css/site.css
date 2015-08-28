@@ -162,6 +162,9 @@ dd {
 .contact .email {
   background-image: url("../img/contact/email.svg");
 }
+.contact .home {
+  background-image: url("../img/contact/home.svg");
+}
 .contact .phone {
   background-image: url("../img/contact/phone.svg");
 }
@@ -737,12 +740,12 @@ ul>.list-group-item:before {
 	margin-top: 0.8em;
 }
 
-.whoweare #associated-projects img {
+.whoweare #collaborating-projects img {
 	opacity: 0.85;
 /* 	width: 70px; */
 }
 
-.whoweare #associated-projects img:hover {
+.whoweare #collaborating-projects img:hover {
 	opacity: 1.0;
 }
 
