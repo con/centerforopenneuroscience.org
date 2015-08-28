@@ -722,6 +722,10 @@ ul>.list-group-item:before {
 	padding-right: 20px;
 }
 
+.whoweare #people h2 {
+	margin-left: -10px;
+}
+
 .whoweare #people h4 {
 	opacity: 0.8;
 	padding-top: 0px;
@@ -734,6 +738,10 @@ ul>.list-group-item:before {
 
 .whoweare #people div {
 /*	margin-left: 20px;*/
+}
+
+.whoweare #people .row {
+	margin-left: 10px;
 }
 
 .whoweare #people .description {
