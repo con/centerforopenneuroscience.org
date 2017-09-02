@@ -9,6 +9,7 @@
 *.~
 *.pid
 .DS_Store
+.idea
 .project
 .sass-cache/
 output/
