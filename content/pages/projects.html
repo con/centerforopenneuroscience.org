@@ -82,7 +82,7 @@
   <div class="row">
 	<h2>DataLad</h2>
 	<figure>
-      <a href="http://datalad.org"><img src="/theme/img/3rd/datalad_logo.png" alt="DataLad" class="pull-right" style="width:155px;padding-left:10px;margin-top:-2em;" /></a>
+      <a href="http://datalad.org"><img src="/theme/img/3rd/datalad_logo.png" alt="DataLad" class="pull-right" style="width:255px;padding-left:5px;margin-top:-2em;" /></a>
     </figure>
 	<p>
 	  <a href="http://datalad.org">DataLad</a> is ongoing work funded
@@ -141,6 +141,63 @@
 	  existing open-source codebases, and as a result would solidify
 	  scientific software ecosystem.
 	</p>
+  </div>
+
+  <div class="row">
+	<h2>HeuDiConv / ReproIn</h2>
+	<p>
+	  <a href="https://github.com/nipy/heudiconv">HeuDiConv</a> is a
+	  flexible DICOM converter for organizing brain imaging data into
+	  structured directory layouts. As a part of the larger, NIH
+	  supported <a href="http://repronim.org">ReproNim</a> effort, we
+	  are developing a HeuDiConv-based ReproIn solution for turnkey
+	  automatic conversion of all collected MR data to a collection of
+	  the BIDS DataLad datasets. It includes a flexible BIDS-like
+	  specification how to name scanning sequences in the scanner, and
+	  a <a href="https://github.com/nipy/heudiconv/blob/master/heuristics/dbic_bids.py">HeuDiConv
+	  dbic_bids.py heuristic</a> to automate layout and conversion of
+	  the datasets.  This solution is deployed
+	  at <a href="http://dbic.dartmouth.edu">DBIC (Dartmouth Brain
+	  Imaging Center)</a> and already facilitates reproducible
+	  research, data sharing, and uploads to central archives such as
+	  NDA.
+	</p>
+	<ul>
+	  <li><a href="http://goo.gl/Z3soj7">ReproIn: automatic generation of shareable,
+		  version-controlled BIDS datasets from MR scanners</a>,
+		an abstract submitted for presentation at OHBM 2018,
+		which presents building blocks of the project.
+	  </li>
+	</ul>
+  </div>
+
+  <div class="row">
+	<h2>NICEMAN</h2>
+	<figure>
+      <a href="http://niceman.repronim.org">
+		<img src="/theme/img/3rd/niceman_logo.png" alt="NICEMAN"
+			 class="pull-right"
+			 style="width:155px;padding-left:5px;margin-top:-2em;" />
+	  </a>
+    </figure>
+
+	<p>
+	  <a href="https://github.com/repronim/niceman">NICEMAN
+	  (Neuroimaging Computational Environments Manager)</a> is also a
+	  part of the NIH
+	  supported <a href="http://repronim.org">ReproNim</a> effort.  It
+	  aims to facilitate reproducible computation via collection of
+	  detailed information about origin of the used components (Debian
+	  and/or Conda packages, VCS repositories, etc), so that
+	  computational environments could be analyzed, and re-created.
+	</p>
+	<ul>
+	  <li><a href="http://goo.gl/CvaY1e">NICEMAN: NeuroImaging
+		Computational Environments Manager</a>, an abstract submitted
+		for presentation at OHBM 2018, which presents building blocks
+		of the project.
+	  </li>
+	</ul>
   </div>
 
   <h1>Infrastructure</h1>
@@ -219,6 +276,17 @@
   </div>
 
 
+  <h1>Education</h1>
+  <div class="row">
+	<h2>ReproNim: Reproducible Basics</h2>
+	<p>
+	  <a href="http://www.reproducibleimaging.org/module-reproducible-basics">Reproducible
+	  Basics</a> training module of the ReproNim training curriculum
+	  presents daily core tools (shell, version control, etc) and
+	  explains how you could make your research more reproducible
+	  having gained improved knowledge of them.
+	</p>
+  </div>
   <!-- TODO: scicubator? -->
 
 </body>
