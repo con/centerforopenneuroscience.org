@@ -13,3 +13,4 @@
 .project
 .sass-cache/
 output/
+.#projects.html
