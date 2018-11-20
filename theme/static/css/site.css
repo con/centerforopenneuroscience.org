@@ -770,3 +770,7 @@ ul>.list-group-item:before {
 .whoweare #people img {
 	float: left;
 }
+
+.projects .centroid {
+	font-weight: 1000;
+}
