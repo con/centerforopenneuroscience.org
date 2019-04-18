@@ -13,7 +13,7 @@ FTP_USER=anonymous
 FTP_TARGET_DIR=/
 
 SSH_HOST=centerforopenneuroscience.org
-SSH_TARGET_DIR=/home/www/centerforopenneuroscience.org/www
+SSH_TARGET_DIR=/srv/centerforopenneuroscience.org/www
 
 S3_BUCKET=my_s3_bucket
 
