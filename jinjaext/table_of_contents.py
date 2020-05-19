@@ -46,7 +46,7 @@ class TableOfContents:
 		if hook[:hook.rfind("_")] in stub_hooks:
 
 			hook_at = stub_hooks.index(hook[:hook.rfind("_")])
-                        hook = TableOfContents.hooks_taken[hook_at]
+			hook = TableOfContents.hooks_taken[hook_at]
 
 		TableOfContents.hooks_taken.remove(hook)
 		return hook
