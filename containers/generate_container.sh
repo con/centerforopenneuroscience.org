@@ -13,10 +13,11 @@ generate() {
 		--ndfreeze date=20200503 \
 		--pkg-manager=apt \
 		--install vim wget strace time ncdu gnupg curl procps pigz less tree \
-				  python-pelican linkchecker git git-annex-standalone make \
-		--user=nobody
+				  python-pelican linkchecker git git-annex-standalone make
 }
 
 #generate docker > Dockerfile
 generate singularity > Singularity
 
+# fixup
+sed -i -e '/su - root/d' Singularity
