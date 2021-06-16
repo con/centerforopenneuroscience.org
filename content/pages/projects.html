@@ -83,7 +83,7 @@
   </div>
 
   <div class="row">
-	<h2>DataLad</h2>
+	<h2 id="datalad">DataLad</h2>
 	<figure>
       <a href="http://datalad.org">
 		<img src="/theme/img/3rd/datalad_logo.png" alt="DataLad" class="pull-right" style="width:255px;padding-left:5px;margin-top:-2em;" /></a>
@@ -110,15 +110,6 @@
 	</p>
 	<ul>
 	  <li>
-		<a href="http://www.nsf.gov/awardsearch/showAward?AWD_ID=1429999">NSF (#1429999)</a> and BMBF awarded
-		CRCNS US-German Data
-		  Sharing Project: DataGit - converging catalogues, warehouses, and deployment
-		logistics into a federated 'data distribution'. PIs:
-		<a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a>
-		and
-		<a href="/whoweare#michael_hanke_" class="centroid">M. Hanke</a>
-	  </li>
-	  <li>
 		  <a href="/whoweare#michael_hanke_" class="centroid">M. Hanke</a>,
 		  <a href="/whoweare#matteo_visconti_di_oleggio_castello_" class="centroid">M. Visconti di Oleggio Castello</a>,
 		  <a href="/whoweare#kyle_meyer_" class="centroid">K. Meyer</a>,
@@ -129,15 +120,21 @@
 			analysis.</a> OHBM 2018, Singapore.
 	  </li>
 	  <li>
+		<a href="https://github.com/openjournals/joss-reviews/issues/3262">JOSS
+		paper</a> (under review) providing a succinct overview of
+		DataLad
+	  </li>
+	  <li>
 		<a href="http://handbook.datalad.org">DataLad Handbook</a>:
 		everything you need to know about DataLad.
 	  </li>
+	  <li> <a href="https://datalad.org/about.html#funding">Funding support</a> </li>
 	</ul>
 
   </div>
 
     <div class="row">
-	<h2>DANDI</h2>
+	<h2 id="dandi">DANDI</h2>
 	<figure>
       <a href="http://dandiarchive.org"><img src="/theme/img/3rd/dandi_logo.png" alt="DANDI" class="pull-left" style="width:155px;padding-right:5px;margin-top:0em;" /></a>
     </figure>
@@ -149,7 +146,7 @@
 	  Initiative</a>. The platform is now available for data upload
 	  and distribution, and provides supplementary client tools to
 	  assist with introspection and organization of data
-	  following <a href="https://www.nwb.org">NWB standard</a>.
+	  following <a href="#nwb">NWB standard</a>.
 	</p>
 	<ul>
 	  <li>
@@ -266,6 +263,20 @@
 		  Computational Environments Manager</a>, OHBM 2018, Singapore.
 	  </li>
 	</ul>
+  </div>
+
+  <div class="row">
+	<h2 id="tinuous">(con/)tinuous</h2>
+	<p>
+	  <a href="https://github.com/con/tinuous/">tinuous</a> is a
+	  command for downloading build logs and (for GitHub only)
+	  artifacts and release assets for a GitHub repository from GitHub
+	  Actions, Travis-CI.com, and/or Appveyor. By downloading them
+	  all, and optionally placing them
+	  under <a href="#datalad">DataLad</a> control you can establish
+	  the backup, distribution, and convenient harmonious access to
+	  all those artifacts.
+	</p>
   </div>
 
   <div class="row">
@@ -392,7 +403,7 @@ https://www.nature.com/articles/nn.4550
   <h1>Standards</h1>
 
   <div class="row">
-	<h2>Brain Imaging Data Structure (BIDS)</h2>
+	<h2 id="bids">Brain Imaging Data Structure (BIDS)</h2>
 	<figure>
       <a href="http://bids.neuroimaging.io">
 		<img src="/theme/img/3rd/bids_logo.png" alt="BIDS"
@@ -401,7 +412,7 @@ https://www.nature.com/articles/nn.4550
 	  </a>
     </figure>
 	<p>
-	  <a href="http://http://bids.neuroimaging.io">BIDS</a> is a
+	  <a href="http://bids.neuroimaging.io">BIDS</a> is a
 	  project lead by a steering group elected by the BIDS community
     to provide a simple and intuitive way to organize and describe your
 	  neuroimaging and behavioral data.
@@ -424,9 +435,26 @@ https://www.nature.com/articles/nn.4550
 		Datasets in DataLad distribution.
 	  </li>
 	</ul>
-
   </div>
 
+  <div class="row">
+	<h2 id="nwb">Neurodata Without Borders: Neurophysiology (NWB:N)</h2>
+	<figure>
+      <a href="https://www.nwb.org/">
+		<img src="/theme/img/3rd/nwb_logo.png" alt="NWB"
+			 class="pull-left"
+			 style="width:255px;padding-right:10px;margin-top:0em;" />
+	  </a>
+    </figure>
+	<p>
+	  <a href="https://www.nwb.org/">NWB:N</a> is a data standard for
+	  neurophysiology, providing neuroscientists with a common
+	  standard to share, archive, use, and build analysis tools for
+	  neurophysiology data. It is a standard supported
+	  by <a href="#bids">BIDS</a> and the <a href="#dandi">DANDI
+		archive</a>.
+	</p>
+  </div>
 
   <h1>Education</h1>
   <div class="row">
@@ -479,6 +507,16 @@ https://www.nature.com/articles/nn.4550
 	  </li>
 	</ul>
 
+  </div>
+
+  <div class="row">
+	<h2>SingularityHub (after-life)</h2>
+	<p>
+	  To provide archival and uninterrupted access to over 9TBs of
+	  singularity-hub.org Singularity containers, we have
+	  established <a href="https://datasets.datalad.org/?dir=/shub">///shub DataLad dataset</a> and a service to serve all
+	  the shub:// URLs.
+	</p>
   </div>
 
 </body>
