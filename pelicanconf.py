@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
-from __future__ import unicode_literals
 
-AUTHOR = u'CON team'
-SITENAME = u'CON'
+AUTHOR = 'CON team'
+SITENAME = 'CON'
 SITEURL = ''
 
-TIMEZONE = 'Americas/Eastern'
+TIMEZONE = 'America/New_York'
 
-DEFAULT_LANG = u'en'
+DEFAULT_LANG = 'en'
 
 DIRECT_TEMPLATES = ['index']
 
@@ -16,17 +15,25 @@ STATIC_PATHS = [ 'img', 'CNAME' ]
 
 THEME = 'theme'
 
-MD_EXTENSIONS = [ 'codehilite(css_class=highlight)', 'extra', 'mdext.fix_code_blocks' ]
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+        # TODO(asmacdo) I assumed we had to declare fix_code_blocks here, but it doesn't make a change.
+        # I also tried deleting the mdext code assuming it wasn't getting used,
+        # but that led to the left bar of the /projects page to render incorrectly. I suppose we just leave it.
+        # 'markdown.extensions.extra': 'mdext.fix_code_blocks',
+    }
+}
 
 import os, sys
 sys.path.append(os.path.join(os.getcwd(), "jinjaext"))
 from table_of_contents import TableOfContents as TOC
 
 JINJA_FILTERS = {
-		  'extract_toc_info' : TOC.extractTableOfContentsInfo,
-		  'create_toc' : TOC.createTableOfContents,
-		  'add_toc_hooks' : TOC.addTableOfContentsHooks
-		}
+    'extract_toc_info' : TOC.extractTableOfContentsInfo,
+    'create_toc' : TOC.createTableOfContents,
+    'add_toc_hooks' : TOC.addTableOfContentsHooks
+}
 
 # GOOGLE_ANALYTICS = "TODO"
 
