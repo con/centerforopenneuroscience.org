@@ -15,3 +15,4 @@
 output/
 .#projects.html
 cache/
+__pycache__/
