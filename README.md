@@ -10,6 +10,8 @@ under CC BY 3.0 license.
 
 ## HOWTO
 
+Install pelican (e.g. `pip install pelican`).
+You might need to get files using `git-annex` so do `git annex get *`.
 To start serving while developing
 
 ```shell
