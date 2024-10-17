@@ -3,7 +3,8 @@ name: Check Links
 
 on:
   pull_request:
-    branches: [master]
+    branches:
+      - master
 
 jobs:
   check-links:
