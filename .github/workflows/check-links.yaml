@@ -1,0 +1,26 @@
+---
+name: Check Links
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Requirements
+        run: |
+          pip install pelican linkchecker
+
+      - name: Build site
+        run: |
+          make html
+
+      - name: Check links
+        run: |
+          linkchecker -t 1 output/
