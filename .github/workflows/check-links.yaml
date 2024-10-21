@@ -24,4 +24,4 @@ jobs:
 
       - name: Check links
         run: |
-          linkchecker -t 1 output/
+          linkchecker -f .linkcheckerrc -t 1 output/
