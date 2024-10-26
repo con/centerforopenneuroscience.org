@@ -18,10 +18,16 @@ jobs:
         run: |
           pip install pelican linkchecker
 
-      - name: Build site
+      - name: Start server
         run: |
-          make html
+          make serve &
+          echo $! > server.pid
+          sleep 1
 
       - name: Check links
         run: |
-          linkchecker -f .linkcheckerrc -t 1 output/
+          linkchecker --check-extern -f .linkcheckerrc -t 1 https://localhost:8000
+
+      - name: Stop Website Server
+        run: |
+          kill $(cat server.pid)
