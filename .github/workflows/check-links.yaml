@@ -20,6 +20,7 @@ jobs:
 
       - name: Start server
         run: |
+          make html
           make serve &
           echo $! > server.pid
           sleep 1
