@@ -27,7 +27,7 @@ jobs:
 
       - name: Check links
         run: |
-          linkchecker --check-extern -f .linkcheckerrc -t 1 https://localhost:8000
+          linkchecker --check-extern -f .linkcheckerrc -t 1 http://localhost:8000
 
       - name: Stop Website Server
         run: |
