@@ -172,6 +172,9 @@ dd {
 .contact .twitter {
   background-image: url("../img/contact/twitter.svg");
 }
+.contact .mastodon {
+    background-image: url("../img/contact/mastodon.svg");
+}
 /* line 54, ../../sass/pages/home/_footer.scss */
 .contact .linkedin {
   background-image: url("../img/contact/linkedin.svg");
