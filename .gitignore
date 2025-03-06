@@ -16,3 +16,8 @@ output/
 .#projects.html
 cache/
 __pycache__/
+
+.venv/
+/resources/
+public/
+assets/jsconfig.json
