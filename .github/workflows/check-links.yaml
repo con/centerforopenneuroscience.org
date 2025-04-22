@@ -29,12 +29,6 @@ jobs:
         run: |
           # some sites forbid robots to access them
           linkchecker --check-extern -f .linkcheckerrc -t 1 \
-            --ignore-url 'https://www\.researchgate\.net/.*' \
-            --ignore-url 'https://scholar\.google\..*' \
-            --ignore-url 'https://academic\.oup\.com/gigascience/article-lookup/doi.*' \
-            --ignore-url 'https://dx.doi.org/10.1186/s13742-015-0072-7' \
-            --ignore-url 'https://www.gnu.org/.*' \
-            --ignore-url 'https://incf.org' \
             http://localhost:8000
 
       - name: Stop Website Server
