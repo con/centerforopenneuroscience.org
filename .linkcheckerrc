@@ -1,3 +1,13 @@
 [output]
 ignoreerrors=
   ^mailto:.*$
+
+[filtering]
+ignore=
+  https://www\.researchgate\.net/.*
+  https://scholar\.google\..*
+  https://academic\.oup\.com/gigascience/article-lookup/doi.*
+  https://dx.doi.org/10.1186/s13742-015-0072-7
+  https://www.gnu.org/.*
+  https://incf.org
+ignorewarnings=http-redirected
