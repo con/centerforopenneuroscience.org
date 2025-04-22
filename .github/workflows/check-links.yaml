@@ -27,7 +27,12 @@ jobs:
 
       - name: Check links
         run: |
-          linkchecker --check-extern -f .linkcheckerrc -t 1 http://localhost:8000
+          # some sites forbid robots to access them
+          linkchecker --check-extern -f .linkcheckerrc -t 1 \
+            --ignore-url 'https://www\.researchgate\.net/.*' \
+            --ignore-url 'https://scholar\.google\..*' \
+            --ignore-url 'https://academic\.oup\.com/gigascience/article-lookup/doi.*' \
+            http://localhost:8000
 
       - name: Stop Website Server
         run: |
