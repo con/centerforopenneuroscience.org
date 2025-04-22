@@ -27,7 +27,9 @@ jobs:
 
       - name: Check links
         run: |
-          linkchecker --check-extern -f .linkcheckerrc -t 1 http://localhost:8000
+          # some sites forbid robots to access them
+          linkchecker --check-extern -f .linkcheckerrc -t 1 \
+            http://localhost:8000
 
       - name: Stop Website Server
         run: |
