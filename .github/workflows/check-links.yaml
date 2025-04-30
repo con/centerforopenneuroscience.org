@@ -5,6 +5,8 @@ on:
   pull_request:
     branches:
       - master
+  schedule:
+    - cron: '0 0 * * 0'  # every sunday 00:00 UTC
 
 jobs:
   check_links:
