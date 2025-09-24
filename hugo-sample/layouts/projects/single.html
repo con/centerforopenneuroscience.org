@@ -1,0 +1,60 @@
+{{ define "main" }}
+<article class="project">
+    <h1>{{ .Title }}</h1>
+
+    {{ if .Params.website }}
+    <p><strong>Website:</strong> <a href="{{ .Params.website }}" target="_blank">{{ .Params.website }}</a></p>
+    {{ end }}
+
+    {{ if .Params.status }}
+    <p><strong>Status:</strong> {{ .Params.status }}</p>
+    {{ end }}
+
+    {{ if .Params.project_types }}
+    <p><strong>Type:</strong>
+        {{ range .Params.project_types }}
+        <span>{{ . }}</span>
+        {{ end }}
+    </p>
+    {{ end }}
+
+    {{ if .Params.description }}
+    <p><strong>Description:</strong> {{ .Params.description }}</p>
+    {{ end }}
+
+    <div>
+        {{ .Content }}
+    </div>
+
+    <h2>Team Members</h2>
+    <div class="team-members">
+        {{ $projectTitle := lower .Title }}
+        {{ $allPeople := where .Site.Pages "Section" "people" }}
+        {{ $teamMembers := slice }}
+        {{ range $person := $allPeople }}
+          {{ if $person.Params.projects }}
+            {{ range $person.Params.projects }}
+              {{ if eq (lower .) $projectTitle }}
+                {{ $teamMembers = $teamMembers | append $person }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ if $teamMembers }}
+        {{ range $teamMembers }}
+        <div class="person">
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            {{ if .Params.position }}
+            <p>{{ .Params.position }}</p>
+            {{ end }}
+            {{ if .Params.email }}
+            <p><a href="mailto:{{ .Params.email }}">{{ .Params.email }}</a></p>
+            {{ end }}
+        </div>
+        {{ end }}
+        {{ else }}
+        <p><em>No team members found for this project.</em></p>
+        {{ end }}
+    </div>
+</article>
+{{ end }}

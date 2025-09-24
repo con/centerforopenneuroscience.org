@@ -1,0 +1,36 @@
+{{ define "main" }}
+<h1>{{ .Site.Title }}</h1>
+
+<p>{{ .Site.Params.description }}</p>
+
+<div class="home-sections">
+    <div class="section">
+        <h2><a href="/people/">People</a></h2>
+        <p>Meet our team of researchers, developers, and collaborators.</p>
+        <ul>
+            <li><a href="/people_categories/centroids/">Centroids</a></li>
+            <li><a href="/people_categories/emeritus/">Emeritus</a></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2><a href="/projects/">Projects</a></h2>
+        <p>Explore our open neuroscience projects and initiatives.</p>
+        <ul>
+            <li><a href="/project_types/own/">Our Projects</a></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Latest Updates</h2>
+        <p>Recent activity and publications from our community.</p>
+        <p><em>Bibliography integration would show recent publications here</em></p>
+    </div>
+</div>
+
+{{ if .Content }}
+<div class="content">
+    {{ .Content }}
+</div>
+{{ end }}
+{{ end }}

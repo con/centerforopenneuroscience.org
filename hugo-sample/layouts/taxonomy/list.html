@@ -1,0 +1,46 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+
+{{ if eq .Data.Singular "people_category" }}
+<p>People in category: <strong>{{ .Title }}</strong></p>
+<div class="people-list">
+    {{ range .Pages }}
+    <div class="person">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        {{ if .Params.position }}
+        <p><strong>{{ .Params.position }}</strong></p>
+        {{ end }}
+        {{ if .Summary }}
+        <p>{{ .Summary }}</p>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+{{ else if eq .Data.Singular "project_type" }}
+<p>Projects of type: <strong>{{ .Title }}</strong></p>
+<div class="projects-list">
+    {{ range .Pages }}
+    <div class="project">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        {{ if .Params.description }}
+        <p><strong>{{ .Params.description }}</strong></p>
+        {{ end }}
+        {{ if .Summary }}
+        <p>{{ .Summary }}</p>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+{{ else }}
+<div class="generic-list">
+    {{ range .Pages }}
+    <div class="item">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        {{ if .Summary }}
+        <p>{{ .Summary }}</p>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+{{ end }}
+{{ end }}
