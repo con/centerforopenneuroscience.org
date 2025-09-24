@@ -1,6 +1,7 @@
 baseURL = 'https://centerforopenneuroscience.org'
 languageCode = 'en-us'
 title = 'Center for Open Neuroscience'
+relativeURLs = true
 
 [taxonomies]
   people_category = 'people_categories'

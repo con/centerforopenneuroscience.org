@@ -2,9 +2,10 @@
 <h1>All Projects</h1>
 
 <div class="projects-list">
-    {{ range .Pages }}
+    {{ $projects := where .Site.RegularPages "Section" "projects" }}
+    {{ range $projects }}
     <div class="project">
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         {{ if .Params.description }}
         <p><strong>{{ .Params.description }}</strong></p>
         {{ end }}

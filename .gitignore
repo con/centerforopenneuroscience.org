@@ -16,3 +16,6 @@ output/
 .#projects.html
 cache/
 __pycache__/
+.*.lock
+.claude/
+hugo-sample/public/

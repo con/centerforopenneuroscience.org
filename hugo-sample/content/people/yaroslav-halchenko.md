@@ -12,7 +12,7 @@ social:
   facebook: "https://www.facebook.com/yaroslav.halchenko"
   github: "yarikoptic"
   linkedin: "https://www.linkedin.com/in/yarik"
-projects: ["dandi", "datalad", "pymvpa", "neurodebian"]
+projects: ["dandi", "datalad", "pymvpa", "neurodebian", "bids", "citeproc-py"]
 publications: ["halchenko2023dandi", "halchenko2022datalad"]
 image: "/img/team/yarik.jpg"
 ---

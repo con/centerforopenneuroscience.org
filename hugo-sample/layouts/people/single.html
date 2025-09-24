@@ -37,9 +37,10 @@
     <h2>Projects</h2>
     <div class="projects-list">
         {{ range .Params.projects }}
-        {{ with $.Site.GetPage (printf "/projects/%s" .) }}
+        {{ $projectSlug := . }}
+        {{ with $.Site.GetPage (printf "/projects/%s" $projectSlug) }}
         <div class="project">
-            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
             <p>{{ .Params.description }}</p>
             {{ if .Params.website }}
             <a href="{{ .Params.website }}" target="_blank">Website</a>

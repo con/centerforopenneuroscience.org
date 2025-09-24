@@ -2,9 +2,10 @@
 <h1>All People</h1>
 
 <div class="people-list">
-    {{ range .Pages }}
+    {{ $people := where .Site.RegularPages "Section" "people" }}
+    {{ range $people }}
     <div class="person">
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         {{ if .Params.position }}
         <p><strong>{{ .Params.position }}</strong></p>
         {{ end }}

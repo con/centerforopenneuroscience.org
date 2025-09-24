@@ -26,26 +26,66 @@
         {{ .Content }}
     </div>
 
-    <h2>Team Members</h2>
-    <div class="team-members">
+    <h2>Centroids</h2>
+    <div class="centroids">
         {{ $projectTitle := lower .Title }}
         {{ $allPeople := where .Site.Pages "Section" "people" }}
-        {{ $teamMembers := slice }}
+        {{ $centroids := slice }}
         {{ range $person := $allPeople }}
-          {{ if $person.Params.projects }}
-            {{ range $person.Params.projects }}
-              {{ if eq (lower .) $projectTitle }}
-                {{ $teamMembers = $teamMembers | append $person }}
+          {{ if and $person.Params.projects $person.Params.people_categories }}
+            {{ $isCentroid := false }}
+            {{ range $person.Params.people_categories }}
+              {{ if eq . "centroids" }}
+                {{ $isCentroid = true }}
+              {{ end }}
+            {{ end }}
+            {{ if $isCentroid }}
+              {{ range $person.Params.projects }}
+                {{ if eq (lower .) $projectTitle }}
+                  {{ $centroids = $centroids | append $person }}
+                {{ end }}
               {{ end }}
             {{ end }}
           {{ end }}
         {{ end }}
-        {{ if $teamMembers }}
-        {{ range $teamMembers }}
+        {{ if $centroids }}
+        {{ range $centroids }}
         <div class="person">
-            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
             {{ if .Params.position }}
             <p>{{ .Params.position }}</p>
+            {{ end }}
+            {{ if .Params.email }}
+            <p><a href="mailto:{{ .Params.email }}">{{ .Params.email }}</a></p>
+            {{ end }}
+        </div>
+        {{ end }}
+        {{ else }}
+        <p><em>No CON centroids found for this project.</em></p>
+        {{ end }}
+    </div>
+
+    <h2>All Team Members</h2>
+    <div class="team-members">
+        {{ $allMembers := slice }}
+        {{ range $person := $allPeople }}
+          {{ if $person.Params.projects }}
+            {{ range $person.Params.projects }}
+              {{ if eq (lower .) $projectTitle }}
+                {{ $allMembers = $allMembers | append $person }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ if $allMembers }}
+        {{ range $allMembers }}
+        <div class="person">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            {{ if .Params.position }}
+            <p>{{ .Params.position }}</p>
+            {{ end }}
+            {{ if .Params.people_categories }}
+            <p><em>{{ delimit .Params.people_categories ", " }}</em></p>
             {{ end }}
             {{ if .Params.email }}
             <p><a href="mailto:{{ .Params.email }}">{{ .Params.email }}</a></p>

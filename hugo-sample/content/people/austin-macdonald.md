@@ -5,7 +5,7 @@ position: "Software Engineer"
 email: "austin@dartmouth.edu"
 social:
   github: "asmacdo"
-projects: ["dandi", "datalad"]
+projects: ["dandi", "datalad", "bids"]
 image: "/img/team/asmacdo.jpg"
 ---
 
