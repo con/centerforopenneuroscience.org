@@ -3,7 +3,9 @@ title: "Center for Open Neuroscience"
 description: "Center for Open Neuroscience provides open software frameworks, platforms, data and methodologies for neuroscience and beyond"
 ---
 
-# Center for Open Neuroscience
+<div style="text-align: center; margin: 2rem 0;">
+  <img src="/img/logos/logo_blue_big_with_margins.png" alt="Center for Open Neuroscience" style="max-width: 800px; width: 100%;">
+</div>
 
 **provides open software frameworks, platforms, data and methodologies for neuroscience and beyond**
 

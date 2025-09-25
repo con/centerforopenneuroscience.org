@@ -1,9 +1,16 @@
 {{ define "main" }}
 <article class="mx-auto max-w-screen-lg px-4 py-8">
-  <header class="mb-8">
-    <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
-    {{ with .Params.position }}
-    <p class="text-xl text-gray-600 dark:text-gray-400">{{ . }}</p>
+  <header class="mb-8 flex flex-col md:flex-row gap-6 items-start">
+    <div class="flex-1">
+      <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
+      {{ with .Params.position }}
+      <p class="text-xl text-gray-600 dark:text-gray-400">{{ . }}</p>
+      {{ end }}
+    </div>
+    {{ with .Params.image }}
+    <div class="flex-shrink-0">
+      <img src="{{ . }}" alt="{{ $.Title }}" class="w-32 h-32 md:w-48 md:h-48 rounded-lg object-cover shadow-lg">
+    </div>
     {{ end }}
   </header>
 

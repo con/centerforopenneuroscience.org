@@ -12,14 +12,23 @@
   <div class="grid gap-6 md:grid-cols-2">
     {{ range where .Site.RegularPages "Section" "projects" }}
     <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-shadow">
-      <h2 class="text-xl font-semibold mb-2">
-        <a href="{{ .RelPermalink }}" class="hover:text-blue-600 dark:hover:text-blue-400">{{ .Title }}</a>
-      </h2>
-      {{ with .Params.project_types }}
-      <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">
-        Type: {{ delimit . ", " }}
-      </p>
-      {{ end }}
+      <div class="flex items-start gap-4 mb-4">
+        {{ with .Params.logo }}
+        <div class="flex-shrink-0">
+          <img src="{{ . }}" alt="{{ $.Title }} logo" class="w-16 h-16 object-contain">
+        </div>
+        {{ end }}
+        <div class="flex-1">
+          <h2 class="text-xl font-semibold mb-2">
+            <a href="{{ .RelPermalink }}" class="hover:text-blue-600 dark:hover:text-blue-400">{{ .Title }}</a>
+          </h2>
+          {{ with .Params.project_types }}
+          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">
+            Type: {{ delimit . ", " }}
+          </p>
+          {{ end }}
+        </div>
+      </div>
       {{ with .Summary }}
       <p class="text-gray-600 dark:text-gray-400">{{ . }}</p>
       {{ end }}

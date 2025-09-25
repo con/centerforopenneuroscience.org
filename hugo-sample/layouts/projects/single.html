@@ -1,9 +1,16 @@
 {{ define "main" }}
 <article class="mx-auto max-w-screen-lg px-4 py-8">
-  <header class="mb-8">
-    <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
-    {{ with .Params.project_types }}
-    <p class="text-lg text-gray-600 dark:text-gray-400">Type: {{ delimit . ", " }}</p>
+  <header class="mb-8 flex flex-col md:flex-row gap-6 items-start">
+    <div class="flex-1">
+      <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
+      {{ with .Params.project_types }}
+      <p class="text-lg text-gray-600 dark:text-gray-400">Type: {{ delimit . ", " }}</p>
+      {{ end }}
+    </div>
+    {{ with .Params.logo }}
+    <div class="flex-shrink-0">
+      <img src="{{ . }}" alt="{{ $.Title }} logo" class="max-w-32 max-h-32 md:max-w-48 md:max-h-48 object-contain">
+    </div>
     {{ end }}
   </header>
 
