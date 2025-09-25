@@ -1,100 +1,56 @@
 {{ define "main" }}
-<article class="project">
-    <h1>{{ .Title }}</h1>
-
-    {{ if .Params.website }}
-    <p><strong>Website:</strong> <a href="{{ .Params.website }}" target="_blank">{{ .Params.website }}</a></p>
+<article class="mx-auto max-w-screen-lg px-4 py-8">
+  <header class="mb-8">
+    <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
+    {{ with .Params.project_types }}
+    <p class="text-lg text-gray-600 dark:text-gray-400">Type: {{ delimit . ", " }}</p>
     {{ end }}
+  </header>
 
-    {{ if .Params.status }}
-    <p><strong>Status:</strong> {{ .Params.status }}</p>
-    {{ end }}
+  <div class="prose prose-slate dark:prose-invert max-w-none">
+    {{ .Content }}
 
-    {{ if .Params.project_types }}
-    <p><strong>Type:</strong>
-        {{ range .Params.project_types }}
-        <span>{{ . }}</span>
+    {{ $projectTitle := lower .File.ContentBaseName }}
+    {{ $allPeople := where .Site.RegularPages "Section" "people" }}
+
+    {{ $centroids := slice }}
+    {{ $teamMembers := slice }}
+
+    {{ range $person := $allPeople }}
+      {{ if $person.Params.projects }}
+        {{ range $person.Params.projects }}
+          {{ if eq (lower .) $projectTitle }}
+            {{ $teamMembers = $teamMembers | append $person }}
+            {{ if in $person.Params.people_categories "centroids" }}
+              {{ $centroids = $centroids | append $person }}
+            {{ end }}
+          {{ end }}
         {{ end }}
-    </p>
+      {{ end }}
     {{ end }}
 
-    {{ if .Params.description }}
-    <p><strong>Description:</strong> {{ .Params.description }}</p>
-    {{ end }}
-
-    <div>
-        {{ .Content }}
-    </div>
-
+    {{ if gt (len $centroids) 0 }}
     <h2>Centroids</h2>
-    <div class="centroids">
-        {{ $projectTitle := lower .Title }}
-        {{ $allPeople := where .Site.Pages "Section" "people" }}
-        {{ $centroids := slice }}
-        {{ range $person := $allPeople }}
-          {{ if and $person.Params.projects $person.Params.people_categories }}
-            {{ $isCentroid := false }}
-            {{ range $person.Params.people_categories }}
-              {{ if eq . "centroids" }}
-                {{ $isCentroid = true }}
-              {{ end }}
-            {{ end }}
-            {{ if $isCentroid }}
-              {{ range $person.Params.projects }}
-                {{ if eq (lower .) $projectTitle }}
-                  {{ $centroids = $centroids | append $person }}
-                {{ end }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
-        {{ end }}
-        {{ if $centroids }}
-        {{ range $centroids }}
-        <div class="person">
-            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-            {{ if .Params.position }}
-            <p>{{ .Params.position }}</p>
-            {{ end }}
-            {{ if .Params.email }}
-            <p><a href="mailto:{{ .Params.email }}">{{ .Params.email }}</a></p>
-            {{ end }}
-        </div>
-        {{ end }}
-        {{ else }}
-        <p><em>No CON centroids found for this project.</em></p>
-        {{ end }}
-    </div>
+    <ul>
+      {{ range $centroids }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}
 
+    {{ if gt (len $teamMembers) 0 }}
     <h2>All Team Members</h2>
-    <div class="team-members">
-        {{ $allMembers := slice }}
-        {{ range $person := $allPeople }}
-          {{ if $person.Params.projects }}
-            {{ range $person.Params.projects }}
-              {{ if eq (lower .) $projectTitle }}
-                {{ $allMembers = $allMembers | append $person }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
+    <ul>
+      {{ range $teamMembers }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ if .Params.people_categories }}
+        ({{ delimit .Params.people_categories ", " }})
         {{ end }}
-        {{ if $allMembers }}
-        {{ range $allMembers }}
-        <div class="person">
-            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-            {{ if .Params.position }}
-            <p>{{ .Params.position }}</p>
-            {{ end }}
-            {{ if .Params.people_categories }}
-            <p><em>{{ delimit .Params.people_categories ", " }}</em></p>
-            {{ end }}
-            {{ if .Params.email }}
-            <p><a href="mailto:{{ .Params.email }}">{{ .Params.email }}</a></p>
-            {{ end }}
-        </div>
-        {{ end }}
-        {{ else }}
-        <p><em>No team members found for this project.</em></p>
-        {{ end }}
-    </div>
+      </li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
 </article>
 {{ end }}

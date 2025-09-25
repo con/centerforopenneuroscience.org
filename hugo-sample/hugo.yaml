@@ -1,0 +1,66 @@
+baseURL: https://centerforopenneuroscience.org
+languageCode: en-us
+title: Center for Open Neuroscience
+relativeURLs: true
+
+# Import Hextra theme
+module:
+  imports:
+    - path: github.com/imfing/hextra
+
+# Preserve our taxonomies
+taxonomies:
+  people_category: people_categories
+  person: people
+  project_type: project_types
+  project: projects
+  publication: publications
+
+params:
+  description: Center for Open Neuroscience
+  author: CON
+
+  # Hextra theme configuration
+  navbar:
+    displayTitle: true
+    displayLogo: false
+
+  search:
+    enable: true
+    type: flexsearch
+    flexsearch:
+      tokenize: full
+
+  page:
+    # Show reading time
+    readingTime: true
+    # Show word count
+    wordCount: false
+
+  footer:
+    displayCopyright: true
+    displayPoweredBy: false
+
+# Hugo configuration for Hextra
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    lineNos: true
+    style: github
+
+enableGitInfo: false
+
+# Menu configuration
+menu:
+  main:
+    - name: Home
+      url: /
+      weight: 1
+    - name: People
+      url: /people/
+      weight: 2
+    - name: Projects
+      url: /projects/
+      weight: 3

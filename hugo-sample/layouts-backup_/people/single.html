@@ -1,0 +1,64 @@
+{{ define "main" }}
+<article class="person">
+    <h1>{{ .Title }}</h1>
+
+    {{ if .Params.image }}
+    <img src="{{ .Params.image }}" alt="{{ .Title }}" style="float: left; margin-right: 20px; max-width: 150px;">
+    {{ end }}
+
+    <div class="person-details">
+        {{ if .Params.position }}
+        <p><strong>Position:</strong> {{ .Params.position }}</p>
+        {{ end }}
+
+        {{ if .Params.email }}
+        <p><strong>Email:</strong> <a href="mailto:{{ .Params.email }}">{{ .Params.email }}</a></p>
+        {{ end }}
+
+        {{ if .Params.phone }}
+        <p><strong>Phone:</strong> {{ .Params.phone }}</p>
+        {{ end }}
+
+        {{ if .Params.social }}
+        <div class="social">
+            <strong>Links:</strong>
+            {{ range $platform, $url := .Params.social }}
+            <a href="{{ if hasPrefix $url "http" }}{{ $url }}{{ else }}https://{{ $platform }}.com/{{ $url }}{{ end }}" target="_blank">{{ title $platform }}</a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+
+    <div style="clear: both;">
+        {{ .Content }}
+    </div>
+
+    {{ if .Params.projects }}
+    <h2>Projects</h2>
+    <div class="projects-list">
+        {{ range .Params.projects }}
+        {{ $projectSlug := . }}
+        {{ with $.Site.GetPage (printf "/projects/%s" $projectSlug) }}
+        <div class="project">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ .Params.description }}</p>
+            {{ if .Params.website }}
+            <a href="{{ .Params.website }}" target="_blank">Website</a>
+            {{ end }}
+        </div>
+        {{ end }}
+        {{ end }}
+    </div>
+    {{ end }}
+
+    {{ if .Params.publications }}
+    <h2>Publications</h2>
+    <p><em>Bibliography integration would show publications here using hugo-bibliography plugin</em></p>
+    <ul>
+        {{ range .Params.publications }}
+        <li>{{ . }} (placeholder)</li>
+        {{ end }}
+    </ul>
+    {{ end }}
+</article>
+{{ end }}

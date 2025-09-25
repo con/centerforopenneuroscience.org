@@ -1,28 +1,30 @@
 {{ define "main" }}
-<h1>All Projects</h1>
-
-<div class="projects-list">
-    {{ $projects := where .Site.RegularPages "Section" "projects" }}
-    {{ range $projects }}
-    <div class="project">
-        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        {{ if .Params.description }}
-        <p><strong>{{ .Params.description }}</strong></p>
-        {{ end }}
-        {{ if .Params.project_types }}
-        <p>Type:
-            {{ range .Params.project_types }}
-            <a href="/project_types/{{ . | urlize }}/">{{ . }}</a>
-            {{ end }}
-        </p>
-        {{ end }}
-        {{ if .Params.website }}
-        <p><a href="{{ .Params.website }}" target="_blank">Visit Website</a></p>
-        {{ end }}
-        {{ if .Summary }}
-        <p>{{ .Summary }}</p>
-        {{ end }}
+<article class="mx-auto max-w-screen-lg">
+  <header class="mb-8">
+    <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
+    {{ with .Content }}
+    <div class="prose prose-slate dark:prose-invert max-w-none">
+      {{ . }}
     </div>
     {{ end }}
-</div>
+  </header>
+
+  <div class="grid gap-6 md:grid-cols-2">
+    {{ range where .Site.RegularPages "Section" "projects" }}
+    <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-shadow">
+      <h2 class="text-xl font-semibold mb-2">
+        <a href="{{ .RelPermalink }}" class="hover:text-blue-600 dark:hover:text-blue-400">{{ .Title }}</a>
+      </h2>
+      {{ with .Params.project_types }}
+      <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">
+        Type: {{ delimit . ", " }}
+      </p>
+      {{ end }}
+      {{ with .Summary }}
+      <p class="text-gray-600 dark:text-gray-400">{{ . }}</p>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</article>
 {{ end }}

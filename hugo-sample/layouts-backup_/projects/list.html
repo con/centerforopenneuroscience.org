@@ -1,0 +1,28 @@
+{{ define "main" }}
+<h1>All Projects</h1>
+
+<div class="projects-list">
+    {{ $projects := where .Site.RegularPages "Section" "projects" }}
+    {{ range $projects }}
+    <div class="project">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ if .Params.description }}
+        <p><strong>{{ .Params.description }}</strong></p>
+        {{ end }}
+        {{ if .Params.project_types }}
+        <p>Type:
+            {{ range .Params.project_types }}
+            <a href="/project_types/{{ . | urlize }}/">{{ . }}</a>
+            {{ end }}
+        </p>
+        {{ end }}
+        {{ if .Params.website }}
+        <p><a href="{{ .Params.website }}" target="_blank">Visit Website</a></p>
+        {{ end }}
+        {{ if .Summary }}
+        <p>{{ .Summary }}</p>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+{{ end }}
