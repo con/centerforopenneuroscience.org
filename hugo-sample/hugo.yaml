@@ -3,10 +3,8 @@ languageCode: en-us
 title: Center for Open Neuroscience
 relativeURLs: true
 
-# Import Hextra theme
-module:
-  imports:
-    - path: github.com/imfing/hextra
+# Import Hextra theme from local git submodule
+theme: hextra
 
 # Hugo configuration for Hextra
 markup:
