@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <article class="max-w-full prose dark:prose-invert xl:col-span-2">
+
+    {{/* Center for Open Neuroscience Logo */}}
+    <div class="text-center mb-12">
+      <img src="{{ "img/logos/logo_blue_big_with_margins.png" | relURL }}"
+           alt="Center for Open Neuroscience"
+           class="mx-auto max-w-2xl w-full h-auto" />
+    </div>
+
+    {{/* Page Content */}}
+    {{ .Content }}
+
+  </article>
+{{ end }}

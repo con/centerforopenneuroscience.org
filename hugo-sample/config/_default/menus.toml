@@ -1,0 +1,33 @@
+# -- Main Menu --
+# The main menu is displayed in the header at the top of the page.
+# Acceptable parameters are name, url, pageRef, and weight.
+# The simplest menu configuration is to provide: name, url
+
+[[main]]
+  name = "Home"
+  pageRef = "/"
+  weight = 10
+
+[[main]]
+  name = "People"
+  pageRef = "/people/"
+  weight = 20
+
+[[main]]
+  name = "Projects"
+  pageRef = "/projects/"
+  weight = 30
+
+# -- Footer Menu --
+# The footer menu is displayed at the bottom of the page, just before
+# the copyright notice. Configure as many as you like.
+
+[[footer]]
+  name = "GitHub"
+  url = "https://github.com/con"
+  weight = 10
+
+[[footer]]
+  name = "Twitter"
+  url = "https://twitter.com/centeropenneuro"
+  weight = 20

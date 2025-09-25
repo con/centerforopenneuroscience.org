@@ -1,22 +1,30 @@
 {{ define "main" }}
-<article class="mx-auto max-w-screen-lg px-4 py-8">
-  <header class="mb-8 flex flex-col md:flex-row gap-6 items-start">
-    <div class="flex-1">
-      <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
-      {{ with .Params.position }}
-      <p class="text-xl text-gray-600 dark:text-gray-400">{{ . }}</p>
+  <article class="max-w-full prose dark:prose-invert xl:col-span-2">
+
+    {{/* Header with image and info */}}
+    <div class="flex flex-col lg:flex-row gap-8 mb-8">
+      <div class="flex-1">
+        <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
+        {{ with .Params.position }}
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">{{ . }}</p>
+        {{ end }}
+        {{ with .Params.people_categories }}
+        <p class="text-sm text-gray-500 dark:text-gray-500 mb-4">
+          Category: {{ delimit . ", " }}
+        </p>
+        {{ end }}
+      </div>
+      {{ with .Params.image }}
+      <div class="flex-shrink-0">
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-48 h-48 rounded-lg object-cover shadow-lg">
+      </div>
       {{ end }}
     </div>
-    {{ with .Params.image }}
-    <div class="flex-shrink-0">
-      <img src="{{ . }}" alt="{{ $.Title }}" class="w-32 h-32 md:w-48 md:h-48 rounded-lg object-cover shadow-lg">
-    </div>
-    {{ end }}
-  </header>
 
-  <div class="prose prose-slate dark:prose-invert max-w-none">
+    {{/* Main content */}}
     {{ .Content }}
 
+    {{/* Projects */}}
     {{ if .Params.projects }}
     <h2>Projects</h2>
     <ul>
@@ -29,6 +37,7 @@
     </ul>
     {{ end }}
 
+    {{/* Publications */}}
     {{ if .Params.publications }}
     <h2>Publications</h2>
     <ul>
@@ -38,6 +47,7 @@
     </ul>
     {{ end }}
 
+    {{/* Contact & Social */}}
     {{ if or .Params.email .Params.phone .Params.social }}
     <h2>Contact & Social</h2>
     <ul>
@@ -51,9 +61,10 @@
         {{ with .github }}<li>GitHub: <a href="https://github.com/{{ . }}">{{ . }}</a></li>{{ end }}
         {{ with .linkedin }}<li>LinkedIn: <a href="{{ . }}">Profile</a></li>{{ end }}
         {{ with .facebook }}<li>Facebook: <a href="{{ . }}">Profile</a></li>{{ end }}
+        {{ with .home }}<li>Home Page: <a href="{{ . }}">{{ . }}</a></li>{{ end }}
       {{ end }}
     </ul>
     {{ end }}
-  </div>
-</article>
+
+  </article>
 {{ end }}

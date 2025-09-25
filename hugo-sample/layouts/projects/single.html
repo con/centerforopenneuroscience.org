@@ -1,22 +1,28 @@
 {{ define "main" }}
-<article class="mx-auto max-w-screen-lg px-4 py-8">
-  <header class="mb-8 flex flex-col md:flex-row gap-6 items-start">
-    <div class="flex-1">
-      <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
-      {{ with .Params.project_types }}
-      <p class="text-lg text-gray-600 dark:text-gray-400">Type: {{ delimit . ", " }}</p>
+  <article class="max-w-full prose dark:prose-invert xl:col-span-2">
+
+    {{/* Header with logo and info */}}
+    <div class="flex flex-col lg:flex-row gap-8 mb-8">
+      <div class="flex-1">
+        <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
+        {{ with .Params.project_types }}
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">Type: {{ delimit . ", " }}</p>
+        {{ end }}
+        {{ with .Params.website }}
+        <p class="mb-4"><a href="{{ . }}" class="text-blue-600 hover:underline">Visit Project Website</a></p>
+        {{ end }}
+      </div>
+      {{ with .Params.logo }}
+      <div class="flex-shrink-0">
+        <img src="{{ . | relURL }}" alt="{{ $.Title }} logo" class="max-w-48 max-h-48 object-contain">
+      </div>
       {{ end }}
     </div>
-    {{ with .Params.logo }}
-    <div class="flex-shrink-0">
-      <img src="{{ . }}" alt="{{ $.Title }} logo" class="max-w-32 max-h-32 md:max-w-48 md:max-h-48 object-contain">
-    </div>
-    {{ end }}
-  </header>
 
-  <div class="prose prose-slate dark:prose-invert max-w-none">
+    {{/* Main content */}}
     {{ .Content }}
 
+    {{/* Team members from taxonomy relationships */}}
     {{ $projectTitle := lower .File.ContentBaseName }}
     {{ $allPeople := where .Site.RegularPages "Section" "people" }}
 
@@ -37,10 +43,10 @@
     {{ end }}
 
     {{ if gt (len $centroids) 0 }}
-    <h2>Centroids</h2>
+    <h2>Centroids (Core Team)</h2>
     <ul>
       {{ range $centroids }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> - {{ .Params.position }}</li>
       {{ end }}
     </ul>
     {{ end }}
@@ -58,6 +64,6 @@
       {{ end }}
     </ul>
     {{ end }}
-  </div>
-</article>
+
+  </article>
 {{ end }}

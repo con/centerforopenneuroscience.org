@@ -1,13 +1,12 @@
 ---
 title: "Center for Open Neuroscience"
 description: "Center for Open Neuroscience provides open software frameworks, platforms, data and methodologies for neuroscience and beyond"
+draft: false
 ---
 
-<div style="text-align: center; margin: 2rem 0;">
-  <img src="/img/logos/logo_blue_big_with_margins.png" alt="Center for Open Neuroscience" style="max-width: 800px; width: 100%;">
-</div>
-
+{{< lead >}}
 **provides open software frameworks, platforms, data and methodologies for neuroscience and beyond**
+{{< /lead >}}
 
 ## Our Principles
 
@@ -45,8 +44,13 @@ We participate in many initiatives and projects that cross borders among differe
 
 ## Quick Links
 
-- [View our projects](/projects/)
-- [Meet our team](/people/)
+{{< button href="/projects/" target="_self" >}}
+View our projects
+{{< /button >}}
+
+{{< button href="/people/" target="_self" >}}
+Meet our team
+{{< /button >}}
 
 ## Key References
 
