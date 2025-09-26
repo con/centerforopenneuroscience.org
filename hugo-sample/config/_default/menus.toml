@@ -18,16 +18,32 @@
   pageRef = "/projects/"
   weight = 30
 
+[[main]]
+  identifier = "search"
+  weight = 99
+  [main.params]
+    action = "search"
+
 # -- Footer Menu --
 # The footer menu is displayed at the bottom of the page, just before
 # the copyright notice. Configure as many as you like.
-
 [[footer]]
   name = "GitHub"
   url = "https://github.com/con"
   weight = 10
+  [footer.params]
+  icon = "github"
 
 [[footer]]
   name = "Twitter"
   url = "https://twitter.com/centeropenneuro"
   weight = 20
+  [footer.params]
+  icon = "twitter"
+
+[[footer]]
+  name = "YouTube"
+  url = "https://www.youtube.com/@centeropenneuro"
+  weight = 30
+  [footer.params]
+  icon = "youtube"

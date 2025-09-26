@@ -24,7 +24,7 @@ fingerprintAlgorithm = "sha256"
 
 [footer]
   showCopyright = true
-  showThemeAttribution = false
+  showThemeAttribution = true
   showAppearanceSwitcher = true
   showScrollToTop = true
 
@@ -50,11 +50,13 @@ fingerprintAlgorithm = "sha256"
   showTaxonomies = true
   showWordCount = false
   showSummary = true
+  sharingLinks = ["mastodon", "email", "linkedin", "x-twitter"]
+
 
 [list]
-  showBreadcrumbs = false
+  showBreadcrumbs = true
   showSummary = true
-  showTableOfContents = false
+  showTableOfContents = true
   showCards = true
   groupByYear = false
 
