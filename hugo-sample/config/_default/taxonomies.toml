@@ -1,0 +1,11 @@
+#
+# Everything in here must be lower-case
+#
+# contributor to the subject of a page
+person = "people"
+# projects related to the subject of a page
+project = "projects"
+# topics associated with the subject of a page
+topic = "topics"
+# roles assigned to entities (such as PI, speaker, service project, ...)
+role = "roles"
