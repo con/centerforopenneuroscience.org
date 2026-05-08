@@ -183,6 +183,9 @@ dd {
 .contact .github {
   background-image: url("../img/contact/github.svg");
 }
+.contact .orcid {
+  background-image: url("../img/contact/orcid.svg");
+}
 .contact .research {
   background-image: url("../img/contact/research.svg");
 }
