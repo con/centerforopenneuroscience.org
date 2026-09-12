@@ -1,0 +1,70 @@
+name: Deploy PR previews
+
+# Fork-only PR preview deployment: builds the site with Pelican and deploys
+# a per-PR preview to the gh-pages branch (under pr-preview/pr-<number>/)
+# using rossjrw/pr-preview-action, following the pattern from
+# https://github.com/dandi/usage-page/blob/main/.github/workflows/preview.yml
+#
+# Scoped to this fork only (see the `if` condition below) so it never runs
+# on the upstream repository.
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+concurrency: preview-${{ github.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  deploy-preview:
+    if: github.repository == 'CodyCBakerPhD/centerforopenneuroscience.org'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        if: github.event.action != 'closed'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install requirements
+        if: github.event.action != 'closed'
+        run: pip install pelican markdown
+
+      - name: Build site
+        if: github.event.action != 'closed'
+        run: make html
+
+      - name: Rewrite site-root-absolute links for the preview subpath
+        # The theme/content hard-code links and asset paths from the domain
+        # root (e.g. `/theme/css/site.css`), which only works in production
+        # where the site is served at the domain root. Rewrite them to be
+        # relative to this PR's preview path instead. See
+        # scripts/rewrite_preview_paths.py for details.
+        if: github.event.action != 'closed'
+        run: |
+          python3 scripts/rewrite_preview_paths.py output \
+            "/${{ github.event.repository.name }}/pr-preview/pr-${{ github.event.number }}"
+
+      - name: Remove production CNAME
+        # The production CNAME (centerforopenneuroscience.org) is copied into
+        # output/ by the build. Remove it so this preview doesn't try to
+        # serve under the production custom domain.
+        if: github.event.action != 'closed'
+        run: rm -f output/CNAME
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./output
+          preview-branch: gh-pages
