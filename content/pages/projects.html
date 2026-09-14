@@ -61,6 +61,18 @@
 		everything you need to know about DataLad.
 	  </li>
 	  <li> <a href="https://www.datalad.org/#supporting-datalad">Funding support</a> </li>
+	  <li>
+		<a href="https://github.com/datalad/datalad-container">datalad-container</a>:
+		a DataLad extension for working with containerized computational environments.
+		It enables version-controlled execution of containerized pipelines (Singularity,
+		Docker, and others) with full provenance capture as DataLad run records.
+	  </li>
+	  <li>
+		<a href="https://github.com/datalad/datalad-fuse">datalad-fuse</a>:
+		a DataLad extension to read annexed files from their remote URLs without a full
+		download — sparse fetching via <a href="https://github.com/fsspec/filesystem_spec">fsspec</a>
+		and optional FUSE mount give immediate access to petabyte-scale datasets.
+	  </li>
 	</ul>
 
   </div>
@@ -86,6 +98,21 @@
 		<a href="https://mcgovern.mit.edu/profile/satrajit-ghosh/" class="centroid">S. Ghosh</a>
 		and
  		<a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a>
+	  </li>
+	  <li>
+		<a href="https://github.com/dandi/dandisets">dandisets</a>:
+		a <a href="#datalad">DataLad</a> superdataset providing unified access to all
+		public DANDI datasets, with individual dandisets also mirrored as DataLad datasets
+		in the <a href="https://github.com/dandisets">dandisets</a> GitHub organization
+		and their Zarr stores in <a href="https://github.com/dandizarrs">dandizarrs</a>.
+	  </li>
+	  <li>
+		<a href="https://github.com/dandi-compute">DANDI Compute</a>:
+		an experimental reproducible-computing initiative running processing pipelines
+		directly on DANDI assets. The first campaign applies the
+		<a href="https://github.com/dandi-compute/aind-ephys-pipeline">AIND ephys pipeline</a>
+		to electrophysiology dandisets, with orchestration code and a public job queue
+		hosted in the <a href="https://github.com/dandi-compute">dandi-compute</a> GitHub organization.
 	  </li>
 	</ul>
   </div>
@@ -139,6 +166,11 @@
 		<a href="https://profiles.stanford.edu/russell-poldrack">R. Poldrack</a>, Co-I:
  		<a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a>
 	  </li>
+	  <li>
+		<a href="https://github.com/OpenNeuroStudies/OpenNeuroStudies">OpenNeuroStudies</a>:
+		a <a href="#datalad">DataLad</a> superdataset organising OpenNeuro datasets
+		into BIDS Study structure together with their derivatives.
+	  </li>
 	</ul>
   </div>
 
@@ -163,19 +195,9 @@
 	  <a href="https://github.com/datalad/datalad-usage-dashboard/">DataLad Usage Dashboard</a>.
     </p>
     <ul>
-      <li style="cursor: pointer">
-        <details>
-          <summary>
-            Talk at distribits 2024: Bringing Benefits of Centrality to Datalad (click to expand)
-          </summary>
-
-          <iframe width="560" height="315"
-                  src="https://www.youtube.com/embed/_McJ1BtLsiQ?si=OTtLO8QFwzEL1Qiv"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  style="border-width: 0"></iframe>
-        </details>
+      <li>
+        🎬 <a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/_McJ1BtLsiQ">Talk
+        at distribits 2024: Bringing Benefits of Centrality to DataLad</a>
       </li>
     </ul>
   </div>
@@ -255,6 +277,12 @@
 		<a href="http://goo.gl/Z3soj7">ReproIn: automatic generation of shareable,
 		  version-controlled BIDS datasets from MR scanners</a>,
 		OHBM 2018, Singapore.
+	  </li>
+	  <li>
+		<a href="https://github.com/ReproNim/containers">ReproNim/containers</a>:
+		a <a href="#datalad">DataLad</a> dataset providing a ready-to-use "distribution"
+		of containerized neuroimaging environments (Singularity images) for reproducible
+		analysis — the same containers used by HeuDiConv and the broader ReproNim ecosystem.
 	  </li>
 	</ul>
   </div>
@@ -363,6 +391,31 @@
   </div>
 
   <div class="row">
+	<h2>con/tributors</h2>
+	<figure>
+      <a href="https://con.github.io/tributors/">
+		<img src="/theme/img/3rd/tributors_logo.png" alt="tributors"
+			 class="pull-right"
+			 style="width:120px;padding-left:5px;margin-top:-1em;" />
+	  </a>
+    </figure>
+	<p>
+	  <a href="https://github.com/con/tributors">con/tributors</a> is a Python library
+	  and GitHub Action to automate maintenance of contributor attribution files.
+	  It updates <a href="https://allcontributors.org">all-contributors</a>,
+	  <a href="https://zenodo.org">Zenodo</a> metadata (.zenodo.json), and
+	  <a href="https://codemeta.github.io/">CodeMeta</a> (codemeta.json) files in one
+	  go, using a shared <code>.tributors</code> cache that maps GitHub logins to
+	  ORCID iDs and other persistent identifiers — so that contributor records
+	  stay consistent and up-to-date across all metadata files with a single command.
+	  For example, DataLad uses a
+	  <a href="https://github.com/datalad/datalad/blob/master/.github/workflows/update-contributors.yml">dedicated
+	  GitHub Actions workflow</a> powered by con/tributors to automatically
+	  keep its contributor files current.
+	</p>
+  </div>
+
+  <div class="row">
 	    <h2>con/duct</h2>
 	    <figure>
           <a href="https://github.com/con/duct">
@@ -402,11 +455,35 @@
 	</p>
   </div>
 
+  <div class="row">
+	<h2 id="annextube">con/annextube</h2>
+	<p>
+	  <a href="https://github.com/con/annextube">con/annextube</a> is a YouTube-channel
+	  archiving system that uses <a href="http://git-annex.branchable.com">git-annex</a>
+	  for efficient, incremental storage of videos, metadata, comments, and captions.
+	  Archives are browsable offline through a client-side web interface generated
+	  by annextube itself. Actively maintained archives include:
+	</p>
+	<ul>
+	  <li>
+		<a href="https://datasets.datalad.org/centerforopenneuroscience/contube/web/">CON/tube</a>
+		— CON's own channel archive
+		(<a href="https://datasets.datalad.org/?dir=/centerforopenneuroscience/contube">dataset</a>)
+	  </li>
+	  <li>
+		<a href="https://datasets.datalad.org/repronim/ReproTube/web/">ReproTube</a>
+		— archive covering channels from <a href="http://repronim.org">ReproNim</a>,
+		<a href="https://afni.nimh.nih.gov">AFNI</a>, <a href="https://datalad.org">DataLad</a>,
+		and others
+		(<a href="https://datasets.datalad.org/?dir=/repronim/ReproTube">dataset</a>)
+	  </li>
+	</ul>
+  </div>
 
   <div class="row">
-	<h2 id="tinuous">(con/)tinuous</h2>
+	<h2 id="tinuous">con/tinuous</h2>
 	<p>
-	  <a href="https://github.com/con/tinuous/">tinuous</a> is a
+	  <a href="https://github.com/con/tinuous">con/tinuous</a> is a
 	  command for downloading build logs and (for GitHub only)
 	  artifacts and release assets for a GitHub repository from GitHub
 	  Actions, Travis-CI.com, and/or Appveyor. By downloading them
@@ -414,6 +491,30 @@
 	  under <a href="#datalad">DataLad</a> control you can establish
 	  the backup, distribution, and convenient harmonious access to
 	  all those artifacts.
+	</p>
+  </div>
+
+  <div class="row">
+	<h2 id="solidation">con/solidation</h2>
+	<p>
+	  <a href="https://github.com/con/solidation">con/solidation</a> is a command-line
+	  tool that produces a Markdown activity report of recent issue and pull-request
+	  events across a configured set of GitHub repositories and organizations. It is
+	  used by CON to generate regular summaries of activity across the projects it
+	  maintains and contributes to, enabling lightweight project-health monitoring
+	  without leaving the terminal.
+	</p>
+  </div>
+
+  <div class="row">
+	<h2 id="fscacher">con/fscacher</h2>
+	<p>
+	  <a href="https://github.com/con/fscacher">con/fscacher</a> is a Python library
+	  providing a persistent, file-content-aware memoization cache. Functions decorated
+	  with <code>@cache.memoize_path</code> are re-executed only when the fingerprint
+	  (timestamps + size) of their file arguments changes — making it easy to cache
+	  expensive operations on large file trees without stale results.
+	  It is used internally by the <a href="#dandi">DANDI</a> client and other CON tools.
 	</p>
   </div>
 
@@ -435,6 +536,26 @@
 	</p>
   </div>
 
+
+  <div class="row">
+	<h2 id="mykrok">MyKrok</h2>
+	<figure>
+      <a href="https://mykrok.github.io/mykrok/">
+		<img src="/theme/img/3rd/mykrok_logo.svg" alt="MyKrok"
+			 class="pull-right"
+			 style="width:80px;padding-left:5px;margin-top:-0.5em;" />
+	  </a>
+    </figure>
+	<p>
+	  <a href="https://github.com/mykrok/mykrok">MyKrok</a> (Ukrainian: "мій крок" — "my step")
+	  is a CLI tool to incrementally back up fitness activities from
+	  <a href="https://www.strava.com">Strava</a>, including GPS tracks, photos, comments, and kudos.
+	  Backups are browsable offline through a built-in web frontend with interactive maps and
+	  activity statistics — applying the same git-annex / open-data philosophy of CON's
+	  archival tools to personal fitness data.
+	  Try the <a href="https://mykrok.github.io/mykrok/">live demo</a> with synthetic data.
+	</p>
+  </div>
 
   <div class="row">
 	    <h2>Quail</h2>
@@ -667,6 +788,13 @@ https://www.nature.com/articles/nn.4550
 	  by <a href="#bids">BIDS</a> and the <a href="#dandi">DANDI
 		archive</a>.
 	</p>
+	<ul>
+	  <li>
+		<a href="https://github.com/con/nwb2bids">con/nwb2bids</a>:
+		a CON tool to reorganize NWB files into a BIDS directory layout, enabling
+		NWB-format datasets to be shared and validated using BIDS conventions.
+	  </li>
+	</ul>
   </div>
 
   <div class="row">
@@ -699,6 +827,15 @@ https://www.nature.com/articles/nn.4550
 		<a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Yaroslav O. Halchenko</a>.
 		<a href="https://doi.org/10.31222/osf.io/f3h82_v1">STAMPED principles for reproducible research objects</a>
 		(preprint). DOI: 10.31222/osf.io/f3h82_v1
+	  </li>
+	  <li>
+		🎬 <a href="https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8NTWKHer5Zo">Talk
+		by Cody C. Baker introducing STAMPED</a> — archived on CON/tube.
+	  </li>
+	  <li>
+		🎬 <a href="https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/1XbTbJ_P2x0">YODA:
+		Structure your studies, observable and reproducible they become</a> —
+		webinar recording archived on CON/tube.
 	  </li>
 	</ul>
   </div>
