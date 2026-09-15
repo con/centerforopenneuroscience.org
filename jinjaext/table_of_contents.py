@@ -62,6 +62,14 @@ class TableOfContents:
             print("Error while extracting ToC from content")
             print("Could not parse page: %s" % active_page)
             print("The problem: " + str(e))
+            if e.position:
+                lines = ("<root>" + content).splitlines()
+                line_no, col_no = e.position
+                if 0 < line_no <= len(lines):
+                    bad_line = lines[line_no - 1]
+                    print("  Offending line %d, col %d:" % (line_no, col_no))
+                    print("  " + bad_line)
+                    print("  " + " " * (col_no - 1) + "^")
             return None
         except Exception as e:
             print("Error while extracting ToC from content")
