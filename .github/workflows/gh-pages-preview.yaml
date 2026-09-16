@@ -1,12 +1,14 @@
-name: Deploy PR previews
+name: Build and PR preview
 
-# Fork-only PR preview deployment: builds the site with Pelican and deploys
-# a per-PR preview to the gh-pages branch (under pr-preview/pr-<number>/)
-# using rossjrw/pr-preview-action, following the pattern from
-# https://github.com/dandi/usage-page/blob/main/.github/workflows/preview.yml
+# Builds the site on every open PR and deploys a per-PR preview to the
+# gh-pages branch (under pr-preview/pr-<number>/) via rossjrw/pr-preview-action.
+# The build step also validates that all content HTML files are well-formed XML,
+# which is required for Pelican's ToC extension to work; the job fails if any
+# file has invalid XML (e.g. bare & in a URL, mismatched tags).
 #
-# Scoped to this fork only (see the `if` condition below) so it never runs
-# on the upstream repository.
+# Setup required (one-time, in repo Settings → Pages):
+#   Source: Deploy from a branch → Branch: gh-pages / (root)
+# Preview URL: https://con.github.io/centerforopenneuroscience.org/pr-preview/pr-<number>/
 
 on:
   pull_request:
@@ -24,7 +26,6 @@ permissions:
 
 jobs:
   deploy-preview:
-    if: github.repository == 'CodyCBakerPhD/centerforopenneuroscience.org'
     runs-on: ubuntu-latest
 
     steps:
@@ -40,6 +41,10 @@ jobs:
       - name: Install requirements
         if: github.event.action != 'closed'
         run: pip install pelican markdown
+
+      - name: Validate content HTML (XML well-formedness)
+        if: github.event.action != 'closed'
+        run: python3 scripts/validate_html.py content/
 
       - name: Build site
         if: github.event.action != 'closed'
