@@ -14,11 +14,14 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install Requirements
         run: |
           pip install pelican linkchecker
+
+      - name: Validate content HTML (XML well-formedness)
+        run: python3 scripts/validate_html.py content/
 
       - name: Start server
         run: |
