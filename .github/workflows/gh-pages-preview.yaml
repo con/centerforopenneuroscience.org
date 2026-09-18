@@ -43,6 +43,9 @@ jobs:
       - name: Install requirements and fetch annexed content
         if: github.event.action != 'closed'
         run: |
+            # to please git/git-annex
+            git config --global user.email "CI@example.com"
+            git config --global user.name "CI almighty"
             pip install pelican markdown git-annex
             git annex get theme/static
 
