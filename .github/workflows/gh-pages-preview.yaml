@@ -38,9 +38,11 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install requirements
+      - name: Install requirements and fetch annexed content
         if: github.event.action != 'closed'
-        run: pip install pelican markdown
+        run: |
+            pip install pelican markdown git-annex
+            git annex get theme/static
 
       - name: Validate content HTML (XML well-formedness)
         if: github.event.action != 'closed'
