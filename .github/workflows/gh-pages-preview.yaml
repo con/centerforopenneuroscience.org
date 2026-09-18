@@ -46,6 +46,9 @@ jobs:
             # to please git/git-annex
             git config --global user.email "CI@example.com"
             git config --global user.name "CI almighty"
+            # for the annxed content -- we do not autoenable that remote
+            git remote add --fetch datasets.datalad.org \
+                http://datasets.datalad.org/centerforopenneuroscience/con.org/.git/
             pip install pelican markdown git-annex
             git annex get theme/static
 
