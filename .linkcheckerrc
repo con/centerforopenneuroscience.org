@@ -11,4 +11,5 @@ ignore=
   https*://doi.org/10.1002/hbm.25351
   https://www.gnu.org/.*
   https://incf.org
+  https://community.sfn.org/.*
 ignorewarnings=http-redirected
