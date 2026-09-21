@@ -78,15 +78,18 @@ jobs:
         if: github.event.action != 'closed'
         run: rm -f output/CNAME
 
-      - name: Disable git-annex hooks before deploy
-        # git-annex installs a post-checkout hook that fires when the deploy
-        # action checks out gh-pages inside its temporary worktree.  Annex
-        # then replaces the worktree's .git gitlink *file* with a full .git
-        # *directory* (so it can store per-worktree config/refs), which makes
-        # `git worktree remove --force` fail at cleanup with error code 10
-        # ("not a .git file").  The build is already complete so we no longer
-        # need annex; drop its hooks to prevent the interference.
-        run: rm -f .git/hooks/post-checkout .git/hooks/pre-commit .git/hooks/post-merge
+      - name: Disable git-annex before deploy
+        # git-annex installs a `* filter=annex` rule in .git/info/attributes
+        # (applies to ALL files in ALL branches) plus post-checkout/pre-commit
+        # hooks.  When the deploy action checks out gh-pages inside its
+        # temporary worktree, the smudge filter fires for every file, causing
+        # git-annex to initialize in the worktree and replace the .git gitlink
+        # *file* with a full .git *directory*.  git then refuses to remove the
+        # worktree at cleanup with "not a .git file" (error code 10).
+        # The build is complete so we no longer need annex; neutralise it.
+        run: |
+          rm -f .git/hooks/post-checkout .git/hooks/pre-commit .git/hooks/post-merge
+          > .git/info/attributes
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
