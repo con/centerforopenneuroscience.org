@@ -31,6 +31,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+            fetch-depth: 0
 
       - name: Set up Python
         if: github.event.action != 'closed'
@@ -38,9 +40,17 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install requirements
+      - name: Install requirements and fetch annexed content
         if: github.event.action != 'closed'
-        run: pip install pelican markdown
+        run: |
+            # to please git/git-annex
+            git config --global user.email "CI@example.com"
+            git config --global user.name "CI almighty"
+            # for the annxed content -- we do not autoenable that remote
+            git remote add --fetch datasets.datalad.org \
+                http://datasets.datalad.org/centerforopenneuroscience/con.org/.git/
+            pip install pelican markdown git-annex
+            git annex get theme/static
 
       - name: Validate content HTML (XML well-formedness)
         if: github.event.action != 'closed'
@@ -67,6 +77,19 @@ jobs:
         # serve under the production custom domain.
         if: github.event.action != 'closed'
         run: rm -f output/CNAME
+
+      - name: Disable git-annex before deploy
+        # git-annex installs a `* filter=annex` rule in .git/info/attributes
+        # (applies to ALL files in ALL branches) plus post-checkout/pre-commit
+        # hooks.  When the deploy action checks out gh-pages inside its
+        # temporary worktree, the smudge filter fires for every file, causing
+        # git-annex to initialize in the worktree and replace the .git gitlink
+        # *file* with a full .git *directory*.  git then refuses to remove the
+        # worktree at cleanup with "not a .git file" (error code 10).
+        # The build is complete so we no longer need annex; neutralise it.
+        run: |
+          rm -f .git/hooks/post-checkout .git/hooks/pre-commit .git/hooks/post-merge
+          > .git/info/attributes
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1

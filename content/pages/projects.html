@@ -263,7 +263,7 @@
   </div>
 
   <div class="row">
-	<h2>HeuDiConv / ReproIn</h2>
+	<h2 id="heudiconv">HeuDiConv / ReproIn</h2>
 	<p>
 	  <a href="https://github.com/nipy/heudiconv">HeuDiConv</a> is a
 	  flexible DICOM converter for organizing brain imaging data into
@@ -302,13 +302,25 @@
 		  version-controlled BIDS datasets from MR scanners</a>,
 		OHBM 2018, Singapore.
 	  </li>
-	  <li>
-		<a href="https://github.com/ReproNim/containers">ReproNim/containers</a>:
-		a <a href="#datalad">DataLad</a> dataset providing a ready-to-use "distribution"
-		of containerized neuroimaging environments (Singularity images) for reproducible
-		analysis — the same containers used by HeuDiConv and the broader ReproNim ecosystem.
-	  </li>
 	</ul>
+  </div>
+
+  <div class="row">
+	<h2 id="repronim-containers">ReproNim/containers</h2>
+    <figure>
+      <a href="https://github.com/ReproNim/containers"><img src="/theme/img/3rd/repronim-containers-1-single-wide.svg" alt="ReproNim/containers" class="pull-left" style="width:400px;padding-right:10px;margin-top:0em;" /></a>
+    </figure>
+	<p>
+	  <a href="https://github.com/ReproNim/containers">ReproNim/containers</a>
+	  is a <a href="#datalad">DataLad</a> dataset providing a ready-to-use
+	  "distribution" of containerized neuroimaging environments (Singularity
+	  images) for reproducible analysis. It collects a curated set of
+	  containers — including those used by <a href="#heudiconv">HeuDiConv</a>
+	  and the broader <a href="http://repronim.org">ReproNim</a> ecosystem —
+	  and exposes them via the <code>///repronim/containers</code> DataLad
+	  dataset path, making it trivial to pin and share exact software
+	  environments alongside data and workflows.
+	</p>
   </div>
 
   <div class="row">
