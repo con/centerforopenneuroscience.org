@@ -16,6 +16,7 @@ import html
 import os
 import pathlib
 import re
+import string
 import sys
 import xml.etree.ElementTree as ET
 
@@ -126,6 +127,34 @@ def load():
     return out, skipped
 
 
+def link_to(d, slug, on_page):
+    """A link to a related record: in-page if it has an entry, else out."""
+    name = d.get("short_name") or d.get("name") or d.get("display_label") or slug
+    desc = d.get("description") or ""
+    label = html.escape(name)
+    if d.get("pid") in on_page:
+        return (f'<a href="#{html.escape(on_page[d["pid"]])}" '
+                f'title="{html.escape(desc)}">{label}</a>')
+    url = one(d, "foaf:homepage")
+    return (f'<a href="{html.escape(url)}" title="{html.escape(desc)}">{label}</a>'
+            if url else label)
+
+
+def links_row(d):
+    """Homepage and repository, as the icon row whoweare gives each person."""
+    out = []
+    home = one(d, "foaf:homepage")
+    repo = one(d, "dlthings:code_repository")
+    if home and home != repo:
+        cls = "github" if "github.com" in home else "research"
+        out.append(f'<a href="{html.escape(home)}" class="{cls}" '
+                   f'title="Home page">Home page</a>')
+    if repo:
+        out.append(f'<a href="{html.escape(repo)}" class="github" '
+                   f'title="Source repository">Source</a>')
+    return out
+
+
 def logo_for(slug):
     for sub in ("projects", "instruments", "organizations"):
         p = STORE / "content" / sub / slug
@@ -134,8 +163,43 @@ def logo_for(slug):
     return None
 
 
+def toc_hook(text):
+    """The anchor the table-of-contents extension will actually produce.
+
+    It OVERWRITES every explicit id= with a hook derived from the heading
+    text, so an in-page link built from a record slug would point at an id
+    that does not survive the build.  This mirrors
+    jinjaext/table_of_contents.py: parse_hook_from_text + the trailing "_"
+    that produce_new_hook appends.
+    """
+    h = text.strip().replace(" ", "_").lower()
+    h = h.replace("/:", ":").replace("/", ":").replace(":", "_")
+    for tok in string.punctuation.replace("_", ""):
+        h = h.replace(tok, "")
+    return h.strip("_") + "_"
+
+
+def anchor_of(d, slug):
+    return one(d, "dlthings:anchor") or slug
+
+
 def render():
     rows, skipped = load()
+    # A component or sub-project that has its OWN entry on this page should
+    # link to it, not off-site: clicking a BEP under BIDS used to leave the
+    # page for a spec that may not exist yet.
+    # old-style anchor (the record slug, or the page's own id) -> real hook
+    legacy = {}
+    for r in rows:
+        hook = toc_hook(r["d"].get("display_label") or r["d"].get("title")
+                        or r["slug"])
+        for k in {r["slug"], anchor_of(r["d"], r["slug"]),
+                  (r["d"]["pid"].rsplit("/", 1)[-1])}:
+            legacy[k] = hook
+    on_page = {r["d"]["pid"]:
+               toc_hook(r["d"].get("display_label") or r["d"].get("title")
+                        or r["slug"])
+               for r in rows}
     components = instruments_by_project()
     children = subprojects_by_parent()
     intros = (yaml.safe_load(INTROS.read_text()) or {}).get("projects", {}) \
@@ -183,6 +247,11 @@ def render():
             home = one(d, "foaf:homepage")
             out.append('\t  <div class="row">')
             out.append(f'\t\t<h2 id="{html.escape(anchor)}">{html.escape(name)}</h2>')
+            row = links_row(d)
+            if row:
+                out.append('\t\t<div class="col-md-5 col-sm-5 contact">')
+                out += [f'\t\t  {l}' for l in row]
+                out.append('\t\t</div>')
             logo = logo_for(r["slug"])
             if logo:
                 style = one(d, "dlthings:logo_style") or \
@@ -200,6 +269,15 @@ def render():
             # record -- loudly, which is how this was found.
             rich = one(d, "dlthings:description_html")
             if rich:
+                # Descriptions carried over from the hand-written page link
+                # to old-style anchors (#datalad, #bids) that the
+                # table-of-contents extension no longer produces -- it
+                # rewrites every id to a hook derived from the heading text.
+                # Repoint them rather than ship dead links.
+                rich = re.sub(r'href="#([A-Za-z0-9_-]+)"',
+                              lambda m: 'href="#%s"' % legacy.get(m.group(1),
+                                                                  m.group(1)),
+                              rich)
                 out.append(f'\t\t{rich}')
             else:
                 out.append(f'\t\t<p>{html.escape(d.get("description") or "")}</p>')
@@ -208,12 +286,7 @@ def render():
                 out.append('\t\t<p class="subprojects"><strong>Within it:</strong>')
                 items = []
                 for slug, k in sorted(kids, key=lambda x: x[1].get("short_name") or x[0]):
-                    nm = k.get("short_name") or k.get("display_label") or slug
-                    url = one(k, "foaf:homepage")
-                    ttl = k.get("description") or ""
-                    lbl = html.escape(nm)
-                    items.append(f'<a href="{html.escape(url)}" '
-                                 f'title="{html.escape(ttl)}">{lbl}</a>' if url else lbl)
+                    items.append(link_to(k, slug, on_page))
                 out.append('\t\t  ' + ",\n\t\t  ".join(items) + '</p>')
             parts = components.get(d["pid"]) or []
             # A list of one is not a list.  con/annextube's only instrument
@@ -221,15 +294,8 @@ def render():
             if len(parts) > 1:
                 out.append('\t\t<p class="components"><strong>Components:</strong>')
                 items = []
-                for slug, p in sorted(parts, key=lambda x: x[1].get("name") or x[0]):
-                    name = p.get("name") or p.get("display_label") or slug
-                    url = one(p, "foaf:homepage")
-                    desc = p.get("description") or ""
-                    label = html.escape(name)
-                    anchor = (f'<a href="{html.escape(url)}" '
-                              f'title="{html.escape(desc)}">{label}</a>'
-                              if url else label)
-                    items.append(anchor)
+                for slug, pr in sorted(parts, key=lambda x: x[1].get("name") or x[0]):
+                    items.append(link_to(pr, slug, on_page))
                 out.append('\t\t  ' + ",\n\t\t  ".join(items) + '</p>')
             out.append('\t  </div>')
     out += ['  </section>', '</body>', '', '</html>', '']

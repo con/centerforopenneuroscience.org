@@ -215,6 +215,77 @@ def test_emeritus_sorts_by_departure_and_others_by_arrival(whoweare):
         tier_block("Collaborators").index("Adina Wagner")
 
 
+# --- navigation ---------------------------------------------------------
+
+def _build(tmp):
+    """Build the site and return the built pages."""
+    import subprocess, sys, os
+    out = tmp / "site"
+    r = subprocess.run([sys.executable, "-m", "pelican", "content", "-o", str(out),
+                        "-s", "pelicanconf.py"], cwd=HERE, capture_output=True,
+                       text=True)
+    assert r.returncode == 0, r.stderr[-2000:]
+    return out
+
+
+@pytest.mark.ai_generated
+def test_every_heading_is_in_the_sidebar(tmp_path):
+    """The table-of-contents extension used to close each h1's <li> early, so
+    the nested list landed outside it: only the FIRST section had browsing
+    items and every later one appeared at the wrong depth."""
+    from html.parser import HTMLParser
+    out = _build(tmp_path)
+    for name, want_sections in (("projects", 7), ("whoweare", 6)):
+        t = (out / f"{name}.html").read_text()
+        i = t.index('id="full-toc"'); j = t.index("</div>", i)
+        toc = t[t.index("<ul", i):j]
+
+        class P(HTMLParser):
+            def __init__(s):
+                super().__init__(); s.stack = []; s.depth = 0
+                s.entries = []; s.bad = []; s.cur = None
+            def handle_starttag(s, tag, attrs):
+                a = dict(attrs)
+                if tag == "ul":
+                    if s.stack and s.stack[-1] == "ul":
+                        s.bad.append("ul directly inside ul")
+                    s.stack.append("ul"); s.depth += 1
+                elif tag == "li":
+                    s.stack.append("li")
+                elif tag == "a" and a.get("href", "").startswith("#"):
+                    s.cur = s.depth
+            def handle_data(s, d):
+                if s.cur is not None and d.strip():
+                    s.entries.append((s.cur, d.strip())); s.cur = None
+            def handle_endtag(s, tag):
+                if tag in ("ul", "li"):
+                    if s.stack and s.stack[-1] == tag: s.stack.pop()
+                    else: s.bad.append(f"mismatched </{tag}>")
+                    if tag == "ul": s.depth -= 1
+        p = P(); p.feed(toc)
+        assert not p.bad, f"{name}: malformed sidebar: {p.bad}"
+        sections = [e for e in p.entries if e[0] == 1]
+        assert len(sections) == want_sections, \
+            f"{name}: {len(sections)} sidebar sections, expected {want_sections}"
+        # every heading on the page must be reachable from the sidebar
+        headings = len(re.findall(r'<h[123][^>]*id=', t))
+        assert len(p.entries) == headings, \
+            f"{name}: {len(p.entries)} sidebar entries for {headings} headings"
+
+
+@pytest.mark.ai_generated
+def test_no_broken_in_page_links(tmp_path):
+    """A component linking to a sibling entry must land on it.  The ToC
+    extension rewrites every id to a hook derived from the heading text, so
+    an anchor built from a record slug does not survive the build."""
+    out = _build(tmp_path)
+    for name in ("projects", "whoweare"):
+        t = (out / f"{name}.html").read_text()
+        ids = set(re.findall(r'id="([^"]+)"', t))
+        links = {l for l in re.findall(r'href="#([^"]+)"', t) if l}
+        assert not links - ids, f"{name}: broken anchors {sorted(links - ids)}"
+
+
 # --- assets ---------------------------------------------------------------
 
 @pytest.mark.ai_generated

@@ -99,50 +99,68 @@ class TableOfContents:
 
     @staticmethod
     def createTableOfContents(toc_info):
+        """Build the sidebar as a properly nested list.
 
-        if ( toc_info == None ):
+        The previous version closed each h1's <li> at the bottom of the loop,
+        so the <ul> opened by the following h2 landed OUTSIDE that <li> -- a
+        sibling of the section rather than its children.  With one h1 the
+        page looked fine; with seven, only the first section had browsing
+        items and every later section's entries appeared at the wrong depth.
+        It also emitted </ul> before </li> when a section ended, which is not
+        well-formed.
+
+        Written as an explicit depth stack instead, so the nesting cannot
+        drift out of step with the closers.
+        """
+        if toc_info is None:
+            return ""
+        if not toc_info:
             return ""
 
-        if ( len(toc_info) == 0 ):
-            toc_html = ""
-            return toc_html
-        elif ( len(toc_info) == 1 ):
-            toc_html = "<ul class='nav bs-docs-sidenav'><li class='active'><a href='#%s' data-scroll data-url>%s</a></li></ul>"
-            toc_html %= (toc_info[0]['hook'], toc_info[0]['text'])
-            return toc_html
-        else:
-            a_html = "<a href='#%s' data-scroll data-url>%s</a>"
-            toc_html = "<ul class='nav bs-docs-sidenav'>"
-            toc_html += "<li class='active'>"
-            toc_html += a_html % (toc_info[0]['hook'], toc_info[0]['text'])
-            last_tag = toc_info[0]['tag']
-            for i in range(1, len(toc_info)):
-                if toc_info[i]['tag'] == 'h1':
-                    if last_tag == 'h2':
-                        toc_html += "</ul>"
-                    toc_html += "</li>"
-                    toc_html += "<li>"
-                    toc_html += a_html % (toc_info[i]['hook'], toc_info[i]['text'])
-                elif toc_info[i]['tag'] == 'h2':
-                    if last_tag == 'h1':
-                        toc_html += "<ul class='nav'>"
-                    elif last_tag == 'h2':
-                        toc_html += "</li>"
-                    elif last_tag == 'h3':
-                        toc_html += "</ul>"
-                    toc_html += "<li>"
-                    toc_html += a_html % (toc_info[i]['hook'], toc_info[i]['text'])
-                elif (toc_info[i]['tag'] == 'h3'):
-                    if ( last_tag == 'h2' ):
-                        toc_html += "<ul class='nav'>"
-                    toc_html += "<li>"
-                    toc_html += a_html % (toc_info[i]['hook'], toc_info[i]['text'])
-                    toc_html += "</li>"
-                last_tag = toc_info[i]['tag']
-                if last_tag == 'h1':
-                    toc_html += "</li>"
-            toc_html += "</ul>"
-            return toc_html
+        LEVEL = {"h1": 1, "h2": 2, "h3": 3}
+        # Depth is RELATIVE to the shallowest heading on the page, because
+        # not every page starts at h1: projects.html uses h1 sections with h2
+        # entries, whoweare.html uses h2 tiers with h3 people.  Treating the
+        # tag as an absolute depth put a <ul> directly inside a <ul> on any
+        # page that did not start at h1.
+        base = min(LEVEL.get(it["tag"], 2) for it in toc_info)
+        out = ["<ul class='nav bs-docs-sidenav'>"]
+        open_li = 0          # how many <li> are currently open
+        depth = 0            # how many <ul> are currently open, beyond the first
+        first = True
+
+        for item in toc_info:
+            want = LEVEL.get(item["tag"], 2) - base
+            while depth > want:
+                out.append("</li>")
+                out.append("</ul>")
+                depth -= 1
+                open_li -= 1
+            if depth < want:
+                # a heading deeper than its predecessor opens a nested list
+                # INSIDE the still-open <li>, which is the whole point
+                while depth < want:
+                    out.append("<ul class='nav'>")
+                    depth += 1
+            elif not first:
+                out.append("</li>")
+                open_li -= 1
+            cls = " class='active'" if first else ""
+            out.append("<li%s>" % cls)
+            open_li += 1
+            out.append("<a href='#%s' data-scroll data-url>%s</a>"
+                       % (item["hook"], item["text"]))
+            first = False
+
+        while depth > 0:
+            out.append("</li>")
+            out.append("</ul>")
+            depth -= 1
+            open_li -= 1
+        if open_li > 0:
+            out.append("</li>")
+        out.append("</ul>")
+        return "".join(out)
 
     @staticmethod
     def addTableOfContentsHooks(content, toc_info, active_page):
