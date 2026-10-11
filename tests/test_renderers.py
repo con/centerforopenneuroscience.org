@@ -19,10 +19,13 @@ have caught, and none was caught by running them and looking at the output:
 
 One test per scar.
 """
+import os
 import pathlib
 import re
+import shutil
 import subprocess
 import sys
+import xml.etree.ElementTree as ET
 
 import pytest
 import yaml
@@ -33,11 +36,12 @@ STORE = HERE / "sourcedata/con-site-specific"
 
 sys.path.insert(0, str(SCRIPTS))
 
+import render_projects  # noqa: E402 -- needs SCRIPTS on sys.path
+
 
 def run(script, *args, store=None, expect=0):
     env = None
     if store is not None:
-        import os
         env = dict(os.environ, CON_RECORD_STORE=str(store))
     p = subprocess.run([sys.executable, str(SCRIPTS / script), *args],
                        capture_output=True, text=True, env=env)
@@ -60,7 +64,6 @@ def projects():
 @pytest.fixture
 def store_copy(tmp_path):
     """A throwaway copy of the record store, for perturbation."""
-    import shutil
     dst = tmp_path / "store"
     shutil.copytree(STORE, dst, symlinks=True,
                     ignore=shutil.ignore_patterns(".git"))
@@ -75,7 +78,6 @@ def test_output_is_well_formed_xml(page):
     """The ToC extension parses with strict ElementTree and, on a parse
     error, returns the page UNCHANGED -- so one malformed tag silently drops
     every anchor while the build still succeeds."""
-    import xml.etree.ElementTree as ET
     out = run(page).stdout
     ET.fromstring("<root>" + out + "</root>")
 
@@ -169,12 +171,10 @@ def test_relation_lists_need_more_than_one(projects):
     """A list of one is not a list: con/annextube's only instrument is
     con/annextube, and "Within it: STAMPED Principles" said nothing three
     times over."""
-    import re
-    for cls in ("components", "subprojects"):
-        for m in re.finditer(rf'<(?:p|details) class="{cls}">(.*?)'
-                             rf'</(?:p|details)>', projects, re.S):
-            assert len(re.findall(r"<a ", m.group(1))) != 1, \
-                f"{cls} list with exactly one entry"
+    for m in re.finditer(r'<ul class="component-list">(.*?)</ul>',
+                         projects, re.S):
+        assert len(re.findall(r"<li>", m.group(1))) != 1, \
+            "component list with exactly one entry"
     # a component list must gloss its entries, not just name them
     lists = re.findall(r'<ul class="component-list">(.*?)</ul>', projects, re.S)
     assert lists, "no component lists rendered"
@@ -188,7 +188,6 @@ def test_relation_lists_need_more_than_one(projects):
 def test_subprojects_are_listed_under_their_parent(projects):
     """A sub-project with no section of its own was invisible: EMBER's study
     template and the DICOM working groups had records and appeared nowhere."""
-    import re
     i = projects.index(">DICOM</h2>")
     block = projects[i:i + 4000]
     assert "DICOM WG-16" in block and "DICOM WG-32" in block
@@ -200,7 +199,6 @@ def test_subprojects_follow_their_parent(projects):
     """Sorting a section by date alone scattered a family: BIDS's four
     sub-projects landed in three different places and DICOM came after both
     its working groups."""
-    import re
     i = projects.index(">Standards</h1>")
     j = projects.find("<h1", i + 1)
     names = [re.sub(r"<[^>]+>", "", m).strip()
@@ -217,10 +215,47 @@ def test_subprojects_follow_their_parent(projects):
 
 
 @pytest.mark.ai_generated
+def test_one_list_per_project_not_two(projects):
+    """`part_of` and `generated_by` are two slots in the records but one
+    question for a reader -- what is inside this project.  Rendering them as
+    "Components:" and "Within it:" meant BIDS's four BEPs looked like a
+    different kind of thing from DataLad's extensions, for no reason visible
+    on the page."""
+    assert "Within it" not in projects
+    assert 'class="subprojects"' not in projects
+    m = re.search(r"<h2[^>]*>Brain Imaging Data Structure \(BIDS\)</h2>"
+                  r"(.*?)(?=<h2 )", projects, re.S)
+    body = m.group(1)
+    assert body.count('<ul class="component-list">') == 1
+    listed = re.findall(r'<li><a href="([^"]+)"[^>]*>(.*?)</a>',
+                        body.split("component-list")[-1])
+    names = {n for _, n in listed}
+    assert {"BEP028", "BEP032", "BEP044", "BIDS 2.0"} <= names, names
+    # and each links to its own entry on this page, not off-site
+    for href, name in listed:
+        if name in ("BEP028", "BEP032", "BEP044", "BIDS 2.0"):
+            assert href.startswith("#"), f"{name} leaves the page: {href}"
+
+
+@pytest.mark.ai_generated
+def test_a_gloss_is_not_also_a_tooltip(projects):
+    """The tooltip repeated the gloss printed beside it, word for word: a
+    second copy of every description in the HTML and in the accessibility
+    tree."""
+    for body in re.findall(r'<ul class="component-list">(.*?)</ul>',
+                           projects, re.S):
+        for item in re.findall(r"<li>(.*?)</li>", body, re.S):
+            tip = re.search(r'title="([^"]*)"', item)
+            text = re.sub(r"<[^>]+>", "", item)
+            if tip and ":" in text:
+                assert tip.group(1) not in text, \
+                    "tooltip duplicates the visible gloss"
+
+
+@pytest.mark.ai_generated
 def test_components_do_not_repeat_the_description(projects):
     """DataLad's prose bullets gloss datalad-container and datalad-fuse
     better than a generated line can; listing them again is strictly worse."""
-    import re
     m = re.search(r"<h2[^>]*>DataLad</h2>(.*?)(?=<h2 )", projects, re.S)
     body = m.group(1).split("component-list")[-1]
     listed = {re.sub(r"<[^>]+>", "", i).split(":")[0].strip()
@@ -236,15 +271,16 @@ def test_components_do_not_repeat_the_description(projects):
 def test_dates_sort_descending_even_when_one_prefixes_another():
     """A key that negated each character compared elementwise, so "2020"
     sorted before "2020-01-15"."""
-    import render_projects
     rows = [{"slug": s, "started": d, "section": "Software", "d": {}}
             for s, d in [("a", "2020"), ("b", "2020-01-15"), ("c", "2021"),
                          ("d", "2019-12"), ("e", None)]]
-    rows.sort(key=lambda r: (r["started"] is None,
-                             "" if r["started"] is None else r["started"]),
-              reverse=True)
-    rows.sort(key=lambda r: r["started"] is None)
-    assert [r["slug"] for r in rows] == ["c", "b", "a", "d", "e"]
+    # the renderer's own sort, not a copy of it in the test
+    assert [r["slug"] for r in render_projects.by_recency(rows)] \
+        == ["c", "b", "a", "d", "e"]
+    # flagships jump the queue whatever their date
+    rows.append({"slug": "pymvpa", "started": "2008", "section": "Software",
+                 "d": {}})
+    assert render_projects.by_recency(rows)[0]["slug"] == "pymvpa"
 
 
 @pytest.mark.ai_generated
@@ -265,7 +301,6 @@ def test_emeritus_sorts_by_departure_and_others_by_arrival(whoweare):
 
 def _build(tmp):
     """Build the site and return the built pages."""
-    import subprocess, sys, os
     out = tmp / "site"
     r = subprocess.run([sys.executable, "-m", "pelican", "content", "-o", str(out),
                         "-s", "pelicanconf.py"], cwd=HERE, capture_output=True,

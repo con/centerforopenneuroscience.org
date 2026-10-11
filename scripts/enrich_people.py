@@ -13,26 +13,12 @@ people have two.
 """
 import argparse
 import html
-import os
-import pathlib
 import re
 import shutil
 import sys
 
-try:
-    import yaml
-except ImportError:
-    sys.exit("PyYAML is required")
+from conrecords import HERE, STORE_ROOT, yaml
 
-HERE = pathlib.Path(__file__).resolve().parent.parent
-
-
-# The record store.  It is a submodule of this repo, so the default needs no
-# configuration; CON_RECORD_STORE overrides it for working against another
-# checkout.  An absolute path baked into a script is not reproducible and not
-# portable -- see STAMPED.
-STORE_ROOT = pathlib.Path(os.environ.get("CON_RECORD_STORE",
-                                         HERE / "sourcedata/con-site-specific"))
 RECORDS = STORE_ROOT / "metadata/records/XYZPerson"
 
 # One predicate per contact kind.  vcard covers the person-to-person ones;

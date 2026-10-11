@@ -14,28 +14,10 @@ undated (see the curation evidence), and sorting him last would be absurd.
 """
 import argparse
 import html
-import os
-import pathlib
-import re
 import sys
-import xml.etree.ElementTree as ET
 
-try:
-    import yaml
-except ImportError:
-    sys.exit("PyYAML is required")
+from conrecords import INTROS, RECORDS, STORE_ROOT, attrs, one, write_page, yaml
 
-HERE = pathlib.Path(__file__).resolve().parent.parent
-
-# The record store.  It is a submodule of this repo, so the default needs no
-# configuration; CON_RECORD_STORE overrides it for working against another
-# checkout.  An absolute path baked into a script is not reproducible and not
-# portable -- see STAMPED.
-STORE_ROOT = pathlib.Path(os.environ.get("CON_RECORD_STORE",
-                                         HERE / "sourcedata/con-site-specific"))
-STORE = STORE_ROOT
-RECORDS = STORE / "metadata/records"
-INTROS = HERE / "content/section-intros.yaml"
 TIERS = ["Centroids", "Collaborators", "Affiliated Faculty", "Emeritus"]
 # contact predicate -> (css class, link text); order fixes the link order
 CONTACTS = [
@@ -58,16 +40,6 @@ ACCOUNT_CLASS = {"plus.google.com": ("googleplus", "Google+"),
                  "facebook.com": ("facebook", "FaceBook"),
                  "linkedin.com": ("linkedin", "LinkedIn"),
                  "bsky.app": ("bluesky", "Bluesky")}
-
-
-def attrs(d, pred):
-    return [a["value"] for a in (d.get("attributes") or [])
-            if a.get("predicate") == pred]
-
-
-def one(d, pred):
-    v = attrs(d, pred)
-    return v[0] if v else None
 
 
 def load_people():
@@ -94,7 +66,7 @@ def portrait(slug):
     `team/portrait.ext`, dropping the slug, which made every portrait point
     at the same non-existent file.
     """
-    for p in sorted((STORE / "content/persons" / slug).glob("portrait.*")):
+    for p in sorted((STORE_ROOT / "content/persons" / slug).glob("portrait.*")):
         return f"/theme/img/team/{slug}{p.suffix.lower()}"
     return None
 
@@ -130,6 +102,8 @@ def contact_links(d):
 def render():
     people, dates = load_people(), joined()
     rows, skipped = [], []
+    # the order render() actually used, for --show-order
+    order = []
     for pid, (slug, d) in people.items():
         tier = one(d, "dlthings:tier")
         if tier is None:
@@ -166,6 +140,7 @@ def render():
         group.sort(key=lambda r: (r["pid"] != "xyzrins:persons/yaroslav-halchenko"
                                   if tier == "Centroids" else 0,
                                   r[key] is None, r[key] or ""))
+        order.append((tier, key, group))
         out.append(f'\t<h2>{html.escape(tier)}</h2>')
         for r in group:
             d = r["d"]
@@ -207,7 +182,7 @@ def render():
         pr = yaml.safe_load(f.read_text())
         if "xyzrins:." in (pr.get("part_of") or []) or pr["pid"] == "xyzrins:.":
             continue
-        logo = next((q for q in sorted((STORE / "content/projects" / f.stem)
+        logo = next((q for q in sorted((STORE_ROOT / "content/projects" / f.stem)
                                        .glob("logo.*"))), None)
         # patsy and seaborn have no logo and appear on the live page as plain
         # text links, so a missing logo is not a reason to drop the entry.
@@ -216,7 +191,7 @@ def render():
         f = RECORDS / "XYZOrganization" / f"{slug}.yaml"
         if f.exists():
             org = yaml.safe_load(f.read_text())
-            logo = next((q for q in sorted((STORE / "content/organizations" / slug)
+            logo = next((q for q in sorted((STORE_ROOT / "content/organizations" / slug)
                                            .glob("logo.*"))), None)
             partners.append((org, slug, logo.name if logo else None))
 
@@ -250,7 +225,7 @@ def render():
 
     out.append('  </div>')
     out += ['  </section>', '</body>', '', '</html>', '']
-    return "\n".join(out), rows, skipped
+    return "\n".join(out), order, skipped
 
 
 def main():
@@ -259,34 +234,19 @@ def main():
     ap.add_argument("--out")
     ap.add_argument("--show-order", action="store_true")
     a = ap.parse_args()
-    markup, rows, skipped = render()
+    markup, order, skipped = render()
     for slug, why in skipped:
         print(f"SKIPPED {slug}: {why}", file=sys.stderr)
     if a.show_order:
-        for tier in TIERS:
-            g = [r for r in rows if r["tier"] == tier]
-            key = "end" if tier == "Emeritus" else "start"
-            g.sort(key=lambda r: (r["pid"] != "xyzrins:persons/yaroslav-halchenko"
-                                  if tier == "Centroids" else 0,
-                                  r[key] is None, r[key] or ""))
-            print(f"\n{tier} ({len(g)}) by {key}:")
-            for r in g:
+        # printed from the order render() actually used.  Re-deriving the
+        # sort here is how the projects renderer came to report an order its
+        # own page did not have.
+        for tier, key, group in order:
+            print(f"\n{tier} ({len(group)}) by {key}:")
+            for r in group:
                 print(f"   {r[key] or '(undated)':12s} {r['slug']}")
         return 0
-    try:
-        ET.fromstring("<root>" + re.sub(r"<!DOCTYPE[^>]*>", "", markup) + "</root>")
-    except ET.ParseError as exc:
-        print(f"REFUSING TO WRITE: the generated page is not well-formed "
-              f"XML, so the table-of-contents extension would silently drop "
-              f"every anchor: {exc}", file=sys.stderr)
-        return 2
-    if a.out:
-        pathlib.Path(a.out).write_text(markup)
-        print(f"wrote {a.out}  ({len(markup.splitlines())} lines)")
-    else:
-        print(markup)
-    return 2 if skipped else 0
-
+    return write_page(markup, a.out, skipped)
 
 if __name__ == "__main__":
     sys.exit(main())

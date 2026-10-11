@@ -13,29 +13,11 @@ chronological Software list would open with con/tinuous and bury DataLad.
 """
 import argparse
 import html
-import os
-import pathlib
 import re
 import string
 import sys
-import xml.etree.ElementTree as ET
 
-try:
-    import yaml
-except ImportError:
-    sys.exit("PyYAML is required")
-
-HERE = pathlib.Path(__file__).resolve().parent.parent
-
-# The record store.  It is a submodule of this repo, so the default needs no
-# configuration; CON_RECORD_STORE overrides it for working against another
-# checkout.  An absolute path baked into a script is not reproducible and not
-# portable -- see STAMPED.
-STORE_ROOT = pathlib.Path(os.environ.get("CON_RECORD_STORE",
-                                         HERE / "sourcedata/con-site-specific"))
-INTROS = HERE / "content/section-intros.yaml"
-STORE = STORE_ROOT
-RECORDS = STORE / "metadata/records"
+from conrecords import INTROS, RECORDS, STORE_ROOT, one, write_page, yaml
 
 SECTIONS = ["Software", "Archives", "Standards", "Initiatives", "Meetings",
             "Education", "Infrastructure"]
@@ -44,16 +26,6 @@ LEAD = ["datalad", "dandi", "ember", "openneuro", "neurodebian", "pymvpa"]
 # records whose section the page did not assign, or which move to Archives
 SECTION_OVERRIDE = {"dandi": "Archives", "ember": "Archives",
                     "openneuro": "Archives"}
-
-
-def attrs(d, pred):
-    return [a["value"] for a in (d.get("attributes") or [])
-            if a.get("predicate") == pred]
-
-
-def one(d, pred):
-    v = attrs(d, pred)
-    return v[0] if v else None
 
 
 def instruments_by_project():
@@ -76,6 +48,26 @@ def instruments_by_project():
                 continue
             out.setdefault(proj, []).append((f.stem, d))
     return out
+
+
+def by_recency(rows):
+    """Flagships first in their listed order, then newest-first by date,
+    then undated -- an unknown date is not a recent one.
+
+    Passes rather than one clever key: a single key that negated the date
+    per character compared elementwise, so "2020" sorted before
+    "2020-01-15" -- ascending, for any pair where one date prefixes the
+    other.  A function rather than four lines inside render(), so the test
+    can exercise this sort instead of its own copy of it.
+    """
+    rows = sorted(rows, key=lambda r: (r["started"] is None,
+                                       "" if r["started"] is None
+                                       else r["started"]),
+                  reverse=True)
+    rows.sort(key=lambda r: r["started"] is None)
+    rows.sort(key=lambda r: LEAD.index(r["slug"]) if r["slug"] in LEAD
+              else len(LEAD))
+    return rows
 
 
 def parents_first(group, children):
@@ -165,17 +157,17 @@ def load():
     return out, skipped
 
 
-def link_to(d, slug, on_page):
+def link_to(d, slug, on_page, tip=True):
     """A link to a related record: in-page if it has an entry, else out."""
     name = d.get("short_name") or d.get("name") or d.get("display_label") or slug
-    desc = d.get("description") or ""
+    desc = (d.get("description") or "") if tip else ""
     label = html.escape(name)
     if d.get("pid") in on_page:
-        return (f'<a href="#{html.escape(on_page[d["pid"]])}" '
-                f'title="{html.escape(desc)}">{label}</a>')
+        tipattr = f' title="{html.escape(desc)}"' if desc else ''
+        return f'<a href="#{html.escape(on_page[d["pid"]])}"{tipattr}>{label}</a>'
     url = one(d, "foaf:homepage")
-    return (f'<a href="{html.escape(url)}" title="{html.escape(desc)}">{label}</a>'
-            if url else label)
+    tipattr = f' title="{html.escape(desc)}"' if desc else ''
+    return f'<a href="{html.escape(url)}"{tipattr}>{label}</a>' if url else label
 
 
 def meta_line(d, section, started):
@@ -208,7 +200,7 @@ def meta_line(d, section, started):
 
 def logo_for(slug):
     for sub in ("projects", "instruments", "organizations"):
-        p = STORE / "content" / sub / slug
+        p = STORE_ROOT / "content" / sub / slug
         for q in sorted(p.glob("logo.*")):
             return f"/theme/img/{sub}/{slug}/{q.name}"
     return None
@@ -274,21 +266,7 @@ def render():
         group = [r for r in rows if r["section"] == sec]
         if not group:
             continue
-        # flagships first in their listed order, then newest-first by date,
-        # then undated (an unknown date is not a recent one)
-        # Two passes rather than one clever key: sort newest-first, then
-        # stable-sort the flagships to the front.  A single key that negated
-        # the date per character compared elementwise, so "2020" sorted
-        # before "2020-01-15" -- ascending, for any pair where one date
-        # prefixes the other.
-        group.sort(key=lambda r: (r["started"] is None, r["started"] or ""),
-                   reverse=False)
-        group.sort(key=lambda r: (r["started"] is None,
-                                  "" if r["started"] is None else r["started"]),
-                   reverse=True)
-        group.sort(key=lambda r: r["started"] is None)
-        group.sort(key=lambda r: LEAD.index(r["slug"]) if r["slug"] in LEAD
-                   else len(LEAD))
+        group = by_recency(group)
         group = parents_first(group, children)
         order.append((sec, [r["slug"] for r in group],
                       [r["started"] for r in group]))
@@ -336,16 +314,13 @@ def render():
                 out.append(f'\t\t{rich}')
             else:
                 out.append(f'\t\t<p>{html.escape(d.get("description") or "")}</p>')
-            kids = children.get(d["pid"]) or []
-            # Same guard as Components: "Within it: STAMPED Principles" said
-            # nothing, three times over.
-            if len(kids) > 1:
-                out.append('\t\t<p class="subprojects"><strong>Within it:</strong>')
-                items = []
-                for slug, k in sorted(kids, key=lambda x: x[1].get("short_name") or x[0]):
-                    items.append(link_to(k, slug, on_page))
-                out.append('\t\t  ' + ",\n\t\t  ".join(items) + '</p>')
-            parts = components.get(d["pid"]) or []
+            # One list, whatever the record calls the relationship.
+            # `part_of` gives a sub-project, `generated_by` an instrument;
+            # both are "things within this project" to a reader, and
+            # splitting them meant BIDS's four BEPs rendered as a different
+            # kind of list from DataLad's extensions.
+            parts = ((children.get(d["pid"]) or [])
+                     + (components.get(d["pid"]) or []))
             # A list of one is not a list.  con/annextube's only instrument
             # IS con/annextube, so "Components: con/annextube" said nothing.
             if len(parts) > 1:
@@ -366,12 +341,15 @@ def render():
                     return i >= 0 and ":" in (rich or "")[i:i + len(nm) + 16]
                 parts = [(s, pr) for s, pr in parts
                          if not already_glossed(pr.get("name") or s)]
-                if len(parts) < 2:
-                    parts = components.get(d["pid"]) or []
+            # Re-checked after the dedupe: DataLad's prose can gloss all but
+            # one, and a list of one is still not a list.  (This used to fall
+            # back to the un-deduped instrument list, which both undid the
+            # dedupe and, once sub-projects joined the list, dropped them.)
+            if len(parts) > 1:
                 rows_ = []
                 for slug, pr in sorted(parts, key=lambda x: x[1].get("name") or x[0]):
                     gloss = pr.get("description") or ""
-                    anchor = link_to(pr, slug, on_page)
+                    anchor = link_to(pr, slug, on_page, tip=not gloss)
                     rows_.append(f'\t\t    <li>{anchor}'
                                  + (f': {html.escape(gloss)}' if gloss else '')
                                  + '</li>')
@@ -412,24 +390,7 @@ def main():
             for slug, started in zip(slugs, starts):
                 print(f"   {started or '(undated)':12s} {slug}")
         return 0
-    # The ToC extension parses the page with strict ElementTree and, on a
-    # parse error, returns the content UNCHANGED -- so one malformed tag in
-    # one record silently strips every anchor from the page while Pelican
-    # still exits 0.  Catch it here instead.
-    try:
-        ET.fromstring("<root>" + re.sub(r"<!DOCTYPE[^>]*>", "", markup) + "</root>")
-    except ET.ParseError as exc:
-        print(f"REFUSING TO WRITE: the generated page is not well-formed "
-              f"XML, which means the table-of-contents extension will "
-              f"silently drop every anchor: {exc}", file=sys.stderr)
-        return 2
-    if a.out:
-        pathlib.Path(a.out).write_text(markup)
-        print(f"wrote {a.out}  ({len(markup.splitlines())} lines)")
-    else:
-        print(markup)
-    return 2 if skipped else 0
-
+    return write_page(markup, a.out, skipped)
 
 if __name__ == "__main__":
     sys.exit(main())
