@@ -20,200 +20,168 @@
 	<h1>Software</h1>
 	  <div class="row">
 		<h2 id="datalad">DataLad</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://datalad.org" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2013 &#183; <a href="https://datalad.org">Home page</a></small></p>
 		<figure>
-		  <a href="https://datalad.org"><img src="/theme/img/projects/datalad/logo.png" alt="DataLad" class="pull-right" style="width:255px;padding-left:5px;margin-top:-2em;" /></a>
+		  <a href="https://datalad.org"><img src="/theme/img/projects/datalad/logo.png" alt="DataLad" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://datalad.org">DataLad</a> is ongoing work funded by NSF and German BMBF, to adapt the model of open-source software (OSS) distributions to address the technical limitations of today's data-sharing and provides a versatile data management platform. It uses software for data tracking and deployment logistics specialized for large data (<a class="reference external" href="http://git-annex.branchable.com">git-annex</a>) built atop <a class="reference external" href="http://git-scm.com">Git</a>, the most capable distributed version control system (dVCS) available today. DataLad provides access to data available from various sources (e.g. lab or consortium web-sites such as <a class="reference external" href="http://humanconnectome.org">humanconnectome.org</a>; data sharing portals such as <a class="reference external" href="http://openneuro.org">openneuro.org</a> and <a class="reference external" href="http://crcns.org">crcns.org</a>) through a single interface. It enables students and scientists to operate on data using familiar concepts, such as files and directories, while transparently managing data access and authorization with underlying hosting providers. </p> <ul> <li> <a href="/whoweare#michael_hanke_" class="centroid">M. Hanke</a>, <a href="/whoweare#matteo_visconti_di_oleggio_castello_" class="centroid">M. Visconti di Oleggio Castello</a>, <a href="/whoweare#kyle_meyer_" class="centroid">K. Meyer</a>, <a href="/whoweare#benjamin_poldrack_" class="centroid">B. Poldrack</a>, and <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a> (2018). <a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf">YODA: YODA's organigram on data analysis.</a> OHBM 2018, Singapore. </li> <li> <a href="https://doi.org/10.21105/joss.03262">JOSS paper</a>: providing a succinct overview of DataLad </li> <li> <a href="http://handbook.datalad.org">DataLad Handbook</a>: everything you need to know about DataLad. </li> <li> <a href="https://www.datalad.org/#supporting-datalad">Funding support</a> </li> <li> <a href="https://github.com/datalad/datalad-container">datalad-container</a>: a DataLad extension for working with containerized computational environments. It enables version-controlled execution of containerized pipelines (Singularity, Docker, and others) with full provenance capture as DataLad run records. </li> <li> <a href="https://github.com/datalad/datalad-fuse">datalad-fuse</a>: a DataLad extension to read annexed files from their remote URLs without a full download — sparse fetching via <a href="https://github.com/fsspec/filesystem_spec">fsspec</a> and optional FUSE mount give immediate access to petabyte-scale datasets. </li> </ul>
-		<p class="components"><strong>Components:</strong>
-		  <a href="https://github.com/datalad/datalad-container" title="DataLad extension for working with computational containers">datalad-container</a>,
-		  <a href="https://github.com/datalad/datalad-crawler" title="DataLad extension for tracking web resources as datasets">datalad-crawler</a>,
-		  <a href="https://github.com/datalad/datalad-deprecated" title="Retired DataLad functionality, kept available">datalad-deprecated</a>,
-		  <a href="https://github.com/datalad/datalad-fuse" title="DataLad extension providing a FUSE filesystem view">datalad-fuse</a>,
-		  <a href="https://github.com/datalad/datalad-installer" title="Installation script for DataLad and its dependencies">datalad-installer</a>,
-		  <a href="https://github.com/datalad/datalad-metalad" title="Next generation metadata handling for DataLad">datalad-metalad</a>,
-		  <a href="https://github.com/datalad/datalad-neuroimaging" title="DataLad extension for neuroimaging data">datalad-neuroimaging</a>,
-		  <a href="https://github.com/datalad/git-annex" title="Build and distribution infrastructure that packages git-annex for DataLad&#x27;s platforms. Not upstream git-annex, which Joey Hess develops.">datalad/git-annex</a>,
-		  <a href="https://github.com/datalad/datasets.datalad.org" title="Registry of public datasets provided by the DataLad project">datasets.datalad.org</a></p>
+		<details class="components">
+		  <summary>9 components</summary>
+		  <ul class="component-list">
+		    <li><a href="https://github.com/datalad/datalad-container" title="DataLad extension for working with computational containers">datalad-container</a>: DataLad extension for working with computational containers</li>
+		    <li><a href="https://github.com/datalad/datalad-crawler" title="DataLad extension for tracking web resources as datasets">datalad-crawler</a>: DataLad extension for tracking web resources as datasets</li>
+		    <li><a href="https://github.com/datalad/datalad-deprecated" title="Retired DataLad functionality, kept available">datalad-deprecated</a>: Retired DataLad functionality, kept available</li>
+		    <li><a href="https://github.com/datalad/datalad-fuse" title="DataLad extension providing a FUSE filesystem view">datalad-fuse</a>: DataLad extension providing a FUSE filesystem view</li>
+		    <li><a href="https://github.com/datalad/datalad-installer" title="Installation script for DataLad and its dependencies">datalad-installer</a>: Installation script for DataLad and its dependencies</li>
+		    <li><a href="https://github.com/datalad/datalad-metalad" title="Next generation metadata handling for DataLad">datalad-metalad</a>: Next generation metadata handling for DataLad</li>
+		    <li><a href="https://github.com/datalad/datalad-neuroimaging" title="DataLad extension for neuroimaging data">datalad-neuroimaging</a>: DataLad extension for neuroimaging data</li>
+		    <li><a href="https://github.com/datalad/git-annex" title="Build and distribution infrastructure that packages git-annex for DataLad&#x27;s platforms. Not upstream git-annex, which Joey Hess develops.">datalad/git-annex</a>: Build and distribution infrastructure that packages git-annex for DataLad&#x27;s platforms. Not upstream git-annex, which Joey Hess develops.</li>
+		    <li><a href="https://github.com/datalad/datasets.datalad.org" title="Registry of public datasets provided by the DataLad project">datasets.datalad.org</a>: Registry of public datasets provided by the DataLad project</li>
+		  </ul>
+		</details>
 	  </div>
 	  <div class="row">
 		<h2 id="neurodebian">NeuroDebian</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://neuro.debian.net" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2010 &#183; <a href="https://neuro.debian.net">Home page</a></small></p>
 		<figure>
-		  <a href="https://neuro.debian.net"><img src="/theme/img/projects/neurodebian/logo.jpg" alt="NeuroDebian" class="pull-right" style="padding-left:10px;margin-top:-2em;" /></a>
+		  <a href="https://neuro.debian.net"><img src="/theme/img/projects/neurodebian/logo.jpg" alt="NeuroDebian" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://neuro.debian.net">NeuroDebian</a> is a turnkey research software platform for all aspects of the neuroscientific research process. It takes the ideas of the software hosting portals such as <a href="http://nitrc.org">NITRC</a> on maximizing research transparency and methods sharing, one step further, by providing a comprehensive suite of readily usable and fully integrated software with a robust testing and deployment infrastructure. Consequently, it improves interoperability among the tools and frees researchers from the burden of tedious installation or upgrade procedures. That, in turn, positively affects their availability for actual research activities, as well as their motivation to test new analysis tools and stay connected with the latest methodological developments in the field. </p> <ul> <li> <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a> &amp; <a href="/whoweare#michael_hanke_" class="centroid">M. Hanke</a> (2012). <a href="https://www.frontiersin.org/articles/10.3389/fninf.2012.00022/full"> Open is not enough. Let's take the next step: An integrated, community-driven computing platform for neuroscience.</a> Frontiers in Neuroinformatics, 6:22. <a href="http://haxbylab.dartmouth.edu/publications/HH12.pdf">[PDF]</a> DOI: 10.3389/fninf.2012.00022 </li> </ul>
 	  </div>
 	  <div class="row">
 		<h2 id="pymvpa">PyMVPA</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="http://pymvpa.org" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2009 &#183; <a href="http://pymvpa.org">Home page</a></small></p>
 		<figure>
-		  <a href="http://pymvpa.org"><img src="/theme/img/projects/pymvpa/logo.png" alt="PyMVPA" class="pull-right" style="width:395px;padding-right:10px;margin-top:0em;" /></a>
+		  <a href="http://pymvpa.org"><img src="/theme/img/projects/pymvpa/logo.png" alt="PyMVPA" class="pull-right" /></a>
 		</figure>
 		<p> <a href="http://www.pymvpa.org">PyMVPA</a> is a Python-based framework for neural decoding using multivariate pattern analysis. It affords both volume- and surface-based analyses using a wide variety of supervised and unsupervised machine learning methods, representational similarity analyses, searchlight analyses, hyperalignment of representational spaces, and model-based decoding and encoding. The software also can be used for neural data other than fMRI, including analysis of MEG and EEG data through spatio-temporo-frequency band searchlights and cross-modal EEG to fMRI trans-fusion. It also has been used for analyses on data unrelated to neuroscience, demonstrating its general utility. PyMVPA also serves as a repository for sample data sets (e.g., Haxby et al. 2001) that has found wide applicability for education, development of new algorithms, or new analyses and independent research reports. </p> <ul> <li> <a href="/whoweare#michael_hanke_" class="centroid">M. Hanke</a>, <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a>, et al. (2009). <a href="http://link.springer.com/article/10.1007%2Fs12021-008-9041-y">PyMVPA: A Python toolbox for multivariate pattern analysis of fMRI data.</a> Neuroinformatics, 7, 37-53. DOI: 10.1007/s12021-008-9041-y </li> </ul>
 	  </div>
 	  <div class="row">
 		<h2 id="mechababs">mechababs</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://github.com/con/mechababs" class="github" title="Source repository">Source</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2026 &#183; <a href="https://github.com/con/mechababs">Home page</a></small></p>
 		<p> <a href="https://github.com/con/mechababs">mechababs</a> runs <a href="https://bids-apps.neuroimaging.io">BIDS Apps</a> over many studies on an HPC cluster, with <a href="https://github.com/PennLINC/babs">BABS</a> running the jobs. It works on a BIDS study, adding derivatives to it, and records how each one was made inside the study itself: the exact mechababs and BABS versions pinned in a lock, and every orchestration step as a <a href="#datalad_">DataLad</a> run record. A superstudy groups many studies so one campaign sweeps them all, which is how mechababs feeds <a href="https://github.com/OpenNeuroStudies/OpenNeuroStudies">OpenNeuroStudies</a>. </p>
 	  </div>
 	  <div class="row">
 		<h2 id="annextube">con/annextube</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://github.com/con/annextube" class="github" title="Source repository">Source</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2026 &#183; <a href="https://github.com/con/annextube">Home page</a></small></p>
 		<p> <a href="https://github.com/con/annextube">con/annextube</a> is a YouTube-channel archiving system that uses <a href="http://git-annex.branchable.com">git-annex</a> for efficient, incremental storage of videos, metadata, comments, and captions. Archives are browsable offline through a client-side web interface generated by annextube itself. Actively maintained archives include: </p> <ul> <li> <a href="https://datasets.datalad.org/centerforopenneuroscience/contube/web/">CON/tube</a> — CON's own channel archive (<a href="https://datasets.datalad.org/?dir=/centerforopenneuroscience/contube">dataset</a>) </li> <li> <a href="https://datasets.datalad.org/repronim/ReproTube/web/">ReproTube</a> — archive covering channels from <a href="http://repronim.org">ReproNim</a>, <a href="https://afni.nimh.nih.gov">AFNI</a>, <a href="https://datalad.org">DataLad</a>, and others (<a href="https://datasets.datalad.org/?dir=/repronim/ReproTube">dataset</a>) </li> </ul>
 	  </div>
 	  <div class="row">
 		<h2 id="mykrok">MyKrok</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://mykrok.github.io/mykrok/" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2025 &#183; <a href="https://mykrok.github.io/mykrok/">Home page</a></small></p>
 		<figure>
-		  <a href="https://mykrok.github.io/mykrok/"><img src="/theme/img/projects/mykrok/logo.svg" alt="MyKrok" class="pull-right" style="width:80px;padding-left:5px;margin-top:-0.5em;" /></a>
+		  <a href="https://mykrok.github.io/mykrok/"><img src="/theme/img/projects/mykrok/logo.svg" alt="MyKrok" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://github.com/mykrok/mykrok">MyKrok</a> (Ukrainian: "мій крок" — "my step") is a CLI tool to incrementally back up fitness activities from <a href="https://www.strava.com">Strava</a>, including GPS tracks, photos, comments, and kudos. Backups are browsable offline through a built-in web frontend with interactive maps and activity statistics — applying the same git-annex / open-data philosophy of CON's archival tools to personal fitness data. Try the <a href="https://mykrok.github.io/mykrok/">live demo</a> with synthetic data. </p>
 	  </div>
 	  <div class="row">
 		<h2 id="con-duct">con/duct</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://github.com/con/duct" class="github" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2024 &#183; <a href="https://github.com/con/duct">Repository</a></small></p>
 		<figure>
-		  <a href="https://github.com/con/duct"><img src="/theme/img/projects/con-duct/logo.webp" alt="con/duct" class="pull-right" style="width:255px;padding-right:10px;margin-top:0em;" /></a>
+		  <a href="https://github.com/con/duct"><img src="/theme/img/projects/con-duct/logo.webp" alt="con/duct" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://github.com/con/duct">con/duct</a> (or just duct) is a lightweight wrapper that collects execution data for an arbitrary command. Execution data includes execution time, system information, and resource usage statistics of the command and all its child processes. duct is intended to simplify the problem of recording the resources necessary to execute a command, particularly in an HPC environment. Additionally duct includes optional helpers that interact with logs produced by duct exectutions. </p>
 	  </div>
 	  <div class="row">
 		<h2 id="solidation">con/solidation</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://github.com/con/solidation" class="github" title="Source repository">Source</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2023 &#183; <a href="https://github.com/con/solidation">Home page</a></small></p>
 		<p> <a href="https://github.com/con/solidation">con/solidation</a> is a command-line tool that produces a Markdown activity report of recent issue and pull-request events across a configured set of GitHub repositories and organizations. It is used by CON to generate regular summaries of activity across the projects it maintains and contributes to, enabling lightweight project-health monitoring without leaving the terminal. </p>
 	  </div>
 	  <div class="row">
 		<h2 id="tinuous">con/tinuous</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://github.com/con/tinuous" class="github" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2021 &#183; <a href="https://github.com/con/tinuous">Repository</a></small></p>
 		<p> <a href="https://github.com/con/tinuous">con/tinuous</a> is a command for downloading build logs and (for GitHub only) artifacts and release assets for a GitHub repository from GitHub Actions, Travis-CI.com, and/or Appveyor. By downloading them all, and optionally placing them under <a href="#datalad_">DataLad</a> control you can establish the backup, distribution, and convenient harmonious access to all those artifacts. </p>
 	  </div>
 	  <div class="row">
 		<h2 id="datalad-registry">DataLad-Registry</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://registry.datalad.org" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2020 &#183; <a href="https://registry.datalad.org">Home page</a></small></p>
 		<figure>
-		  <a href="https://registry.datalad.org"><img src="/theme/img/projects/datalad-registry/logo.svg" alt="DataLad-Registry" class="pull-right" style="height:4.4em;padding-left:1em;margin-top:-0.3em;" /></a>
+		  <a href="https://registry.datalad.org"><img src="/theme/img/projects/datalad-registry/logo.svg" alt="DataLad-Registry" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://registry.datalad.org">DataLad-Registry</a> is a service that maintains up-to-date information on an expanding collection of datasets, currently numbering over ten thousand. It automatically registers datasets from various online sources, extracts metadata, and keeps both the datasets and their metadata current. DataLad-Registry offers search functionalities, including metadata-based searches, accessible through both a web interface and a RESTful API. Registry is regularly updated with DataLad datasets discovered across multiple hosting portals and listed on our <a href="https://github.com/datalad/datalad-usage-dashboard/">DataLad Usage Dashboard</a>. </p> <ul> <li> 🎬 <a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/_McJ1BtLsiQ">Talk at distribits 2024: Bringing Benefits of Centrality to DataLad</a> </li> </ul>
 	  </div>
 	  <div class="row">
 		<h2 id="con-tributors">con/tributors</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://con.github.io/tributors/" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2020 &#183; <a href="https://con.github.io/tributors/">Home page</a></small></p>
 		<figure>
-		  <a href="https://con.github.io/tributors/"><img src="/theme/img/projects/con-tributors/logo.png" alt="con/tributors" class="pull-right" style="width:120px;padding-left:5px;margin-top:-1em;" /></a>
+		  <a href="https://con.github.io/tributors/"><img src="/theme/img/projects/con-tributors/logo.png" alt="con/tributors" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://github.com/con/tributors">con/tributors</a> is a Python library and GitHub Action to automate maintenance of contributor attribution files. It updates <a href="https://allcontributors.org">all-contributors</a>, <a href="https://zenodo.org">Zenodo</a> metadata (.zenodo.json), and <a href="https://codemeta.github.io/">CodeMeta</a> (codemeta.json) files in one go, using a shared <code>.tributors</code> cache that maps GitHub logins to ORCID iDs and other persistent identifiers — so that contributor records stay consistent and up-to-date across all metadata files with a single command. For example, DataLad uses a <a href="https://github.com/datalad/datalad/blob/master/.github/workflows/update-contributors.yml">dedicated GitHub Actions workflow</a> powered by con/tributors to automatically keep its contributor files current. </p>
 	  </div>
 	  <div class="row">
 		<h2 id="fscacher">con/fscacher</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://github.com/con/fscacher" class="github" title="Source repository">Source</a>
-		</div>
-		<p> <a href="https://github.com/con/fscacher">con/fscacher</a> is a Python library providing a persistent, file-content-aware memoization cache. Functions decorated with <code>@cache.memoize_path</code> are re-executed only when the fingerprint (timestamps + size) of their file arguments changes — making it easy to cache expensive operations on large file trees without stale results. It is used internally by the <a href="#openneuro_">DANDI</a> client and other CON tools. </p>
+		<p class="project-meta"><small>Software &#183; since 2020 &#183; <a href="https://github.com/con/fscacher">Home page</a></small></p>
+		<p> <a href="https://github.com/con/fscacher">con/fscacher</a> is a Python library providing a persistent, file-content-aware memoization cache. Functions decorated with <code>@cache.memoize_path</code> are re-executed only when the fingerprint (timestamps + size) of their file arguments changes — making it easy to cache expensive operations on large file trees without stale results. It is used internally by the <a href="#dandi_">DANDI</a> client and other CON tools. </p>
 	  </div>
 	  <div class="row">
 		<h2 id="repronim-containers">ReproNim/containers</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://github.com/ReproNim/containers" class="github" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2019 &#183; <a href="https://github.com/ReproNim/containers">Repository</a></small></p>
 		<figure>
-		  <a href="https://github.com/ReproNim/containers"><img src="/theme/img/projects/repronim-containers/logo.svg" alt="ReproNim/containers" class="pull-right" style="width:400px;padding-right:10px;margin-top:0em;" /></a>
+		  <a href="https://github.com/ReproNim/containers"><img src="/theme/img/projects/repronim-containers/logo.svg" alt="ReproNim/containers" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://github.com/ReproNim/containers">ReproNim/containers</a> is a <a href="#datalad_">DataLad</a> dataset providing a ready-to-use "distribution" of containerized neuroimaging environments (Singularity images) for reproducible analysis. It collects a curated set of containers — including those used by <a href="#heudiconv___reproin_">HeuDiConv</a> and the broader <a href="http://repronim.org">ReproNim</a> ecosystem — and exposes them via the <code>///repronim/containers</code> DataLad dataset path, making it trivial to pin and share exact software environments alongside data and workflows. </p>
 	  </div>
 	  <div class="row">
 		<h2 id="pyout">pyout</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://github.com/pyout/pyout" class="github" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2017 &#183; <a href="https://github.com/pyout/pyout">Repository</a></small></p>
 		<figure>
-		  <a href="https://github.com/pyout/pyout"><img src="/theme/img/projects/pyout/logo.png" alt="pyout" class="pull-right" style="width:155px;padding-left:5px;margin-top:-2em;" /></a>
+		  <a href="https://github.com/pyout/pyout"><img src="/theme/img/projects/pyout/logo.png" alt="pyout" class="pull-right" /></a>
 		</figure>
-		<p> <a href="https://github.com/pyout/pyout/">pyout</a> is a Python package that defines an interface for writing structured records as a table in a terminal. It is being developed to replace custom code for displaying tabular data in in <a href="#openneuro_">DANDI client</a> and others. </p>
+		<p> <a href="https://github.com/pyout/pyout/">pyout</a> is a Python package that defines an interface for writing structured records as a table in a terminal. It is being developed to replace custom code for displaying tabular data in in <a href="#dandi_">DANDI client</a> and others. </p>
 	  </div>
 	  <div class="row">
 		<h2 id="reproman">ReproMan</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="http://reproman.repronim.org" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2016 &#183; <a href="http://reproman.repronim.org">Home page</a></small></p>
 		<figure>
-		  <a href="http://reproman.repronim.org"><img src="/theme/img/projects/reproman/logo.png" alt="ReproMan" class="pull-right" style="width:155px;padding-left:5px;margin-top:-2em;" /></a>
+		  <a href="http://reproman.repronim.org"><img src="/theme/img/projects/reproman/logo.png" alt="ReproMan" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://github.com/repronim/niceman">ReproMan (Reproducible computational environments Manager; formerly known as REPROMAN)</a> is also a part of the NIH supported <a href="http://repronim.org">ReproNim</a> effort. It aims to facilitate reproducible computation via collection of detailed information about origin of the used components (Debian and/or Conda packages, VCS repositories, etc), so that computational environments could be analyzed, and re-created. </p> <ul> <li> M. Travers, R. Buccigrossi, C. Haselgrove, <a href="/whoweare#kyle_meyer_" class="centroid">K. Meyer</a>, and <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a> <a href="http://goo.gl/CvaY1e">NICEMAN: NeuroImaging Computational Environments Manager</a>, OHBM 2018, Singapore. </li> </ul>
 	  </div>
 	  <div class="row">
 		<h2 id="heudiconv">HeuDiConv / ReproIn</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://github.com/nipy/heudiconv" class="github" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2015 &#183; <a href="https://github.com/nipy/heudiconv">Repository</a></small></p>
 		<p> <a href="https://github.com/nipy/heudiconv">HeuDiConv</a> is a flexible DICOM converter for organizing brain imaging data into structured directory layouts. As a part of the larger, NIH supported <a href="http://repronim.org">ReproNim</a> effort, we are developing a HeuDiConv-based <a href="http://reproin.repronim.org">ReproIn</a> solution for turnkey automatic conversion of all collected MR data to a collection of the BIDS DataLad datasets. It includes a flexible BIDS-like specification how to name scanning sequences in the scanner, and a <a href="https://github.com/nipy/heudiconv/blob/master/heudiconv/heuristics/reproin.py">HeuDiConv reproin.py heuristic</a> to automate layout and conversion of the datasets. This solution is deployed at <a href="https://www.dartmouth.edu/dbic/">DBIC (Dartmouth Brain Imaging Center)</a>, it already facilitates reproducible research, data sharing, and uploads to central archives such as NDA. </p> <ul> <li> Halchenko et al., (2024). HeuDiConv — flexible DICOM conversion into structured directory layouts. Journal of Open Source Software, 9(99), 5839 <a href="https://joss.theoj.org/papers/10.21105/joss.05839">DOI: 10.21105/joss.05839</a>. </li> <li> <a href="/whoweare#matteo_visconti_di_oleggio_castello_" class="centroid">M. Visconti di Oleggio Castello</a>, James E. Dobson, Terry Sackett, Chandana Kodiweera, <a href="/whoweare#james_v_haxby_" class="centroid">J.V. Haxby</a>, M. Goncalves, S. Ghosh, <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a> <a href="http://goo.gl/Z3soj7">ReproIn: automatic generation of shareable, version-controlled BIDS datasets from MR scanners</a>, OHBM 2018, Singapore. </li> </ul>
 	  </div>
 	  <div class="row">
 		<h2 id="duecredit">DueCredit</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://github.com/duecredit/duecredit" class="github" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Software &#183; since 2015 &#183; <a href="https://github.com/duecredit/duecredit">Repository</a></small></p>
 		<figure>
-		  <a href="https://github.com/duecredit/duecredit"><img src="/theme/img/projects/duecredit/logo.png" alt="DueCredit" class="pull-right" style="width:155px;padding-right:10px;margin-top:0em;" /></a>
+		  <a href="https://github.com/duecredit/duecredit"><img src="/theme/img/projects/duecredit/logo.png" alt="DueCredit" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://github.com/duecredit/duecredit">DueCredit</a> provides solution for the problem of inadequate citation and referencing of scientific software and methods. It provides a simple framework (at the moment for Python only) to embed publication or other references in the original code so they are automatically collected and reported to the user at the necessary level of reference detail, i.e. only references for actually used functionality will be presented back if software provides multiple citeable implementations. </p> <p> As a side-effect, we hope that DueCredit also will reduce demand in "prima-ballerina" projects, will encourage contributions to existing open-source codebases, and as a result would solidify scientific software ecosystem. </p> <ul> <li> <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a> and <a href="/whoweare#matteo_visconti_di_oleggio_castello_" class="centroid">M. Visconti di Oleggio Castello</a> (2016). <a href="http://haxbylab.dartmouth.edu/publications/HV+OHBM16.pdf"> DueCredit - automagically collect citations for software, methods, and data you use. </a> OHBM 2016, Geneva, Switzerland </li> </ul>
 	  </div>
 	<h1>Archives</h1>
 	  <div class="row">
 		<h2 id="dandi">DANDI</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://dandiarchive.org" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Archives &#183; since 2019 &#183; <a href="https://dandiarchive.org">Home page</a></small></p>
 		<figure>
-		  <a href="https://dandiarchive.org"><img src="/theme/img/projects/dandi/logo.png" alt="DANDI" class="pull-right" style="width:155px;padding-right:5px;margin-top:0em;" /></a>
+		  <a href="https://dandiarchive.org"><img src="/theme/img/projects/dandi/logo.png" alt="DANDI" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://dandiarchive.org">Distributed Archives for Neurophysiology Data Integration (DANDI)</a> is a platform for publishing, sharing, and processing neurophysiology data funded by the <a href="https://braininitiative.nih.gov/">BRAIN Initiative</a>. The platform is now available for data upload and distribution, and provides supplementary client tools to assist with introspection and organization of data following <a href="#neurodata_without_borders__neurophysiology_nwb_n_">NWB standard</a>. </p> <ul> <li> <a href="https://reporter.nih.gov/project-details/9795271">NIH (#1R24MH117295-01A1)</a>. PIs: <a href="https://mcgovern.mit.edu/profile/satrajit-ghosh/" class="centroid">S. Ghosh</a> and <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a> </li> <li> <a href="https://github.com/dandi/dandisets">dandisets</a>: a <a href="#datalad_">DataLad</a> superdataset providing unified access to all public DANDI datasets, with individual dandisets also mirrored as DataLad datasets in the <a href="https://github.com/dandisets">dandisets</a> GitHub organization and their Zarr stores in <a href="https://github.com/dandizarrs">dandizarrs</a>. </li> <li> <a href="https://github.com/dandi-compute">DANDI Compute</a>: an experimental reproducible-computing initiative running processing pipelines directly on DANDI assets. The first campaign applies the <a href="https://github.com/AllenNeuralDynamics/aind-ephys-pipeline">AIND ephys pipeline</a> to electrophysiology dandisets, with orchestration code and a public job queue hosted in the <a href="https://github.com/dandi-compute">dandi-compute</a> GitHub organization. </li> </ul>
-		<p class="subprojects"><strong>Within it:</strong>
-		  <a href="#stamped_principles_" title="STAMPED is a set of seven principles, Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, and Distributability, for building research objects that others can trust, rerun, and build upon. Each principle is a spectrum from a practical minimum to an aspirational ideal, so adoption can be incremental and start from existing practice. STAMPED grew out of YODA and comes with an interactive checklist and worked examples.">STAMPED Principles</a></p>
-		<p class="components"><strong>Components:</strong>
-		  <a href="https://github.com/dandi/dandi-archive" title="Software stack behind the DANDI archive: API, web client and validation, deployable as an independent instance.">DANDI Archive</a>,
-		  <a href="https://github.com/dandi/access-page" title="Visualizations of data usage for the DANDI Archive">access-page</a>,
-		  <a href="https://github.com/dandi/dandi-api-webshots-tools" title="Tooling for the DANDI API webshots">dandi-api-webshots-tools</a>,
-		  <a href="https://github.com/dandi/dandi-cli" title="DANDI command line client">dandi-cli</a>,
-		  <a href="https://github.com/dandi/dandi-hub" title="Infrastructure and code for the dandihub">dandi-hub</a>,
-		  <a href="https://github.com/dandi/dandi-schema" title="Schemata for the DANDI archive project">dandi-schema</a>,
-		  <a href="https://github.com/dandi/dandidav" title="WebDAV view to DANDI Archive">dandidav</a>,
-		  <a href="https://github.com/dandi/dandisets" title="Mirror of the Dandisets as DataLad datasets">dandisets</a>,
-		  <a href="https://github.com/dandi/dandisets-healthstatus" title="Healthchecks of dandisets and their tooling">dandisets-healthstatus</a>,
-		  <a href="https://github.com/dandi/dandisets-linkml-status-tools" title="Reporting the status of the DANDI metadata translation">dandisets-linkml-status-tools</a>,
-		  <a href="https://github.com/dandi/pydantic2linkml" title="Translating models expressed in Pydantic into LinkML">pydantic2linkml</a>,
-		  <a href="https://github.com/dandi/s3-log-extraction" title="Fast extraction of access summaries from S3 logs">s3-log-extraction</a>,
-		  <a href="https://github.com/dandi/s3-log-parser" title="S3 log parsing for the DANDI Archive">s3-log-parser</a></p>
+		<details class="components">
+		  <summary>13 components</summary>
+		  <ul class="component-list">
+		    <li><a href="https://github.com/dandi/dandi-archive" title="Software stack behind the DANDI archive: API, web client and validation, deployable as an independent instance.">DANDI Archive</a>: Software stack behind the DANDI archive: API, web client and validation, deployable as an independent instance.</li>
+		    <li><a href="https://github.com/dandi/access-page" title="Visualizations of data usage for the DANDI Archive">access-page</a>: Visualizations of data usage for the DANDI Archive</li>
+		    <li><a href="https://github.com/dandi/dandi-api-webshots-tools" title="Tooling for the DANDI API webshots">dandi-api-webshots-tools</a>: Tooling for the DANDI API webshots</li>
+		    <li><a href="https://github.com/dandi/dandi-cli" title="DANDI command line client">dandi-cli</a>: DANDI command line client</li>
+		    <li><a href="https://github.com/dandi/dandi-hub" title="Infrastructure and code for the dandihub">dandi-hub</a>: Infrastructure and code for the dandihub</li>
+		    <li><a href="https://github.com/dandi/dandi-schema" title="Schemata for the DANDI archive project">dandi-schema</a>: Schemata for the DANDI archive project</li>
+		    <li><a href="https://github.com/dandi/dandidav" title="WebDAV view to DANDI Archive">dandidav</a>: WebDAV view to DANDI Archive</li>
+		    <li><a href="https://github.com/dandi/dandisets" title="Mirror of the Dandisets as DataLad datasets">dandisets</a>: Mirror of the Dandisets as DataLad datasets</li>
+		    <li><a href="https://github.com/dandi/dandisets-healthstatus" title="Healthchecks of dandisets and their tooling">dandisets-healthstatus</a>: Healthchecks of dandisets and their tooling</li>
+		    <li><a href="https://github.com/dandi/dandisets-linkml-status-tools" title="Reporting the status of the DANDI metadata translation">dandisets-linkml-status-tools</a>: Reporting the status of the DANDI metadata translation</li>
+		    <li><a href="https://github.com/dandi/pydantic2linkml" title="Translating models expressed in Pydantic into LinkML">pydantic2linkml</a>: Translating models expressed in Pydantic into LinkML</li>
+		    <li><a href="https://github.com/dandi/s3-log-extraction" title="Fast extraction of access summaries from S3 logs">s3-log-extraction</a>: Fast extraction of access summaries from S3 logs</li>
+		    <li><a href="https://github.com/dandi/s3-log-parser" title="S3 log parsing for the DANDI Archive">s3-log-parser</a>: S3 log parsing for the DANDI Archive</li>
+		  </ul>
+		</details>
 	  </div>
 	  <div class="row">
-		<h2 id="dandi">EMBER</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://emberarchive.org" class="home" title="Home page">Home page</a>
-		</div>
+		<h2 id="ember">EMBER</h2>
+		<p class="project-meta"><small>Archives &#183; <a href="https://emberarchive.org">Home page</a></small></p>
 		<figure>
-		  <a href="https://emberarchive.org"><img src="/theme/img/projects/ember/logo.png" alt="EMBER" class="pull-right" style="width:155px;padding-left:5px;margin-top:0em;" /></a>
+		  <a href="https://emberarchive.org"><img src="/theme/img/projects/ember/logo.png" alt="EMBER" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://emberarchive.org">Ecosystem for Multi-modal Brain-behavior Experimentation and Research (EMBER)</a> is the <a href="https://braininitiative.nih.gov/">BRAIN Initiative</a> archive for multi-modal neurophysiological and behavioral data, supporting the <a href="https://braininitiative.nih.gov/research/systems-neuroscience/brain-behavior-quantification-and-synchronization-program">Brain Behavior Quantification and Synchronization (BBQS) Program</a>. The platform is being kick-started based on DANDI to provide data upload and distribution. CON is working on integration with DANDI and involved standards. </p> <figure> <a href="https://hearth.emberarchive.org"><img src="/theme/img/3rd/hearth_logo.svg" alt="HEARTH" class="pull-left" style="width:100px;padding-right:5px;margin-top:0em;" /></a> </figure> <p> <a href="https://hearth.emberarchive.org">HEARTH</a> is EMBER's companion suite of data management tools, providing apps for preparing media prior to submission and publication on EMBER. </p> <div style="display:flex;flex-wrap:wrap;gap:1em;margin:0.5em 0 1em;"> <div style="flex:1 1 260px;min-width:220px;display:flex;align-items:flex-start;gap:0.6em;"> <a href="https://hearth.emberarchive.org" style="flex:0 0 auto;"> <img src="/theme/img/3rd/hearth_clip_extractor_logo.svg" alt="Clip Extractor" style="width:36px;" /> </a> <p style="margin:0;"> <a href="https://hearth.emberarchive.org"><strong>Clip Extractor</strong></a><br /> for excerpting and preparing behavioral video clips for submission. </p> </div> <div style="flex:1 1 260px;min-width:220px;display:flex;align-items:flex-start;gap:0.6em;"> <a href="https://hearth.emberarchive.org" style="flex:0 0 auto;"> <img src="/theme/img/3rd/hearth_encoding_helper_logo.svg" alt="Encoding Helper" style="width:36px;" /> </a> <p style="margin:0;"> <a href="https://hearth.emberarchive.org"><strong>Encoding Helper</strong></a><br /> for analyzing and transcoding media prior to publication on EMBER. </p> </div> </div>
 		<p class="subprojects"><strong>Within it:</strong>
@@ -221,58 +189,50 @@
 		  <a href="https://github.com/brain-bbqs/study-template" title="A template for an EMBER study laid out as a BIDS study, so that data ingest starts from a structure the archive already understands rather than from a conversion afterwards.">study-template</a></p>
 	  </div>
 	  <div class="row">
-		<h2 id="dandi">OpenNeuro</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://openneuro.org" class="home" title="Home page">Home page</a>
-		</div>
+		<h2 id="openneuro">OpenNeuro</h2>
+		<p class="project-meta"><small>Archives &#183; since 2017 &#183; <a href="https://openneuro.org">Home page</a></small></p>
 		<figure>
-		  <a href="https://openneuro.org"><img src="/theme/img/projects/openneuro/logo.png" alt="OpenNeuro" class="pull-right" style="width:155px;padding-right:5px;margin-top:0em;" /></a>
+		  <a href="https://openneuro.org"><img src="/theme/img/projects/openneuro/logo.png" alt="OpenNeuro" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://openneuro.org">OpenNeuro</a> is likely the oldest and the most well known <a href="https://braininitiative.nih.gov/">BRAIN Initiative</a> archive for neuroimaging data. One of the exciting features of the project is that being inspired by our early <a href="https://datasets.datalad.org/?dir=/openfmri">DataLad crawling</a> of its <a href="https://openfmri.org/">OpenfMRI.org</a> precursor, it is now using <a href="https://git-annex.branchable.com">git-annex</a> directly as its core technology. CON is contributing in ensuring availability of recent versions of git-annex and DataLad, involved standardization efforts, and inter-archive collaborations. </p> <ul> <li> <a href="https://reporter.nih.gov/project-details/10881961">NIH (#5R24MH117179-07)</a>. PI: <a href="https://profiles.stanford.edu/russell-poldrack">R. Poldrack</a>, Co-I: <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a> </li> <li> <a href="https://github.com/OpenNeuroStudies/OpenNeuroStudies">OpenNeuroStudies</a>: a <a href="#datalad_">DataLad</a> superdataset organising OpenNeuro datasets into BIDS Study structure together with their derivatives. </li> </ul>
-		<p class="subprojects"><strong>Within it:</strong>
-		  <a href="#stamped_principles_" title="STAMPED is a set of seven principles, Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, and Distributability, for building research objects that others can trust, rerun, and build upon. Each principle is a spectrum from a practical minimum to an aspirational ideal, so adoption can be incremental and start from existing practice. STAMPED grew out of YODA and comes with an interactive checklist and worked examples.">STAMPED Principles</a></p>
 	  </div>
 	<h1>Standards</h1>
 	  <div class="row">
 		<h2 id="stamped">STAMPED Principles</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://stamped-principles.org" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Standards &#183; since 2026 &#183; <a href="https://stamped-principles.org">Home page</a></small></p>
 		<figure>
-		  <a href="https://stamped-principles.org"><img src="/theme/img/organizations/stamped-principles/logo.png" alt="STAMPED Principles" class="pull-right" style="width:255px;padding-left:10px;margin-top:-2em;" /></a>
+		  <a href="https://stamped-principles.org"><img src="/theme/img/organizations/stamped-principles/logo.png" alt="STAMPED Principles" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://stamped-principles.org">STAMPED</a> is a set of seven principles, Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, and Distributability, for building research objects that others can trust, rerun, and build upon. Each principle is a spectrum from a practical minimum to an aspirational ideal, so adoption can be incremental and start from existing practice. STAMPED grew out of <a href="https://f1000research.com/posters/7-1965">YODA</a> and comes with an <a href="https://checklist.stamped-principles.org">interactive checklist</a> and <a href="https://examples.stamped-principles.org">worked examples</a>. </p> <ul> <li> <a href="/whoweare#austin_macdonald_" class="centroid">Austin Macdonald</a>, <a href="/whoweare#cody_baker_" class="centroid">Cody C. Baker</a>, <a href="/whoweare#isaac_to_" class="centroid">Isaac To</a>, <a href="/whoweare#john_lee_" class="centroid">John A. Lee</a>, <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Yaroslav O. Halchenko</a>. <a href="https://doi.org/10.31222/osf.io/f3h82_v1">STAMPED principles for reproducible research objects</a> (preprint). DOI: 10.31222/osf.io/f3h82_v1 </li> <li> 🎬 <a href="https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8NTWKHer5Zo">Talk by Cody C. Baker introducing STAMPED</a> — archived on CON/tube. </li> <li> 🎬 <a href="https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/1XbTbJ_P2x0">YODA: Structure your studies, observable and reproducible they become</a> — webinar recording archived on CON/tube. </li> </ul>
-		<p class="components"><strong>Components:</strong>
-		  <a href="https://github.com/stamped-principles/stamped-agent-skills" title="">stamped-agent-skills</a>,
-		  <a href="https://github.com/stamped-principles/stamped-branding" title="Collection of formal logos for the STAMPED principles.">stamped-branding</a>,
-		  <a href="https://github.com/stamped-principles/stamped-checklist" title="An interactive checklist for compliance to STAMPED principles.">stamped-checklist</a>,
-		  <a href="https://github.com/stamped-principles/stamped-checklist-schema" title="The formal LinkML schema and instance for the STAMPED checklist.">stamped-checklist-schema</a>,
-		  <a href="https://github.com/stamped-principles/stamped-examples" title="Examples addendum for STAMPED principles paper">stamped-examples</a>,
-		  <a href="https://github.com/stamped-principles/stamped-paper" title="">stamped-paper</a>,
-		  <a href="https://github.com/stamped-principles/stamped-principles-schema" title="The formal LinkML schema and instance for the STAMPED principles.">stamped-principles-schema</a>,
-		  <a href="https://github.com/stamped-principles/stamped-skills-assessment" title="A store of assessments for skills supporting STAMPED">stamped-skills-assessment</a></p>
+		<details class="components">
+		  <summary>8 components</summary>
+		  <ul class="component-list">
+		    <li><a href="https://github.com/stamped-principles/stamped-agent-skills" title="">stamped-agent-skills</a></li>
+		    <li><a href="https://github.com/stamped-principles/stamped-branding" title="Collection of formal logos for the STAMPED principles.">stamped-branding</a>: Collection of formal logos for the STAMPED principles.</li>
+		    <li><a href="https://github.com/stamped-principles/stamped-checklist" title="An interactive checklist for compliance to STAMPED principles.">stamped-checklist</a>: An interactive checklist for compliance to STAMPED principles.</li>
+		    <li><a href="https://github.com/stamped-principles/stamped-checklist-schema" title="The formal LinkML schema and instance for the STAMPED checklist.">stamped-checklist-schema</a>: The formal LinkML schema and instance for the STAMPED checklist.</li>
+		    <li><a href="https://github.com/stamped-principles/stamped-examples" title="Examples addendum for STAMPED principles paper">stamped-examples</a>: Examples addendum for STAMPED principles paper</li>
+		    <li><a href="https://github.com/stamped-principles/stamped-paper" title="">stamped-paper</a></li>
+		    <li><a href="https://github.com/stamped-principles/stamped-principles-schema" title="The formal LinkML schema and instance for the STAMPED principles.">stamped-principles-schema</a>: The formal LinkML schema and instance for the STAMPED principles.</li>
+		    <li><a href="https://github.com/stamped-principles/stamped-skills-assessment" title="A store of assessments for skills supporting STAMPED">stamped-skills-assessment</a>: A store of assessments for skills supporting STAMPED</li>
+		  </ul>
+		</details>
 	  </div>
 	  <div class="row">
 		<h2 id="bep028">BEP028</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://bids.neuroimaging.io/bep028" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Standards &#183; since 2023 &#183; <a href="https://bids.neuroimaging.io/bep028">Home page</a></small></p>
 		<p>Extends BIDS to record how a derivative was produced -- the provenance layer, carrying forward NIDM-PROV. Leads: Satrajit Ghosh, Camille Maumet, Yaroslav Halchenko.</p>
 	  </div>
 	  <div class="row">
 		<h2 id="bids-2-0">BIDS 2.0</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://github.com/bids-standard/bids-2-devel" class="github" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Standards &#183; since 2020 &#183; <a href="https://github.com/bids-standard/bids-2-devel">Repository</a></small></p>
 		<p>The effort to work out what BIDS should change when backwards compatibility is no longer a constraint -- the breaking changes that a decade of 1.x could not make.</p>
 	  </div>
 	  <div class="row">
 		<h2 id="bids">Brain Imaging Data Structure (BIDS)</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="http://bids.neuroimaging.io" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Standards &#183; since 2018 &#183; <a href="http://bids.neuroimaging.io">Home page</a></small></p>
 		<figure>
-		  <a href="http://bids.neuroimaging.io"><img src="/theme/img/projects/bids/logo.png" alt="Brain Imaging Data Structure (BIDS)" class="pull-right" style="width:255px;padding-left:10px;margin-top:-2em;" /></a>
+		  <a href="http://bids.neuroimaging.io"><img src="/theme/img/projects/bids/logo.png" alt="Brain Imaging Data Structure (BIDS)" class="pull-right" /></a>
 		</figure>
 		<p> <a href="http://bids.neuroimaging.io">BIDS</a> is a project lead by a steering group elected by the BIDS community to provide a simple and intuitive way to organize and describe your neuroimaging and behavioral data. </p> <ul> <li> Gorgolewski, K. J., et many, <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a> et many more (2016). <a href="http://www.nature.com/articles/sdata201644">The brain imaging data structure, a format for organizing and describing outputs of neuroimaging experiments.</a> Scientific Data, 3. DOI: 10.1038/sdata.2016.44 </li> <li> <a href="https://github.com/bids-standard/bids-examples">Example (test) datasets</a> </li> <li> <a href="http://datasets.datalad.org/?dir=/openfmri">Historical OpenfMRI</a> and up-to-date <a href="http://datasets.datalad.org/?dir=/openneuro">OpenNeuro</a> Datasets in DataLad distribution. </li> <li> <a href="https://github.com/bids-dandisets">bids-dandisets</a>: a GitHub organization hosting individual DANDI dandisets converted to BIDS format using <a href="#neurodata_without_borders__neurophysiology_nwb_n_">con/nwb2bids</a>, with a <a href="https://github.com/bids-dandisets/dashboard">conversion dashboard</a> tracking the status across all dandisets. </li> </ul>
 		<p class="subprojects"><strong>Within it:</strong>
@@ -283,50 +243,40 @@
 	  </div>
 	  <div class="row">
 		<h2 id="nwb">Neurodata Without Borders: Neurophysiology (NWB:N)</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://www.nwb.org/" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Standards &#183; since 2017 &#183; <a href="https://www.nwb.org/">Home page</a></small></p>
 		<figure>
-		  <a href="https://www.nwb.org/"><img src="/theme/img/projects/nwb/logo.png" alt="Neurodata Without Borders: Neurophysiology (NWB:N)" class="pull-right" style="width:255px;padding-right:10px;margin-top:0em;" /></a>
+		  <a href="https://www.nwb.org/"><img src="/theme/img/projects/nwb/logo.png" alt="Neurodata Without Borders: Neurophysiology (NWB:N)" class="pull-right" /></a>
 		</figure>
-		<p> <a href="https://www.nwb.org/">NWB:N</a> is a data standard for neurophysiology, providing neuroscientists with a common standard to share, archive, use, and build analysis tools for neurophysiology data. It is a standard supported by <a href="#brain_imaging_data_structure_bids_">BIDS</a> and the <a href="#openneuro_">DANDI archive</a>. </p> <ul> <li> <a href="https://github.com/con/nwb2bids">con/nwb2bids</a>: a CON tool to reorganize NWB files into a BIDS directory layout, enabling NWB-format datasets to be shared and validated using BIDS conventions. </li> </ul>
+		<p> <a href="https://www.nwb.org/">NWB:N</a> is a data standard for neurophysiology, providing neuroscientists with a common standard to share, archive, use, and build analysis tools for neurophysiology data. It is a standard supported by <a href="#brain_imaging_data_structure_bids_">BIDS</a> and the <a href="#dandi_">DANDI archive</a>. </p> <ul> <li> <a href="https://github.com/con/nwb2bids">con/nwb2bids</a>: a CON tool to reorganize NWB files into a BIDS directory layout, enabling NWB-format datasets to be shared and validated using BIDS conventions. </li> </ul>
 	  </div>
 	  <div class="row">
 		<h2 id="bep032">BEP032</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://bids.neuroimaging.io/bep032" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Standards &#183; <a href="https://bids.neuroimaging.io/bep032">Home page</a></small></p>
 		<p>Extends BIDS to microelectrode electrophysiology. Leads: Sylvain Takerkart, Benjamin Dichter, Yaroslav Halchenko, Lyuba Zehl, Andrew Davison.</p>
 	  </div>
 	  <div class="row">
 		<h2 id="bep044">BEP044</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://bids.neuroimaging.io/bep044" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Standards &#183; <a href="https://bids.neuroimaging.io/bep044">Home page</a></small></p>
 		<p>Extends BIDS to describe the stimuli presented during an experiment. Leads: Seyed Yahya Shirazi, Dora Hermes, Yaroslav Halchenko, Kay Robbins, Scott Makeig.</p>
 	  </div>
 	  <div class="row">
 		<h2 id="dicom-wg16">DICOM WG-16</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://www.dicomstandard.org/activity/wgs" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Standards &#183; <a href="https://www.dicomstandard.org/activity/wgs">Home page</a></small></p>
 		<p>The DICOM working group responsible for MR. Where the conventions that make a scanner&#x27;s output machine-readable are argued out, which is upstream of every BIDS conversion CON does.</p>
 	  </div>
 	  <div class="row">
 		<h2 id="dicom-wg32">DICOM WG-32</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://www.dicomstandard.org/activity/wgs" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Standards &#183; <a href="https://www.dicomstandard.org/activity/wgs">Home page</a></small></p>
 		<p>The DICOM working group on imaging compression. CON&#x27;s interest is empirical: what lossy compression actually costs downstream analyses, which is what the compression-comparisons studies measure.</p>
-		<p class="components"><strong>Components:</strong>
-		  <a href="https://github.com/dandi/compression-comparisons" title="Reproducing and extending the DICOM WG-32 compression work: what lossy compression costs, measured rather than assumed.">compression-comparisons</a>,
-		  <a href="https://github.com/dandi/compression-comparisons-t261-study" title="Reproduction of the compression-effects-on-spike-sorting paper, extended to the T.261 codec.">compression-comparisons-t261-study</a></p>
+		<p class="components"><strong>Components:</strong></p>
+		  <ul class="component-list">
+		    <li><a href="https://github.com/dandi/compression-comparisons" title="Reproducing and extending the DICOM WG-32 compression work: what lossy compression costs, measured rather than assumed.">compression-comparisons</a>: Reproducing and extending the DICOM WG-32 compression work: what lossy compression costs, measured rather than assumed.</li>
+		    <li><a href="https://github.com/dandi/compression-comparisons-t261-study" title="Reproduction of the compression-effects-on-spike-sorting paper, extended to the T.261 codec.">compression-comparisons-t261-study</a>: Reproduction of the compression-effects-on-spike-sorting paper, extended to the T.261 codec.</li>
+		  </ul>
 	  </div>
 	  <div class="row">
 		<h2 id="dicom">DICOM</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://www.dicomstandard.org" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Standards &#183; <a href="https://www.dicomstandard.org">Home page</a></small></p>
 		<p>The standard for medical imaging data and its exchange, and the format every MRI scanner writes. Everything downstream -- BIDS layouts, HeuDiConv, ReproIn -- starts from what the scanner put in the DICOM header.</p>
 		<p class="subprojects"><strong>Within it:</strong>
 		  <a href="#dicom_wg16_" title="The DICOM working group responsible for MR. Where the conventions that make a scanner&#x27;s output machine-readable are argued out, which is upstream of every BIDS conversion CON does.">DICOM WG-16</a>,
@@ -334,63 +284,51 @@
 	  </div>
 	  <div class="row">
 		<h2 id="nidm">NIDM</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="http://nidm.nidash.org" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Standards &#183; <a href="http://nidm.nidash.org">Home page</a></small></p>
 		<p>A family of specifications for describing neuroimaging experiments, their data and their provenance, built on W3C PROV. NIDM-PROV is its provenance layer, and the ancestor of the provenance work now carried into BIDS as BEP028.</p>
 	  </div>
 	<h1>Initiatives</h1>
 	  <div class="row">
 		<h2 id="open-brain-consent">Open Brain Consent</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://open-brain-consent.readthedocs.io/" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Initiatives &#183; since 2015 &#183; <a href="https://open-brain-consent.readthedocs.io/">Home page</a></small></p>
 		<figure>
-		  <a href="https://open-brain-consent.readthedocs.io/"><img src="/theme/img/projects/open-brain-consent/logo.svg" alt="Open Brain Consent" class="pull-right" style="width:155px;padding-left:5px;margin-top:0em;" /></a>
+		  <a href="https://open-brain-consent.readthedocs.io/"><img src="/theme/img/projects/open-brain-consent/logo.svg" alt="Open Brain Consent" class="pull-right" /></a>
 		</figure>
 		<p> <a href="http://open-brain-consent.readthedocs.org">Open Brain Consent</a> initiative aims to facilitate neuroimaging data sharing by providing an "out of the box" solution addressing aforementioned human subjects concerns and consisting of </p> <ul> <li>widely acceptable consent form allowing deposition of anonymized data to public data archives</li> <li>collection of tools/pipelines to help anonymization of neuroimaging data making it ready for sharing</li> </ul> <p>Initiated and managed by CON, OBC is now an international effort with materials for GDPR compliance and multiple internationalization efforts to make sure materials are available in all applicable languages. <a href="https://github.com/con/open-brain-consent/blob/master/CONTRIBUTING.rst">Contribute</a> if you see your language is missing!</p> <ul> <li> Bannier E, Barker G, Borghesani V, Broeckx N, Clement P, Emblem KE, Ghosh S, Glerean E, Gorgolewski KJ, Havu M, <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Halchenko YO</a>, Herholz P, Hespel A, Heunis S, Hu Y, Hu CP, Huijser D, de la Iglesia Vayá M, Jancalek R, Katsaros VK, Kieseler ML, Maumet C, Moreau CA, Mutsaerts HJ, Oostenveld R, Ozturk-Isik E, Pascual Leone Espinosa N, Pellman J, Pernet CR, Pizzini FB, Trbalić AŠ, Toussaint PJ, <a href="/whoweare#matteo_visconti_di_oleggio_castello_" class="centroid">Visconti di Oleggio Castello M</a>, Wang F, Wang C, Zhu H. <emph>The Open Brain Consent: Informing research participants and obtaining consent to share brain imaging data</emph>. Hum Brain Mapp. 2021 May;42(7):1945-1951. doi: <a href="http://doi.org/10.1002/hbm.25351">10.1002/hbm.25351</a>. Epub 2021 Feb 1. PMID: 33522661; PMCID: PMC8046140. </li> </ul>
 	  </div>
 	  <div class="row">
 		<h2 id="repronim-trd3">ReproNim TR&amp;D3</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://www.repronim.org/" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Initiatives &#183; <a href="https://www.repronim.org/">Home page</a></small></p>
 		<p>The technology research and development project within ReproNim that YOH leads at Dartmouth. In practice it is the tooling that makes a study reproducible end to end: capturing what the scanner and the stimulus computer actually did, converting it into standard layouts without a human in the loop, and re-running the analysis in a recorded environment.</p>
-		<p class="subprojects"><strong>Within it:</strong>
-		  <a href="#repronim_containers_" title="ReproNim/containers is a DataLad dataset providing a ready-to-use &quot;distribution&quot; of containerized neuroimaging environments (Singularity images) for reproducible analysis. It collects a curated set of containers — including those used by HeuDiConv and the broader ReproNim ecosystem — and exposes them via the ///repronim/containers DataLad dataset path, making it trivial to pin and share exact software environments alongside data and workflows.">ReproNim/containers</a></p>
-		<p class="components"><strong>Components:</strong>
-		  <a href="https://github.com/ReproNim/reprostim/tree/master/Events" title="An event relay device: a single-board microcontroller running micropython that sits between the input peripherals a participant uses and the event recording system, so button presses are timestamped by hardware rather than by whatever the stimulus computer was doing.">ReproEvents</a>,
-		  <a href="https://github.com/ReproNim/reproin" title="A convention and a setup for naming sequences at the scanner so that conversion to a shareable, version-controlled BIDS dataset needs no human in the loop. Runs on HeuDiConv; deployed at DBIC.">ReproIn</a>,
-		  <a href="https://reproman.readthedocs.io" title="Tool for creating and managing reproducible computation environments and executing analyses in them.">ReproMan</a>,
-		  <a href="https://github.com/ReproNim/reprostim" title="Automated capture of the audio-visual stimuli actually presented during an experiment, into BIDS datasets -- so what the participant saw and heard is recorded rather than inferred from the script that was supposed to show it.">ReproStim</a>,
-		  <a href="https://github.com/con/duct" title="Lightweight wrapper that records execution time, CPU and memory usage of a command, for resource-aware reproducible runs.">con/duct</a></p>
+		<p class="components"><strong>Components:</strong></p>
+		  <ul class="component-list">
+		    <li><a href="https://github.com/ReproNim/reprostim/tree/master/Events" title="An event relay device: a single-board microcontroller running micropython that sits between the input peripherals a participant uses and the event recording system, so button presses are timestamped by hardware rather than by whatever the stimulus computer was doing.">ReproEvents</a>: An event relay device: a single-board microcontroller running micropython that sits between the input peripherals a participant uses and the event recording system, so button presses are timestamped by hardware rather than by whatever the stimulus computer was doing.</li>
+		    <li><a href="https://github.com/ReproNim/reproin" title="A convention and a setup for naming sequences at the scanner so that conversion to a shareable, version-controlled BIDS dataset needs no human in the loop. Runs on HeuDiConv; deployed at DBIC.">ReproIn</a>: A convention and a setup for naming sequences at the scanner so that conversion to a shareable, version-controlled BIDS dataset needs no human in the loop. Runs on HeuDiConv; deployed at DBIC.</li>
+		    <li><a href="https://reproman.readthedocs.io" title="Tool for creating and managing reproducible computation environments and executing analyses in them.">ReproMan</a>: Tool for creating and managing reproducible computation environments and executing analyses in them.</li>
+		    <li><a href="https://github.com/ReproNim/reprostim" title="Automated capture of the audio-visual stimuli actually presented during an experiment, into BIDS datasets -- so what the participant saw and heard is recorded rather than inferred from the script that was supposed to show it.">ReproStim</a>: Automated capture of the audio-visual stimuli actually presented during an experiment, into BIDS datasets -- so what the participant saw and heard is recorded rather than inferred from the script that was supposed to show it.</li>
+		    <li><a href="https://github.com/con/duct" title="Lightweight wrapper that records execution time, CPU and memory usage of a command, for resource-aware reproducible runs.">con/duct</a>: Lightweight wrapper that records execution time, CPU and memory usage of a command, for resource-aware reproducible runs.</li>
+		  </ul>
 	  </div>
 	<h1>Meetings</h1>
 	  For over a decade, CON and its projects are presented annually with exhibits at the annual meetings of the <a href="https://www.humanbrainmapping.org">Organization for Human Brain Mapping (OHBM) Society</a> and the <a href="https://www.sfn.org">Society for Neuroscience</a>. In collaboration with <a href="/whoweare#soichi_hayashi_" class="centroid">Soichi Hayashi</a> and <a href="https://github.com/datalad-datasets/ohbm2020-posters/graphs/contributors">other wonderful people</a> we proudly saved the first ever virtual OHBM 2020 by providing a <a href="https://datalad-datasets.github.io/ohbm2020-posters/#/">virtual posters venue</a>.
 	  <div class="row">
 		<h2 id="distribits">distribits</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://www.distribits.live/" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Meetings &#183; since 2023 &#183; <a href="https://www.distribits.live/">Home page</a></small></p>
 		<figure>
-		  <a href="https://www.distribits.live/"><img src="/theme/img/projects/distribits/logo.webp" alt="distribits" class="pull-right" style="width:155px;padding-right:5px;margin-top:0em;" /></a>
+		  <a href="https://www.distribits.live/"><img src="/theme/img/projects/distribits/logo.webp" alt="distribits" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://www.distribits.live">distribits</a> is a community for enthusiasts of tools and workflows in the domain of distributed data. Take a look at the <a href="https://www.distribits.live/topics/">topics</a> of past meeting contributions, and <a href="https://www.youtube.com/playlist?list=PLEQHbPfpVqU6esVrgqjfYybY394XD2qf2">YouTube videos from distribits 2024</a> to learn what is being talked about at distribits. </p>
 	  </div>
 	<h1>Education</h1>
 	  <div class="row">
 		<h2 id="repronim-reproducible-basics">ReproNim: Reproducible Basics</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="http://www.reproducibleimaging.org/module-reproducible-basics" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Education &#183; <a href="http://www.reproducibleimaging.org/module-reproducible-basics">Home page</a></small></p>
 		<p> <a href="http://www.reproducibleimaging.org/module-reproducible-basics">Reproducible Basics</a> training module of the ReproNim training curriculum presents daily core tools (shell, version control, etc) and explains how you could make your research more reproducible having gained improved knowledge of them. </p> <ul> <li> <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a> et al. </li> </ul>
 	  </div>
 	<h1>Infrastructure</h1>
 	  <div class="row">
 		<h2 id="singularityhub-afterlife">SingularityHub (after-life)</h2>
-		<div class="col-md-5 col-sm-5 contact">
-		  <a href="https://datasets.datalad.org/?dir=/shub" class="home" title="Home page">Home page</a>
-		</div>
+		<p class="project-meta"><small>Infrastructure &#183; since 2017 &#183; <a href="https://datasets.datalad.org/?dir=/shub">Home page</a></small></p>
 		<p> To provide archival and uninterrupted access to over 9TBs of singularity-hub.org Singularity containers, we have established <a href="https://datasets.datalad.org/?dir=/shub">///shub DataLad dataset</a> and a service to serve all the shub:// URLs. </p>
 	  </div>
   </section>
