@@ -1,0 +1,24 @@
+person: chris-markiewicz
+display_name: Chris Markiewicz
+anchor_id: null
+tier: Collaborators
+order: 8
+positions:
+- Stanford University, Poldrack Lab
+portrait: /theme/img/team/markiewicz.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: github
+  href: https://github.com/effigies
+  label: GitHub
+- kind: orcid
+  href: https://orcid.org/0000-0002-6533-164X
+  label: ORCID
+description_html: "\n        BIDS Guru and Jedi Master of all the *Preps.  Software developer at\n   \
+  \     Stanford's <a href=\"https://poldracklab.stanford.edu/\">Poldrack Lab</a>\n        and research\
+  \ affiliate of the MIT McGovern Institute for Brain Research.\n        Core developer of <a href=\"\
+  https://fmriprep.org/\">fMRIPrep</a>\n        and other <a href=\"https://www.nipreps.org/\">NiPreps</a>,\n\
+  \        long-standing <a href=\"https://bids.neuroimaging.io/\">BIDS</a> maintainer,\n        and one\
+  \ of the pillars of the neuroimaging Python ecosystem\n        (<a href=\"https://nipy.org/nibabel/\"\
+  >NiBabel</a>,\n        <a href=\"https://nipype.readthedocs.io/\">Nipype</a>,\n        <a href=\"https://github.com/poldracklab/fitlins\"\
+  >FitLins</a>).\n      "

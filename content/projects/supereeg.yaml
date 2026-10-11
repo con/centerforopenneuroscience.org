@@ -1,0 +1,51 @@
+project: supereeg
+display_name: SuperEEG
+anchor_id: null
+anchor_duplicated: null
+section: Software
+section_html: <h1 style="margin-top:20px">Software</h1>
+section_intro_html: null
+order: 23
+source_page: projects
+logo:
+  href: https://supereeg.readthedocs.io/en/latest/
+  src: /theme/img/3rd/supereeg_logo.png
+  alt: SuperEEG
+  class: pull-left
+  style: width:155px;padding-right:10px;margin-top:0em;
+people_referenced:
+- jeremy_rothman_manning_
+body_html: "\n\t    <figure>\n          <a href=\"https://supereeg.readthedocs.io/en/latest/\">\n\t\t\
+  \          <img src=\"/theme/img/3rd/supereeg_logo.png\" alt=\"SuperEEG\"\n\t\t\t             class=\"\
+  pull-left\"\n\t\t\t             style=\"width:155px;padding-right:10px;margin-top:0em;\" />\n\t    \
+  \    </a>\n\t\t</figure>\n\n\t    <p>\n\t        <a href=\"https://supereeg.readthedocs.io/en/latest/\"\
+  >SuperEEG</a>\n          is a Python toolbox for inferring whole-brain activity from sparse\n      \
+  \    ECoG recordings. The way the technique works is to leverage data from\n          different patients'\
+  \ brains (who had electrodes implanted in different\n          locations) to learn a \"correlation model\"\
+  \ that describes how activity\n          patterns at different locations throughout the brain relate.\
+  \ Given\n          this model, along with data from a sparse set of locations, we use\n          Gaussian\
+  \ process regression to \"fill in\" what the patients' brains\n          were \"most probably\" doing\
+  \ when those recordings were taken. Details\n          on our approach may be found in <a href=\"https://www.biorxiv.org/content/10.1101/121020\"\
+  >this\n          preprint</a>. You may also be\n          interested in watching <a href=\"https://www.youtube.com/watch?v=t6snLszEneA&amp;feature=youtu.be&amp;t=35\"\
+  >this\n          talk</a> or reading this <a href=\"https://community.sfn.org/t/supereeg-ecog-data-breaks-free-from-electrodes/8344\"\
+  >blog\n          post</a> from a recent conference.\n\t    </p>\n\t    <ul>\n\t      <li>L.L.W. Owen,\
+  \ A.C. Heusser, and\n\t\t\t<a href=\"/whoweare#jeremy_rothman_manning_\" class=\"centroid\">J.R. Manning</a>\n\
+  \t\t\t(2018).  <a href=\"https://www.biorxiv.org/content/10.1101/121020\">A\n\t            Gaussian\
+  \ process model of human electrocorticographic data</a>.  bioRxiv, 121020.</li>\n\t    </ul>\n  "
+row_html: "<div class=\"row\">\n\t    <h2>SuperEEG</h2>\n\t    <figure>\n          <a href=\"https://supereeg.readthedocs.io/en/latest/\"\
+  >\n\t\t          <img src=\"/theme/img/3rd/supereeg_logo.png\" alt=\"SuperEEG\"\n\t\t\t            \
+  \ class=\"pull-left\"\n\t\t\t             style=\"width:155px;padding-right:10px;margin-top:0em;\" />\n\
+  \t        </a>\n\t\t</figure>\n\n\t    <p>\n\t        <a href=\"https://supereeg.readthedocs.io/en/latest/\"\
+  >SuperEEG</a>\n          is a Python toolbox for inferring whole-brain activity from sparse\n      \
+  \    ECoG recordings. The way the technique works is to leverage data from\n          different patients'\
+  \ brains (who had electrodes implanted in different\n          locations) to learn a \"correlation model\"\
+  \ that describes how activity\n          patterns at different locations throughout the brain relate.\
+  \ Given\n          this model, along with data from a sparse set of locations, we use\n          Gaussian\
+  \ process regression to \"fill in\" what the patients' brains\n          were \"most probably\" doing\
+  \ when those recordings were taken. Details\n          on our approach may be found in <a href=\"https://www.biorxiv.org/content/10.1101/121020\"\
+  >this\n          preprint</a>. You may also be\n          interested in watching <a href=\"https://www.youtube.com/watch?v=t6snLszEneA&amp;feature=youtu.be&amp;t=35\"\
+  >this\n          talk</a> or reading this <a href=\"https://community.sfn.org/t/supereeg-ecog-data-breaks-free-from-electrodes/8344\"\
+  >blog\n          post</a> from a recent conference.\n\t    </p>\n\t    <ul>\n\t      <li>L.L.W. Owen,\
+  \ A.C. Heusser, and\n\t\t\t<a href=\"/whoweare#jeremy_rothman_manning_\" class=\"centroid\">J.R. Manning</a>\n\
+  \t\t\t(2018).  <a href=\"https://www.biorxiv.org/content/10.1101/121020\">A\n\t            Gaussian\
+  \ process model of human electrocorticographic data</a>.  bioRxiv, 121020.</li>\n\t    </ul>\n  </div>"

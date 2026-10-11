@@ -1,0 +1,18 @@
+# Page copy that belongs to a SECTION rather than to any project or person,
+# so no record can hold it and the extractors never saw it.  Both paragraphs
+# were silently dropped the first time these pages were generated; they are
+# recovered here from the hand-written versions (projects.html at f1ec133,
+# whoweare.html at 53e2e40) and spliced back in by the renderers.
+#
+# OPEN QUESTION: this is the one piece of page content not driven by
+# con-site-specific.  It could become an attribute on a record representing
+# the section, if sections ever get records.
+
+projects:
+  Meetings: >
+    For over a decade, CON and its projects are presented annually with exhibits at the annual meetings of the <a href="https://www.humanbrainmapping.org">Organization for Human Brain Mapping (OHBM) Society</a> and the <a href="https://www.sfn.org">Society for Neuroscience</a>. In collaboration with <a href="/whoweare#soichi_hayashi_" class="centroid">Soichi Hayashi</a> and <a href="https://github.com/datalad-datasets/ohbm2020-posters/graphs/contributors">other wonderful people</a> we proudly saved the first ever virtual OHBM 2020 by providing a <a href="https://datalad-datasets.github.io/ohbm2020-posters/#/">virtual posters venue</a>.
+
+whoweare:
+  Collaborating projects: >
+    <p>Projects for which we provide our "services" and have established
+    push/pull relationship with.</p>

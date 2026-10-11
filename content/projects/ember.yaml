@@ -1,0 +1,62 @@
+project: ember
+display_name: EMBER
+anchor_id: dandi
+anchor_duplicated: true
+section: Software
+section_html: <h1 style="margin-top:20px">Software</h1>
+section_intro_html: null
+order: 3
+source_page: projects
+logo:
+  href: https://emberarchive.org
+  src: /theme/img/3rd/ember_logo.png
+  alt: EMBER
+  class: pull-right
+  style: width:155px;padding-left:5px;margin-top:0em;
+people_referenced: []
+body_html: "\n\t<figure>\n      <a href=\"https://emberarchive.org\"><img src=\"/theme/img/3rd/ember_logo.png\"\
+  \ alt=\"EMBER\" class=\"pull-right\" style=\"width:155px;padding-left:5px;margin-top:0em;\" /></a>\n\
+  \    </figure>\n\t<p>\n\t  <a href=\"https://emberarchive.org\">Ecosystem for Multi-modal\n\t\tBrain-behavior\
+  \ Experimentation and Research (EMBER)</a>\n\t  is the <a href=\"https://braininitiative.nih.gov/\"\
+  >BRAIN\n\t  Initiative</a> archive \t  for multi-modal neurophysiological\n\t\tand behavioral data,\
+  \ supporting the <a href=\"https://braininitiative.nih.gov/research/systems-neuroscience/brain-behavior-quantification-and-synchronization-program\"\
+  >Brain Behavior Quantification and Synchronization (BBQS) Program</a>.\n\t  The platform is being kick-started\
+  \ based on DANDI to provide data upload\n\t  and distribution.\n\t  CON is working on integration with\
+  \ DANDI and involved standards.\n\t</p>\n    \n\t<figure>\n      <a href=\"https://hearth.emberarchive.org\"\
+  ><img src=\"/theme/img/3rd/hearth_logo.svg\" alt=\"HEARTH\" class=\"pull-left\" style=\"width:100px;padding-right:5px;margin-top:0em;\"\
+  \ /></a>\n    </figure>\n\t<p>\n\t  <a href=\"https://hearth.emberarchive.org\">HEARTH</a> is EMBER's\n\
+  \t  companion suite of data management tools, providing apps for\n\t  preparing media prior to submission\
+  \ and publication on EMBER.\n\t</p>\n\t<div style=\"display:flex;flex-wrap:wrap;gap:1em;margin:0.5em\
+  \ 0 1em;\">\n\t  <div style=\"flex:1 1 260px;min-width:220px;display:flex;align-items:flex-start;gap:0.6em;\"\
+  >\n\t\t<a href=\"https://hearth.emberarchive.org\" style=\"flex:0 0 auto;\">\n\t\t  <img src=\"/theme/img/3rd/hearth_clip_extractor_logo.svg\"\
+  \ alt=\"Clip Extractor\" style=\"width:36px;\" />\n\t\t</a>\n\t\t<p style=\"margin:0;\">\n\t\t  <a href=\"\
+  https://hearth.emberarchive.org\"><strong>Clip Extractor</strong></a><br />\n\t\t  for excerpting and\
+  \ preparing behavioral video clips for\n\t\t  submission.\n\t\t</p>\n\t  </div>\n\t  <div style=\"flex:1\
+  \ 1 260px;min-width:220px;display:flex;align-items:flex-start;gap:0.6em;\">\n\t\t<a href=\"https://hearth.emberarchive.org\"\
+  \ style=\"flex:0 0 auto;\">\n\t\t  <img src=\"/theme/img/3rd/hearth_encoding_helper_logo.svg\" alt=\"\
+  Encoding Helper\" style=\"width:36px;\" />\n\t\t</a>\n\t\t<p style=\"margin:0;\">\n\t\t  <a href=\"\
+  https://hearth.emberarchive.org\"><strong>Encoding Helper</strong></a><br />\n\t\t  for analyzing and\
+  \ transcoding media prior to publication on\n\t\t  EMBER.\n\t\t</p>\n\t  </div>\n\t</div>\n  "
+row_html: "<div class=\"row\">\n\t<h2 id=\"dandi\">EMBER</h2>\n\t<figure>\n      <a href=\"https://emberarchive.org\"\
+  ><img src=\"/theme/img/3rd/ember_logo.png\" alt=\"EMBER\" class=\"pull-right\" style=\"width:155px;padding-left:5px;margin-top:0em;\"\
+  \ /></a>\n    </figure>\n\t<p>\n\t  <a href=\"https://emberarchive.org\">Ecosystem for Multi-modal\n\
+  \t\tBrain-behavior Experimentation and Research (EMBER)</a>\n\t  is the <a href=\"https://braininitiative.nih.gov/\"\
+  >BRAIN\n\t  Initiative</a> archive \t  for multi-modal neurophysiological\n\t\tand behavioral data,\
+  \ supporting the <a href=\"https://braininitiative.nih.gov/research/systems-neuroscience/brain-behavior-quantification-and-synchronization-program\"\
+  >Brain Behavior Quantification and Synchronization (BBQS) Program</a>.\n\t  The platform is being kick-started\
+  \ based on DANDI to provide data upload\n\t  and distribution.\n\t  CON is working on integration with\
+  \ DANDI and involved standards.\n\t</p>\n    \n\t<figure>\n      <a href=\"https://hearth.emberarchive.org\"\
+  ><img src=\"/theme/img/3rd/hearth_logo.svg\" alt=\"HEARTH\" class=\"pull-left\" style=\"width:100px;padding-right:5px;margin-top:0em;\"\
+  \ /></a>\n    </figure>\n\t<p>\n\t  <a href=\"https://hearth.emberarchive.org\">HEARTH</a> is EMBER's\n\
+  \t  companion suite of data management tools, providing apps for\n\t  preparing media prior to submission\
+  \ and publication on EMBER.\n\t</p>\n\t<div style=\"display:flex;flex-wrap:wrap;gap:1em;margin:0.5em\
+  \ 0 1em;\">\n\t  <div style=\"flex:1 1 260px;min-width:220px;display:flex;align-items:flex-start;gap:0.6em;\"\
+  >\n\t\t<a href=\"https://hearth.emberarchive.org\" style=\"flex:0 0 auto;\">\n\t\t  <img src=\"/theme/img/3rd/hearth_clip_extractor_logo.svg\"\
+  \ alt=\"Clip Extractor\" style=\"width:36px;\" />\n\t\t</a>\n\t\t<p style=\"margin:0;\">\n\t\t  <a href=\"\
+  https://hearth.emberarchive.org\"><strong>Clip Extractor</strong></a><br />\n\t\t  for excerpting and\
+  \ preparing behavioral video clips for\n\t\t  submission.\n\t\t</p>\n\t  </div>\n\t  <div style=\"flex:1\
+  \ 1 260px;min-width:220px;display:flex;align-items:flex-start;gap:0.6em;\">\n\t\t<a href=\"https://hearth.emberarchive.org\"\
+  \ style=\"flex:0 0 auto;\">\n\t\t  <img src=\"/theme/img/3rd/hearth_encoding_helper_logo.svg\" alt=\"\
+  Encoding Helper\" style=\"width:36px;\" />\n\t\t</a>\n\t\t<p style=\"margin:0;\">\n\t\t  <a href=\"\
+  https://hearth.emberarchive.org\"><strong>Encoding Helper</strong></a><br />\n\t\t  for analyzing and\
+  \ transcoding media prior to publication on\n\t\t  EMBER.\n\t\t</p>\n\t  </div>\n\t</div>\n  </div>"

@@ -1,0 +1,23 @@
+person: chris-cheng
+display_name: Chris Cheng
+anchor_id: null
+tier: Emeritus
+order: 28
+positions:
+- Dartmouth College
+portrait: /theme/img/team/chris.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: github
+  href: https://github.com/chrispycheng
+  label: GitHub
+- kind: email
+  href: mailto:christopher.p.cheng.21@dartmouth.edu
+  label: E-Mail
+description_html: "\n        Dartmouth undergrad with a passion for learning more about neuroimaging,\n\
+  \t\topen science, and reproducible neuroscience. One of NiBabel's active contributors.\n\t\tEditor of\
+  \ select ReproNim training materials. Worked to model relationship\n\t\tbetween fMRI QA metrics and\
+  \ human scan data under Yarik's wise\n\t\tmentorship.\n\t\t<ul>\n\t\t  <li>Cheng CP and Halchenko YO.\
+  \ A new virtue of phantom MRI data:\n\t\t\texplaining variance in human participant data. F1000Research\
+  \ 2020, 9:1131\n\t\t\t<a href=\"https://doi.org/10.12688/f1000research.24544.1\">DOI:10.12688/f1000research.24544.1</a>\n\
+  \t\t  </li>\n\t\t</ul>\n        "

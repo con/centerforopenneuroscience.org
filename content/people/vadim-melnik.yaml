@@ -1,0 +1,31 @@
+person: vadim-melnik
+display_name: Vadim Melnik
+anchor_id: vadim_melnik_
+tier: Centroids
+order: 4
+positions:
+- Software Engineer &amp; Consultant
+portrait: /theme/img/team/vadim.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: email
+  href: mailto:vmelnik@docsultant.com?Subject=Hello Vadim M. @CON
+  label: E-Mail
+- kind: home
+  href: https://www.docsultant.com
+  label: Home Page
+- kind: twitter
+  href: https://twitter.com/vmdocua
+  label: Twitter
+- kind: github
+  href: https://github.com/vmdocua
+  label: GitHub
+- kind: linkedin
+  href: https://www.linkedin.com/in/vadim-melnik
+  label: LinkedIn
+- kind: orcid
+  href: https://orcid.org/0009-0007-3981-0798
+  label: ORCID
+description_html: "\n      External consultant working on <a href=\"https://github.com/ReproNim/reprostim\"\
+  >ReproStim</a>, <a href=\"https://github.com/ReproNim/repromon\">ReproMon</a>, <a href=\"https://github.com/con/noisseur\"\
+  >con/noisseur</a>, events collection/timing\n      projects and cosmic harmony.\n    "

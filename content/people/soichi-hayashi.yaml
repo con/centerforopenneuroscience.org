@@ -1,0 +1,31 @@
+person: soichi-hayashi
+display_name: Soichi Hayashi
+anchor_id: null
+tier: Emeritus
+order: 29
+positions:
+- Indiana University, Bloomington
+portrait: /theme/img/team/soichi.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: twitter
+  href: https://twitter.com/soichih
+  label: Twitter
+- kind: github
+  href: https://github.com/soichih
+  label: GitHub
+- kind: linkedin
+  href: https://www.linkedin.com/in/soichihayashi/
+  label: LinkedIn
+- kind: email
+  href: mailto:soichih@gmail.com
+  label: E-Mail
+- kind: home
+  href: https://soichi.us
+  label: Home Page
+- kind: orcid
+  href: https://orcid.org/0000-0003-3641-3491
+  label: ORCID
+description_html: "\n       A software engineer at <a href=\"https://brainlife.io\">brainlife.io</a>.\
+  \ A husband and a father of 2 who likes\n        coding, cooking, bicycling, hiking, gardening, and\
+  \ just about anything else.\n      "

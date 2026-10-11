@@ -1,0 +1,10 @@
+# AI-contribution stance -- a project's PUBLISHED policy, not a disposition,
+# and not an association.  Vocabulary and rules: content/associations/SCHEMA.md
+project: psychopy
+value: unstated          # no policy checked yet
+source_url: null
+captured: "2026-10-10"
+note: >
+  TODO: check the PsychoPy CONTRIBUTING file and any AI policy before this
+  field is used anywhere.  `unstated` means "not checked / none published",
+  never "they disapprove".

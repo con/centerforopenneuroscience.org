@@ -1,0 +1,31 @@
+person: vanessa-sochat
+display_name: Vanessa Sochat
+anchor_id: null
+tier: Emeritus
+order: 30
+positions:
+- Stanford University Research Computing Center, Stanford CA
+portrait: /theme/img/team/vanessa.png
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: github
+  href: https://github.com/vsoch
+  label: GitHub
+- kind: twitter
+  href: https://twitter.com/vsoch
+  label: Twitter
+- kind: linkedin
+  href: https://www.linkedin.com/in/vsochat/
+  label: LinkedIn
+- kind: blog
+  href: https://vsoch.github.io
+  label: Blog
+- kind: orcid
+  href: https://orcid.org/0000-0002-4387-3819
+  label: ORCID
+description_html: "\n        Research Software Engineer in the Stanford Research Computing Center. Likes\
+  \ programming,\n        containers, avocados, and open-source development. Developer of Singularity\
+  \ Hub and other\n        <a href=\"https://github.com/singularityhub\" target=\"_blank\">related tools</a>\
+  \ for Singularity containers.\n        See a <a href=\"https://vsoch.github.io/work\" target=\"_blank\"\
+  >list</a> of work or recent\n        ideas on <a href=\"https://vsoch.github.io\" target=\"_blank>\"\
+  >her personal site</a>.\n      "

@@ -1,0 +1,67 @@
+# Named selections for generated slides.  The site lists 71 projects; a slide
+# that showed all of them would say nothing.  This picks the ones whose
+# absence would be conspicuous, in two bands, and then points at the full list
+# rather than pretending to be complete.
+name: acknowledgement
+description: >
+  Default project selection for the Acknowledgements slide.
+
+bands:
+  - id: funded
+    label: Worked on directly
+    note: >
+      Projects we built or co-led through funded work -- the ones where CON
+      (or YOH before it) is a named participant rather than a user.
+    projects:
+      - datalad
+      - repronim                 # the Collaborating-projects logo, not con/containers
+      - dandi
+      - ember
+      - brain-imaging-data-structure-bids
+      - neurodata-without-borders-neurophysiology-nwb-n
+      # - hed                    # NO RECORD YET -- see note below
+      # INCF is NOT here.  It belongs with the funders and in-kind supporters:
+      # what INCF gave us was backing for grassroots standardisation work on
+      # NIDM and BIDS, which is support, not a project we built.  It is placed
+      # by hand in the deck's "Funders and in-kind support" row, because that
+      # row is organisations and we have no organisation records yet.
+
+  - id: community
+    label: Large communities we take part in
+    note: >
+      Big, principled communities where we are genuinely involved but not
+      tightly coupled -- participation rather than stewardship.
+    projects:
+      - scikit-learn
+      - psychopy
+      - hcp
+      # - hed
+
+logo_overrides:
+  # Slide-only substitutions.  These do NOT mean the site record is wrong to
+  # fix here -- they mean the site asset is wrong for a logo row.
+  brain-imaging-data-structure-bids:
+    src: pics/bids-logo-wide.png
+    why: >
+      The image projects.html carries for BIDS is the before/after
+      directory-tree illustration (916x387, DICOM filenames on the left,
+      sub-01/anat/... on the right).  It is a good explanatory figure and a
+      useless logo: at 42px tall the filenames are unreadable smudges.  The
+      actual BIDS mark -- brain glyph plus "BIDS / BRAIN IMAGING DATA
+      STRUCTURE" -- is already in the deck as pics/bids-logo-wide.png.
+      The site should arguably carry both; that is a projects.html fix.
+
+more:
+  # The slide ends with an ellipsis rather than claiming completeness.
+  label: "…and many more"
+  href: https://centerforopenneuroscience.org/projects
+  note: 71 project records exist; this selection shows 10.
+
+# ---------------------------------------------------------------------------
+# HED has NO RECORD ANYWHERE ON THE SITE.
+#   grep -ric 'hedtags|hierarchical event descriptor|>HED<' content/pages/ -> 0
+# It was explicitly asked for on this slide, and it is the annotation layer
+# NEMAR searches by, so the fix is to ADD it to projects.html (Standards,
+# alongside BIDS and NWB) -- not to special-case it in the slide.  Until then
+# it is commented out above so the omission is visible rather than silent.
+# ---------------------------------------------------------------------------

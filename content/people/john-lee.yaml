@@ -1,0 +1,28 @@
+person: john-lee
+display_name: John Lee
+anchor_id: john_lee_
+tier: Centroids
+order: 6
+positions:
+- Research Software Engineer
+portrait: /theme/img/team/johnlee.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: email
+  href: mailto:leej3@dartmouth.edu?Subject=Hello John @CON
+  label: E-Mail
+- kind: github
+  href: https://github.com/leej3
+  label: GitHub
+- kind: linkedin
+  href: https://www.linkedin.com/in/leej3
+  label: LinkedIn
+- kind: orcid
+  href: https://orcid.org/0000-0001-5884-4247
+  label: ORCID
+description_html: "\n      John brings together research imaging, open-source infrastructure, and an industry\
+  \ engineering perspective.\n      His work spans NIH neuroimaging data sharing, AFNI testing infrastructure,\n\
+  \      consulting and independent software work, and reproducible biomedical image transformation. At\
+  \ CON, he works\n      on building and applying the center's tools for reproducibility and provenance\
+  \ tracking to healthcare image data,\n      with an interest in auditable autonomous systems for scientific\
+  \ research and clinical translation.\n    "

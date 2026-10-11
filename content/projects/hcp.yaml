@@ -1,0 +1,18 @@
+project: hcp
+display_name: HCP
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 43
+source_page: whoweare
+logo:
+  href: http://www.humanconnectome.org/
+  src: /theme/img/3rd/hcp_logo.png
+  alt: HCP
+  title: HCP
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

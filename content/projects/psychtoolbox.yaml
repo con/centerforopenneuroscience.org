@@ -1,0 +1,18 @@
+project: psychtoolbox
+display_name: Psychtoolbox
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 59
+source_page: whoweare
+logo:
+  href: http://psychtoolbox.org/
+  src: /theme/img/3rd/psychtoolbox_logo.png
+  alt: Psychtoolbox
+  title: 'Psychtoolbox: Matlab/Octave Psychophysics Toolbox'
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

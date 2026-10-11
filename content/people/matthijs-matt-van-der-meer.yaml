@@ -1,0 +1,28 @@
+person: matthijs-matt-van-der-meer
+display_name: Matthijs (Matt) van der Meer
+anchor_id: null
+tier: Affiliated Faculty
+order: 18
+positions:
+- Associate Professor
+portrait: /theme/img/team/mvdm.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: email
+  href: mailto:mvdm at dartmouth dot edu
+  label: E-Mail
+- kind: research
+  href: http://www.vandermeerlab.org/
+  label: Lab Web Page
+- kind: cv
+  href: http://vandermeerlab.org/mvdm_cv.pdf
+  label: CV
+- kind: github
+  href: https://github.com/vandermeerlab
+  label: GitHub
+- kind: orcid
+  href: https://orcid.org/0000-0002-2206-4473
+  label: ORCID
+description_html: "\n      Matt is an Associate Professor of Psychological and\n      Brain Sciences at\
+  \ Dartmouth. His lab studies how\n      ensembles of neurons across multiple brain areas\n      organize\
+  \ experience in the service of adaptive behavior.\n      "

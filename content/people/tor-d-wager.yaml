@@ -1,0 +1,31 @@
+person: tor-d-wager
+display_name: Tor D. Wager
+anchor_id: null
+tier: Affiliated Faculty
+order: 19
+positions:
+- Professor
+portrait: /theme/img/team/tor.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: email
+  href: mailto:Tor dot D dot Wager at dartmouth dot edu
+  label: E-Mail
+- kind: research
+  href: https://sites.dartmouth.edu/canlab/
+  label: Lab Web Page
+- kind: cv
+  href: https://pbs.dartmouth.edu/sites/pbs/files/tor_wager_cv_current_v2.docx_.pdf
+  label: CV
+- kind: github
+  href: https://github.com/canlab
+  label: GitHub
+- kind: orcid
+  href: https://orcid.org/0000-0002-1936-5574
+  label: ORCID
+description_html: "\n      Dr. Wager and his lab have a dedication toward developing\n      analysis methods\
+  \ for functional neuroimaging and sharing ideas,\n      tools, and scientific data with the scientific\
+  \ community and\n      public.  At the moment Tor is also\n      leading <a href=\"https://www.dartmouth.edu/dbic/\"\
+  >Dartmouth\n      Brain Imaging Center (DBIC)</a> where CON pilots various\n      deployments and automations\
+  \ to improve efficiency and\n      reproducibility in the neuroimaging, and\n      the <a href=\"https://www.dartmouth.edu/ccn/\"\
+  >Center for\n      Cognitive Neuroscience</a>.\n      "

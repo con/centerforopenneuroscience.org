@@ -1,0 +1,22 @@
+project: repronim-reproducible-basics
+display_name: 'ReproNim: Reproducible Basics'
+anchor_id: null
+anchor_duplicated: null
+section: Education
+section_html: <h1>Education</h1>
+section_intro_html: null
+order: 29
+source_page: projects
+logo: null
+people_referenced:
+- yaroslav_o_halchenko_
+body_html: "\n\t<p>\n\t  <a href=\"http://www.reproducibleimaging.org/module-reproducible-basics\">Reproducible\n\
+  \t  Basics</a> training module of the ReproNim training curriculum\n\t  presents daily core tools (shell,\
+  \ version control, etc) and\n\t  explains how you could make your research more reproducible\n\t  having\
+  \ gained improved knowledge of them.\n\t</p>\n\t<ul>\n\t  <li>\n\t\t<a href=\"/whoweare#yaroslav_o_halchenko_\"\
+  \ class=\"centroid\">Y.O. Halchenko</a>\n\t\tet al.\n\t  </li>\n\t</ul>\n  "
+row_html: "<div class=\"row\">\n\t<h2>ReproNim: Reproducible Basics</h2>\n\t<p>\n\t  <a href=\"http://www.reproducibleimaging.org/module-reproducible-basics\"\
+  >Reproducible\n\t  Basics</a> training module of the ReproNim training curriculum\n\t  presents daily\
+  \ core tools (shell, version control, etc) and\n\t  explains how you could make your research more reproducible\n\
+  \t  having gained improved knowledge of them.\n\t</p>\n\t<ul>\n\t  <li>\n\t\t<a href=\"/whoweare#yaroslav_o_halchenko_\"\
+  \ class=\"centroid\">Y.O. Halchenko</a>\n\t\tet al.\n\t  </li>\n\t</ul>\n  </div>"

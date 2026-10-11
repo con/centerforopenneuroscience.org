@@ -1,0 +1,18 @@
+project: git-annex
+display_name: git-annex
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 42
+source_page: whoweare
+logo:
+  href: http://git-annex.branchable.com
+  src: /theme/img/3rd/git-annex_logo.png
+  alt: git-annex
+  title: git-annex
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

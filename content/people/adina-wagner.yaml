@@ -1,0 +1,30 @@
+person: adina-wagner
+display_name: Adina Wagner
+anchor_id: null
+tier: Collaborators
+order: 7
+positions:
+- INM-7, Research Centre Julich, Germany
+portrait: /theme/img/team/adina.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: github
+  href: https://github.com/adswa
+  label: GitHub
+- kind: twitter
+  href: https://twitter.com/AdinaKrik
+  label: Twitter
+- kind: email
+  href: mailto:adina.wagner@t-online.de
+  label: E-Mail
+- kind: linkedin
+  href: https://www.linkedin.com/in/adina-wagner-611379123/
+  label: LinkedIn
+- kind: orcid
+  href: https://orcid.org/0000-0003-2917-3450
+  label: ORCID
+description_html: "\n        Ph.D. student in Michael Hanke's\n        Psychoinformatics Lab and the lead\
+  \ of the amazing <a href=\"http://handbook.datalad.org\">DataLad Handbook</a>.\n        Looks like a\
+  \ Clinical Psychologist on\n        paper, but strives for an open-science conducting, open-software\
+  \ developing\n        secret identity thanks to inspirational influences from Michael, Yarik,\n    \
+  \    Benjamin, and many more.\n        project.\n      "

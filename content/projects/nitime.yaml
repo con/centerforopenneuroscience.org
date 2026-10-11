@@ -1,0 +1,18 @@
+project: nitime
+display_name: Nitime
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 51
+source_page: whoweare
+logo:
+  href: https://nipy.org/nitime/
+  src: /theme/img/3rd/nitime_logo.png
+  alt: Nitime
+  title: Nitime
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

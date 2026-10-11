@@ -1,0 +1,36 @@
+person: horeaioan-ioanas
+display_name: Horea-Ioan Ioanas
+anchor_id: null
+tier: Emeritus
+order: 32
+positions:
+- Research Scientist
+portrait: /theme/img/team/chr.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: email
+  href: mailto:chr@chymera.eu
+  label: E-Mail
+- kind: research
+  href: https://www.researchgate.net/profile/Horea-Christian
+  label: Research Page
+- kind: cv
+  href: https://chymera.eu
+  label: CV
+- kind: twitter
+  href: https://twitter.com/TheChymera
+  label: Twitter
+- kind: github
+  href: https://github.com/TheChymera
+  label: GitHub
+- kind: linkedin
+  href: https://www.linkedin.com/in/horeachristian
+  label: LinkedIn
+- kind: orcid
+  href: https://orcid.org/0000-0001-7037-2449
+  label: ORCID
+description_html: "\n\t\t\tWorked on <a href=\"/projects#dandi_\">DANDI</a> and related projects.\n\t\t\
+  \tSkilled in Python, Gentoo Linux, magnetic resonance imaging, neuroscience, and psychopharmacology.\n\
+  \t\t<ul>\n\t\t  <li>Ioanas H-I, Macdonald A and Halchenko YO (2024) Neuroimaging article reexecution\
+  \ and reproduction assessment system. Front. Neuroinform. 18:1376022.\n\t\t\t<a href=\"https://doi.org/10.3389/fninf.2024.1376022\"\
+  >DOI:10.3389/fninf.2024.1376022</a>\n\t\t  </li>\n\t\t</ul>\n\n\t\t"

@@ -180,6 +180,21 @@ dd {
   background-image: url("../img/contact/linkedin.svg");
 }
 /* line 58, ../../sass/pages/home/_footer.scss */
+/* `.contact a` sets a default background-image (twitter.svg), so a class
+   with no rule of its own silently renders as the Twitter bird.  These three
+   are emitted by scripts/render_whoweare.py and had no rule. */
+.contact .web {
+  background-image: url("../img/contact/home.svg");
+}
+
+.contact .scholar {
+  background-image: url("../img/contact/research.svg");
+}
+
+.contact .bluesky {
+  background-image: url("../img/contact/twitter.svg");
+}
+
 .contact .github {
   background-image: url("../img/contact/github.svg");
 }

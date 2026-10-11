@@ -1,0 +1,18 @@
+project: scikit-learn
+display_name: scikit-learn
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 65
+source_page: whoweare
+logo:
+  href: http://scikit-learn.org/stable/
+  src: /theme/img/3rd/scikit-learn_logo.png
+  alt: scikit-learn
+  title: scikit-learn
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

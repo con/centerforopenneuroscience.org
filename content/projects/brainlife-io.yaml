@@ -1,0 +1,18 @@
+project: brainlife-io
+display_name: brainlife.io
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 35
+source_page: whoweare
+logo:
+  href: https://brainlife.io/
+  src: /theme/img/3rd/brainlife_logo.png
+  alt: brainlife.io
+  title: brainlife.io
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

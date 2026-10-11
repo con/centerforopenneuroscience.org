@@ -1,0 +1,18 @@
+project: pynn
+display_name: PyNN
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 60
+source_page: whoweare
+logo:
+  href: https://neuralensemble.org/PyNN/
+  src: /theme/img/3rd/pynn_logo.png
+  alt: PyNN
+  title: PyNN
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

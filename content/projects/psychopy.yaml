@@ -1,0 +1,18 @@
+project: psychopy
+display_name: PsychoPy
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 58
+source_page: whoweare
+logo:
+  href: http://www.psychopy.org/
+  src: /theme/img/3rd/psychopy_logo.png
+  alt: PsychoPy
+  title: PsychoPy
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

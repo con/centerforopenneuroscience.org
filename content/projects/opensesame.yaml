@@ -1,0 +1,18 @@
+project: opensesame
+display_name: opensesame
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 55
+source_page: whoweare
+logo:
+  href: http://osdoc.cogsci.nl/
+  src: /theme/img/3rd/opensesame_logo.png
+  alt: opensesame
+  title: 'OpenSesame: Graphical experiment builder'
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

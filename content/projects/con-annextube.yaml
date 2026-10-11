@@ -1,0 +1,33 @@
+project: con-annextube
+display_name: con/annextube
+anchor_id: annextube
+anchor_duplicated: false
+section: Software
+section_html: <h1 style="margin-top:20px">Software</h1>
+section_intro_html: null
+order: 15
+source_page: projects
+logo: null
+people_referenced: []
+body_html: "\n\t<p>\n\t  <a href=\"https://github.com/con/annextube\">con/annextube</a> is a YouTube-channel\n\
+  \t  archiving system that uses <a href=\"http://git-annex.branchable.com\">git-annex</a>\n\t  for efficient,\
+  \ incremental storage of videos, metadata, comments, and captions.\n\t  Archives are browsable offline\
+  \ through a client-side web interface generated\n\t  by annextube itself. Actively maintained archives\
+  \ include:\n\t</p>\n\t<ul>\n\t  <li>\n\t\t<a href=\"https://datasets.datalad.org/centerforopenneuroscience/contube/web/\"\
+  >CON/tube</a>\n\t\t— CON's own channel archive\n\t\t(<a href=\"https://datasets.datalad.org/?dir=/centerforopenneuroscience/contube\"\
+  >dataset</a>)\n\t  </li>\n\t  <li>\n\t\t<a href=\"https://datasets.datalad.org/repronim/ReproTube/web/\"\
+  >ReproTube</a>\n\t\t— archive covering channels from <a href=\"http://repronim.org\">ReproNim</a>,\n\
+  \t\t<a href=\"https://afni.nimh.nih.gov\">AFNI</a>, <a href=\"https://datalad.org\">DataLad</a>,\n\t\
+  \tand others\n\t\t(<a href=\"https://datasets.datalad.org/?dir=/repronim/ReproTube\">dataset</a>)\n\t\
+  \  </li>\n\t</ul>\n  "
+row_html: "<div class=\"row\">\n\t<h2 id=\"annextube\">con/annextube</h2>\n\t<p>\n\t  <a href=\"https://github.com/con/annextube\"\
+  >con/annextube</a> is a YouTube-channel\n\t  archiving system that uses <a href=\"http://git-annex.branchable.com\"\
+  >git-annex</a>\n\t  for efficient, incremental storage of videos, metadata, comments, and captions.\n\
+  \t  Archives are browsable offline through a client-side web interface generated\n\t  by annextube itself.\
+  \ Actively maintained archives include:\n\t</p>\n\t<ul>\n\t  <li>\n\t\t<a href=\"https://datasets.datalad.org/centerforopenneuroscience/contube/web/\"\
+  >CON/tube</a>\n\t\t— CON's own channel archive\n\t\t(<a href=\"https://datasets.datalad.org/?dir=/centerforopenneuroscience/contube\"\
+  >dataset</a>)\n\t  </li>\n\t  <li>\n\t\t<a href=\"https://datasets.datalad.org/repronim/ReproTube/web/\"\
+  >ReproTube</a>\n\t\t— archive covering channels from <a href=\"http://repronim.org\">ReproNim</a>,\n\
+  \t\t<a href=\"https://afni.nimh.nih.gov\">AFNI</a>, <a href=\"https://datalad.org\">DataLad</a>,\n\t\
+  \tand others\n\t\t(<a href=\"https://datasets.datalad.org/?dir=/repronim/ReproTube\">dataset</a>)\n\t\
+  \  </li>\n\t</ul>\n  </div>"

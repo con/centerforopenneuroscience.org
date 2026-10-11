@@ -1,0 +1,18 @@
+project: freeipmi
+display_name: FreeIPMI
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 38
+source_page: whoweare
+logo:
+  href: https://www.gnu.org/software/freeipmi/
+  src: /theme/img/3rd/freeipmi_logo.png
+  alt: FreeIPMI
+  title: FreeIPMI
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

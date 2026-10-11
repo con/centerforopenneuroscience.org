@@ -1,0 +1,35 @@
+project: neurodata-without-borders-neurophysiology-nwb-n
+display_name: 'Neurodata Without Borders: Neurophysiology (NWB:N)'
+anchor_id: nwb
+anchor_duplicated: false
+section: Standards
+section_html: <h1>Standards</h1>
+section_intro_html: null
+order: 27
+source_page: projects
+logo:
+  href: https://www.nwb.org/
+  src: /theme/img/3rd/nwb_logo.png
+  alt: NWB
+  class: pull-left
+  style: width:255px;padding-right:10px;margin-top:0em;
+people_referenced: []
+body_html: "\n\t<figure>\n      <a href=\"https://www.nwb.org/\">\n\t\t<img src=\"/theme/img/3rd/nwb_logo.png\"\
+  \ alt=\"NWB\"\n\t\t\t class=\"pull-left\"\n\t\t\t style=\"width:255px;padding-right:10px;margin-top:0em;\"\
+  \ />\n\t  </a>\n    </figure>\n\t<p>\n\t  <a href=\"https://www.nwb.org/\">NWB:N</a> is a data standard\
+  \ for\n\t  neurophysiology, providing neuroscientists with a common\n\t  standard to share, archive,\
+  \ use, and build analysis tools for\n\t  neurophysiology data. It is a standard supported\n\t  by <a\
+  \ href=\"#bids\">BIDS</a> and the <a href=\"#dandi\">DANDI\n\t\tarchive</a>.\n\t</p>\n\t<ul>\n\t  <li>\n\
+  \t\t<a href=\"https://github.com/con/nwb2bids\">con/nwb2bids</a>:\n\t\ta CON tool to reorganize NWB\
+  \ files into a BIDS directory layout, enabling\n\t\tNWB-format datasets to be shared and validated using\
+  \ BIDS conventions.\n\t  </li>\n\t</ul>\n  "
+row_html: "<div class=\"row\">\n\t<h2 id=\"nwb\">Neurodata Without Borders: Neurophysiology (NWB:N)</h2>\n\
+  \t<figure>\n      <a href=\"https://www.nwb.org/\">\n\t\t<img src=\"/theme/img/3rd/nwb_logo.png\" alt=\"\
+  NWB\"\n\t\t\t class=\"pull-left\"\n\t\t\t style=\"width:255px;padding-right:10px;margin-top:0em;\" />\n\
+  \t  </a>\n    </figure>\n\t<p>\n\t  <a href=\"https://www.nwb.org/\">NWB:N</a> is a data standard for\n\
+  \t  neurophysiology, providing neuroscientists with a common\n\t  standard to share, archive, use, and\
+  \ build analysis tools for\n\t  neurophysiology data. It is a standard supported\n\t  by <a href=\"\
+  #bids\">BIDS</a> and the <a href=\"#dandi\">DANDI\n\t\tarchive</a>.\n\t</p>\n\t<ul>\n\t  <li>\n\t\t\
+  <a href=\"https://github.com/con/nwb2bids\">con/nwb2bids</a>:\n\t\ta CON tool to reorganize NWB files\
+  \ into a BIDS directory layout, enabling\n\t\tNWB-format datasets to be shared and validated using BIDS\
+  \ conventions.\n\t  </li>\n\t</ul>\n  </div>"

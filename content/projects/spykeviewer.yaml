@@ -1,0 +1,18 @@
+project: spykeviewer
+display_name: Spykeviewer
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 67
+source_page: whoweare
+logo:
+  href: https://neuralensemble.org/SpykeViewer/
+  src: /theme/img/3rd/spykeviewer_logo.png
+  alt: Spykeviewer
+  title: Spykeviewer
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

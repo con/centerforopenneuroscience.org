@@ -1,0 +1,18 @@
+project: dipy
+display_name: Dipy
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 37
+source_page: whoweare
+logo:
+  href: https://dipy.org/
+  src: /theme/img/3rd/dipy_logo.png
+  alt: Dipy
+  title: Dipy
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

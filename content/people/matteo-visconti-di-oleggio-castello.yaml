@@ -1,0 +1,32 @@
+person: matteo-visconti-di-oleggio-castello
+display_name: Matteo Visconti di Oleggio Castello
+anchor_id: null
+tier: Emeritus
+order: 23
+positions:
+- UC Berkeley, CA
+portrait: /theme/img/team/matteo.jpg
+portrait_attrs: /
+contacts:
+- kind: email
+  href: mailto:matteo.visconti.gr@dartmouth.edu
+  label: E-Mail
+- kind: research
+  href: https://matteovisconti.com/
+  label: Web Page
+- kind: twitter
+  href: https://twitter.com/MatteoVdOC
+  label: Twitter
+- kind: github
+  href: https://github.com/mvdoc
+  label: GitHub
+- kind: linkedin
+  href: https://www.linkedin.com/in/matteovisconti
+  label: LinkedIn
+- kind: orcid
+  href: https://orcid.org/0000-0001-7931-5272
+  label: ORCID
+description_html: "\n\t\t  Formerly a Ph.D. student in Cognitive Neuroscience at Dartmouth, holds a M.Sc.\
+  \ in\n\t\t  Cognitive Science from the University of Trento, Italy and a degree in\n\t\t  Mathematics\
+  \ from the University of Torino, Italy. Co-developer of the\n\t\t  <a href=\"/projects#duecredit_\"\
+  >DueCredit</a> project.\n\t\t"

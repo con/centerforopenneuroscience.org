@@ -1,0 +1,18 @@
+project: utopia-documents
+display_name: Utopia Documents
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 70
+source_page: whoweare
+logo:
+  href: http://utopiadocs.com/
+  src: /theme/img/3rd/utopia_documents_logo.png
+  alt: Utopia Documents
+  title: Utopia Documents
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

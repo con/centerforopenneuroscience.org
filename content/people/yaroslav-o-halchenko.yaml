@@ -1,0 +1,49 @@
+person: yaroslav-o-halchenko
+display_name: Yaroslav O. Halchenko
+anchor_id: null
+tier: Centroids
+order: 1
+positions:
+- Founding Director
+portrait: /theme/img/team/yarik.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: email
+  href: mailto:yaroslav.o.halchenko@oneukrainian.com
+  label: E-Mail
+- kind: phone
+  href: tel:+1(603)6469834
+  label: +1 (603) 646-9834
+- kind: research
+  href: http://haxbylab.dartmouth.edu/ppl/yarik.html
+  label: Research Page
+- kind: cv
+  href: http://www.oneukrainian.com/resume/halchenko_vita.pdf
+  label: CV
+- kind: twitter
+  href: https://twitter.com/yarikoptic
+  label: Twitter
+- kind: mastodon
+  href: https://fosstodon.org/@yarikoptic
+  label: Mastodon
+- kind: facebook
+  href: https://www.facebook.com/yaroslav.halchenko
+  label: FaceBook
+- kind: github
+  href: https://github.com/yarikoptic
+  label: GitHub
+- kind: linkedin
+  href: https://www.linkedin.com/in/yarik
+  label: LinkedIn
+- kind: orcid
+  href: https://orcid.org/0000-0003-3456-2493
+  label: ORCID
+description_html: "\n\t\t  Research Professor of Psychological and Brain\n\t\t  Sciences and\n\t\t  Adjunct\
+  \ Professor of Computer Science at Dartmouth,\n\t\t  official Debian Developer,\n\t\t  contributor to\
+  \ <a href=\"https://www.openhub.net/accounts/yarikoptic\">many</a> open source projects\n\t\t  -- Yaroslav\
+  \ (AKA Yarik) is a lead of\n\t\t  <a href=\"/projects#dandi_\">DANDI</a>,\n\t\t  <a href=\"/projects#datalad_\"\
+  >DataLad</a>,\n\t\t  <a href=\"/projects#pymvpa_\">PyMVPA</a>,\n\t\t  <a href=\"/projects#neurodebian_\"\
+  >NeuroDebian</a>,\n\t\t  and other\n\t\t  <a href=\"/projects\">projects</a>.  He is also currently\n\
+  \t\t  serving on BIDS standard Steering and <a href=\"/projects#neurodata_without_borders__neurophysiology_nwb_n_\"\
+  >NWB</a> standard technical\n\t\t  advisory committees, and engaged in various other\n\t\t  initiatives,\
+  \ projects, and efforts.\n\t\t"

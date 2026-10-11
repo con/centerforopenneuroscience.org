@@ -1,0 +1,18 @@
+project: xnat
+display_name: XNAT
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 71
+source_page: whoweare
+logo:
+  href: http://www.xnat.org/
+  src: /theme/img/3rd/xnat_logo.png
+  alt: XNAT
+  title: XNAT
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

@@ -1,0 +1,47 @@
+project: quail
+display_name: Quail
+anchor_id: null
+anchor_duplicated: null
+section: Software
+section_html: <h1 style="margin-top:20px">Software</h1>
+section_intro_html: null
+order: 21
+source_page: projects
+logo:
+  href: https://cdl-quail.readthedocs.io/en/latest/
+  src: /theme/img/3rd/quail_logo.png
+  alt: Quail
+  class: pull-left
+  style: width:155px;margin-right:30px;margin-top:0.5em;
+people_referenced:
+- jeremy_rothman_manning_
+body_html: "\n\t    <figure>\n          <a href=\"https://cdl-quail.readthedocs.io/en/latest/\">\n\t\t\
+  \          <img src=\"/theme/img/3rd/quail_logo.png\" alt=\"Quail\"\n\t\t\t             class=\"pull-left\"\
+  \n\t\t\t             style=\"width:155px;margin-right:30px;margin-top:0.5em;\" />\n\t        </a>\n\
+  \      </figure>\n\n\t    <p>\n\t        <a href=\"https://cdl-quail.readthedocs.io/en/latest/\">Quail</a>\n\
+  \          is a Python toolbox for analyzing data from free recall memory experiments.  Some key features\
+  \ include:</p>\n\t\t\t<ul>\n              <li> A simple data structure for storing encoding and recall\
+  \ data</li>\n              <li> A set of functions for analyzing data by computing standard memory performance\
+  \ metrics</li>\n              <li> A simple API for customizing plot styles</li>\n              <li>\
+  \ Support for \"naturalistic\" stimuli such as movies, texts, and speech data</li>\n              <li>\
+  \ A set of powerful tools for importing data, automatically transcribing audio files (speech-to-text),\
+  \ and more</li>\n\t\t\t</ul>\n\t\t\t<ul>\n\t        <li>A.C. Heusser, P.C. Fitzpatrick, C.E. Field,\
+  \ K. Ziman, and\n\t        <a href=\"/whoweare#jeremy_rothman_manning_\" class=\"centroid\">J.R. Manning</a>\n\
+  \t        (2017).\n\t\t\t<a href=\"http://joss.theoj.org/papers/3fb5123eb2538e06f6a25ded0a088b73\">Quail:\
+  \ A Python toolbox for analyzing and plotting free recall data</a>.  The Journal of Open Source Software,\
+  \ 2(18): 424.</li>\n\t    </ul>\n  "
+row_html: "<div class=\"row\">\n\t    <h2>Quail</h2>\n\t    <figure>\n          <a href=\"https://cdl-quail.readthedocs.io/en/latest/\"\
+  >\n\t\t          <img src=\"/theme/img/3rd/quail_logo.png\" alt=\"Quail\"\n\t\t\t             class=\"\
+  pull-left\"\n\t\t\t             style=\"width:155px;margin-right:30px;margin-top:0.5em;\" />\n\t   \
+  \     </a>\n      </figure>\n\n\t    <p>\n\t        <a href=\"https://cdl-quail.readthedocs.io/en/latest/\"\
+  >Quail</a>\n          is a Python toolbox for analyzing data from free recall memory experiments.  Some\
+  \ key features include:</p>\n\t\t\t<ul>\n              <li> A simple data structure for storing encoding\
+  \ and recall data</li>\n              <li> A set of functions for analyzing data by computing standard\
+  \ memory performance metrics</li>\n              <li> A simple API for customizing plot styles</li>\n\
+  \              <li> Support for \"naturalistic\" stimuli such as movies, texts, and speech data</li>\n\
+  \              <li> A set of powerful tools for importing data, automatically transcribing audio files\
+  \ (speech-to-text), and more</li>\n\t\t\t</ul>\n\t\t\t<ul>\n\t        <li>A.C. Heusser, P.C. Fitzpatrick,\
+  \ C.E. Field, K. Ziman, and\n\t        <a href=\"/whoweare#jeremy_rothman_manning_\" class=\"centroid\"\
+  >J.R. Manning</a>\n\t        (2017).\n\t\t\t<a href=\"http://joss.theoj.org/papers/3fb5123eb2538e06f6a25ded0a088b73\"\
+  >Quail: A Python toolbox for analyzing and plotting free recall data</a>.  The Journal of Open Source\
+  \ Software, 2(18): 424.</li>\n\t    </ul>\n  </div>"

@@ -1,0 +1,18 @@
+project: stimfit
+display_name: Stimfit
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 69
+source_page: whoweare
+logo:
+  href: https://github.com/neurodroid/stimfit
+  src: /theme/img/3rd/stimfit_logo.png
+  alt: Stimfit
+  title: Stimfit
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

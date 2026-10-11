@@ -1,0 +1,6213 @@
+{
+ "debian_changelogs": [
+  {
+   "kind": "debian-changelog",
+   "checkout": "Psignifit-3.x",
+   "source": "pkg-exppsy:Psignifit-3.x/debian/changelog",
+   "first": {
+    "source_package": "psignifit",
+    "version": "3.0~beta.20111109.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 38,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-11-09",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "psignifit",
+    "version": "3.0~beta.20120309.1-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Nikolaus Valentin H\u00e4nel <valentin.haenel@gmx.de>",
+    "date": "2012-03-15",
+    "is_lower_bound": true
+   },
+   "n_entries": 3,
+   "first_by_us": {
+    "source_package": "psignifit",
+    "version": "3.0~beta.20111109.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 38,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-11-09",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "afni",
+   "source": "pkg-exppsy:afni/debian/changelog",
+   "first": {
+    "source_package": "afni",
+    "version": "0.20091009~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 529,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-10-18",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "afni",
+    "version": "18.0.05+git24-gb25b21054~dfsg.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2018-01-23",
+    "is_lower_bound": true
+   },
+   "n_entries": 44,
+   "first_by_us": {
+    "source_package": "afni",
+    "version": "0.20091009~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 529,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-10-18",
+    "is_lower_bound": true
+   },
+   "n_by_us": 39
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "afni-data",
+   "source": "pkg-exppsy:afni-data/debian/changelog",
+   "first": {
+    "source_package": "afni-data",
+    "version": "0.20101021-1",
+    "dist": "data",
+    "released": true,
+    "line": 50,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-21",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "afni-data",
+    "version": "0.20180120-1",
+    "dist": "data",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2018-01-20",
+    "is_lower_bound": true
+   },
+   "n_entries": 6,
+   "first_by_us": {
+    "source_package": "afni-data",
+    "version": "0.20101021-1",
+    "dist": "data",
+    "released": true,
+    "line": 50,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-21",
+    "is_lower_bound": true
+   },
+   "n_by_us": 6
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "afni-redone",
+   "source": "pkg-exppsy:afni-redone/debian/changelog",
+   "first": {
+    "source_package": "afni",
+    "version": "0.20091009~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 486,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-10-18",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "afni",
+    "version": "16.2.07~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2016-08-05",
+    "is_lower_bound": true
+   },
+   "n_entries": 39,
+   "first_by_us": {
+    "source_package": "afni",
+    "version": "0.20091009~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 486,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-10-18",
+    "is_lower_bound": true
+   },
+   "n_by_us": 34
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "afni_atlases",
+   "source": "pkg-exppsy:afni_atlases/debian/changelog",
+   "first": {
+    "source_package": "afni-data",
+    "version": "0.20101021-1",
+    "dist": "data",
+    "released": true,
+    "line": 56,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-21",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "afni-data",
+    "version": "19.12.18-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2019-12-18",
+    "is_lower_bound": true
+   },
+   "n_entries": 7,
+   "first_by_us": {
+    "source_package": "afni-data",
+    "version": "0.20101021-1",
+    "dist": "data",
+    "released": true,
+    "line": 56,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-21",
+    "is_lower_bound": true
+   },
+   "n_by_us": 7
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "ants-oldsvn",
+   "source": "pkg-exppsy:ants-oldsvn/debian/changelog",
+   "first": {
+    "source_package": "ants",
+    "version": "1.9+svn532-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 76,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-04-28",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "ants",
+    "version": "1.9.2+svn680.dfsg-4",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-05-04",
+    "is_lower_bound": true
+   },
+   "n_entries": 9,
+   "first_by_us": {
+    "source_package": "ants",
+    "version": "1.9+svn532-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 76,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-04-28",
+    "is_lower_bound": true
+   },
+   "n_by_us": 9
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "biosig4c++",
+   "source": "pkg-exppsy:biosig4c++/debian/changelog",
+   "first": {
+    "source_package": "biosig4c++",
+    "version": "0.94.1+svn2521-1~pre0",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 187,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-06-11",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "biosig4c++",
+    "version": "1.9.5-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2019-11-16",
+    "is_lower_bound": true
+   },
+   "n_entries": 15,
+   "first_by_us": {
+    "source_package": "biosig4c++",
+    "version": "0.94.1+svn2521-1~pre0",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 187,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-06-11",
+    "is_lower_bound": true
+   },
+   "n_by_us": 11
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "biosig4c--",
+   "source": "pkg-exppsy:biosig4c--/debian/changelog",
+   "first": {
+    "source_package": "biosig4c++",
+    "version": "0.94.1+svn2521-1~pre0",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 116,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-06-11",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "biosig4c++",
+    "version": "1.3.6-1",
+    "dist": "experimental",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-09-07",
+    "is_lower_bound": true
+   },
+   "n_entries": 11,
+   "first_by_us": {
+    "source_package": "biosig4c++",
+    "version": "0.94.1+svn2521-1~pre0",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 116,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-06-11",
+    "is_lower_bound": true
+   },
+   "n_by_us": 9
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "brian",
+   "source": "pkg-exppsy:brian/debian/changelog",
+   "first": {
+    "source_package": "brian",
+    "version": "1.2.2~svn2229-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 108,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-11-02",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "brian2",
+    "version": "2.0.2.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2017-09-27",
+    "is_lower_bound": true
+   },
+   "n_entries": 11,
+   "first_by_us": {
+    "source_package": "brian",
+    "version": "1.2.2~svn2229-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 108,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-11-02",
+    "is_lower_bound": true
+   },
+   "n_by_us": 11
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "caret",
+   "source": "pkg-exppsy:caret/debian/changelog",
+   "first": {
+    "source_package": "caret",
+    "version": "5.5~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 186,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2007-05-22",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "caret",
+    "version": "5.6.6~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2014-04-07",
+    "is_lower_bound": true
+   },
+   "n_entries": 17,
+   "first_by_us": {
+    "source_package": "caret",
+    "version": "5.5~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 186,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2007-05-22",
+    "is_lower_bound": true
+   },
+   "n_by_us": 17
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "caret-data",
+   "source": "pkg-exppsy:caret-data/debian/changelog",
+   "first": {
+    "source_package": "caret-data",
+    "version": "5.5~dfsg.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 22,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2007-07-30",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "caret-data",
+    "version": "5.6.2~dfsg.1-1",
+    "dist": "data",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-03-13",
+    "is_lower_bound": true
+   },
+   "n_entries": 4,
+   "first_by_us": {
+    "source_package": "caret-data",
+    "version": "5.5~dfsg.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 22,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2007-07-30",
+    "is_lower_bound": true
+   },
+   "n_by_us": 4
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "cctools",
+   "source": "pkg-exppsy:cctools/debian/changelog",
+   "first": {
+    "source_package": "cctools",
+    "version": "3.3.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 126,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-05-07",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "cctools",
+    "version": "4.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2013-07-29",
+    "is_lower_bound": true
+   },
+   "n_entries": 14,
+   "first_by_us": {
+    "source_package": "cctools",
+    "version": "3.3.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 126,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-05-07",
+    "is_lower_bound": true
+   },
+   "n_by_us": 14
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "cde",
+   "source": "pkg-exppsy:cde/debian/changelog",
+   "first": {
+    "source_package": "cde",
+    "version": "0.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 9,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-02-03",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "cde",
+    "version": "0.1+git9-g551e54d-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2013-11-17",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "cde",
+    "version": "0.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 9,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-02-03",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "classads",
+   "source": "pkg-exppsy:classads/debian/changelog",
+   "first": {
+    "source_package": "classads",
+    "version": "1.0.3-0ubuntu1",
+    "dist": "karmic",
+    "released": true,
+    "line": 66,
+    "uploader": "Dustin Kirkland <kirkland@ubuntu.com>",
+    "date": "2009-08-18",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "classads",
+    "version": "1.0.10-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-04-15",
+    "is_lower_bound": true
+   },
+   "n_entries": 7,
+   "first_by_us": {
+    "source_package": "classads",
+    "version": "1.0.9-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 16,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2010-12-23",
+    "is_lower_bound": true
+   },
+   "n_by_us": 3
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "cmtk",
+   "source": "pkg-exppsy:cmtk/debian/changelog",
+   "first": {
+    "source_package": "cmtk",
+    "version": "2.1.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 196,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2011-11-22",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "cmtk",
+    "version": "3.3.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2016-09-04",
+    "is_lower_bound": true
+   },
+   "n_entries": 23,
+   "first_by_us": {
+    "source_package": "cmtk",
+    "version": "2.1.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 196,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2011-11-22",
+    "is_lower_bound": true
+   },
+   "n_by_us": 19
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "cnrun",
+   "source": "pkg-exppsy:cnrun/debian/changelog",
+   "first": {
+    "source_package": "cnrun",
+    "version": "1.1.2",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 86,
+    "uploader": "Andrei Zavada <johnhommer@gmail.com>",
+    "date": "2010-03-07",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "cnrun",
+    "version": "2.0.3-1",
+    "dist": "experimental",
+    "released": true,
+    "line": 1,
+    "uploader": "Andrei Zavada <johnhommer@gmail.com>",
+    "date": "2016-01-12",
+    "is_lower_bound": true
+   },
+   "n_entries": 14,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "condor",
+   "source": "pkg-exppsy:condor/debian/changelog",
+   "first": {
+    "source_package": "condor",
+    "version": "7.5.4+git567-gb10f6b4-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 543,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2010-12-26",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "condor",
+    "version": "8.2.3~dfsg.1-4",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2014-11-29",
+    "is_lower_bound": true
+   },
+   "n_entries": 33,
+   "first_by_us": {
+    "source_package": "condor",
+    "version": "7.5.4+git567-gb10f6b4-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 543,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2010-12-26",
+    "is_lower_bound": true
+   },
+   "n_by_us": 32
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "condor-hpc-team",
+   "source": "pkg-exppsy:condor-hpc-team/debian/changelog",
+   "first": {
+    "source_package": "condor",
+    "version": "7.5.4+git567-gb10f6b4-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 819,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2010-12-26",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "condor",
+    "version": "23.2.0+dfsg-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Andreas Tille <tille@debian.org>",
+    "date": "2024-01-05",
+    "is_lower_bound": true
+   },
+   "n_entries": 49,
+   "first_by_us": {
+    "source_package": "condor",
+    "version": "7.5.4+git567-gb10f6b4-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 819,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2010-12-26",
+    "is_lower_bound": true
+   },
+   "n_by_us": 41
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "connectome-workbench",
+   "source": "pkg-exppsy:connectome-workbench/debian/changelog",
+   "first": {
+    "source_package": "connectome-workbench",
+    "version": "0.85+git26-g72866b8-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 326,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2014-04-09",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "connectome-workbench",
+    "version": "2.2.1+dfsg-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2026-08-04",
+    "is_lower_bound": true
+   },
+   "n_entries": 35,
+   "first_by_us": {
+    "source_package": "connectome-workbench",
+    "version": "0.85+git26-g72866b8-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 326,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2014-04-09",
+    "is_lower_bound": true
+   },
+   "n_by_us": 33
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "connectomeviewer",
+   "source": "pkg-exppsy:connectomeviewer/debian/changelog",
+   "first": {
+    "source_package": "connectomeviewer",
+    "version": "2.0.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 11,
+    "uploader": "Stephan Gerhard <debian@unidesign.ch>",
+    "date": "2011-06-06",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "connectomeviewer",
+    "version": "2.1.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Stephan Gerhard <debian@unidesign.ch>",
+    "date": "2011-10-02",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "convert3d",
+   "source": "pkg-exppsy:convert3d/debian/changelog",
+   "first": {
+    "source_package": "convert3d",
+    "version": "0.0.20170606-1~pre1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 10,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2017-06-19",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "convert3d",
+    "version": "0.0.20190204-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2019-08-01",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "convert3d",
+    "version": "0.0.20170606-1~pre1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 10,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2017-06-19",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "dcm2niix-debianmed",
+   "source": "pkg-exppsy:dcm2niix-debianmed/debian/changelog",
+   "first": {
+    "source_package": "dcm2niix",
+    "version": "1.0.20161101-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 203,
+    "uploader": "Ghislain Antony Vaillant <ghisvail@gmail.com>",
+    "date": "2016-12-01",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "dcm2niix",
+    "version": "1.0.20250506-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Andreas Tille <tille@debian.org>",
+    "date": "2025-10-17",
+    "is_lower_bound": true
+   },
+   "n_entries": 23,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "debian-bibliography",
+   "source": "pkg-exppsy:debian-bibliography/debian/changelog",
+   "first": {
+    "source_package": "debian-bibliography",
+    "version": "0.0.2",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-07-22",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "debian-bibliography",
+    "version": "0.0.2",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-07-22",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "debian-bibliography",
+    "version": "0.0.2",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-07-22",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "debruijn",
+   "source": "pkg-exppsy:debruijn/debian/changelog",
+   "first": {
+    "source_package": "debruijn",
+    "version": "1.3-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 28,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-05-27",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "debruijn",
+    "version": "1.6-2",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2013-07-02",
+    "is_lower_bound": true
+   },
+   "n_entries": 4,
+   "first_by_us": {
+    "source_package": "debruijn",
+    "version": "1.3-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 28,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-05-27",
+    "is_lower_bound": true
+   },
+   "n_by_us": 4
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "dicomnifti",
+   "source": "pkg-exppsy:dicomnifti/debian/changelog",
+   "first": {
+    "source_package": "dicomnifti",
+    "version": "2.11-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 253,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2006-08-16",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "dicomnifti",
+    "version": "2.32.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2014-10-02",
+    "is_lower_bound": true
+   },
+   "n_entries": 31,
+   "first_by_us": {
+    "source_package": "dicomnifti",
+    "version": "2.11-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 253,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2006-08-16",
+    "is_lower_bound": true
+   },
+   "n_by_us": 31
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "dipy",
+   "source": "pkg-exppsy:dipy/debian/changelog",
+   "first": {
+    "source_package": "dipy",
+    "version": "0.5.0~dev20110117-1~pre1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 134,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2011-01-17",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "dipy",
+    "version": "0.11.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2016-02-21",
+    "is_lower_bound": true
+   },
+   "n_entries": 13,
+   "first_by_us": {
+    "source_package": "dipy",
+    "version": "0.5.0~dev20110117-1~pre1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 134,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2011-01-17",
+    "is_lower_bound": true
+   },
+   "n_by_us": 13
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "dmtcp",
+   "source": "pkg-exppsy:dmtcp/debian/changelog",
+   "first": {
+    "source_package": "dmtcp",
+    "version": "1.2.0+svn876-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 115,
+    "uploader": "Kapil Arya <kapil@ccs.neu.edu>",
+    "date": "2011-02-03",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "dmtcp",
+    "version": "2.3.1-5",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Kapil Arya <kapil@ccs.neu.edu>",
+    "date": "2014-07-26",
+    "is_lower_bound": true
+   },
+   "n_entries": 14,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "drawtk",
+   "source": "pkg-exppsy:drawtk/debian/changelog",
+   "first": {
+    "source_package": "drawtk",
+    "version": "0.0",
+    "dist": "unstable",
+    "released": true,
+    "line": 71,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@epfl.ch>",
+    "date": "2011-05-11",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "drawtk",
+    "version": "2.0-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-06-14",
+    "is_lower_bound": true
+   },
+   "n_entries": 7,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "eegdev",
+   "source": "pkg-exppsy:eegdev/debian/changelog",
+   "first": {
+    "source_package": "eegdev",
+    "version": "0.0-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 49,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-01-25",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "eegdev",
+    "version": "0.2-3",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-05-23",
+    "is_lower_bound": true
+   },
+   "n_entries": 5,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "eeglab",
+   "source": "pkg-exppsy:eeglab/debian/changelog",
+   "first": {
+    "source_package": "eeglab11",
+    "version": "11.0.0.0~b~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-04-14",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "eeglab11",
+    "version": "11.0.0.0~b~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-04-14",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "eeglab11",
+    "version": "11.0.0.0~b~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-04-14",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "eegview",
+   "source": "pkg-exppsy:eegview/debian/changelog",
+   "first": {
+    "source_package": "eegview",
+    "version": "0.0-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 8,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-01-22",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "eegview",
+    "version": "0.0-2",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2016-02-24",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "eegview",
+    "version": "0.0-2",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2016-02-24",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "etelemetry",
+   "source": "pkg-exppsy:etelemetry/debian/changelog",
+   "first": {
+    "source_package": "python-etelemetry",
+    "version": "0.1.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 17,
+    "uploader": "Andreas Tille <tille@debian.org>",
+    "date": "2020-02-25",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "python-etelemetry",
+    "version": "0.2.0-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-03-23",
+    "is_lower_bound": true
+   },
+   "n_entries": 3,
+   "first_by_us": {
+    "source_package": "python-etelemetry",
+    "version": "0.2.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 9,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-03-22",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "expyriment",
+   "source": "pkg-exppsy:expyriment/debian/changelog",
+   "first": {
+    "source_package": "python-expyriment",
+    "version": "0.7.0+git34-g55a4e7e-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 29,
+    "uploader": "Oliver Lindemann <oliver.lindemann@uni-potsdam.de>",
+    "date": "2014-03-26",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "python-expyriment",
+    "version": "0.7.0+git34-g55a4e7e-4",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2014-04-12",
+    "is_lower_bound": true
+   },
+   "n_entries": 4,
+   "first_by_us": {
+    "source_package": "python-expyriment",
+    "version": "0.7.0+git34-g55a4e7e-3",
+    "dist": "unstable",
+    "released": true,
+    "line": 7,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2014-04-10",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "freesurfer",
+   "source": "pkg-exppsy:freesurfer/debian/changelog",
+   "first": {
+    "source_package": "freesurfer",
+    "version": "5~cvs20110426-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 57,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-04-30",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "freesurfer",
+    "version": "5.1.0+dev+cvs20120104-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2013-02-12",
+    "is_lower_bound": true
+   },
+   "n_entries": 8,
+   "first_by_us": {
+    "source_package": "freesurfer",
+    "version": "5~cvs20110426-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 57,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-04-30",
+    "is_lower_bound": true
+   },
+   "n_by_us": 4
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "freesurfer-extlibs-sloppy",
+   "source": "pkg-exppsy:freesurfer-extlibs-sloppy/debian/changelog",
+   "first": {
+    "source_package": "freesurfer-extlibs-sloppy",
+    "version": "20160907-1~ndall+1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 14,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2016-09-07",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "freesurfer-extlibs-sloppy",
+    "version": "20180917-1~ndall+1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2018-12-14",
+    "is_lower_bound": true
+   },
+   "n_entries": 3,
+   "first_by_us": {
+    "source_package": "freesurfer-extlibs-sloppy",
+    "version": "20160907-1~ndall+1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 14,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2016-09-07",
+    "is_lower_bound": true
+   },
+   "n_by_us": 3
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "freesurfer-full",
+   "source": "pkg-exppsy:freesurfer-full/debian/changelog",
+   "first": {
+    "source_package": "freesurfer",
+    "version": "5~cvs20110426-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 55,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-04-30",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "freesurfer",
+    "version": "5.1.0+dev+cvs20120104-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2013-02-12",
+    "is_lower_bound": true
+   },
+   "n_entries": 8,
+   "first_by_us": {
+    "source_package": "freesurfer",
+    "version": "5~cvs20110426-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 55,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-04-30",
+    "is_lower_bound": true
+   },
+   "n_by_us": 4
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "fscacher",
+   "source": "pkg-exppsy:fscacher/debian/changelog",
+   "first": {
+    "source_package": "fscacher",
+    "version": "0.4.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2024-06-05",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "fscacher",
+    "version": "0.4.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2024-06-05",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "fscacher",
+    "version": "0.4.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2024-06-05",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "fsl",
+   "source": "pkg-exppsy:fsl/debian/changelog",
+   "first": {
+    "source_package": "fsl",
+    "version": "3.2beta-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 871,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2005-12-28",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "fsl",
+    "version": "5.0.9-5",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2018-12-21",
+    "is_lower_bound": true
+   },
+   "n_entries": 85,
+   "first_by_us": {
+    "source_package": "fsl",
+    "version": "3.2beta-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 871,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2005-12-28",
+    "is_lower_bound": true
+   },
+   "n_by_us": 83
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "fsl-feeds",
+   "source": "pkg-exppsy:fsl-feeds/debian/changelog",
+   "first": {
+    "source_package": "fsl-feeds",
+    "version": "3.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 123,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2005-09-30",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "fsl-feeds",
+    "version": "5.0.4-1",
+    "dist": "data",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2013-05-10",
+    "is_lower_bound": true
+   },
+   "n_entries": 17,
+   "first_by_us": {
+    "source_package": "fsl-feeds",
+    "version": "3.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 123,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2005-09-30",
+    "is_lower_bound": true
+   },
+   "n_by_us": 17
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "fsldata",
+   "source": "pkg-exppsy:fsldata/debian/changelog",
+   "first": {
+    "source_package": "fsldata",
+    "version": "4.0.0-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 163,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2007-08-16",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "fsldata",
+    "version": "5.0.7-2",
+    "dist": "data",
+    "released": true,
+    "line": 10,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2015-07-17",
+    "is_lower_bound": true
+   },
+   "n_entries": 22,
+   "first_by_us": {
+    "source_package": "fsldata",
+    "version": "4.0.0-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 163,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2007-08-16",
+    "is_lower_bound": true
+   },
+   "n_by_us": 22
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "fsleyes",
+   "source": "pkg-exppsy:fsleyes/debian/changelog",
+   "first": {
+    "source_package": "fsleyes",
+    "version": "0.10.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 33,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2017-04-27",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "fsleyes",
+    "version": "0.15.2-2",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-05-11",
+    "is_lower_bound": true
+   },
+   "n_entries": 6,
+   "first_by_us": {
+    "source_package": "fsleyes",
+    "version": "0.10.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 33,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2017-04-27",
+    "is_lower_bound": true
+   },
+   "n_by_us": 6
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "fsleyes-props",
+   "source": "pkg-exppsy:fsleyes-props/debian/changelog",
+   "first": {
+    "source_package": "props",
+    "version": "0.10.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 34,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2017-04-27",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "fsleyes-props",
+    "version": "1.2.1-4",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-05-11",
+    "is_lower_bound": true
+   },
+   "n_entries": 5,
+   "first_by_us": {
+    "source_package": "props",
+    "version": "0.10.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 34,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2017-04-27",
+    "is_lower_bound": true
+   },
+   "n_by_us": 5
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "fsleyes-widgets",
+   "source": "pkg-exppsy:fsleyes-widgets/debian/changelog",
+   "first": {
+    "source_package": "fsleyes-widgets",
+    "version": "0.1.0-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 21,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2017-04-27",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "fsleyes-widgets",
+    "version": "0.2.0-3",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-05-11",
+    "is_lower_bound": true
+   },
+   "n_entries": 4,
+   "first_by_us": {
+    "source_package": "fsleyes-widgets",
+    "version": "0.1.0-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 21,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2017-04-27",
+    "is_lower_bound": true
+   },
+   "n_by_us": 4
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "fslmeta",
+   "source": "pkg-exppsy:fslmeta/debian/changelog",
+   "first": {
+    "source_package": "fslmeta",
+    "version": "5.0.2-4",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 40,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2013-03-03",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "fslmeta",
+    "version": "5.0.7-2~ndall0",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 8,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2017-06-16",
+    "is_lower_bound": true
+   },
+   "n_entries": 6,
+   "first_by_us": {
+    "source_package": "fslmeta",
+    "version": "5.0.2-4",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 40,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2013-03-03",
+    "is_lower_bound": true
+   },
+   "n_by_us": 6
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "fslpy",
+   "source": "pkg-exppsy:fslpy/debian/changelog",
+   "first": {
+    "source_package": "fslpy",
+    "version": "0.11.0-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 21,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2017-04-27",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "fslpy",
+    "version": "3.0.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-05-11",
+    "is_lower_bound": true
+   },
+   "n_entries": 4,
+   "first_by_us": {
+    "source_package": "fslpy",
+    "version": "0.11.0-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 21,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2017-04-27",
+    "is_lower_bound": true
+   },
+   "n_by_us": 4
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "fslpy-1.2.2",
+   "source": "pkg-exppsy:fslpy-1.2.2/debian/changelog",
+   "first": {
+    "source_package": "fslpy",
+    "version": "0.11.0-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 17,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2017-04-27",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "fslpy",
+    "version": "1.2.2-1~nd+1",
+    "dist": "sid",
+    "released": true,
+    "line": 1,
+    "uploader": "NeuroDebian Team <team@neuro.debian.net>",
+    "date": "2017-10-22",
+    "is_lower_bound": true
+   },
+   "n_entries": 3,
+   "first_by_us": {
+    "source_package": "fslpy",
+    "version": "0.11.0-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 17,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2017-04-27",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "fslview",
+   "source": "pkg-exppsy:fslview/debian/changelog",
+   "first": {
+    "source_package": "fslview",
+    "version": "3.0+4.0.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 250,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2007-08-15",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "fslview",
+    "version": "4.0.1-7",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2016-05-27",
+    "is_lower_bound": true
+   },
+   "n_entries": 29,
+   "first_by_us": {
+    "source_package": "fslview",
+    "version": "3.0+4.0.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 250,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2007-08-15",
+    "is_lower_bound": true
+   },
+   "n_by_us": 29
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "gifticlib",
+   "source": "pkg-exppsy:gifticlib/debian/changelog",
+   "first": {
+    "source_package": "gifticlib",
+    "version": "1.0.8-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 18,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-04-25",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "gifticlib",
+    "version": "1.0.9-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2018-01-25",
+    "is_lower_bound": true
+   },
+   "n_entries": 3,
+   "first_by_us": {
+    "source_package": "gifticlib",
+    "version": "1.0.8-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 18,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-04-25",
+    "is_lower_bound": true
+   },
+   "n_by_us": 3
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "git-annex-remote-rclone",
+   "source": "pkg-exppsy:git-annex-remote-rclone/debian/changelog",
+   "first": {
+    "source_package": "git-annex-remote-rclone",
+    "version": "0.5-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 21,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2017-07-21",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "git-annex-remote-rclone",
+    "version": "0.8-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2023-11-18",
+    "is_lower_bound": true
+   },
+   "n_entries": 3,
+   "first_by_us": {
+    "source_package": "git-annex-remote-rclone",
+    "version": "0.5-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 21,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2017-07-21",
+    "is_lower_bound": true
+   },
+   "n_by_us": 3
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "glew",
+   "source": "pkg-exppsy:glew/debian/changelog",
+   "first": {
+    "source_package": "glew",
+    "version": "1.0.6-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 482,
+    "uploader": "Marcelo E. Magallon <mmagallo@debian.org>",
+    "date": "2003-03-30",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "glew",
+    "version": "1.9.0-3~bnd1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-12-12",
+    "is_lower_bound": true
+   },
+   "n_entries": 57,
+   "first_by_us": {
+    "source_package": "glew",
+    "version": "1.9.0-3~bnd0",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 8,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-12-11",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "griddata",
+   "source": "pkg-exppsy:griddata/debian/changelog",
+   "first": {
+    "source_package": "griddata",
+    "version": "0.1.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2008-09-01",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "griddata",
+    "version": "0.1.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2008-09-01",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "griddata",
+    "version": "0.1.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2008-09-01",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "haxby2001",
+   "source": "pkg-exppsy:haxby2001/debian/changelog",
+   "first": {
+    "source_package": "haxby2001",
+    "version": "2010.01.14-1",
+    "dist": "data",
+    "released": true,
+    "line": 15,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-08",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "haxby2001",
+    "version": "2010.01.14-3",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Andreas Tille <tille@debian.org>",
+    "date": "2013-11-26",
+    "is_lower_bound": true
+   },
+   "n_entries": 3,
+   "first_by_us": {
+    "source_package": "haxby2001",
+    "version": "2010.01.14-1",
+    "dist": "data",
+    "released": true,
+    "line": 15,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-08",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "hcluster",
+   "source": "pkg-exppsy:hcluster/debian/changelog",
+   "first": {
+    "source_package": "hcluster",
+    "version": "0.1.8-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 24,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2008-08-14",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "hcluster",
+    "version": "0.2.0-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-01-10",
+    "is_lower_bound": true
+   },
+   "n_entries": 4,
+   "first_by_us": {
+    "source_package": "hcluster",
+    "version": "0.1.8-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 24,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2008-08-14",
+    "is_lower_bound": true
+   },
+   "n_by_us": 4
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "hdmf",
+   "source": "pkg-exppsy:hdmf/debian/changelog",
+   "first": {
+    "source_package": "hdmf",
+    "version": "1.1.2-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 28,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2019-08-09",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "hdmf",
+    "version": "1.5.4-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-01-23",
+    "is_lower_bound": true
+   },
+   "n_entries": 4,
+   "first_by_us": {
+    "source_package": "hdmf",
+    "version": "1.1.2-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 28,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2019-08-09",
+    "is_lower_bound": true
+   },
+   "n_by_us": 4
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "heudiconv",
+   "source": "pkg-exppsy:heudiconv/debian/changelog",
+   "first": {
+    "source_package": "heudiconv",
+    "version": "0.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 163,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-09-04",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "heudiconv",
+    "version": "0.11.6-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2022-11-21",
+    "is_lower_bound": true
+   },
+   "n_entries": 17,
+   "first_by_us": {
+    "source_package": "heudiconv",
+    "version": "0.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 163,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-09-04",
+    "is_lower_bound": true
+   },
+   "n_by_us": 14
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "heudiconv-0.1",
+   "source": "pkg-exppsy:heudiconv-0.1/debian/changelog",
+   "first": {
+    "source_package": "heudiconv",
+    "version": "0.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 11,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-09-04",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "heudiconv",
+    "version": "0.1-1~nd90+1",
+    "dist": "stretch",
+    "released": true,
+    "line": 1,
+    "uploader": "NeuroDebian Team <team@neuro.debian.net>",
+    "date": "2015-09-23",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "heudiconv",
+    "version": "0.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 11,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-09-04",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "heudiconv-med1",
+   "source": "pkg-exppsy:heudiconv-med1/debian/changelog",
+   "first": {
+    "source_package": "heudiconv",
+    "version": "0.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 89,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-09-04",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "heudiconv",
+    "version": "0.6.0-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2019-12-05",
+    "is_lower_bound": true
+   },
+   "n_entries": 9,
+   "first_by_us": {
+    "source_package": "heudiconv",
+    "version": "0.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 89,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-09-04",
+    "is_lower_bound": true
+   },
+   "n_by_us": 9
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "heudiconv-old",
+   "source": "pkg-exppsy:heudiconv-old/debian/changelog",
+   "first": {
+    "source_package": "heudiconv",
+    "version": "0.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 59,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-09-04",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "heudiconv",
+    "version": "0.5.3-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2019-01-12",
+    "is_lower_bound": true
+   },
+   "n_entries": 7,
+   "first_by_us": {
+    "source_package": "heudiconv",
+    "version": "0.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 59,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-09-04",
+    "is_lower_bound": true
+   },
+   "n_by_us": 7
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "heudiconv-redone",
+   "source": "pkg-exppsy:heudiconv-redone/debian/changelog",
+   "first": {
+    "source_package": "heudiconv",
+    "version": "0.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 76,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-09-04",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "heudiconv",
+    "version": "0.6.0-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2019-12-05",
+    "is_lower_bound": true
+   },
+   "n_entries": 9,
+   "first_by_us": {
+    "source_package": "heudiconv",
+    "version": "0.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 76,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-09-04",
+    "is_lower_bound": true
+   },
+   "n_by_us": 9
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "htcondor",
+   "source": "pkg-exppsy:htcondor/debian/changelog",
+   "first": {
+    "source_package": "condor",
+    "version": "7.5.4+git567-gb10f6b4-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 738,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2010-12-26",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "condor",
+    "version": "8.6.8~dfsg.1-3",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Ond\u0159ej Nov\u00fd <onovy@debian.org>",
+    "date": "2018-10-01",
+    "is_lower_bound": true
+   },
+   "n_entries": 48,
+   "first_by_us": {
+    "source_package": "condor",
+    "version": "7.5.4+git567-gb10f6b4-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 738,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2010-12-26",
+    "is_lower_bound": true
+   },
+   "n_by_us": 41
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "jasp",
+   "source": "pkg-exppsy:jasp/debian/changelog",
+   "first": {
+    "source_package": "jasp",
+    "version": "0.7.5.261-0ubuntu0ppa1~wily",
+    "dist": "wily",
+    "released": true,
+    "line": 32,
+    "uploader": "JASP-UvA  <b.bountin@uva.nl>",
+    "date": "2016-04-21",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "jasp",
+    "version": "0.8.1.2~dfsg.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2017-07-31",
+    "is_lower_bound": true
+   },
+   "n_entries": 4,
+   "first_by_us": {
+    "source_package": "jasp",
+    "version": "0.8.0.0~beta2+git154-g375aad9~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 14,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2016-09-22",
+    "is_lower_bound": true
+   },
+   "n_by_us": 3
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "jdcal",
+   "source": "pkg-exppsy:jdcal/debian/changelog",
+   "first": {
+    "source_package": "jdcal",
+    "version": "1.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2014-12-10",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "jdcal",
+    "version": "1.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2014-12-10",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "jdcal",
+    "version": "1.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2014-12-10",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "jist",
+   "source": "pkg-exppsy:jist/debian/changelog",
+   "first": {
+    "source_package": "jist",
+    "version": "1.10~beta.dfsg1-1~pre1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 9,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-07-01",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "jist",
+    "version": "2.0.20100907.dfsg1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-09-20",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "jist",
+    "version": "1.10~beta.dfsg1-1~pre1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 9,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-07-01",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "json_tricks",
+   "source": "pkg-exppsy:json_tricks/debian/changelog",
+   "first": {
+    "source_package": "json-tricks",
+    "version": "3.11.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2018-01-05",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "json-tricks",
+    "version": "3.11.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2018-01-05",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "json-tricks",
+    "version": "3.11.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2018-01-05",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "kbibtex",
+   "source": "pkg-exppsy:kbibtex/debian/changelog",
+   "first": {
+    "source_package": "kbibtex",
+    "version": "0.1.3-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 134,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2005-12-17",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "kbibtex",
+    "version": "0.2.3-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-08-23",
+    "is_lower_bound": true
+   },
+   "n_entries": 18,
+   "first_by_us": {
+    "source_package": "kbibtex",
+    "version": "0.1.3-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 134,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2005-12-17",
+    "is_lower_bound": true
+   },
+   "n_by_us": 18
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "klustakwik",
+   "source": "pkg-exppsy:klustakwik/debian/changelog",
+   "first": {
+    "source_package": "klustakwik",
+    "version": "2.0.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2011-05-18",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "klustakwik",
+    "version": "2.0.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2011-05-18",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "klustakwik",
+    "version": "2.0.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2011-05-18",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "lazyarray",
+   "source": "pkg-exppsy:lazyarray/debian/changelog",
+   "first": {
+    "source_package": "lazyarray",
+    "version": "0.1.0-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2012-03-14",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "lazyarray",
+    "version": "0.1.0-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2012-03-14",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "lazyarray",
+    "version": "0.1.0-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2012-03-14",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "libgdf",
+   "source": "pkg-exppsy:libgdf/debian/changelog",
+   "first": {
+    "source_package": "libgdf",
+    "version": "0.1.0~svn31-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 109,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-10-28",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "libgdf",
+    "version": "0.1.3-3",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Rafael Laboissiere <rafael@debian.org>",
+    "date": "2019-08-19",
+    "is_lower_bound": true
+   },
+   "n_entries": 9,
+   "first_by_us": {
+    "source_package": "libgdf",
+    "version": "0.1.0~svn31-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 109,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-10-28",
+    "is_lower_bound": true
+   },
+   "n_by_us": 5
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "lipsia",
+   "source": "pkg-exppsy:lipsia/debian/changelog",
+   "first": {
+    "source_package": "lipsia",
+    "version": "1.6.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 16,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-09-02",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "lipsia",
+    "version": "1.6.0-3",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-09-18",
+    "is_lower_bound": true
+   },
+   "n_entries": 3,
+   "first_by_us": {
+    "source_package": "lipsia",
+    "version": "1.6.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 16,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-09-02",
+    "is_lower_bound": true
+   },
+   "n_by_us": 3
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "matlab-support",
+   "source": "pkg-exppsy:matlab-support/debian/changelog",
+   "first": {
+    "source_package": "matlab",
+    "version": "0.0.1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 267,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-08-03",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "matlab-support",
+    "version": "0.0.24",
+    "dist": "experimental",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2023-03-27",
+    "is_lower_bound": true
+   },
+   "n_entries": 26,
+   "first_by_us": {
+    "source_package": "matlab",
+    "version": "0.0.1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 267,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-08-03",
+    "is_lower_bound": true
+   },
+   "n_by_us": 22
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mclaren-rhesus-macaque-atlas",
+   "source": "pkg-exppsy:mclaren-rhesus-macaque-atlas/debian/changelog",
+   "first": {
+    "source_package": "mclaren-rhesus-macaque-atlas",
+    "version": "0.20081212-1",
+    "dist": "data",
+    "released": true,
+    "line": 8,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-11-02",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mclaren-rhesus-macaque-atlas",
+    "version": "0.20081212-2",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Andreas Tille <tille@debian.org>",
+    "date": "2013-11-27",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "mclaren-rhesus-macaque-atlas",
+    "version": "0.20081212-1",
+    "dist": "data",
+    "released": true,
+    "line": 8,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-11-02",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mcpanel",
+   "source": "pkg-exppsy:mcpanel/debian/changelog",
+   "first": {
+    "source_package": "mcpanel",
+    "version": "0.0-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-01-23",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mcpanel",
+    "version": "0.0-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-01-23",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "melview",
+   "source": "pkg-exppsy:melview/debian/changelog",
+   "first": {
+    "source_package": "melview",
+    "version": "1.0.1+git9-ge661e05~dfsg.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-06-29",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "melview",
+    "version": "1.0.1+git9-ge661e05~dfsg.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-06-29",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "melview",
+    "version": "1.0.1+git9-ge661e05~dfsg.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-06-29",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mipav",
+   "source": "pkg-exppsy:mipav/debian/changelog",
+   "first": {
+    "source_package": "mipav",
+    "version": "4.1.1-1~pre1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 19,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-06-30",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mipav",
+    "version": "5.0.0.20100907-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-09-20",
+    "is_lower_bound": true
+   },
+   "n_entries": 4,
+   "first_by_us": {
+    "source_package": "mipav",
+    "version": "4.1.1-1~pre1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 19,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-06-30",
+    "is_lower_bound": true
+   },
+   "n_by_us": 4
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mlpy",
+   "source": "pkg-exppsy:mlpy/debian/changelog",
+   "first": {
+    "source_package": "mlpy",
+    "version": "2.1.0~dfsg1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 33,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2009-09-04",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mlpy",
+    "version": "2.2.0~dfsg1-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-07-19",
+    "is_lower_bound": true
+   },
+   "n_entries": 5,
+   "first_by_us": {
+    "source_package": "mlpy",
+    "version": "2.1.0~dfsg1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 33,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2009-09-04",
+    "is_lower_bound": true
+   },
+   "n_by_us": 5
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mne-python",
+   "source": "pkg-exppsy:mne-python/debian/changelog",
+   "first": {
+    "source_package": "python-mne",
+    "version": "0.7-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 293,
+    "uploader": "Alexandre Gramfort <alexandre.gramfort@m4x.org>",
+    "date": "2013-10-27",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "python-mne",
+    "version": "1.3.0+dfsg-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Andreas Tille <tille@debian.org>",
+    "date": "2023-01-27",
+    "is_lower_bound": true
+   },
+   "n_entries": 27,
+   "first_by_us": {
+    "source_package": "python-mne",
+    "version": "0.7.1-2",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 276,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2014-01-12",
+    "is_lower_bound": true
+   },
+   "n_by_us": 13
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mni-colin27",
+   "source": "pkg-exppsy:mni-colin27/debian/changelog",
+   "first": {
+    "source_package": "mni-colin27",
+    "version": "1.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 14,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-06-11",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mni-colin27",
+    "version": "1.1-2",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-09",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "mni-colin27",
+    "version": "1.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 14,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-06-11",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mni-icbm152-nlin",
+   "source": "pkg-exppsy:mni-icbm152-nlin/debian/changelog",
+   "first": {
+    "source_package": "mni-icbm152-nlin",
+    "version": "0.20090623.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 8,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-06-23",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mni-icbm152-nlin",
+    "version": "0.20090623.1-2",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-09",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "mni-icbm152-nlin",
+    "version": "0.20090623.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 8,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-06-23",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mpi4py",
+   "source": "pkg-exppsy:mpi4py/debian/changelog",
+   "first": {
+    "source_package": "mpi4py",
+    "version": "1.2.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 327,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2011-04-06",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mpi4py",
+    "version": "3.0.3-4",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Drew Parsons <dparsons@debian.org>",
+    "date": "2020-01-26",
+    "is_lower_bound": true
+   },
+   "n_entries": 32,
+   "first_by_us": {
+    "source_package": "mpi4py",
+    "version": "1.2.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 327,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2011-04-06",
+    "is_lower_bound": true
+   },
+   "n_by_us": 13
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mriconvert",
+   "source": "pkg-exppsy:mriconvert/debian/changelog",
+   "first": {
+    "source_package": "mriconvert",
+    "version": "2.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 169,
+    "uploader": "Steve M. Robbins <smr@debian.org>",
+    "date": "2010-10-12",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mriconvert",
+    "version": "1:2.0.8-1.1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2015-07-02",
+    "is_lower_bound": true
+   },
+   "n_entries": 20,
+   "first_by_us": {
+    "source_package": "mriconvert",
+    "version": "2.0.250-2",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 64,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2013-02-12",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mriconvert-debian.mixedup",
+   "source": "pkg-exppsy:mriconvert-debian.mixedup/debian/changelog",
+   "first": {
+    "source_package": "mriconvert",
+    "version": "2.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 101,
+    "uploader": "Steve M. Robbins <smr@debian.org>",
+    "date": "2010-10-12",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mriconvert",
+    "version": "2.0.250-1+nd1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2013-02-11",
+    "is_lower_bound": true
+   },
+   "n_entries": 12,
+   "first_by_us": {
+    "source_package": "mriconvert",
+    "version": "2.0.250-1+nd1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2013-02-11",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mricrogl",
+   "source": "pkg-exppsy:mricrogl/debian/changelog",
+   "first": {
+    "source_package": "mricrogl",
+    "version": "1.2.20211007+dfsg-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2021-11-15",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mricrogl",
+    "version": "1.2.20211007+dfsg-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2021-11-15",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "mricrogl",
+    "version": "1.2.20211007+dfsg-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2021-11-15",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mricrogl-oldattempt",
+   "source": "pkg-exppsy:mricrogl-oldattempt/debian/changelog",
+   "first": {
+    "source_package": "mricrogl",
+    "version": "0.20150827.1~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-08-30",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mricrogl",
+    "version": "0.20150827.1~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-08-30",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "mricrogl",
+    "version": "0.20150827.1~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-08-30",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mricron",
+   "source": "pkg-exppsy:mricron/debian/changelog",
+   "first": {
+    "source_package": "mricron",
+    "version": "0.20100422.1~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 213,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-04-25",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mricron",
+    "version": "1.2.20211006+dfsg-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Andreas Tille <tille@debian.org>",
+    "date": "2021-11-15",
+    "is_lower_bound": true
+   },
+   "n_entries": 20,
+   "first_by_us": {
+    "source_package": "mricron",
+    "version": "0.20100422.1~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 213,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-04-25",
+    "is_lower_bound": true
+   },
+   "n_by_us": 13
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mrtrix",
+   "source": "pkg-exppsy:mrtrix/debian/changelog",
+   "first": {
+    "source_package": "mrtrix",
+    "version": "0.2.8-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 113,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-04-25",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mrtrix",
+    "version": "0.2.13-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Andreas Tille <tille@debian.org>",
+    "date": "2018-08-25",
+    "is_lower_bound": true
+   },
+   "n_entries": 12,
+   "first_by_us": {
+    "source_package": "mrtrix",
+    "version": "0.2.8-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 113,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-04-25",
+    "is_lower_bound": true
+   },
+   "n_by_us": 10
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mrtrix3",
+   "source": "pkg-exppsy:mrtrix3/debian/changelog",
+   "first": {
+    "source_package": "mrtrix3",
+    "version": "3.0~rc3+git86-g4b523b413-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 104,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2018-09-05",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mrtrix3",
+    "version": "3.0.3-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2021-09-08",
+    "is_lower_bound": true
+   },
+   "n_entries": 9,
+   "first_by_us": {
+    "source_package": "mrtrix3",
+    "version": "3.0~rc3+git86-g4b523b413-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 104,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2018-09-05",
+    "is_lower_bound": true
+   },
+   "n_by_us": 7
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "mwrap",
+   "source": "pkg-exppsy:mwrap/debian/changelog",
+   "first": {
+    "source_package": "mwrap",
+    "version": "0.33-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-05-17",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mwrap",
+    "version": "0.33-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-05-17",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "neo.local",
+   "source": "pkg-exppsy:neo.local/debian/changelog",
+   "first": {
+    "source_package": "neo",
+    "version": "0.2.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 20,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2012-04-13",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "neo",
+    "version": "0.2.1-1",
+    "dist": "experimental",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-11-23",
+    "is_lower_bound": true
+   },
+   "n_entries": 3,
+   "first_by_us": {
+    "source_package": "neo",
+    "version": "0.2.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 20,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2012-04-13",
+    "is_lower_bound": true
+   },
+   "n_by_us": 3
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "netcdf4",
+   "source": "pkg-exppsy:netcdf4/debian/changelog",
+   "first": {
+    "source_package": "netcdf4",
+    "version": "0.7.3.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Per B. Sederberg <per@flow.Princeton.EDU>",
+    "date": "2008-01-15",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "netcdf4",
+    "version": "0.7.3.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Per B. Sederberg <per@flow.Princeton.EDU>",
+    "date": "2008-01-15",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "neurodebian",
+   "source": "pkg-exppsy:neurodebian/debian/changelog",
+   "first": {
+    "source_package": "neurodebian",
+    "version": "0.19",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 579,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-11-25",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "neurodebian",
+    "version": "0.43.1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2026-08-04",
+    "is_lower_bound": true
+   },
+   "n_entries": 43,
+   "first_by_us": {
+    "source_package": "neurodebian",
+    "version": "0.19",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 579,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-11-25",
+    "is_lower_bound": true
+   },
+   "n_by_us": 41
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "neurodebian-blend",
+   "source": "pkg-exppsy:neurodebian-blend/debian/changelog",
+   "first": {
+    "source_package": "neurodebian",
+    "version": "1.0",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2013-04-19",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "neurodebian",
+    "version": "1.0",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2013-04-19",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "neurodebian",
+    "version": "1.0",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2013-04-19",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "neurodebian-clean",
+   "source": "pkg-exppsy:neurodebian-clean/debian/changelog",
+   "first": {
+    "source_package": "neurodebian",
+    "version": "0.19",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 573,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-11-25",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "neurodebian",
+    "version": "0.43.0",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2025-11-19",
+    "is_lower_bound": true
+   },
+   "n_entries": 42,
+   "first_by_us": {
+    "source_package": "neurodebian",
+    "version": "0.19",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 573,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-11-25",
+    "is_lower_bound": true
+   },
+   "n_by_us": 40
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "neurodebian-github-clean",
+   "source": "pkg-exppsy:neurodebian-github-clean/debian/changelog",
+   "first": {
+    "source_package": "neurodebian",
+    "version": "0.19",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 347,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-11-25",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "neurodebian",
+    "version": "0.37.2",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2015-07-10",
+    "is_lower_bound": true
+   },
+   "n_entries": 21,
+   "first_by_us": {
+    "source_package": "neurodebian",
+    "version": "0.19",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 347,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-11-25",
+    "is_lower_bound": true
+   },
+   "n_by_us": 21
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "neurodebian.git",
+   "source": "pkg-exppsy:neurodebian.git/debian/changelog",
+   "first": {
+    "source_package": "neurodebian",
+    "version": "0.19",
+    "dist": "unstable",
+    "released": true,
+    "line": 14,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-11-25",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "neurodebian",
+    "version": "0.21",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-12-07",
+    "is_lower_bound": true
+   },
+   "n_entries": 3,
+   "first_by_us": {
+    "source_package": "neurodebian",
+    "version": "0.19",
+    "dist": "unstable",
+    "released": true,
+    "line": 14,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-11-25",
+    "is_lower_bound": true
+   },
+   "n_by_us": 3
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "nifti2dicom",
+   "source": "pkg-exppsy:nifti2dicom/debian/changelog",
+   "first": {
+    "source_package": "nifti2dicom",
+    "version": "0.4.3-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 91,
+    "uploader": "Daniele E. Domenichelli <daniele.domenichelli@gmail.com>",
+    "date": "2012-06-28",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "nifti2dicom",
+    "version": "0.4.11-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Daniele E. Domenichelli <ddomenichelli@drdanz.it>",
+    "date": "2016-03-02",
+    "is_lower_bound": true
+   },
+   "n_entries": 10,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "nifticlib",
+   "source": "pkg-exppsy:nifticlib/debian/changelog",
+   "first": {
+    "source_package": "nifticlib",
+    "version": "0.3-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 238,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2006-08-10",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "nifticlib",
+    "version": "2.0.0+git186-g84740c2-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-04-01",
+    "is_lower_bound": true
+   },
+   "n_entries": 17,
+   "first_by_us": {
+    "source_package": "nifticlib",
+    "version": "0.3-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 238,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2006-08-10",
+    "is_lower_bound": true
+   },
+   "n_by_us": 16
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "nilearn",
+   "source": "pkg-exppsy:nilearn/debian/changelog",
+   "first": {
+    "source_package": "nilearn",
+    "version": "0.1.4+git3-g60d2a1b~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 11,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-07-13",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "nilearn",
+    "version": "0.2.1~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2016-01-05",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "nilearn",
+    "version": "0.1.4+git3-g60d2a1b~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 11,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-07-13",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "nipy-debianmed",
+   "source": "pkg-exppsy:nipy-debianmed/debian/changelog",
+   "first": {
+    "source_package": "nipy",
+    "version": "0.1.2+1741-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 450,
+    "uploader": "Experimental Psychology Maintainers <pkg-exppsy-maintainers@lists.alioth.debian.org>",
+    "date": "2009-04-14",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "nipy",
+    "version": "0.5.0-7",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "\u00c9tienne Mollier <emollier@debian.org>",
+    "date": "2023-01-31",
+    "is_lower_bound": true
+   },
+   "n_entries": 38,
+   "first_by_us": {
+    "source_package": "nipy",
+    "version": "0.1.2+1741-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 443,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2009-06-12",
+    "is_lower_bound": true
+   },
+   "n_by_us": 26
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "nipype-neurodebian",
+   "source": "pkg-exppsy:nipype-neurodebian/debian/changelog",
+   "first": {
+    "source_package": "nipype",
+    "version": "0.2-1",
+    "dist": "experimental",
+    "released": true,
+    "line": 417,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2009-11-04",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "nipype",
+    "version": "1.1.9-1",
+    "dist": "experimental",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2019-03-14",
+    "is_lower_bound": true
+   },
+   "n_entries": 42,
+   "first_by_us": {
+    "source_package": "nipype",
+    "version": "0.2-1",
+    "dist": "experimental",
+    "released": true,
+    "line": 417,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2009-11-04",
+    "is_lower_bound": true
+   },
+   "n_by_us": 42
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "nitime",
+   "source": "pkg-exppsy:nitime/debian/changelog",
+   "first": {
+    "source_package": "nitime",
+    "version": "0.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 144,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-10-22",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "nitime",
+    "version": "0.8.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2019-12-16",
+    "is_lower_bound": true
+   },
+   "n_entries": 15,
+   "first_by_us": {
+    "source_package": "nitime",
+    "version": "0.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 144,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-10-22",
+    "is_lower_bound": true
+   },
+   "n_by_us": 15
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "odin",
+   "source": "pkg-exppsy:odin/debian/changelog",
+   "first": {
+    "source_package": "odin",
+    "version": "1.8.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 119,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-09-30",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "odin",
+    "version": "1.8.8-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-12-06",
+    "is_lower_bound": true
+   },
+   "n_entries": 11,
+   "first_by_us": {
+    "source_package": "odin",
+    "version": "1.8.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 119,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-09-30",
+    "is_lower_bound": true
+   },
+   "n_by_us": 11
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "openelectrophy",
+   "source": "pkg-exppsy:openelectrophy/debian/changelog",
+   "first": {
+    "source_package": "openelectrophy",
+    "version": "0.0.svn143",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-11-16",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "openelectrophy",
+    "version": "0.0.svn143",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-11-16",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "openelectrophy",
+    "version": "0.0.svn143",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-11-16",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "openmeeg",
+   "source": "pkg-exppsy:openmeeg/debian/changelog",
+   "first": {
+    "source_package": "openmeeg",
+    "version": "1.0.0-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 114,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-11-09",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "openmeeg",
+    "version": "2.3.0~20160502-3",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2017-08-08",
+    "is_lower_bound": true
+   },
+   "n_entries": 11,
+   "first_by_us": {
+    "source_package": "openmeeg",
+    "version": "1.0.0-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 114,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-11-09",
+    "is_lower_bound": true
+   },
+   "n_by_us": 10
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "openpyxl",
+   "source": "pkg-exppsy:openpyxl/debian/changelog",
+   "first": {
+    "source_package": "openpyxl",
+    "version": "1.0.1+hg95-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 183,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-07-27",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "openpyxl",
+    "version": "2.4.9-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Andreas Tille <tille@debian.org>",
+    "date": "2018-01-12",
+    "is_lower_bound": true
+   },
+   "n_entries": 20,
+   "first_by_us": {
+    "source_package": "openpyxl",
+    "version": "1.0.1+hg95-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 183,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-07-27",
+    "is_lower_bound": true
+   },
+   "n_by_us": 18
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "openvibe",
+   "source": "pkg-exppsy:openvibe/debian/changelog",
+   "first": {
+    "source_package": "openvibe",
+    "version": "0.14.3+dfsg2-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 7,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-04-12",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "openvibe",
+    "version": "0.15.0-svn3460+dfsg-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2013-02-23",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pandas-wheezy",
+   "source": "pkg-exppsy:pandas-wheezy/debian/changelog",
+   "first": {
+    "source_package": "pandas",
+    "version": "0.4.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 151,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2011-09-13",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "pandas",
+    "version": "0.10.0~beta1+git51-gbbe2fc1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-12-13",
+    "is_lower_bound": true
+   },
+   "n_entries": 17,
+   "first_by_us": {
+    "source_package": "pandas",
+    "version": "0.4.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 151,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2011-09-13",
+    "is_lower_bound": true
+   },
+   "n_by_us": 17
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "patsy",
+   "source": "pkg-exppsy:patsy/debian/changelog",
+   "first": {
+    "source_package": "patsy",
+    "version": "0.1.0+git60-g7ddb7f3-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 90,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2013-07-31",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "patsy",
+    "version": "0.5.0+git13-g54dcf7b-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2018-10-27",
+    "is_lower_bound": true
+   },
+   "n_entries": 12,
+   "first_by_us": {
+    "source_package": "patsy",
+    "version": "0.1.0+git60-g7ddb7f3-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 90,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2013-07-31",
+    "is_lower_bound": true
+   },
+   "n_by_us": 12
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pkg-mwrap",
+   "source": "pkg-exppsy:pkg-mwrap/debian/changelog",
+   "first": {
+    "source_package": "mwrap",
+    "version": "0.33-0",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-05-12",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "mwrap",
+    "version": "0.33-0",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-05-12",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pkg_pyepl",
+   "source": "pkg-exppsy:pkg_pyepl/debian/changelog",
+   "first": {
+    "source_package": "pyepl",
+    "version": "1.0.14.dfsg.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 72,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2006-06-18",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "pyepl",
+    "version": "1.0.29-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2007-11-12",
+    "is_lower_bound": true
+   },
+   "n_entries": 11,
+   "first_by_us": {
+    "source_package": "pyepl",
+    "version": "1.0.14.dfsg.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 72,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2006-06-18",
+    "is_lower_bound": true
+   },
+   "n_by_us": 11
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "popularity-contest",
+   "source": "pkg-exppsy:popularity-contest/debian/changelog",
+   "first": {
+    "source_package": "popularity-contest",
+    "version": "0.00",
+    "dist": "unstable",
+    "released": true,
+    "line": 1360,
+    "uploader": "Avery Pennarun <apenwarr@debian.org>",
+    "date": "1998-10-24",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "popularity-contest",
+    "version": "1.67",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Bill Allombert <ballombe@debian.org>",
+    "date": "2018-08-09",
+    "is_lower_bound": true
+   },
+   "n_entries": 74,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pprocess",
+   "source": "pkg-exppsy:pprocess/debian/changelog",
+   "first": {
+    "source_package": "pprocess",
+    "version": "0.3.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 77,
+    "uploader": "Sandro Tosi <matrixhasu@gmail.com>",
+    "date": "2008-01-03",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "pprocess",
+    "version": "0.5-2",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2017-08-20",
+    "is_lower_bound": true
+   },
+   "n_entries": 6,
+   "first_by_us": {
+    "source_package": "pprocess",
+    "version": "0.5-1+nd0",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 8,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2013-12-12",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pprocess-gitsvn-toomuch",
+   "source": "pkg-exppsy:pprocess-gitsvn-toomuch/debian/changelog",
+   "first": {
+    "source_package": "pprocess",
+    "version": "0.3.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 53,
+    "uploader": "Sandro Tosi <matrixhasu@gmail.com>",
+    "date": "2008-01-03",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "pprocess",
+    "version": "0.5-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Sandro Tosi <morph@debian.org>",
+    "date": "2009-08-14",
+    "is_lower_bound": true
+   },
+   "n_entries": 4,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "psignifit",
+   "source": "pkg-exppsy:psignifit/debian/changelog",
+   "first": {
+    "source_package": "psignifit",
+    "version": "3.0~beta.20111109.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 14,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-11-09",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "psignifit",
+    "version": "3.0~beta.20120503.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Nikolaus Valentin H\u00e4nel <valentin.haenel@gmx.de>",
+    "date": "2012-05-09",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "psignifit",
+    "version": "3.0~beta.20111109.1-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 14,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-11-09",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "psychopy-debmed",
+   "source": "pkg-exppsy:psychopy-debmed/debian/changelog",
+   "first": {
+    "source_package": "psychopy",
+    "version": "0.93.5-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 676,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2008-04-23",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "psychopy",
+    "version": "2026.2.0+dfsg-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Andreas Tille <tille@debian.org>",
+    "date": "2026-07-09",
+    "is_lower_bound": true
+   },
+   "n_entries": 64,
+   "first_by_us": {
+    "source_package": "psychopy",
+    "version": "0.93.5-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 676,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2008-04-23",
+    "is_lower_bound": true
+   },
+   "n_by_us": 50
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pyepl",
+   "source": "pkg-exppsy:pyepl/debian/changelog",
+   "first": {
+    "source_package": "pyepl",
+    "version": "1.0.14.dfsg.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 183,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2006-06-18",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "pyepl",
+    "version": "1.1.0+git12-g365f8e3-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2013-10-22",
+    "is_lower_bound": true
+   },
+   "n_entries": 20,
+   "first_by_us": {
+    "source_package": "pyepl",
+    "version": "1.0.14.dfsg.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 183,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2006-06-18",
+    "is_lower_bound": true
+   },
+   "n_by_us": 17
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pyglet",
+   "source": "pkg-exppsy:pyglet/debian/changelog",
+   "first": {
+    "source_package": "pyglet",
+    "version": "1.0.dfsg-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 149,
+    "uploader": "Ondrej Certik <ondrej@certik.cz>",
+    "date": "2008-02-16",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "pyglet",
+    "version": "1.3.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2018-01-04",
+    "is_lower_bound": true
+   },
+   "n_entries": 12,
+   "first_by_us": {
+    "source_package": "pyglet",
+    "version": "1.1.4.dfsg-1",
+    "dist": "experimental",
+    "released": true,
+    "line": 61,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-12-25",
+    "is_lower_bound": true
+   },
+   "n_by_us": 5
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pymc",
+   "source": "pkg-exppsy:pymc/debian/changelog",
+   "first": {
+    "source_package": "pymc",
+    "version": "2.2+ds-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 9,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-10-30",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "pymc",
+    "version": "2.3.4+ds-1",
+    "dist": "experimental",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2014-12-25",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "pymc",
+    "version": "2.2+ds-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 9,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-10-30",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pymvpa2-tutorialdata",
+   "source": "pkg-exppsy:pymvpa2-tutorialdata/debian/changelog",
+   "first": {
+    "source_package": "pymvpa2-tutorialdata",
+    "version": "0.2-1",
+    "dist": "data",
+    "released": true,
+    "line": 19,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-02-28",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "pymvpa2-tutorialdata",
+    "version": "0.4-1",
+    "dist": "data",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2015-05-29",
+    "is_lower_bound": true
+   },
+   "n_entries": 3,
+   "first_by_us": {
+    "source_package": "pymvpa2-tutorialdata",
+    "version": "0.2-1",
+    "dist": "data",
+    "released": true,
+    "line": 19,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-02-28",
+    "is_lower_bound": true
+   },
+   "n_by_us": 3
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pynifti",
+   "source": "pkg-exppsy:pynifti/debian/changelog",
+   "first": {
+    "source_package": "nibabel",
+    "version": "1.0.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-15",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "nibabel",
+    "version": "1.0.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-15",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "nibabel",
+    "version": "1.0.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-15",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pynifti-localcopy",
+   "source": "pkg-exppsy:pynifti-localcopy/debian/changelog",
+   "first": {
+    "source_package": "nibabel",
+    "version": "1.0.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 21,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-15",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "nibabel",
+    "version": "1.1.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2011-05-04",
+    "is_lower_bound": true
+   },
+   "n_entries": 3,
+   "first_by_us": {
+    "source_package": "nibabel",
+    "version": "1.0.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 21,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-15",
+    "is_lower_bound": true
+   },
+   "n_by_us": 3
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pynn",
+   "source": "pkg-exppsy:pynn/debian/changelog",
+   "first": {
+    "source_package": "pynn",
+    "version": "0.7.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 30,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-11-15",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "pynn",
+    "version": "0.7.5-1",
+    "dist": "experimental",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2013-02-06",
+    "is_lower_bound": true
+   },
+   "n_entries": 4,
+   "first_by_us": {
+    "source_package": "pynn",
+    "version": "0.7.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 30,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-11-15",
+    "is_lower_bound": true
+   },
+   "n_by_us": 4
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pynwb",
+   "source": "pkg-exppsy:pynwb/debian/changelog",
+   "first": {
+    "source_package": "pynwb",
+    "version": "0.5.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 84,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2018-09-20",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "pynwb",
+    "version": "2.5.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2023-12-21",
+    "is_lower_bound": true
+   },
+   "n_entries": 7,
+   "first_by_us": {
+    "source_package": "pynwb",
+    "version": "0.5.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 84,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2018-09-20",
+    "is_lower_bound": true
+   },
+   "n_by_us": 6
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pyoptical",
+   "source": "pkg-exppsy:pyoptical/debian/changelog",
+   "first": {
+    "source_package": "pyoptical",
+    "version": "0.2-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 11,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-05-07",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "pyoptical",
+    "version": "0.3-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-19",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "pyoptical",
+    "version": "0.2-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 11,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-05-07",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pysurfer-localcopy",
+   "source": "pkg-exppsy:pysurfer-localcopy/debian/changelog",
+   "first": {
+    "source_package": "pysurfer",
+    "version": "0.1+git21-g55debc4-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-09-12",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "pysurfer",
+    "version": "0.1+git21-g55debc4-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-09-12",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "pysurfer",
+    "version": "0.1+git21-g55debc4-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-09-12",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "python-bids-validator",
+   "source": "pkg-exppsy:python-bids-validator/debian/changelog",
+   "first": {
+    "source_package": "python-bids-validator",
+    "version": "1.2.4-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2019-08-01",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "python-bids-validator",
+    "version": "1.2.4-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2019-08-01",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "python-bids-validator",
+    "version": "1.2.4-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2019-08-01",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "python-drmaa",
+   "source": "pkg-exppsy:python-drmaa/debian/changelog",
+   "first": {
+    "source_package": "drmaa",
+    "version": "0.4~b3-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 7,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-06-03",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "drmaa",
+    "version": "0.4~b3-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-08-06",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "drmaa",
+    "version": "0.4~b3-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 7,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-06-03",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "python-methodtools",
+   "source": "pkg-exppsy:python-methodtools/debian/changelog",
+   "first": {
+    "source_package": "python-methodtools",
+    "version": "0.4.7-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Vasyl Gello <vasek.gello@gmail.com>",
+    "date": "2023-02-28",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "python-methodtools",
+    "version": "0.4.7-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Vasyl Gello <vasek.gello@gmail.com>",
+    "date": "2023-02-28",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "python-prov",
+   "source": "pkg-exppsy:python-prov/debian/changelog",
+   "first": {
+    "source_package": "python-prov",
+    "version": "1.4.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 14,
+    "uploader": "Ghislain Antony Vaillant <ghisvail@gmail.com>",
+    "date": "2016-07-22",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "python-prov",
+    "version": "1.5.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Ghislain Antony Vaillant <ghisvail@gmail.com>",
+    "date": "2016-12-13",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "python-pyld",
+   "source": "pkg-exppsy:python-pyld/debian/changelog",
+   "first": {
+    "source_package": "python-pyld",
+    "version": "0.6.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 13,
+    "uploader": "W. Martin Borgert <debacle@debian.org>",
+    "date": "2014-10-09",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "python-pyld",
+    "version": "0.6.8-1~nd0",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2016-09-23",
+    "is_lower_bound": true
+   },
+   "n_entries": 3,
+   "first_by_us": {
+    "source_package": "python-pyld",
+    "version": "0.6.8-1~nd0",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2016-09-23",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "python-quantities",
+   "source": "pkg-exppsy:python-quantities/debian/changelog",
+   "first": {
+    "source_package": "python-quantities",
+    "version": "0.10.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 60,
+    "uploader": "Andrea Palazzi <palazziandrea@yahoo.it>",
+    "date": "2012-02-11",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "python-quantities",
+    "version": "0.12.4-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-01-27",
+    "is_lower_bound": true
+   },
+   "n_entries": 5,
+   "first_by_us": {
+    "source_package": "python-quantities",
+    "version": "0.12.3-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 22,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2019-09-01",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "python-traits4",
+   "source": "pkg-exppsy:python-traits4/debian/changelog",
+   "first": {
+    "source_package": "traits",
+    "version": "2.0.1b1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 156,
+    "uploader": "Sandro Tosi <matrixhasu@gmail.com>",
+    "date": "2007-11-22",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "python-traits",
+    "version": "4.0.0-1~cbp1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2011-07-12",
+    "is_lower_bound": true
+   },
+   "n_entries": 18,
+   "first_by_us": {
+    "source_package": "python-traits",
+    "version": "4.0.0-1~cbp1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2011-07-12",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "python-xml",
+   "source": "pkg-exppsy:python-xml/debian/changelog",
+   "first": {
+    "source_package": "python-xml",
+    "version": "0.2-0.1",
+    "dist": "unstable",
+    "released": true,
+    "line": 501,
+    "uploader": "Rob Tillotson <robt@debian.org>",
+    "date": "1998-06-14",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "python-xml",
+    "version": "0.8.4-10.1+lenny1.1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2013-12-17",
+    "is_lower_bound": true
+   },
+   "n_entries": 58,
+   "first_by_us": {
+    "source_package": "python-xml",
+    "version": "0.8.4-10.1+lenny1.1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2013-12-17",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "python3-dcmstack",
+   "source": "pkg-exppsy:python3-dcmstack/debian/changelog",
+   "first": {
+    "source_package": "dcmstack",
+    "version": "0.6.2+git33-gb43919a.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 87,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-09-23",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "dcmstack",
+    "version": "0.9-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2022-09-29",
+    "is_lower_bound": true
+   },
+   "n_entries": 8,
+   "first_by_us": {
+    "source_package": "dcmstack",
+    "version": "0.6.2+git33-gb43919a.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 87,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-09-23",
+    "is_lower_bound": true
+   },
+   "n_by_us": 6
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "python3-imblearn",
+   "source": "pkg-exppsy:python3-imblearn/debian/changelog",
+   "first": {
+    "source_package": "imbalanced-learn",
+    "version": "0.3.3-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 15,
+    "uploader": "Aggelos Avgerinos <evaggelos.avgerinos@gmail.com>",
+    "date": "2018-07-13",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "imbalanced-learn",
+    "version": "0.4.3-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Aggelos Avgerinos <evaggelos.avgerinos@gmail.com>",
+    "date": "2019-02-18",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "python3-nibabel",
+   "source": "pkg-exppsy:python3-nibabel/debian/changelog",
+   "first": {
+    "source_package": "nibabel",
+    "version": "1.0.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 296,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-15",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "nibabel",
+    "version": "3.0.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Andreas Tille <tille@debian.org>",
+    "date": "2020-03-03",
+    "is_lower_bound": true
+   },
+   "n_entries": 32,
+   "first_by_us": {
+    "source_package": "nibabel",
+    "version": "1.0.0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 296,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-10-15",
+    "is_lower_bound": true
+   },
+   "n_by_us": 29
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "pyxnat",
+   "source": "pkg-exppsy:pyxnat/debian/changelog",
+   "first": {
+    "source_package": "pyxnat",
+    "version": "0.9.0~dev0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yannick Schwartz <yannick.schwartz@cea.fr>",
+    "date": "2011-09-08",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "pyxnat",
+    "version": "0.9.0~dev0-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yannick Schwartz <yannick.schwartz@cea.fr>",
+    "date": "2011-09-08",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "qprogedit",
+   "source": "pkg-exppsy:qprogedit/debian/changelog",
+   "first": {
+    "source_package": "python-qprogedit",
+    "version": "0.1.0-ubuntu2",
+    "dist": "saucy",
+    "released": true,
+    "line": 173,
+    "uploader": "Sebastiaan Mathot <s.mathot@cogsci.nl>",
+    "date": "2013-10-27",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "python-qprogedit",
+    "version": "2.1.0-ubuntu2",
+    "dist": "trusty",
+    "released": true,
+    "line": 1,
+    "uploader": "Sebastiaan Mathot <s.mathot@cogsci.nl>",
+    "date": "2014-11-09",
+    "is_lower_bound": true
+   },
+   "n_entries": 27,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "rclone",
+   "source": "pkg-exppsy:rclone/debian/changelog",
+   "first": {
+    "source_package": "rclone",
+    "version": "1.34-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 381,
+    "uploader": "Dr. Tobias Quathamer <toddy@debian.org>",
+    "date": "2016-11-12",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "rclone",
+    "version": "1.65.0+dfsg-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Maytham Alsudany <maytha8thedev@gmail.com>",
+    "date": "2023-12-26",
+    "is_lower_bound": true
+   },
+   "n_entries": 33,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "rnc2rng",
+   "source": "pkg-exppsy:rnc2rng/debian/changelog",
+   "first": {
+    "source_package": "rnc2rng",
+    "version": "2.6.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 20,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-04-06",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "rnc2rng",
+    "version": "2.6.4-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-09-25",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "rnc2rng",
+    "version": "2.6.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 20,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-04-06",
+    "is_lower_bound": true
+   },
+   "n_by_us": 2
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "rorden-mri-tutorial",
+   "source": "pkg-exppsy:rorden-mri-tutorial/debian/changelog",
+   "first": {
+    "source_package": "rorden-mri-tutorial",
+    "version": "0.20110218~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-02-28",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "rorden-mri-tutorial",
+    "version": "0.20110218~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-02-28",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "rorden-mri-tutorial",
+    "version": "0.20110218~dfsg.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-02-28",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "rtfilter",
+   "source": "pkg-exppsy:rtfilter/debian/changelog",
+   "first": {
+    "source_package": "rtfilter",
+    "version": "1.0",
+    "dist": "unstable",
+    "released": true,
+    "line": 70,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@epfl.ch>",
+    "date": "2011-05-06",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "rtfilter",
+    "version": "1.1-4",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-05-08",
+    "is_lower_bound": true
+   },
+   "n_entries": 7,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "sigviewer",
+   "source": "pkg-exppsy:sigviewer/debian/changelog",
+   "first": {
+    "source_package": "sigviewer",
+    "version": "0.3.0+svn362-1~pre1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 60,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-06-11",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "sigviewer",
+    "version": "0.5.1+svn556-5",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2017-01-11",
+    "is_lower_bound": true
+   },
+   "n_entries": 8,
+   "first_by_us": {
+    "source_package": "sigviewer",
+    "version": "0.3.0+svn362-1~pre1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 60,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2010-06-11",
+    "is_lower_bound": true
+   },
+   "n_by_us": 8
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "singularity-container",
+   "source": "pkg-exppsy:singularity-container/debian/changelog",
+   "first": {
+    "source_package": "singularity-container",
+    "version": "1.0-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 443,
+    "uploader": "Dave Love <fx@gnu.org>",
+    "date": "2016-04-17",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "singularity-container",
+    "version": "3.9.4+ds1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2022-01-24",
+    "is_lower_bound": true
+   },
+   "n_entries": 42,
+   "first_by_us": {
+    "source_package": "singularity-container",
+    "version": "2.1~testing0+git39-g875d469-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 425,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2016-07-14",
+    "is_lower_bound": true
+   },
+   "n_by_us": 15
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "singularity-upstream",
+   "source": "pkg-exppsy:singularity-upstream/debian/changelog",
+   "first": {
+    "source_package": "singularity",
+    "version": "1.0-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 15,
+    "uploader": "Dave Love <fx@gnu.org>",
+    "date": "2016-04-17",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "singularity",
+    "version": "2.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Roland Fehrenbacher <rf@q-leap.de>",
+    "date": "2016-10-21",
+    "is_lower_bound": true
+   },
+   "n_entries": 3,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "solar",
+   "source": "pkg-exppsy:solar/debian/changelog",
+   "first": {
+    "source_package": "solar-eclipse",
+    "version": "8.1.1+git0-g8f32b4b-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2016-12-01",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "solar-eclipse",
+    "version": "8.1.1+git0-g8f32b4b-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2016-12-01",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "solar-eclipse",
+    "version": "8.1.1+git0-g8f32b4b-1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2016-12-01",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "spykeutils",
+   "source": "pkg-exppsy:spykeutils/debian/changelog",
+   "first": {
+    "source_package": "spykeutils",
+    "version": "0.1.0+git8-g4c21317-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 7,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-09-15",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "spykeutils",
+    "version": "0.2.0-1",
+    "dist": "experimental",
+    "released": true,
+    "line": 1,
+    "uploader": "Robert Pr\u00f6pper <robert.proepper@gmail.com>",
+    "date": "2013-01-04",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "spykeutils",
+    "version": "0.1.0+git8-g4c21317-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 7,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-09-15",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "spykeviewer",
+   "source": "pkg-exppsy:spykeviewer/debian/changelog",
+   "first": {
+    "source_package": "spykeviewer",
+    "version": "0.2.0-1",
+    "dist": "experimental",
+    "released": true,
+    "line": 43,
+    "uploader": "Robert Pr\u00f6pper <robert.proepper@gmail.com>",
+    "date": "2013-01-08",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "spykeviewer",
+    "version": "0.4.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Robert Pr\u00f6pper <robert.proepper@gmail.com>",
+    "date": "2014-09-01",
+    "is_lower_bound": true
+   },
+   "n_entries": 8,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "sri24",
+   "source": "pkg-exppsy:sri24/debian/changelog",
+   "first": {
+    "source_package": "sri24-atlas",
+    "version": "1.02-1",
+    "dist": "data",
+    "released": true,
+    "line": 9,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-01-24",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "sri24-atlas",
+    "version": "1.02-2",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Andreas Tille <tille@debian.org>",
+    "date": "2013-11-27",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "sri24-atlas",
+    "version": "1.02-1",
+    "dist": "data",
+    "released": true,
+    "line": 9,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-01-24",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "sri24-atlas",
+   "source": "pkg-exppsy:sri24-atlas/debian/changelog",
+   "first": {
+    "source_package": "sri24-atlas",
+    "version": "1.02-1",
+    "dist": "data",
+    "released": true,
+    "line": 9,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-01-24",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "sri24-atlas",
+    "version": "1.02-2",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Andreas Tille <tille@debian.org>",
+    "date": "2013-11-27",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": {
+    "source_package": "sri24-atlas",
+    "version": "1.02-1",
+    "dist": "data",
+    "released": true,
+    "line": 9,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-01-24",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "stabilitycalc",
+   "source": "pkg-exppsy:stabilitycalc/debian/changelog",
+   "first": {
+    "source_package": "stabilitycalc",
+    "version": "0.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-09-08",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "stabilitycalc",
+    "version": "0.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-09-08",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "stabilitycalc",
+    "version": "0.1-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-09-08",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "stimfit-old1",
+   "source": "pkg-exppsy:stimfit-old1/debian/changelog",
+   "first": {
+    "source_package": "stimfit",
+    "version": "0.10.5-0ubuntu1",
+    "dist": "maverick",
+    "released": true,
+    "line": 449,
+    "uploader": "Christoph Schmidt-Hieber <christsc@gmx.de>",
+    "date": "2011-01-22",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "stimfit",
+    "version": "0.13.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Christoph Schmidt-Hieber <christsc@gmx.de>",
+    "date": "2013-09-17",
+    "is_lower_bound": true
+   },
+   "n_entries": 66,
+   "first_by_us": {
+    "source_package": "stimfit",
+    "version": "0.10.18-2",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 110,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-03-04",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "tedana",
+   "source": "pkg-exppsy:tedana/debian/changelog",
+   "first": {
+    "source_package": "tedana",
+    "version": "0.0.8-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-01-03",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "tedana",
+    "version": "0.0.8-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-01-03",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "tedana",
+    "version": "0.0.8-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2020-01-03",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "uftp",
+   "source": "pkg-exppsy:uftp/debian/changelog",
+   "first": {
+    "source_package": "uftp",
+    "version": "4.9.2-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 32,
+    "uploader": "Philipp Matthias Hahn <pmhahn@debian.org>",
+    "date": "2016-08-24",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "uftp",
+    "version": "4.9.3-1+nd1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2017-04-03",
+    "is_lower_bound": true
+   },
+   "n_entries": 4,
+   "first_by_us": {
+    "source_package": "uftp",
+    "version": "4.9.3-1+nd1",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2017-04-03",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "via",
+   "source": "pkg-exppsy:via/debian/changelog",
+   "first": {
+    "source_package": "via",
+    "version": "1.5.2-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 46,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-03-26",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "via",
+    "version": "1.6.0-3",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-04-06",
+    "is_lower_bound": true
+   },
+   "n_entries": 6,
+   "first_by_us": {
+    "source_package": "via",
+    "version": "1.5.2-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 46,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2009-03-26",
+    "is_lower_bound": true
+   },
+   "n_by_us": 6
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "visionegg-gitsvn",
+   "source": "pkg-exppsy:visionegg-gitsvn/debian/changelog",
+   "first": {
+    "source_package": "visionegg",
+    "version": "1.2.1-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 7,
+    "uploader": "Thorsten Alteholz <debian@alteholz.de>",
+    "date": "2013-04-16",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "visionegg",
+    "version": "1.2.1-2",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Andreas Tille <tille@debian.org>",
+    "date": "2013-04-17",
+    "is_lower_bound": true
+   },
+   "n_entries": 2,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "vmri-nonfree",
+   "source": "pkg-exppsy:vmri-nonfree/debian/changelog",
+   "first": {
+    "source_package": "vmri-nonfree",
+    "version": "3.2.14-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-02-28",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "vmri-nonfree",
+    "version": "3.2.14-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-02-28",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": {
+    "source_package": "vmri-nonfree",
+    "version": "3.2.14-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2011-02-28",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "voxbo",
+   "source": "pkg-exppsy:voxbo/debian/changelog",
+   "first": {
+    "source_package": "voxbo",
+    "version": "1.8.5~svn1172-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 52,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-06-06",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "voxbo",
+    "version": "1.8.5~svn1246-2",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Michael Hanke <mih@debian.org>",
+    "date": "2015-12-29",
+    "is_lower_bound": true
+   },
+   "n_entries": 6,
+   "first_by_us": {
+    "source_package": "voxbo",
+    "version": "1.8.5~svn1172-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 52,
+    "uploader": "Michael Hanke <michael.hanke@gmail.com>",
+    "date": "2010-06-06",
+    "is_lower_bound": true
+   },
+   "n_by_us": 5
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "vrpn",
+   "source": "pkg-exppsy:vrpn/debian/changelog",
+   "first": {
+    "source_package": "vrpn",
+    "version": "07.30+dfsg-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-07-19",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "vrpn",
+    "version": "07.30+dfsg-1",
+    "dist": "UNRELEASED",
+    "released": false,
+    "line": 1,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-07-19",
+    "is_lower_bound": true
+   },
+   "n_entries": 1,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "xdffileio",
+   "source": "pkg-exppsy:xdffileio/debian/changelog",
+   "first": {
+    "source_package": "xdffileio",
+    "version": "0.1",
+    "dist": "lucid",
+    "released": true,
+    "line": 70,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@epfl.ch>",
+    "date": "2011-04-29",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "xdffileio",
+    "version": "0.3-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Nicolas Bourdaud <nicolas.bourdaud@gmail.com>",
+    "date": "2012-05-08",
+    "is_lower_bound": true
+   },
+   "n_entries": 7,
+   "first_by_us": null,
+   "n_by_us": 0
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "xppaut",
+   "source": "pkg-exppsy:xppaut/debian/changelog",
+   "first": {
+    "source_package": "xppaut",
+    "version": "5.56-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 159,
+    "uploader": "Isaac Jones <ijones@syntaxpolice.org>",
+    "date": "2002-10-20",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "xppaut",
+    "version": "6.11b+1.dfsg-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-02-12",
+    "is_lower_bound": true
+   },
+   "n_entries": 15,
+   "first_by_us": {
+    "source_package": "xppaut",
+    "version": "6.11b+1.dfsg-1",
+    "dist": "unstable",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2012-02-12",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  },
+  {
+   "kind": "debian-changelog",
+   "checkout": "xserver-xorg-video-intel",
+   "source": "pkg-exppsy:xserver-xorg-video-intel/debian/changelog",
+   "first": {
+    "source_package": "xserver-xorg-driver-i810",
+    "version": "1:1.4.0-1",
+    "dist": "breezy",
+    "released": true,
+    "line": 1356,
+    "uploader": "Daniel Stone <daniel.stone@ubuntu.com>",
+    "date": "2005-07-06",
+    "is_lower_bound": true
+   },
+   "last": {
+    "source_package": "xserver-xorg-video-intel",
+    "version": "2:2.99.917-1~exp1+notripple0",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2015-01-28",
+    "is_lower_bound": true
+   },
+   "n_entries": 146,
+   "first_by_us": {
+    "source_package": "xserver-xorg-video-intel",
+    "version": "2:2.99.917-1~exp1+notripple0",
+    "dist": "neurodebian",
+    "released": true,
+    "line": 1,
+    "uploader": "Yaroslav Halchenko <debian@onerussian.com>",
+    "date": "2015-01-28",
+    "is_lower_bound": true
+   },
+   "n_by_us": 1
+  }
+ ],
+ "site_anchors": [
+  {
+   "kind": "site-git-history",
+   "anchor": "datalad",
+   "anchor_missing": false,
+   "label": "DataLad",
+   "source": "content/pages/projects.html#datalad",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2015-07-22",
+   "mention_commit": "f96d1de",
+   "mention_subject": "more cleanups, adding team images, working on projects"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "dandi",
+   "anchor_missing": false,
+   "label": "DANDI",
+   "source": "content/pages/projects.html#dandi",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2020-05-19",
+   "mention_commit": "091a937",
+   "mention_subject": "Added DANDI"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "dandi",
+   "anchor_missing": false,
+   "label": "EMBER",
+   "source": "content/pages/projects.html#dandi",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2025-04-21",
+   "mention_commit": "767fbe0",
+   "mention_subject": "More on meetings etc"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "dandi",
+   "anchor_missing": false,
+   "label": "OpenNeuro",
+   "source": "content/pages/projects.html#dandi",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2020-05-19",
+   "mention_commit": "13bdd50",
+   "mention_subject": "point to openneuro datalad datasets"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "datalad-registry",
+   "anchor_missing": false,
+   "label": "DataLad-Registry",
+   "source": "content/pages/projects.html#datalad-registry",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2024-10-16",
+   "mention_commit": "b9a624c",
+   "mention_subject": "Add project section for DataLad-Registry"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": null,
+   "anchor_missing": true,
+   "label": "DueCredit",
+   "source": "content/pages/projects.html",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2015-07-22",
+   "mention_commit": "f96d1de",
+   "mention_subject": "more cleanups, adding team images, working on projects"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "heudiconv",
+   "anchor_missing": false,
+   "label": "HeuDiConv / ReproIn",
+   "source": "content/pages/projects.html#heudiconv",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2018-01-12",
+   "mention_commit": "1899e66",
+   "mention_subject": "extended the list of projects"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "repronim-containers",
+   "anchor_missing": false,
+   "label": "ReproNim/containers",
+   "source": "content/pages/projects.html#repronim-containers",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2026-09-14",
+   "mention_commit": "c13b4ba",
+   "mention_subject": "projects: expand Software section with new CON tools and richer cross-links"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "neurodebian",
+   "anchor_missing": false,
+   "label": "NeuroDebian",
+   "source": "content/pages/projects.html#neurodebian",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2015-07-22",
+   "mention_commit": "f96d1de",
+   "mention_subject": "more cleanups, adding team images, working on projects"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "pymvpa",
+   "anchor_missing": false,
+   "label": "PyMVPA",
+   "source": "content/pages/projects.html#pymvpa",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2015-07-22",
+   "mention_commit": "f96d1de",
+   "mention_subject": "more cleanups, adding team images, working on projects"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": null,
+   "anchor_missing": true,
+   "label": "ReproMan",
+   "source": "content/pages/projects.html",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2020-05-19",
+   "mention_commit": "e735847",
+   "mention_subject": "BF: NICEMAN -> ReproMan"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": null,
+   "anchor_missing": true,
+   "label": "con/tributors",
+   "source": "content/pages/projects.html",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2026-09-14",
+   "mention_commit": "c13b4ba",
+   "mention_subject": "projects: expand Software section with new CON tools and richer cross-links"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": null,
+   "anchor_missing": true,
+   "label": "con/duct",
+   "source": "content/pages/projects.html",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2025-01-07",
+   "mention_commit": "4dcf6b5",
+   "mention_subject": "Add con/duct to project list"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "mechababs",
+   "anchor_missing": false,
+   "label": "mechababs",
+   "source": "content/pages/projects.html#mechababs",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2026-09-11",
+   "mention_commit": "004799b",
+   "mention_subject": "projects: add mechababs to Software"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "annextube",
+   "anchor_missing": false,
+   "label": "con/annextube",
+   "source": "content/pages/projects.html#annextube",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2026-09-14",
+   "mention_commit": "c13b4ba",
+   "mention_subject": "projects: expand Software section with new CON tools and richer cross-links"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "tinuous",
+   "anchor_missing": false,
+   "label": "con/tinuous",
+   "source": "content/pages/projects.html#tinuous",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2021-06-16",
+   "mention_commit": "e4fad71",
+   "mention_subject": "expand and tune up projects"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "solidation",
+   "anchor_missing": false,
+   "label": "con/solidation",
+   "source": "content/pages/projects.html#solidation",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2026-09-14",
+   "mention_commit": "c13b4ba",
+   "mention_subject": "projects: expand Software section with new CON tools and richer cross-links"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "fscacher",
+   "anchor_missing": false,
+   "label": "con/fscacher",
+   "source": "content/pages/projects.html#fscacher",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2026-09-14",
+   "mention_commit": "c13b4ba",
+   "mention_subject": "projects: expand Software section with new CON tools and richer cross-links"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "pyout",
+   "anchor_missing": false,
+   "label": "pyout",
+   "source": "content/pages/projects.html#pyout",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2021-06-16",
+   "mention_commit": "7a67c3b",
+   "mention_subject": "reorder projects and add pyout"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "mykrok",
+   "anchor_missing": false,
+   "label": "MyKrok",
+   "source": "content/pages/projects.html#mykrok",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2026-09-14",
+   "mention_commit": "c13b4ba",
+   "mention_subject": "projects: expand Software section with new CON tools and richer cross-links"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": null,
+   "anchor_missing": true,
+   "label": "Quail",
+   "source": "content/pages/projects.html",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2018-11-19",
+   "mention_commit": "7b7b40f",
+   "mention_subject": "added Quail to projects"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": null,
+   "anchor_missing": true,
+   "label": "HyperTools",
+   "source": "content/pages/projects.html",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2018-11-19",
+   "mention_commit": "3f88e61",
+   "mention_subject": "added hypertools to projects list"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": null,
+   "anchor_missing": true,
+   "label": "SuperEEG",
+   "source": "content/pages/projects.html",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2018-11-19",
+   "mention_commit": "7b7b40f",
+   "mention_subject": "added Quail to projects"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": null,
+   "anchor_missing": true,
+   "label": "Open Brain Consent",
+   "source": "content/pages/projects.html",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2015-07-22",
+   "mention_commit": "f96d1de",
+   "mention_subject": "more cleanups, adding team images, working on projects"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": null,
+   "anchor_missing": true,
+   "label": "distribits",
+   "source": "content/pages/projects.html",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2024-10-16",
+   "mention_commit": "b9a624c",
+   "mention_subject": "Add project section for DataLad-Registry"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "bids",
+   "anchor_missing": false,
+   "label": "Brain Imaging Data Structure (BIDS)",
+   "source": "content/pages/projects.html#bids",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2016-08-01",
+   "mention_commit": "eb2fcf4",
+   "mention_subject": "Added BIDS among projects"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "nwb",
+   "anchor_missing": false,
+   "label": "Neurodata Without Borders: Neurophysiology (NWB:N)",
+   "source": "content/pages/projects.html#nwb",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2021-06-16",
+   "mention_commit": "e4fad71",
+   "mention_subject": "expand and tune up projects"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": "stamped",
+   "anchor_missing": false,
+   "label": "STAMPED Principles",
+   "source": "content/pages/projects.html#stamped",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2026-09-11",
+   "mention_commit": "2bda8bf",
+   "mention_subject": "projects: replace YODA with STAMPED Principles"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": null,
+   "anchor_missing": true,
+   "label": "ReproNim: Reproducible Basics",
+   "source": "content/pages/projects.html",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2018-01-12",
+   "mention_commit": "1899e66",
+   "mention_subject": "extended the list of projects"
+  },
+  {
+   "kind": "site-git-history",
+   "anchor": null,
+   "anchor_missing": true,
+   "label": "SingularityHub (after-life)",
+   "source": "content/pages/projects.html",
+   "repo_starts": "2011-04-14",
+   "is_lower_bound": true,
+   "mention_since": "2021-06-16",
+   "mention_commit": "e4fad71",
+   "mention_subject": "expand and tune up projects"
+  }
+ ],
+ "upstream_git": [
+  {
+   "kind": "upstream-git",
+   "project": "psychopy",
+   "source": "/home/yoh/deb/gits/pkg-exppsy/psychopy",
+   "first_by_us": {
+    "date": "2009-06-15",
+    "commit": "3e6f7d2dc",
+    "author": "Yaroslav Halchenko",
+    "subject": "ensure 2.8 version of wx for IDE"
+   },
+   "last_by_us": {
+    "date": "2018-04-06",
+    "commit": "598d1ee5a",
+    "author": "Yaroslav Halchenko",
+    "subject": "BF: do not generate psychojs zip upon \"clean\""
+   },
+   "n_by_us": 94,
+   "mentions_us": [
+    {
+     "date": "2009-10-02",
+     "commit": "4178d2b09",
+     "author": "Jon Peirce",
+     "subject": "starting to add unit tests (for Yaro ;-) )"
+    },
+    {
+     "date": "2010-01-28",
+     "commit": "6048ffd0b",
+     "author": "Jon Peirce",
+     "subject": "lib: added butterworth filters to filter.py (thanks to Yaroslav)"
+    },
+    {
+     "date": "2010-08-31",
+     "commit": "3db75b350",
+     "author": "Yaroslav Halchenko",
+     "subject": "Adding .svnauthors for committer to be used within git <-> svn bridge"
+    },
+    {
+     "date": "2016-08-29",
+     "commit": "2af7adad4",
+     "author": "Yaroslav Halchenko",
+     "subject": "Rudimentary mailmap to bring all jons and jeremys together"
+    }
+   ]
+  },
+  {
+   "kind": "upstream-git",
+   "project": "nipy",
+   "source": "/home/yoh/deb/gits/pkg-exppsy/nipy",
+   "first_by_us": {
+    "date": "2010-05-05",
+    "commit": "3d6da081",
+    "author": "Yaroslav Halchenko",
+    "subject": "BUG: missing Examples + various little -- trailing spaces + spellings"
+   },
+   "last_by_us": {
+    "date": "2021-02-18",
+    "commit": "5dde5adc",
+    "author": "Yaroslav Halchenko",
+    "subject": "shebang to python3 not python"
+   },
+   "n_by_us": 74,
+   "mentions_us": [
+    {
+     "date": "2011-09-13",
+     "commit": "a76df504",
+     "author": "Yaroslav Halchenko",
+     "subject": "enjoy concise shortlog -sn with only unique entries:"
+    }
+   ]
+  }
+ ],
+ "parse_warnings": [
+  {
+   "file": "content/pages/projects.html",
+   "duplicate_anchor": "dandi",
+   "count": 3,
+   "note": "id is not unique; records key off the generated slug instead"
+  },
+  {
+   "file": "content/pages/projects.html",
+   "heading_without_id": "DueCredit"
+  },
+  {
+   "file": "content/pages/projects.html",
+   "heading_without_id": "ReproMan"
+  },
+  {
+   "file": "content/pages/projects.html",
+   "heading_without_id": "con/tributors"
+  },
+  {
+   "file": "content/pages/projects.html",
+   "heading_without_id": "con/duct"
+  },
+  {
+   "file": "content/pages/projects.html",
+   "heading_without_id": "Quail"
+  },
+  {
+   "file": "content/pages/projects.html",
+   "heading_without_id": "HyperTools"
+  },
+  {
+   "file": "content/pages/projects.html",
+   "heading_without_id": "SuperEEG"
+  },
+  {
+   "file": "content/pages/projects.html",
+   "heading_without_id": "Open Brain Consent"
+  },
+  {
+   "file": "content/pages/projects.html",
+   "heading_without_id": "distribits"
+  },
+  {
+   "file": "content/pages/projects.html",
+   "heading_without_id": "ReproNim: Reproducible Basics"
+  },
+  {
+   "file": "content/pages/projects.html",
+   "heading_without_id": "SingularityHub (after-life)"
+  }
+ ]
+}

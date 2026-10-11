@@ -1,0 +1,34 @@
+project: mykrok
+display_name: MyKrok
+anchor_id: mykrok
+anchor_duplicated: false
+section: Software
+section_html: <h1 style="margin-top:20px">Software</h1>
+section_intro_html: null
+order: 20
+source_page: projects
+logo:
+  href: https://mykrok.github.io/mykrok/
+  src: /theme/img/3rd/mykrok_logo.svg
+  alt: MyKrok
+  class: pull-right
+  style: width:80px;padding-left:5px;margin-top:-0.5em;
+people_referenced: []
+body_html: "\n\t<figure>\n      <a href=\"https://mykrok.github.io/mykrok/\">\n\t\t<img src=\"/theme/img/3rd/mykrok_logo.svg\"\
+  \ alt=\"MyKrok\"\n\t\t\t class=\"pull-right\"\n\t\t\t style=\"width:80px;padding-left:5px;margin-top:-0.5em;\"\
+  \ />\n\t  </a>\n    </figure>\n\t<p>\n\t  <a href=\"https://github.com/mykrok/mykrok\">MyKrok</a> (Ukrainian:\
+  \ \"мій крок\" — \"my step\")\n\t  is a CLI tool to incrementally back up fitness activities from\n\t\
+  \  <a href=\"https://www.strava.com\">Strava</a>, including GPS tracks, photos, comments, and kudos.\n\
+  \t  Backups are browsable offline through a built-in web frontend with interactive maps and\n\t  activity\
+  \ statistics — applying the same git-annex / open-data philosophy of CON's\n\t  archival tools to personal\
+  \ fitness data.\n\t  Try the <a href=\"https://mykrok.github.io/mykrok/\">live demo</a> with synthetic\
+  \ data.\n\t</p>\n  "
+row_html: "<div class=\"row\">\n\t<h2 id=\"mykrok\">MyKrok</h2>\n\t<figure>\n      <a href=\"https://mykrok.github.io/mykrok/\"\
+  >\n\t\t<img src=\"/theme/img/3rd/mykrok_logo.svg\" alt=\"MyKrok\"\n\t\t\t class=\"pull-right\"\n\t\t\
+  \t style=\"width:80px;padding-left:5px;margin-top:-0.5em;\" />\n\t  </a>\n    </figure>\n\t<p>\n\t \
+  \ <a href=\"https://github.com/mykrok/mykrok\">MyKrok</a> (Ukrainian: \"мій крок\" — \"my step\")\n\t\
+  \  is a CLI tool to incrementally back up fitness activities from\n\t  <a href=\"https://www.strava.com\"\
+  >Strava</a>, including GPS tracks, photos, comments, and kudos.\n\t  Backups are browsable offline through\
+  \ a built-in web frontend with interactive maps and\n\t  activity statistics — applying the same git-annex\
+  \ / open-data philosophy of CON's\n\t  archival tools to personal fitness data.\n\t  Try the <a href=\"\
+  https://mykrok.github.io/mykrok/\">live demo</a> with synthetic data.\n\t</p>\n  </div>"

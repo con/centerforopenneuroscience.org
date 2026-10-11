@@ -1,0 +1,21 @@
+person: benjamin-poldrack
+display_name: Benjamin Poldrack
+anchor_id: null
+tier: Emeritus
+order: 31
+positions:
+- INM-7, Research Centre Julich, Germany
+portrait: /theme/img/team/ben.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: googleplus
+  href: https://plus.google.com/107308863221154459192
+  label: Google+
+- kind: github
+  href: https://github.com/bpoldrack
+  label: GitHub
+- kind: orcid
+  href: https://orcid.org/0000-0001-7628-0801
+  label: ORCID
+description_html: "\n\t\t    Worked on the <a href=\"/projects#datalad_\">DataLad</a> project and the\n\
+  \        magician behind OHBM 2020 Booth Design.\n\t\t  "

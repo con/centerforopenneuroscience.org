@@ -1,0 +1,18 @@
+project: pandas
+display_name: Pandas
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 56
+source_page: whoweare
+logo:
+  href: http://pandas.pydata.org/
+  src: /theme/img/3rd/pandas_logo.png
+  alt: Pandas
+  title: Pandas
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

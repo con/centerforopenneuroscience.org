@@ -1,0 +1,92 @@
+[
+ {
+  "project": "jupyter",
+  "author": "Dr. Fernando Perez",
+  "affiliation": "IPython developer, Helen Wills Neuroscience Institute, University of California, Berkeley, USA",
+  "date": "2010-09-08",
+  "source_file": "neurodebian:sphinx/quotes-nihr01.rst",
+  "published_at": "https://neuro.debian.net/testimonials.html",
+  "quote": "Their [NeuroDebian developers] commitment to strongly tested, validated and documented tools for computational-based research in neuroscience is exemplary, and we owe them a great debt of gratitude for the contributions they have already made [...]"
+ },
+ {
+  "project": "lipsia",
+  "author": "Dr. Gabriele Lohmann",
+  "affiliation": "Lipsia lead developer, Department of Neurophysics, Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig, Germany",
+  "date": "2010-09-13",
+  "source_file": "neurodebian:sphinx/quotes-nihr01.rst",
+  "published_at": "https://neuro.debian.net/testimonials.html",
+  "quote": "It [NeuroDebian] has been and continues to be of great value in all of our projects [...]"
+ },
+ {
+  "project": "nitrc",
+  "author": "Dr. Robert Buccigrossi",
+  "affiliation": "Technical Lead of the NITRC project",
+  "date": "2011-09-22",
+  "source_file": "neurodebian:sphinx/quotes-nitrc.rst",
+  "published_at": "https://neuro.debian.net/testimonials.html",
+  "quote": "Dr. Halchenko's statement \"Discover http://neuro.debian.net and be happy\" may sound a bit like a sales pitch, but it is rather good advice.  We have been experimenting with the rapid instantiation of computational environments containing neuroimaging tools from NITRC, and the NeuroDebian repository "
+ },
+ {
+  "project": "opensesame",
+  "author": "Sebastiaan Math\u00f4t",
+  "affiliation": "OpenSesame lead developer, Vrije Universiteit, Amsterdam, The Netherlands",
+  "date": "2011-07-29",
+  "source_file": "neurodebian:sphinx/quotes-nihr01.rst",
+  "published_at": "https://neuro.debian.net/testimonials.html",
+  "quote": "The NeuroDebian team has helped me to make my software (OpenSesame) available to the wider public in a much more professional fashion than I would have been able to do for myself."
+ },
+ {
+  "project": "openwalnut",
+  "author": "Sebastian Eichelbaum",
+  "affiliation": "OpenWalnut project, Image and Signal Processing Group, Institute of Computer Science, University of Leipzig, Germany",
+  "date": "2011-06-30",
+  "source_file": "neurodebian:sphinx/quotes-nihr01.rst",
+  "published_at": "https://neuro.debian.net/testimonials.html",
+  "quote": "We are currently preparing our first software-release in NeuroDebian and found it to be easy and straight-forward with a great support."
+ },
+ {
+  "project": "psignifit",
+  "author": "Valentin Haenel",
+  "affiliation": "Psignifit and pyoptical developer, Modellierung Kognitiver Prozesse, Technische Universit\u00e4t, Berlin, Germany",
+  "date": "2010-09-17",
+  "source_file": "neurodebian:sphinx/quotes-nihr01.rst",
+  "published_at": "https://neuro.debian.net/testimonials.html",
+  "quote": "[ [...] The] only way to conduct reliable and reproducible science is to use open source software [...]. NeuroDebian is by far the most advanced undertaking for such a scientific approach in the neuroscience community."
+ },
+ {
+  "project": "psychopy",
+  "author": "Prof. Jonathan Peirce",
+  "affiliation": "School of Psychology, University of Nottingham, Nottingham, UK",
+  "date": "2010-09-06",
+  "source_file": "neurodebian:sphinx/quotes-nihr01.rst",
+  "published_at": "https://neuro.debian.net/testimonials.html",
+  "quote": "Having such a group of experts [NeuroDebian developers] that search for open-source software solutions, refine them and then make them trivially easy for users to install and try out is of absolutely invaluable benefit to the research community and to the funding bodies that would, otherwise, be pay"
+ },
+ {
+  "project": "psychtoolbox",
+  "author": "Mario Kleiner",
+  "affiliation": "Dipl. Inf., Psychtoolbox lead developer, Department for Cognitive and Computational Psychophysics, Max Planck Institute for Biological Cybernetics, Tuebingen, Germany",
+  "date": "2011-06-21",
+  "source_file": "neurodebian:sphinx/quotes-nihr01.rst",
+  "published_at": "https://neuro.debian.net/testimonials.html",
+  "quote": "We find the approach taken by NeuroDebian and the progress it made so far very pleasant and promising.  [...] The NeuroDebian team helped us to improve the quality of our software and of some of our processes by review, constructive suggestions and even software patches.  The availability of the Neu"
+ },
+ {
+  "project": "scikit-learn",
+  "author": "Dr. Ga\u00ebl Varoquaux",
+  "affiliation": "Parietal project, INRIA, Neurospin research center, Gif sur Yvette, France",
+  "date": "2010-09-01",
+  "source_file": "neurodebian:sphinx/quotes-nihr01.rst",
+  "published_at": "https://neuro.debian.net/testimonials.html",
+  "quote": "The availability of a common platform [NeuroDebian] for many different neuroimaging software solutions makes it much easier to compare solutions and pick the tool of choice for a given research problem."
+ },
+ {
+  "project": "scikit-learn",
+  "author": "Dr. Bertrand Thirion",
+  "affiliation": "Head of the Parietal research group at Neurospin, Gif sur Yvette, France",
+  "date": "2010-09-08",
+  "source_file": "neurodebian:sphinx/quotes-nihr01.rst",
+  "published_at": "https://neuro.debian.net/testimonials.html",
+  "quote": "[NeuroDebian is] extremely useful in providing state of the art solutions to numerous standard problems encountered in the analysis of our complex data."
+ }
+]

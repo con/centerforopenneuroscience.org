@@ -1,0 +1,29 @@
+person: jeremy-rothman-manning
+display_name: Jeremy Rothman Manning
+anchor_id: null
+tier: Affiliated Faculty
+order: 16
+positions:
+- Associate Professor
+portrait: /theme/img/team/jeremy.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: email
+  href: mailto:jeremy.r.manning@dartmouth.edu
+  label: E-Mail
+- kind: research
+  href: http://www.context-lab.com/
+  label: Lab Web Page
+- kind: cv
+  href: https://contextlab.github.io/documents/JRM_CV.html
+  label: CV
+- kind: github
+  href: https://github.com/jeremymanning
+  label: GitHub
+- kind: orcid
+  href: https://orcid.org/0000-0001-7613-4732
+  label: ORCID
+description_html: "\n\t\tJeremy is an Associate Professor of Psychological and Brain\n\t\tSciences at\
+  \ Dartmouth and directs the Contextual Dynamics\n\t\tLab. He enjoys thinking about brains, non-brain\
+  \ brain-related\n\t\tthings (e.g. zombies), computers, annoying-to-solve puzzles,\n\t\tand cats.\n\t\
+  \t"

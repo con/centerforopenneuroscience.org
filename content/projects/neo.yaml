@@ -1,0 +1,18 @@
+project: neo
+display_name: Neo
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 48
+source_page: whoweare
+logo:
+  href: http://neuralensemble.org/neo/
+  src: /theme/img/3rd/neo_logo.png
+  alt: Neo
+  title: Neo
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

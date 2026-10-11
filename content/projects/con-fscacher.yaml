@@ -1,0 +1,22 @@
+project: con-fscacher
+display_name: con/fscacher
+anchor_id: fscacher
+anchor_duplicated: false
+section: Software
+section_html: <h1 style="margin-top:20px">Software</h1>
+section_intro_html: null
+order: 18
+source_page: projects
+logo: null
+people_referenced: []
+body_html: "\n\t<p>\n\t  <a href=\"https://github.com/con/fscacher\">con/fscacher</a> is a Python library\n\
+  \t  providing a persistent, file-content-aware memoization cache. Functions decorated\n\t  with <code>@cache.memoize_path</code>\
+  \ are re-executed only when the fingerprint\n\t  (timestamps + size) of their file arguments changes\
+  \ — making it easy to cache\n\t  expensive operations on large file trees without stale results.\n\t\
+  \  It is used internally by the <a href=\"#dandi\">DANDI</a> client and other CON tools.\n\t</p>\n  "
+row_html: "<div class=\"row\">\n\t<h2 id=\"fscacher\">con/fscacher</h2>\n\t<p>\n\t  <a href=\"https://github.com/con/fscacher\"\
+  >con/fscacher</a> is a Python library\n\t  providing a persistent, file-content-aware memoization cache.\
+  \ Functions decorated\n\t  with <code>@cache.memoize_path</code> are re-executed only when the fingerprint\n\
+  \t  (timestamps + size) of their file arguments changes — making it easy to cache\n\t  expensive operations\
+  \ on large file trees without stale results.\n\t  It is used internally by the <a href=\"#dandi\">DANDI</a>\
+  \ client and other CON tools.\n\t</p>\n  </div>"

@@ -1,0 +1,18 @@
+project: afni
+display_name: AFNI
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 33
+source_page: whoweare
+logo:
+  href: http://afni.nimh.nih.gov/
+  src: /theme/img/3rd/afni_logo.jpg
+  alt: AFNI
+  title: AFNI
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

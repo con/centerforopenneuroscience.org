@@ -1,0 +1,59 @@
+project: dandi
+display_name: DANDI
+anchor_id: dandi
+anchor_duplicated: true
+section: Software
+section_html: <h1 style="margin-top:20px">Software</h1>
+section_intro_html: null
+order: 2
+source_page: projects
+logo:
+  href: https://dandiarchive.org
+  src: /theme/img/3rd/dandi_logo.png
+  alt: DANDI
+  class: pull-left
+  style: width:155px;padding-right:5px;margin-top:0em;
+people_referenced:
+- yaroslav_o_halchenko_
+body_html: "\n\t<figure>\n      <a href=\"https://dandiarchive.org\"><img src=\"/theme/img/3rd/dandi_logo.png\"\
+  \ alt=\"DANDI\" class=\"pull-left\" style=\"width:155px;padding-right:5px;margin-top:0em;\" /></a>\n\
+  \    </figure>\n\t<p>\n\t  <a href=\"https://dandiarchive.org\">Distributed Archives for\n\t  Neurophysiology\
+  \ Data Integration (DANDI)</a> is a platform for\n\t  publishing, sharing, and processing neurophysiology\
+  \ data funded\n\t  by the <a href=\"https://braininitiative.nih.gov/\">BRAIN\n\t  Initiative</a>. The\
+  \ platform is now available for data upload\n\t  and distribution, and provides supplementary client\
+  \ tools to\n\t  assist with introspection and organization of data\n\t  following <a href=\"#nwb\">NWB\
+  \ standard</a>.\n\t</p>\n\t<ul>\n\t  <li>\n\t\t<a href=\"https://reporter.nih.gov/project-details/9795271\"\
+  >NIH (#1R24MH117295-01A1)</a>. PIs:\n\t\t<a href=\"https://mcgovern.mit.edu/profile/satrajit-ghosh/\"\
+  \ class=\"centroid\">S. Ghosh</a>\n\t\tand\n \t\t<a href=\"/whoweare#yaroslav_o_halchenko_\" class=\"\
+  centroid\">Y.O. Halchenko</a>\n\t  </li>\n\t  <li>\n\t\t<a href=\"https://github.com/dandi/dandisets\"\
+  >dandisets</a>:\n\t\ta <a href=\"#datalad\">DataLad</a> superdataset providing unified access to all\n\
+  \t\tpublic DANDI datasets, with individual dandisets also mirrored as DataLad datasets\n\t\tin the <a\
+  \ href=\"https://github.com/dandisets\">dandisets</a> GitHub organization\n\t\tand their Zarr stores\
+  \ in <a href=\"https://github.com/dandizarrs\">dandizarrs</a>.\n\t  </li>\n\t  <li>\n\t\t<a href=\"\
+  https://github.com/dandi-compute\">DANDI Compute</a>:\n\t\tan experimental reproducible-computing initiative\
+  \ running processing pipelines\n\t\tdirectly on DANDI assets. The first campaign applies the\n\t\t<a\
+  \ href=\"https://github.com/AllenNeuralDynamics/aind-ephys-pipeline\">AIND ephys pipeline</a>\n\t\t\
+  to electrophysiology dandisets, with orchestration code and a public job queue\n\t\thosted in the <a\
+  \ href=\"https://github.com/dandi-compute\">dandi-compute</a> GitHub organization.\n\t  </li>\n\t</ul>\n\
+  \  "
+row_html: "<div class=\"row\">\n\t<h2 id=\"dandi\">DANDI</h2>\n\t<figure>\n      <a href=\"https://dandiarchive.org\"\
+  ><img src=\"/theme/img/3rd/dandi_logo.png\" alt=\"DANDI\" class=\"pull-left\" style=\"width:155px;padding-right:5px;margin-top:0em;\"\
+  \ /></a>\n    </figure>\n\t<p>\n\t  <a href=\"https://dandiarchive.org\">Distributed Archives for\n\t\
+  \  Neurophysiology Data Integration (DANDI)</a> is a platform for\n\t  publishing, sharing, and processing\
+  \ neurophysiology data funded\n\t  by the <a href=\"https://braininitiative.nih.gov/\">BRAIN\n\t  Initiative</a>.\
+  \ The platform is now available for data upload\n\t  and distribution, and provides supplementary client\
+  \ tools to\n\t  assist with introspection and organization of data\n\t  following <a href=\"#nwb\">NWB\
+  \ standard</a>.\n\t</p>\n\t<ul>\n\t  <li>\n\t\t<a href=\"https://reporter.nih.gov/project-details/9795271\"\
+  >NIH (#1R24MH117295-01A1)</a>. PIs:\n\t\t<a href=\"https://mcgovern.mit.edu/profile/satrajit-ghosh/\"\
+  \ class=\"centroid\">S. Ghosh</a>\n\t\tand\n \t\t<a href=\"/whoweare#yaroslav_o_halchenko_\" class=\"\
+  centroid\">Y.O. Halchenko</a>\n\t  </li>\n\t  <li>\n\t\t<a href=\"https://github.com/dandi/dandisets\"\
+  >dandisets</a>:\n\t\ta <a href=\"#datalad\">DataLad</a> superdataset providing unified access to all\n\
+  \t\tpublic DANDI datasets, with individual dandisets also mirrored as DataLad datasets\n\t\tin the <a\
+  \ href=\"https://github.com/dandisets\">dandisets</a> GitHub organization\n\t\tand their Zarr stores\
+  \ in <a href=\"https://github.com/dandizarrs\">dandizarrs</a>.\n\t  </li>\n\t  <li>\n\t\t<a href=\"\
+  https://github.com/dandi-compute\">DANDI Compute</a>:\n\t\tan experimental reproducible-computing initiative\
+  \ running processing pipelines\n\t\tdirectly on DANDI assets. The first campaign applies the\n\t\t<a\
+  \ href=\"https://github.com/AllenNeuralDynamics/aind-ephys-pipeline\">AIND ephys pipeline</a>\n\t\t\
+  to electrophysiology dandisets, with orchestration code and a public job queue\n\t\thosted in the <a\
+  \ href=\"https://github.com/dandi-compute\">dandi-compute</a> GitHub organization.\n\t  </li>\n\t</ul>\n\
+  \  </div>"

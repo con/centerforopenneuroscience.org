@@ -1,0 +1,27 @@
+person: david-n-kennedy
+display_name: David N. Kennedy
+anchor_id: null
+tier: Collaborators
+order: 9
+positions:
+- UMass Chan Medical School
+portrait: /theme/img/team/kennedy.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: research
+  href: https://profiles.umassmed.edu/display/130002
+  label: Research Page
+- kind: twitter
+  href: https://x.com/dnkennedy44
+  label: Twitter
+- kind: github
+  href: https://github.com/dnkennedy
+  label: GitHub
+- kind: linkedin
+  href: https://www.linkedin.com/in/david-kennedy-2273ba/
+  label: LinkedIn
+- kind: orcid
+  href: https://orcid.org/0000-0002-9377-0797
+  label: ORCID
+description_html: "\n\t\t  The master-mind of\n\t\t  the <a href=\"https://www.repronim.org/\">ReproNim</a>\
+  \ project.\n      "

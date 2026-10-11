@@ -1,0 +1,33 @@
+person: joey-hess
+display_name: Joey Hess
+anchor_id: null
+tier: Collaborators
+order: 11
+positions:
+- Independent Guru
+portrait: /theme/img/team/joey.jpg
+portrait_attrs: /
+contacts:
+- kind: email
+  href: mailto:id@joeyh.name
+  label: E-Mail
+- kind: home
+  href: https://joeyh.name
+  label: Home Page
+- kind: blog
+  href: https://joeyh.name/blog
+  label: Blog
+- kind: twitter
+  href: https://twitter.com/joeyhess
+  label: Twitter
+- kind: github
+  href: https://github.com/joeyh
+  label: GitHub
+description_html: "\n\t\t  Joey's own introduction <i>\"I'm Joey Hess and I write\n\t\t\t<a href=\"https://joeyh.name/code/\"\
+  >programs</a>\"</i>\n\t\t  conceals his paramount role in establishing the core of the\n\t\t  <a href=\"\
+  http://debian.org\">Debian distribution</a>\n\t\t  (<a href=\"https://joeyh.name/code/debhelper/\">debhelper</a>,\n\
+  \t\t  <a href=\"https://joeyh.name/code/debian-installer/\">debian-installer</a>,\n\t\t  <a href=\"\
+  https://joeyh.name/code/debconf/\">debconf</a>,\n\t\t  <a href=\"https://joeyh.name/code/pristine-tar/\"\
+  >pristine-tar</a>,\n\t\t  <a href=\"https://joeyh.name/code/debian/\">etc.</a>) and his work on variety\
+  \ of other\n\t\t  software projects, such\n\t\t  as <a href=\"https://git-annex.branchable.com/\">git-annex</a>\n\
+  \t\t  which we rely upon in\n\t\t  the <a href=\"/projects#datalad_\">DataLad</a> project.\n\t\t  "

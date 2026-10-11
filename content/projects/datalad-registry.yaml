@@ -1,0 +1,41 @@
+project: datalad-registry
+display_name: DataLad-Registry
+anchor_id: datalad-registry
+anchor_duplicated: false
+section: Software
+section_html: <h1 style="margin-top:20px">Software</h1>
+section_intro_html: null
+order: 5
+source_page: projects
+logo:
+  href: https://registry.datalad.org
+  src: /theme/img/3rd/registry_logo.svg
+  alt: DataLad-Registry
+  class: pull-right
+  style: height:4.4em;padding-left:1em;margin-top:-0.3em;
+people_referenced: []
+body_html: "\n    <figure>\n      <a href=\"https://registry.datalad.org\">\n        <img src=\"/theme/img/3rd/registry_logo.svg\"\
+  \ alt=\"DataLad-Registry\"\n             class=\"pull-right\"\n             style=\"height:4.4em;padding-left:1em;margin-top:-0.3em;\"\
+  /></a>\n    </figure>\n    <p>\n      <a href=\"https://registry.datalad.org\">DataLad-Registry</a>\
+  \ is a service that\n      maintains up-to-date information on an expanding collection of datasets,\
+  \ currently\n      numbering over ten thousand. It automatically registers datasets from various\n \
+  \     online sources, extracts metadata, and keeps both the datasets and their metadata\n      current.\
+  \ DataLad-Registry offers search functionalities, including metadata-based\n      searches, accessible\
+  \ through both a web interface and a RESTful\n      API.\n\t  Registry is regularly updated with DataLad\
+  \ datasets discovered across\n      multiple hosting portals and listed on our\n\t  <a href=\"https://github.com/datalad/datalad-usage-dashboard/\"\
+  >DataLad Usage Dashboard</a>.\n    </p>\n    <ul>\n      <li>\n        \U0001F3AC <a href=\"https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/_McJ1BtLsiQ\"\
+  >Talk\n        at distribits 2024: Bringing Benefits of Centrality to DataLad</a>\n      </li>\n   \
+  \ </ul>\n  "
+row_html: "<div class=\"row\">\n    <h2 id=\"datalad-registry\">DataLad-Registry</h2>\n    <figure>\n\
+  \      <a href=\"https://registry.datalad.org\">\n        <img src=\"/theme/img/3rd/registry_logo.svg\"\
+  \ alt=\"DataLad-Registry\"\n             class=\"pull-right\"\n             style=\"height:4.4em;padding-left:1em;margin-top:-0.3em;\"\
+  /></a>\n    </figure>\n    <p>\n      <a href=\"https://registry.datalad.org\">DataLad-Registry</a>\
+  \ is a service that\n      maintains up-to-date information on an expanding collection of datasets,\
+  \ currently\n      numbering over ten thousand. It automatically registers datasets from various\n \
+  \     online sources, extracts metadata, and keeps both the datasets and their metadata\n      current.\
+  \ DataLad-Registry offers search functionalities, including metadata-based\n      searches, accessible\
+  \ through both a web interface and a RESTful\n      API.\n\t  Registry is regularly updated with DataLad\
+  \ datasets discovered across\n      multiple hosting portals and listed on our\n\t  <a href=\"https://github.com/datalad/datalad-usage-dashboard/\"\
+  >DataLad Usage Dashboard</a>.\n    </p>\n    <ul>\n      <li>\n        \U0001F3AC <a href=\"https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/_McJ1BtLsiQ\"\
+  >Talk\n        at distribits 2024: Bringing Benefits of Centrality to DataLad</a>\n      </li>\n   \
+  \ </ul>\n  </div>"

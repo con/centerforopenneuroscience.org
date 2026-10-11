@@ -1,0 +1,52 @@
+project: pymvpa
+display_name: PyMVPA
+anchor_id: pymvpa
+anchor_duplicated: false
+section: Software
+section_html: <h1 style="margin-top:20px">Software</h1>
+section_intro_html: null
+order: 10
+source_page: projects
+logo:
+  href: http://pymvpa.org
+  src: /theme/img/3rd/pymvpa_logo.png
+  alt: PyMVPA
+  class: pull-left
+  style: width:395px;padding-right:10px;margin-top:0em;
+people_referenced:
+- michael_hanke_
+- yaroslav_o_halchenko_
+body_html: "\n    <figure>\n      <a href=\"http://pymvpa.org\"><img src=\"/theme/img/3rd/pymvpa_logo.png\"\
+  \ alt=\"PyMVPA\" class=\"pull-left\" style=\"width:395px;padding-right:10px;margin-top:0em;\" /></a>\n\
+  \    </figure>\n\t<p>\n\t  <a href=\"http://www.pymvpa.org\">PyMVPA</a> is a Python-based\n\t  framework\
+  \ for neural decoding using multivariate pattern\n\t  analysis.  It affords both volume- and surface-based\
+  \ analyses\n\t  using a wide variety of supervised and unsupervised machine\n\t  learning methods, representational\
+  \ similarity analyses,\n\t  searchlight analyses, hyperalignment of representational spaces,\n\t  and\
+  \ model-based decoding and encoding.  The software also can be\n\t  used for neural data other than\
+  \ fMRI, including analysis of MEG\n\t  and EEG data through spatio-temporo-frequency band searchlights\n\
+  \t  and cross-modal EEG to fMRI trans-fusion.  It also has been used\n\t  for analyses on data unrelated\
+  \ to neuroscience, demonstrating\n\t  its general utility.  PyMVPA also serves as a repository for\n\
+  \t  sample data sets (e.g., Haxby et al. 2001) that has found wide\n\t  applicability for education,\
+  \ development of new algorithms, or\n\t  new analyses and independent research reports.\n\t</p>\n\n\t\
+  <ul>\n\t  <li>\n\t\t<a href=\"/whoweare#michael_hanke_\"\n\t\t   class=\"centroid\">M. Hanke</a>,\n\t\
+  \t<a href=\"/whoweare#yaroslav_o_halchenko_\" class=\"centroid\">Y.O. Halchenko</a>, et al. (2009).\n\
+  \t\t<a href=\"http://link.springer.com/article/10.1007%2Fs12021-008-9041-y\">PyMVPA: A Python toolbox\
+  \ for multivariate pattern analysis of fMRI data.</a>\n\t\tNeuroinformatics, 7, 37-53. DOI: 10.1007/s12021-008-9041-y\n\
+  \t  </li>\n\t</ul>\n  "
+row_html: "<div class=\"row\">\n\t<h2 id=\"pymvpa\">PyMVPA</h2>\n    <figure>\n      <a href=\"http://pymvpa.org\"\
+  ><img src=\"/theme/img/3rd/pymvpa_logo.png\" alt=\"PyMVPA\" class=\"pull-left\" style=\"width:395px;padding-right:10px;margin-top:0em;\"\
+  \ /></a>\n    </figure>\n\t<p>\n\t  <a href=\"http://www.pymvpa.org\">PyMVPA</a> is a Python-based\n\
+  \t  framework for neural decoding using multivariate pattern\n\t  analysis.  It affords both volume-\
+  \ and surface-based analyses\n\t  using a wide variety of supervised and unsupervised machine\n\t  learning\
+  \ methods, representational similarity analyses,\n\t  searchlight analyses, hyperalignment of representational\
+  \ spaces,\n\t  and model-based decoding and encoding.  The software also can be\n\t  used for neural\
+  \ data other than fMRI, including analysis of MEG\n\t  and EEG data through spatio-temporo-frequency\
+  \ band searchlights\n\t  and cross-modal EEG to fMRI trans-fusion.  It also has been used\n\t  for analyses\
+  \ on data unrelated to neuroscience, demonstrating\n\t  its general utility.  PyMVPA also serves as\
+  \ a repository for\n\t  sample data sets (e.g., Haxby et al. 2001) that has found wide\n\t  applicability\
+  \ for education, development of new algorithms, or\n\t  new analyses and independent research reports.\n\
+  \t</p>\n\n\t<ul>\n\t  <li>\n\t\t<a href=\"/whoweare#michael_hanke_\"\n\t\t   class=\"centroid\">M. Hanke</a>,\n\
+  \t\t<a href=\"/whoweare#yaroslav_o_halchenko_\" class=\"centroid\">Y.O. Halchenko</a>, et al. (2009).\n\
+  \t\t<a href=\"http://link.springer.com/article/10.1007%2Fs12021-008-9041-y\">PyMVPA: A Python toolbox\
+  \ for multivariate pattern analysis of fMRI data.</a>\n\t\tNeuroinformatics, 7, 37-53. DOI: 10.1007/s12021-008-9041-y\n\
+  \t  </li>\n\t</ul>\n  </div>"

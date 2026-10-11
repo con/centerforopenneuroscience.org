@@ -1,0 +1,18 @@
+project: mne-python
+display_name: mne-python
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 46
+source_page: whoweare
+logo:
+  href: https://mne.tools/stable/index.html
+  src: /theme/img/3rd/mne-python_logo.png
+  alt: mne-python
+  title: mne-python
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

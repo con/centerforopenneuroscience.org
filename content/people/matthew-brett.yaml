@@ -1,0 +1,31 @@
+person: matthew-brett
+display_name: Matthew Brett
+anchor_id: null
+tier: Emeritus
+order: 26
+positions:
+- "University of\n\t\tBirmingham, UK"
+portrait: /theme/img/team/matthew.jpg
+portrait_attrs: /
+contacts:
+- kind: email
+  href: mailto:matthew.brett@gmail.com
+  label: E-Mail
+- kind: research
+  href: http://matthew.dynevor.org/
+  label: Research Page
+- kind: cv
+  href: http://matthew.dynevor.org/research/cv.html
+  label: CV
+- kind: github
+  href: https://github.com/matthew-brett
+  label: GitHub
+- kind: orcid
+  href: https://orcid.org/0000-0001-5500-2546
+  label: ORCID
+description_html: "\n\t\t  Neurologist, neuroimaging methods guru, early proponent of\n\t\t  reproducible\
+  \ practice and in-depth understanding of the used\n\t\t  analysis methodologies, lead of\n\t\t  <a href=\"\
+  http://www.nipy.org\">Neuroimaging in Python</a>\n\t\t  community and some of its popular software\n\
+  \t\t  (<a href=\"http://www.nipy.org/nipy\">NiPy</a> and\n\t\t  <a href=\"http://www.nipy.org/nibabel\"\
+  >NiBabel</a>) projects\n\t\t  and infrastructural solutions, such\n\t\t  as <a href=\"/projects#nibotmi_\"\
+  >Nibotmi</a> which we are\n\t\t  contributing to.\n\t\t"

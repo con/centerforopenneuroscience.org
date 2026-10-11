@@ -1,0 +1,35 @@
+project: repronim-containers
+display_name: ReproNim/containers
+anchor_id: repronim-containers
+anchor_duplicated: false
+section: Software
+section_html: <h1 style="margin-top:20px">Software</h1>
+section_intro_html: null
+order: 8
+source_page: projects
+logo:
+  href: https://github.com/ReproNim/containers
+  src: /theme/img/3rd/repronim-containers-1-single-wide.svg
+  alt: ReproNim/containers
+  class: pull-left
+  style: width:400px;padding-right:10px;margin-top:0em;
+people_referenced: []
+body_html: "\n    <figure>\n      <a href=\"https://github.com/ReproNim/containers\"><img src=\"/theme/img/3rd/repronim-containers-1-single-wide.svg\"\
+  \ alt=\"ReproNim/containers\" class=\"pull-left\" style=\"width:400px;padding-right:10px;margin-top:0em;\"\
+  \ /></a>\n    </figure>\n\t<p>\n\t  <a href=\"https://github.com/ReproNim/containers\">ReproNim/containers</a>\n\
+  \t  is a <a href=\"#datalad\">DataLad</a> dataset providing a ready-to-use\n\t  \"distribution\" of\
+  \ containerized neuroimaging environments (Singularity\n\t  images) for reproducible analysis. It collects\
+  \ a curated set of\n\t  containers — including those used by <a href=\"#heudiconv\">HeuDiConv</a>\n\t\
+  \  and the broader <a href=\"http://repronim.org\">ReproNim</a> ecosystem —\n\t  and exposes them via\
+  \ the <code>///repronim/containers</code> DataLad\n\t  dataset path, making it trivial to pin and share\
+  \ exact software\n\t  environments alongside data and workflows.\n\t</p>\n  "
+row_html: "<div class=\"row\">\n\t<h2 id=\"repronim-containers\">ReproNim/containers</h2>\n    <figure>\n\
+  \      <a href=\"https://github.com/ReproNim/containers\"><img src=\"/theme/img/3rd/repronim-containers-1-single-wide.svg\"\
+  \ alt=\"ReproNim/containers\" class=\"pull-left\" style=\"width:400px;padding-right:10px;margin-top:0em;\"\
+  \ /></a>\n    </figure>\n\t<p>\n\t  <a href=\"https://github.com/ReproNim/containers\">ReproNim/containers</a>\n\
+  \t  is a <a href=\"#datalad\">DataLad</a> dataset providing a ready-to-use\n\t  \"distribution\" of\
+  \ containerized neuroimaging environments (Singularity\n\t  images) for reproducible analysis. It collects\
+  \ a curated set of\n\t  containers — including those used by <a href=\"#heudiconv\">HeuDiConv</a>\n\t\
+  \  and the broader <a href=\"http://repronim.org\">ReproNim</a> ecosystem —\n\t  and exposes them via\
+  \ the <code>///repronim/containers</code> DataLad\n\t  dataset path, making it trivial to pin and share\
+  \ exact software\n\t  environments alongside data and workflows.\n\t</p>\n  </div>"

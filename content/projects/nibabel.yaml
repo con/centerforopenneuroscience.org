@@ -1,0 +1,18 @@
+project: nibabel
+display_name: Nibabel
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 47
+source_page: whoweare
+logo:
+  href: https://nipy.org/nibabel/
+  src: /theme/img/3rd/nibabel_logo.png
+  alt: Nibabel
+  title: Nibabel
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

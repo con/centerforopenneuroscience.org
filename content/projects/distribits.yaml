@@ -1,0 +1,38 @@
+project: distribits
+display_name: distribits
+anchor_id: null
+anchor_duplicated: null
+section: Meetings
+section_html: <h1>Meetings</h1>
+section_intro_html: "\n\n  For over a decade, CON and its projects are presented annually with\n  exhibits\
+  \ at\n  the annual meetings of\n  the <a href=\"https://www.humanbrainmapping.org\">Organization for\n\
+  \  Human Brain Mapping (OHBM) Society</a>\n  and the <a href=\"https://www.sfn.org\">Society for Neuroscience</a>.\n\
+  \  In collaboration with <a href=\"/whoweare#soichi_hayashi_\"\n  class=\"centroid\">Soichi Hayashi</a>\
+  \ and <a href=\"https://github.com/datalad-datasets/ohbm2020-posters/graphs/contributors\">other wonderful\n\
+  \  people</a> we proudly saved the first ever virtual OHBM 2020 by\n  providing\n  a <a href=\"https://datalad-datasets.github.io/ohbm2020-posters/#/\"\
+  >virtual\n  posters venue</a>.\n\t\n\t"
+order: 25
+source_page: projects
+logo:
+  href: https://www.distribits.live/
+  src: /theme/img/3rd/distribits_logo.webp
+  alt: Distribits
+  class: pull-left
+  style: width:155px;padding-right:5px;margin-top:0em;
+people_referenced: []
+body_html: "\n\t<figure>\n      <a href=\"https://www.distribits.live/\"><img src=\"/theme/img/3rd/distribits_logo.webp\"\
+  \n      alt=\"Distribits\" class=\"pull-left\" style=\"width:155px;padding-right:5px;margin-top:0em;\"\
+  \ /></a>\n    </figure>\n\n\t<p>\n\t  <a href=\"https://www.distribits.live\">distribits</a> is a\n\t\
+  \  community for enthusiasts of tools and workflows in the domain\n\t  of distributed data. Take a look\
+  \ at\n\t  the <a href=\"https://www.distribits.live/topics/\">topics</a> of\n\t  past meeting contributions,\
+  \ and <a href=\"https://www.youtube.com/playlist?list=PLEQHbPfpVqU6esVrgqjfYybY394XD2qf2\">YouTube videos\
+  \ from\n\t  distribits 2024</a> to learn what is being talked about\n\t  at distribits.\n\t  </p>\n\
+  \  "
+row_html: "<div class=\"row\">\n\t<h2>distribits</h2>\n\t<figure>\n      <a href=\"https://www.distribits.live/\"\
+  ><img src=\"/theme/img/3rd/distribits_logo.webp\"\n      alt=\"Distribits\" class=\"pull-left\" style=\"\
+  width:155px;padding-right:5px;margin-top:0em;\" /></a>\n    </figure>\n\n\t<p>\n\t  <a href=\"https://www.distribits.live\"\
+  >distribits</a> is a\n\t  community for enthusiasts of tools and workflows in the domain\n\t  of distributed\
+  \ data. Take a look at\n\t  the <a href=\"https://www.distribits.live/topics/\">topics</a> of\n\t  past\
+  \ meeting contributions, and <a href=\"https://www.youtube.com/playlist?list=PLEQHbPfpVqU6esVrgqjfYybY394XD2qf2\"\
+  >YouTube videos from\n\t  distribits 2024</a> to learn what is being talked about\n\t  at distribits.\n\
+  \t  </p>\n  </div>"

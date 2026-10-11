@@ -1,0 +1,29 @@
+person: luke-chang
+display_name: Luke Chang
+anchor_id: null
+tier: Affiliated Faculty
+order: 17
+positions:
+- Associate Professor
+portrait: /theme/img/team/chang.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: email
+  href: mailto:luke.j.chang@dartmouth.edu
+  label: E-Mail
+- kind: research
+  href: http://www.cosanlab.com/
+  label: Lab Web Page
+- kind: cv
+  href: http://www.lukejchang.com/cv.html
+  label: CV
+- kind: github
+  href: https://github.com/ljchang
+  label: GitHub
+- kind: orcid
+  href: https://orcid.org/0000-0002-6621-8120
+  label: ORCID
+description_html: "\n\t Luke is an Associate Professor of Psychological and Brain\n\t Sciences at Dartmouth\
+  \ and directs the Computational Social and Affective\n\t Neuroscience Lab. His lab develops tools to\
+  \ study the computational processes\n\t underlying emotions and social interactions and their neurobiological\
+  \ substrates.\n\t "

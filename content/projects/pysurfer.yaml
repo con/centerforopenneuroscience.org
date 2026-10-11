@@ -1,0 +1,18 @@
+project: pysurfer
+display_name: Pysurfer
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 61
+source_page: whoweare
+logo:
+  href: http://pysurfer.github.io/
+  src: /theme/img/3rd/pysurfer_logo.png
+  alt: Pysurfer
+  title: Pysurfer
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

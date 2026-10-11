@@ -1,0 +1,47 @@
+project: hypertools
+display_name: HyperTools
+anchor_id: null
+anchor_duplicated: null
+section: Software
+section_html: <h1 style="margin-top:20px">Software</h1>
+section_intro_html: null
+order: 22
+source_page: projects
+logo:
+  href: https://hypertools.readthedocs.io/en/latest/
+  src: /theme/img/3rd/hypertools_logo.png
+  alt: HyperTools
+  class: pull-right
+  style: width:155px;padding-left:5px;margin-top:-2em;
+people_referenced:
+- jeremy_rothman_manning_
+body_html: "\n\t    <figure>\n          <a href=\"https://hypertools.readthedocs.io/en/latest/\">\n\t\t\
+  \          <img src=\"/theme/img/3rd/hypertools_logo.png\" alt=\"HyperTools\"\n\t\t\t             class=\"\
+  pull-right\"\n\t\t\t             style=\"width:155px;padding-left:5px;margin-top:-2em;\" />\n\t    \
+  \    </a>\n      </figure>\n\n\t    <p>\n\t        <a href=\"https://hypertools.readthedocs.io/en/latest/\"\
+  >HyperTools</a>\n          is a Python toolbox for gaining geometric insights into high dimensional\
+  \ data.  Features include:\n\t    </p>\n\t\t\t<ul>\n              <li>Functions for plotting high-dimensional\
+  \ datasets in 2D and 3D</li>\n              <li>Static and animated plots</li>\n              <li>Simple\
+  \ API for customizing plot styles</li>\n              <li>Set of powerful data manipulation tools including\
+  \ hyperalignment, <i>k</i>-means clustering, normalizing, and more</li>\n              <li>Support of\
+  \ lists of Numpy arrays, Pandas dataframes, text, or (mixed) lists</li>\n              <li>Applying\
+  \ topic models and other text and word embedding methods to text data</li>\n          </ul>\n\t    <ul>\n\
+  \t      <li>A.C. Heusser, K. Ziman, L.L.W. Owen, and\n\t        <a href=\"/whoweare#jeremy_rothman_manning_\"\
+  \ class=\"centroid\">J.R. Manning</a>\n\t\t\t(2018).  <a href=\"http://www.jmlr.org/papers/volume18/17-434/17-434.pdf\"\
+  >HyperTools: a Python Toolbox for Gaining Geometric Insights into High-Dimensional Data</a>.  Journal\
+  \ of Machine Learning Research, 18: 1-6.</li>\n\t    </ul>\n  "
+row_html: "<div class=\"row\">\n\t    <h2>HyperTools</h2>\n\t    <figure>\n          <a href=\"https://hypertools.readthedocs.io/en/latest/\"\
+  >\n\t\t          <img src=\"/theme/img/3rd/hypertools_logo.png\" alt=\"HyperTools\"\n\t\t\t        \
+  \     class=\"pull-right\"\n\t\t\t             style=\"width:155px;padding-left:5px;margin-top:-2em;\"\
+  \ />\n\t        </a>\n      </figure>\n\n\t    <p>\n\t        <a href=\"https://hypertools.readthedocs.io/en/latest/\"\
+  >HyperTools</a>\n          is a Python toolbox for gaining geometric insights into high dimensional\
+  \ data.  Features include:\n\t    </p>\n\t\t\t<ul>\n              <li>Functions for plotting high-dimensional\
+  \ datasets in 2D and 3D</li>\n              <li>Static and animated plots</li>\n              <li>Simple\
+  \ API for customizing plot styles</li>\n              <li>Set of powerful data manipulation tools including\
+  \ hyperalignment, <i>k</i>-means clustering, normalizing, and more</li>\n              <li>Support of\
+  \ lists of Numpy arrays, Pandas dataframes, text, or (mixed) lists</li>\n              <li>Applying\
+  \ topic models and other text and word embedding methods to text data</li>\n          </ul>\n\t    <ul>\n\
+  \t      <li>A.C. Heusser, K. Ziman, L.L.W. Owen, and\n\t        <a href=\"/whoweare#jeremy_rothman_manning_\"\
+  \ class=\"centroid\">J.R. Manning</a>\n\t\t\t(2018).  <a href=\"http://www.jmlr.org/papers/volume18/17-434/17-434.pdf\"\
+  >HyperTools: a Python Toolbox for Gaining Geometric Insights into High-Dimensional Data</a>.  Journal\
+  \ of Machine Learning Research, 18: 1-6.</li>\n\t    </ul>\n  </div>"

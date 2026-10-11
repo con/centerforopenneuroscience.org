@@ -1,0 +1,18 @@
+project: biosig
+display_name: biosig
+anchor_id: null
+anchor_duplicated: false
+section: Collaborating projects
+order: 34
+source_page: whoweare
+logo:
+  href: http://biosig.sourceforge.net
+  src: /theme/img/3rd/biosig_logo.png
+  alt: biosig
+  title: biosig
+  class: null
+  style: null
+icon_less: false
+people_referenced: []
+body_html: null
+row_html: null

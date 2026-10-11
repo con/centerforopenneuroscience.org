@@ -1,0 +1,52 @@
+project: heudiconv-reproin
+display_name: HeuDiConv / ReproIn
+anchor_id: heudiconv
+anchor_duplicated: false
+section: Software
+section_html: <h1 style="margin-top:20px">Software</h1>
+section_intro_html: null
+order: 7
+source_page: projects
+logo: null
+people_referenced:
+- james_v_haxby_
+- matteo_visconti_di_oleggio_castello_
+- yaroslav_o_halchenko_
+body_html: "\n\t<p>\n\t  <a href=\"https://github.com/nipy/heudiconv\">HeuDiConv</a> is a\n\t  flexible\
+  \ DICOM converter for organizing brain imaging data into\n\t  structured directory layouts. As a part\
+  \ of the larger, NIH\n\t  supported <a href=\"http://repronim.org\">ReproNim</a> effort, we\n\t  are\
+  \ developing a HeuDiConv-based <a href=\"http://reproin.repronim.org\">ReproIn</a>\n      solution for\
+  \ turnkey\n\t  automatic conversion of all collected MR data to a collection of\n\t  the BIDS DataLad\
+  \ datasets. It includes a flexible BIDS-like\n\t  specification how to name scanning sequences in the\
+  \ scanner, and\n\t  a <a href=\"https://github.com/nipy/heudiconv/blob/master/heudiconv/heuristics/reproin.py\"\
+  >HeuDiConv\n\t  reproin.py heuristic</a> to automate layout and conversion of\n\t  the datasets.  This\
+  \ solution is deployed\n\t  at <a href=\"https://www.dartmouth.edu/dbic/\">DBIC (Dartmouth Brain\n\t\
+  \  Imaging Center)</a>, it already facilitates reproducible\n\t  research, data sharing, and uploads\
+  \ to central archives such as\n\t  NDA.\n\t</p>\n\t<ul>\n\t  <li>\n\t\tHalchenko et al., (2024). HeuDiConv\
+  \ — flexible DICOM\n\t\tconversion into structured directory layouts. Journal of Open\n\t\tSource Software,\
+  \ 9(99), 5839\n\t\t<a href=\"https://joss.theoj.org/papers/10.21105/joss.05839\">DOI: 10.21105/joss.05839</a>.\n\
+  \t  </li>\n\t  <li>\n\t\t<a href=\"/whoweare#matteo_visconti_di_oleggio_castello_\" class=\"centroid\"\
+  >M. Visconti di Oleggio Castello</a>,\n\t\tJames E. Dobson,\n\t\tTerry Sackett,\n\t\tChandana Kodiweera,\n\
+  \t\t<a href=\"/whoweare#james_v_haxby_\" class=\"centroid\">J.V. Haxby</a>,\n\t\tM. Goncalves,\n\t\t\
+  S. Ghosh,\n\t\t<a href=\"/whoweare#yaroslav_o_halchenko_\" class=\"centroid\">Y.O. Halchenko</a>\n\t\
+  \t<a href=\"http://goo.gl/Z3soj7\">ReproIn: automatic generation of shareable,\n\t\t  version-controlled\
+  \ BIDS datasets from MR scanners</a>,\n\t\tOHBM 2018, Singapore.\n\t  </li>\n\t</ul>\n  "
+row_html: "<div class=\"row\">\n\t<h2 id=\"heudiconv\">HeuDiConv / ReproIn</h2>\n\t<p>\n\t  <a href=\"\
+  https://github.com/nipy/heudiconv\">HeuDiConv</a> is a\n\t  flexible DICOM converter for organizing\
+  \ brain imaging data into\n\t  structured directory layouts. As a part of the larger, NIH\n\t  supported\
+  \ <a href=\"http://repronim.org\">ReproNim</a> effort, we\n\t  are developing a HeuDiConv-based <a href=\"\
+  http://reproin.repronim.org\">ReproIn</a>\n      solution for turnkey\n\t  automatic conversion of all\
+  \ collected MR data to a collection of\n\t  the BIDS DataLad datasets. It includes a flexible BIDS-like\n\
+  \t  specification how to name scanning sequences in the scanner, and\n\t  a <a href=\"https://github.com/nipy/heudiconv/blob/master/heudiconv/heuristics/reproin.py\"\
+  >HeuDiConv\n\t  reproin.py heuristic</a> to automate layout and conversion of\n\t  the datasets.  This\
+  \ solution is deployed\n\t  at <a href=\"https://www.dartmouth.edu/dbic/\">DBIC (Dartmouth Brain\n\t\
+  \  Imaging Center)</a>, it already facilitates reproducible\n\t  research, data sharing, and uploads\
+  \ to central archives such as\n\t  NDA.\n\t</p>\n\t<ul>\n\t  <li>\n\t\tHalchenko et al., (2024). HeuDiConv\
+  \ — flexible DICOM\n\t\tconversion into structured directory layouts. Journal of Open\n\t\tSource Software,\
+  \ 9(99), 5839\n\t\t<a href=\"https://joss.theoj.org/papers/10.21105/joss.05839\">DOI: 10.21105/joss.05839</a>.\n\
+  \t  </li>\n\t  <li>\n\t\t<a href=\"/whoweare#matteo_visconti_di_oleggio_castello_\" class=\"centroid\"\
+  >M. Visconti di Oleggio Castello</a>,\n\t\tJames E. Dobson,\n\t\tTerry Sackett,\n\t\tChandana Kodiweera,\n\
+  \t\t<a href=\"/whoweare#james_v_haxby_\" class=\"centroid\">J.V. Haxby</a>,\n\t\tM. Goncalves,\n\t\t\
+  S. Ghosh,\n\t\t<a href=\"/whoweare#yaroslav_o_halchenko_\" class=\"centroid\">Y.O. Halchenko</a>\n\t\
+  \t<a href=\"http://goo.gl/Z3soj7\">ReproIn: automatic generation of shareable,\n\t\t  version-controlled\
+  \ BIDS datasets from MR scanners</a>,\n\t\tOHBM 2018, Singapore.\n\t  </li>\n\t</ul>\n  </div>"

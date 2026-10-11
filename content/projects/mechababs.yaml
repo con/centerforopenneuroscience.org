@@ -1,0 +1,27 @@
+project: mechababs
+display_name: mechababs
+anchor_id: mechababs
+anchor_duplicated: false
+section: Software
+section_html: <h1 style="margin-top:20px">Software</h1>
+section_intro_html: null
+order: 14
+source_page: projects
+logo: null
+people_referenced: []
+body_html: "\n\t<p>\n\t  <a href=\"https://github.com/con/mechababs\">mechababs</a> runs\n\t  <a href=\"\
+  https://bids-apps.neuroimaging.io\">BIDS Apps</a> over many\n\t  studies on an HPC cluster, with\n\t\
+  \  <a href=\"https://github.com/PennLINC/babs\">BABS</a> running the jobs.\n\t  It works on a BIDS study,\
+  \ adding derivatives to it, and records how\n\t  each one was made inside the study itself: the exact\
+  \ mechababs and\n\t  BABS versions pinned in a lock, and every orchestration step as a\n\t  <a href=\"\
+  #datalad_\">DataLad</a> run record.  A superstudy groups\n\t  many studies so one campaign sweeps them\
+  \ all, which is how mechababs\n\t  feeds <a href=\"https://github.com/OpenNeuroStudies/OpenNeuroStudies\"\
+  >OpenNeuroStudies</a>.\n\t</p>\n  "
+row_html: "<div class=\"row\">\n\t<h2 id=\"mechababs\">mechababs</h2>\n\t<p>\n\t  <a href=\"https://github.com/con/mechababs\"\
+  >mechababs</a> runs\n\t  <a href=\"https://bids-apps.neuroimaging.io\">BIDS Apps</a> over many\n\t \
+  \ studies on an HPC cluster, with\n\t  <a href=\"https://github.com/PennLINC/babs\">BABS</a> running\
+  \ the jobs.\n\t  It works on a BIDS study, adding derivatives to it, and records how\n\t  each one was\
+  \ made inside the study itself: the exact mechababs and\n\t  BABS versions pinned in a lock, and every\
+  \ orchestration step as a\n\t  <a href=\"#datalad_\">DataLad</a> run record.  A superstudy groups\n\t\
+  \  many studies so one campaign sweeps them all, which is how mechababs\n\t  feeds <a href=\"https://github.com/OpenNeuroStudies/OpenNeuroStudies\"\
+  >OpenNeuroStudies</a>.\n\t</p>\n  </div>"

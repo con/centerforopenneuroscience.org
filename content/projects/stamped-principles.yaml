@@ -1,0 +1,61 @@
+project: stamped-principles
+display_name: STAMPED Principles
+anchor_id: stamped
+anchor_duplicated: false
+section: Standards
+section_html: <h1>Standards</h1>
+section_intro_html: null
+order: 28
+source_page: projects
+logo:
+  href: https://stamped-principles.org
+  src: /theme/img/3rd/stamped_logo.png
+  alt: STAMPED
+  class: pull-right
+  style: width:255px;padding-left:10px;margin-top:-2em;
+people_referenced:
+- austin_macdonald_
+- cody_baker_
+- isaac_to_
+- john_lee_
+- yaroslav_o_halchenko_
+body_html: "\n\t<figure>\n      <a href=\"https://stamped-principles.org\">\n\t\t<img src=\"/theme/img/3rd/stamped_logo.png\"\
+  \ alt=\"STAMPED\"\n\t\t\t class=\"pull-right\"\n\t\t\t style=\"width:255px;padding-left:10px;margin-top:-2em;\"\
+  \ />\n\t  </a>\n    </figure>\n\t<p>\n\t  <a href=\"https://stamped-principles.org\">STAMPED</a> is\
+  \ a set of\n\t  seven principles, Self-containment, Tracking, Actionability,\n\t  Modularity, Portability,\
+  \ Ephemerality, and Distributability, for\n\t  building research objects that others can trust, rerun,\
+  \ and build\n\t  upon.  Each principle is a spectrum from a practical minimum to an\n\t  aspirational\
+  \ ideal, so adoption can be incremental and start from\n\t  existing practice.  STAMPED grew out of\
+  \ <a href=\"https://f1000research.com/posters/7-1965\">YODA</a> and\n\t  comes with an\n\t  <a href=\"\
+  https://checklist.stamped-principles.org\">interactive checklist</a>\n\t  and <a href=\"https://examples.stamped-principles.org\"\
+  >worked examples</a>.\n\t</p>\n\t<ul>\n\t  <li>\n\t\t<a href=\"/whoweare#austin_macdonald_\" class=\"\
+  centroid\">Austin Macdonald</a>,\n\t\t<a href=\"/whoweare#cody_baker_\" class=\"centroid\">Cody C. Baker</a>,\n\
+  \t\t<a href=\"/whoweare#isaac_to_\" class=\"centroid\">Isaac To</a>,\n\t\t<a href=\"/whoweare#john_lee_\"\
+  \ class=\"centroid\">John A. Lee</a>,\n\t\t<a href=\"/whoweare#yaroslav_o_halchenko_\" class=\"centroid\"\
+  >Yaroslav O. Halchenko</a>.\n\t\t<a href=\"https://doi.org/10.31222/osf.io/f3h82_v1\">STAMPED principles\
+  \ for reproducible research objects</a>\n\t\t(preprint). DOI: 10.31222/osf.io/f3h82_v1\n\t  </li>\n\t\
+  \  <li>\n\t\t\U0001F3AC <a href=\"https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8NTWKHer5Zo\"\
+  >Talk\n\t\tby Cody C. Baker introducing STAMPED</a> — archived on CON/tube.\n\t  </li>\n\t  <li>\n\t\
+  \t\U0001F3AC <a href=\"https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/1XbTbJ_P2x0\"\
+  >YODA:\n\t\tStructure your studies, observable and reproducible they become</a> —\n\t\twebinar recording\
+  \ archived on CON/tube.\n\t  </li>\n\t</ul>\n  "
+row_html: "<div class=\"row\">\n\t<h2 id=\"stamped\">STAMPED Principles</h2>\n\t<figure>\n      <a href=\"\
+  https://stamped-principles.org\">\n\t\t<img src=\"/theme/img/3rd/stamped_logo.png\" alt=\"STAMPED\"\n\
+  \t\t\t class=\"pull-right\"\n\t\t\t style=\"width:255px;padding-left:10px;margin-top:-2em;\" />\n\t\
+  \  </a>\n    </figure>\n\t<p>\n\t  <a href=\"https://stamped-principles.org\">STAMPED</a> is a set of\n\
+  \t  seven principles, Self-containment, Tracking, Actionability,\n\t  Modularity, Portability, Ephemerality,\
+  \ and Distributability, for\n\t  building research objects that others can trust, rerun, and build\n\
+  \t  upon.  Each principle is a spectrum from a practical minimum to an\n\t  aspirational ideal, so adoption\
+  \ can be incremental and start from\n\t  existing practice.  STAMPED grew out of <a href=\"https://f1000research.com/posters/7-1965\"\
+  >YODA</a> and\n\t  comes with an\n\t  <a href=\"https://checklist.stamped-principles.org\">interactive\
+  \ checklist</a>\n\t  and <a href=\"https://examples.stamped-principles.org\">worked examples</a>.\n\t\
+  </p>\n\t<ul>\n\t  <li>\n\t\t<a href=\"/whoweare#austin_macdonald_\" class=\"centroid\">Austin Macdonald</a>,\n\
+  \t\t<a href=\"/whoweare#cody_baker_\" class=\"centroid\">Cody C. Baker</a>,\n\t\t<a href=\"/whoweare#isaac_to_\"\
+  \ class=\"centroid\">Isaac To</a>,\n\t\t<a href=\"/whoweare#john_lee_\" class=\"centroid\">John A. Lee</a>,\n\
+  \t\t<a href=\"/whoweare#yaroslav_o_halchenko_\" class=\"centroid\">Yaroslav O. Halchenko</a>.\n\t\t\
+  <a href=\"https://doi.org/10.31222/osf.io/f3h82_v1\">STAMPED principles for reproducible research objects</a>\n\
+  \t\t(preprint). DOI: 10.31222/osf.io/f3h82_v1\n\t  </li>\n\t  <li>\n\t\t\U0001F3AC <a href=\"https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8NTWKHer5Zo\"\
+  >Talk\n\t\tby Cody C. Baker introducing STAMPED</a> — archived on CON/tube.\n\t  </li>\n\t  <li>\n\t\
+  \t\U0001F3AC <a href=\"https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/1XbTbJ_P2x0\"\
+  >YODA:\n\t\tStructure your studies, observable and reproducible they become</a> —\n\t\twebinar recording\
+  \ archived on CON/tube.\n\t  </li>\n\t</ul>\n  </div>"

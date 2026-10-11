@@ -1,0 +1,52 @@
+project: neurodebian
+display_name: NeuroDebian
+anchor_id: neurodebian
+anchor_duplicated: false
+section: Software
+section_html: <h1 style="margin-top:20px">Software</h1>
+section_intro_html: null
+order: 9
+source_page: projects
+logo:
+  href: https://neuro.debian.net
+  src: /theme/img/3rd/neurodebian_logo.jpg
+  alt: neurodebian
+  class: pull-right
+  style: padding-left:10px;margin-top:-2em;
+people_referenced:
+- michael_hanke_
+- yaroslav_o_halchenko_
+body_html: "\n    <figure>\n      <a href=\"https://neuro.debian.net\"><img src=\"/theme/img/3rd/neurodebian_logo.jpg\"\
+  \ alt=\"neurodebian\" class=\"pull-right\" style=\"padding-left:10px;margin-top:-2em;\" /></a>\n   \
+  \ </figure>\n\t<p>\n\t  <a href=\"https://neuro.debian.net\">NeuroDebian</a> is a turnkey\n\t  research\
+  \ software platform for all aspects of the\n\t  neuroscientific research process. It takes the ideas\
+  \ of the\n\t  software hosting portals such\n\t  as <a href=\"http://nitrc.org\">NITRC</a> on maximizing\
+  \ research\n\t  transparency and methods sharing, one step further, by providing\n\t  a comprehensive\
+  \ suite of readily usable and fully integrated\n\t  software with a robust testing and deployment\n\t\
+  \  infrastructure. Consequently, it improves interoperability among\n\t  the tools and frees researchers\
+  \ from the burden of tedious\n\t  installation or upgrade procedures. That, in turn, positively\n\t\
+  \  affects their availability for actual research activities, as\n\t  well as their motivation to test\
+  \ new analysis tools and stay\n\t  connected with the latest methodological developments in the\n\t\
+  \  field.\n\t  </p>\n\n\t<ul>\n\t  <li>\n\t  <a href=\"/whoweare#yaroslav_o_halchenko_\" class=\"centroid\"\
+  >Y.O. Halchenko</a>\n\t  &amp; <a href=\"/whoweare#michael_hanke_\" class=\"centroid\">M. Hanke</a>\
+  \ (2012).\n\t  <a href=\"https://www.frontiersin.org/articles/10.3389/fninf.2012.00022/full\">\n\t\t\
+  Open is not enough. Let's take the next step: An integrated, community-driven computing platform for\
+  \ neuroscience.</a>\n\t  Frontiers in Neuroinformatics, 6:22.\n\t  <a href=\"http://haxbylab.dartmouth.edu/publications/HH12.pdf\"\
+  >[PDF]</a> DOI: 10.3389/fninf.2012.00022\n\t  </li>\n\t</ul>\n  "
+row_html: "<div class=\"row\">\n\t<h2 id=\"neurodebian\">NeuroDebian</h2>\n    <figure>\n      <a href=\"\
+  https://neuro.debian.net\"><img src=\"/theme/img/3rd/neurodebian_logo.jpg\" alt=\"neurodebian\" class=\"\
+  pull-right\" style=\"padding-left:10px;margin-top:-2em;\" /></a>\n    </figure>\n\t<p>\n\t  <a href=\"\
+  https://neuro.debian.net\">NeuroDebian</a> is a turnkey\n\t  research software platform for all aspects\
+  \ of the\n\t  neuroscientific research process. It takes the ideas of the\n\t  software hosting portals\
+  \ such\n\t  as <a href=\"http://nitrc.org\">NITRC</a> on maximizing research\n\t  transparency and methods\
+  \ sharing, one step further, by providing\n\t  a comprehensive suite of readily usable and fully integrated\n\
+  \t  software with a robust testing and deployment\n\t  infrastructure. Consequently, it improves interoperability\
+  \ among\n\t  the tools and frees researchers from the burden of tedious\n\t  installation or upgrade\
+  \ procedures. That, in turn, positively\n\t  affects their availability for actual research activities,\
+  \ as\n\t  well as their motivation to test new analysis tools and stay\n\t  connected with the latest\
+  \ methodological developments in the\n\t  field.\n\t  </p>\n\n\t<ul>\n\t  <li>\n\t  <a href=\"/whoweare#yaroslav_o_halchenko_\"\
+  \ class=\"centroid\">Y.O. Halchenko</a>\n\t  &amp; <a href=\"/whoweare#michael_hanke_\" class=\"centroid\"\
+  >M. Hanke</a> (2012).\n\t  <a href=\"https://www.frontiersin.org/articles/10.3389/fninf.2012.00022/full\"\
+  >\n\t\tOpen is not enough. Let's take the next step: An integrated, community-driven computing platform\
+  \ for neuroscience.</a>\n\t  Frontiers in Neuroinformatics, 6:22.\n\t  <a href=\"http://haxbylab.dartmouth.edu/publications/HH12.pdf\"\
+  >[PDF]</a> DOI: 10.3389/fninf.2012.00022\n\t  </li>\n\t</ul>\n  </div>"

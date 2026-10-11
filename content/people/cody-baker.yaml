@@ -1,0 +1,32 @@
+person: cody-baker
+display_name: Cody Baker
+anchor_id: cody_baker_
+tier: Centroids
+order: 5
+positions:
+- Research Software Engineer
+portrait: /theme/img/team/cody.jpg
+portrait_attrs: ' class="pull-left"/'
+contacts:
+- kind: email
+  href: mailto:cody.c.baker.phd@gmail.com?Subject=Hello Cody @CON
+  label: E-Mail
+- kind: home
+  href: https://codycbakerphd.com
+  label: Home Page
+- kind: github
+  href: https://github.com/CodyCBakerPhD
+  label: GitHub
+- kind: linkedin
+  href: https://www.linkedin.com/in/cody-c-baker
+  label: LinkedIn
+- kind: orcid
+  href: https://orcid.org/0000-0002-0829-4790
+  label: ORCID
+description_html: "\n      Data connoisseur responsible for creating many software packages through the\
+  \ <a href=\"/projects#neurodata_without_borders__neurophysiology_nwb_n_\">NWB</a> and <a href=\"/projects#dandi_\"\
+  >DANDI</a>\n      ecosystem (<a href=\"https://github.com/catalystneuro/neuroconv\">NeuroConv</a>, <a\
+  \ href=\"https://github.com/NeurodataWithoutBorders/nwbinspector\">NWB Inspector</a>, <a href=\"https://github.com/NeurodataWithoutBorders/nwb-guide\"\
+  >NWB GUIDE</a>). Experienced in uploading\n      several hundred terabytes of neurophysiology datasets\
+  \ to NIH archives.\n      Currently working on <a href=\"https://github.com/dandi/dandi-infrastructure\"\
+  >DANDI infrastructure</a>.\n    "
