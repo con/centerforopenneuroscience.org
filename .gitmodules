@@ -1,0 +1,4 @@
+[submodule "sourcedata/con-site-specific"]
+	path = sourcedata/con-site-specific
+	url = https://github.com/ORINOCO-Lite/con-site-specific.git
+	branch = enh-temporal-associations
