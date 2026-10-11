@@ -195,6 +195,41 @@ def test_subprojects_are_listed_under_their_parent(projects):
     assert "study-template" in projects
 
 
+@pytest.mark.ai_generated
+def test_subprojects_follow_their_parent(projects):
+    """Sorting a section by date alone scattered a family: BIDS's four
+    sub-projects landed in three different places and DICOM came after both
+    its working groups."""
+    import re
+    i = projects.index(">Standards</h1>")
+    j = projects.find("<h1", i + 1)
+    names = [re.sub(r"<[^>]+>", "", m).strip()
+             for m in re.findall(r"<h2[^>]*>(.*?)</h2>", projects[i:j], re.S)]
+    bids = names.index("Brain Imaging Data Structure (BIDS)")
+    for kid in ("BEP028", "BEP032", "BEP044", "BIDS 2.0"):
+        assert names.index(kid) > bids, f"{kid} should follow BIDS"
+    dicom = names.index("DICOM")
+    for kid in ("DICOM WG-16", "DICOM WG-32"):
+        assert names.index(kid) > dicom, f"{kid} should follow DICOM"
+    # and contiguously -- nothing unrelated wedged between a parent and its
+    # children
+    assert names[bids + 1:bids + 5] == ["BEP028", "BIDS 2.0", "BEP032", "BEP044"]
+
+
+@pytest.mark.ai_generated
+def test_components_do_not_repeat_the_description(projects):
+    """DataLad's prose bullets gloss datalad-container and datalad-fuse
+    better than a generated line can; listing them again is strictly worse."""
+    import re
+    m = re.search(r"<h2[^>]*>DataLad</h2>(.*?)(?=<h2 )", projects, re.S)
+    body = m.group(1).split("component-list")[-1]
+    listed = {re.sub(r"<[^>]+>", "", i).split(":")[0].strip()
+              for i in re.findall(r"<li>(.*?)</li>", body, re.S)}
+    assert "datalad-container" not in listed
+    assert "datalad-fuse" not in listed
+    assert "datalad-crawler" in listed       # the rest still show
+
+
 # --- ordering -------------------------------------------------------------
 
 @pytest.mark.ai_generated

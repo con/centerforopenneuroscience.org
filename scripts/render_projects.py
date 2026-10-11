@@ -78,6 +78,44 @@ def instruments_by_project():
     return out
 
 
+def parents_first(group, children):
+    """Reorder a section so a sub-project follows its parent.
+
+    Sorting a section purely by date scatters a family: Standards ran
+    STAMPED, BEP028, BIDS 2.0, BIDS, NWB, BEP032, BEP044, WG-16, WG-32,
+    DICOM, NIDM -- with BIDS's four sub-projects in three different places
+    and DICOM after both of its working groups.  Each parent keeps its
+    sorted position; its children are pulled up to sit directly beneath it,
+    in their own sorted order.
+    """
+    by_pid = {r["d"]["pid"]: r for r in group}
+    kids_of = {}
+    for r in group:
+        for parent in (r["d"].get("part_of") or []):
+            if parent in by_pid:
+                kids_of.setdefault(parent, []).append(r)
+    placed, out = set(), []
+
+    def emit(r):
+        if r["slug"] in placed:
+            return
+        placed.add(r["slug"])
+        out.append(r)
+        for kid in kids_of.get(r["d"]["pid"], []):
+            emit(kid)
+
+    for r in group:
+        # a child is emitted by its parent, unless the parent sorts after it
+        # and has not been reached yet -- then it leads its own family
+        parents = [p for p in (r["d"].get("part_of") or []) if p in by_pid]
+        if parents and any(p not in {q["d"]["pid"] for q in out} for p in parents):
+            continue
+        emit(r)
+    for r in group:                      # anything orphaned by the above
+        emit(r)
+    return out
+
+
 def subprojects_by_parent():
     """Projects grouped by the project they are `part_of`.
 
@@ -198,6 +236,7 @@ def anchor_of(d, slug):
 
 def render():
     rows, skipped = load()
+    order = []                 # the order render() actually used, for --show-order
     # A component or sub-project that has its OWN entry on this page should
     # link to it, not off-site: clicking a BEP under BIDS used to leave the
     # page for a spec that may not exist yet.
@@ -250,6 +289,9 @@ def render():
         group.sort(key=lambda r: r["started"] is None)
         group.sort(key=lambda r: LEAD.index(r["slug"]) if r["slug"] in LEAD
                    else len(LEAD))
+        group = parents_first(group, children)
+        order.append((sec, [r["slug"] for r in group],
+                      [r["started"] for r in group]))
         out.append(f'\t<h1>{html.escape(sec)}</h1>')
         if intros.get(sec):
             out.append(f'\t  {intros[sec].strip()}')
@@ -312,6 +354,20 @@ def render():
                 # page already has the right pattern for "a named thing plus
                 # a gloss" -- the <ul> inside DataLad's own description --
                 # so use it, and collapse the long ones.
+                # Skip components the description already introduces with a
+                # gloss of its own -- DataLad's prose bullets cover
+                # datalad-container and datalad-fuse better than a generated
+                # line can.
+                # A regex over the anchor shape was too clever and matched
+                # nothing; ask the simple question instead -- does the
+                # description link this name and then gloss it?
+                def already_glossed(nm):
+                    i = (rich or "").find(">%s</a>" % nm)
+                    return i >= 0 and ":" in (rich or "")[i:i + len(nm) + 16]
+                parts = [(s, pr) for s, pr in parts
+                         if not already_glossed(pr.get("name") or s)]
+                if len(parts) < 2:
+                    parts = components.get(d["pid"]) or []
                 rows_ = []
                 for slug, pr in sorted(parts, key=lambda x: x[1].get("name") or x[0]):
                     gloss = pr.get("description") or ""
@@ -321,7 +377,11 @@ def render():
                                  + '</li>')
                 body = ['\t\t  <ul class="component-list">'] + rows_ + ['\t\t  </ul>']
                 if len(parts) > 5:
-                    out.append('\t\t<details class="components">')
+                    # `open`: the content is the useful part.  Collapsed, a
+                    # reader saw "9 components" and no way to know whether
+                    # that mattered.  The disclosure stays, so a long list
+                    # can still be folded away.
+                    out.append('\t\t<details class="components" open="open">')
                     out.append(f'\t\t  <summary>{len(parts)} components</summary>')
                     out += body
                     out.append('\t\t</details>')
@@ -331,7 +391,7 @@ def render():
                     out += body
             out.append('\t  </div>')
     out += ['  </section>', '</body>', '', '</html>', '']
-    return "\n".join(out), rows, skipped
+    return "\n".join(out), order, skipped
 
 
 def main():
@@ -340,24 +400,17 @@ def main():
     ap.add_argument("--out")
     ap.add_argument("--show-order", action="store_true")
     a = ap.parse_args()
-    markup, rows, skipped = render()
+    markup, order, skipped = render()
     for slug, why in skipped:
         print(f"SKIPPED {slug}: {why}", file=sys.stderr)
     if a.show_order:
-        for sec in SECTIONS:
-            g = [r for r in rows if r["section"] == sec]
-            if not g:
-                continue
-            g.sort(key=lambda r: (r["started"] is None,
-                                  "" if r["started"] is None else r["started"]),
-                   reverse=True)
-            g.sort(key=lambda r: r["started"] is None)
-            g.sort(key=lambda r: LEAD.index(r["slug"]) if r["slug"] in LEAD
-                   else len(LEAD))
-            print(f"\n{sec} ({len(g)}):")
-            for r in g:
-                lead = " *" if r["slug"] in LEAD else "  "
-                print(f"  {lead} {r['started'] or '(undated)':12s} {r['slug']}")
+        # printed from the order render() actually used -- an earlier
+        # version re-derived it here and silently disagreed once the
+        # renderer learned to group children under their parent
+        for sec, slugs, starts in order:
+            print(f"\n{sec} ({len(slugs)}):")
+            for slug, started in zip(slugs, starts):
+                print(f"   {started or '(undated)':12s} {slug}")
         return 0
     # The ToC extension parses the page with strict ElementTree and, on a
     # parse error, returns the content UNCHANGED -- so one malformed tag in
