@@ -55,6 +55,28 @@ def one(d, pred):
     return v[0] if v else None
 
 
+def instruments_by_project():
+    """Instruments grouped by the project that generated them.
+
+    DataLad's page entry hand-listed two extensions; ten exist. Rather than
+    keep a prose list in step with the records, the components are rendered
+    from them.
+    """
+    out = {}
+    for f in sorted((RECORDS / "XYZInstrument").glob("*.yaml")):
+        d = yaml.safe_load(f.read_text())
+        for g in (d.get("generated_by") or []):
+            proj = g.get("object")
+            if not proj:
+                continue
+            # The instrument that IS the project (instruments/datalad under
+            # projects/datalad) is the software itself, not a component.
+            if proj.rsplit("/", 1)[-1] == f.stem:
+                continue
+            out.setdefault(proj, []).append((f.stem, d))
+    return out
+
+
 def load():
     """Entries to render, and anything skipped for a reason worth hearing.
 
@@ -92,6 +114,7 @@ def logo_for(slug):
 
 def render():
     rows, skipped = load()
+    components = instruments_by_project()
     intros = (yaml.safe_load(INTROS.read_text()) or {}).get("projects", {}) \
         if INTROS.exists() else {}
     out = ['<html>', '', '<head>', '\t<title>Projects</title>',
@@ -149,6 +172,20 @@ def render():
                            f'style="{html.escape(style)}" />{a_close}')
                 out.append('\t\t</figure>')
             out.append(f'\t\t{one(d, "dlthings:description_html")}')
+            parts = components.get(d["pid"]) or []
+            if parts:
+                out.append('\t\t<p class="components"><strong>Components:</strong>')
+                items = []
+                for slug, p in sorted(parts, key=lambda x: x[1].get("name") or x[0]):
+                    name = p.get("name") or p.get("display_label") or slug
+                    url = one(p, "foaf:homepage")
+                    desc = p.get("description") or ""
+                    label = html.escape(name)
+                    anchor = (f'<a href="{html.escape(url)}" '
+                              f'title="{html.escape(desc)}">{label}</a>'
+                              if url else label)
+                    items.append(anchor)
+                out.append('\t\t  ' + ",\n\t\t  ".join(items) + '</p>')
             out.append('\t  </div>')
     out += ['  </section>', '</body>', '', '</html>', '']
     return "\n".join(out), rows, skipped
