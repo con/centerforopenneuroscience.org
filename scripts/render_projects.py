@@ -146,7 +146,7 @@ def links_row(d):
     home = one(d, "foaf:homepage")
     repo = one(d, "dlthings:code_repository")
     if home and home != repo:
-        cls = "github" if "github.com" in home else "research"
+        cls = "github" if "github.com" in home else "home"
         out.append(f'<a href="{html.escape(home)}" class="{cls}" '
                    f'title="Home page">Home page</a>')
     if repo:
