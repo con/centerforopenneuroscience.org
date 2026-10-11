@@ -173,6 +173,17 @@ def test_components_line_needs_more_than_one(projects):
         assert len(re.findall(r"<a ", m.group(1))) > 1
 
 
+@pytest.mark.ai_generated
+def test_subprojects_are_listed_under_their_parent(projects):
+    """A sub-project with no section of its own was invisible: EMBER's study
+    template and the DICOM working groups had records and appeared nowhere."""
+    import re
+    i = projects.index(">DICOM</h2>")
+    block = projects[i:i + 4000]
+    assert "DICOM WG-16" in block and "DICOM WG-32" in block
+    assert "study-template" in projects
+
+
 # --- ordering -------------------------------------------------------------
 
 @pytest.mark.ai_generated

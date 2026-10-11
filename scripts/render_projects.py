@@ -77,6 +77,23 @@ def instruments_by_project():
     return out
 
 
+def subprojects_by_parent():
+    """Projects grouped by the project they are `part_of`.
+
+    Without this a sub-project is invisible unless it also claims a section
+    of its own: EMBER's study template and the DICOM working groups had
+    records and appeared nowhere.
+    """
+    out = {}
+    for f in sorted((RECORDS / "XYZProject").glob("*.yaml")):
+        d = yaml.safe_load(f.read_text())
+        for parent in (d.get("part_of") or []):
+            if parent == "xyzrins:.":
+                continue          # "part of the Center" is not a sub-project
+            out.setdefault(parent, []).append((f.stem, d))
+    return out
+
+
 def load():
     """Entries to render, and anything skipped for a reason worth hearing.
 
@@ -120,6 +137,7 @@ def logo_for(slug):
 def render():
     rows, skipped = load()
     components = instruments_by_project()
+    children = subprojects_by_parent()
     intros = (yaml.safe_load(INTROS.read_text()) or {}).get("projects", {}) \
         if INTROS.exists() else {}
     out = ['<html>', '', '<head>', '\t<title>Projects</title>',
@@ -185,6 +203,18 @@ def render():
                 out.append(f'\t\t{rich}')
             else:
                 out.append(f'\t\t<p>{html.escape(d.get("description") or "")}</p>')
+            kids = children.get(d["pid"]) or []
+            if kids:
+                out.append('\t\t<p class="subprojects"><strong>Within it:</strong>')
+                items = []
+                for slug, k in sorted(kids, key=lambda x: x[1].get("short_name") or x[0]):
+                    nm = k.get("short_name") or k.get("display_label") or slug
+                    url = one(k, "foaf:homepage")
+                    ttl = k.get("description") or ""
+                    lbl = html.escape(nm)
+                    items.append(f'<a href="{html.escape(url)}" '
+                                 f'title="{html.escape(ttl)}">{lbl}</a>' if url else lbl)
+                out.append('\t\t  ' + ",\n\t\t  ".join(items) + '</p>')
             parts = components.get(d["pid"]) or []
             # A list of one is not a list.  con/annextube's only instrument
             # IS con/annextube, so "Components: con/annextube" said nothing.
