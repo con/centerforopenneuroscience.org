@@ -80,32 +80,90 @@ CV distinguishes **Co-PI**, **Co-I** and **Subcontract PI / TR&D lead**;
 only PI has a vocabulary term in use. Needs either MARC equivalents or two
 minted roles.
 
-### The gap nobody upstream has solved
+### Durations: the pattern exists, and I had it wrong
 
-**Grants carry no dates.** I checked all 47 psychoinformatics grant records:
-not one has `started`, `ended` or `at_time`. `XYZGrant` is an `EntityMixin`,
-so it has no temporal slot at all — the same limitation as `XYZInstrument`.
+A second pass over psychoinformatics and the TRR379 records settles this.
+My earlier reading — "grants carry no dates, nobody upstream has solved it"
+— was right about the grant record and wrong about the model.
 
-That matters here because the CV's split into **Current** and **Past**
-funding is exactly a date, and without one the store cannot render it. Three
-options:
+**The grant is the award; the funded PROJECT carries the period.** Of 47
+grants, **37 are linked from a project**, and **34 of those projects carry
+`started`/`ended`**:
 
-1. an attribute pair (`dcterms:valid`, or `schema:startDate`/`endDate`) —
-   cheap, unenforced, and invisible to the bound rules;
-2. a companion `XYZProject` per grant with `started`/`ended`, which is how
-   psychoinformatics models funded *programmes* (PoF-IV and its sub-projects);
-3. ask upstream whether `XYZGrant` should mix in `ActivityMixin`.
+| project | period |
+| ---------- | ------------------------- |
+| TRR379 | 2024-10-01 .. 2028-09-30 |
+| PETParTI | 2024-03-01 .. 2027-02-28 |
+| BRAINTREE | 2024-05-01 .. 2027-04-30 |
+| ONCOverse | 2026-04-01 .. 2031-03-31 |
+| NEUROCAST | 2027-02-01 .. 2032-01-31 |
 
-Option 2 is the only one that uses an existing, enforced mechanism. **This
-is the question to settle before writing any grant record**, because it
-decides the shape of all ten.
+So there is no modelling gap to design around, and no need to ask upstream
+about `ActivityMixin`. `XYZProject` is an Activity and already has the
+slots; `XYZGrant` is an Entity and does not need them. Current versus past
+funding falls out of the project's `ended` against today.
+
+The link is `influenced_by` on the project with `FRAPO:Funding`, and four
+grants additionally point back with `about: <project>` — so the backlink is
+optional and rare.
+
+Grants nest the same way projects do, via `part_of`: `trr379-q02` is
+`part_of` `trr379`, `sfb1451-inf` is `part_of` `sfb1451`. ReproNim's
+renewal (`2P41EB019936-06A1` after `1P41EB019936-01A1`) is the same shape.
+
+### PI levels: there is no Co-PI or Co-I anywhere
+
+Every role in use across 47 grants and the 67 associations on grant-funded
+projects:
+
+| role | on grants | on projects | means |
+| ------------------- | --------- | ----------- | ----------------------- |
+| `marcrel:fnd` | 31 | — | the funding **agency**, not a person |
+| `obo:NCIT_C19924` | 3 | 28 | Principal investigator |
+| `obo:NCIT_C45284` | 2 | — | Coordinator |
+| `marcrel:app` | 2 | 1 | Applicant |
+| `marcrel:led` | 1 | 5 | Lead |
+| `marcrel:rtm` | — | 11 | Research team member |
+
+**Co-PI and Co-I do not exist in either store**, and MARC has no equivalent.
+The CV distinguishes four levels — PI, Co-PI, Co-I, and Subcontract PI /
+TR&D lead — so two or three roles need minting under
+`xyzrins:agent-roles/`, as Debian packager and steering-committee member
+were. Worth proposing upstream rather than minting locally, since NIH's
+levels are not CON-specific.
+
+Note also where the per-person detail goes: TRR379 puts the contributor's
+homepage, a prose description and an `Identifier` whose `creator` is the
+grant **on the association itself**, not on the person. That is how one
+person can have a different blurb per grant.
+
+### Where to get the durations
+
+The CV's Current/Past split is a date but not a dated one. Better sources,
+all machine-readable:
+
+- **NIH RePORTER** — `https://api.reporter.nih.gov/v2/projects/search`,
+  POST by `project_num`. Returns `project_start_date`, `project_end_date`,
+  PI list with roles, and the award amount. Covers 7 of the 10.
+- **NSF** — `https://api.nsf.gov/services/v1/awards.json?id=1912266`.
+  Returns `startDate`, `expDate`, PI and co-PI names. Covers 2.
+- **Meta Platforms** has no public portal; the CV is the only source.
+
+Both give a PI/Co-PI split from the funder's own record, which is a better
+authority than the CV for who held which level.
 
 ### Stages
 
-1. Copy `FRAPO:Funding` role record; decide the PI/Co-PI/Co-I vocabulary.
-2. Settle the grant-period question above.
-3. Write the 7 missing grants; link all 10 to their projects.
+1. Copy the `FRAPO:Funding` entity-role record; mint or source the Co-PI and
+   Co-I agent roles.
+2. Pull periods and PI lists from NIH RePORTER (7 awards) and the NSF award
+   API (2), with the response as the evidence `source`.
+3. Write the 7 missing grants; link all 10 from their projects with
+   `influenced_by` + `FRAPO:Funding`; set `started`/`ended` on the projects
+   that do not have them.
 4. Render funding on the project entry — one line, like Components.
+   Current versus past is then `ended` against today, not a hand-kept
+   split.
 
 ---
 
@@ -172,9 +230,13 @@ summary is worth having — it is the thing a reader scans for.
 
 ## Open questions
 
-1. **Grant periods** — option 1, 2 or 3 above. Blocks all ten records.
-2. **Co-PI / Co-I / Subcontract PI**: MARC has no exact terms. Mint, or map
-   onto `obo:NCIT_C19924` + a qualifier?
+1. ~~**Grant periods**~~ — **answered by the second pass.** The funded
+   project carries `started`/`ended`; 34 of 37 grant-linked projects
+   upstream already do. Nothing to design, nothing to ask upstream.
+2. **Co-PI / Co-I / Subcontract PI**: genuinely absent from both stores and
+   from MARC. Mint two or three under `xyzrins:agent-roles/`, or propose
+   them upstream? NIH's levels are not CON-specific, so upstream seems
+   right — but that is a slower path than this work needs.
 3. **Is the haxbylab bib the authority for YOH's publication list**, or is
    the vita's own `\cite` set? The bib has 301 entries for the whole lab;
    147 name Halchenko, and the vita cites a curated subset of those.
