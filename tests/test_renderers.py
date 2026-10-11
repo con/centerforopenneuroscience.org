@@ -146,8 +146,11 @@ def test_every_person_renders_a_portrait_at_its_own_path(whoweare):
 
 @pytest.mark.ai_generated
 @pytest.mark.parametrize("page,n", [("render_whoweare.py", 33),
-                                    ("render_projects.py", 27)])
+                                    ("render_projects.py", 35)])
 def test_expected_entry_count(page, n):
+    """A guard against silent loss, so the number moves only on purpose.
+    27 -> 35 when NIDM, DICOM + WG-16/32, BEP028/032/044, BIDS 2.0, ReproIn,
+    the EMBER study template and the two advisory projects were added."""
     out = run(page).stdout
     tag = "h3" if "whoweare" in page else "h2"
     assert len(re.findall(rf"<{tag}[^>]*>", out)) == n

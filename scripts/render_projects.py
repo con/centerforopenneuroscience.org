@@ -90,9 +90,14 @@ def load():
         for f in sorted((RECORDS / cls).glob("*.yaml")):
             d = yaml.safe_load(f.read_text())
             sec = SECTION_OVERRIDE.get(f.stem) or one(d, "dlthings:section")
-            has_desc = bool(one(d, "dlthings:description_html"))
-            if sec is None and not has_desc:
-                continue                 # not a page entry at all; fine
+            has_desc = bool(one(d, "dlthings:description_html")
+                            or d.get("description"))
+            # `dlthings:section` is what marks a record as a page entry.
+            # Without one it is a collaborating project or an instrument's
+            # parent, which belong on whoweare or nowhere -- not a skip
+            # worth reporting.
+            if sec is None:
+                continue
             if not has_desc:
                 skipped.append((f.stem, f"section {sec!r} but no description"))
                 continue
@@ -171,7 +176,15 @@ def render():
                            f'alt="{html.escape(name)}" class="pull-right" '
                            f'style="{html.escape(style)}" />{a_close}')
                 out.append('\t\t</figure>')
-            out.append(f'\t\t{one(d, "dlthings:description_html")}')
+            # A record imported from the old page carries marked-up HTML and
+            # is emitted raw; one written by hand carries plain text and is
+            # escaped.  Requiring the former skipped every hand-written
+            # record -- loudly, which is how this was found.
+            rich = one(d, "dlthings:description_html")
+            if rich:
+                out.append(f'\t\t{rich}')
+            else:
+                out.append(f'\t\t<p>{html.escape(d.get("description") or "")}</p>')
             parts = components.get(d["pid"]) or []
             # A list of one is not a list.  con/annextube's only instrument
             # IS con/annextube, so "Components: con/annextube" said nothing.
