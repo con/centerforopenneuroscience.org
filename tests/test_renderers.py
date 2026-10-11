@@ -19,13 +19,18 @@ have caught, and none was caught by running them and looking at the output:
 
 One test per scar.
 """
+import functools
+import http.server
 import os
 import pathlib
 import re
 import shutil
+import socketserver
 import subprocess
 import sys
+import threading
 import xml.etree.ElementTree as ET
+from html.parser import HTMLParser
 
 import pytest
 import yaml
@@ -322,7 +327,6 @@ def test_sidebar_nests_sections_inside_their_own_item(tmp_path):
     string, and a sibling <ul> increments that too, so it passed on the
     broken markup.  This one walks parents.
     """
-    from html.parser import HTMLParser
     out = _build(tmp_path)
     for name, want in (("projects", 7), ("whoweare", 6)):
         t = (out / f"{name}.html").read_text()
@@ -390,3 +394,58 @@ def test_every_image_resolves_on_disk(page):
     missing = [s for s in set(re.findall(r'src="(/theme/[^"]+)"', out))
                if not (HERE / "theme/static" / s.replace("/theme/", "", 1)).exists()]
     assert not missing, f"{page} references images that do not exist: {missing}"
+
+
+@pytest.mark.ai_generated
+def test_every_section_expands_when_clicked(tmp_path):
+    """Clicking a section in the sidebar must make it current AND reveal its
+    entries -- in a browser, which is the only place this is decidable.
+
+    Three separate things conspired to break this, none visible in the
+    markup: the bs-docs sidebar reveals a section only while its <li> has
+    `.active`, which scrollspy moves; a 70px `scroll-margin-top` left the
+    jump 0.4px short of the section's own scrollspy offset, so the PREVIOUS
+    section stayed open; and the page could not scroll far enough for the
+    last two sections to ever become current.
+    """
+    pw = pytest.importorskip("playwright.sync_api")
+    out = _build(tmp_path)
+
+    srv = socketserver.TCPServer(("127.0.0.1", 0), functools.partial(
+        http.server.SimpleHTTPRequestHandler, directory=str(out)))
+    port = srv.server_address[1]
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+    try:
+        with pw.sync_playwright() as p:
+            try:
+                browser = p.chromium.launch()
+            except Exception as exc:                       # no browser installed
+                pytest.skip(f"chromium unavailable: {exc}")
+            pg = browser.new_page(viewport={"width": 1500, "height": 1000})
+            errors = []
+            pg.on("pageerror", lambda e: errors.append(str(e)))
+            for page in ("projects", "whoweare"):
+                pg.goto(f"http://127.0.0.1:{port}/{page}.html")
+                pg.wait_for_timeout(1200)
+                # only sections that HAVE entries can show any; whoweare's
+                # "Collaborating projects" is a leaf
+                names = pg.eval_on_selector_all(
+                    "#full-toc > ul > li:has(> ul) > a",
+                    "els => els.map(e => e.textContent)")
+                assert len(names) > 3, f"{page}: only {names} in the sidebar"
+                for name in names:
+                    pg.eval_on_selector(
+                        f"#full-toc a:text-is({name!r})", "el => el.click()")
+                    pg.wait_for_timeout(600)
+                    active = pg.eval_on_selector_all(
+                        "#full-toc li.active > a", "els => els.map(e => e.textContent)")
+                    shown = pg.eval_on_selector_all(
+                        "#full-toc li.active > ul.nav:visible li > a",
+                        "els => els.map(e => e.textContent)")
+                    assert name in active, \
+                        f"{page}: clicking {name!r} made {active} current"
+                    assert shown, f"{page}: {name!r} is current but shows no entries"
+            assert not errors, errors
+            browser.close()
+    finally:
+        srv.shutdown()
