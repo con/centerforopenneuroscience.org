@@ -25,13 +25,11 @@
 		  <a href="https://datalad.org"><img src="/theme/img/projects/datalad/logo.png" alt="DataLad" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://datalad.org">DataLad</a> is ongoing work funded by NSF and German BMBF, to adapt the model of open-source software (OSS) distributions to address the technical limitations of today's data-sharing and provides a versatile data management platform. It uses software for data tracking and deployment logistics specialized for large data (<a class="reference external" href="http://git-annex.branchable.com">git-annex</a>) built atop <a class="reference external" href="http://git-scm.com">Git</a>, the most capable distributed version control system (dVCS) available today. DataLad provides access to data available from various sources (e.g. lab or consortium web-sites such as <a class="reference external" href="http://humanconnectome.org">humanconnectome.org</a>; data sharing portals such as <a class="reference external" href="http://openneuro.org">openneuro.org</a> and <a class="reference external" href="http://crcns.org">crcns.org</a>) through a single interface. It enables students and scientists to operate on data using familiar concepts, such as files and directories, while transparently managing data access and authorization with underlying hosting providers. </p> <ul> <li> <a href="/whoweare#michael_hanke_" class="centroid">M. Hanke</a>, <a href="/whoweare#matteo_visconti_di_oleggio_castello_" class="centroid">M. Visconti di Oleggio Castello</a>, <a href="/whoweare#kyle_meyer_" class="centroid">K. Meyer</a>, <a href="/whoweare#benjamin_poldrack_" class="centroid">B. Poldrack</a>, and <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a> (2018). <a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf">YODA: YODA's organigram on data analysis.</a> OHBM 2018, Singapore. </li> <li> <a href="https://doi.org/10.21105/joss.03262">JOSS paper</a>: providing a succinct overview of DataLad </li> <li> <a href="http://handbook.datalad.org">DataLad Handbook</a>: everything you need to know about DataLad. </li> <li> <a href="https://www.datalad.org/#supporting-datalad">Funding support</a> </li> <li> <a href="https://github.com/datalad/datalad-container">datalad-container</a>: a DataLad extension for working with containerized computational environments. It enables version-controlled execution of containerized pipelines (Singularity, Docker, and others) with full provenance capture as DataLad run records. </li> <li> <a href="https://github.com/datalad/datalad-fuse">datalad-fuse</a>: a DataLad extension to read annexed files from their remote URLs without a full download — sparse fetching via <a href="https://github.com/fsspec/filesystem_spec">fsspec</a> and optional FUSE mount give immediate access to petabyte-scale datasets. </li> </ul>
-		<details class="components">
-		  <summary>9 components</summary>
+		<details class="components" open="open">
+		  <summary>7 components</summary>
 		  <ul class="component-list">
-		    <li><a href="https://github.com/datalad/datalad-container" title="DataLad extension for working with computational containers">datalad-container</a>: DataLad extension for working with computational containers</li>
 		    <li><a href="https://github.com/datalad/datalad-crawler" title="DataLad extension for tracking web resources as datasets">datalad-crawler</a>: DataLad extension for tracking web resources as datasets</li>
 		    <li><a href="https://github.com/datalad/datalad-deprecated" title="Retired DataLad functionality, kept available">datalad-deprecated</a>: Retired DataLad functionality, kept available</li>
-		    <li><a href="https://github.com/datalad/datalad-fuse" title="DataLad extension providing a FUSE filesystem view">datalad-fuse</a>: DataLad extension providing a FUSE filesystem view</li>
 		    <li><a href="https://github.com/datalad/datalad-installer" title="Installation script for DataLad and its dependencies">datalad-installer</a>: Installation script for DataLad and its dependencies</li>
 		    <li><a href="https://github.com/datalad/datalad-metalad" title="Next generation metadata handling for DataLad">datalad-metalad</a>: Next generation metadata handling for DataLad</li>
 		    <li><a href="https://github.com/datalad/datalad-neuroimaging" title="DataLad extension for neuroimaging data">datalad-neuroimaging</a>: DataLad extension for neuroimaging data</li>
@@ -158,8 +156,8 @@
 		  <a href="https://dandiarchive.org"><img src="/theme/img/projects/dandi/logo.png" alt="DANDI" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://dandiarchive.org">Distributed Archives for Neurophysiology Data Integration (DANDI)</a> is a platform for publishing, sharing, and processing neurophysiology data funded by the <a href="https://braininitiative.nih.gov/">BRAIN Initiative</a>. The platform is now available for data upload and distribution, and provides supplementary client tools to assist with introspection and organization of data following <a href="#neurodata_without_borders__neurophysiology_nwb_n_">NWB standard</a>. </p> <ul> <li> <a href="https://reporter.nih.gov/project-details/9795271">NIH (#1R24MH117295-01A1)</a>. PIs: <a href="https://mcgovern.mit.edu/profile/satrajit-ghosh/" class="centroid">S. Ghosh</a> and <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a> </li> <li> <a href="https://github.com/dandi/dandisets">dandisets</a>: a <a href="#datalad_">DataLad</a> superdataset providing unified access to all public DANDI datasets, with individual dandisets also mirrored as DataLad datasets in the <a href="https://github.com/dandisets">dandisets</a> GitHub organization and their Zarr stores in <a href="https://github.com/dandizarrs">dandizarrs</a>. </li> <li> <a href="https://github.com/dandi-compute">DANDI Compute</a>: an experimental reproducible-computing initiative running processing pipelines directly on DANDI assets. The first campaign applies the <a href="https://github.com/AllenNeuralDynamics/aind-ephys-pipeline">AIND ephys pipeline</a> to electrophysiology dandisets, with orchestration code and a public job queue hosted in the <a href="https://github.com/dandi-compute">dandi-compute</a> GitHub organization. </li> </ul>
-		<details class="components">
-		  <summary>13 components</summary>
+		<details class="components" open="open">
+		  <summary>12 components</summary>
 		  <ul class="component-list">
 		    <li><a href="https://github.com/dandi/dandi-archive" title="Software stack behind the DANDI archive: API, web client and validation, deployable as an independent instance.">DANDI Archive</a>: Software stack behind the DANDI archive: API, web client and validation, deployable as an independent instance.</li>
 		    <li><a href="https://github.com/dandi/access-page" title="Visualizations of data usage for the DANDI Archive">access-page</a>: Visualizations of data usage for the DANDI Archive</li>
@@ -168,7 +166,6 @@
 		    <li><a href="https://github.com/dandi/dandi-hub" title="Infrastructure and code for the dandihub">dandi-hub</a>: Infrastructure and code for the dandihub</li>
 		    <li><a href="https://github.com/dandi/dandi-schema" title="Schemata for the DANDI archive project">dandi-schema</a>: Schemata for the DANDI archive project</li>
 		    <li><a href="https://github.com/dandi/dandidav" title="WebDAV view to DANDI Archive">dandidav</a>: WebDAV view to DANDI Archive</li>
-		    <li><a href="https://github.com/dandi/dandisets" title="Mirror of the Dandisets as DataLad datasets">dandisets</a>: Mirror of the Dandisets as DataLad datasets</li>
 		    <li><a href="https://github.com/dandi/dandisets-healthstatus" title="Healthchecks of dandisets and their tooling">dandisets-healthstatus</a>: Healthchecks of dandisets and their tooling</li>
 		    <li><a href="https://github.com/dandi/dandisets-linkml-status-tools" title="Reporting the status of the DANDI metadata translation">dandisets-linkml-status-tools</a>: Reporting the status of the DANDI metadata translation</li>
 		    <li><a href="https://github.com/dandi/pydantic2linkml" title="Translating models expressed in Pydantic into LinkML">pydantic2linkml</a>: Translating models expressed in Pydantic into LinkML</li>
@@ -204,7 +201,7 @@
 		  <a href="https://stamped-principles.org"><img src="/theme/img/organizations/stamped-principles/logo.png" alt="STAMPED Principles" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://stamped-principles.org">STAMPED</a> is a set of seven principles, Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, and Distributability, for building research objects that others can trust, rerun, and build upon. Each principle is a spectrum from a practical minimum to an aspirational ideal, so adoption can be incremental and start from existing practice. STAMPED grew out of <a href="https://f1000research.com/posters/7-1965">YODA</a> and comes with an <a href="https://checklist.stamped-principles.org">interactive checklist</a> and <a href="https://examples.stamped-principles.org">worked examples</a>. </p> <ul> <li> <a href="/whoweare#austin_macdonald_" class="centroid">Austin Macdonald</a>, <a href="/whoweare#cody_baker_" class="centroid">Cody C. Baker</a>, <a href="/whoweare#isaac_to_" class="centroid">Isaac To</a>, <a href="/whoweare#john_lee_" class="centroid">John A. Lee</a>, <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Yaroslav O. Halchenko</a>. <a href="https://doi.org/10.31222/osf.io/f3h82_v1">STAMPED principles for reproducible research objects</a> (preprint). DOI: 10.31222/osf.io/f3h82_v1 </li> <li> 🎬 <a href="https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8NTWKHer5Zo">Talk by Cody C. Baker introducing STAMPED</a> — archived on CON/tube. </li> <li> 🎬 <a href="https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/1XbTbJ_P2x0">YODA: Structure your studies, observable and reproducible they become</a> — webinar recording archived on CON/tube. </li> </ul>
-		<details class="components">
+		<details class="components" open="open">
 		  <summary>8 components</summary>
 		  <ul class="component-list">
 		    <li><a href="https://github.com/stamped-principles/stamped-agent-skills" title="">stamped-agent-skills</a></li>
@@ -217,16 +214,6 @@
 		    <li><a href="https://github.com/stamped-principles/stamped-skills-assessment" title="A store of assessments for skills supporting STAMPED">stamped-skills-assessment</a>: A store of assessments for skills supporting STAMPED</li>
 		  </ul>
 		</details>
-	  </div>
-	  <div class="row">
-		<h2 id="bep028">BEP028</h2>
-		<p class="project-meta"><small>Standards &#183; since 2023 &#183; <a href="https://bids.neuroimaging.io/bep028">Home page</a></small></p>
-		<p>Extends BIDS to record how a derivative was produced -- the provenance layer, carrying forward NIDM-PROV. Leads: Satrajit Ghosh, Camille Maumet, Yaroslav Halchenko.</p>
-	  </div>
-	  <div class="row">
-		<h2 id="bids-2-0">BIDS 2.0</h2>
-		<p class="project-meta"><small>Standards &#183; since 2020 &#183; <a href="https://github.com/bids-standard/bids-2-devel">Repository</a></small></p>
-		<p>The effort to work out what BIDS should change when backwards compatibility is no longer a constraint -- the breaking changes that a decade of 1.x could not make.</p>
 	  </div>
 	  <div class="row">
 		<h2 id="bids">Brain Imaging Data Structure (BIDS)</h2>
@@ -242,12 +229,14 @@
 		  <a href="#bids_20_" title="The effort to work out what BIDS should change when backwards compatibility is no longer a constraint -- the breaking changes that a decade of 1.x could not make.">BIDS 2.0</a></p>
 	  </div>
 	  <div class="row">
-		<h2 id="nwb">Neurodata Without Borders: Neurophysiology (NWB:N)</h2>
-		<p class="project-meta"><small>Standards &#183; since 2017 &#183; <a href="https://www.nwb.org/">Home page</a></small></p>
-		<figure>
-		  <a href="https://www.nwb.org/"><img src="/theme/img/projects/nwb/logo.png" alt="Neurodata Without Borders: Neurophysiology (NWB:N)" class="pull-right" /></a>
-		</figure>
-		<p> <a href="https://www.nwb.org/">NWB:N</a> is a data standard for neurophysiology, providing neuroscientists with a common standard to share, archive, use, and build analysis tools for neurophysiology data. It is a standard supported by <a href="#brain_imaging_data_structure_bids_">BIDS</a> and the <a href="#dandi_">DANDI archive</a>. </p> <ul> <li> <a href="https://github.com/con/nwb2bids">con/nwb2bids</a>: a CON tool to reorganize NWB files into a BIDS directory layout, enabling NWB-format datasets to be shared and validated using BIDS conventions. </li> </ul>
+		<h2 id="bep028">BEP028</h2>
+		<p class="project-meta"><small>Standards &#183; since 2023 &#183; <a href="https://bids.neuroimaging.io/bep028">Home page</a></small></p>
+		<p>Extends BIDS to record how a derivative was produced -- the provenance layer, carrying forward NIDM-PROV. Leads: Satrajit Ghosh, Camille Maumet, Yaroslav Halchenko.</p>
+	  </div>
+	  <div class="row">
+		<h2 id="bids-2-0">BIDS 2.0</h2>
+		<p class="project-meta"><small>Standards &#183; since 2020 &#183; <a href="https://github.com/bids-standard/bids-2-devel">Repository</a></small></p>
+		<p>The effort to work out what BIDS should change when backwards compatibility is no longer a constraint -- the breaking changes that a decade of 1.x could not make.</p>
 	  </div>
 	  <div class="row">
 		<h2 id="bep032">BEP032</h2>
@@ -258,6 +247,22 @@
 		<h2 id="bep044">BEP044</h2>
 		<p class="project-meta"><small>Standards &#183; <a href="https://bids.neuroimaging.io/bep044">Home page</a></small></p>
 		<p>Extends BIDS to describe the stimuli presented during an experiment. Leads: Seyed Yahya Shirazi, Dora Hermes, Yaroslav Halchenko, Kay Robbins, Scott Makeig.</p>
+	  </div>
+	  <div class="row">
+		<h2 id="nwb">Neurodata Without Borders: Neurophysiology (NWB:N)</h2>
+		<p class="project-meta"><small>Standards &#183; since 2017 &#183; <a href="https://www.nwb.org/">Home page</a></small></p>
+		<figure>
+		  <a href="https://www.nwb.org/"><img src="/theme/img/projects/nwb/logo.png" alt="Neurodata Without Borders: Neurophysiology (NWB:N)" class="pull-right" /></a>
+		</figure>
+		<p> <a href="https://www.nwb.org/">NWB:N</a> is a data standard for neurophysiology, providing neuroscientists with a common standard to share, archive, use, and build analysis tools for neurophysiology data. It is a standard supported by <a href="#brain_imaging_data_structure_bids_">BIDS</a> and the <a href="#dandi_">DANDI archive</a>. </p> <ul> <li> <a href="https://github.com/con/nwb2bids">con/nwb2bids</a>: a CON tool to reorganize NWB files into a BIDS directory layout, enabling NWB-format datasets to be shared and validated using BIDS conventions. </li> </ul>
+	  </div>
+	  <div class="row">
+		<h2 id="dicom">DICOM</h2>
+		<p class="project-meta"><small>Standards &#183; <a href="https://www.dicomstandard.org">Home page</a></small></p>
+		<p>The standard for medical imaging data and its exchange, and the format every MRI scanner writes. Everything downstream -- BIDS layouts, HeuDiConv, ReproIn -- starts from what the scanner put in the DICOM header.</p>
+		<p class="subprojects"><strong>Within it:</strong>
+		  <a href="#dicom_wg16_" title="The DICOM working group responsible for MR. Where the conventions that make a scanner&#x27;s output machine-readable are argued out, which is upstream of every BIDS conversion CON does.">DICOM WG-16</a>,
+		  <a href="#dicom_wg32_" title="The DICOM working group on imaging compression. CON&#x27;s interest is empirical: what lossy compression actually costs downstream analyses, which is what the compression-comparisons studies measure.">DICOM WG-32</a></p>
 	  </div>
 	  <div class="row">
 		<h2 id="dicom-wg16">DICOM WG-16</h2>
@@ -273,14 +278,6 @@
 		    <li><a href="https://github.com/dandi/compression-comparisons" title="Reproducing and extending the DICOM WG-32 compression work: what lossy compression costs, measured rather than assumed.">compression-comparisons</a>: Reproducing and extending the DICOM WG-32 compression work: what lossy compression costs, measured rather than assumed.</li>
 		    <li><a href="https://github.com/dandi/compression-comparisons-t261-study" title="Reproduction of the compression-effects-on-spike-sorting paper, extended to the T.261 codec.">compression-comparisons-t261-study</a>: Reproduction of the compression-effects-on-spike-sorting paper, extended to the T.261 codec.</li>
 		  </ul>
-	  </div>
-	  <div class="row">
-		<h2 id="dicom">DICOM</h2>
-		<p class="project-meta"><small>Standards &#183; <a href="https://www.dicomstandard.org">Home page</a></small></p>
-		<p>The standard for medical imaging data and its exchange, and the format every MRI scanner writes. Everything downstream -- BIDS layouts, HeuDiConv, ReproIn -- starts from what the scanner put in the DICOM header.</p>
-		<p class="subprojects"><strong>Within it:</strong>
-		  <a href="#dicom_wg16_" title="The DICOM working group responsible for MR. Where the conventions that make a scanner&#x27;s output machine-readable are argued out, which is upstream of every BIDS conversion CON does.">DICOM WG-16</a>,
-		  <a href="#dicom_wg32_" title="The DICOM working group on imaging compression. CON&#x27;s interest is empirical: what lossy compression actually costs downstream analyses, which is what the compression-comparisons studies measure.">DICOM WG-32</a></p>
 	  </div>
 	  <div class="row">
 		<h2 id="nidm">NIDM</h2>
