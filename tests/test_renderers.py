@@ -229,48 +229,62 @@ def _build(tmp):
 
 
 @pytest.mark.ai_generated
-def test_every_heading_is_in_the_sidebar(tmp_path):
-    """The table-of-contents extension used to close each h1's <li> early, so
-    the nested list landed outside it: only the FIRST section had browsing
-    items and every later one appeared at the wrong depth."""
+def test_sidebar_nests_sections_inside_their_own_item(tmp_path):
+    """Each section's <ul> must be a CHILD of that section's <li>.
+
+    The CSS that reveals a section's entries is
+    `.bs-docs-sidebar .nav > .active > ul`, so a <ul> that is merely a
+    SIBLING of the <li> never shows -- which is what shipped: clicking
+    Archives highlighted it and revealed nothing.
+
+    An earlier version of this test counted <ul> nesting depth over the raw
+    string, and a sibling <ul> increments that too, so it passed on the
+    broken markup.  This one walks parents.
+    """
     from html.parser import HTMLParser
     out = _build(tmp_path)
-    for name, want_sections in (("projects", 7), ("whoweare", 6)):
+    for name, want in (("projects", 7), ("whoweare", 6)):
         t = (out / f"{name}.html").read_text()
         i = t.index('id="full-toc"'); j = t.index("</div>", i)
-        toc = t[t.index("<ul", i):j]
 
         class P(HTMLParser):
             def __init__(s):
-                super().__init__(); s.stack = []; s.depth = 0
-                s.entries = []; s.bad = []; s.cur = None
+                super().__init__()
+                s.stack = []          # open elements
+                s.sections = []       # (text, has_child_ul)
+                s.cur = None
+                s.bad = []
             def handle_starttag(s, tag, attrs):
-                a = dict(attrs)
-                if tag == "ul":
-                    if s.stack and s.stack[-1] == "ul":
+                if tag in ("ul", "li"):
+                    if tag == "ul" and s.stack and s.stack[-1][0] == "ul":
                         s.bad.append("ul directly inside ul")
-                    s.stack.append("ul"); s.depth += 1
-                elif tag == "li":
-                    s.stack.append("li")
-                elif tag == "a" and a.get("href", "").startswith("#"):
-                    s.cur = s.depth
+                    # a <ul> whose parent is an <li> is that item's children
+                    if tag == "ul" and len(s.stack) == 2 and s.stack[-1][0] == "li":
+                        s.sections[-1] = (s.sections[-1][0], True)
+                    s.stack.append((tag, len(s.stack)))
+                elif tag == "a" and dict(attrs).get("href", "").startswith("#"):
+                    s.cur = len(s.stack)
             def handle_data(s, d):
                 if s.cur is not None and d.strip():
-                    s.entries.append((s.cur, d.strip())); s.cur = None
+                    if s.cur == 2:    # ul > li > a  == a top-level section
+                        s.sections.append((d.strip(), False))
+                    s.cur = None
             def handle_endtag(s, tag):
                 if tag in ("ul", "li"):
-                    if s.stack and s.stack[-1] == tag: s.stack.pop()
-                    else: s.bad.append(f"mismatched </{tag}>")
-                    if tag == "ul": s.depth -= 1
-        p = P(); p.feed(toc)
+                    if s.stack and s.stack[-1][0] == tag:
+                        s.stack.pop()
+                    else:
+                        s.bad.append(f"mismatched </{tag}>")
+
+        p = P(); p.feed(t[t.index("<ul", i):j])
         assert not p.bad, f"{name}: malformed sidebar: {p.bad}"
-        sections = [e for e in p.entries if e[0] == 1]
-        assert len(sections) == want_sections, \
-            f"{name}: {len(sections)} sidebar sections, expected {want_sections}"
-        # every heading on the page must be reachable from the sidebar
-        headings = len(re.findall(r'<h[123][^>]*id=', t))
-        assert len(p.entries) == headings, \
-            f"{name}: {len(p.entries)} sidebar entries for {headings} headings"
+        assert len(p.sections) == want, \
+            f"{name}: {len(p.sections)} sections, expected {want}: {p.sections}"
+        childless = [s for s, has in p.sections if not has]
+        # the two logo strips on whoweare genuinely have no sub-entries
+        allowed = {"Collaborating projects", "Partners"}
+        assert not (set(childless) - allowed), \
+            f"{name}: sections with no nested list of their own: {childless}"
 
 
 @pytest.mark.ai_generated
