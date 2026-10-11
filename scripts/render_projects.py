@@ -173,7 +173,9 @@ def render():
                 out.append('\t\t</figure>')
             out.append(f'\t\t{one(d, "dlthings:description_html")}')
             parts = components.get(d["pid"]) or []
-            if parts:
+            # A list of one is not a list.  con/annextube's only instrument
+            # IS con/annextube, so "Components: con/annextube" said nothing.
+            if len(parts) > 1:
                 out.append('\t\t<p class="components"><strong>Components:</strong>')
                 items = []
                 for slug, p in sorted(parts, key=lambda x: x[1].get("name") or x[0]):

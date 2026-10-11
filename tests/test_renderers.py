@@ -161,6 +161,15 @@ def test_section_intros_are_present(whoweare, projects):
     assert "push/pull relationship" in whoweare
 
 
+@pytest.mark.ai_generated
+def test_components_line_needs_more_than_one(projects):
+    """A list of one is not a list: con/annextube's only instrument is
+    con/annextube, so the line said nothing."""
+    import re
+    for m in re.finditer(r'<p class="components">(.*?)</p>', projects, re.S):
+        assert len(re.findall(r"<a ", m.group(1))) > 1
+
+
 # --- ordering -------------------------------------------------------------
 
 @pytest.mark.ai_generated
