@@ -165,12 +165,23 @@ def test_section_intros_are_present(whoweare, projects):
 
 
 @pytest.mark.ai_generated
-def test_components_line_needs_more_than_one(projects):
+def test_relation_lists_need_more_than_one(projects):
     """A list of one is not a list: con/annextube's only instrument is
-    con/annextube, so the line said nothing."""
+    con/annextube, and "Within it: STAMPED Principles" said nothing three
+    times over."""
     import re
-    for m in re.finditer(r'<p class="components">(.*?)</p>', projects, re.S):
-        assert len(re.findall(r"<a ", m.group(1))) > 1
+    for cls in ("components", "subprojects"):
+        for m in re.finditer(rf'<(?:p|details) class="{cls}">(.*?)'
+                             rf'</(?:p|details)>', projects, re.S):
+            assert len(re.findall(r"<a ", m.group(1))) != 1, \
+                f"{cls} list with exactly one entry"
+    # a component list must gloss its entries, not just name them
+    lists = re.findall(r'<ul class="component-list">(.*?)</ul>', projects, re.S)
+    assert lists, "no component lists rendered"
+    for body in lists:
+        items = re.findall(r"<li>(.*?)</li>", body, re.S)
+        glossed = [i for i in items if ":" in re.sub(r"<[^>]+>", "", i)]
+        assert glossed, "a component list with no glosses at all"
 
 
 @pytest.mark.ai_generated

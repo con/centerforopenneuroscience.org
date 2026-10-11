@@ -140,19 +140,32 @@ def link_to(d, slug, on_page):
             if url else label)
 
 
-def links_row(d):
-    """Homepage and repository, as the icon row whoweare gives each person."""
-    out = []
+def meta_line(d, section, started):
+    """A short labelled strip under the heading.
+
+    This replaces an icon row borrowed from whoweare, which did not survive
+    the move: there `.contact` sits beside a `col-md-9` description, so two
+    floats share a row; here the description is a bare <p>, so a 353px float
+    re-flowed the first two lines of all 36 entries.  It also never held
+    more than one icon -- no record has a homepage AND a separate repository
+    -- so the page reserved a third of its width, 36 times, for one glyph.
+
+    The projects analogue of whoweare's one-line position field is a line of
+    metadata, which cannot float anything and says more.
+    """
+    bits = []
+    if section:
+        bits.append(html.escape(section))
+    if started:
+        bits.append("since " + html.escape(started[:4]))
     home = one(d, "foaf:homepage")
     repo = one(d, "dlthings:code_repository")
-    if home and home != repo:
-        cls = "github" if "github.com" in home else "home"
-        out.append(f'<a href="{html.escape(home)}" class="{cls}" '
-                   f'title="Home page">Home page</a>')
-    if repo:
-        out.append(f'<a href="{html.escape(repo)}" class="github" '
-                   f'title="Source repository">Source</a>')
-    return out
+    if home:
+        label = "Repository" if "github.com" in home and not repo else "Home page"
+        bits.append(f'<a href="{html.escape(home)}">{label}</a>')
+    if repo and repo != home:
+        bits.append(f'<a href="{html.escape(repo)}">Source</a>')
+    return " &#183; ".join(bits)
 
 
 def logo_for(slug):
@@ -247,21 +260,21 @@ def render():
             home = one(d, "foaf:homepage")
             out.append('\t  <div class="row">')
             out.append(f'\t\t<h2 id="{html.escape(anchor)}">{html.escape(name)}</h2>')
-            row = links_row(d)
-            if row:
-                out.append('\t\t<div class="col-md-5 col-sm-5 contact">')
-                out += [f'\t\t  {l}' for l in row]
-                out.append('\t\t</div>')
+            meta = meta_line(d, r["section"], r["started"])
+            if meta:
+                out.append(f'\t\t<p class="project-meta"><small>{meta}</small></p>')
             logo = logo_for(r["slug"])
             if logo:
-                style = one(d, "dlthings:logo_style") or \
-                    "width:255px;padding-left:5px;margin-top:-2em;"
+                # The per-record `style` carried hard pixel widths up to
+                # 460px and `margin-top:-2em`, which lifted logos into the
+                # headings and, below ~1280px, painted them over the first
+                # line of their own description.  Sizing belongs in CSS.
                 a_open = f'<a href="{html.escape(home)}">' if home else ""
                 a_close = "</a>" if home else ""
                 out.append('\t\t<figure>')
                 out.append(f'\t\t  {a_open}<img src="{logo}" '
                            f'alt="{html.escape(name)}" class="pull-right" '
-                           f'style="{html.escape(style)}" />{a_close}')
+                           f'/>{a_close}')
                 out.append('\t\t</figure>')
             # A record imported from the old page carries marked-up HTML and
             # is emitted raw; one written by hand carries plain text and is
@@ -282,7 +295,9 @@ def render():
             else:
                 out.append(f'\t\t<p>{html.escape(d.get("description") or "")}</p>')
             kids = children.get(d["pid"]) or []
-            if kids:
+            # Same guard as Components: "Within it: STAMPED Principles" said
+            # nothing, three times over.
+            if len(kids) > 1:
                 out.append('\t\t<p class="subprojects"><strong>Within it:</strong>')
                 items = []
                 for slug, k in sorted(kids, key=lambda x: x[1].get("short_name") or x[0]):
@@ -292,11 +307,28 @@ def render():
             # A list of one is not a list.  con/annextube's only instrument
             # IS con/annextube, so "Components: con/annextube" said nothing.
             if len(parts) > 1:
-                out.append('\t\t<p class="components"><strong>Components:</strong>')
-                items = []
+                # A bare comma list of 13 repository names, at body weight,
+                # taught the reader nothing without hovering each one.  The
+                # page already has the right pattern for "a named thing plus
+                # a gloss" -- the <ul> inside DataLad's own description --
+                # so use it, and collapse the long ones.
+                rows_ = []
                 for slug, pr in sorted(parts, key=lambda x: x[1].get("name") or x[0]):
-                    items.append(link_to(pr, slug, on_page))
-                out.append('\t\t  ' + ",\n\t\t  ".join(items) + '</p>')
+                    gloss = pr.get("description") or ""
+                    anchor = link_to(pr, slug, on_page)
+                    rows_.append(f'\t\t    <li>{anchor}'
+                                 + (f': {html.escape(gloss)}' if gloss else '')
+                                 + '</li>')
+                body = ['\t\t  <ul class="component-list">'] + rows_ + ['\t\t  </ul>']
+                if len(parts) > 5:
+                    out.append('\t\t<details class="components">')
+                    out.append(f'\t\t  <summary>{len(parts)} components</summary>')
+                    out += body
+                    out.append('\t\t</details>')
+                else:
+                    out.append('\t\t<p class="components">'
+                               '<strong>Components:</strong></p>')
+                    out += body
             out.append('\t  </div>')
     out += ['  </section>', '</body>', '', '</html>', '']
     return "\n".join(out), rows, skipped
