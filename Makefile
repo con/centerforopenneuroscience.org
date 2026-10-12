@@ -31,8 +31,17 @@ DROPBOX_DIR=~/Dropbox/Public/
 STORE=sourcedata/con-site-specific
 PROJECTION_INPUTS=-i $(STORE)/metadata/records -i $(STORE)/content \
                   -i content/section-intros.yaml
+# theme/static/img/{projects,instruments,organizations} and
+# theme/static/img/team are exactly what sync_assets_to_theme.py writes.  The parent
+# directory is NOT declared: it also holds 3rd/, banners/, logos/ and
+# trifolds/, which are hand-maintained and committed UNLOCKED, and declaring
+# it made every run re-save those sixteen files in whatever lock state the
+# worktree happened to be in.  Nothing changed in them but the symlink.
 PROJECTION_OUTPUTS=-o content/pages/whoweare.html \
-                   -o content/pages/projects.html -o theme/static/img
+                   -o content/pages/projects.html \
+                   -o theme/static/img/projects \
+                   -o theme/static/img/instruments \
+                   -o theme/static/img/organizations -o theme/static/img/team
 MSG?=project: re-render the pages from con-site-specific
 
 # --- dev-sitediff-report.md: compare production with a local build -----
