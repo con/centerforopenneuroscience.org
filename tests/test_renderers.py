@@ -153,11 +153,15 @@ def test_every_person_renders_a_portrait_at_its_own_path(whoweare):
 
 @pytest.mark.ai_generated
 @pytest.mark.parametrize("page,n", [("render_whoweare.py", 33),
-                                    ("render_projects.py", 36)])
+                                    ("render_projects.py", 38)])
 def test_expected_entry_count(page, n):
     """A guard against silent loss, so the number moves only on purpose.
     27 -> 36 when NIDM, DICOM + WG-16/32, BEP028/032/044, BIDS 2.0, ReproIn,
-    the EMBER study template and the two advisory projects were added."""
+    the EMBER study template and the two advisory projects were added;
+    36 -> 38 for ORINOCO Lite and the OHBM 2020 posters registry.  The
+    DataLad Handbook arrived with them and is not counted: it is
+    `part_of: datalad`, so it renders as one of DataLad's components rather
+    than as a heading of its own."""
     out = run(page).stdout
     tag = "h3" if "whoweare" in page else "h2"
     assert len(re.findall(rf"<{tag}[^>]*>", out)) == n
