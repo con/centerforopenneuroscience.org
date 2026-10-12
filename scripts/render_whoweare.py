@@ -16,9 +16,26 @@ import argparse
 import html
 import sys
 
-from conrecords import INTROS, RECORDS, STORE_ROOT, attrs, one, write_page, yaml
+import render_projects  # for the projects page's own anchors
+from conrecords import (
+    INTROS,
+    RECORDS,
+    STORE_ROOT,
+    attrs,
+    one,
+    toc_hook,
+    write_page,
+    yaml,
+)
 
 TIERS = ["Centroids", "Collaborators", "Affiliated Faculty", "Emeritus"]
+# the logo strips at the foot of the page, in order.  `dlthings:tier` is the
+# same predicate that groups the people above -- "which block of whoweare
+# does this belong to" -- rather than `dlthings:section`, which already means
+# "which heading on the PROJECTS page" and would send an organization there.
+ORG_TIERS = ["Collaborating labs & groups", "Partners"]
+# a person who leads one of these is shown as leading it
+LEAD_ROLES = {"marcrel:ldr", "marcrel:led"}
 # contact predicate -> (css class, link text); order fixes the link order
 CONTACTS = [
     ("vcard:hasEmail", "email", "E-Mail"),
@@ -56,6 +73,109 @@ def joined():
     return {a["object"]: ((a.get("started") or {}).get("at_time"),
                           (a.get("ended") or {}).get("at_time"))
             for a in d.get("associated_with", []) if a.get("object")}
+
+
+def role_labels():
+    """role pid -> printable label, from the XYZAgentRole records.
+
+    The alternative was a map in this file, which would go stale silently;
+    the records already carry `display_label` for all eighteen.
+    """
+    out = {}
+    for f in sorted((RECORDS / "XYZAgentRole").glob("*.yaml")):
+        d = yaml.safe_load(f.read_text())
+        if d.get("display_label"):
+            out[d["pid"]] = d["display_label"]
+    return out
+
+
+def led_organizations():
+    """person pid -> [(label, homepage), ...] for the groups they lead.
+
+    Hanke leads Psychoinformatics, Poline ORIGAMI, Wager CANlab: facts the
+    records hold on the ORGANIZATION (`influenced_by` plus a lead role) and
+    the page never showed.  The link goes to the group's own site rather than
+    to the strip at the foot of this page -- a logo in a strip is not an
+    entry to land on, and the site is what a reader following "Leads" wants.
+    """
+    out = {}
+    for f in sorted((RECORDS / "XYZOrganization").glob("*.yaml")):
+        d = yaml.safe_load(f.read_text())
+        for inf in (d.get("influenced_by") or []):
+            if set(inf.get("roles") or []) & LEAD_ROLES:
+                out.setdefault(inf["object"], []).append(
+                    (d.get("short_name") or d.get("display_label") or f.stem,
+                     one(d, "foaf:homepage")))
+    return out
+
+
+def page_anchors():
+    """project pid -> "/projects#hook" for everything with an entry there.
+
+    `render_projects.load()` owns which records earn a heading and `toc_hook`
+    owns what the table-of-contents extension will call it, so a link built
+    here cannot drift from the page it points at.
+    """
+    return {r["d"]["pid"]:
+            "/projects#" + toc_hook(r["d"].get("display_label")
+                                    or r["d"].get("title") or r["slug"])
+            for r in render_projects.load()[0]}
+
+
+def related_projects():
+    """person pid -> [(label, href, [role labels]), ...].
+
+    Every project the person is associated with, not only the ones with an
+    entry on the projects page: YOH leads Fail2Ban and Joey Hess wrote
+    git-annex, and both are collaborating projects that live in the logo
+    strip rather than under a heading.  Restricting the list to page entries
+    dropped 15 of YOH's associations and all of Joey's.
+
+    So the link follows the same rule the projects page uses for its own
+    components -- in-page when there is an entry to land on, the project's
+    own site otherwise.
+
+    `site-root` is CON itself.  Every person here is associated with it by
+    definition; that is what the tier heading above them already says.
+    """
+    labels, anchors = role_labels(), page_anchors()
+    out = {}
+    for f in sorted((RECORDS / "XYZProject").glob("*.yaml")):
+        d = yaml.safe_load(f.read_text())
+        if d["pid"] == "xyzrins:.":
+            continue
+        name = (d.get("short_name") or d.get("display_label") or d.get("title")
+                or f.stem)
+        href = anchors.get(d["pid"]) or one(d, "foaf:homepage")
+        for a in (d.get("associated_with") or []):
+            who = a.get("object") or ""
+            if not who.startswith("xyzrins:persons/"):
+                continue
+            roles = [labels.get(x, x) for x in (a.get("roles") or [])]
+            out.setdefault(who, []).append((name, href, roles))
+    # one entry per project: a person may hold several associations with the
+    # same project over time (Adina was an intern here, then a contributor)
+    for who, rows in out.items():
+        merged = {}
+        for name, href, roles in rows:
+            seen = merged.setdefault(name, (href, []))[1]
+            seen += [r for r in roles if r not in seen]
+        out[who] = sorted((n, h, r) for n, (h, r) in merged.items())
+    return out
+
+
+def org_strips():
+    """tier -> [(record, slug, logo filename or None), ...]."""
+    out = {}
+    for f in sorted((RECORDS / "XYZOrganization").glob("*.yaml")):
+        d = yaml.safe_load(f.read_text())
+        tier = one(d, "dlthings:tier")
+        if tier not in ORG_TIERS:
+            continue
+        logo = next((q for q in sorted((STORE_ROOT / "content/organizations"
+                                        / f.stem).glob("logo.*"))), None)
+        out.setdefault(tier, []).append((d, f.stem, logo.name if logo else None))
+    return out
 
 
 def portrait(slug):
@@ -101,6 +221,7 @@ def contact_links(d):
 
 def render():
     people, dates = load_people(), joined()
+    leads, related = led_organizations(), related_projects()
     rows, skipped = [], []
     # the order render() actually used, for --show-order
     order = []
@@ -172,38 +293,75 @@ def render():
                 out.append('\t\t<div class="col-md-9 col-sm-9 description">')
                 out.append(f'\t\t  {desc if rich else html.escape(desc)}')
                 out.append('\t\t</div>')
+            groups = leads.get(r["pid"]) or []
+            if groups:
+                bits = ", ".join(
+                    f'<a href="{html.escape(h)}">{html.escape(n)}</a>' if h
+                    else html.escape(n) for n, h in sorted(groups))
+                out.append(f'\t\t<div class="col-md-9 col-sm-9 leads">'
+                           f'<strong>Leads</strong> {bits}</div>')
+            mine = related.get(r["pid"]) or []
+            if mine:
+                # closed by default: this is an index, and 38 open lines
+                # under YOH would bury the next person.  The projects page
+                # opens its component lists because they ARE the content
+                # there; here the description is.
+                out.append('\t\t<details class="col-md-9 col-sm-9 related">')
+                out.append(f'\t\t  <summary>{len(mine)} related project'
+                           f'{"" if len(mine) == 1 else "s"}</summary>')
+                out.append('\t\t  <ul class="related-list">')
+                for name, href, roles in mine:
+                    role = (" &#8212; " + html.escape(", ".join(roles))
+                            if roles else "")
+                    # a record with neither a page entry nor a homepage still
+                    # names the project; it just cannot be linked
+                    label = (f'<a href="{html.escape(href)}">'
+                             f'{html.escape(name)}</a>' if href
+                             else html.escape(name))
+                    out.append(f'\t\t    <li>{label}{role}</li>')
+                out.append('\t\t  </ul>')
+                out.append('\t\t</details>')
             out.append('\t  </div>')
     # --- the logo strips the records also drive -------------------------
     # Collaborating projects are the ones with no `part_of: xyzrins:.` -- the
-    # discriminator the part_of refactor established.  Partners are
-    # organizations rather than projects.
-    projects, partners = [], []
+    # discriminator the part_of refactor established.  The organization
+    # strips below are driven by `dlthings:tier` instead of a tuple of slugs
+    # in this file, so adding a lab is a record, not a code change.
+    # ...and nothing that belongs to another project.  Testing only for
+    # `part_of: xyzrins:.` stopped being enough once the standards gained
+    # structure: a BEP is `part_of: bids` and the DICOM working groups are
+    # `part_of: dicom`, so all seven landed in this strip as though they
+    # were independent collaborations, alongside the parent they belong to.
+    #
+    # A record with no homepage is also dropped: the strip renders every
+    # entry as a link, and HRF models and Hyperalignment infrastructure --
+    # advisory efforts with no site of their own -- rendered as `href="#"`.
+    projects = []
     for f in sorted((RECORDS / "XYZProject").glob("*.yaml")):
         pr = yaml.safe_load(f.read_text())
-        if "xyzrins:." in (pr.get("part_of") or []) or pr["pid"] == "xyzrins:.":
+        if pr.get("part_of") or pr["pid"] == "xyzrins:.":
+            continue
+        if not one(pr, "foaf:homepage"):
             continue
         logo = next((q for q in sorted((STORE_ROOT / "content/projects" / f.stem)
                                        .glob("logo.*"))), None)
         # patsy and seaborn have no logo and appear on the live page as plain
         # text links, so a missing logo is not a reason to drop the entry.
         projects.append((pr, f.stem, logo.name if logo else None))
-    for slug in ("incf", "nitrc"):
-        f = RECORDS / "XYZOrganization" / f"{slug}.yaml"
-        if f.exists():
-            org = yaml.safe_load(f.read_text())
-            logo = next((q for q in sorted((STORE_ROOT / "content/organizations" / slug)
-                                           .glob("logo.*"))), None)
-            partners.append((org, slug, logo.name if logo else None))
 
     intros = (yaml.safe_load(INTROS.read_text()) or {}).get("whoweare", {}) \
         if INTROS.exists() else {}
-    for title, items, sub, div_id in (
-            ("Collaborating projects", projects, "projects",
-             "collaborating-projects"),
-            ("Partners", partners, "organizations", "partners")):
+    strips = [("Collaborating projects", projects, "projects",
+               "collaborating-projects")]
+    for tier in ORG_TIERS:
+        items = org_strips().get(tier) or []
+        if items:
+            strips.append((tier, items, "organizations",
+                           toc_hook(tier).strip("_")))
+    for title, items, sub, div_id in strips:
         if not items:
             continue
-        out.append(f'\t<h2>{title}</h2>')
+        out.append(f'\t<h2>{html.escape(title)}</h2>')
         # The id and the enclosing #people div both carry CSS: #people img
         # sizes and floats every logo, and #collaborating-projects img sets
         # the opacity and hover.  An earlier version closed #people first and

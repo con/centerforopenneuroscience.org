@@ -866,3 +866,30 @@ ul>.list-group-item:before {
 .projects details.components > summary:hover { color: #337ab7; }
 .projects ul.component-list { margin: 0.4em 0 0.8em 0; }
 .projects ul.component-list > li { font-size: 0.92em; }
+
+/* ------------------------------------------------------------------ */
+/* whoweare.html -- "Leads" and the "Related projects" disclosure       */
+
+/* Both sit under the description, in the same 9-column measure, so they
+   read as a continuation of the person rather than a new column. */
+.whoweare .leads,
+.whoweare details.related { margin-top: .35em; font-size: 90%; }
+.whoweare .leads strong { font-weight: 600; }
+
+/* The disclosure triangle is drawn rather than relied upon: Safari and
+   older WebKit render the native marker inconsistently inside a float
+   context, which is the same reason the projects page draws its own. */
+.whoweare details.related > summary {
+  cursor: pointer; list-style: none; color: #777;
+}
+.whoweare details.related > summary::-webkit-details-marker { display: none; }
+.whoweare details.related > summary::before {
+  content: "\25B8"; display: inline-block; width: 1em; color: #999;
+  transition: transform .12s ease-out;
+}
+.whoweare details.related[open] > summary::before { transform: rotate(90deg); }
+.whoweare details.related > summary:hover { color: #333; }
+.whoweare ul.related-list {
+  margin: .2em 0 .4em 0; padding-left: 1.6em; list-style: disc;
+}
+.whoweare ul.related-list li { color: #666; }

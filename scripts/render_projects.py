@@ -14,10 +14,9 @@ chronological Software list would open with con/tinuous and bury DataLad.
 import argparse
 import html
 import re
-import string
 import sys
 
-from conrecords import INTROS, RECORDS, STORE_ROOT, one, write_page, yaml
+from conrecords import INTROS, RECORDS, STORE_ROOT, one, toc_hook, write_page, yaml
 
 SECTIONS = ["Software", "Archives", "Standards", "Initiatives", "Meetings",
             "Education", "Infrastructure"]
@@ -204,22 +203,6 @@ def logo_for(slug):
         for q in sorted(p.glob("logo.*")):
             return f"/theme/img/{sub}/{slug}/{q.name}"
     return None
-
-
-def toc_hook(text):
-    """The anchor the table-of-contents extension will actually produce.
-
-    It OVERWRITES every explicit id= with a hook derived from the heading
-    text, so an in-page link built from a record slug would point at an id
-    that does not survive the build.  This mirrors
-    jinjaext/table_of_contents.py: parse_hook_from_text + the trailing "_"
-    that produce_new_hook appends.
-    """
-    h = text.strip().replace(" ", "_").lower()
-    h = h.replace("/:", ":").replace("/", ":").replace(":", "_")
-    for tok in string.punctuation.replace("_", ""):
-        h = h.replace(tok, "")
-    return h.strip("_") + "_"
 
 
 def anchor_of(d, slug):

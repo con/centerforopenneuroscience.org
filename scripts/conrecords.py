@@ -14,6 +14,7 @@ bug was sitting in `render_whoweare.py`.  One copy, imported.
 import os
 import pathlib
 import re
+import string
 import sys
 import xml.etree.ElementTree as ET
 
@@ -47,6 +48,23 @@ def one(d, pred):
 def load_yaml(path):
     with open(path) as fh:
         return yaml.safe_load(fh) or {}
+
+
+def toc_hook(text):
+    """The anchor the table-of-contents extension will actually produce.
+
+    It OVERWRITES every explicit id= with a hook derived from the heading
+    text, so an in-page link built from a record slug would point at an id
+    that does not survive the build.  This mirrors
+    jinjaext/table_of_contents.py: parse_hook_from_text + the trailing "_"
+    that produce_new_hook appends.
+    """
+    h = text.strip().replace(" ", "_").lower()
+    h = h.replace("/:", ":").replace("/", ":").replace(":", "_")
+    for tok in string.punctuation.replace("_", ""):
+        h = h.replace(tok, "")
+    return h.strip("_") + "_"
+
 
 
 def write_page(markup, out, skipped):
