@@ -328,7 +328,7 @@ def test_sidebar_nests_sections_inside_their_own_item(tmp_path):
     broken markup.  This one walks parents.
     """
     out = _build(tmp_path)
-    for name, want in (("projects", 7), ("whoweare", 6)):
+    for name, want in (("projects", 7), ("whoweare", 7)):
         t = (out / f"{name}.html").read_text()
         i = t.index('id="full-toc"'); j = t.index("</div>", i)
 
@@ -366,13 +366,90 @@ def test_sidebar_nests_sections_inside_their_own_item(tmp_path):
         assert len(p.sections) == want, \
             f"{name}: {len(p.sections)} sections, expected {want}: {p.sections}"
         childless = [s for s, has in p.sections if not has]
-        # the two logo strips on whoweare genuinely have no sub-entries
-        allowed = {"Collaborating projects", "Partners"}
+        # the three logo strips on whoweare genuinely have no sub-entries
+        allowed = {"Collaborating projects", "Collaborating labs & groups",
+                   "Partners"}
         assert not (set(childless) - allowed), \
             f"{name}: sections with no nested list of their own: {childless}"
 
 
 @pytest.mark.ai_generated
+def test_cross_page_links_land_on_a_real_heading(tmp_path):
+    """whoweare's "Related projects" links INTO the projects page, so the
+    anchors have to be the ones the ToC extension will actually produce
+    there -- a different page's ids, which the same-page check above cannot
+    see."""
+    out = _build(tmp_path)
+    ids = set(re.findall(r'id="([^"]+)"',
+                         (out / "projects.html").read_text()))
+    who = (out / "whoweare.html").read_text()
+    links = set(re.findall(r'href="/projects#([^"]+)"', who))
+    assert links, "whoweare links to no project at all"
+    assert not links - ids, f"dead cross-page anchors: {sorted(links - ids)}"
+
+
+@pytest.mark.ai_generated
+def test_a_person_who_leads_a_group_says_so(whoweare):
+    """The fact lives on the ORGANIZATION record -- `influenced_by` plus a
+    lead role -- so nothing in the person's own record shows it, and the
+    page said nothing for years."""
+    def block(name):
+        i = whoweare.index(f"<h3>{name}</h3>")
+        j = whoweare.find("<h3>", i + 1)
+        return whoweare[i:j if j > 0 else len(whoweare)]
+    for who, group in (("Michael Hanke", "Psychoinformatics"),
+                       ("Jean-Baptiste Poline", "ORIGAMI Lab"),
+                       ("James V. Haxby", "Haxby Lab")):
+        b = block(who)
+        assert 'class="col-md-9 col-sm-9 leads"' in b, f"{who}: no Leads line"
+        assert group in b.split('class="col-md-9 col-sm-9 leads"')[1][:300], \
+            f"{who} should be shown leading {group}"
+
+
+@pytest.mark.ai_generated
+def test_related_projects_are_linked_and_roled(whoweare):
+    """A "Related projects" entry with no link is a dead end, and one with
+    no role does not say why the person is in the list.  Restricting the
+    list to projects with a heading on /projects dropped Joey Hess's only
+    entry (git-annex is a collaborating project), so off-page links are
+    expected and must be real URLs."""
+    bodies = re.findall(r'<ul class="related-list">(.*?)</ul>', whoweare, re.S)
+    assert len(bodies) > 5, f"only {len(bodies)} people have a related list"
+    seen_offpage, linked, bare = False, 0, 0
+    for body in bodies:
+        for item in re.findall(r"<li>(.*?)</li>", body, re.S):
+            assert "&#8212;" in item, f"related entry with no role: {item}"
+            href = re.search(r'href="([^"]*)"', item)
+            if not href:
+                # HRF models and Hyperalignment infrastructure are advisory
+                # efforts with no site and no heading of their own; naming
+                # them unlinked beats inventing a destination
+                bare += 1
+                continue
+            linked += 1
+            assert href.group(1) != "#", f"placeholder link: {item}"
+            seen_offpage |= href.group(1).startswith("http")
+    assert seen_offpage, "no off-page project link survived"
+    assert linked > 10 * bare, f"{bare} of {linked + bare} entries go nowhere"
+
+
+@pytest.mark.ai_generated
+def test_the_collaborating_strip_holds_no_sub_projects(whoweare):
+    """A BEP is `part_of: bids` rather than `part_of: xyzrins:.`, so testing
+    only for the latter put the four BEPs, the two DICOM working groups and
+    ember's study-template in the strip as independent collaborations --
+    next to the parent they belong to."""
+    i = whoweare.index('id="collaborating-projects"')
+    j = whoweare.index("<h2>", i)
+    strip = whoweare[i:j]
+    for name in ("BEP028", "BEP032", "BEP044", "BIDS 2.0",
+                 "DICOM WG-16", "DICOM WG-32", "study-template", "TR&amp;D3"):
+        assert f'title="{name}"' not in strip, f"{name} is not a collaboration"
+    # and the parents it does hold are still there
+    for name in ("BIDS", "DICOM", "git-annex"):
+        assert f'title="{name}"' in strip, f"{name} went missing"
+
+
 def test_no_broken_in_page_links(tmp_path):
     """A component linking to a sibling entry must land on it.  The ToC
     extension rewrites every id to a hook derived from the heading text, so
@@ -436,7 +513,17 @@ def test_every_section_expands_when_clicked(tmp_path):
                 for name in names:
                     pg.eval_on_selector(
                         f"#full-toc a:text-is({name!r})", "el => el.click()")
-                    pg.wait_for_timeout(600)
+                    # wait for the condition, not for a fixed 600ms: four
+                    # browser launches in one run made that too short under
+                    # load and the test failed in the suite while passing
+                    # alone
+                    try:
+                        pg.wait_for_function(
+                            "n => [...document.querySelectorAll("
+                            "'#full-toc li.active > a')].some("
+                            "a => a.textContent === n)", arg=name, timeout=5000)
+                    except Exception:
+                        pass            # let the assertion below report it
                     active = pg.eval_on_selector_all(
                         "#full-toc li.active > a", "els => els.map(e => e.textContent)")
                     shown = pg.eval_on_selector_all(

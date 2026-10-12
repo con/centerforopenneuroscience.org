@@ -377,8 +377,13 @@ def render():
             img = (f'<img src="/theme/img/{sub}/{slug}/{logo}" '
                    f'alt="{html.escape(label)}"{style}/>'
                    if logo else html.escape(label))
+            # A name with no logo needs its own spacing: the strip is a run
+            # of floated images, so nine consecutive text links ran together
+            # into "Haxby Lab ORIGAMI Lab Psychoinformatics" with nothing to
+            # separate them.  `class="name"` is what the CSS keys on.
+            cls = "" if logo else ' class="name"'
             out.append(f'\t\t<a href="{html.escape(href)}" '
-                       f'title="{html.escape(label)}">{img}</a>')
+                       f'title="{html.escape(label)}"{cls}>{img}</a>')
         out.append('\t  </div>')
 
     out.append('  </div>')

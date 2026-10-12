@@ -893,3 +893,14 @@ ul>.list-group-item:before {
   margin: .2em 0 .4em 0; padding-left: 1.6em; list-style: disc;
 }
 .whoweare ul.related-list li { color: #666; }
+
+/* A strip entry that has no logo is a bare text link among floated images.
+   Give it the same visual weight and, crucially, something to separate it
+   from the next one. */
+.whoweare #people a.name {
+  display: inline-block; margin: .25em 0 .25em 0; padding: .25em .7em;
+  border: 1px solid #e3e3e3; border-radius: 3px; background: #fcfcfc;
+  line-height: 1.2;
+}
+.whoweare #people a.name + a.name { margin-left: .5em; }
+.whoweare #people a.name:hover { background: #f2f2f2; text-decoration: none; }
