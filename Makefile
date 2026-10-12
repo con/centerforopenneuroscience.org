@@ -35,6 +35,16 @@ PROJECTION_OUTPUTS=-o content/pages/whoweare.html \
                    -o content/pages/projects.html -o theme/static/img
 MSG?=project: re-render the pages from con-site-specific
 
+# --- dev-sitediff-report.md: compare production with a local build -----
+# Needs only `uv`; the script is fetched straight from GitHub (pinned to a
+# commit so everyone gets the same behaviour).  Start the local site first,
+# e.g. `make devserver PORT=8001`, then `make dev-sitediff-report.md`.
+SITEDIFF_REV=0.20250915.1
+SITEDIFF_URL=https://raw.githubusercontent.com/yarikoptic/summarized-sitediff/$(SITEDIFF_REV)/sitediff.py
+SITEDIFF_A=https://centerforopenneuroscience.org/
+SITEDIFF_B=http://localhost:8001/
+SITEDIFF_OPTS=
+
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
 	PELICANOPTS += -D
@@ -60,6 +70,8 @@ help:
 	@echo '   make s3_upload                   upload the web site via S3         '
 	@echo '   make cf_upload                   upload the web site via Cloud Files'
 	@echo '   make github                      upload the web site via gh-pages   '
+	@echo '                                                                       '
+	@echo '   make dev-sitediff-report.md      diff production vs local (SITEDIFF_B=) '
 	@echo '                                                                       '
 	@echo 'Set the DEBUG variable to 1 to enable debugging, e.g. make DEBUG=1 html'
 	@echo '                                                                       '
@@ -96,6 +108,13 @@ run-project:
 	datalad run --explicit -m "$(MSG)" \
 	  $(PROJECTION_INPUTS) $(PROJECTION_OUTPUTS) \
 	  "make project"
+
+# Always re-run: the inputs are live sites, not files.  Add e.g.
+# SITEDIFF_OPTS="--only /publications/ --summarize --llm-cmd 'claude -p'"
+dev-sitediff-report.md:
+	uv run $(SITEDIFF_URL) $(SITEDIFF_A) $(SITEDIFF_B) \
+	  --also-origin $(SITEDIFF_A) -j 8 --md $@ $(SITEDIFF_OPTS) \
+	  --json dev-sitediff-report.json -j 8 --summarize --llm-cmd 'claude -p'
 
 html:
 	umask 022; $(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
@@ -151,4 +170,4 @@ ifeq ($(TRAVIS_PULL_REQUEST), false)
 	ghp-import -n $(OUTPUTDIR)
 	@git push -fq https://${GH_TOKEN}@github.com/$(TRAVIS_REPO_SLUG).git gh-pages > /dev/null
 endif
-.PHONY: project run-project html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
+.PHONY: dev-sitediff-report.md project run-project html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
