@@ -235,6 +235,8 @@ def render():
            '\t<meta name="url" content="projects" />',
            '\t<meta name="save_as" content="projects.html" />',
            '\t<meta name="show_in_top_menu" content="true" />',
+           # 3 puts Projects before Engage.  The two shared order 3 and the
+           # menu sort is stable, so engage.html's filename decided the menu.
            '\t<meta name="order" content="3" />',
            '\t<meta name="top_menu_name" content="Projects" />',
            '\t<meta name="show_as_selected" content="projects" />',

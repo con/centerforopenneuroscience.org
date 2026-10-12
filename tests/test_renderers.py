@@ -536,3 +536,19 @@ def test_every_section_expands_when_clicked(tmp_path):
             browser.close()
     finally:
         srv.shutdown()
+
+
+@pytest.mark.ai_generated
+def test_top_menu_order(tmp_path):
+    """Engage sat before Projects because the two pages shared
+    `order: 3` and the menu sort is stable -- so the order was decided by
+    which filename Pelican happened to read first, not by anything anyone
+    wrote. Distinct numbers, and a test that says what they are for."""
+    out = _build(tmp_path)
+    t = (out / "projects.html").read_text()
+    i = t.index("navbar-collapse")
+    j = t.index("</ul>", i)
+    labels = [m.strip() for m in
+              re.findall(r">\s*([A-Za-z ]+?)\s*</a>", t[i:j])]
+    menu = [l for l in labels if l != "Center for Open Neuroscience"]
+    assert menu == ["Who we are", "Projects", "Engage", "Support"], menu

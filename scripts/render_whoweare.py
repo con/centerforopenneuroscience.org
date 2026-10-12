@@ -137,22 +137,31 @@ def related_projects():
 
     `site-root` is CON itself.  Every person here is associated with it by
     definition; that is what the tier heading above them already says.
+
+    Instruments count too, and they say it differently: an XYZInstrument is
+    an entity, so its people hang off `attributed_to` as Attributions rather
+    than off `associated_with` as Associations.  Walking only the projects
+    lost Isaac To's work on dandi-schema -- a component with 52 siblings.
     """
     labels, anchors = role_labels(), page_anchors()
     out = {}
-    for f in sorted((RECORDS / "XYZProject").glob("*.yaml")):
-        d = yaml.safe_load(f.read_text())
-        if d["pid"] == "xyzrins:.":
-            continue
-        name = (d.get("short_name") or d.get("display_label") or d.get("title")
-                or f.stem)
-        href = anchors.get(d["pid"]) or one(d, "foaf:homepage")
-        for a in (d.get("associated_with") or []):
-            who = a.get("object") or ""
-            if not who.startswith("xyzrins:persons/"):
+    for cls, slot in (("XYZProject", "associated_with"),
+                      ("XYZInstrument", "attributed_to")):
+        for f in sorted((RECORDS / cls).glob("*.yaml")):
+            d = yaml.safe_load(f.read_text())
+            if d["pid"] == "xyzrins:.":
                 continue
-            roles = [labels.get(x, x) for x in (a.get("roles") or [])]
-            out.setdefault(who, []).append((name, href, roles))
+            name = (d.get("short_name") or d.get("display_label")
+                    or d.get("title") or f.stem)
+            # an instrument has no heading of its own -- it is rendered as a
+            # component under its parent -- so it links to its repository
+            href = anchors.get(d["pid"]) or one(d, "foaf:homepage")
+            for a in (d.get(slot) or []):
+                who = a.get("object") or ""
+                if not who.startswith("xyzrins:persons/"):
+                    continue
+                roles = [labels.get(x, x) for x in (a.get("roles") or [])]
+                out.setdefault(who, []).append((name, href, roles))
     # one entry per project: a person may hold several associations with the
     # same project over time (Adina was an intern here, then a contributor)
     for who, rows in out.items():
