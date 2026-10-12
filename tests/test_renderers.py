@@ -153,12 +153,14 @@ def test_every_person_renders_a_portrait_at_its_own_path(whoweare):
 
 @pytest.mark.ai_generated
 @pytest.mark.parametrize("page,n", [("render_whoweare.py", 33),
-                                    ("render_projects.py", 38)])
+                                    ("render_projects.py", 41)])
 def test_expected_entry_count(page, n):
     """A guard against silent loss, so the number moves only on purpose.
     27 -> 36 when NIDM, DICOM + WG-16/32, BEP028/032/044, BIDS 2.0, ReproIn,
     the EMBER study template and the two advisory projects were added;
-    36 -> 38 for ORINOCO Lite and the OHBM 2020 posters registry.  The
+    36 -> 38 for ORINOCO Lite and the OHBM 2020 posters registry, and
+    38 -> 41 when Quail, HyperTools and SuperEEG were restored -- they had
+    been on the hand-written page, had no records, and vanished.  The
     DataLad Handbook arrived with them and is not counted: it is
     `part_of: datalad`, so it renders as one of DataLad's components rather
     than as a heading of its own."""
@@ -556,3 +558,50 @@ def test_top_menu_order(tmp_path):
               re.findall(r">\s*([A-Za-z ]+?)\s*</a>", t[i:j])]
     menu = [l for l in labels if l != "Center for Open Neuroscience"]
     assert menu == ["Who we are", "Projects", "Engage", "Support"], menu
+
+
+@pytest.mark.ai_generated
+def test_no_escaped_entities_in_plain_text_fields(whoweare, projects):
+    """A record value that is NOT description_html is plain text, and the
+    renderer escapes what it is given -- so an `&amp;` left in one by the
+    extraction printed literally.  Vadim Melnik had two position attributes
+    saying the same thing, one of them escaped, and the page showed both."""
+    for page in (whoweare, projects):
+        for m in re.finditer(r'class="[^"]*position[^"]*">(.*?)</div>', page):
+            assert "&amp;amp;" not in m.group(1), m.group(1)
+    # and the duplicate itself
+    assert whoweare.count("Software Engineer &amp; Consultant") == 1
+
+
+@pytest.mark.ai_generated
+def test_phone_is_readable_and_still_dialable(whoweare):
+    """`tel:` URIs allow only `-` and `.` as visual separators (RFC 3966),
+    so the canonical value is `tel:+1(603)6469834` -- stripping the scheme
+    for the label gave "+1(603)6469834" where the page had always shown
+    the spaced form."""
+    m = re.search(r'<a href="(tel:[^"]+)" class="phone">([^<]+)</a>', whoweare)
+    assert m, "no phone link"
+    assert m.group(2) == "+1 (603) 646-9834", m.group(2)
+    assert "(" in m.group(1)          # href is still the canonical URI
+
+
+@pytest.mark.ai_generated
+def test_no_links_to_services_that_closed(whoweare):
+    """Google+ shut down in April 2019 and two entries still linked to it.
+    The records keep the account -- it was true -- but the page should not
+    hand a reader a dead link."""
+    assert "plus.google.com" not in whoweare
+    assert "googleplus" not in whoweare
+
+
+@pytest.mark.ai_generated
+def test_the_contextual_dynamics_projects_are_still_listed(projects):
+    """Quail, HyperTools and SuperEEG were on the hand-written page and had
+    no records at all, so regenerating from the store dropped all three
+    silently -- with their logos, papers and readthedocs links."""
+    for name in ("Quail", "HyperTools", "SuperEEG"):
+        assert f">{name}</h2>" in projects, f"{name} is missing"
+    for url in ("http://joss.theoj.org/papers/",
+                "http://www.jmlr.org/papers/volume18/17-434/17-434.pdf",
+                "https://www.biorxiv.org/content/10.1101/121020"):
+        assert url in projects, url

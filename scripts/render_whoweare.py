@@ -14,6 +14,7 @@ undated (see the curation evidence), and sorting him last would be absurd.
 """
 import argparse
 import html
+import re
 import sys
 
 import render_projects  # for the projects page's own anchors
@@ -36,6 +37,10 @@ TIERS = ["Centroids", "Collaborators", "Affiliated Faculty", "Emeritus"]
 ORG_TIERS = ["Collaborating labs & groups", "Partners"]
 # a person who leads one of these is shown as leading it
 LEAD_ROLES = {"marcrel:ldr", "marcrel:led"}
+# Accounts on services that no longer exist.  The record keeps the fact --
+# it was true -- but the page should not hand a reader a dead link.  Google+
+# shut down in April 2019 and two entries still linked to it.
+DEFUNCT_ACCOUNTS = ("plus.google.com",)
 # contact predicate -> (css class, link text); order fixes the link order
 CONTACTS = [
     ("vcard:hasEmail", "email", "E-Mail"),
@@ -49,8 +54,7 @@ CONTACTS = [
     ("foaf:weblog", "blog", "Blog"),
     ("dlthings:scholar", "scholar", "Google Scholar"),
 ]
-ACCOUNT_CLASS = {"plus.google.com": ("googleplus", "Google+"),
-                 "twitter.com": ("twitter", "Twitter"),
+ACCOUNT_CLASS = {"twitter.com": ("twitter", "Twitter"),
                  "x.com": ("twitter", "Twitter"),
                  "fosstodon.org": ("mastodon", "Mastodon"),
                  "mastodon": ("mastodon", "Mastodon"),
@@ -200,6 +204,20 @@ def portrait(slug):
     return None
 
 
+def phone_text(uri):
+    """A readable label for a `tel:` URI.
+
+    RFC 3966 allows only `-` and `.` as visual separators, so the canonical
+    form in the record is `tel:+1(603)6469834` and stripping the scheme gave
+    "+1(603)6469834" where the page had always shown "+1 (603) 646-9834".
+    The URI stays the href; only the label is spaced out, and only for the
+    one shape that appears here -- anything else is printed as stored.
+    """
+    v = uri.replace("tel:", "")
+    m = re.fullmatch(r"(\+1)\((\d{3})\)(\d{3})(\d{4})", v)
+    return f"{m[1]} ({m[2]}) {m[3]}-{m[4]}" if m else v
+
+
 def contact_links(d):
     out, seen_classes = [], set()
     for pred, cls, label in CONTACTS:
@@ -208,8 +226,10 @@ def contact_links(d):
             if pred == "foaf:account":
                 c, text = next(((k2, t) for host, (k2, t) in ACCOUNT_CLASS.items()
                                 if host in v), ("web", "Web"))
+            if pred == "foaf:account" and any(h in v for h in DEFUNCT_ACCOUNTS):
+                continue
             if pred == "vcard:hasTelephone":
-                text = v.replace("tel:", "")
+                text = phone_text(v)
             # `research` and `home` both land on foaf:homepage, so the same
             # URL could be emitted twice with the same icon
             # A "research page" pointing at this very page is not a link.

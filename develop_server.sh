@@ -67,7 +67,11 @@ function start_up(){
   pelican_pid=$!
   echo $pelican_pid > $PELICAN_PID
   cd $OUTPUTDIR
-  $PY -m pelican.server $port &
+  # scripts/devserver.py, not `python -m pelican.server`: same server, but
+  # it puts `charset=utf-8` on the Content-Type.  Without it a tool that
+  # fetches over HTTP and believes the header reads the pages as Latin-1 and
+  # reports mojibake that no browser ever shows.
+  $PY $BASEDIR/scripts/devserver.py $port &
   srv_pid=$!
   echo $srv_pid > $SRV_PID
   cd $BASEDIR
