@@ -26,6 +26,7 @@ flowchart TB
     OVM["metadata/overlays/<br/>machine-provenance-annotations/<br/><i>what the importers vouch for</i>"]
     OVC["sources/<br/>curation-evidence/<br/><i>why we believe a hand claim</i>"]
     AST["content/KIND/SLUG/<br/>logo.* · portrait.*<br/><i>git-annex</i>"]
+    PROJ["projection.yaml · templates/<br/><i>the store's OWN site, via<br/>www-from-model</i>"]
     GATE1{{"tools/linkml_check.sh<br/><i>schema</i>"}}
     GATE2{{"tools/validate_records.py<br/><i>curation rules</i>"}}
   end
@@ -47,6 +48,7 @@ flowchart TB
   REC -.->|"must pass"| GATE1
   REC -.->|"must pass"| GATE2
   OVC -.-> GATE2
+  REC --> PROJ
   REC --> SUB
   AST --> SUB
 
@@ -66,7 +68,7 @@ flowchart TB
   classDef gen fill:#eef7ef,stroke:#5d8a63
   classDef gate fill:#fdf3e3,stroke:#b58b3a
   class GH,NIH,ZOT,DRI,BIB,BEP src
-  class REC,OVM,OVC,AST,SUB rec
+  class REC,OVM,OVC,AST,SUB,PROJ rec
   class THEME,PAGES,OUT,INTRO,TOC,DECK gen
   class GATE1,GATE2,GATE3 gate
 ```
@@ -81,6 +83,12 @@ flowchart TB
 | `render_ack_projects.py` | submodule `metadata/records/`, `content/selections/` | the deck's generated block (stdout, or `--out`) | by hand |
 | `pelican content -o output` | `content/`, `theme/`, `jinjaext/` | `output/` | build step |
 | `pytest tests/` | scripts, records, a throwaway build | nothing | gate |
+
+There is a third consumer, and it lives in the store rather than here: the
+records also project **their own site**, through `projection.yaml` and
+`templates/` and the `www-from-model` engine. Nothing in this repo drives it
+and nothing here needs to; it is listed so that a change to a record is
+understood to move more than these two pages.
 
 `make project` is the first three, in that order; `make run-project` is that
 under `datalad run`.
@@ -110,6 +118,15 @@ The deletion was verified rather than assumed: the two pages were deleted,
 rebuilt from the records alone, and came back **byte-for-byte identical**;
 the whole built site matched too, except the Atom feed's `<updated>`
 timestamp.
+
+### What the store's own projection decided, and why it matters here
+
+Its `templates/project.md.j2` stopped printing an association's
+`description` on a project page (`a4071a2`), which is where the commit
+counts live -- "237 commits." under a name. These generators never printed
+them either: a Related entry shows the ROLE and nothing else. Two
+independent renderers reaching the same conclusion is worth recording,
+because the obvious reading of that field is that it is there to be shown.
 
 ## Three representations, not two
 
