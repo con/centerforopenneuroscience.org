@@ -592,3 +592,33 @@ def test_no_links_to_services_that_closed(whoweare):
     hand a reader a dead link."""
     assert "plus.google.com" not in whoweare
     assert "googleplus" not in whoweare
+
+
+@pytest.mark.ai_generated
+def test_every_icon_class_has_a_rule(whoweare, projects):
+    """`.contact a` sets a DEFAULT background-image -- the Twitter bird --
+    so a class with no rule of its own does not render as nothing, it
+    renders as Twitter.  Three classes shipped that way once."""
+    css = (HERE / "theme/static/css/site.css").read_text()
+    for page, name in ((whoweare, "whoweare"), (projects, "projects")):
+        for block in re.findall(r'<(?:div|span) class="[^"]*contact[^"]*">(.*?)'
+                                r'</(?:div|span)>', page, re.S):
+            for cls in re.findall(r'<a [^>]*class="([a-z0-9-]+)"', block):
+                assert f".contact .{cls} {{" in css, \
+                    f"{name}: .{cls} has no icon rule, so it renders as Twitter"
+
+
+@pytest.mark.ai_generated
+def test_project_links_are_icons_not_words(projects):
+    """The metadata strip said "Home page" and "Source" in words while the
+    person pages next to it used icons for the same links."""
+    metas = re.findall(r'<p class="project-meta"><small>(.*?)</small>', projects)
+    assert len(metas) > 30, f"only {len(metas)} metadata strips"
+    linked = [m for m in metas if "<a " in m]
+    assert len(linked) == len(metas), "a project with no link at all"
+    for m in linked:
+        assert 'class="contact"' in m, f"links not rendered as icons: {m[:90]}"
+        # the label survives for a screen reader, and as a tooltip
+        for a in re.findall(r"<a [^>]*>(.*?)</a>", m):
+            assert a.strip(), "an icon with no accessible label"
+        assert m.count("title=") == m.count("<a ")

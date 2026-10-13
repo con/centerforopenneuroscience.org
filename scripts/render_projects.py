@@ -187,14 +187,53 @@ def meta_line(d, section, started):
         bits.append(html.escape(section))
     if started:
         bits.append("since " + html.escape(started[:4]))
+    line = " &#183; ".join(bits)
+    # The same icons whoweare uses for a person's links, rather than the
+    # words "Home page" and "Source".  Reusing its `.contact` classes means
+    # reusing its background-image rules; only the box needs overriding,
+    # because there they float and here they sit in a line of text.
+    #
+    # The label stays inside the anchor and is pushed off-screen by
+    # text-indent, exactly as on whoweare -- a screen reader still reads
+    # "Home page", and the title shows it on hover.
+    icons = []
+    for url, kind, label in links_of(d):
+        icons.append(f'<a href="{html.escape(url)}" class="{kind}" '
+                     f'title="{html.escape(label)}">{html.escape(label)}</a>')
+    if icons:
+        line += ' <span class="contact">' + "".join(icons) + "</span>"
+    return line
+
+
+def links_of(d):
+    """(url, icon class, label) for a project's own links, in order.
+
+    The icon follows the URL's host, not the slot it came from: forty
+    records put a GitHub URL in `foaf:homepage`, and five of those also
+    carry a `code_repository`, so keying on the slot drew a house over a
+    link to GitHub.  A GitHub URL is a repository wherever it is written
+    down.
+
+    At most one GitHub link.  ORINOCO Lite's homepage is its organization
+    and its repository is the engine inside it; two GitHub marks in a row,
+    one of them labelled "source" and not being one, says less than one.
+
+    Labels carry the project's name because they are the accessible name of
+    an icon with no visible text -- thirty-five links all called "Home page"
+    is a links list that cannot be used.
+    """
+    name = (d.get("short_name") or d.get("display_label") or d.get("title")
+            or "")
     home = one(d, "foaf:homepage")
     repo = one(d, "dlthings:code_repository")
-    if home:
-        label = "Repository" if "github.com" in home and not repo else "Home page"
-        bits.append(f'<a href="{html.escape(home)}">{label}</a>')
-    if repo and repo != home:
-        bits.append(f'<a href="{html.escape(repo)}">Source</a>')
-    return " &#183; ".join(bits)
+    out = []
+    if home and "github.com" not in home:
+        out.append((home, "home", f"{name} home page".strip()))
+    src = repo or (home if home and "github.com" in home else None)
+    if src and not any(src == u for u, _k, _l in out):
+        out.append((src, "github" if "github.com" in src else "home",
+                    f"{name} source".strip()))
+    return out
 
 
 def logo_for(slug):

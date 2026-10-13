@@ -131,11 +131,13 @@ dd {
   margin-right: 1em;
   width: 2em;
   height: 2em;
-  background-color: #87AADE;
+  background-color: #6E90C8;
   text-indent: -999em;
   border-radius: 0.25em;
   background-size: cover;
   background-image: url("../img/contact/twitter.svg");
+  /* #87AADE put the SVGs' baked white glyphs at 2.38:1, under WCAG
+     1.4.11's 3:1 for a graphical object.  This is 3.24:1, same hue. */
   -webkit-transition: background-color 0.2s linear;
   -moz-transition: background-color 0.2s linear;
   -o-transition: background-color 0.2s linear;
@@ -904,3 +906,32 @@ ul>.list-group-item:before {
 }
 .whoweare #people a.name + a.name { margin-left: .5em; }
 .whoweare #people a.name:hover { background: #f2f2f2; text-decoration: none; }
+
+/* ------------------------------------------------------------------ */
+/* projects.html -- a project's own links, as the icons whoweare uses   */
+
+/* `.contact a` is a floated 2em block, which is right in a person's
+   column and wrong inside a line of metadata.  Only the box changes;
+   every background-image rule above still applies. */
+.projects .project-meta .contact { display: inline; }
+.projects .project-meta .contact a {
+  display: inline-block; float: none;
+  width: 1.15em; height: 1.15em;
+  vertical-align: -0.19em;          /* centres on the cap band */
+  /* The hit area is the padded box and the chip is the content box, so the
+     target clears 24x24 without the mark growing.  box-sizing has to be
+     content-box: Bootstrap sets border-box globally, under which the
+     padding eats INTO the declared width -- the chip shrank and the target
+     did not move. */
+  box-sizing: content-box;
+  padding: .25em; background-clip: content-box;
+  border-radius: .4em;              /* must exceed the padding, or the
+                                       inner corners square off */
+  margin: 0 0 0 .1em;
+}
+/* The gap OUTSIDE the pair has to beat the gap inside it, or the icons read
+   as belonging to the date rather than to each other. */
+.projects .project-meta .contact a:first-child { margin-left: .7em; }
+.projects .project-meta .contact a:focus-visible {
+  outline: 2px solid #337ab7; outline-offset: 2px;
+}
