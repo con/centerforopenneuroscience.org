@@ -108,6 +108,12 @@ project:
 # which fetched the inputs, updated the submodule from its remote and
 # unlocked 56 annexed logos before the dry run was over.
 #
+# A NEW file appearing under a declared output directory makes `datalad run
+# --explicit` fail with "list.remove(x): x not in list" before the command
+# even starts.  It has bitten twice -- three project logos, then a new
+# portrait.  Delete the untracked file and run again; the run recreates and
+# saves it.
+#
 # Note that `datalad run` GETS its inputs, and for a submodule input that
 # means `datalad update`: it may fetch and merge the record store from its
 # remote, and commit the new submodule pointer here.  That is provenance
