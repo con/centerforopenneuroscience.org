@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Render the project rows of the Acknowledgements slide from records.
 
-Third of the three validation loops (whoweare, projects, slide).  Takes a
-named selection from content/selections/ and emits the markup for the deck's
-generated block.
+Takes a named selection from content/selections/ and emits the markup for the
+deck's generated block.  Reads the record store, like the other two
+generators -- it used to read content/projects/, the one-time extraction of
+the hand-written page, which is gone.
 
 Logo sizing is the whole problem here.  The site's logos are hand-tuned for a
 one-column web row -- `width:255px`, `margin-top:-2em`, `pull-right` -- which
@@ -17,10 +18,8 @@ import pathlib
 import subprocess
 import sys
 
-try:
-    import yaml
-except ImportError:
-    sys.exit("PyYAML is required")
+import render_projects
+from conrecords import RECORDS, one, yaml
 
 HERE = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://centerforopenneuroscience.org"
@@ -74,9 +73,8 @@ def render(selection, deck=None):
     sel = yaml.safe_load((HERE / "content/selections" / f"{selection}.yaml").read_text())
     overrides = sel.get("logo_overrides") or {}
     recs = {}
-    for f in (HERE / "content/projects").glob("*.yaml"):
-        r = yaml.safe_load(f.read_text())
-        recs[r["project"]] = r
+    for f in sorted((RECORDS / "XYZProject").glob("*.yaml")):
+        recs[f.stem] = yaml.safe_load(f.read_text())
 
     out, missing = [], []
     for band in sel["bands"]:
@@ -86,18 +84,27 @@ def render(selection, deck=None):
             if not r:
                 missing.append(slug)
                 continue
-            logo = r.get("logo") or {}
             over = overrides.get(slug) or {}
-            src = over.get("src") or logo.get("src")
+            src = over.get("src") or render_projects.logo_for(slug)
             if not src:
                 missing.append(f"{slug} (no logo)")
                 continue
-            h = slide_height(intrinsic(src, deck), band["id"])
-            href = logo.get("href") or f"{SITE}/projects"
-            title = logo.get("title") or r["display_name"]
+            href = one(r, "foaf:homepage") or f"{SITE}/projects"
+            title = (r.get("display_label") or r.get("title")
+                     or r.get("short_name") or slug)
             # An override already names a deck-relative path; a site asset has
-            # to be addressed in the copy the deck keeps.
-            dsrc = src if over.get("src") else f"pics/con-projects/{pathlib.Path(src).name}"
+            # to be addressed in the copy the deck keeps.  The store calls
+            # every logo `logo.<ext>`, so the deck-side name is built from the
+            # slug -- which is what the deck's assets are already called.
+            dsrc = (over["src"] if over.get("src")
+                    else f"pics/con-projects/{slug}_logo{pathlib.Path(src).suffix}")
+            # Measure the file the DECK will render, not the site's copy of
+            # it.  They can differ: the deck's ReproNim mark is 280x341 and
+            # the store's is a 600x120 wordmark, and the two land in
+            # different branches of slide_height -- so sizing from the site
+            # asset squashed the image actually on the slide.
+            h = slide_height(intrinsic(dsrc, deck) or intrinsic(src, deck),
+                             band["id"])
             items.append(
                 f'\t  <a class="cww-proj" href="{href}" target="_blank" '
                 f'title="{title}"><img style="height:{h}px" '

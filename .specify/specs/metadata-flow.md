@@ -30,13 +30,13 @@ flowchart TB
   subgraph site["con/centerforopenneuroscience.org"]
     direction TB
     SUB["sourcedata/con-site-specific<br/><i>submodule — pins the revision</i>"]
-    EXTR["content/people/ · content/projects/<br/><i>extraction of the OLD hand-written pages</i>"]
     INTRO["content/section-intros.yaml<br/><i>copy belonging to a section,<br/>not to any entity</i>"]
     THEME["theme/static/img/KIND/SLUG/"]
     PAGES["content/pages/whoweare.html<br/>content/pages/projects.html<br/><i>a page fragment: headings, ids, prose</i>"]
     TOC["jinjaext/table_of_contents.py<br/><i>rewrites every id to a text hook<br/>and builds the sidebar tree</i>"]
     OUT["output/projects.html · output/whoweare.html<br/><i>the page a browser sees</i>"]
-    GATE3{{"tests/test_renderers.py<br/><i>23 tests, one per shipped defect;<br/>builds the site for the nav ones</i>"}}
+    DECK["../talks<br/><i>the Acknowledgements slide</i>"]
+    GATE3{{"tests/test_renderers.py<br/><i>31 tests, one per shipped defect;<br/>builds the site for the nav ones</i>"}}
   end
 
   GH & NIH & ZOT & DRI & BIB & BEP -->|"by hand, with evidence"| REC
@@ -47,11 +47,10 @@ flowchart TB
   REC --> SUB
   AST --> SUB
 
-  EXTR -->|"enrich_people.py<br/>enrich_projects.py"| REC
-  EXTR -->|"records_from_page.py"| REC
   SUB -->|"<b>datalad run</b><br/>sync_assets_to_theme.py"| THEME
   SUB -->|"<b>datalad run</b><br/>render_whoweare.py"| PAGES
   SUB -->|"<b>datalad run</b><br/>render_projects.py"| PAGES
+  SUB -->|"render_ack_projects.py"| DECK
   INTRO --> PAGES
   THEME --> OUT
   PAGES -->|"pelican"| TOC
@@ -65,7 +64,7 @@ flowchart TB
   classDef gate fill:#fdf3e3,stroke:#b58b3a
   class GH,NIH,ZOT,DRI,BIB,BEP src
   class REC,OVM,OVC,AST,SUB rec
-  class THEME,PAGES,OUT,EXTR,INTRO,TOC gen
+  class THEME,PAGES,OUT,INTRO,TOC,DECK gen
   class GATE1,GATE2,GATE3 gate
 ```
 
@@ -73,21 +72,41 @@ flowchart TB
 
 | command | reads | writes | run under |
 | --- | --- | --- | --- |
-| `enrich_people.py --write` | `content/people/` | records `XYZPerson`, `content/persons/*/portrait.*` | by hand |
-| `enrich_projects.py --write` | `content/projects/` | records `XYZProject` and friends | by hand |
-| `records_from_page.py --write` | `content/projects/` | new `XYZProject` records | by hand |
-| `sync_logos.py --write` | `theme/static/img/3rd/` | `content/<kind>/<slug>/logo.*` | by hand |
-| `harvest_join_dates.py` | this repo's git history | a JSON report (records edited by hand from it) | by hand |
-| **`sync_assets_to_theme.py --write`** | submodule `content/` | `theme/static/img/<kind>/<slug>/`, `theme/static/img/team/` | **`datalad run`** |
+| **`sync_assets_to_theme.py --write`** | submodule `content/` | `theme/static/img/{projects,instruments,organizations}/`, `theme/static/img/team/` | **`datalad run`** |
 | **`render_whoweare.py --out …`** | submodule `metadata/records/`, submodule `content/`, `content/section-intros.yaml` | `content/pages/whoweare.html` | **`datalad run`** |
 | **`render_projects.py --out …`** | the same three | `content/pages/projects.html` | **`datalad run`** |
+| `render_ack_projects.py` | submodule `metadata/records/`, `content/selections/` | the deck's generated block (stdout, or `--out`) | by hand |
 | `pelican content -o output` | `content/`, `theme/`, `jinjaext/` | `output/` | build step |
 | `pytest tests/` | scripts, records, a throwaway build | nothing | gate |
 
-The first group runs **into** the store and is how hand-curated facts get in.
-The second group runs **out of** it and is where `datalad run` applies: those
-three commands are the only ones that write generated files into this repo,
-so those are the files whose provenance has to be recoverable.
+`make project` is the first three, in that order; `make run-project` is that
+under `datalad run`.
+
+Everything here runs **out of** the store; nothing runs into it any more.
+Facts get in by editing a record.
+
+## The migration that is over
+
+Until 2026-10-13 there was a second group, running the other way: the
+hand-written pages were extracted into `content/people/` and
+`content/projects/`, those were enriched into records, and
+`render_people.py` rendered them back and diffed, so that no generator took
+over a live page until the records could reproduce it exactly. That loop
+served its purpose and is gone -- `extract_people.py`, `extract_projects.py`,
+`enrich_people.py`, `enrich_projects.py`, `records_from_page.py`,
+`render_people.py`, `page_skeleton.py`, `sync_logos.py`,
+`harvest_join_dates.py` and `harvest_associations.py` with it.
+
+Two of those could not have been re-run anyway: `harvest_join_dates.py` and
+`harvest_associations.py` derive dates from the git history of
+`content/pages/whoweare.html` and `projects.html`, and those pages are now
+generated -- their history since the handover records renders, not people
+arriving. The dates they produced are in the records with their evidence.
+
+The deletion was verified rather than assumed: the two pages were deleted,
+rebuilt from the records alone, and came back **byte-for-byte identical**;
+the whole built site matched too, except the Atom feed's `<updated>`
+timestamp.
 
 ## Three representations, not two
 

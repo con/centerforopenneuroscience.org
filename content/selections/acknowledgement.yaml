@@ -17,8 +17,8 @@ bands:
       - repronim                 # the Collaborating-projects logo, not con/containers
       - dandi
       - ember
-      - brain-imaging-data-structure-bids
-      - neurodata-without-borders-neurophysiology-nwb-n
+      - bids
+      - nwb
       # - hed                    # NO RECORD YET -- see note below
       # INCF is NOT here.  It belongs with the funders and in-kind supporters:
       # what INCF gave us was backing for grassroots standardisation work on
@@ -40,7 +40,7 @@ bands:
 logo_overrides:
   # Slide-only substitutions.  These do NOT mean the site record is wrong to
   # fix here -- they mean the site asset is wrong for a logo row.
-  brain-imaging-data-structure-bids:
+  bids:
     src: pics/bids-logo-wide.png
     why: >
       The image projects.html carries for BIDS is the before/after
