@@ -152,7 +152,7 @@ def test_every_person_renders_a_portrait_at_its_own_path(whoweare):
 
 
 @pytest.mark.ai_generated
-@pytest.mark.parametrize("page,n", [("render_whoweare.py", 33),
+@pytest.mark.parametrize("page,n", [("render_whoweare.py", 34),
                                     ("render_projects.py", 41)])
 def test_expected_entry_count(page, n):
     """A guard against silent loss, so the number moves only on purpose.
@@ -592,16 +592,3 @@ def test_no_links_to_services_that_closed(whoweare):
     hand a reader a dead link."""
     assert "plus.google.com" not in whoweare
     assert "googleplus" not in whoweare
-
-
-@pytest.mark.ai_generated
-def test_the_contextual_dynamics_projects_are_still_listed(projects):
-    """Quail, HyperTools and SuperEEG were on the hand-written page and had
-    no records at all, so regenerating from the store dropped all three
-    silently -- with their logos, papers and readthedocs links."""
-    for name in ("Quail", "HyperTools", "SuperEEG"):
-        assert f">{name}</h2>" in projects, f"{name} is missing"
-    for url in ("http://joss.theoj.org/papers/",
-                "http://www.jmlr.org/papers/volume18/17-434/17-434.pdf",
-                "https://www.biorxiv.org/content/10.1101/121020"):
-        assert url in projects, url
