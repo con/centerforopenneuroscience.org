@@ -622,3 +622,14 @@ def test_project_links_are_icons_not_words(projects):
         for a in re.findall(r"<a [^>]*>(.*?)</a>", m):
             assert a.strip(), "an icon with no accessible label"
         assert m.count("title=") == m.count("<a ")
+
+
+@pytest.mark.ai_generated
+def test_no_role_renders_as_a_bare_pid(whoweare):
+    """Role labels come from the XYZAgentRole records and fall back to the
+    pid, so a role used in an association but never defined prints as
+    "Haxby 2001 -- marcrel:dtm"."""
+    for body in re.findall(r'<ul class="related-list">(.*?)</ul>', whoweare, re.S):
+        for item in re.findall(r"<li>(.*?)</li>", body, re.S):
+            text = re.sub(r"<[^>]+>", "", item)
+            assert not re.search(r"\b(marcrel|obo|xyzrins):", text), text.strip()

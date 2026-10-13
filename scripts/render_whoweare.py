@@ -142,23 +142,26 @@ def related_projects():
     `site-root` is CON itself.  Every person here is associated with it by
     definition; that is what the tier heading above them already says.
 
-    Instruments count too, and they say it differently: an XYZInstrument is
-    an entity, so its people hang off `attributed_to` as Attributions rather
-    than off `associated_with` as Associations.  Walking only the projects
-    lost Isaac To's work on dandi-schema -- a component with 52 siblings.
+    Instruments and datasets count too, and they say it differently: both
+    are entities, so their people hang off `attributed_to` as Attributions
+    rather than off `associated_with` as Associations.  Walking only the
+    projects lost Isaac To's work on dandi-schema -- a component with 52
+    siblings -- and then, when datasets were left out of the same fix,
+    Haxby's authorship of the data PyMVPA's tutorials are built on.
     """
     labels, anchors = role_labels(), page_anchors()
     out = {}
     for cls, slot in (("XYZProject", "associated_with"),
-                      ("XYZInstrument", "attributed_to")):
+                      ("XYZInstrument", "attributed_to"),
+                      ("XYZDataset", "attributed_to")):
         for f in sorted((RECORDS / cls).glob("*.yaml")):
             d = yaml.safe_load(f.read_text())
             if d["pid"] == "xyzrins:.":
                 continue
             name = (d.get("short_name") or d.get("display_label")
                     or d.get("title") or f.stem)
-            # an instrument has no heading of its own -- it is rendered as a
-            # component under its parent -- so it links to its repository
+            # an instrument or dataset has no heading of its own, so it
+            # links to wherever it lives
             href = anchors.get(d["pid"]) or one(d, "foaf:homepage")
             for a in (d.get(slot) or []):
                 who = a.get("object") or ""
