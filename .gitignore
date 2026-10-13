@@ -16,4 +16,4 @@ output/
 .#projects.html
 cache/
 __pycache__/
-dev-sitediff-report
+dev-sitediff-report*
