@@ -119,10 +119,23 @@ project:
 # remote, and commit the new submodule pointer here.  That is provenance
 # working as intended, but it does touch the network and the store's
 # history, so run this when you mean to.
-run-project:
+# The store pointer has to be committed BEFORE the run, not after.  With
+# --explicit only the declared outputs are saved, so a moved submodule
+# pointer is left dirty -- and the run commit's tree then pins an OLDER
+# store revision than the one the command actually read.  `datalad rerun`
+# would check out that older store and produce different pages.  Refuse.
+run-project: check-store-pinned
 	datalad run --explicit -m "$(MSG)" \
 	  $(PROJECTION_INPUTS) $(PROJECTION_OUTPUTS) \
 	  "make project"
+
+check-store-pinned:
+	@git diff --quiet HEAD -- $(STORE) || { \
+	  echo "ERROR: $(STORE) pointer is uncommitted."; \
+	  echo "       Commit it first, or the run records a store revision it"; \
+	  echo "       did not read:"; \
+	  echo "         git add $(STORE) && git commit -m 'store: ...'"; \
+	  exit 1; }
 
 # Always re-run: the inputs are live sites, not files.  Add e.g.
 # SITEDIFF_OPTS="--only /publications/ --summarize --llm-cmd 'claude -p'"
