@@ -34,7 +34,20 @@ def main():
     ap.add_argument("--write", action="store_true")
     a = ap.parse_args()
 
-    n, same = 0, 0
+    n, same, gone = 0, 0, 0
+    # An entity whose record is deleted leaves its logo behind: the copy was
+    # one-way and never removed anything, so quail, hypertools and supereeg
+    # sat in the theme for a day after their records went, pointing at
+    # nothing.  A directory here that has no counterpart in the store is an
+    # orphan by definition -- the whole tree is a copy of the store.
+    for sub in ("projects", "instruments", "organizations"):
+        for d in sorted((THEME / sub).glob("*/")):
+            if not (STORE / sub / d.name).exists():
+                print(f"{'removing' if a.write else 'would remove'} orphan: "
+                      f"{sub}/{d.name}")
+                if a.write:
+                    shutil.rmtree(d)
+                gone += 1
     for sub in ("projects", "instruments", "organizations"):
         for logo in sorted((STORE / sub).glob("*/logo.*")):
             out = THEME / sub / logo.parent.name / logo.name
@@ -55,7 +68,8 @@ def main():
             out.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(por, out)
         n += 1
-    print(f"{'copied' if a.write else 'would copy'}: {n};  already current: {same}")
+    print(f"{'copied' if a.write else 'would copy'}: {n};  "
+          f"already current: {same};  orphans removed: {gone}")
     return 0
 
 
