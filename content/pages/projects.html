@@ -118,6 +118,11 @@
 		<p> <a href="https://github.com/con/fscacher">con/fscacher</a> is a Python library providing a persistent, file-content-aware memoization cache. Functions decorated with <code>@cache.memoize_path</code> are re-executed only when the fingerprint (timestamps + size) of their file arguments changes — making it easy to cache expensive operations on large file trees without stale results. It is used internally by the <a href="#dandi_">DANDI</a> client and other CON tools. </p>
 	  </div>
 	  <div class="row">
+		<h2 id="reprostim">ReproStim</h2>
+		<p class="project-meta"><small>Software &#183; since 2020 &#183; <a href="https://reprostim.readthedocs.io/en/latest/">Home page</a> &#183; <a href="https://github.com/ReproNim/reprostim">Source</a></small></p>
+		<p> <a href="https://reprostim.readthedocs.io/en/latest/">ReproStim</a> captures the audio-visual stimuli actually presented during an experiment, into BIDS datasets -- so what the participant saw and heard is recorded rather than inferred from the script that was supposed to show it. <a href="https://reprostim.readthedocs.io/en/latest/_images/reproflow.svg">ReproFlow</a> is the setup around it, from the screen and the event relay through to the dataset. </p> <ul> <li> <a href="https://reprostim.readthedocs.io/en/latest/_images/reproflow.svg">The ReproFlow setup</a>, and a <a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/ReproNim/video/SZ96Q6pwJzQ?tab=local&amp;wide=1">talk walking through it</a>. </li> <li> <a href="https://github.com/ReproNim/reprostim/tree/master/Events">ReproEvents</a>: the event relay that timestamps a button press in hardware rather than in whatever the stimulus computer was doing. </li> </ul>
+	  </div>
+	  <div class="row">
 		<h2 id="repronim-containers">ReproNim/containers</h2>
 		<p class="project-meta"><small>Software &#183; since 2019 &#183; <a href="https://github.com/ReproNim/containers">Repository</a></small></p>
 		<figure>
@@ -320,17 +325,14 @@
 		<h2 id="repronim-trd3">ReproNim TR&amp;D3</h2>
 		<p class="project-meta"><small>Initiatives &#183; <a href="https://www.repronim.org/">Home page</a></small></p>
 		<p>The technology research and development project within ReproNim that YOH leads at Dartmouth. In practice it is the tooling that makes a study reproducible end to end: capturing what the scanner and the stimulus computer actually did, converting it into standard layouts without a human in the loop, and re-running the analysis in a recorded environment.</p>
-		<details class="components" open="open">
-		  <summary>6 components</summary>
+		<p class="components"><strong>Components:</strong></p>
 		  <ul class="component-list">
 		    <li><a href="https://github.com/ReproNim/reprostim/tree/master/Events">ReproEvents</a>: An event relay device: a single-board microcontroller running micropython that sits between the input peripherals a participant uses and the event recording system, so button presses are timestamped by hardware rather than by whatever the stimulus computer was doing.</li>
 		    <li><a href="https://github.com/ReproNim/reproin">ReproIn</a>: A convention and a setup for naming sequences at the scanner so that conversion to a shareable, version-controlled BIDS dataset needs no human in the loop. Runs on HeuDiConv; deployed at DBIC.</li>
 		    <li><a href="https://reproman.readthedocs.io">ReproMan</a>: Tool for creating and managing reproducible computation environments and executing analyses in them.</li>
-		    <li><a href="https://github.com/ReproNim/reprostim">ReproStim</a>: Automated capture of the audio-visual stimuli actually presented during an experiment, into BIDS datasets -- so what the participant saw and heard is recorded rather than inferred from the script that was supposed to show it.</li>
 		    <li><a href="https://github.com/con/duct">con/duct</a>: Lightweight wrapper that records execution time, CPU and memory usage of a command, for resource-aware reproducible runs.</li>
 		    <li><a href="#repronim_containers_">ReproNim/containers</a>: ReproNim/containers is a DataLad dataset providing a ready-to-use &quot;distribution&quot; of containerized neuroimaging environments (Singularity images) for reproducible analysis. It collects a curated set of containers — including those used by HeuDiConv and the broader ReproNim ecosystem — and exposes them via the ///repronim/containers DataLad dataset path, making it trivial to pin and share exact software environments alongside data and workflows.</li>
 		  </ul>
-		</details>
 	  </div>
 	<h1>Meetings</h1>
 	  For over a decade, CON and its projects are presented annually with exhibits at the annual meetings of the <a href="https://www.humanbrainmapping.org">Organization for Human Brain Mapping (OHBM) Society</a> and the <a href="https://www.sfn.org">Society for Neuroscience</a>. In collaboration with <a href="/whoweare#soichi_hayashi_" class="centroid">Soichi Hayashi</a> and <a href="https://github.com/datalad-datasets/ohbm2020-posters/graphs/contributors">other wonderful people</a> we proudly saved the first ever virtual OHBM 2020 by providing a <a href="https://datalad-datasets.github.io/ohbm2020-posters/#/">virtual posters venue</a>.
