@@ -924,9 +924,19 @@ ul>.list-group-item:before {
      padding eats INTO the declared width -- the chip shrank and the target
      did not move. */
   box-sizing: content-box;
-  padding: .25em; background-clip: content-box;
-  border-radius: .4em;              /* must exceed the padding, or the
-                                       inner corners square off */
+  padding: .25em;
+  /* BOTH, and origin is the one that matters.  `background-clip` alone
+     leaves the image sized to the PADDING box and then clips it to the
+     smaller content box, which crops the glyph on all four sides -- the
+     marks looked shaved compared to the same icons on whoweare.  With
+     `background-origin: content-box` the image is laid out on the content
+     box, so this is whoweare's icon exactly, scaled down. */
+  background-clip: content-box; background-origin: content-box;
+  /* CSS shrinks a corner radius by the padding when the background is
+     clipped to the content box, so the VISIBLE radius here is .44 - .25 =
+     .19em on a 1.15em chip -- the same 1:6 ratio whoweare gets from
+     .25em on 1.5em.  The chip is that icon, scaled. */
+  border-radius: .44em;
   margin: 0 0 0 .1em;
 }
 /* The gap OUTSIDE the pair has to beat the gap inside it, or the icons read
