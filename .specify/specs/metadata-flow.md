@@ -18,10 +18,13 @@ flowchart TB
   end
 
   subgraph store["ORINOCO-Lite/con-site-specific <b>(the source of truth)</b>"]
+    %% Layout as of the 2026-10-13 merge of main: the curation evidence moved
+    %% from metadata/overlays/ to sources/, and the rules from
+    %% metadata/CURATION.md to docs/metadata-curation.md.
     direction TB
     REC["metadata/records/<br/>XYZProject · XYZPerson · XYZInstrument<br/>XYZOrganization · XYZGrant · XYZPublication<br/>XYZObjective · XYZAgentRole · …"]
     OVM["metadata/overlays/<br/>machine-provenance-annotations/<br/><i>what the importers vouch for</i>"]
-    OVC["metadata/overlays/<br/>curation-evidence/<br/><i>why we believe a hand claim</i>"]
+    OVC["sources/<br/>curation-evidence/<br/><i>why we believe a hand claim</i>"]
     AST["content/KIND/SLUG/<br/>logo.* · portrait.*<br/><i>git-annex</i>"]
     GATE1{{"tools/linkml_check.sh<br/><i>schema</i>"}}
     GATE2{{"tools/validate_records.py<br/><i>curation rules</i>"}}

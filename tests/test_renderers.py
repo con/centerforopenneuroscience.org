@@ -152,7 +152,7 @@ def test_every_person_renders_a_portrait_at_its_own_path(whoweare):
 
 
 @pytest.mark.ai_generated
-@pytest.mark.parametrize("page,n", [("render_whoweare.py", 34),
+@pytest.mark.parametrize("page,n", [("render_whoweare.py", 35),
                                     ("render_projects.py", 43)])
 def test_expected_entry_count(page, n):
     """A guard against silent loss, so the number moves only on purpose.
