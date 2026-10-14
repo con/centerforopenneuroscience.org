@@ -136,6 +136,10 @@
       }
     }
   }
+  // Replace the vendor's delayed relative adjustment with an absolute jump.
+  // Rapid sidebar clicks must not subtract the navbar offset twice.
+  $(document.body).off("click", ".bs-docs-sidebar a")
+    .on("click", ".bs-docs-sidebar a", scroll_if_anchor);
   $("#fixed-toc").css("visibility", "hidden");
   $(document).ready(function() {
     window.setTimeout(function() {

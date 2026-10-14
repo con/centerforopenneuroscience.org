@@ -33,6 +33,7 @@ jobs:
         uses: actions/checkout@v4
         with:
             fetch-depth: 0
+            submodules: true
 
       - name: Set up Python
         if: github.event.action != 'closed'
@@ -49,8 +50,15 @@ jobs:
             # for the annxed content -- we do not autoenable that remote
             git remote add --fetch datasets.datalad.org \
                 http://datasets.datalad.org/centerforopenneuroscience/con.org/.git/
-            pip install pelican markdown git-annex
+            pip install pelican markdown git-annex tox
             git annex get theme/static
+
+      - name: Test page renderers
+        if: github.event.action != 'closed'
+        run: |
+          tox -e py3 --notest
+          .tox/py3/bin/python -m playwright install --with-deps chromium
+          tox -e py3
 
       - name: Validate content HTML (XML well-formedness)
         if: github.event.action != 'closed'
@@ -90,6 +98,13 @@ jobs:
         run: |
           rm -f .git/hooks/post-checkout .git/hooks/pre-commit .git/hooks/post-merge
           > .git/info/attributes
+
+      - name: Save fork PR build
+        if: github.event.action != 'closed' && github.event.pull_request.head.repo.full_name != github.repository
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-pr-${{ github.event.number }}
+          path: output/
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
