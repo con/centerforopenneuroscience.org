@@ -224,7 +224,14 @@ def phone_text(uri):
 def contact_links(d):
     out, seen_classes = [], set()
     for pred, cls, label in CONTACTS:
-        for v in attrs(d, pred):
+        if pred == "dlthings:orcid":
+            values = ["https://orcid.org/" + i["notation"]
+                      for i in (d.get("identifiers") or [])
+                      if i.get("schema_type") == "xyzri:ORCID"]
+            values += attrs(d, pred)
+        else:
+            values = attrs(d, pred)
+        for v in values:
             c, text = cls, label
             if pred == "foaf:account":
                 c, text = next(((k2, t) for host, (k2, t) in ACCOUNT_CLASS.items()
