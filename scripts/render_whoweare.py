@@ -297,8 +297,12 @@ def render():
         out.append(f'\t<h2>{html.escape(tier)}</h2>')
         for r in group:
             d = r["d"]
-            # the page's own spelling, parentheticals and all
-            name = d.get("display_label") or one(d, "dlthings:formatted_name")
+            # the page's own spelling, parentheticals and all.  A record whose
+            # name is just its parts carries no label: the store keeps one
+            # copy of a fact, so given and family name compose it here.
+            name = (d.get("display_label") or one(d, "dlthings:formatted_name")
+                    or " ".join(filter(None, (d.get("given_name"),
+                                              d.get("family_name")))))
             out.append('\t  <div class="row">')
             out.append(f'\t\t<h3>{html.escape(name)}</h3>')
             pic = portrait(r["slug"])

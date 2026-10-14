@@ -145,6 +145,22 @@ def test_second_figure_in_a_description_survives(projects):
 
 
 @pytest.mark.ai_generated
+def test_person_without_a_label_is_named_from_its_parts(store_copy):
+    """The store drops `display_label` and `formatted_name` when given and
+    family name already compose the name; the heading then crashed the render
+    on html.escape(None)."""
+    f = store_copy / "metadata/records/XYZPerson/ben-dichter.yaml"
+    d = yaml.safe_load(f.read_text())
+    d.pop("display_label")
+    d.pop("formatted_name")
+    d["attributes"] = [a for a in d["attributes"]
+                       if a["predicate"] != "dlthings:formatted_name"]
+    f.write_text(yaml.safe_dump(d))
+    assert "<h3>Ben Dichter</h3>" in run("render_whoweare.py",
+                                         store=store_copy).stdout
+
+
+@pytest.mark.ai_generated
 def test_every_person_renders_a_portrait_at_its_own_path(whoweare):
     srcs = re.findall(r'src="(/theme/img/team/[^"]+)"', whoweare)
     assert len(srcs) == len(set(srcs)), "two people share a portrait path"
