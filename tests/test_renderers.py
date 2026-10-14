@@ -152,8 +152,8 @@ def test_every_person_renders_a_portrait_at_its_own_path(whoweare):
 
 
 @pytest.mark.ai_generated
-@pytest.mark.parametrize("page,n", [("render_whoweare.py", 37),
-                                    ("render_projects.py", 43)])
+@pytest.mark.parametrize("page,n", [("render_whoweare.py", 39),
+                                    ("render_projects.py", 44)])
 def test_expected_entry_count(page, n):
     """A guard against silent loss, so the number moves only on purpose.
     27 -> 36 when NIDM, DICOM + WG-16/32, BEP028/032/044, BIDS 2.0, ReproIn,
@@ -215,14 +215,15 @@ def test_subprojects_follow_their_parent(projects):
     names = [re.sub(r"<[^>]+>", "", m).strip()
              for m in re.findall(r"<h2[^>]*>(.*?)</h2>", projects[i:j], re.S)]
     bids = names.index("Brain Imaging Data Structure (BIDS)")
-    for kid in ("BEP028", "BEP032", "BEP044", "BIDS 2.0"):
+    for kid in ("BEP020", "BEP028", "BEP032", "BEP044", "BIDS 2.0"):
         assert names.index(kid) > bids, f"{kid} should follow BIDS"
     dicom = names.index("DICOM")
     for kid in ("DICOM WG-16", "DICOM WG-32"):
         assert names.index(kid) > dicom, f"{kid} should follow DICOM"
     # and contiguously -- nothing unrelated wedged between a parent and its
     # children
-    assert names[bids + 1:bids + 5] == ["BEP028", "BIDS 2.0", "BEP032", "BEP044"]
+    assert names[bids + 1:bids + 6] == ["BEP028", "BIDS 2.0", "BEP020", "BEP032",
+                                       "BEP044"]
 
 
 @pytest.mark.ai_generated
