@@ -15,10 +15,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          submodules: true
 
       - name: Install Requirements
         run: |
-          pip install pelican linkchecker
+          pip install pelican markdown linkchecker git-annex
+          git config user.email "CI@example.com"
+          git config user.name "CI almighty"
+          git remote add --fetch datasets.datalad.org \
+            http://datasets.datalad.org/centerforopenneuroscience/con.org/.git/
+          git annex get theme/static
 
       - name: Validate content HTML (XML well-formedness)
         run: python3 scripts/validate_html.py content/
@@ -32,10 +39,15 @@ jobs:
 
       - name: Check links
         run: |
-          # some sites forbid robots to access them
-          linkchecker --check-extern -f .linkcheckerrc -t 1 \
+          # PRs validate this build; the weekly run also checks external sites.
+          args=()
+          if [ "${{ github.event_name }}" = schedule ]; then
+            args+=(--check-extern)
+          fi
+          linkchecker "${args[@]}" -f .linkcheckerrc -t 1 \
             http://localhost:8000
 
       - name: Stop Website Server
+        if: always()
         run: |
           kill $(cat server.pid)

@@ -145,6 +145,22 @@ def test_second_figure_in_a_description_survives(projects):
 
 
 @pytest.mark.ai_generated
+def test_person_without_a_label_is_named_from_its_parts(store_copy):
+    """The store drops `display_label` and `formatted_name` when given and
+    family name already compose the name; the heading then crashed the render
+    on html.escape(None)."""
+    f = store_copy / "metadata/records/XYZPerson/ben-dichter.yaml"
+    d = yaml.safe_load(f.read_text())
+    d.pop("display_label")
+    d.pop("formatted_name")
+    d["attributes"] = [a for a in d["attributes"]
+                       if a["predicate"] != "dlthings:formatted_name"]
+    f.write_text(yaml.safe_dump(d))
+    assert "<h3>Ben Dichter</h3>" in run("render_whoweare.py",
+                                         store=store_copy).stdout
+
+
+@pytest.mark.ai_generated
 def test_every_person_renders_a_portrait_at_its_own_path(whoweare):
     srcs = re.findall(r'src="(/theme/img/team/[^"]+)"', whoweare)
     assert len(srcs) == len(set(srcs)), "two people share a portrait path"
@@ -152,8 +168,8 @@ def test_every_person_renders_a_portrait_at_its_own_path(whoweare):
 
 
 @pytest.mark.ai_generated
-@pytest.mark.parametrize("page,n", [("render_whoweare.py", 35),
-                                    ("render_projects.py", 43)])
+@pytest.mark.parametrize("page,n", [("render_whoweare.py", 39),
+                                    ("render_projects.py", 44)])
 def test_expected_entry_count(page, n):
     """A guard against silent loss, so the number moves only on purpose.
     27 -> 36 when NIDM, DICOM + WG-16/32, BEP028/032/044, BIDS 2.0, ReproIn,
@@ -215,14 +231,15 @@ def test_subprojects_follow_their_parent(projects):
     names = [re.sub(r"<[^>]+>", "", m).strip()
              for m in re.findall(r"<h2[^>]*>(.*?)</h2>", projects[i:j], re.S)]
     bids = names.index("Brain Imaging Data Structure (BIDS)")
-    for kid in ("BEP028", "BEP032", "BEP044", "BIDS 2.0"):
+    for kid in ("BEP020", "BEP028", "BEP032", "BEP044", "BIDS 2.0"):
         assert names.index(kid) > bids, f"{kid} should follow BIDS"
     dicom = names.index("DICOM")
     for kid in ("DICOM WG-16", "DICOM WG-32"):
         assert names.index(kid) > dicom, f"{kid} should follow DICOM"
     # and contiguously -- nothing unrelated wedged between a parent and its
     # children
-    assert names[bids + 1:bids + 5] == ["BEP028", "BIDS 2.0", "BEP032", "BEP044"]
+    assert names[bids + 1:bids + 6] == ["BEP028", "BIDS 2.0", "BEP020", "BEP032",
+                                       "BEP044"]
 
 
 @pytest.mark.ai_generated
