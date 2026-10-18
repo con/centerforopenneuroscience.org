@@ -945,3 +945,11 @@ ul>.list-group-item:before {
 .projects .project-meta .contact a:focus-visible {
   outline: 2px solid #337ab7; outline-offset: 2px;
 }
+
+/* External-link / lock marks on navbar items: sized to the uppercase
+   letters of the label rather than the full line height. */
+.navbar-nav .nav-ext-icon {
+  font-size: .73em;
+  top: 0;
+  margin-left: .15em;
+}
