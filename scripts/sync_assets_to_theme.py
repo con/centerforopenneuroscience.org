@@ -48,6 +48,16 @@ def main():
                 if a.write:
                     shutil.rmtree(d)
                 gone += 1
+                continue
+            # ...and so is a logo the store no longer has under that name:
+            # nipype's went from logo.png to logo.svg, and the png stayed.
+            for f in sorted(d.glob("logo.*")):
+                if not (STORE / sub / d.name / f.name).exists():
+                    print(f"{'removing' if a.write else 'would remove'} orphan: "
+                          f"{sub}/{d.name}/{f.name}")
+                    if a.write:
+                        f.unlink()
+                    gone += 1
     for sub in ("projects", "instruments", "organizations"):
         for logo in sorted((STORE / sub).glob("*/logo.*")):
             out = THEME / sub / logo.parent.name / logo.name
