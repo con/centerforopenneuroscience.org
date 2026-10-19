@@ -554,10 +554,12 @@ def test_top_menu_order(tmp_path):
     t = (out / "projects.html").read_text()
     i = t.index("navbar-collapse")
     j = t.index("</ul>", i)
-    labels = [m.strip() for m in
-              re.findall(r">\s*([A-Za-z ]+?)\s*</a>", t[i:j])]
+    # tags stripped: the off-site items end in icon <span>s
+    labels = [re.sub(r"<[^>]+>", "", m).strip() for m in
+              re.findall(r"<a [^>]*>(.*?)</a>", t[i:j], re.S)]
     menu = [l for l in labels if l != "Center for Open Neuroscience"]
-    assert menu == ["Who we are", "Projects", "Engage", "Support"], menu
+    assert menu == ["Who we are", "Projects", "Engage", "Support",
+                    "Talks", "Hub", "CONTube"], menu
 
 
 @pytest.mark.ai_generated

@@ -953,3 +953,12 @@ ul>.list-group-item:before {
   top: 0;
   margin-left: .15em;
 }
+
+/* Seven top-level items fit one row on lg screens only with a little
+   less than Bootstrap's 15px horizontal padding per link. */
+@media (min-width: 1200px) {
+  .navbar-nav > li > a {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
