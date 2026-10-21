@@ -808,12 +808,10 @@ ul>.list-group-item:before {
 .projects .bs-docs-section,
 .whoweare .bs-docs-section { padding-bottom: 70vh; }
 
-/* No scroll-margin-top here.  The theme already lifts an anchor jump clear
-   of the fixed navbar twice over -- buddycloud-styles.js scrolls back 65px
-   after a sidebar click, and base.html's scroll_if_anchor does the same for
-   a pasted URL.  Adding a third 70px put the landing 0.4px short of the
-   section's own scrollspy offset, so the sidebar highlighted (and kept
-   expanded) the PREVIOUS section: clicking Archives left Software open. */
+/* No scroll-margin-top here. base.html's scroll_if_anchor lifts both
+   sidebar clicks and pasted anchor URLs clear of the fixed navbar.
+   Adding another 70px leaves the jump short of scrollspy's section offset,
+   so the sidebar highlights and expands the previous section. */
 
 /* One uniform logo box, the way whoweare gives every person the same
    portrait.  The per-record inline widths ran to 460px with

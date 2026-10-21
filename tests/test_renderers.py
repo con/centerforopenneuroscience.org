@@ -25,7 +25,6 @@ import os
 import pathlib
 import re
 import shutil
-import socketserver
 import subprocess
 import sys
 import threading
@@ -516,7 +515,9 @@ def test_every_section_expands_when_clicked(tmp_path):
     pw = pytest.importorskip("playwright.sync_api")
     out = _build(tmp_path)
 
-    srv = socketserver.TCPServer(("127.0.0.1", 0), functools.partial(
+    # Browsers fetch scripts and images concurrently. A serial TCPServer
+    # can reset queued connections, making missing scripts look like site bugs.
+    srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(
         http.server.SimpleHTTPRequestHandler, directory=str(out)))
     port = srv.server_address[1]
     threading.Thread(target=srv.serve_forever, daemon=True).start()
