@@ -419,7 +419,10 @@ def render():
         for rec, slug, logo in items:
             href = one(rec, "foaf:homepage") or "#"
             label = rec.get("short_name") or rec.get("display_label") or slug
-            style = ' style="width:400px"' if sub == "organizations" else ""
+            # bounded both ways: a fixed 400px width blew a square lab mark
+            # up to 400x400, while the wide partner banners render as before
+            style = (' style="width:auto;max-width:400px;max-height:80px"'
+                     if sub == "organizations" else "")
             img = (f'<img src="/theme/img/{sub}/{slug}/{logo}" '
                    f'alt="{html.escape(label)}"{style}/>'
                    if logo else html.escape(label))
