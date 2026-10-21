@@ -972,3 +972,10 @@ ul>.list-group-item:before {
     padding-right: 12px;
   }
 }
+
+/* the organization strips: logos of mixed shapes float in rows, and with
+   no gap below them one row's logos touch the next row's */
+.whoweare #collaborating_labs__groups img,
+.whoweare #partners img {
+	margin-bottom: 20px;
+}
