@@ -3,9 +3,9 @@
 
 Ordering, which is the point of the exercise: every tier is sorted by when
 the person joined CON -- the `started` date on their association with the
-site-root project, derived from this repo's own git history -- and Emeritus
-by when they left.  Previously only Centroids had a deliberate order and the
-rest were whatever the file happened to say.
+site-root project, derived from this repo's own git history -- and the two
+Emeritus tiers by when they left.  Previously only Centroids had a deliberate
+order and the rest were whatever the file happened to say.
 
 People with no date sort last within their tier rather than first, because an
 unknown date is not an early one.  YOH is the exception and is pinned to the
@@ -29,7 +29,12 @@ from conrecords import (
     yaml,
 )
 
-TIERS = ["Centroids", "Collaborators", "Affiliated Faculty", "Emeritus"]
+TIERS = ["Centroids", "Collaborators", "Affiliated Faculty", "Emeritus",
+         "Emeritus Collaborators"]
+# Past people close the page, after the logo strips, and sort by when they
+# left.  "Emeritus" is for former centroids; "Emeritus Collaborators" for
+# those who worked with CON without ever working within it.
+PAST_TIERS = ("Emeritus", "Emeritus Collaborators")
 # the logo strips at the foot of the page, in order.  `dlthings:tier` is the
 # same predicate that groups the people above -- "which block of whoweare
 # does this belong to" -- rather than `dlthings:section`, which already means
@@ -284,11 +289,11 @@ def render():
            '\t     Edit the records, not this file. -->',
            '</head>', '', '<body>', '  <section>', '  <div id="people">']
 
-    for tier in TIERS:
+    def people(tier):
         group = [r for r in rows if r["tier"] == tier]
         if not group:
-            continue
-        key = "end" if tier == "Emeritus" else "start"
+            return
+        key = "end" if tier in PAST_TIERS else "start"
         # undated sorts last; YOH predates the site and is pinned first
         group.sort(key=lambda r: (r["pid"] != "xyzrins:persons/yaroslav-halchenko"
                                   if tier == "Centroids" else 0,
@@ -317,7 +322,7 @@ def render():
             links = contact_links(d)
             if links:
                 out.append('\t\t<div class="col-md-5 col-sm-5 contact">')
-                out += [f'\t\t  {l}' for l in links]
+                out.extend(f'\t\t  {l}' for l in links)
                 out.append('\t\t</div>')
             # 25 of 33 descriptions link to projects, handbooks and papers.
             # The plain-text `description` drops those, so the marked-up form
@@ -357,6 +362,10 @@ def render():
                 out.append('\t\t  </ul>')
                 out.append('\t\t</details>')
             out.append('\t  </div>')
+
+    for tier in TIERS:
+        if tier not in PAST_TIERS:
+            people(tier)
     # --- the logo strips the records also drive -------------------------
     # Collaborating projects are the ones with no `part_of: xyzrins:.` -- the
     # discriminator the part_of refactor established.  The organization
@@ -386,13 +395,15 @@ def render():
 
     intros = (yaml.safe_load(INTROS.read_text()) or {}).get("whoweare", {}) \
         if INTROS.exists() else {}
-    strips = [("Collaborating projects", projects, "projects",
-               "collaborating-projects")]
+    strips = []
     for tier in ORG_TIERS:
         items = org_strips().get(tier) or []
         if items:
             strips.append((tier, items, "organizations",
                            toc_hook(tier).strip("_")))
+    # the projects strip is the longest, so it goes after the labs
+    strips.append(("Collaborating projects", projects, "projects",
+                   "collaborating-projects"))
     for title, items, sub, div_id in strips:
         if not items:
             continue
@@ -421,6 +432,8 @@ def render():
                        f'title="{html.escape(label)}"{cls}>{img}</a>')
         out.append('\t  </div>')
 
+    for tier in PAST_TIERS:
+        people(tier)
     out.append('  </div>')
     out += ['  </section>', '</body>', '', '</html>', '']
     return "\n".join(out), order, skipped

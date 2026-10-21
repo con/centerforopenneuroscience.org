@@ -794,6 +794,16 @@ ul>.list-group-item:before {
 	float: left;
 }
 
+/* Reserve each portrait's box before it loads.  Without a height every image
+   starts at 0px and grows as it arrives, so a #person_ link lands on the
+   person and then drifts ~1000px down as the portraits above load -- leaving
+   the reader at the top of the section in browsers without scroll anchoring.
+   Portraits are square; 180px is the 200px width less the padding. */
+.whoweare #people figure img {
+	height: 180px;
+	object-fit: cover;
+}
+
 .projects .centroid {
 	font-weight: 1000;
 }
