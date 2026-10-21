@@ -164,6 +164,16 @@
         $("#fixed-toc").fadeIn(200, "linear");
     }, 200);
   });
+  // Images without a reserved size grow as they arrive and push the anchor
+  // down, which browsers without scroll anchoring do not compensate for:
+  // whoweare#mike_grauer_ ended up at the top of the section.  Land on it
+  // again once everything has loaded.
+  $(window).on("load", function() {
+    var $target = window.location.hash && $(window.location.hash);
+    if ( $target && $target.length ) {
+      window.scrollTo(0, $target.offset().top - 65);
+    }
+  });
 </script>
 {% block morescripts %} {% endblock %}
 <div class="website-licenses">

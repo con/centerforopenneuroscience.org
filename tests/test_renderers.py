@@ -330,6 +330,19 @@ def test_emeritus_sorts_by_departure_and_others_by_arrival(whoweare):
         tier_block("Collaborators").index("Adina Wagner")
 
 
+
+@pytest.mark.ai_generated
+def test_past_people_close_the_page(whoweare):
+    """Former people come after every logo strip, and those who worked with
+    CON rather than within it have a tier of their own."""
+    assert re.findall(r"<h2>([^<]*)</h2>", whoweare) == [
+        "Centroids", "Collaborators", "Affiliated Faculty",
+        "Collaborating labs &amp; groups", "Partners",
+        "Collaborating projects", "Emeritus", "Emeritus Collaborators"]
+    past = whoweare[whoweare.index("<h2>Emeritus Collaborators</h2>"):]
+    assert "<h3>Mike Grauer</h3>" in past
+    assert "<h3>John Wodder</h3>" not in past
+
 # --- navigation ---------------------------------------------------------
 
 def _build(tmp):
@@ -356,7 +369,7 @@ def test_sidebar_nests_sections_inside_their_own_item(tmp_path):
     broken markup.  This one walks parents.
     """
     out = _build(tmp_path)
-    for name, want in (("projects", 7), ("whoweare", 7)):
+    for name, want in (("projects", 7), ("whoweare", 8)):
         t = (out / f"{name}.html").read_text()
         i = t.index('id="full-toc"'); j = t.index("</div>", i)
 
