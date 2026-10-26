@@ -670,3 +670,21 @@ def test_no_role_renders_as_a_bare_pid(whoweare):
         for item in re.findall(r"<li>(.*?)</li>", body, re.S):
             text = re.sub(r"<[^>]+>", "", item)
             assert not re.search(r"\b(marcrel|obo|xyzrins):", text), text.strip()
+
+
+@pytest.mark.ai_generated
+def test_typed_orcid_contact_link():
+    """Typed ORCIDs render as links and take priority over legacy attributes."""
+    from render_whoweare import contact_links
+
+    person = {"identifiers": [{"schema_type": "xyzri:ORCID",
+                               "notation": "0000-0002-1500-2143"}]}
+    expected = ['<a href="https://orcid.org/0000-0002-1500-2143" '
+                'class="orcid">ORCID</a>']
+    assert contact_links(person) == expected
+    person["attributes"] = [{"predicate": "dlthings:orcid",
+                             "value": "https://orcid.org/0000-0001-6755-0259"}]
+    assert contact_links(person) == expected
+    del person["identifiers"]
+    assert contact_links(person) == [
+        '<a href="https://orcid.org/0000-0001-6755-0259" class="orcid">ORCID</a>']
