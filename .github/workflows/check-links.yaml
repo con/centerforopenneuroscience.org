@@ -21,6 +21,9 @@ jobs:
           # to please git/git-annex
           git config --global user.email "CI@example.com"
           git config --global user.name "CI almighty"
+          # retry transient download failures.  No annex.jobs: the get is
+          # bound by a few large files, and was slower with 3 jobs
+          git config --global annex.retry 5
           pip install pelican linkchecker git-annex
           # theme images are annexed; without their content the server
           # gets dangling symlinks and every logo fails the check.
