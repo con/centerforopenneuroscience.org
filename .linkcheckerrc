@@ -1,6 +1,10 @@
 [output]
 ignoreerrors=
   ^mailto:.*$
+  # sites (or DOI redirect targets) which answer robots with 403
+  ^https://direct\.mit\.edu/ ^403
+  ^https://journals\.sagepub\.com/ ^403
+  ^https://www\.nasonline\.org/ ^403
 
 [filtering]
 ignore=
@@ -12,4 +16,4 @@ ignore=
   https://www.gnu.org/.*
   https://incf.org
   https://community.sfn.org/.*
-ignorewarnings=http-redirected
+ignorewarnings=http-redirected,http-rate-limited
