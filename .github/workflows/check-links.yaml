@@ -16,9 +16,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Requirements
+      - name: Install requirements and fetch annexed content
         run: |
-          pip install pelican linkchecker
+          # to please git/git-annex
+          git config --global user.email "CI@example.com"
+          git config --global user.name "CI almighty"
+          pip install pelican linkchecker git-annex
+          # theme images are annexed; without their content the server
+          # gets dangling symlinks and every logo fails the check.
+          # We do not autoenable that remote, so add it here.
+          git remote add --fetch datasets.datalad.org \
+              http://datasets.datalad.org/centerforopenneuroscience/con.org/.git/
+          git annex get theme/static
 
       - name: Validate content HTML (XML well-formedness)
         run: python3 scripts/validate_html.py content/
