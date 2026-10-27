@@ -1,0 +1,981 @@
+/* line 1, ../../sass/pages/general/_diagrams.scss */
+.js_sequence_diagram {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* line 7, ../../sass/pages/general/_diagrams.scss */
+rect[fill=none] {
+  stroke-width: 2px;
+}
+
+/* line 11, ../../sass/pages/general/_diagrams.scss */
+.seq-diag-primary {
+  stroke: #87AADE;
+  fill: #87AADE;
+}
+
+/* line 16, ../../sass/pages/general/_diagrams.scss */
+.seq-diag-secondary {
+  stroke: #A6A6A6;
+  fill: #A6A6A6;
+}
+
+/* line 21, ../../sass/pages/general/_diagrams.scss */
+rect[fill='#ffffff'] {
+  opacity: 0;
+  stroke-width: 2px;
+}
+
+/* line 26, ../../sass/pages/general/_diagrams.scss */
+path[class='seq-diag-primary'], path[class='seq-diag-secondary'] {
+  stroke-width: 2.6px;
+}
+
+/* line 30, ../../sass/pages/general/_diagrams.scss */
+.seq-diag-primary tspan {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  fill: white;
+  stroke: white;
+  stroke-width: 0px;
+  stroke-width: -0.4px;
+}
+
+/* line 39, ../../sass/pages/general/_diagrams.scss */
+.seq-diag-secondary tspan {
+  font-family: 'Open Sans';
+  fill: white;
+  stroke: white;
+  stroke-width: 0px;
+}
+
+/* line 47, ../../sass/pages/general/_diagrams.scss */
+.seq-diag-link,
+.seq-diag-note {
+  opacity: 0.5;
+  stroke-opacity: 0.5;
+}
+/* line 51, ../../sass/pages/general/_diagrams.scss */
+.seq-diag-link tspan,
+.seq-diag-note tspan {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* line 3, ../../sass/pages/_general.scss */
+dd {
+  margin-bottom: .5em;
+}
+
+/* line 3, ../../sass/pages/_home.scss */
+.index {
+  padding-top: 0em;
+  /* = = = = = = = = = = = = = = = = = = = = */
+  /* jumbotron */
+  /* = = = = = = = = = = = = = = = = = = = = */
+  /* Description */
+}
+/* line 1, ../../sass/pages/home/_features.scss */
+.index .background-features {
+  background-color: #87AADE;
+}
+/* line 5, ../../sass/pages/home/_features.scss */
+.index #features {
+  color: #fff;
+  font-weight: 400;
+  padding-bottom: 2em;
+}
+/* line 11, ../../sass/pages/home/_features.scss */
+.index #features h2 {
+  font-weight: 600;
+  border: none;
+  margin: 1em 0 .5em 0;
+}
+/* line 17, ../../sass/pages/home/_features.scss */
+.index #features p {
+  font-weight: 400;
+}
+/* line 21, ../../sass/pages/home/_features.scss */
+.index #features p a {
+  color: #fff;
+  font-weight: 600;
+}
+/* line 1, ../../sass/pages/home/_footer.scss */
+.index .background-contact {
+  background-color: #38434C;
+}
+/* line 5, ../../sass/pages/home/_footer.scss */
+.index #contact {
+  color: #fff;
+  font-weight: 400;
+  padding-bottom: 3em;
+}
+/* line 11, ../../sass/pages/home/_footer.scss */
+.index #contact ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  line-height: 2;
+}
+/* line 18, ../../sass/pages/home/_footer.scss */
+.index #contact a:not(.gs-title) {
+  color: #fff;
+}
+/* line 24, ../../sass/pages/home/_footer.scss */
+.contact a {
+  display: block;
+  float: left;
+  margin-right: 1em;
+  width: 2em;
+  height: 2em;
+  background-color: #6E90C8;
+  text-indent: -999em;
+  border-radius: 0.25em;
+  background-size: cover;
+  background-image: url("../img/contact/twitter.svg");
+  /* #87AADE put the SVGs' baked white glyphs at 2.38:1, under WCAG
+     1.4.11's 3:1 for a graphical object.  This is 3.24:1, same hue. */
+  -webkit-transition: background-color 0.2s linear;
+  -moz-transition: background-color 0.2s linear;
+  -o-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+.whoweare .contact a {
+	width: 1.5em;
+	height: 1.5em;
+	margin-right: 0.5em;
+}
+/* line 37, ../../sass/pages/home/_footer.scss */
+.contact a:hover {
+  background-color: #333;
+}
+.contact .address {
+	font-size: 0.6em;
+	line-height: 100%;
+}
+/* line 42, ../../sass/pages/home/_footer.scss */
+.contact .blog {
+  background-image: url("../img/contact/blog.svg");
+}
+/* line 46, ../../sass/pages/home/_footer.scss */
+.contact .email {
+  background-image: url("../img/contact/email.svg");
+}
+.contact .home {
+  background-image: url("../img/contact/home.svg");
+}
+.contact .phone {
+  background-image: url("../img/contact/phone.svg");
+}
+/* line 50, ../../sass/pages/home/_footer.scss */
+.contact .twitter {
+  background-image: url("../img/contact/twitter.svg");
+}
+.contact .mastodon {
+    background-image: url("../img/contact/mastodon.svg");
+}
+/* line 54, ../../sass/pages/home/_footer.scss */
+.contact .linkedin {
+  background-image: url("../img/contact/linkedin.svg");
+}
+/* line 58, ../../sass/pages/home/_footer.scss */
+/* `.contact a` sets a default background-image (twitter.svg), so a class
+   with no rule of its own silently renders as the Twitter bird.  These three
+   are emitted by scripts/render_whoweare.py and had no rule. */
+.contact .web {
+  background-image: url("../img/contact/home.svg");
+}
+
+.contact .scholar {
+  background-image: url("../img/contact/research.svg");
+}
+
+.contact .bluesky {
+  background-image: url("../img/contact/twitter.svg");
+}
+
+.contact .github {
+  background-image: url("../img/contact/github.svg");
+}
+.contact .orcid {
+  background-image: url("../img/contact/orcid.svg");
+}
+.contact .research {
+  background-image: url("../img/contact/research.svg");
+}
+.contact .cv {
+  background-image: url("../img/contact/cv.svg");
+}
+/* line 62, ../../sass/pages/home/_footer.scss */
+.contact .buddycloud {
+  background-image: url("../img/contact/buddycloud.svg");
+}
+/* line 66, ../../sass/pages/home/_footer.scss */
+.contact .googleplus {
+  background-image: url("../img/contact/googleplus.svg");
+}
+.contact .facebook {
+  background-image: url("../img/contact/facebook.svg");
+}
+
+.index .pitch {
+  text-shadow: 0 0 0.2em rgba(135, 170, 222, 1.0);
+}
+/* line 1, ../../sass/pages/home/_friends.scss */
+/* yoh: friends -> references */
+.index .background-references {
+	background-color: #F5F9FF;
+}
+/* line 5, ../../sass/pages/home/_references.scss */
+.index #references {
+  color: #111;
+  padding: 0em 1em 1em 1em;
+}
+/* line 9, ../../sass/pages/home/_references.scss */
+.index #references p {
+  margin: 0;
+  font-weight: 500;
+}
+/* line 14, ../../sass/pages/home/_references.scss */
+.index #references div {
+  margin-right: 2em;
+  opacity: 1.0;
+}
+/* line 1, ../../sass/pages/home/_header.scss */
+.index .navbar {
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+/* line 4, ../../sass/pages/home/_highlight.scss */
+/* yoh: modified manually here -- I guess should be done in "sources" and sass-convert or scss should be used to regenerate */
+.index .jumbotron {
+  background-color: white;
+  background-image: url("../img/logos/logo_blue_big_with_margins.png");
+  background-position: center bottom;
+  /*background-size: 100%;
+  background-size: 800px; */
+  background-repeat: no-repeat;
+  color: #fffff;
+  position: relative;
+  padding-bottom: 2px;
+  margin-bottom: 1px;
+  margin-top: 1em;
+}
+@media (min-width: 420px) {
+  /* line 4, ../../sass/pages/home/_highlight.scss */
+  .index .jumbotron {
+    background-position: center;
+/*    background-size: cover; */
+  }
+}
+/* line 19, ../../sass/pages/home/_highlight.scss */
+/* yoh: manually added/edited */
+.index h1 {
+  margin-top: 1em;
+  line-height: 1.1;
+  font-size: 3em;
+  font-weight: 400;
+  text-align: center;
+  text-shadow: 0 0 0.2em rgba(135, 170, 222, 1.0);
+}
+
+.index .jumbotron h1 {
+  margin-top: 7em;
+  line-height: 1.1;
+  font-size: 1.65em;
+  font-weight: 400;
+  text-align: center;
+  text-shadow: 0 0 0.2em rgba(0, 0, 0, 0.8);
+}
+@media (min-width: 420px) {
+  /* line 19, ../../sass/pages/home/_highlight.scss */
+  .index .jumbotron h1 {
+    margin-top: 8em;
+    font-size: 2em;
+    font-weight: 300;
+  }
+}
+@media (min-width: 768px) {
+  /* line 19, ../../sass/pages/home/_highlight.scss */
+  .index .jumbotron h1 {
+    margin-top: 5em;
+    font-size: 3em;
+  }
+}
+@media (min-width: 992px) {
+  /* line 19, ../../sass/pages/home/_highlight.scss */
+  .index .jumbotron h1 {
+    font-size: 3.5em;
+    margin-top: 4em;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 19, ../../sass/pages/home/_highlight.scss */
+  .index .jumbotron h1 {
+    font-size: 4em;
+    margin-top: 3.5em;
+  }
+}
+/* line 53, ../../sass/pages/home/_highlight.scss */
+.index .container-description {
+  background-color: rgba(22, 26, 29, 0.7);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+/* line 61, ../../sass/pages/home/_highlight.scss */
+.index #description {
+  padding: 1em;
+}
+/* line 64, ../../sass/pages/home/_highlight.scss */
+.index #description p {
+  font-size: 1em;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+/* line 71, ../../sass/pages/home/_highlight.scss */
+.index #description p:first-child {
+  text-align: left;
+  margin-bottom: .5em;
+  max-width: 40em;
+}
+@media (min-width: 768px) {
+  /* line 64, ../../sass/pages/home/_highlight.scss */
+  .index #description p {
+    font-size: 1.25em;
+  }
+}
+/* line 82, ../../sass/pages/home/_highlight.scss */
+.index #description div {
+  text-align: center;
+}
+@media (min-width: 420px) {
+  /* line 82, ../../sass/pages/home/_highlight.scss */
+  .index #description div {
+    text-align: right;
+  }
+}
+/* line 90, ../../sass/pages/home/_highlight.scss */
+.index #description .btn {
+  width: 100%;
+  height: 2.5em;
+  margin: 0;
+  font-size: 1em;
+  padding: 9px 0 0;
+  border: none;
+  background-color: #fff;
+  border-radius: .5em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+@media (min-width: 420px) {
+  /* line 90, ../../sass/pages/home/_highlight.scss */
+  .index #description .btn {
+    width: 10em;
+  }
+}
+/* line 106, ../../sass/pages/home/_highlight.scss */
+.index #description .btn-primary {
+  background-color: #87AADE;
+  top: 7em;
+  margin: 0 0 1em 0;
+}
+@media (min-width: 420px) {
+  /* line 106, ../../sass/pages/home/_highlight.scss */
+  .index #description .btn-primary {
+    margin: 0 1em 0 0;
+  }
+}
+
+/* line 2, ../../sass/pages/_contact.scss */
+.contact h2 {
+  margin-top: 20px;
+}
+/* line 6, ../../sass/pages/_contact.scss */
+.index .contact dd {
+  margin-bottom: .875em;
+}
+
+/* isotope config */
+/* line 3, ../../sass/_isotope-config.scss */
+.isotope-item {
+  width: 200px;
+  margin: 5px;
+  border-radius: 4px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+/* line 11, ../../sass/_isotope-config.scss */
+.isotope-item:nth-child(even) {
+  background-color: #C4C8CD;
+}
+
+/* line 15, ../../sass/_isotope-config.scss */
+.isotope-item:nth-child(odd) {
+  background-color: #E5E9EF;
+}
+
+/* line 19, ../../sass/_isotope-config.scss */
+.isotope-item.width-medium {
+  width: 410px;
+}
+
+/* line 23, ../../sass/_isotope-config.scss */
+.isotope-item.width-medium:nth-child(even) {
+  background-color: #38434C;
+}
+
+/* line 27, ../../sass/_isotope-config.scss */
+.isotope-item.width-medium:nth-child(odd) {
+  background-color: #87AADE;
+}
+
+/* line 31, ../../sass/_isotope-config.scss */
+.isotope-item.width-large {
+  width: 830px;
+}
+
+/* line 35, ../../sass/_isotope-config.scss */
+#isotope-container {
+  margin-bottom: 50px;
+}
+
+/* line 39, ../../sass/_isotope-config.scss */
+.isotope-item h2 {
+  margin-top: 10px;
+}
+
+/* line 43, ../../sass/_isotope-config.scss */
+.isotope-item figure {
+  margin-bottom: 10px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+/* line 49, ../../sass/_isotope-config.scss */
+.isotope-item .video_box {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* line 55, ../../sass/_isotope-config.scss */
+.isotope-item .video_box:before {
+  content: "";
+  display: block;
+  padding-top: 75%;
+}
+
+/* line 61, ../../sass/_isotope-config.scss */
+.isotope-item .video_content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* line 71, ../../sass/_isotope-config.scss */
+.isotope-item iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 76, ../../sass/_isotope-config.scss */
+.isotope-item > .links {
+  display: table;
+  width: 100%;
+}
+
+/* line 81, ../../sass/_isotope-config.scss */
+.isotope-item > .links > div {
+  display: table-row;
+}
+
+/* line 85, ../../sass/_isotope-config.scss */
+.isotope-item > .links > div > div {
+  display: table-cell;
+  text-align: center;
+}
+
+/* line 90, ../../sass/_isotope-config.scss */
+.isotope-item > .links > div > div > a {
+  cursor: pointer;
+}
+
+/* line 94, ../../sass/_isotope-config.scss */
+.isotope-item:not(.width-medium) > .links > div > div > a {
+  color: #38434C;
+}
+
+/* line 98, ../../sass/_isotope-config.scss */
+.isotope-item:not(.width-medium) > .links > div:nth-child(2) > div {
+  display: none;
+}
+
+/* line 102, ../../sass/_isotope-config.scss */
+.isotope-item > .links > div > div > a:hover {
+  text-decoration: none;
+}
+
+/* line 108, ../../sass/_isotope-config.scss */
+.isotope-item.width-medium h2,
+.isotope-item.width-medium p,
+.isotope-item.width-medium > .links > div > div > a {
+  color: white;
+}
+
+/* line 112, ../../sass/_isotope-config.scss */
+.isotope-item:not(.width-medium) > .ellipsis {
+  overflow: hidden;
+  height: 60px;
+  line-height: 25px;
+  border: 5px solid transparent;
+  margin-bottom: 1em;
+}
+
+/* line 120, ../../sass/_isotope-config.scss */
+.isotope-item:not(.width-medium) > .ellipsis:before {
+  content: "";
+  float: left;
+  width: 5px;
+  height: 60px;
+  overflow: hidden;
+}
+
+/* line 128, ../../sass/_isotope-config.scss */
+.isotope-item:not(.width-medium) > .ellipsis > p {
+  float: right;
+  width: 100%;
+  margin: 0;
+  margin-left: -5px;
+}
+
+/* line 135, ../../sass/_isotope-config.scss */
+.isotope-item:not(.width-medium) > .ellipsis:after {
+  content: "\02026";
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  float: right;
+  position: relative;
+  top: -36px;
+  left: 100%;
+  width: 3em;
+  margin-left: -3em;
+  padding-right: 5px;
+  text-align: right;
+}
+
+/* line 150, ../../sass/_isotope-config.scss */
+.isotope-item:not(.width-medium):nth-child(even) > .ellipsis:after {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(#c4c8cd), color-stop(50%, #c4c8cd));
+  background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), #c4c8cd 50%, #c4c8cd);
+  background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), #c4c8cd 50%, #c4c8cd);
+  background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), #c4c8cd 50%, #c4c8cd);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #c4c8cd 50%, #c4c8cd);
+}
+
+/* line 158, ../../sass/_isotope-config.scss */
+.isotope-item:not(.width-medium):nth-child(odd) > .ellipsis:after {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(#e5e9ef), color-stop(50%, #e5e9ef));
+  background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), #e5e9ef 50%, #e5e9ef);
+  background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), #e5e9ef 50%, #e5e9ef);
+  background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), #e5e9ef 50%, #e5e9ef);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #e5e9ef 50%, #e5e9ef);
+}
+
+.navbar-right-padding {
+  margin-left: 80px;
+}
+
+.nav_bar_dark_grey_lnk > .nav_bar_dark_grey_span {
+  background-color: #0b535a;
+  border: 5px solid transparent;
+  border-radius: 5px;
+  color: #E5E9EF !important;
+}
+
+.active > .nav_bar_dark_grey_lnk > .nav_bar_dark_grey_span {
+  color: #87AADE !important;
+}
+
+.nav_bar_dark_grey_lnk > .nav_bar_dark_grey_span:hover {
+  color: #87AADE !important;
+}
+
+.nav_bar_grey_li {
+  background-color: #E5E9EF;
+}
+
+.nav_bar_grey_lnk > .nav_bar_grey_span {
+  background-color: #E5E9EF;
+  border: 5px solid transparent; 
+  border-radius: 5px;
+}
+
+.active > .nav_bar_grey_lnk > .nav_bar_grey_span,
+.nav_bar_grey_lnk > .nav_bar_grey_span:hover {
+  background-color: #E5E9EF !important;
+  color: #87AADE !important;
+}
+
+.nav_bar_grey_lnk:hover {
+  color: #87AADE !important;
+}
+
+.bs-docs-section > .row,
+.bs-docs-section > section > .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.h2, h2 {
+	margin-bottom: 20px;
+	margin-top: 30px;
+}
+
+.bc-site-wide-search * {
+  -webkit-box-sizing: content-box !important;
+  -moz-box-sizing: content-box !important;
+  box-sizing: content-box !important;
+  color: black;
+  font-weight: initial;
+  line-height: initial;
+  padding-bottom: 0px;
+}
+
+.bc-site-wide-search input.gsc-search-button {
+  -webkit-transition: background-color 0.2s linear, border-color 0.2s linear;
+  -moz-transition: background-color 0.2s linear, border-color 0.2s linear;
+  -o-transition: background-color 0.2s linear, border-color 0.2s linear;
+  transition: background-color 0.2s linear, border-color 0.2s linear;
+}
+
+.bc-site-wide-search input.gsc-search-button:hover {
+  background-color: #333;
+  border-color: #333;
+  outline: 0;
+}
+
+.bc-site-wide-search input.gsc-search-button:focus {
+  outline: none;
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+
+.gsc-control-cse {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.hbl_txt_wrapper > textarea#habla_offline_body_input {
+  height: 56px !important;
+}
+
+body > .page-header.main-title {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+ul>.list-group-item:before {
+  display: none;
+}
+
+.navbar {
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+
+.background-testimonials {
+  padding-top: 30px;
+  background-color: #C4C8CD;
+  font-weight: 500;
+}
+
+.support .supporter {
+	display: inline;
+	margin: 1em;
+}
+
+.support .btn-default {
+	display: none;
+}
+
+.contact .btn-default {
+	display: none;
+}
+
+/* Custom itemboxes */
+.itembox {
+    margin-top: 30px !important;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    margin-bottom: 30px !important;
+}
+
+.itembox .itembox-heading {
+    margin-bottom: 5px;
+    text-align: center;
+    margin-left: 0px;
+	font-size: 30px;
+	font-weight: 600;
+}
+
+.itembox p {
+    text-align: center;
+}
+
+.website-licenses {
+	text-align: center;
+	font-size: 12px;
+}
+
+.whoweare #people img {
+	width: 200px;
+	padding-right: 20px;
+}
+
+.whoweare #people h2 {
+	margin-left: -10px;
+}
+
+.whoweare #people h4 {
+	opacity: 0.8;
+	padding-top: 0px;
+	margin-top: 0px;
+}
+
+.whoweare #people p {
+	font-size: 0.8em;
+}
+
+.whoweare #people div {
+/*	margin-left: 20px;*/
+}
+
+.whoweare #people .row {
+	margin-left: 10px;
+}
+
+.whoweare #people .description {
+	margin-top: 0.8em;
+}
+
+.whoweare #collaborating-projects img {
+	opacity: 0.85;
+/* 	width: 70px; */
+}
+
+.whoweare #collaborating-projects img:hover {
+	opacity: 1.0;
+}
+
+.whoweare .position {
+	display: block;
+	float: left;
+	margin-left: 0px;
+	margin-right: 1em;
+	font-weight: 600;
+	overflow: hidden;
+	margin-top: -0.3em;
+}
+
+.whoweare #people img {
+	float: left;
+}
+
+/* Reserve each portrait's box before it loads.  Without a height every image
+   starts at 0px and grows as it arrives, so a #person_ link lands on the
+   person and then drifts ~1000px down as the portraits above load -- leaving
+   the reader at the top of the section in browsers without scroll anchoring.
+   Portraits are square; 180px is the 200px width less the padding. */
+.whoweare #people figure img {
+	height: 180px;
+	object-fit: cover;
+}
+
+.projects .centroid {
+	font-weight: 1000;
+}
+
+/* ------------------------------------------------------------------ */
+/* projects.html -- generated by scripts/render_projects.py            */
+
+/* Room to scroll past the last section.  Scrollspy pins the final heading
+   once the page bottoms out, so without this the last two sections could
+   never become current -- clicking "Education" highlighted Infrastructure
+   and left Education's entry unreachable. */
+.projects .bs-docs-section,
+.whoweare .bs-docs-section { padding-bottom: 70vh; }
+
+/* No scroll-margin-top here.  The theme already lifts an anchor jump clear
+   of the fixed navbar twice over -- buddycloud-styles.js scrolls back 65px
+   after a sidebar click, and base.html's scroll_if_anchor does the same for
+   a pasted URL.  Adding a third 70px put the landing 0.4px short of the
+   section's own scrollspy offset, so the sidebar highlighted (and kept
+   expanded) the PREVIOUS section: clicking Archives left Software open. */
+
+/* One uniform logo box, the way whoweare gives every person the same
+   portrait.  The per-record inline widths ran to 460px with
+   margin-top:-2em, which lifted logos into the headings and, in a 532px
+   content column, painted them over their own first line. */
+.projects figure { margin: 0; }
+.projects figure img.pull-right {
+  max-width: 180px;
+  max-height: 110px;
+  width: auto;
+  height: auto;
+  margin: 0 0 0.5em 1.5em;
+}
+@media (max-width: 991px) {
+  .projects figure img.pull-right {
+    float: none;
+    display: block;
+    margin: 0 0 0.8em 0;
+  }
+}
+
+/* The metadata strip under a heading: section, year, links.  The projects
+   analogue of whoweare's position line. */
+.projects .project-meta {
+  margin: 0 0 0.6em 0;
+  color: #999;
+}
+.projects .project-meta a { color: #777; }
+
+/* Relations are supporting detail, not body copy. */
+.projects .components,
+.projects .subprojects { margin: 0.4em 0; }
+/* The theme hides the native disclosure marker, so "9 components" read as
+   inert grey text rather than something to click.  Draw our own. */
+.projects details.components > summary {
+  cursor: pointer;
+  color: #777;
+  font-size: 0.92em;
+  list-style: none;
+}
+.projects details.components > summary::-webkit-details-marker { display: none; }
+.projects details.components > summary::before {
+  content: "\25B8";          /* right-pointing triangle */
+  display: inline-block;
+  width: 1em;
+  color: #999;
+  transition: transform .15s ease;
+}
+.projects details.components[open] > summary::before {
+  transform: rotate(90deg);
+}
+.projects details.components > summary:hover { color: #337ab7; }
+.projects ul.component-list { margin: 0.4em 0 0.8em 0; }
+.projects ul.component-list > li { font-size: 0.92em; }
+
+/* ------------------------------------------------------------------ */
+/* whoweare.html -- "Leads" and the "Related projects" disclosure       */
+
+/* Both sit under the description, in the same 9-column measure, so they
+   read as a continuation of the person rather than a new column. */
+.whoweare .leads,
+.whoweare details.related { margin-top: .35em; font-size: 90%; }
+.whoweare .leads strong { font-weight: 600; }
+
+/* The disclosure triangle is drawn rather than relied upon: Safari and
+   older WebKit render the native marker inconsistently inside a float
+   context, which is the same reason the projects page draws its own. */
+.whoweare details.related > summary {
+  cursor: pointer; list-style: none; color: #777;
+}
+.whoweare details.related > summary::-webkit-details-marker { display: none; }
+.whoweare details.related > summary::before {
+  content: "\25B8"; display: inline-block; width: 1em; color: #999;
+  transition: transform .12s ease-out;
+}
+.whoweare details.related[open] > summary::before { transform: rotate(90deg); }
+.whoweare details.related > summary:hover { color: #333; }
+.whoweare ul.related-list {
+  margin: .2em 0 .4em 0; padding-left: 1.6em; list-style: disc;
+}
+.whoweare ul.related-list li { color: #666; }
+
+/* A strip entry that has no logo is a bare text link among floated images.
+   Give it the same visual weight and, crucially, something to separate it
+   from the next one. */
+.whoweare #people a.name {
+  display: inline-block; margin: .25em 0 .25em 0; padding: .25em .7em;
+  border: 1px solid #e3e3e3; border-radius: 3px; background: #fcfcfc;
+  line-height: 1.2;
+}
+.whoweare #people a.name + a.name { margin-left: .5em; }
+.whoweare #people a.name:hover { background: #f2f2f2; text-decoration: none; }
+
+/* ------------------------------------------------------------------ */
+/* projects.html -- a project's own links, as the icons whoweare uses   */
+
+/* `.contact a` is a floated 2em block, which is right in a person's
+   column and wrong inside a line of metadata.  Only the box changes;
+   every background-image rule above still applies. */
+.projects .project-meta .contact { display: inline; }
+.projects .project-meta .contact a {
+  display: inline-block; float: none;
+  width: 1.15em; height: 1.15em;
+  vertical-align: -0.19em;          /* centres on the cap band */
+  /* The hit area is the padded box and the chip is the content box, so the
+     target clears 24x24 without the mark growing.  box-sizing has to be
+     content-box: Bootstrap sets border-box globally, under which the
+     padding eats INTO the declared width -- the chip shrank and the target
+     did not move. */
+  box-sizing: content-box;
+  padding: .25em;
+  /* BOTH, and origin is the one that matters.  `background-clip` alone
+     leaves the image sized to the PADDING box and then clips it to the
+     smaller content box, which crops the glyph on all four sides -- the
+     marks looked shaved compared to the same icons on whoweare.  With
+     `background-origin: content-box` the image is laid out on the content
+     box, so this is whoweare's icon exactly, scaled down. */
+  background-clip: content-box; background-origin: content-box;
+  /* CSS shrinks a corner radius by the padding when the background is
+     clipped to the content box, so the VISIBLE radius here is .44 - .25 =
+     .19em on a 1.15em chip -- the same 1:6 ratio whoweare gets from
+     .25em on 1.5em.  The chip is that icon, scaled. */
+  border-radius: .44em;
+  margin: 0 0 0 .1em;
+}
+/* The gap OUTSIDE the pair has to beat the gap inside it, or the icons read
+   as belonging to the date rather than to each other. */
+.projects .project-meta .contact a:first-child { margin-left: .7em; }
+.projects .project-meta .contact a:focus-visible {
+  outline: 2px solid #337ab7; outline-offset: 2px;
+}
+
+/* External-link / lock marks on navbar items: sized to the uppercase
+   letters of the label rather than the full line height. */
+.navbar-nav .nav-ext-icon {
+  font-size: .73em;
+  top: 0;
+  margin-left: .15em;
+}
+
+/* Seven top-level items fit one row on lg screens only with a little
+   less than Bootstrap's 15px horizontal padding per link. */
+@media (min-width: 1200px) {
+  .navbar-nav > li > a {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* the organization strips: logos of mixed shapes float in rows, and with
+   no gap below them one row's logos touch the next row's */
+.whoweare #collaborating_labs__groups img,
+.whoweare #partners img {
+	margin-bottom: 20px;
+}
