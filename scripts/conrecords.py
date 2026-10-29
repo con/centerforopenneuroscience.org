@@ -34,6 +34,12 @@ STORE_ROOT = pathlib.Path(os.environ.get("CON_RECORD_STORE",
 RECORDS = STORE_ROOT / "metadata/records"
 INTROS = HERE / "content/section-intros.yaml"
 
+# whoweare's blocks of people, in page order.  Here rather than in
+# render_whoweare.py because the projects page lists people too, and
+# render_whoweare already imports render_projects.
+TIERS = ["Centroids", "Collaborators", "Affiliated Faculty", "Emeritus",
+         "Emeritus Collaborators"]
+
 
 def attrs(d, pred):
     return [a["value"] for a in (d.get("attributes") or [])
@@ -43,6 +49,31 @@ def attrs(d, pred):
 def one(d, pred):
     v = attrs(d, pred)
     return v[0] if v else None
+
+
+def person_name(d):
+    """The page's own spelling of a person, parentheticals and all.
+
+    A record whose given and family names already compose the name carries
+    neither `display_label` nor `formatted_name` (the store's AGENTS.md says
+    to leave them out).
+    """
+    return (d.get("display_label") or one(d, "dlthings:formatted_name")
+            or f'{d["given_name"]} {d["family_name"]}')
+
+
+def role_labels():
+    """role pid -> printable label, from the XYZAgentRole records.
+
+    The alternative was a map in this file, which would go stale silently;
+    the records already carry `display_label` for all eighteen.
+    """
+    out = {}
+    for f in sorted((RECORDS / "XYZAgentRole").glob("*.yaml")):
+        d = yaml.safe_load(f.read_text())
+        if d.get("display_label"):
+            out[d["pid"]] = d["display_label"]
+    return out
 
 
 def load_yaml(path):

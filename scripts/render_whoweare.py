@@ -22,15 +22,16 @@ from conrecords import (
     INTROS,
     RECORDS,
     STORE_ROOT,
+    TIERS,
     attrs,
     one,
+    person_name,
+    role_labels,
     toc_hook,
     write_page,
     yaml,
 )
 
-TIERS = ["Centroids", "Collaborators", "Affiliated Faculty", "Emeritus",
-         "Emeritus Collaborators"]
 # Past people close the page, after the logo strips, and sort by when they
 # left.  "Emeritus" is for former centroids; "Emeritus Collaborators" for
 # those who worked with CON without ever working within it.
@@ -83,19 +84,6 @@ def joined():
                           (a.get("ended") or {}).get("at_time"))
             for a in d.get("associated_with", []) if a.get("object")}
 
-
-def role_labels():
-    """role pid -> printable label, from the XYZAgentRole records.
-
-    The alternative was a map in this file, which would go stale silently;
-    the records already carry `display_label` for all eighteen.
-    """
-    out = {}
-    for f in sorted((RECORDS / "XYZAgentRole").glob("*.yaml")):
-        d = yaml.safe_load(f.read_text())
-        if d.get("display_label"):
-            out[d["pid"]] = d["display_label"]
-    return out
 
 
 def led_organizations():
@@ -302,11 +290,7 @@ def render():
         out.append(f'\t<h2>{html.escape(tier)}</h2>')
         for r in group:
             d = r["d"]
-            # the page's own spelling, parentheticals and all; a record whose
-            # given and family names already compose the name carries
-            # neither (the store's AGENTS.md says to leave them out)
-            name = (d.get("display_label") or one(d, "dlthings:formatted_name")
-                    or f'{d["given_name"]} {d["family_name"]}')
+            name = person_name(d)
             out.append('\t  <div class="row">')
             out.append(f'\t\t<h3>{html.escape(name)}</h3>')
             pic = portrait(r["slug"])

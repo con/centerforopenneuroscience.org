@@ -430,6 +430,35 @@ def test_cross_page_links_land_on_a_real_heading(tmp_path):
 
 
 @pytest.mark.ai_generated
+def test_people_links_land_on_a_real_whoweare_heading(tmp_path):
+    """The reverse direction: a project's "N people" list links INTO
+    whoweare, built from the person's name the same way whoweare's heading
+    is, so a mismatch is a dead link the same-page check cannot see."""
+    out = _build(tmp_path)
+    ids = set(re.findall(r'id="([^"]+)"',
+                         (out / "whoweare.html").read_text()))
+    links = set(re.findall(r'href="/whoweare#([^"]+)"',
+                           (out / "projects.html").read_text()))
+    assert len(links) > 20, f"projects links to only {len(links)} people"
+    assert not links - ids, f"dead cross-page anchors: {sorted(links - ids)}"
+
+
+@pytest.mark.ai_generated
+def test_project_people_include_their_components_people(projects):
+    """DANDI's own record names three people; its components name the rest
+    of the team.  A role held only through a component says which one, and
+    a sub-project's people stay with the sub-project: STAMPED is `part_of`
+    DANDI, and John Lee's only link to DANDI is through STAMPED."""
+    i = projects.index('class="people"', projects.index('<h2 id="dandi">'))
+    block = projects[i:projects.index("</details>", i)]
+    assert "Cody Baker</a>" in block and "Isaac To</a>" in block
+    assert re.search(r"Isaac To</a> &#8212; [^<]*<small>\(dandi-schema", block)
+    assert "John Lee</a>" not in block
+    for item in re.findall(r"<li>(.*?)</li>", block, re.S):
+        assert "&#8212;" in item, f"person with no role: {item}"
+
+
+@pytest.mark.ai_generated
 def test_a_person_who_leads_a_group_says_so(whoweare):
     """The fact lives on the ORGANIZATION record -- `influenced_by` plus a
     lead role -- so nothing in the person's own record shows it, and the

@@ -16,7 +16,18 @@ import html
 import re
 import sys
 
-from conrecords import INTROS, RECORDS, STORE_ROOT, one, toc_hook, write_page, yaml
+from conrecords import (
+    INTROS,
+    RECORDS,
+    STORE_ROOT,
+    TIERS,
+    one,
+    person_name,
+    role_labels,
+    toc_hook,
+    write_page,
+    yaml,
+)
 
 SECTIONS = ["Software", "Archives", "Standards", "Initiatives", "Meetings",
             "Education", "Infrastructure"]
@@ -47,6 +58,62 @@ def instruments_by_project():
                 continue
             out.setdefault(proj, []).append((f.stem, d))
     return out
+
+
+def people_of(d, parts):
+    """[(name, href or None, [(role label, [component names])]), ...].
+
+    The reverse of whoweare's "related projects": who is associated with
+    this entry, and as what.  A project names its people in
+    `associated_with`; an instrument, being an entity, in `attributed_to`.
+
+    Its instruments' people count too.  DANDI's own record names three
+    people and its components seven more -- Cody Baker, Isaac To and Austin
+    Macdonald among them -- so the project alone would have hidden most of
+    its team.  A role held only through components names them, since "Lead"
+    of pydantic2linkml is not "Lead" of DANDI.  Sub-projects do NOT roll up:
+    they have entries of their own, and STAMPED, being `part_of` five
+    projects, would otherwise have repeated its whole team under each.
+
+    Current people first, in whoweare's tier order, then by name.  A person
+    with no tier has no entry on whoweare, so is named but not linked.
+    """
+    labels, found = role_labels(), {}
+
+    def take(rec, via):
+        for a in (rec.get("associated_with") or []) + (rec.get("attributed_to") or []):
+            who = a.get("object") or ""
+            if not who.startswith("xyzrins:persons/"):
+                continue
+            mine = found.setdefault(who, {})
+            for r in (labels.get(x, x) for x in (a.get("roles") or [])):
+                vias = mine.setdefault(r, [])
+                # held directly ([] first) means held: drop the components
+                if via is None:
+                    vias.clear()
+                    vias.append(None)
+                elif None not in vias and via not in vias:
+                    vias.append(via)
+
+    take(d, None)
+    for slug, pr in parts:
+        take(pr, pr.get("short_name") or pr.get("name")
+             or pr.get("display_label") or slug)
+    out = []
+    for who, mine in found.items():
+        f = RECORDS / "XYZPerson" / (who.rsplit("/", 1)[-1] + ".yaml")
+        if not f.exists():
+            continue
+        p = yaml.safe_load(f.read_text())
+        tier, name = one(p, "dlthings:tier"), person_name(p)
+        href = "/whoweare#" + toc_hook(name) if tier in TIERS else None
+        # direct roles first, then those held through components
+        roles = sorted(((r, sorted(v for v in vias if v))
+                        for r, vias in mine.items()),
+                       key=lambda rv: bool(rv[1]))
+        out.append((TIERS.index(tier) if tier in TIERS else len(TIERS),
+                    name, href, roles))
+    return [row[1:] for row in sorted(out, key=lambda r: (r[0], r[1]))]
 
 
 def by_recency(rows):
@@ -391,6 +458,25 @@ def render():
                     out.append('\t\t<p class="components">'
                                '<strong>Components:</strong></p>')
                     out += body
+            # Closed, unlike a long component list: the description is the
+            # content here, and the people are an index into whoweare.
+            ppl = people_of(d, components.get(d["pid"]) or [])
+            if ppl:
+                out.append('\t\t<details class="people">')
+                out.append(f'\t\t  <summary>{len(ppl)} '
+                           f'{"person" if len(ppl) == 1 else "people"}</summary>')
+                out.append('\t\t  <ul class="people-list">')
+                for name, href, roles in ppl:
+                    label = (f'<a href="{html.escape(href)}">{html.escape(name)}</a>'
+                             if href else html.escape(name))
+                    role = ", ".join(
+                        html.escape(r) + (f' <small>({html.escape(", ".join(v))})'
+                                          '</small>' if v else "")
+                        for r, v in roles)
+                    out.append(f'\t\t    <li>{label}'
+                               + (f' &#8212; {role}' if role else '') + '</li>')
+                out.append('\t\t  </ul>')
+                out.append('\t\t</details>')
             out.append('\t  </div>')
     out += ['  </section>', '</body>', '', '</html>', '']
     return "\n".join(out), order, skipped
