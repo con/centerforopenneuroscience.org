@@ -80,15 +80,16 @@ jobs:
 
       - name: Disable git-annex before deploy
         # git-annex installs a `* filter=annex` rule in .git/info/attributes
-        # (applies to ALL files in ALL branches) plus post-checkout/pre-commit
-        # hooks.  When the deploy action checks out gh-pages inside its
-        # temporary worktree, the smudge filter fires for every file, causing
-        # git-annex to initialize in the worktree and replace the .git gitlink
-        # *file* with a full .git *directory*.  git then refuses to remove the
-        # worktree at cleanup with "not a .git file" (error code 10).
+        # (applies to ALL files in ALL branches) plus hooks.  Whenever any of
+        # them runs git-annex inside the deploy action's temporary worktree,
+        # git-annex replaces that worktree's .git gitlink *file* with a
+        # symlink, and git then refuses to remove the worktree at cleanup
+        # with "not a .git file" (error code 10).
+        # Remove every hook, not a list of them: git-annex 10.20261026 added
+        # a pre-push hook, which the deploy's `git push` runs.
         # The build is complete so we no longer need annex; neutralise it.
         run: |
-          rm -f .git/hooks/post-checkout .git/hooks/pre-commit .git/hooks/post-merge
+          find .git/hooks -type f ! -name '*.sample' -print -delete
           > .git/info/attributes
 
       - name: Deploy preview
