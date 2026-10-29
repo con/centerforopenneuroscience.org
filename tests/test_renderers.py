@@ -169,7 +169,7 @@ def test_every_person_renders_a_portrait_at_its_own_path(whoweare):
 
 
 @pytest.mark.ai_generated
-@pytest.mark.parametrize("page,n", [("render_whoweare.py", 43),
+@pytest.mark.parametrize("page,n", [("render_whoweare.py", 44),
                                     ("render_projects.py", 45)])
 def test_expected_entry_count(page, n):
     """A guard against silent loss, so the number moves only on purpose.
@@ -184,7 +184,8 @@ def test_expected_entry_count(page, n):
     Oliver Rübel, Ryan Ly and Seyed (Yahya) Shirazi, and 43 -> 44 with
     BEP020 (Annotation Garden is a component, not a heading); 39 -> 40 and
     44 -> 45 with Russ Poldrack and svgtune; 40 -> 43 with Kitware's
-    Jacob Nesbitt, Roni Choudhury and Mike Grauer."""
+    Jacob Nesbitt, Roni Choudhury and Mike Grauer; 43 -> 44 with Camille
+    Maumet."""
     out = run(page).stdout
     tag = "h3" if "whoweare" in page else "h2"
     assert len(re.findall(rf"<{tag}[^>]*>", out)) == n
