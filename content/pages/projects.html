@@ -116,9 +116,10 @@
 		<p class="project-meta"><small>Software &#183; since 2026 <span class="contact"><a href="https://github.com/con/mechababs" class="github" title="mechababs source">mechababs source</a></span></small></p>
 		<p> <a href="https://github.com/con/mechababs">mechababs</a> runs <a href="https://bids-apps.neuroimaging.io">BIDS Apps</a> over many studies on an HPC cluster, with <a href="https://github.com/PennLINC/babs">BABS</a> running the jobs. It works on a BIDS study, adding derivatives to it, and records how each one was made inside the study itself: the exact mechababs and BABS versions pinned in a lock, and every orchestration step as a <a href="#datalad_">DataLad</a> run record. A superstudy groups many studies so one campaign sweeps them all, which is how mechababs feeds <a href="https://github.com/OpenNeuroStudies/OpenNeuroStudies">OpenNeuroStudies</a>. </p>
 		<details class="people">
-		  <summary>1 person</summary>
+		  <summary>2 people</summary>
 		  <ul class="people-list">
 		    <li><a href="/whoweare#austin_macdonald_">Austin Macdonald</a> &#8212; Lead</li>
+		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Principal investigator (PI)</li>
 		  </ul>
 		</details>
 	  </div>
@@ -203,9 +204,10 @@
 		</figure>
 		<p> <a href="https://registry.datalad.org">DataLad-Registry</a> is a service that maintains up-to-date information on an expanding collection of datasets, currently numbering over ten thousand. It automatically registers datasets from various online sources, extracts metadata, and keeps both the datasets and their metadata current. DataLad-Registry offers search functionalities, including metadata-based searches, accessible through both a web interface and a RESTful API. Registry is regularly updated with DataLad datasets discovered across multiple hosting portals and listed on our <a href="https://github.com/datalad/datalad-usage-dashboard/">DataLad Usage Dashboard</a>. </p> <ul> <li> 🎬 <a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/_McJ1BtLsiQ">Talk at distribits 2024: Bringing Benefits of Centrality to DataLad</a> </li> </ul>
 		<details class="people">
-		  <summary>1 person</summary>
+		  <summary>2 people</summary>
 		  <ul class="people-list">
 		    <li><a href="/whoweare#isaac_to_">Isaac To</a> &#8212; Lead</li>
+		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Principal investigator (PI)</li>
 		  </ul>
 		</details>
 	  </div>
@@ -217,10 +219,11 @@
 		</figure>
 		<p> <a href="https://github.com/con/tributors">con/tributors</a> is a Python library and GitHub Action to automate maintenance of contributor attribution files. It updates <a href="https://allcontributors.org">all-contributors</a>, <a href="https://zenodo.org">Zenodo</a> metadata (.zenodo.json), and <a href="https://codemeta.github.io/">CodeMeta</a> (codemeta.json) files in one go, using a shared <code>.tributors</code> cache that maps GitHub logins to ORCID iDs and other persistent identifiers — so that contributor records stay consistent and up-to-date across all metadata files with a single command. For example, DataLad uses a <a href="https://github.com/datalad/datalad/blob/master/.github/workflows/update-contributors.yml">dedicated GitHub Actions workflow</a> powered by con/tributors to automatically keep its contributor files current. </p>
 		<details class="people">
-		  <summary>2 people</summary>
+		  <summary>3 people</summary>
 		  <ul class="people-list">
-		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Creator</li>
+		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Creator, Principal investigator (PI)</li>
 		    <li><a href="/whoweare#john_wodder_">John Wodder</a> &#8212; Contributor</li>
+		    <li><a href="/whoweare#vanessa_sochat_">Vanessa Sochat</a> &#8212; Lead</li>
 		  </ul>
 		</details>
 	  </div>
@@ -409,7 +412,7 @@
 		<details class="people">
 		  <summary>2 people</summary>
 		  <ul class="people-list">
-		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Research team member</li>
+		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Co-Investigator (Co-I), Site PI</li>
 		    <li>Brock Wester &#8212; Principal investigator (PI)</li>
 		  </ul>
 		</details>
@@ -478,9 +481,10 @@
 		    <li><a href="#bids_20_">BIDS 2.0</a>: The effort to work out what BIDS should change when backwards compatibility is no longer a constraint -- the breaking changes that a decade of 1.x could not make.</li>
 		  </ul>
 		<details class="people">
-		  <summary>5 people</summary>
+		  <summary>6 people</summary>
 		  <ul class="people-list">
 		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Contributor, Steering committee member</li>
+		    <li><a href="/whoweare#camille_maumet_">Camille Maumet</a> &#8212; Contributor, Steering committee member</li>
 		    <li><a href="/whoweare#chris_markiewicz_">Chris Markiewicz</a> &#8212; Maintainer</li>
 		    <li><a href="/whoweare#dora_hermes_">Dora Hermes</a> &#8212; Steering committee member, Contributor</li>
 		    <li><a href="/whoweare#russell_a_poldrack_">Russell A. Poldrack</a> &#8212; Creator</li>
@@ -493,9 +497,11 @@
 		<p class="project-meta"><small>Standards &#183; since 2023 <span class="contact"><a href="https://bids.neuroimaging.io/bep028" class="home" title="BEP028 home page">BEP028 home page</a></span></small></p>
 		<p>Extends BIDS to record how a derivative was produced -- the provenance layer, carrying forward NIDM-PROV. Leads: Satrajit Ghosh, Camille Maumet, Yaroslav Halchenko.</p>
 		<details class="people">
-		  <summary>1 person</summary>
+		  <summary>3 people</summary>
 		  <ul class="people-list">
 		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Lead</li>
+		    <li><a href="/whoweare#camille_maumet_">Camille Maumet</a> &#8212; Lead</li>
+		    <li><a href="/whoweare#satrajit_ghosh_">Satrajit Ghosh</a> &#8212; Lead</li>
 		  </ul>
 		</details>
 	  </div>
@@ -506,7 +512,7 @@
 		<details class="people">
 		  <summary>1 person</summary>
 		  <ul class="people-list">
-		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Contributor</li>
+		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Lead</li>
 		  </ul>
 		</details>
 	  </div>
@@ -560,7 +566,7 @@
 		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Steering committee member</li>
 		    <li><a href="/whoweare#ben_dichter_">Ben Dichter</a> &#8212; Contributor</li>
 		    <li><a href="/whoweare#oliver_rübel_">Oliver Rübel</a> &#8212; Principal investigator (PI), Software developer</li>
-		    <li><a href="/whoweare#ryan_ly_">Ryan Ly</a> &#8212; Lead, Software developer</li>
+		    <li><a href="/whoweare#ryan_ly_">Ryan Ly</a> &#8212; Lead, Software developer, Steering committee member</li>
 		  </ul>
 		</details>
 	  </div>
@@ -612,9 +618,10 @@
 		<p class="project-meta"><small>Standards <span class="contact"><a href="http://nidm.nidash.org" class="home" title="NIDM home page">NIDM home page</a></span></small></p>
 		<p>A family of specifications for describing neuroimaging experiments, their data and their provenance, built on W3C PROV. NIDM-PROV is its provenance layer, and the ancestor of the provenance work now carried into BIDS as BEP028.</p>
 		<details class="people">
-		  <summary>1 person</summary>
+		  <summary>2 people</summary>
 		  <ul class="people-list">
 		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Contributor</li>
+		    <li><a href="/whoweare#camille_maumet_">Camille Maumet</a> &#8212; Contributor</li>
 		  </ul>
 		</details>
 	  </div>
@@ -643,9 +650,12 @@
 		</figure>
 		<p> <a href="http://open-brain-consent.readthedocs.org">Open Brain Consent</a> initiative aims to facilitate neuroimaging data sharing by providing an "out of the box" solution addressing aforementioned human subjects concerns and consisting of </p> <ul> <li>widely acceptable consent form allowing deposition of anonymized data to public data archives</li> <li>collection of tools/pipelines to help anonymization of neuroimaging data making it ready for sharing</li> </ul> <p>Initiated and managed by CON, OBC is now an international effort with materials for GDPR compliance and multiple internationalization efforts to make sure materials are available in all applicable languages. <a href="https://github.com/con/open-brain-consent/blob/master/CONTRIBUTING.rst">Contribute</a> if you see your language is missing!</p> <ul> <li> Bannier E, Barker G, Borghesani V, Broeckx N, Clement P, Emblem KE, Ghosh S, Glerean E, Gorgolewski KJ, Havu M, <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Halchenko YO</a>, Herholz P, Hespel A, Heunis S, Hu Y, Hu CP, Huijser D, de la Iglesia Vayá M, Jancalek R, Katsaros VK, Kieseler ML, Maumet C, Moreau CA, Mutsaerts HJ, Oostenveld R, Ozturk-Isik E, Pascual Leone Espinosa N, Pellman J, Pernet CR, Pizzini FB, Trbalić AŠ, Toussaint PJ, <a href="/whoweare#matteo_visconti_di_oleggio_castello_" class="centroid">Visconti di Oleggio Castello M</a>, Wang F, Wang C, Zhu H. <emph>The Open Brain Consent: Informing research participants and obtaining consent to share brain imaging data</emph>. Hum Brain Mapp. 2021 May;42(7):1945-1951. doi: <a href="http://doi.org/10.1002/hbm.25351">10.1002/hbm.25351</a>. Epub 2021 Feb 1. PMID: 33522661; PMCID: PMC8046140. </li> </ul>
 		<details class="people">
-		  <summary>2 people</summary>
+		  <summary>5 people</summary>
 		  <ul class="people-list">
 		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Lead</li>
+		    <li><a href="/whoweare#adina_wagner_">Adina Wagner</a> &#8212; Contributor</li>
+		    <li><a href="/whoweare#camille_maumet_">Camille Maumet</a> &#8212; Translator</li>
+		    <li><a href="/whoweare#satrajit_ghosh_">Satrajit Ghosh</a> &#8212; Contributor</li>
 		    <li><a href="/whoweare#matteo_visconti_di_oleggio_castello_">Matteo Visconti di Oleggio Castello</a> &#8212; Contributor</li>
 		  </ul>
 		</details>
@@ -675,8 +685,10 @@
 		    <li><a href="#repronim_containers_">ReproNim/containers</a>: ReproNim/containers is a DataLad dataset providing a ready-to-use &quot;distribution&quot; of containerized neuroimaging environments (Singularity images) for reproducible analysis. It collects a curated set of containers — including those used by HeuDiConv and the broader ReproNim ecosystem — and exposes them via the ///repronim/containers DataLad dataset path, making it trivial to pin and share exact software environments alongside data and workflows.</li>
 		  </ul>
 		<details class="people">
-		  <summary>3 people</summary>
+		  <summary>5 people</summary>
 		  <ul class="people-list">
+		    <li><a href="/whoweare#austin_macdonald_">Austin Macdonald</a> &#8212; Contributor</li>
+		    <li><a href="/whoweare#john_lee_">John Lee</a> &#8212; Contributor</li>
 		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Lead</li>
 		    <li><a href="/whoweare#horeaioan_ioanas_">Horea-Ioan Ioanas</a> &#8212; Contributor</li>
 		    <li><a href="/whoweare#matteo_visconti_di_oleggio_castello_">Matteo Visconti di Oleggio Castello</a> &#8212; Contributor <small>(ReproIn)</small></li>
@@ -695,8 +707,8 @@
 		<details class="people">
 		  <summary>2 people</summary>
 		  <ul class="people-list">
-		    <li><a href="/whoweare#isaac_to_">Isaac To</a> &#8212; Contributor</li>
-		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Contributor</li>
+		    <li><a href="/whoweare#isaac_to_">Isaac To</a> &#8212; Organizer</li>
+		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Organizer</li>
 		  </ul>
 		</details>
 	  </div>
@@ -720,8 +732,9 @@
 		<p class="project-meta"><small>Education &#183; since 2019 <span class="contact"><a href="https://dbic-handbook.readthedocs.io/" class="home" title="DBIC Handbook home page">DBIC Handbook home page</a><a href="https://github.com/dbic/handbook" class="github" title="DBIC Handbook source">DBIC Handbook source</a></span></small></p>
 		<p>The working handbook for the Dartmouth Brain Imaging Center -- how to get scanned, how data leaves the scanner, and the conventions everything downstream assumes.</p>
 		<details class="people">
-		  <summary>2 people</summary>
+		  <summary>3 people</summary>
 		  <ul class="people-list">
+		    <li><a href="/whoweare#austin_macdonald_">Austin Macdonald</a> &#8212; Contributor</li>
 		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Lead</li>
 		    <li><a href="/whoweare#andy_connolly_">Andy Connolly</a> &#8212; Contributor</li>
 		  </ul>
@@ -744,9 +757,10 @@
 		<p class="project-meta"><small>Infrastructure &#183; since 2017 <span class="contact"><a href="https://datasets.datalad.org/?dir=/shub" class="home" title="SingularityHub home page">SingularityHub home page</a></span></small></p>
 		<p> To provide archival and uninterrupted access to over 9TBs of singularity-hub.org Singularity containers, we have established <a href="https://datasets.datalad.org/?dir=/shub">///shub DataLad dataset</a> and a service to serve all the shub:// URLs. </p>
 		<details class="people">
-		  <summary>1 person</summary>
+		  <summary>2 people</summary>
 		  <ul class="people-list">
 		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Creator</li>
+		    <li><a href="/whoweare#vanessa_sochat_">Vanessa Sochat</a> &#8212; Creator</li>
 		  </ul>
 		</details>
 	  </div>
