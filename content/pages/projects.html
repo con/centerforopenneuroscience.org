@@ -205,10 +205,11 @@
 		</figure>
 		<p> <a href="https://registry.datalad.org">DataLad-Registry</a> is a service that maintains up-to-date information on an expanding collection of datasets, currently numbering over ten thousand. It automatically registers datasets from various online sources, extracts metadata, and keeps both the datasets and their metadata current. DataLad-Registry offers search functionalities, including metadata-based searches, accessible through both a web interface and a RESTful API. Registry is regularly updated with DataLad datasets discovered across multiple hosting portals and listed on our <a href="https://github.com/datalad/datalad-usage-dashboard/">DataLad Usage Dashboard</a>. </p> <ul> <li> 🎬 <a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/_McJ1BtLsiQ">Talk at distribits 2024: Bringing Benefits of Centrality to DataLad</a> </li> </ul>
 		<details class="people">
-		  <summary>3 people</summary>
+		  <summary>4 people</summary>
 		  <ul class="people-list">
 		    <li><a href="/whoweare#isaac_to_">Isaac To</a> &#8212; Lead</li>
 		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Principal investigator (PI)</li>
+		    <li><a href="/whoweare#john_wodder_">John Wodder</a> &#8212; Contributor</li>
 		    <li><a href="/whoweare#kyle_meyer_">Kyle Meyer</a> &#8212; Creator</li>
 		  </ul>
 		</details>
@@ -642,6 +643,52 @@
 	  </div>
 	<h1>Initiatives</h1>
 	  <div class="row">
+		<h2 id="repronim">ReproNim</h2>
+		<p class="project-meta"><small>Initiatives &#183; since 2016 <span class="contact"><a href="http://repronim.org/" class="home" title="ReproNim home page">ReproNim home page</a></span></small></p>
+		<figure>
+		  <a href="http://repronim.org/"><img src="/theme/img/projects/repronim/logo.svg" alt="ReproNim" class="pull-right" /></a>
+		</figure>
+		<p>ReproNim: A Center for Reproducible Neuroimaging Computation. A P41 center building training, tools and standards so neuroimaging analyses can be reproduced.</p>
+		<p class="components"><strong>Components:</strong></p>
+		  <ul class="component-list">
+		    <li><a href="#datalad_">DataLad</a>: A data management platform that adapts open-source software distribution models to address data-sharing limitations. Provides a versatile data management platform using git-annex for large data tracking built on Git.</li>
+		    <li><a href="#openneuro_">OpenNeuro</a>: One of the oldest and most well-known BRAIN Initiative archives for neuroimaging data. Uses git-annex as core technology, inspired by early DataLad crawling efforts. Successor to OpenfMRI.org.</li>
+		    <li><a href="#repronim_trd3_">TR&amp;D3</a>: The technology research and development project within ReproNim that YOH leads at Dartmouth. In practice it is the tooling that makes a study reproducible end to end: capturing what the scanner and the stimulus computer actually did, converting it into standard layouts without a human in the loop, and re-running the analysis in a recorded environment.</li>
+		    <li><a href="#stamped_principles_">STAMPED Principles</a>: STAMPED is a set of seven principles, Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, and Distributability, for building research objects that others can trust, rerun, and build upon. Each principle is a spectrum from a practical minimum to an aspirational ideal, so adoption can be incremental and start from existing practice. STAMPED grew out of YODA and comes with an interactive checklist and worked examples.</li>
+		  </ul>
+		<details class="people">
+		  <summary>3 people</summary>
+		  <ul class="people-list">
+		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Investigator</li>
+		    <li><a href="/whoweare#david_n_kennedy_">David N. Kennedy</a> &#8212; Principal investigator (PI)</li>
+		    <li><a href="/whoweare#satrajit_ghosh_">Satrajit Ghosh</a> &#8212; Investigator</li>
+		  </ul>
+		</details>
+	  </div>
+	  <div class="row">
+		<h2 id="repronim-trd3">ReproNim TR&amp;D3</h2>
+		<p class="project-meta"><small>Initiatives <span class="contact"><a href="https://www.repronim.org/" class="home" title="TR&amp;D3 home page">TR&amp;D3 home page</a></span></small></p>
+		<p>The technology research and development project within ReproNim that YOH leads at Dartmouth. In practice it is the tooling that makes a study reproducible end to end: capturing what the scanner and the stimulus computer actually did, converting it into standard layouts without a human in the loop, and re-running the analysis in a recorded environment.</p>
+		<p class="components"><strong>Components:</strong></p>
+		  <ul class="component-list">
+		    <li><a href="https://github.com/ReproNim/reprostim/tree/master/Events">ReproEvents</a>: An event relay device: a single-board microcontroller running micropython that sits between the input peripherals a participant uses and the event recording system, so button presses are timestamped by hardware rather than by whatever the stimulus computer was doing.</li>
+		    <li><a href="https://github.com/ReproNim/reproin">ReproIn</a>: A convention and a setup for naming sequences at the scanner so that conversion to a shareable, version-controlled BIDS dataset needs no human in the loop. Runs on HeuDiConv; deployed at DBIC.</li>
+		    <li><a href="https://reproman.readthedocs.io">ReproMan</a>: Tool for creating and managing reproducible computation environments and executing analyses in them.</li>
+		    <li><a href="https://github.com/con/duct">con/duct</a>: Lightweight wrapper that records execution time, CPU and memory usage of a command, for resource-aware reproducible runs.</li>
+		    <li><a href="#repronim_containers_">ReproNim/containers</a>: ReproNim/containers is a DataLad dataset providing a ready-to-use &quot;distribution&quot; of containerized neuroimaging environments (Singularity images) for reproducible analysis. It collects a curated set of containers — including those used by HeuDiConv and the broader ReproNim ecosystem — and exposes them via the ///repronim/containers DataLad dataset path, making it trivial to pin and share exact software environments alongside data and workflows.</li>
+		  </ul>
+		<details class="people">
+		  <summary>5 people</summary>
+		  <ul class="people-list">
+		    <li><a href="/whoweare#austin_macdonald_">Austin Macdonald</a> &#8212; Contributor</li>
+		    <li><a href="/whoweare#john_lee_">John Lee</a> &#8212; Contributor</li>
+		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Lead</li>
+		    <li><a href="/whoweare#horeaioan_ioanas_">Horea-Ioan Ioanas</a> &#8212; Contributor</li>
+		    <li><a href="/whoweare#matteo_visconti_di_oleggio_castello_">Matteo Visconti di Oleggio Castello</a> &#8212; Contributor <small>(ReproIn)</small></li>
+		  </ul>
+		</details>
+	  </div>
+	  <div class="row">
 		<h2 id="region-localization">Highly specific region localization from naturally rich data</h2>
 		<p class="project-meta"><small>Initiatives &#183; since 2015 <span class="contact"><a href="https://juser.fz-juelich.de/record/865045/files/OHBM_2019_Wagner.pdf" class="home" title="Region localization from rich data home page">Region localization from rich data home page</a></span></small></p>
 		<p> Localizing a functional region usually means running a dedicated localizer. This asks whether the same regions can be found in data that was rich to begin with -- a feature film, watched once -- and reports that a GLM is the wrong tool for it. Dormant; worth returning to. </p> <ul> <li> A. Wagner, S. Nastase, Y.O. Halchenko and M. Hanke (2019). <a href="https://juser.fz-juelich.de/record/865045/files/OHBM_2019_Wagner.pdf">Functional ROI localization in a rich stimuli dataset requires non-GLM style approach</a>. OHBM 2019, Rome, Italy. </li> <li> S.A. Nastase, J.S. Guntupalli, <a href="/whoweare#james_v_haxby_" class="centroid">J.V. Haxby</a> and <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a> (2016). Localizing functional regions of interest based on responses to dynamic naturalistic stimuli. SfN 2016, San Diego. </li> <li> <a href="/whoweare#matteo_visconti_di_oleggio_castello_" class="centroid">M. Visconti di Oleggio Castello</a>, S.A. Nastase, M.I. Gobbini, <a href="/whoweare#james_v_haxby_" class="centroid">J.V. Haxby</a> and <a href="/whoweare#yaroslav_o_halchenko_" class="centroid">Y.O. Halchenko</a> (2015). Finding Cortical Patches of Shared Representations. SfN 2015, Chicago, Poster 451.11. </li> </ul>
@@ -684,29 +731,6 @@
 		  <ul class="people-list">
 		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Creator, Lead</li>
 		    <li><a href="/whoweare#chris_cheng_">Chris Cheng</a> &#8212; Contributor</li>
-		  </ul>
-		</details>
-	  </div>
-	  <div class="row">
-		<h2 id="repronim-trd3">ReproNim TR&amp;D3</h2>
-		<p class="project-meta"><small>Initiatives <span class="contact"><a href="https://www.repronim.org/" class="home" title="TR&amp;D3 home page">TR&amp;D3 home page</a></span></small></p>
-		<p>The technology research and development project within ReproNim that YOH leads at Dartmouth. In practice it is the tooling that makes a study reproducible end to end: capturing what the scanner and the stimulus computer actually did, converting it into standard layouts without a human in the loop, and re-running the analysis in a recorded environment.</p>
-		<p class="components"><strong>Components:</strong></p>
-		  <ul class="component-list">
-		    <li><a href="https://github.com/ReproNim/reprostim/tree/master/Events">ReproEvents</a>: An event relay device: a single-board microcontroller running micropython that sits between the input peripherals a participant uses and the event recording system, so button presses are timestamped by hardware rather than by whatever the stimulus computer was doing.</li>
-		    <li><a href="https://github.com/ReproNim/reproin">ReproIn</a>: A convention and a setup for naming sequences at the scanner so that conversion to a shareable, version-controlled BIDS dataset needs no human in the loop. Runs on HeuDiConv; deployed at DBIC.</li>
-		    <li><a href="https://reproman.readthedocs.io">ReproMan</a>: Tool for creating and managing reproducible computation environments and executing analyses in them.</li>
-		    <li><a href="https://github.com/con/duct">con/duct</a>: Lightweight wrapper that records execution time, CPU and memory usage of a command, for resource-aware reproducible runs.</li>
-		    <li><a href="#repronim_containers_">ReproNim/containers</a>: ReproNim/containers is a DataLad dataset providing a ready-to-use &quot;distribution&quot; of containerized neuroimaging environments (Singularity images) for reproducible analysis. It collects a curated set of containers — including those used by HeuDiConv and the broader ReproNim ecosystem — and exposes them via the ///repronim/containers DataLad dataset path, making it trivial to pin and share exact software environments alongside data and workflows.</li>
-		  </ul>
-		<details class="people">
-		  <summary>5 people</summary>
-		  <ul class="people-list">
-		    <li><a href="/whoweare#austin_macdonald_">Austin Macdonald</a> &#8212; Contributor</li>
-		    <li><a href="/whoweare#john_lee_">John Lee</a> &#8212; Contributor</li>
-		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Lead</li>
-		    <li><a href="/whoweare#horeaioan_ioanas_">Horea-Ioan Ioanas</a> &#8212; Contributor</li>
-		    <li><a href="/whoweare#matteo_visconti_di_oleggio_castello_">Matteo Visconti di Oleggio Castello</a> &#8212; Contributor <small>(ReproIn)</small></li>
 		  </ul>
 		</details>
 	  </div>
