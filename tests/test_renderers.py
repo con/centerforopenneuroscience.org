@@ -170,7 +170,7 @@ def test_every_person_renders_a_portrait_at_its_own_path(whoweare):
 
 @pytest.mark.ai_generated
 @pytest.mark.parametrize("page,n", [("render_whoweare.py", 44),
-                                    ("render_projects.py", 46)])
+                                    ("render_projects.py", 47)])
 def test_expected_entry_count(page, n):
     """A guard against silent loss, so the number moves only on purpose.
     27 -> 36 when NIDM, DICOM + WG-16/32, BEP028/032/044, BIDS 2.0, ReproIn,
@@ -185,7 +185,8 @@ def test_expected_entry_count(page, n):
     BEP020 (Annotation Garden is a component, not a heading); 39 -> 40 and
     44 -> 45 with Russ Poldrack and svgtune; 40 -> 43 with Kitware's
     Jacob Nesbitt, Roni Choudhury and Mike Grauer; 43 -> 44 with Camille
-    Maumet; 45 -> 46 with datasets.datalad.org."""
+    Maumet; 45 -> 46 with datasets.datalad.org, and 46 -> 47 when ReproNim
+    got a section of its own."""
     out = run(page).stdout
     tag = "h3" if "whoweare" in page else "h2"
     assert len(re.findall(rf"<{tag}[^>]*>", out)) == n
