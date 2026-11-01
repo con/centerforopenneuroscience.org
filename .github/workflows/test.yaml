@@ -2,7 +2,7 @@ name: Test
 
 # Builds the site from the pinned con-site-specific store and checks it the
 # way a reader would meet it:
-#   - the committed pages are what that store renders (`make check-projection`),
+#   - the committed pages are what that store renders (`tox -e projection`),
 #     so a store bump without `make run-project` fails here, not in production;
 #   - the generators' tests, including the browser tests that click through
 #     the top menu, every sidebar section and entry, and the cross-page links;
@@ -41,7 +41,7 @@ jobs:
           git config --global user.email "CI@example.com"
           git config --global user.name "CI almighty"
           git config --global annex.retry 5
-          pip install git-annex tox pyyaml
+          pip install git-annex tox
           # theme images: the pages reference them, and the projection check
           # compares them with the store's
           git remote add --fetch datasets.datalad.org \
@@ -56,10 +56,10 @@ jobs:
           git -C $store annex get content
 
       - name: Pages match the pinned store
-        run: make check-projection
+        run: tox -e projection
 
       - name: Validate content HTML (XML well-formedness)
-        run: python3 scripts/validate_html.py content/
+        run: tox -e html
 
       - name: Lint
         run: tox -e lint
