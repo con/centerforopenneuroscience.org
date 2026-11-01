@@ -941,6 +941,15 @@
       }
     }
   }
+  // The vendor's sidebar handler (buddycloud-styles.js) lets the browser
+  // jump and then scrolls back 65px from WHEREVER the page is, 10ms later.
+  // Two clicks inside those 10ms -- or one click on a busy machine that runs
+  // the timer late -- subtract it twice: the heading lands 130px down, past
+  // scrollspy's 70px offset, and the PREVIOUS entry stays highlighted.  Use
+  // the absolute jump that pasted anchors already get instead.
+  // (from con/centerforopenneuroscience.org#94)
+  $(document.body).off("click", ".bs-docs-sidebar a")
+    .on("click", ".bs-docs-sidebar a", scroll_if_anchor);
   $("#fixed-toc").css("visibility", "hidden");
   $(document).ready(function() {
     window.setTimeout(function() {
