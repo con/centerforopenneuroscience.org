@@ -65,6 +65,7 @@ help:
 	@echo 'Usage:                                                                 '
 	@echo '   make project                     project con-site-specific -> pages '
 	@echo '   make run-project                 the same, under datalad run         '
+	@echo '   make check-projection            pages match the pinned store       '
 	@echo '   make html                        (re)generate the web site          '
 	@echo '   make clean                       remove the generated files         '
 	@echo '   make regenerate                  regenerate files upon modification '
@@ -128,6 +129,20 @@ run-project: check-store-pinned
 	datalad run --explicit -m "$(MSG)" \
 	  $(PROJECTION_INPUTS) $(PROJECTION_OUTPUTS) \
 	  "make project"
+
+# The committed pages are exactly what the pinned store renders, and the
+# theme already holds every logo and portrait they reference -- i.e. nobody
+# advanced the store without re-running `make run-project`.  Writes nothing,
+# so it is safe in CI; needs the store's annexed media to compare sizes.
+check-projection:
+	@tmp=$$(mktemp -d) && trap 'rm -rf "$$tmp"' EXIT && \
+	$(PY) scripts/sync_assets_to_theme.py | tee "$$tmp/sync" && \
+	grep -q "would copy: 0;.*orphans removed: 0" "$$tmp/sync" && \
+	$(PY) scripts/render_whoweare.py --out "$$tmp/whoweare.html" >/dev/null && \
+	$(PY) scripts/render_projects.py --out "$$tmp/projects.html" >/dev/null && \
+	diff -u content/pages/whoweare.html "$$tmp/whoweare.html" && \
+	diff -u content/pages/projects.html "$$tmp/projects.html" && \
+	echo "pages and theme assets match $(STORE) at $$(git -C $(STORE) rev-parse --short HEAD)"
 
 check-store-pinned:
 	@git diff --quiet HEAD -- $(STORE) || { \

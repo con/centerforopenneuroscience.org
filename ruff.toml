@@ -1,0 +1,5 @@
+# The rules `tox -e lint` was written against: ruff's long-standing defaults.
+# Pinned here because newer ruff releases widened the default selection, which
+# turned an unchanged tree red.
+[lint]
+select = ["E4", "E7", "E9", "F"]
