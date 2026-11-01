@@ -740,6 +740,36 @@ def test_menu_sidebar_entries_and_cross_page_links_in_a_browser(served_site):
 
 
 @pytest.mark.ai_generated
+def test_two_quick_sidebar_clicks_land_on_the_second(served_site):
+    """The theme's sidebar handler scrolled back 65px from wherever the page
+    was, 10ms after a click.  A second click inside those 10ms -- or one on
+    a machine busy enough to run the timer late, which is how CI found it --
+    took the 65px off twice: the heading landed at 130px, past scrollspy's
+    70px offset, and the PREVIOUS entry stayed highlighted.  Two clicks in
+    one task reproduce it every time."""
+    pw = pytest.importorskip("playwright.sync_api")
+    with pw.sync_playwright() as p:
+        browser = _browser(p)
+        pg = browser.new_page(viewport={"width": 1500, "height": 1000})
+        for page in ("whoweare", "projects"):
+            pg.goto(f"{served_site}/{page}.html")
+            second = pg.evaluate(
+                "() => { const a = document.querySelectorAll("
+                "'#full-toc > ul > li > ul > li > a');"
+                " a[1].click(); a[2].click(); return a[2].getAttribute('href') }")
+            pg.wait_for_timeout(300)        # well past the vendor's 10ms timer
+            top = pg.evaluate(
+                "h => document.getElementById(h.slice(1))"
+                ".getBoundingClientRect().top", second)
+            current = pg.eval_on_selector_all(
+                "#full-toc li.active > ul > li.active > a",
+                "els => els.map(e => e.getAttribute('href'))")
+            assert 50 <= top < 70, f"{page}: {second} landed at {top}px"
+            assert current == [second], f"{page}: {current} current, not {second}"
+        browser.close()
+
+
+@pytest.mark.ai_generated
 def test_top_menu_order(tmp_path):
     """Engage sat before Projects because the two pages shared
     `order: 3` and the menu sort is stable -- so the order was decided by
