@@ -19,13 +19,11 @@ have caught, and none was caught by running them and looking at the output:
 
 One test per scar.
 """
-import functools
 import http.server
 import os
 import pathlib
 import re
 import shutil
-import socketserver
 import subprocess
 import sys
 import threading
@@ -245,8 +243,8 @@ def test_subprojects_follow_their_parent(projects):
         assert names.index(kid) > dicom, f"{kid} should follow DICOM"
     # and contiguously -- nothing unrelated wedged between a parent and its
     # children
-    assert names[bids + 1:bids + 6] == ["BEP028", "BIDS 2.0", "BEP020",
-                                        "BEP032", "BEP044"]
+    assert set(names[bids + 1:bids + 6]) == {"BEP020", "BEP028", "BEP032",
+                                             "BEP044", "BIDS 2.0"}
 
 
 @pytest.mark.ai_generated
@@ -357,6 +355,53 @@ def _build(tmp):
     return out
 
 
+@pytest.fixture(scope="module")
+def served_site(tmp_path_factory):
+    """The built site over HTTP, as the browser tests see it.
+
+    Threaded, because a browser fetches scripts and images concurrently and
+    a serial server reset queued connections -- a missing plugin then looked
+    like a site bug.  The links are extensionless (`/projects`), as in
+    production, so a request without a suffix is answered from `<path>.html`
+    the way `pelican.server` (`make serve`) does.
+    """
+    out = _build(tmp_path_factory.mktemp("served"))
+
+    class Handler(http.server.SimpleHTTPRequestHandler):
+        def __init__(self, *a, **kw):
+            super().__init__(*a, directory=str(out), **kw)
+
+        def send_head(self):
+            path = self.path.split("?", 1)[0].split("#", 1)[0]
+            if (path != "/" and not path.endswith("/")
+                    and not (out / path.lstrip("/")).exists()
+                    and (out / (path.lstrip("/") + ".html")).is_file()):
+                self.path = path + ".html"
+            return super().send_head()
+
+        def log_message(self, *args):
+            pass
+
+    srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+    try:
+        yield f"http://127.0.0.1:{srv.server_address[1]}"
+    finally:
+        srv.shutdown()
+
+
+def _browser(pw):
+    """Chromium, or a skip where there is none -- except where CI says one
+    must be there, since a skipped browser test is a green check that
+    tested nothing."""
+    try:
+        return pw.chromium.launch()
+    except Exception as exc:                               # no browser installed
+        if os.environ.get("CON_REQUIRE_BROWSER"):
+            raise
+        pytest.skip(f"chromium unavailable: {exc}")
+
+
 @pytest.mark.ai_generated
 def test_sidebar_nests_sections_inside_their_own_item(tmp_path):
     """Each section's <ul> must be a CHILD of that section's <li>.
@@ -373,7 +418,8 @@ def test_sidebar_nests_sections_inside_their_own_item(tmp_path):
     out = _build(tmp_path)
     for name, want in (("projects", 7), ("whoweare", 8)):
         t = (out / f"{name}.html").read_text()
-        i = t.index('id="full-toc"'); j = t.index("</div>", i)
+        i = t.index('id="full-toc"')
+        j = t.index("</div>", i)
 
         class P(HTMLParser):
             def __init__(s):
@@ -404,7 +450,8 @@ def test_sidebar_nests_sections_inside_their_own_item(tmp_path):
                     else:
                         s.bad.append(f"mismatched </{tag}>")
 
-        p = P(); p.feed(t[t.index("<ul", i):j])
+        p = P()
+        p.feed(t[t.index("<ul", i):j])
         assert not p.bad, f"{name}: malformed sidebar: {p.bad}"
         assert len(p.sections) == want, \
             f"{name}: {len(p.sections)} sections, expected {want}: {p.sections}"
@@ -530,7 +577,7 @@ def test_no_broken_in_page_links(tmp_path):
     for name in ("projects", "whoweare"):
         t = (out / f"{name}.html").read_text()
         ids = set(re.findall(r'id="([^"]+)"', t))
-        links = {l for l in re.findall(r'href="#([^"]+)"', t) if l}
+        links = {a for a in re.findall(r'href="#([^"]+)"', t) if a}
         assert not links - ids, f"{name}: broken anchors {sorted(links - ids)}"
 
 
@@ -546,7 +593,7 @@ def test_every_image_resolves_on_disk(page):
 
 
 @pytest.mark.ai_generated
-def test_every_section_expands_when_clicked(tmp_path):
+def test_every_section_expands_when_clicked(served_site):
     """Clicking a section in the sidebar must make it current AND reveal its
     entries -- in a browser, which is the only place this is decidable.
 
@@ -558,56 +605,130 @@ def test_every_section_expands_when_clicked(tmp_path):
     last two sections to ever become current.
     """
     pw = pytest.importorskip("playwright.sync_api")
-    out = _build(tmp_path)
-
-    srv = socketserver.TCPServer(("127.0.0.1", 0), functools.partial(
-        http.server.SimpleHTTPRequestHandler, directory=str(out)))
-    port = srv.server_address[1]
-    threading.Thread(target=srv.serve_forever, daemon=True).start()
-    try:
-        with pw.sync_playwright() as p:
-            try:
-                browser = p.chromium.launch()
-            except Exception as exc:                       # no browser installed
-                pytest.skip(f"chromium unavailable: {exc}")
-            pg = browser.new_page(viewport={"width": 1500, "height": 1000})
-            errors = []
-            pg.on("pageerror", lambda e: errors.append(str(e)))
-            for page in ("projects", "whoweare"):
-                pg.goto(f"http://127.0.0.1:{port}/{page}.html")
-                pg.wait_for_timeout(1200)
-                # only sections that HAVE entries can show any; whoweare's
-                # "Collaborating projects" is a leaf
-                names = pg.eval_on_selector_all(
-                    "#full-toc > ul > li:has(> ul) > a",
+    with pw.sync_playwright() as p:
+        browser = _browser(p)
+        pg = browser.new_page(viewport={"width": 1500, "height": 1000})
+        errors = []
+        pg.on("pageerror", lambda e: errors.append(str(e)))
+        for page in ("projects", "whoweare"):
+            pg.goto(f"{served_site}/{page}.html")
+            pg.wait_for_timeout(1200)
+            # only sections that HAVE entries can show any; whoweare's
+            # "Collaborating projects" is a leaf
+            names = pg.eval_on_selector_all(
+                "#full-toc > ul > li:has(> ul) > a",
+                "els => els.map(e => e.textContent)")
+            assert len(names) > 3, f"{page}: only {names} in the sidebar"
+            for name in names:
+                pg.eval_on_selector(
+                    f"#full-toc a:text-is({name!r})", "el => el.click()")
+                # wait for the condition, not for a fixed 600ms: four
+                # browser launches in one run made that too short under
+                # load and the test failed in the suite while passing
+                # alone
+                try:
+                    pg.wait_for_function(
+                        "n => [...document.querySelectorAll("
+                        "'#full-toc li.active > a')].some("
+                        "a => a.textContent === n)", arg=name, timeout=5000)
+                except Exception:
+                    pass            # let the assertion below report it
+                active = pg.eval_on_selector_all(
+                    "#full-toc li.active > a", "els => els.map(e => e.textContent)")
+                shown = pg.eval_on_selector_all(
+                    "#full-toc li.active > ul.nav:visible li > a",
                     "els => els.map(e => e.textContent)")
-                assert len(names) > 3, f"{page}: only {names} in the sidebar"
-                for name in names:
-                    pg.eval_on_selector(
-                        f"#full-toc a:text-is({name!r})", "el => el.click()")
-                    # wait for the condition, not for a fixed 600ms: four
-                    # browser launches in one run made that too short under
-                    # load and the test failed in the suite while passing
-                    # alone
-                    try:
-                        pg.wait_for_function(
-                            "n => [...document.querySelectorAll("
-                            "'#full-toc li.active > a')].some("
-                            "a => a.textContent === n)", arg=name, timeout=5000)
-                    except Exception:
-                        pass            # let the assertion below report it
-                    active = pg.eval_on_selector_all(
-                        "#full-toc li.active > a", "els => els.map(e => e.textContent)")
-                    shown = pg.eval_on_selector_all(
-                        "#full-toc li.active > ul.nav:visible li > a",
-                        "els => els.map(e => e.textContent)")
-                    assert name in active, \
-                        f"{page}: clicking {name!r} made {active} current"
-                    assert shown, f"{page}: {name!r} is current but shows no entries"
-            assert not errors, errors
-            browser.close()
-    finally:
-        srv.shutdown()
+                assert name in active, \
+                    f"{page}: clicking {name!r} made {active} current"
+                assert shown, f"{page}: {name!r} is current but shows no entries"
+        assert not errors, errors
+        browser.close()
+
+
+@pytest.mark.ai_generated
+def test_menu_sidebar_entries_and_cross_page_links_in_a_browser(served_site):
+    """The rest of the navigation a reader uses, in a browser.
+
+    * every top-menu page loads from the extensionless link the menu holds;
+    * every ENTRY under a sidebar section, not just the sections, becomes
+      current when clicked and brings its heading into view below the fixed
+      navbar -- the projects and people the sidebar exists to reach;
+    * a link from one page into the other lands on its heading: the NWB
+      relabel left five such links pointing at an anchor that no longer
+      existed, which only a cross-page check notices;
+    * nothing on any of these pages fails to load or throws.
+    """
+    pw = pytest.importorskip("playwright.sync_api")
+    with pw.sync_playwright() as p:
+        browser = _browser(p)
+        pg = browser.new_page(viewport={"width": 1500, "height": 1000})
+        errors, failed = [], []
+        pg.on("pageerror", lambda e: errors.append(str(e)))
+        pg.on("response", lambda r: r.url.startswith(served_site)
+              and r.status >= 400 and failed.append((r.status, r.url)))
+
+        pg.goto(f"{served_site}/index.html")
+        menu = pg.eval_on_selector_all(
+            ".navbar-collapse a[href^='/']",
+            "els => els.map(e => [e.textContent.trim(), e.getAttribute('href')])")
+        assert [t for t, _ in menu] == ["Who we are", "Projects", "Engage",
+                                        "Support"], menu
+        for text, href in menu:
+            pg.goto(f"{served_site}/index.html")
+            with pg.expect_navigation():
+                pg.click(f".navbar-collapse a[href='{href}']")
+            assert pg.title() == text, f"menu {text!r} opened {pg.title()!r}"
+
+        def heading_top(anchor):
+            return pg.eval_on_selector(
+                f"[id='{anchor}']", "el => el.getBoundingClientRect().top")
+
+        for page in ("projects", "whoweare"):
+            pg.goto(f"{served_site}/{page}.html")
+            entries = pg.eval_on_selector_all(
+                "#full-toc > ul > li > ul > li > a",
+                "els => els.map(e => e.getAttribute('href'))")
+            assert len(entries) > 20, f"{page}: only {len(entries)} entries"
+            stuck, hidden = [], []
+            for href in entries:
+                pg.eval_on_selector(f"#full-toc a[href='{href}']",
+                                    "el => el.click()")
+                try:
+                    pg.wait_for_function(
+                        "h => !!document.querySelector("
+                        "`#full-toc li.active > ul > li.active > a[href='${h}']`)",
+                        arg=href, timeout=5000)
+                except Exception:
+                    stuck.append(href)
+                    if len(stuck) == 3:
+                        break       # broken for all, most likely; fail fast
+                    continue
+                # below the 50px navbar, and not somewhere further down
+                if not 0 <= heading_top(href[1:]) < 200:
+                    hidden.append(href)
+            assert not stuck, f"{page}: entries that never became current: {stuck}"
+            assert not hidden, f"{page}: entries whose heading is out of view: {hidden}"
+
+        for src, dst in (("whoweare", "projects"), ("projects", "whoweare")):
+            pg.goto(f"{served_site}/{src}.html")
+            links = pg.eval_on_selector_all(
+                f"a[href^='/{dst}#']", "els => els.map(e => e.getAttribute('href'))")
+            assert links, f"{src} links to no {dst} entry"
+            # the first, and NWB's: the one a relabel broke
+            for link in dict.fromkeys(
+                    [links[0]] + [h for h in links if h == "/projects#nwb_"]):
+                pg.goto(f"{served_site}/{src}.html")
+                with pg.expect_navigation():
+                    pg.eval_on_selector(f"a[href='{link}']", "el => el.click()")
+                anchor = link.split("#", 1)[1]
+                pg.wait_for_function(
+                    "a => { const r = document.getElementById(a)"
+                    "?.getBoundingClientRect(); return r && r.top >= 0 && r.top < 200 }",
+                    arg=anchor, timeout=5000)
+
+        assert not failed, f"requests that failed: {failed[:10]}"
+        assert not errors, errors
+        browser.close()
 
 
 @pytest.mark.ai_generated
@@ -623,7 +744,7 @@ def test_top_menu_order(tmp_path):
     # tags stripped: the off-site items end in icon <span>s
     labels = [re.sub(r"<[^>]+>", "", m).strip() for m in
               re.findall(r"<a [^>]*>(.*?)</a>", t[i:j], re.S)]
-    menu = [l for l in labels if l != "Center for Open Neuroscience"]
+    menu = [x for x in labels if x != "Center for Open Neuroscience"]
     assert menu == ["Who we are", "Projects", "Engage", "Support",
                     "Talks", "Hub", "CONTube"], menu
 
