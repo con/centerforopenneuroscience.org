@@ -679,35 +679,43 @@ def test_menu_sidebar_entries_and_cross_page_links_in_a_browser(served_site):
                 pg.click(f".navbar-collapse a[href='{href}']")
             assert pg.title() == text, f"menu {text!r} opened {pg.title()!r}"
 
-        def heading_top(anchor):
-            return pg.eval_on_selector(
-                f"[id='{anchor}']", "el => el.getBoundingClientRect().top")
-
         for page in ("projects", "whoweare"):
             pg.goto(f"{served_site}/{page}.html")
             entries = pg.eval_on_selector_all(
                 "#full-toc > ul > li > ul > li > a",
                 "els => els.map(e => e.getAttribute('href'))")
             assert len(entries) > 20, f"{page}: only {len(entries)} entries"
-            stuck, hidden = [], []
+            # Wait for the END STATE -- current, and its heading below the
+            # 50px navbar rather than further down -- not for `.active`
+            # alone: the previous click's scroll can leave this entry active
+            # already, and sampling then measured the heading before this
+            # click's jump and the theme's navbar correction had run.
+            settled = (
+                "h => { const a = document.querySelector("
+                "`#full-toc li.active > ul > li.active > a[href='${h}']`);"
+                " const r = document.getElementById(h.slice(1))"
+                "?.getBoundingClientRect();"
+                " return !!a && !!r && r.top >= 0 && r.top < 200 }")
+            failed_entries = []
             for href in entries:
                 pg.eval_on_selector(f"#full-toc a[href='{href}']",
                                     "el => el.click()")
                 try:
-                    pg.wait_for_function(
-                        "h => !!document.querySelector("
-                        "`#full-toc li.active > ul > li.active > a[href='${h}']`)",
-                        arg=href, timeout=5000)
+                    pg.wait_for_function(settled, arg=href, timeout=5000)
                 except Exception:
-                    stuck.append(href)
-                    if len(stuck) == 3:
+                    state = pg.evaluate(
+                        "h => [!!document.querySelector("
+                        "`#full-toc li.active > ul > li.active > a[href='${h}']`),"
+                        " document.getElementById(h.slice(1))"
+                        "?.getBoundingClientRect().top]", href)
+                    failed_entries.append(
+                        (href, "current" if state[0] else "not current",
+                         f"heading at {state[1]}px"))
+                    if len(failed_entries) == 3:
                         break       # broken for all, most likely; fail fast
-                    continue
-                # below the 50px navbar, and not somewhere further down
-                if not 0 <= heading_top(href[1:]) < 200:
-                    hidden.append(href)
-            assert not stuck, f"{page}: entries that never became current: {stuck}"
-            assert not hidden, f"{page}: entries whose heading is out of view: {hidden}"
+            assert not failed_entries, (
+                f"{page}: entries that did not become current with their "
+                f"heading in view: {failed_entries}")
 
         for src, dst in (("whoweare", "projects"), ("projects", "whoweare")):
             pg.goto(f"{served_site}/{src}.html")
