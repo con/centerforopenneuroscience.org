@@ -44,10 +44,21 @@ jobs:
 
       - name: Check links
         run: |
+          # A pull request checks the site it builds: every internal link,
+          # anchor and asset.  External sites are checked by the weekly run,
+          # so that one host timing out or blocking robots
+          # does not fail an unrelated change -- on 2026-11-01 juser.fz-juelich.de,
+          # nitrc.org and sylabs.io failed master and PRs alike.  The
+          # approach is from con/centerforopenneuroscience.org#94.
+          args=()
+          if [ "${{ github.event_name }}" != pull_request ]; then
+            args+=(--check-extern)
+          fi
           # some sites forbid robots to access them
-          linkchecker --check-extern -f .linkcheckerrc -t 1 \
+          linkchecker "${args[@]}" -f .linkcheckerrc -t 1 \
             http://localhost:8000
 
       - name: Stop Website Server
+        if: always()
         run: |
           kill $(cat server.pid)
