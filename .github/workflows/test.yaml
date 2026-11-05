@@ -1,0 +1,73 @@
+name: Test
+
+# Builds the site from the pinned con-site-specific store and checks it the
+# way a reader would meet it:
+#   - the committed pages are what that store renders (`tox -e projection`),
+#     so a store bump without `make run-project` fails here, not in production;
+#   - the generators' tests, including the browser tests that click through
+#     the top menu, every sidebar section and entry, and the cross-page links;
+#   - lint.
+# Runs on every pull request, including from forks: it needs no secrets and
+# deploys nothing (gh-pages-preview.yaml does that).
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code with the record store
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install requirements and fetch annexed content
+        run: |
+          # to please git/git-annex
+          git config --global user.email "CI@example.com"
+          git config --global user.name "CI almighty"
+          git config --global annex.retry 5
+          pip install git-annex tox
+          # theme images: the pages reference them, and the projection check
+          # compares them with the store's
+          git remote add --fetch datasets.datalad.org \
+              http://datasets.datalad.org/centerforopenneuroscience/con.org/.git/
+          git annex get theme/static
+          # the store's logos and portraits, from its public DataLad Hub
+          # sibling; no credential is needed to read them
+          store=sourcedata/con-site-specific
+          git -C $store fetch origin git-annex:refs/remotes/origin/git-annex
+          git -C $store annex init
+          git -C $store annex enableremote hub-storage
+          git -C $store annex get content
+
+      - name: Pages match the pinned store
+        run: tox -e projection
+
+      - name: Validate content HTML (XML well-formedness)
+        run: tox -e html
+
+      - name: Lint
+        run: tox -e lint
+
+      - name: Test generators and navigation (Chromium)
+        env:
+          CON_REQUIRE_BROWSER: 1
+        run: |
+          tox -e py3 --notest
+          .tox/py3/bin/python -m playwright install --with-deps chromium
+          tox -e py3 -- -rs tests/

@@ -306,7 +306,7 @@ def render():
             links = contact_links(d)
             if links:
                 out.append('\t\t<div class="col-md-5 col-sm-5 contact">')
-                out.extend(f'\t\t  {l}' for l in links)
+                out.extend(f'\t\t  {link}' for link in links)
                 out.append('\t\t</div>')
             # 25 of 33 descriptions link to projects, handbooks and papers.
             # The plain-text `description` drops those, so the marked-up form
