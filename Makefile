@@ -40,6 +40,8 @@ PROJECTION_INPUTS=-i $(STORE)/metadata/records -i $(STORE)/content \
 PROJECTION_OUTPUTS=-o content/pages/whoweare.html \
                    -o content/pages/projects.html \
                    -o theme/templates/includes/objectives.html \
+                   -o content/pages/objectives.html \
+                   -o content/pages/support.html \
                    -o theme/static/img/projects \
                    -o theme/static/img/instruments \
                    -o theme/static/img/organizations -o theme/static/img/team
@@ -94,6 +96,8 @@ project:
 	$(PY) scripts/render_whoweare.py --out content/pages/whoweare.html
 	$(PY) scripts/render_projects.py --out content/pages/projects.html
 	$(PY) scripts/render_objectives.py --out theme/templates/includes/objectives.html
+	$(PY) scripts/render_objectives.py --page --out content/pages/objectives.html
+	$(PY) scripts/render_support.py --out content/pages/support.html
 
 # The same, with provenance: one commit carrying the command, the store it
 # read and the files it wrote, which `datalad rerun` can replay.

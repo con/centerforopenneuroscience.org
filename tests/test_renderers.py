@@ -77,13 +77,15 @@ def store_copy(tmp_path):
 # --- well-formedness ------------------------------------------------------
 
 @pytest.mark.ai_generated
-@pytest.mark.parametrize("page", ["render_whoweare.py", "render_projects.py",
-                                  "render_objectives.py"])
+@pytest.mark.parametrize("page", [["render_whoweare.py"], ["render_projects.py"],
+                                  ["render_objectives.py"],
+                                  ["render_objectives.py", "--page"],
+                                  ["render_support.py"]])
 def test_output_is_well_formed_xml(page):
     """The ToC extension parses with strict ElementTree and, on a parse
     error, returns the page UNCHANGED -- so one malformed tag silently drops
     every anchor while the build still succeeds."""
-    out = run(page).stdout
+    out = run(*page).stdout
     ET.fromstring("<root>" + out + "</root>")
 
 
@@ -911,7 +913,7 @@ def test_objective_paragraphs_take_the_principles_layout():
     links rather than brackets on the page."""
     out = run("render_objectives.py").stdout
     cell = out[out.index("Understand brain function"):]
-    assert re.search(r"<p>Develop and test better ways.*?</p>\s*<p class=\"pitch\">Films",
+    assert re.search(r"<p>We are developing ways.*?</p>\s*<p class=\"pitch\">Films",
                      cell, re.S)
     assert '<a href="https://www.psychoinformatics.de/objectives/' in cell
     assert "](http" not in out
@@ -930,3 +932,39 @@ def test_front_page_carries_the_objectives(tmp_path):
     page = (_build(tmp_path) / "index.html").read_text()
     assert page.index("<h1>Our principles</h1>") < page.index("<h1>Objectives</h1>") \
         < page.index("Preserve research artifacts") < page.index("View our projects")
+
+
+@pytest.mark.ai_generated
+def test_objectives_page_lists_the_projects_of_each():
+    """Each objective is a heading, and a project appears under every
+    objective its record names -- DataLad under both of its own."""
+    out = run("render_objectives.py", "--page").stdout
+    heads = re.findall(r"<h2>(.*?)</h2>", out)
+    assert len(heads) == 7
+    sections = dict(zip(heads, re.split(r"<h2>.*?</h2>", out)[1:]))
+    datalad = '<span>DataLad</span>'
+    assert datalad in sections["Build tools for reproducible, shareable science"]
+    assert datalad in sections["Preserve research artifacts"]
+    assert datalad not in sections["Connect tools, standards, and communities"]
+
+
+@pytest.mark.ai_generated
+def test_support_lists_every_grant_under_its_funder():
+    out = run("render_support.py").stdout
+    grants = list((STORE / "metadata/records/XYZGrant").glob("*.yaml"))
+    assert out.count('<span class="grant-title">') == len(grants)
+    nsf = out[out.index("nsf-logo"):]
+    assert "showAward?AWD_ID=1429999" in nsf
+    assert "reporter.nih.gov/project-details/8999833" in out
+    # the CCN block is section copy, not a record, and must survive
+    assert "ccn-logo" in out
+
+
+@pytest.mark.ai_generated
+def test_a_grant_without_a_known_funder_is_reported_not_silent(store_copy):
+    f = store_copy / "metadata/records/XYZGrant/nsf-1429999.yaml"
+    d = yaml.safe_load(f.read_text())
+    d["attributed_to"][0]["object"] = "ror:000000000"
+    f.write_text(yaml.safe_dump(d))
+    p = run("render_support.py", store=store_copy, expect=2)
+    assert "nsf-1429999" in p.stderr

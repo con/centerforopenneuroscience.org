@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
-"""Render the front page's objectives from con-site-specific's records.
+"""Render the objectives from con-site-specific's records.
 
-The front page is a theme template, not a page under content/pages/, so this
-writes an include for theme/templates/index.html to pull in.  It holds the
-same itembox rows as "Our principles" beside it: a description's first
-paragraph says what the objective is and takes the plain <p>, the paragraphs
-after it say what we do about it and take <p class="pitch">.
+Two outputs.  By default, the front page's cards.  The front page is a theme
+template, not a page under content/pages/, so this writes an include for
+theme/templates/index.html to pull in.  It holds the same itembox rows as
+"Our principles" above it: a description's first paragraph (what we do)
+takes the plain <p>, the paragraphs after it (the problem it addresses) take
+<p class="pitch">.
 
 Which objectives, and in which order, is the site root's `influenced_by` --
 the same list, with the same filter, as the store's own homepage template.
+
+With --page, content/pages/objectives.html: each objective in full, followed
+by the projects that name it in their own `influenced_by`, linked the way
+whoweare links them -- to the project's entry on the projects page when it
+has one, to its own site otherwise.
 """
 import argparse
 import html
@@ -16,6 +22,8 @@ import re
 import sys
 
 from conrecords import RECORDS, load_yaml, write_page
+from render_projects import logo_for
+from render_whoweare import page_anchors
 
 COLUMNS = 3
 PREFIX = "xyzrins:objectives/"
@@ -76,12 +84,69 @@ def render():
     return "\n".join(out) + "\n", skipped
 
 
+def projects_by_objective():
+    """objective pid -> [(label, href or None, logo or None), ...]."""
+    anchors, out = page_anchors(), {}
+    for f in sorted((RECORDS / "XYZProject").glob("*.yaml")):
+        d = load_yaml(f)
+        if d["pid"] == "xyzrins:.":
+            continue
+        label = d.get("short_name") or d.get("display_label") or d.get("title") or f.stem
+        href = anchors.get(d["pid"]) or next(
+            (a["value"] for a in d.get("attributes") or []
+             if a.get("predicate") == "foaf:homepage"), None)
+        for inf in d.get("influenced_by") or []:
+            if inf["object"].startswith(PREFIX) and not inf.get("ended"):
+                out.setdefault(inf["object"], []).append((label, href, logo_for(f.stem)))
+    return {k: sorted(v, key=lambda r: r[0].lower()) for k, v in out.items()}
+
+
+def render_page():
+    rows, skipped = objectives()
+    projects = projects_by_objective()
+    out = ['<html>', '', '<head>', '\t<title>Objectives</title>',
+           '\t<meta name="url" content="objectives" />',
+           '\t<meta name="save_as" content="objectives.html" />',
+           # the menu has no room for an eighth item; the front page links here
+           '\t<meta name="show_in_top_menu" content="false" />',
+           # the menu sorts every page by it, shown or not
+           '\t<meta name="order" content="9" />',
+           '\t<meta name="show_as_selected" content="objectives" />',
+           '\t<meta name="table_of_contents" content="true" />',
+           '\t<meta name="description" content="What the center works toward, '
+           'and the projects behind each objective" />',
+           '\t<meta name="author" content="CON" />',
+           '\t<!-- GENERATED from con-site-specific by scripts/render_objectives.py (page mode)',
+           '\t     Edit the records, not this file. -->',
+           '</head>', '', '<body>', '  <section>', '  <div id="objectives">']
+    for d in rows:
+        first, *rest = d["description"].strip().split("\n\n")
+        out += [f'\t<h2>{html.escape(d["title"])}</h2>',
+                f'\t<p>{inline(first)}</p>']
+        out += [f'\t<p class="pitch">{inline(p)}</p>' for p in rest]
+        mine = projects.get(d["pid"]) or []
+        if not mine:
+            continue
+        out.append('\t<ul class="objective-projects">')
+        for label, href, logo in mine:
+            img = f'<img src="{html.escape(logo)}" alt="" />' if logo else ''
+            name = f'{img}<span>{html.escape(label)}</span>'
+            if href:
+                name = f'<a href="{html.escape(href)}">{name}</a>'
+            out.append(f'\t  <li>{name}</li>')
+        out.append('\t</ul>')
+    out += ['  </div>', '  </section>', '</body>', '', '</html>']
+    return "\n".join(out) + "\n", skipped
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--out")
+    ap.add_argument("--page", action="store_true",
+                    help="render the objectives page instead of the front page's cards")
     a = ap.parse_args()
-    markup, skipped = render()
+    markup, skipped = (render_page if a.page else render)()
     for pid, why in skipped:
         print(f"SKIPPED {pid}: {why}", file=sys.stderr)
     return write_page(markup, a.out, skipped)
