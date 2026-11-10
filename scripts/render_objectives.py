@@ -21,7 +21,7 @@ import html
 import re
 import sys
 
-from conrecords import RECORDS, load_yaml, write_page
+from conrecords import RECORDS, load_yaml, toc_hook, write_page
 from render_projects import logo_for
 from render_whoweare import page_anchors
 
@@ -60,7 +60,9 @@ def cell(d, offset):
     first, *rest = d["description"].strip().split("\n\n")
     out = [f'\t  <div class="col-md-4 col-sm-4{offset}">',
            '\t\t<div class="itembox-heading">',
-           f'\t\t  <span>{html.escape(d["title"])}</span>',
+           # the heading leads to the objective's section on the objectives page
+           f'\t\t  <a href="/objectives#{toc_hook(d["title"])}">'
+           f'<span>{html.escape(d["title"])}</span></a>',
            '\t\t</div>',
            f'\t\t<p>{inline(first)}</p>']
     out += [f'\t\t<p class="pitch">{inline(p)}</p>' for p in rest]
@@ -84,20 +86,47 @@ def render():
     return "\n".join(out) + "\n", skipped
 
 
+def grant_pages():
+    """grant pid -> its page, for the grants that have one."""
+    out = {}
+    for f in sorted((RECORDS / "XYZGrant").glob("*.yaml")):
+        d = load_yaml(f)
+        page = homepage(d)
+        if page:
+            out[d["pid"]] = page
+    return out
+
+
+def homepage(d):
+    return next((a["value"] for a in d.get("attributes") or []
+                 if a.get("predicate") == "foaf:homepage"), None)
+
+
 def projects_by_objective():
-    """objective pid -> [(label, href or None, logo or None), ...]."""
-    anchors, out = page_anchors(), {}
+    """objective pid -> [(label, href or None, logo or None, note), ...].
+
+    A project with neither an entry on the projects page nor a site of its
+    own -- a collaboration where CON's part is advice and infrastructure
+    support, not a product -- links to the page of the grant funding it, and
+    its description becomes the tile's tooltip.
+    """
+    anchors, grants, out = page_anchors(), grant_pages(), {}
     for f in sorted((RECORDS / "XYZProject").glob("*.yaml")):
         d = load_yaml(f)
         if d["pid"] == "xyzrins:.":
             continue
         label = d.get("short_name") or d.get("display_label") or d.get("title") or f.stem
-        href = anchors.get(d["pid"]) or next(
-            (a["value"] for a in d.get("attributes") or []
-             if a.get("predicate") == "foaf:homepage"), None)
+        href = anchors.get(d["pid"]) or homepage(d)
+        note = None
+        if not href:
+            href = next((grants[i["object"]] for i in d.get("influenced_by") or []
+                         if "FRAPO:Funding" in (i.get("roles") or [])
+                         and i["object"] in grants), None)
+            note = " ".join((d.get("description") or "").split()) or None
         for inf in d.get("influenced_by") or []:
             if inf["object"].startswith(PREFIX) and not inf.get("ended"):
-                out.setdefault(inf["object"], []).append((label, href, logo_for(f.stem)))
+                out.setdefault(inf["object"], []).append(
+                    (label, href, logo_for(f.stem), note))
     return {k: sorted(v, key=lambda r: r[0].lower()) for k, v in out.items()}
 
 
@@ -128,11 +157,12 @@ def render_page():
         if not mine:
             continue
         out.append('\t<ul class="objective-projects">')
-        for label, href, logo in mine:
+        for label, href, logo, note in mine:
             img = f'<img src="{html.escape(logo)}" alt="" />' if logo else ''
             name = f'{img}<span>{html.escape(label)}</span>'
             if href:
-                name = f'<a href="{html.escape(href)}">{name}</a>'
+                tip = f' title="{html.escape(note)}"' if note else ''
+                name = f'<a href="{html.escape(href)}"{tip}>{name}</a>'
             out.append(f'\t  <li>{name}</li>')
         out.append('\t</ul>')
     out += ['  </div>', '  </section>', '</body>', '', '</html>']

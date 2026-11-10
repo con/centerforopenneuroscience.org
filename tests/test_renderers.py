@@ -41,6 +41,7 @@ STORE = HERE / "sourcedata/con-site-specific"
 sys.path.insert(0, str(SCRIPTS))
 
 import render_projects  # noqa: E402 -- needs SCRIPTS on sys.path
+from conrecords import toc_hook  # noqa: E402
 
 
 def run(script, *args, store=None, expect=0):
@@ -949,15 +950,43 @@ def test_objectives_page_lists_the_projects_of_each():
 
 
 @pytest.mark.ai_generated
+def test_front_page_objectives_lead_to_their_section():
+    """Each card's heading links to the hook the ToC extension will give
+    that objective's heading on the objectives page."""
+    cards = run("render_objectives.py").stdout
+    page = run("render_objectives.py", "--page").stdout
+    hooks = {toc_hook(html.unescape(h)) for h in re.findall(r"<h2>(.*?)</h2>", page)}
+    links = re.findall(r'href="/objectives#([^"]+)"', cards)
+    assert len(links) == 7
+    assert set(links) == hooks
+
+
+@pytest.mark.ai_generated
+def test_a_project_without_a_page_links_to_its_grant():
+    """HRF models has no projects-page entry and no site of its own; its
+    tile leads to the grant funding it, with its description as tooltip."""
+    out = run("render_objectives.py", "--page").stdout
+    tile = re.search(r'<li><a href="([^"]+)" title="([^"]+)"><span>HRF models</span>', out)
+    assert tile
+    assert tile.group(1) == "https://reporter.nih.gov/project-details/10585582"
+    assert "advisory" in tile.group(2)
+
+
+@pytest.mark.ai_generated
 def test_support_lists_every_grant_under_its_funder():
     out = run("render_support.py").stdout
     grants = list((STORE / "metadata/records/XYZGrant").glob("*.yaml"))
-    assert out.count('<span class="grant-title">') == len(grants)
+    # one per grant, and CCN's hosting in the same markup
+    assert out.count('<span class="grant-title">') == len(grants) + 1
     nsf = out[out.index("nsf-logo"):]
     assert "showAward?AWD_ID=1429999" in nsf
     assert "reporter.nih.gov/project-details/8999833" in out
     # the CCN block is section copy, not a record, and must survive
     assert "ccn-logo" in out
+    # every funder heading names the funder, logo or not
+    heads = re.findall(r'<h2>.*?</h2>', out)
+    assert all("<span>" in h and ("<img" in h or "no-logo" in h) for h in heads)
+    assert any("National Institutes of Health" in h for h in heads)
 
 
 @pytest.mark.ai_generated

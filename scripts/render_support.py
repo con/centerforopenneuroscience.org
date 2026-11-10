@@ -7,7 +7,8 @@ period and the projects it funds (the projects' `influenced_by` with the
 `FRAPO:Funding` role), so each funder now gets the list of its grants.
 
 The Center for Cognitive Neuroscience is institutional support, not a grant,
-and has no record; its block is section copy in content/section-intros.yaml.
+and has no record; its block, in the same markup as a funder's, is section
+copy in content/section-intros.yaml.
 """
 import argparse
 import html
@@ -92,8 +93,10 @@ def render():
         d = funders[pid]
         name = d.get("name") or d.get("display_label")
         logo = LOGOS.get(pid)
-        head = (f'<img src="{logo}" alt="{html.escape(name)}" />' if logo
-                else html.escape(d.get("display_label") or name))
+        # every funder's heading is the same: a logo of one height, then the name
+        head = ((f'<img src="{logo}" alt="" />' if logo
+                 else '<span class="no-logo"></span>')
+                + f'<span>{html.escape(name)}</span>')
         out += ['\t<div class="funder">',
                 f'\t  <h2>{link_html(head, one(d, "foaf:homepage"))}</h2>',
                 '\t  <ul class="grants">']
