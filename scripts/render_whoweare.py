@@ -119,6 +119,27 @@ def page_anchors():
             for r in render_projects.load()[0]}
 
 
+# A bio links to another record by its pid, href="xyzrins:projects/datalad",
+# so that neither site's URL scheme is written into the text.
+PID_LINK = re.compile(r'href="(xyzrins:[^"]*)"')
+
+
+def pid_links():
+    """record pid -> where a bio's `xyzrins:` link lands on this site.
+
+    A project with an entry on the projects page lands on it, like every other
+    project link here; anything else on its own homepage.  The store checks
+    that each pid exists, but not that it has somewhere to land.
+    """
+    out = {}
+    for f in sorted(RECORDS.glob("*/*.yaml")):
+        d = yaml.safe_load(f.read_text())
+        if one(d, "foaf:homepage"):
+            out[d["pid"]] = one(d, "foaf:homepage")
+    out.update(page_anchors())
+    return out
+
+
 def related_projects():
     """person pid -> [(label, href, [role labels]), ...].
 
@@ -247,6 +268,7 @@ def contact_links(d):
 def render():
     people, dates = load_people(), joined()
     leads, related = led_organizations(), related_projects()
+    targets = pid_links()
     rows, skipped = [], []
     # the order render() actually used, for --show-order
     order = []
@@ -312,6 +334,13 @@ def render():
             # The plain-text `description` drops those, so the marked-up form
             # is preferred and only falls back when there is none.
             rich = one(d, "dlthings:description_html")
+            if rich:
+                for target in PID_LINK.findall(rich):
+                    if target not in targets:
+                        sys.exit(f"{r['slug']}: description_html links to "
+                                 f"{target}, which has no page entry or homepage")
+                rich = PID_LINK.sub(
+                    lambda m: f'href="{html.escape(targets[m.group(1)])}"', rich)
             desc = rich or d.get("description")
             if desc:
                 out.append('\t\t<div class="col-md-9 col-sm-9 description">')
