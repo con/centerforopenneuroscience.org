@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Check that the committed pages are what the pinned record store renders.
 
-whoweare.html and projects.html are generated from sourcedata/con-site-specific
-(`make run-project`), and the theme holds copies of the store's logos and
-portraits.  Advancing the store without re-running the projection leaves the
-site describing an older store, with nothing to notice it.  This renders both
-pages into a temporary directory, compares them byte for byte with the
-committed ones, and asks sync_assets_to_theme.py, in its dry-run mode, whether
+whoweare.html, projects.html and the front page's objectives are generated
+from sourcedata/con-site-specific (`make run-project`), and the theme holds
+copies of the store's logos and portraits.  Advancing the store without
+re-running the projection leaves the site describing an older store, with
+nothing to notice it.  This renders all three into a temporary directory,
+compares them byte for byte with the committed ones, and asks sync_assets_to_theme.py, in its dry-run mode, whether
 any asset would be copied or removed.  It writes nothing.
 
 It needs the store's annexed media present, to compare asset sizes.
@@ -25,7 +25,9 @@ HERE = pathlib.Path(__file__).resolve().parent.parent
 SCRIPTS = HERE / "scripts"
 STORE = pathlib.Path(os.environ.get("CON_RECORD_STORE",
                                     HERE / "sourcedata/con-site-specific"))
-PAGES = ("whoweare", "projects")
+PAGES = {"whoweare": "content/pages/whoweare.html",
+         "projects": "content/pages/projects.html",
+         "objectives": "theme/templates/includes/objectives.html"}
 
 
 def run(script, *args):
@@ -49,10 +51,10 @@ def main():
                         + "\n  ".join(sync))
 
     with tempfile.TemporaryDirectory() as tmp:
-        for page in PAGES:
+        for page, path in PAGES.items():
             out = pathlib.Path(tmp) / f"{page}.html"
             run(f"render_{page}.py", "--out", str(out))
-            committed = HERE / "content/pages" / f"{page}.html"
+            committed = HERE / path
             want, have = out.read_text(), committed.read_text()
             if want != have:
                 diff = difflib.unified_diff(

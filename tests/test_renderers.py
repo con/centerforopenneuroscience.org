@@ -19,6 +19,7 @@ have caught, and none was caught by running them and looking at the output:
 
 One test per scar.
 """
+import html
 import http.server
 import os
 import pathlib
@@ -76,7 +77,8 @@ def store_copy(tmp_path):
 # --- well-formedness ------------------------------------------------------
 
 @pytest.mark.ai_generated
-@pytest.mark.parametrize("page", ["render_whoweare.py", "render_projects.py"])
+@pytest.mark.parametrize("page", ["render_whoweare.py", "render_projects.py",
+                                  "render_objectives.py"])
 def test_output_is_well_formed_xml(page):
     """The ToC extension parses with strict ElementTree and, on a parse
     error, returns the page UNCHANGED -- so one malformed tag silently drops
@@ -860,3 +862,71 @@ def test_no_role_renders_as_a_bare_pid(whoweare):
         for item in re.findall(r"<li>(.*?)</li>", body, re.S):
             text = re.sub(r"<[^>]+>", "", item)
             assert not re.search(r"\b(marcrel|obo|xyzrins):", text), text.strip()
+
+
+# --- the front page's objectives ------------------------------------------
+
+def _site_root(store):
+    return store / "metadata/records/XYZProject/site-root.yaml"
+
+
+@pytest.mark.ai_generated
+def test_objectives_follow_the_site_root():
+    """Every current objective of the site root, in the record's order."""
+    root = yaml.safe_load(_site_root(STORE).read_text())
+    titles = {}
+    for f in (STORE / "metadata/records/XYZObjective").glob("*.yaml"):
+        d = yaml.safe_load(f.read_text())
+        titles[d["pid"]] = d["title"]
+    want = [html.escape(titles[i["object"]]) for i in root["influenced_by"]
+            if i["object"].startswith("xyzrins:objectives/") and not i.get("ended")]
+    out = run("render_objectives.py").stdout
+    assert re.findall(r"<span>(.*?)</span>", out) == want
+
+
+@pytest.mark.ai_generated
+def test_an_ended_objective_is_left_out(store_copy):
+    f = _site_root(store_copy)
+    d = yaml.safe_load(f.read_text())
+    gone = d["influenced_by"][0]
+    gone["ended"] = {"at_time": "2026-01-01", "schema_type": "dlthings:End"}
+    f.write_text(yaml.safe_dump(d))
+    out = run("render_objectives.py", store=store_copy).stdout
+    assert "Promote open science" not in out
+
+
+@pytest.mark.ai_generated
+def test_a_missing_objective_is_reported_not_silent(store_copy):
+    f = _site_root(store_copy)
+    d = yaml.safe_load(f.read_text())
+    d["influenced_by"][0]["object"] = "xyzrins:objectives/no-such-thing"
+    f.write_text(yaml.safe_dump(d))
+    p = run("render_objectives.py", store=store_copy, expect=2)
+    assert "no-such-thing" in p.stderr
+
+
+@pytest.mark.ai_generated
+def test_objective_paragraphs_take_the_principles_layout():
+    """First paragraph plain, the rest as the pitch; Markdown links become
+    links rather than brackets on the page."""
+    out = run("render_objectives.py").stdout
+    cell = out[out.index("Understand brain function"):]
+    assert re.search(r"<p>Develop and test better ways.*?</p>\s*<p class=\"pitch\">Films",
+                     cell, re.S)
+    assert '<a href="https://www.psychoinformatics.de/objectives/' in cell
+    assert "](http" not in out
+
+
+@pytest.mark.ai_generated
+def test_a_short_last_row_is_centred():
+    """Seven objectives leave one in the last row of three."""
+    rows = run("render_objectives.py").stdout.split('<div class="row">')[1:]
+    assert "col-md-offset-4" in rows[-1]
+    assert not any("offset" in r for r in rows[:-1])
+
+
+@pytest.mark.ai_generated
+def test_front_page_carries_the_objectives(tmp_path):
+    page = (_build(tmp_path) / "index.html").read_text()
+    assert page.index("<h1>Our principles</h1>") < page.index("<h1>Objectives</h1>") \
+        < page.index("Preserve research artifacts") < page.index("View our projects")

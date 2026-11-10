@@ -39,6 +39,7 @@ PROJECTION_INPUTS=-i $(STORE)/metadata/records -i $(STORE)/content \
 # worktree happened to be in.  Nothing changed in them but the symlink.
 PROJECTION_OUTPUTS=-o content/pages/whoweare.html \
                    -o content/pages/projects.html \
+                   -o theme/templates/includes/objectives.html \
                    -o theme/static/img/projects \
                    -o theme/static/img/instruments \
                    -o theme/static/img/organizations -o theme/static/img/team
@@ -92,6 +93,7 @@ project:
 	$(PY) scripts/sync_assets_to_theme.py --write
 	$(PY) scripts/render_whoweare.py --out content/pages/whoweare.html
 	$(PY) scripts/render_projects.py --out content/pages/projects.html
+	$(PY) scripts/render_objectives.py --out theme/templates/includes/objectives.html
 
 # The same, with provenance: one commit carrying the command, the store it
 # read and the files it wrote, which `datalad rerun` can replay.

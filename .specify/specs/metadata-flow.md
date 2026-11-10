@@ -37,6 +37,7 @@ flowchart TB
     INTRO["content/section-intros.yaml<br/><i>copy belonging to a section,<br/>not to any entity</i>"]
     THEME["theme/static/img/KIND/SLUG/"]
     PAGES["content/pages/whoweare.html<br/>content/pages/projects.html<br/><i>a page fragment: headings, ids, prose</i>"]
+    OBJ["theme/templates/includes/objectives.html<br/><i>the front page's objectives</i>"]
     TOC["jinjaext/table_of_contents.py<br/><i>rewrites every id to a text hook<br/>and builds the sidebar tree</i>"]
     OUT["output/projects.html · output/whoweare.html<br/><i>the page a browser sees</i>"]
     DECK["../talks<br/><i>the Acknowledgements slide</i>"]
@@ -55,9 +56,11 @@ flowchart TB
   SUB -->|"<b>datalad run</b><br/>sync_assets_to_theme.py"| THEME
   SUB -->|"<b>datalad run</b><br/>render_whoweare.py"| PAGES
   SUB -->|"<b>datalad run</b><br/>render_projects.py"| PAGES
+  SUB -->|"<b>datalad run</b><br/>render_objectives.py"| OBJ
   SUB -->|"render_ack_projects.py"| DECK
   INTRO --> PAGES
   THEME --> OUT
+  OBJ -->|"pelican"| OUT
   PAGES -->|"pelican"| TOC
   TOC --> OUT
   PAGES -.->|"must pass"| GATE3
@@ -69,20 +72,21 @@ flowchart TB
   classDef gate fill:#fdf3e3,stroke:#b58b3a
   class GH,NIH,ZOT,DRI,BIB,BEP src
   class REC,OVM,OVC,AST,SUB,PROJ rec
-  class THEME,PAGES,OUT,INTRO,TOC,DECK gen
+  class THEME,PAGES,OBJ,OUT,INTRO,TOC,DECK gen
   class GATE1,GATE2,GATE3 gate
 ```
 
 ## Which command alters what
 
-| command | reads | writes | run under |
-| --- | --- | --- | --- |
-| **`sync_assets_to_theme.py --write`** | submodule `content/` | `theme/static/img/{projects,instruments,organizations}/`, `theme/static/img/team/` | **`datalad run`** |
-| **`render_whoweare.py --out …`** | submodule `metadata/records/`, submodule `content/`, `content/section-intros.yaml` | `content/pages/whoweare.html` | **`datalad run`** |
-| **`render_projects.py --out …`** | the same three | `content/pages/projects.html` | **`datalad run`** |
-| `render_ack_projects.py` | submodule `metadata/records/`, `content/selections/` | the deck's generated block (stdout, or `--out`) | by hand |
-| `pelican content -o output` | `content/`, `theme/`, `jinjaext/` | `output/` | build step |
-| `pytest tests/` | scripts, records, a throwaway build | nothing | gate |
+| command                               | reads                                                                              | writes                                                                             | run under         |
+| ------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ----------------- |
+| **`sync_assets_to_theme.py --write`** | submodule `content/`                                                               | `theme/static/img/{projects,instruments,organizations}/`, `theme/static/img/team/` | **`datalad run`** |
+| **`render_whoweare.py --out …`**      | submodule `metadata/records/`, submodule `content/`, `content/section-intros.yaml` | `content/pages/whoweare.html`                                                      | **`datalad run`** |
+| **`render_projects.py --out …`**      | the same three                                                                     | `content/pages/projects.html`                                                      | **`datalad run`** |
+| **`render_objectives.py --out …`**    | submodule `metadata/records/`                                                      | `theme/templates/includes/objectives.html`                                         | **`datalad run`** |
+| `render_ack_projects.py`              | submodule `metadata/records/`, `content/selections/`                               | the deck's generated block (stdout, or `--out`)                                    | by hand           |
+| `pelican content -o output`           | `content/`, `theme/`, `jinjaext/`                                                  | `output/`                                                                          | build step        |
+| `pytest tests/`                       | scripts, records, a throwaway build                                                | nothing                                                                            | gate              |
 
 There is a third consumer, and it lives in the store rather than here: the
 records also project **their own site**, through `projection.yaml` and
@@ -90,7 +94,7 @@ records also project **their own site**, through `projection.yaml` and
 and nothing here needs to; it is listed so that a change to a record is
 understood to move more than these two pages.
 
-`make project` is the first three, in that order; `make run-project` is that
+`make project` is the first four, in that order; `make run-project` is that
 under `datalad run`.
 
 Everything here runs **out of** the store; nothing runs into it any more.
