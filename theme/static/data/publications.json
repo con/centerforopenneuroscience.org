@@ -2,7 +2,8 @@
  "types": {
   "paper": "Papers and reports",
   "poster": "Posters",
-  "talk": "Talks"
+  "talk": "Talks",
+  "dataset": "Datasets"
  },
  "projects": {
   "bids": [
@@ -81,10 +82,6 @@
    "MRI Phantoms Afterlife",
    "/projects#mri_phantoms_afterlife_"
   ],
-  "neurobagel": [
-   "Neurobagel",
-   "https://github.com/neurobagel/bagel-cli"
-  ],
   "neurodebian": [
    "NeuroDebian",
    "/projects#neurodebian_"
@@ -92,10 +89,6 @@
   "nidm": [
    "NIDM",
    "/projects#nidm_"
-  ],
-  "nipoppy": [
-   "Nipoppy",
-   "https://github.com/nipoppy/nipoppy"
   ],
   "nipype": [
    "Nipype",
@@ -219,10 +212,6 @@
    "Jean-Baptiste Poline",
    "/whoweare#jeanbaptiste_poline_"
   ],
-  "jeremy-manning": [
-   "Jeremy Rothman Manning",
-   "/whoweare#jeremy_rothman_manning_"
-  ],
   "joey-hess": [
    "Joey Hess",
    "/whoweare#joey_hess_"
@@ -336,7 +325,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "dicom-wg32"
    ],
@@ -358,7 +349,7 @@
    "venue": "US-RSE'26, the Research Software Engineers Conference",
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Yaroslav Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
@@ -382,7 +373,9 @@
      "/whoweare#vadim_melnik_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 6,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -413,11 +406,13 @@
      "/whoweare#isaac_to_"
     ],
     [
-     "Yaroslav O. Halchenko",
+     "Yaroslav Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 3,
+   "preprint": false,
    "projects": [
     "orinoco-lite"
    ],
@@ -453,11 +448,13 @@
      "/whoweare#john_lee_"
     ],
     [
-     "Yaroslav O. Halchenko",
+     "Yaroslav Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [
     "con-duct"
    ],
@@ -486,7 +483,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "stamped-principles"
    ],
@@ -516,7 +515,9 @@
      "/whoweare#cody_baker_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -547,11 +548,13 @@
      "/whoweare#cody_baker_"
     ],
     [
-     "Yaroslav O. Halchenko",
+     "Yaroslav Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [
     "stamped-principles"
    ],
@@ -568,6 +571,106 @@
    "video": null
   },
   {
+   "title": "Behaviorally-relevant features of observed actions dominate cortical representational geometry in natural vision",
+   "url": "https://doi.org/10.1038/s41467-026-76599-w",
+   "date": "2026-09-17",
+   "year": "2026",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Jane Han",
+     null
+    ],
+    [
+     "Vassiki Chauhan",
+     null
+    ],
+    [
+     "Rebecca Philip",
+     null
+    ],
+    [
+     "Morgan K. Taylor",
+     null
+    ],
+    [
+     "Heejung Jung",
+     null
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "M. Ida Gobbini",
+     null
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Samuel A. Nastase",
+     "/whoweare#samuel_nastase_"
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 9,
+   "preprint": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "james-haxby",
+    "samuel-nastase"
+   ],
+   "objectives": [],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Go figure: transparency in neuroscience images preserves context and clarifies interpretation",
+   "url": "https://doi.org/10.1038/s41592-026-03206-7",
+   "date": "2026-08-31",
+   "year": "2026",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Paul A. Taylor",
+     null
+    ],
+    [
+     "Himanshu Aggarwal",
+     null
+    ],
+    [
+     "Peter A. Bandettini",
+     null
+    ],
+    null,
+    [
+     "Yaroslav Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Gang Chen",
+     null
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 42,
+   "preprint": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "objectives": [],
+   "pdf": null,
+   "video": null
+  },
+  {
    "title": "mechababs: STAMPED execution of BIDS Apps at scale",
    "url": "https://github.com/con/talks/tree/master/2026-mcgill-mechababs",
    "date": "2026-08-11",
@@ -580,7 +683,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "mechababs"
    ],
@@ -606,7 +711,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "bids-2-0"
    ],
@@ -632,7 +739,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "repronim-containers"
    ],
@@ -671,6 +780,8 @@
     ]
    ],
    "authors_complete": true,
+   "authors_count": 4,
+   "preprint": true,
    "projects": [
     "stamped-principles"
    ],
@@ -683,31 +794,6 @@
    "objectives": [
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
-   "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Open neuroinformatics infrastructure ecosystem for federated multisite studies",
-   "url": "https://doi.org/10.64898/2026.04.30.721944",
-   "date": "2026-05-05",
-   "year": "2026",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Jean-Baptiste Poline",
-     "/whoweare#jeanbaptiste_poline_"
-    ]
-   ],
-   "authors_complete": false,
-   "projects": [
-    "neurobagel",
-    "nipoppy"
-   ],
-   "people": [
-    "jean-baptiste-poline"
-   ],
-   "objectives": [],
    "pdf": null,
    "video": null
   },
@@ -728,7 +814,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "stamped-principles"
    ],
@@ -755,7 +843,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "stamped-principles",
     "yoda"
@@ -782,10 +872,70 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
+   ],
+   "objectives": [],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Behaviorally-relevant features of observed actions dominate cortical representational geometry in natural vision",
+   "url": "https://openneuro.org/datasets/ds007942/versions/1.0.0",
+   "date": "2026",
+   "year": "2026",
+   "type": "dataset",
+   "venue": null,
+   "authors": [
+    [
+     "Jane Han",
+     null
+    ],
+    [
+     "Vassiki Chauhan",
+     null
+    ],
+    [
+     "Rebecca Philip",
+     null
+    ],
+    [
+     "Morgan K. Taylor",
+     null
+    ],
+    [
+     "Heejung Jung",
+     null
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "M. Ida Gobbini",
+     null
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Samuel A. Nastase",
+     "/whoweare#samuel_nastase_"
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 9,
+   "preprint": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "james-haxby",
+    "samuel-nastase"
    ],
    "objectives": [],
    "pdf": null,
@@ -811,54 +961,17 @@
      "Jyl Boline",
      null
     ],
-    [
-     "Kristofer Bouchard",
-     null
-    ],
-    [
-     "Andrew P. Davison",
-     null
-    ],
-    [
-     "Saskia de Vries",
-     null
-    ],
+    null,
     [
      "Ben Dichter",
      "/whoweare#ben_dichter_"
     ],
-    [
-     "Andrey Fedorov",
-     null
-    ],
+    null,
     [
      "Satrajit Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
-    [
-     "Tom Gillespie",
-     null
-    ],
-    [
-     "Jeffrey S. Grethe",
-     null
-    ],
-    [
-     "Nicole Guittari",
-     null
-    ],
-    [
-     "Sean N. Hatton",
-     null
-    ],
-    [
-     "Erik Johnson",
-     null
-    ],
-    [
-     "David Keator",
-     null
-    ],
+    null,
     [
      "David N. Kennedy",
      "/whoweare#david_n_kennedy_"
@@ -871,14 +984,7 @@
      "Chris Markiewicz",
      "/whoweare#chris_markiewicz_"
     ],
-    [
-     "Peyman Najafi",
-     null
-    ],
-    [
-     "Stephen Nichols",
-     null
-    ],
+    null,
     [
      "Franco Pestilli",
      "/whoweare#franco_pestilli_"
@@ -887,56 +993,15 @@
      "Jean-Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
     ],
-    [
-     "Samuel Prince",
-     null
-    ],
-    [
-     "Kay A. Robbins",
-     null
-    ],
-    [
-     "Chris Rorden",
-     null
-    ],
-    [
-     "Melissa Kline Struhl",
-     null
-    ],
-    [
-     "Nile E.S. Tregoning",
-     null
-    ],
-    [
-     "Adam L. Tyson",
-     null
-    ],
-    [
-     "Thomas Wachtler",
-     null
-    ],
-    [
-     "Brock Wester",
-     null
-    ],
-    [
-     "Helen Yi",
-     null
-    ],
-    [
-     "Lyuba Zehl",
-     null
-    ],
-    [
-     "Kaiwen Zhuang",
-     null
-    ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
    "authors_complete": true,
+   "authors_count": 34,
+   "preprint": false,
    "projects": [
     "bids",
     "dicom",
@@ -973,6 +1038,8 @@
     ]
    ],
    "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "distribits"
    ],
@@ -998,7 +1065,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "yoda"
    ],
@@ -1018,15 +1087,36 @@
    "venue": null,
    "authors": [
     [
+     "Amy E. Bouchard",
+     null
+    ],
+    [
+     "Dickson Wong",
+     null
+    ],
+    [
+     "Wolfgang Bogner",
+     null
+    ],
+    null,
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
     [
-     "Chris Markiewicz",
+     "Christopher J. Markiewicz",
      "/whoweare#chris_markiewicz_"
+    ],
+    null,
+    [
+     "Mark Mikkelsen",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 23,
+   "preprint": false,
    "projects": [
     "bids"
    ],
@@ -1049,15 +1139,31 @@
    "venue": null,
    "authors": [
     [
+     "Heejung Jung",
+     null
+    ],
+    [
+     "Maryam Amini",
+     null
+    ],
+    [
+     "Bethany J. Hunt",
+     null
+    ],
+    null,
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
     [
      "Tor D. Wager",
      "/whoweare#tor_d_wager_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 15,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -1076,11 +1182,31 @@
    "venue": null,
    "authors": [
     [
+     "Christopher Rorden",
+     null
+    ],
+    [
+     "Benoît Béranger",
+     null
+    ],
+    [
+     "Hu Cheng",
+     null
+    ],
+    null,
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Paul S. Morgan",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 24,
+   "preprint": false,
    "projects": [
     "dicom"
    ],
@@ -1102,15 +1228,37 @@
    "venue": null,
    "authors": [
     [
+     "Tek Raj Chhetri",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Satrajit Ghosh",
+     "Dorota Jarecka",
+     null
+    ],
+    [
+     "Puja Trivedi",
+     null
+    ],
+    [
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Patrick Ray",
+     null
+    ],
+    [
+     "Lydia Ng",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -1133,7 +1281,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -1151,11 +1301,31 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Paul A. Taylor",
+     null
+    ],
+    [
+     "Himanshu Aggarwal",
+     null
+    ],
+    [
+     "Peter Bandettini",
+     null
+    ],
+    null,
+    [
+     "Yaroslav Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Gang Chen",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 42,
+   "preprint": true,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -1173,19 +1343,45 @@
    "venue": null,
    "authors": [
     [
+     "Jane Han",
+     null
+    ],
+    [
+     "Vassiki Chauhan",
+     null
+    ],
+    [
+     "Rebecca Philip",
+     null
+    ],
+    [
+     "Morgan K. Taylor",
+     null
+    ],
+    [
+     "Heejung Jung",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "M. Ida Gobbini",
+     null
     ],
     [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
     ],
     [
-     "Samuel Nastase",
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 9,
+   "preprint": true,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -1217,7 +1413,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 3,
+   "preprint": false,
    "projects": [
     "repronim"
    ],
@@ -1246,25 +1444,33 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
+     "Mathias Goncalves",
+     null
+    ],
+    [
      "Satrajit Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Matteo Visconti di Oleggio Castello",
      "/whoweare#matteo_visconti_di_oleggio_castello_"
     ],
+    null,
     [
-     "John Wodder",
+     "John T. Wodder",
      "/whoweare#john_wodder_"
     ],
     [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
+    null,
     [
      "Horea-Ioan Ioanas",
      "/whoweare#horeaioan_ioanas_"
     ],
+    null,
     [
      "John Lee",
      "/whoweare#john_lee_"
@@ -1274,9 +1480,10 @@
      "/whoweare#isaac_to_"
     ],
     [
-     "Chris Markiewicz",
+     "Christopher J. Markiewicz",
      "/whoweare#chris_markiewicz_"
     ],
+    null,
     [
      "Austin Macdonald",
      "/whoweare#austin_macdonald_"
@@ -1284,13 +1491,11 @@
     [
      "David N. Kennedy",
      "/whoweare#david_n_kennedy_"
-    ],
-    [
-     "James V. Haxby",
-     "/whoweare#james_v_haxby_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 27,
+   "preprint": false,
    "projects": [
     "heudiconv"
    ],
@@ -1328,7 +1533,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "repronim",
     "reprostim"
@@ -1353,15 +1560,31 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
+     "Heejung Jung",
+     null
     ],
     [
-     "Tor D. Wager",
+     "Maryam Amini",
+     null
+    ],
+    [
+     "Bethany J Hunt",
+     null
+    ],
+    null,
+    [
+     "Yaroslav O Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Tor D Wager",
      "/whoweare#tor_d_wager_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 15,
+   "preprint": true,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -1388,7 +1611,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "datalad-registry"
    ],
@@ -1428,6 +1653,8 @@
     ]
    ],
    "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [
     "datalad",
     "distribits"
@@ -1458,7 +1685,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "bids"
    ],
@@ -1484,7 +1713,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -1511,7 +1742,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -1534,39 +1767,61 @@
    "venue": null,
    "authors": [
     [
-     "Chris Markiewicz",
-     "/whoweare#chris_markiewicz_"
-    ],
-    [
-     "Satrajit Ghosh",
-     "/whoweare#satrajit_ghosh_"
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "Horea-Ioan Ioanas",
-     "/whoweare#horeaioan_ioanas_"
-    ],
-    [
-     "Franco Pestilli",
-     "/whoweare#franco_pestilli_"
-    ],
-    [
-     "Jean-Baptiste Poline",
-     "/whoweare#jeanbaptiste_poline_"
-    ],
-    [
      "Russell A. Poldrack",
      "/whoweare#russell_a_poldrack_"
     ],
     [
+     "Christopher J. Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Stefan Appelhoff",
+     null
+    ],
+    null,
+    [
+     "Satrajit S. Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    null,
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Dora Hermes",
+     "/whoweare#dora_hermes_"
+    ],
+    null,
+    [
+     "Horea-Ioan Ioanas",
+     "/whoweare#horeaioan_ioanas_"
+    ],
+    null,
+    [
      "Camille Maumet",
      "/whoweare#camille_maumet_"
+    ],
+    null,
+    [
+     "Franco Pestilli",
+     "/whoweare#franco_pestilli_"
+    ],
+    null,
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    null,
+    [
+     "Krzysztof J. Gorgolewski",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 115,
+   "preprint": false,
    "projects": [
     "bids"
    ],
@@ -1595,23 +1850,45 @@
    "venue": null,
    "authors": [
     [
+     "Chenying Zhao",
+     null
+    ],
+    [
+     "Dorota Jarecka",
+     null
+    ],
+    [
+     "Sydney Covitz",
+     null
+    ],
+    null,
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
     [
      "Austin Macdonald",
      "/whoweare#austin_macdonald_"
     ],
+    null,
     [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
     [
-     "Satrajit Ghosh",
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
+    ],
+    null,
+    [
+     "Theodore D. Satterthwaite",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 20,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -1637,19 +1914,41 @@
    "venue": null,
    "authors": [
     [
-     "Satrajit Ghosh",
+     "Angela I. Renton",
+     null
+    ],
+    [
+     "Thuy T. Dao",
+     null
+    ],
+    [
+     "Tom Johnstone",
+     null
+    ],
+    null,
+    [
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
     [
      "Franco Pestilli",
      "/whoweare#franco_pestilli_"
+    ],
+    null,
+    [
+     "Steffen Bollmann",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 52,
+   "preprint": false,
    "projects": [],
    "people": [
     "satrajit-ghosh",
@@ -1669,23 +1968,40 @@
    "venue": null,
    "authors": [
     [
+     "Erik C. Johnson",
+     null
+    ],
+    [
+     "Thinh T. Nguyen",
+     null
+    ],
+    [
+     "Benjamin K. Dichter",
+     null
+    ],
+    null,
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
     [
      "Satrajit Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Franco Pestilli",
      "/whoweare#franco_pestilli_"
     ],
     [
-     "Brock Wester",
+     "Dimitri Yatsenko",
      null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 19,
+   "preprint": true,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -1710,7 +2026,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "dandi"
    ],
@@ -1742,6 +2060,8 @@
     ]
    ],
    "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "bids"
    ],
@@ -1763,23 +2083,48 @@
    "venue": null,
    "authors": [
     [
+     "Priyanka Subash",
+     null
+    ],
+    [
+     "Alex Gray",
+     null
+    ],
+    [
+     "Misque Boswell",
+     null
+    ],
+    null,
+    [
      "Satrajit Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
     [
-     "Yaroslav O. Halchenko",
+     "Yaroslav Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
     ],
     [
      "Chris Markiewicz",
      "/whoweare#chris_markiewicz_"
     ],
     [
-     "Russell A. Poldrack",
-     "/whoweare#russell_a_poldrack_"
+     "Dora Hermes",
+     "/whoweare#dora_hermes_"
+    ],
+    null,
+    [
+     "Dominique Duncan",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 25,
+   "preprint": false,
    "projects": [
     "dandi"
    ],
@@ -1805,15 +2150,29 @@
    "venue": null,
    "authors": [
     [
+     "Sajjad Torabian",
+     null
+    ],
+    [
+     "Natalia Vélez",
+     null
+    ],
+    [
      "Vanessa Sochat",
      "/whoweare#vanessa_sochat_"
     ],
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Emily D. Grossman",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [
     "bids",
     "pymvpa"
@@ -1843,7 +2202,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "repronim"
    ],
@@ -1870,7 +2231,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "repronim"
    ],
@@ -1897,7 +2260,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "bids",
     "repronim"
@@ -1921,15 +2286,36 @@
    "venue": null,
    "authors": [
     [
-     "Satrajit Ghosh",
+     "Josh Moore",
+     null
+    ],
+    [
+     "Daniela Basurto-Lozada",
+     null
+    ],
+    [
+     "Sébastien Besson",
+     null
+    ],
+    null,
+    [
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Jason R. Swedlow",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 69,
+   "preprint": false,
    "projects": [],
    "people": [
     "satrajit-ghosh",
@@ -1952,7 +2338,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "dandi"
    ],
@@ -1979,7 +2367,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "dandi"
    ],
@@ -2006,7 +2396,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "dicom-wg16"
    ],
@@ -2028,13 +2420,27 @@
    "venue": null,
    "authors": [
     [
-     "Chris Markiewicz",
+     "Gregory Kiar",
+     null
+    ],
+    [
+     "Jon Clucas",
+     null
+    ],
+    [
+     "Eric Feczko",
+     null
+    ],
+    null,
+    [
+     "Christopher J. Markiewicz",
      "/whoweare#chris_markiewicz_"
     ],
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
     [
      "Satrajit Ghosh",
      "/whoweare#satrajit_ghosh_"
@@ -2042,9 +2448,16 @@
     [
      "Russell A. Poldrack",
      "/whoweare#russell_a_poldrack_"
+    ],
+    null,
+    [
+     "Damien Fair",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 15,
+   "preprint": false,
    "projects": [],
    "people": [
     "chris-markiewicz",
@@ -2065,23 +2478,46 @@
    "venue": null,
    "authors": [
     [
-     "Satrajit Ghosh",
+     "Michael Hawrylycz",
+     null
+    ],
+    [
+     "Maryann E. Martone",
+     null
+    ],
+    [
+     "Giorgio A. Ascoli",
+     null
+    ],
+    null,
+    [
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Cody Baker",
      "/whoweare#cody_baker_"
     ],
+    null,
+    [
+     "Roni Choudhury",
+     "/whoweare#roni_choudhury_"
+    ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
     [
-     "Brock Wester",
+     "Brian Zingg",
      null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 103,
+   "preprint": false,
    "projects": [],
    "people": [
     "satrajit-ghosh",
@@ -2106,7 +2542,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "dandi"
    ],
@@ -2129,15 +2567,36 @@
    "venue": null,
    "authors": [
     [
-     "Satrajit Ghosh",
+     "Josh Moore",
+     null
+    ],
+    [
+     "Daniela Basurto-Lozada",
+     null
+    ],
+    [
+     "Sébastien Besson",
+     null
+    ],
+    null,
+    [
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Jason R. Swedlow",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 69,
+   "preprint": true,
    "projects": [],
    "people": [
     "satrajit-ghosh",
@@ -2156,35 +2615,61 @@
    "venue": null,
    "authors": [
     [
-     "Chris Markiewicz",
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ],
+    [
+     "Christopher J. Markiewicz",
      "/whoweare#chris_markiewicz_"
     ],
     [
-     "Satrajit Ghosh",
+     "Stefan Appelhoff",
+     null
+    ],
+    null,
+    [
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
+    [
+     "Dora Hermes",
+     "/whoweare#dora_hermes_"
+    ],
+    null,
     [
      "Horea-Ioan Ioanas",
      "/whoweare#horeaioan_ioanas_"
     ],
+    null,
+    [
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ],
+    null,
     [
      "Franco Pestilli",
      "/whoweare#franco_pestilli_"
     ],
+    null,
     [
      "Jean-Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
     ],
+    null,
     [
-     "Russell A. Poldrack",
-     "/whoweare#russell_a_poldrack_"
+     "Krzysztof J. Gorgolewski",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 114,
+   "preprint": false,
    "projects": [
     "bids"
    ],
@@ -2212,19 +2697,33 @@
    "venue": null,
    "authors": [
     [
-     "Samuel Nastase",
+     "Ma Feilong",
+     null
+    ],
+    [
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Guo Jiahui",
+     null
     ],
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
+     "M. Ida Gobbini",
+     null
+    ],
+    [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 6,
+   "preprint": false,
    "projects": [
     "hyperalignment-infrastructure"
    ],
@@ -2251,9 +2750,19 @@
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Chandana Kodiweera",
+     null
+    ],
+    [
+     "Terry Sacket",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 3,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -2271,7 +2780,27 @@
    "venue": null,
    "authors": [
     [
-     "Chris Markiewicz",
+     "Rastko Ciric",
+     null
+    ],
+    [
+     "William H. Thompson",
+     null
+    ],
+    [
+     "Romy Lorenz",
+     null
+    ],
+    [
+     "Mathias Goncalves",
+     null
+    ],
+    [
+     "Eilidh E. MacNicol",
+     null
+    ],
+    [
+     "Christopher J. Markiewicz",
      "/whoweare#chris_markiewicz_"
     ],
     [
@@ -2279,15 +2808,25 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Satrajit Ghosh",
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Krzysztof J. Gorgolewski",
+     null
     ],
     [
      "Russell A. Poldrack",
      "/whoweare#russell_a_poldrack_"
+    ],
+    [
+     "Oscar Esteban",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 11,
+   "preprint": false,
    "projects": [],
    "people": [
     "chris-markiewicz",
@@ -2308,27 +2847,50 @@
    "venue": null,
    "authors": [
     [
+     "Guiomar Niso",
+     null
+    ],
+    [
+     "Rotem Botvinik-Nezer",
+     null
+    ],
+    [
+     "Stefan Appelhoff",
+     null
+    ],
+    null,
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
     [
-     "Chris Markiewicz",
+     "Christopher J. Markiewicz",
      "/whoweare#chris_markiewicz_"
-    ],
-    [
-     "Franco Pestilli",
-     "/whoweare#franco_pestilli_"
-    ],
-    [
-     "Adina Wagner",
-     "/whoweare#adina_wagner_"
     ],
     [
      "Camille Maumet",
      "/whoweare#camille_maumet_"
+    ],
+    null,
+    [
+     "Franco Pestilli",
+     "/whoweare#franco_pestilli_"
+    ],
+    null,
+    [
+     "Adina S. Wagner",
+     "/whoweare#adina_wagner_"
+    ],
+    null,
+    [
+     "Jochem W. Rieger",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 23,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -2350,11 +2912,53 @@
    "venue": null,
    "authors": [
     [
+     "Anna Manelis",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Lisa Bonar",
+     null
+    ],
+    [
+     "Richelle S. Stiffler",
+     null
+    ],
+    [
+     "Skye Satz",
+     null
+    ],
+    [
+     "Rachel Miceli",
+     null
+    ],
+    [
+     "Cecile D. Ladouceur",
+     null
+    ],
+    [
+     "Genna Bebko",
+     null
+    ],
+    [
+     "Satish Iyengar",
+     null
+    ],
+    [
+     "Holly A. Swartz",
+     null
+    ],
+    [
+     "Mary L. Phillips",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 11,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -2405,6 +3009,8 @@
     ]
    ],
    "authors_complete": true,
+   "authors_count": 8,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -2435,7 +3041,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -2457,7 +3065,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -2475,11 +3085,37 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "A Manelis",
+     null
+    ],
+    [
+     "YO Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "S Satz",
+     null
+    ],
+    [
+     "R Ragozzino",
+     null
+    ],
+    [
+     "S Iyengar",
+     null
+    ],
+    [
+     "HA Swartz",
+     null
+    ],
+    [
+     "MD Levine",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -2497,19 +3133,33 @@
    "venue": null,
    "authors": [
     [
-     "Samuel Nastase",
+     "Ma Feilong",
+     null
+    ],
+    [
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Guo Jiahui",
+     null
     ],
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
+     "M. Ida Gobbini",
+     null
+    ],
+    [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 6,
+   "preprint": true,
    "projects": [
     "hyperalignment-infrastructure"
    ],
@@ -2534,19 +3184,36 @@
    "venue": null,
    "authors": [
     [
-     "Satrajit Ghosh",
-     "/whoweare#satrajit_ghosh_"
+     "Marie-Hélène Bourget",
+     null
     ],
     [
-     "Chris Markiewicz",
+     "Lee Kamentsky",
+     null
+    ],
+    [
+     "Satrajit S. Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    null,
+    [
+     "Christopher J. Markiewicz",
      "/whoweare#chris_markiewicz_"
     ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Julien Cohen-Adad",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 17,
+   "preprint": false,
    "projects": [
     "bids"
    ],
@@ -2570,23 +3237,46 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
+     "Guiomar Niso",
+     null
     ],
     [
-     "Chris Markiewicz",
+     "Rotem Botvinik-Nezer",
+     null
+    ],
+    [
+     "Stefan Appelhoff",
+     null
+    ],
+    null,
+    [
+     "Yaroslav O Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Christopher Johnson Markiewicz",
      "/whoweare#chris_markiewicz_"
     ],
+    null,
     [
      "Franco Pestilli",
      "/whoweare#franco_pestilli_"
     ],
+    null,
     [
-     "Adina Wagner",
+     "Adina Svenja Wagner",
      "/whoweare#adina_wagner_"
+    ],
+    null,
+    [
+     "Jochem Rieger",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 23,
+   "preprint": true,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -2607,13 +3297,86 @@
    "venue": null,
    "authors": [
     [
+     "Skye Satz",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Rachel Ragozzino",
+     null
+    ],
+    [
+     "Mora M. Lucero",
+     null
+    ],
+    [
+     "Mary L. Phillips",
+     null
+    ],
+    [
+     "Holly A. Swartz",
+     null
+    ],
+    [
+     "Anna Manelis",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [],
    "people": [
+    "yaroslav-halchenko"
+   ],
+   "objectives": [],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "A multimodal cell census and atlas of the mammalian primary motor cortex",
+   "url": "https://doi.org/10.1038/s41586-021-03950-0",
+   "date": "2021-10-06",
+   "year": "2021",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "BRAIN Initiative Cell Census Network (BICCN)",
+     null
+    ],
+    [
+     "Edward M. Callaway",
+     null
+    ],
+    [
+     "Hong-Wei Dong",
+     null
+    ],
+    null,
+    [
+     "Satrajit S. Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Susan Sunkin",
+     null
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 274,
+   "preprint": false,
+   "projects": [],
+   "people": [
+    "satrajit-ghosh",
     "yaroslav-halchenko"
    ],
    "objectives": [],
@@ -2629,15 +3392,31 @@
    "venue": null,
    "authors": [
     [
-     "Samuel Nastase",
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
     ],
     [
+     "Yun-Fei Liu",
+     null
+    ],
+    [
+     "Hanna Hillman",
+     null
+    ],
+    null,
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Uri Hasson",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 25,
+   "preprint": false,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -2660,7 +3439,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "dandi"
    ],
@@ -2683,7 +3464,7 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Yaroslav Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
@@ -2694,6 +3475,7 @@
      "Benjamin Poldrack",
      "/whoweare#benjamin_poldrack_"
     ],
+    null,
     [
      "Adina Wagner",
      "/whoweare#adina_wagner_"
@@ -2702,6 +3484,7 @@
      "Jason Gors",
      "/whoweare#jason_gors_"
     ],
+    null,
     [
      "Vanessa Sochat",
      "/whoweare#vanessa_sochat_"
@@ -2710,36 +3493,45 @@
      "Satrajit Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
-     "Chris Markiewicz",
+     "Christopher Markiewicz",
      "/whoweare#chris_markiewicz_"
     ],
+    null,
     [
      "Soichi Hayashi",
      "/whoweare#soichi_hayashi_"
     ],
+    null,
     [
      "Jean-Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
     ],
+    null,
     [
-     "David N. Kennedy",
+     "David Kennedy",
      "/whoweare#david_n_kennedy_"
     ],
+    null,
     [
      "Horea-Ioan Ioanas",
      "/whoweare#horeaioan_ioanas_"
     ],
+    null,
     [
-     "James V. Haxby",
+     "James Haxby",
      "/whoweare#james_v_haxby_"
     ],
+    null,
     [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 31,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -2775,7 +3567,7 @@
    "venue": null,
    "authors": [
     [
-     "David N. Kennedy",
+     "David Kennedy",
      "/whoweare#david_n_kennedy_"
     ],
     [
@@ -2783,15 +3575,29 @@
      "/whoweare#satrajit_ghosh_"
     ],
     [
-     "Jean-Baptiste Poline",
+     "J.B. Poline",
      "/whoweare#jeanbaptiste_poline_"
     ],
     [
-     "Yaroslav O. Halchenko",
+     "David Keator",
+     null
+    ],
+    [
+     "Yaroslav Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Maryann Martone",
+     null
+    ],
+    [
+     "Jeffrey Grethe",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [],
    "people": [
     "david-kennedy",
@@ -2812,11 +3618,45 @@
    "venue": null,
    "authors": [
     [
+     "Anna Manelis",
+     null
+    ],
+    [
+     "Adriane Soehner",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Skye Satz",
+     null
+    ],
+    [
+     "Rachel Ragozzino",
+     null
+    ],
+    [
+     "Mora Lucero",
+     null
+    ],
+    [
+     "Holly A. Swartz",
+     null
+    ],
+    [
+     "Mary L. Phillips",
+     null
+    ],
+    [
+     "Amelia Versace",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 9,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -2834,43 +3674,70 @@
    "venue": null,
    "authors": [
     [
-     "Samuel Nastase",
-     "/whoweare#samuel_nastase_"
+     "Rémi Gau",
+     null
     ],
     [
-     "Satrajit Ghosh",
+     "Stephanie Noble",
+     null
+    ],
+    [
+     "Katja Heuer",
+     null
+    ],
+    null,
+    [
+     "Samuel A. Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    null,
+    [
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
     [
      "Horea-Ioan Ioanas",
      "/whoweare#horeaioan_ioanas_"
     ],
+    null,
     [
      "David N. Kennedy",
      "/whoweare#david_n_kennedy_"
     ],
+    null,
     [
-     "Chris Markiewicz",
+     "Christopher J. Markiewicz",
      "/whoweare#chris_markiewicz_"
-    ],
-    [
-     "Jean-Baptiste Poline",
-     "/whoweare#jeanbaptiste_poline_"
-    ],
-    [
-     "Matteo Visconti di Oleggio Castello",
-     "/whoweare#matteo_visconti_di_oleggio_castello_"
     ],
     [
      "Camille Maumet",
      "/whoweare#camille_maumet_"
+    ],
+    null,
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    null,
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    null,
+    [
+     "Xi-Nian Zuo",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 219,
+   "preprint": false,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -2904,7 +3771,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -2928,11 +3797,37 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "A Manelis",
+     null
+    ],
+    [
+     "YO Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "S Satz",
+     null
+    ],
+    [
+     "R Ragozzino",
+     null
+    ],
+    [
+     "M Lucero",
+     null
+    ],
+    [
+     "HA Swartz",
+     null
+    ],
+    [
+     "MD Levine",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": true,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -2950,23 +3845,46 @@
    "venue": null,
    "authors": [
     [
+     "Elise Bannier",
+     null
+    ],
+    [
+     "Gareth Barker",
+     null
+    ],
+    [
+     "Valentina Borghesani",
+     null
+    ],
+    null,
+    [
      "Satrajit Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
+    [
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ],
+    null,
     [
      "Matteo Visconti di Oleggio Castello",
      "/whoweare#matteo_visconti_di_oleggio_castello_"
     ],
+    null,
     [
-     "Camille Maumet",
-     "/whoweare#camille_maumet_"
+     "Hua Zhu",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 36,
+   "preprint": false,
    "projects": [
     "open-brain-consent"
    ],
@@ -2991,7 +3909,27 @@
    "venue": null,
    "authors": [
     [
-     "Chris Markiewicz",
+     "Rastko Ciric",
+     null
+    ],
+    [
+     "William H. Thompson",
+     null
+    ],
+    [
+     "Romy Lorenz",
+     null
+    ],
+    [
+     "Mathias Goncalves",
+     null
+    ],
+    [
+     "Eilidh MacNicol",
+     null
+    ],
+    [
+     "Christopher J. Markiewicz",
      "/whoweare#chris_markiewicz_"
     ],
     [
@@ -2999,15 +3937,25 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Satrajit Ghosh",
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Krzysztof J. Gorgolewski",
+     null
     ],
     [
      "Russell A. Poldrack",
      "/whoweare#russell_a_poldrack_"
+    ],
+    [
+     "Oscar Esteban",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 11,
+   "preprint": true,
    "projects": [],
    "people": [
     "chris-markiewicz",
@@ -3032,7 +3980,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "reproman"
    ],
@@ -3058,7 +4008,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "reproman",
     "repronim"
@@ -3090,11 +4042,11 @@
      "/whoweare#franco_pestilli_"
     ],
     [
-     "Adina Wagner",
+     "Adina S. Wagner",
      "/whoweare#adina_wagner_"
     ],
     [
-     "Chris Markiewicz",
+     "Christopher J. Markiewicz",
      "/whoweare#chris_markiewicz_"
     ],
     [
@@ -3106,7 +4058,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 6,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -3134,11 +4088,37 @@
    "venue": null,
    "authors": [
     [
+     "David A.A. Baranger",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Skye Satz",
+     null
+    ],
+    [
+     "Rachel Ragozzino",
+     null
+    ],
+    [
+     "Satish Iyengar",
+     null
+    ],
+    [
+     "Holly A. Swartz",
+     null
+    ],
+    [
+     "Anna Manelis",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -3156,11 +4136,85 @@
    "venue": null,
    "authors": [
     [
+     "David A.A. Baranger",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Skye Satz",
+     null
+    ],
+    [
+     "Rachel Ragozzino",
+     null
+    ],
+    [
+     "Satish Iyengar",
+     null
+    ],
+    [
+     "Holly A. Swartz",
+     null
+    ],
+    [
+     "Anna Manelis",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": true,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "objectives": [],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Aberrant levels of cortical myelin distinguish individuals with depressive disorders from healthy controls",
+   "url": "https://doi.org/10.1016/j.nicl.2021.102790",
+   "date": "2021",
+   "year": "2021",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "David A.A. Baranger",
+     null
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Skye Satz",
+     null
+    ],
+    [
+     "Rachel Ragozzino",
+     null
+    ],
+    [
+     "Satish Iyengar",
+     null
+    ],
+    [
+     "Holly A. Swartz",
+     null
+    ],
+    [
+     "Anna Manelis",
+     null
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -3182,7 +4236,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "repronim"
    ],
@@ -3205,15 +4261,31 @@
    "venue": null,
    "authors": [
     [
-     "Samuel Nastase",
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
     ],
     [
+     "Yun-Fei Liu",
+     null
+    ],
+    [
+     "Hanna Hillman",
+     null
+    ],
+    null,
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Uri Hasson",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 25,
+   "preprint": true,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -3232,7 +4304,7 @@
    "venue": null,
    "authors": [
     [
-     "Chris Cheng",
+     "Christopher P. Cheng",
      "/whoweare#chris_cheng_"
     ],
     [
@@ -3240,7 +4312,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "mri-phantoms-afterlife"
    ],
@@ -3263,11 +4337,36 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Elise Bannier",
+     null
+    ],
+    [
+     "Gareth Barker",
+     null
+    ],
+    [
+     "Valentina Borghesani",
+     null
+    ],
+    null,
+    [
+     "Yaroslav O Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    null,
+    [
+     "Hua Zhu",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 36,
+   "preprint": true,
    "projects": [
     "open-brain-consent"
    ],
@@ -3277,6 +4376,64 @@
    "objectives": [
     "87be5fa3-80fb-4221-8406-2ddd40fb1fd1"
    ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Analysis of task-based functional MRI data preprocessed with fMRIPrep",
+   "url": "https://doi.org/10.1038/s41596-020-0327-3",
+   "date": "2020-06-08",
+   "year": "2020",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Oscar Esteban",
+     null
+    ],
+    [
+     "Rastko Ciric",
+     null
+    ],
+    [
+     "Karolina Finc",
+     null
+    ],
+    null,
+    [
+     "Christopher J. Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    null,
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Satrajit S. Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    null,
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ],
+    [
+     "Krzysztof J. Gorgolewski",
+     null
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 27,
+   "preprint": false,
+   "projects": [],
+   "people": [
+    "chris-markiewicz",
+    "yaroslav-halchenko",
+    "satrajit-ghosh",
+    "russell-poldrack"
+   ],
+   "objectives": [],
    "pdf": null,
    "video": null
   },
@@ -3293,7 +4450,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "repronim-containers"
    ],
@@ -3307,28 +4466,6 @@
    "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/ix3lC6HGo-Q"
   },
   {
-   "title": "A Gaussian Process Model of Human Electrocorticographic Data",
-   "url": "https://doi.org/10.1093/cercor/bhaa115",
-   "date": "2020-06-04",
-   "year": "2020",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Jeremy Rothman Manning",
-     "/whoweare#jeremy_rothman_manning_"
-    ]
-   ],
-   "authors_complete": false,
-   "projects": [],
-   "people": [
-    "jeremy-manning"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
-  },
-  {
    "title": "The Brain Imaging Data Structure (BIDS) Specification, Version 1.3.0",
    "url": "https://doi.org/10.5281/zenodo.3720628",
    "date": "2020-04",
@@ -3337,35 +4474,53 @@
    "venue": null,
    "authors": [
     [
+     "Krzysztof J Gorgolewski",
+     null
+    ],
+    [
      "Jean-Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
     ],
     [
-     "Satrajit Ghosh",
+     "David B Keator",
+     null
+    ],
+    null,
+    [
+     "Satrajit S Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
     [
-     "Vanessa Sochat",
+     "Vanessa V Sochat",
      "/whoweare#vanessa_sochat_"
     ],
+    null,
     [
-     "Yaroslav O. Halchenko",
+     "Yaroslav O Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
+    null,
     [
-     "David N. Kennedy",
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ],
+    null,
+    [
+     "David N Kennedy",
      "/whoweare#david_n_kennedy_"
     ],
     [
-     "Russell A. Poldrack",
+     "Russell A Poldrack",
      "/whoweare#russell_a_poldrack_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 20,
+   "preprint": false,
    "projects": [
     "bids"
    ],
@@ -3393,23 +4548,44 @@
    "venue": null,
    "authors": [
     [
-     "Chris Markiewicz",
+     "Oscar Esteban",
+     null
+    ],
+    [
+     "Rastko Ciric",
+     null
+    ],
+    [
+     "Karolina Finc",
+     null
+    ],
+    null,
+    [
+     "Christopher J. Markiewicz",
      "/whoweare#chris_markiewicz_"
     ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Satrajit Ghosh",
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Russell A. Poldrack",
      "/whoweare#russell_a_poldrack_"
+    ],
+    [
+     "Krzysztof J. Gorgolewski",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 27,
+   "preprint": true,
    "projects": [],
    "people": [
     "chris-markiewicz",
@@ -3430,15 +4606,36 @@
    "venue": null,
    "authors": [
     [
-     "Satrajit Ghosh",
+     "BRAIN Initiative Cell Census Network (BICCN)",
+     null
+    ],
+    [
+     "Ricky S. Adkins",
+     null
+    ],
+    [
+     "Andrew I. Aldridge",
+     null
+    ],
+    null,
+    [
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Brian Zingg",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 258,
+   "preprint": true,
    "projects": [],
    "people": [
     "satrajit-ghosh",
@@ -3461,7 +4658,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "heudiconv"
    ],
@@ -3488,7 +4687,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -3510,7 +4711,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -3532,7 +4735,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -3567,6 +4772,8 @@
     ]
    ],
    "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [
     "region-localization"
    ],
@@ -3596,7 +4803,7 @@
      "/whoweare#adina_wagner_"
     ],
     [
-     "Yaroslav O. Halchenko",
+     "Yaroslav Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
@@ -3604,7 +4811,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 3,
+   "preprint": false,
    "projects": [],
    "people": [
     "adina-wagner",
@@ -3632,7 +4841,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "neurodebian"
    ],
@@ -3652,9 +4863,13 @@
    "url": null,
    "date": "2019",
    "year": "2019",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Annual meeting of the Organization for Human Brain Mapping, Rome, Italy",
    "authors": [
+    [
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ],
     [
      "Satrajit Ghosh",
      "/whoweare#satrajit_ghosh_"
@@ -3664,19 +4879,25 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
+     "Jarecka Dorota",
+     null
+    ],
+    [
+     "Nolan Nichols",
+     null
+    ],
+    [
      "Jean-Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
     ],
     [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
-    ],
-    [
-     "Camille Maumet",
-     "/whoweare#camille_maumet_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [
     "datalad",
     "nidm"
@@ -3705,39 +4926,55 @@
    "venue": null,
    "authors": [
     [
-     "Chris Markiewicz",
+     "Tal Yarkoni",
+     null
+    ],
+    [
+     "Christopher Markiewicz",
      "/whoweare#chris_markiewicz_"
     ],
     [
-     "Yaroslav O. Halchenko",
+     "Alejandro de la Vega",
+     null
+    ],
+    null,
+    [
+     "Yaroslav Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
     [
      "Jean-Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
     ],
+    null,
     [
      "Adina Wagner",
      "/whoweare#adina_wagner_"
     ],
+    null,
     [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
     [
+     "Russell Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ],
+    null,
+    [
      "John Lee",
      "/whoweare#john_lee_"
     ],
+    null,
     [
-     "Matteo Visconti di Oleggio Castello",
-     "/whoweare#matteo_visconti_di_oleggio_castello_"
-    ],
-    [
-     "Russell A. Poldrack",
-     "/whoweare#russell_a_poldrack_"
+     "Ross Blair",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 31,
+   "preprint": false,
    "projects": [
     "bids"
    ],
@@ -3762,8 +4999,8 @@
    "url": "https://github.com/ReproNim/artwork/raw/master/posters/ohbm2019-containers.pdf",
    "date": "2019",
    "year": "2019",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Annual meeting of the Organization for Human Brain Mapping, Rome, Italy",
    "authors": [
     [
      "Yaroslav O. Halchenko",
@@ -3774,15 +5011,25 @@
      "/whoweare#kyle_meyer_"
     ],
     [
-     "Satrajit Ghosh",
+     "Dorota Jarecka",
+     null
+    ],
+    [
+     "Satra Ghosh",
      "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Jakub Kaczmarzyk",
+     null
     ],
     [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 6,
+   "preprint": false,
    "projects": [
     "repronim-containers"
    ],
@@ -3811,9 +5058,19 @@
      "/whoweare#david_n_kennedy_"
     ],
     [
+     "Sanu A. Abraham",
+     null
+    ],
+    [
+     "Julianna F. Bates",
+     null
+    ],
+    null,
+    [
      "Satrajit Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
@@ -3822,16 +5079,25 @@
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
+    null,
     [
      "Kyle Meyer",
      "/whoweare#kyle_meyer_"
     ],
+    null,
     [
      "Jean-Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
+    ],
+    null,
+    [
+     "Matt Travers",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 22,
+   "preprint": false,
    "projects": [
     "repronim"
    ],
@@ -3863,7 +5129,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -3885,7 +5153,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "repronim"
    ],
@@ -3912,7 +5182,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "neurodebian"
    ],
@@ -3939,7 +5211,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -3966,7 +5240,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -3985,20 +5261,20 @@
    "url": "https://doi.org/10.7490/f1000research.1116363.1",
    "date": "2018",
    "year": "2018",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Annual meeting of the Organization for Human Brain Mapping, Singapore",
    "authors": [
     [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
     [
-     "Matteo Visconti di Oleggio Castello",
-     "/whoweare#matteo_visconti_di_oleggio_castello_"
+     "Kyle A. Meyer",
+     "/whoweare#kyle_meyer_"
     ],
     [
-     "Kyle Meyer",
-     "/whoweare#kyle_meyer_"
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
     ],
     [
      "Benjamin Poldrack",
@@ -4009,7 +5285,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [
     "datalad",
     "yoda"
@@ -4033,8 +5311,8 @@
    "url": null,
    "date": "2018",
    "year": "2018",
-   "type": "paper",
-   "venue": null,
+   "type": "talk",
+   "venue": "Annual meeting of the Biological Psychiatry",
    "authors": [
     [
      "Yaroslav O. Halchenko",
@@ -4049,11 +5327,17 @@
      "/whoweare#jeanbaptiste_poline_"
     ],
     [
-     "David N. Kennedy",
+     "Dorota Jarecka",
+     null
+    ],
+    [
+     "David Kennedy",
      "/whoweare#david_n_kennedy_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [
     "neurodebian"
    ],
@@ -4075,8 +5359,8 @@
    "url": null,
    "date": "2018",
    "year": "2018",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Annual meeting of the Organization for Human Brain Mapping, Singapore",
    "authors": [
     [
      "Oliver Contier",
@@ -4087,11 +5371,17 @@
      "/whoweare#matteo_visconti_di_oleggio_castello_"
     ],
     [
+     "M. Ida Gobbini",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [],
    "people": [
     "oliver-contier",
@@ -4107,16 +5397,32 @@
    "url": null,
    "date": "2018",
    "year": "2018",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Annual meeting of the Organization for Human Brain Mapping, Singapore",
    "authors": [
     [
      "Matteo Visconti di Oleggio Castello",
      "/whoweare#matteo_visconti_di_oleggio_castello_"
     ],
     [
-     "James V. Haxby",
+     "James Dobson",
+     null
+    ],
+    [
+     "Terry Sackett",
+     null
+    ],
+    [
+     "Chandana Kodiweera",
+     null
+    ],
+    [
+     "James Haxby",
      "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Mathias Goncalves",
+     null
     ],
     [
      "Satrajit Ghosh",
@@ -4127,7 +5433,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 8,
+   "preprint": false,
    "projects": [
     "heudiconv"
    ],
@@ -4149,9 +5457,22 @@
    "url": null,
    "date": "2018",
    "year": "2018",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Annual meeting of the Organization for Human Brain Mapping, Singapore",
    "authors": [
+    [
+     "Tal Yarkoni",
+     null
+    ],
+    [
+     "Alejandro de la Vega",
+     null
+    ],
+    [
+     "Elizabeth DuPre",
+     null
+    ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
@@ -4160,20 +5481,28 @@
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
+    null,
     [
-     "Chris Markiewicz",
+     "Christopher Markiewicz",
      "/whoweare#chris_markiewicz_"
     ],
+    null,
     [
      "Jean-Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
     ],
     [
-     "Russell A. Poldrack",
+     "Russell Poldrack",
      "/whoweare#russell_a_poldrack_"
+    ],
+    [
+     "Krzysztof Gorgolewski",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 15,
+   "preprint": false,
    "projects": [
     "bids"
    ],
@@ -4195,9 +5524,21 @@
    "url": null,
    "date": "2018",
    "year": "2018",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Annual meeting of the Organization for Human Brain Mapping, Singapore",
    "authors": [
+    [
+     "Matthew Travers",
+     null
+    ],
+    [
+     "Robert Buccigrossi",
+     null
+    ],
+    [
+     "Christian Haselgrove",
+     null
+    ],
     [
      "Kyle Meyer",
      "/whoweare#kyle_meyer_"
@@ -4207,7 +5548,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [
     "reproman"
    ],
@@ -4226,23 +5569,45 @@
    "url": null,
    "date": "2018",
    "year": "2018",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Annual meeting of the Organization for Human Brain Mapping, Singapore",
    "authors": [
     [
      "Samuel Nastase",
      "/whoweare#samuel_nastase_"
     ],
     [
+     "Rebecca Philip",
+     null
+    ],
+    [
+     "Vassiki Chauhan",
+     null
+    ],
+    [
+     "Feilong Ma",
+     null
+    ],
+    [
+     "Morgan Taylor",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "James V. Haxby",
+     "M. Ida Gobbini",
+     null
+    ],
+    [
+     "James Haxby",
      "/whoweare#james_v_haxby_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 8,
+   "preprint": false,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -4258,8 +5623,8 @@
    "url": null,
    "date": "2018",
    "year": "2018",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "INCF annual meeting Neuroinformatics 2018, Montreal, Canada",
    "authors": [
     [
      "Michael Hanke",
@@ -4278,7 +5643,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -4312,7 +5679,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -4344,7 +5713,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -4376,7 +5747,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -4408,7 +5781,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -4432,7 +5807,7 @@
    "venue": null,
    "authors": [
     [
-     "Satrajit Ghosh",
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
     [
@@ -4440,15 +5815,29 @@
      "/whoweare#jeanbaptiste_poline_"
     ],
     [
+     "David B. Keator",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Adam G. Thomas",
+     null
+    ],
+    [
+     "Daniel A. Kessler",
+     null
     ],
     [
      "David N. Kennedy",
      "/whoweare#david_n_kennedy_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [
     "repronim"
    ],
@@ -4466,6 +5855,67 @@
    "video": null
   },
   {
+   "title": "Attention Selectively Reshapes the Geometry of Distributed Semantic Representation",
+   "url": "https://doi.org/10.1093/cercor/bhx138",
+   "date": "2017-06-07",
+   "year": "2017",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel A. Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Andrew C. Connolly",
+     null
+    ],
+    [
+     "Nikolaas N. Oosterhof",
+     "/whoweare#nikolaas_n_oosterhof_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "J. Swaroop Guntupalli",
+     null
+    ],
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "Jason Gors",
+     "/whoweare#jason_gors_"
+    ],
+    [
+     "M. Ida Gobbini",
+     null
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 9,
+   "preprint": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "nikolaas-oosterhof",
+    "yaroslav-halchenko",
+    "matteo-visconti-di-oleggio-castello",
+    "jason-gors",
+    "james-haxby"
+   ],
+   "objectives": [],
+   "pdf": null,
+   "video": null
+  },
+  {
    "title": "Toward standard practices for sharing computer code and programs in neuroscience",
    "url": "https://doi.org/10.1038/nn.4550",
    "date": "2017-06",
@@ -4474,19 +5924,30 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Stephen J Eglen",
+     null
+    ],
+    [
+     "Ben Marwick",
+     null
+    ],
+    [
+     "Yaroslav O Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
+    null,
     [
      "Jean-Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 14,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -4514,11 +5975,21 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Jason Gors",
+     "J. Swaroop Guntupalli",
+     null
+    ],
+    [
+     "Jason D. Gors",
      "/whoweare#jason_gors_"
+    ],
+    [
+     "M. Ida Gobbini",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [],
    "people": [
     "matteo-visconti-di-oleggio-castello",
@@ -4546,11 +6017,21 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Jason Gors",
+     "J. Swaroop Guntupalli",
+     null
+    ],
+    [
+     "Jason D. Gors",
      "/whoweare#jason_gors_"
+    ],
+    [
+     "M. Ida Gobbini",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": true,
    "projects": [],
    "people": [
     "matteo-visconti-di-oleggio-castello",
@@ -4570,8 +6051,12 @@
    "venue": null,
    "authors": [
     [
-     "Samuel Nastase",
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Andrew C. Connolly",
+     null
     ],
     [
      "Nikolaas N. Oosterhof",
@@ -4582,6 +6067,10 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
+     "J. Swaroop Guntupalli",
+     null
+    ],
+    [
      "Matteo Visconti di Oleggio Castello",
      "/whoweare#matteo_visconti_di_oleggio_castello_"
     ],
@@ -4590,11 +6079,17 @@
      "/whoweare#jason_gors_"
     ],
     [
+     "M. Ida Gobbini",
+     null
+    ],
+    [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 9,
+   "preprint": false,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -4613,12 +6108,16 @@
    "url": "https://f1000research.com/posters/5-2830",
    "date": "2016-11-12",
    "year": "2016",
-   "type": "paper",
+   "type": "poster",
    "venue": null,
    "authors": [
     [
-     "Samuel Nastase",
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
+    ],
+    [
+     "J. Swaroop Guntupalli",
+     null
     ],
     [
      "James V. Haxby",
@@ -4629,7 +6128,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [
     "region-localization"
    ],
@@ -4662,7 +6163,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -4690,7 +6193,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -4713,35 +6218,56 @@
    "venue": null,
    "authors": [
     [
-     "Satrajit Ghosh",
+     "Krzysztof J. Gorgolewski",
+     null
+    ],
+    [
+     "Tibor Auer",
+     null
+    ],
+    [
+     "Vince D. Calhoun",
+     null
+    ],
+    null,
+    [
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
     [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
+    null,
+    [
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ],
+    null,
     [
      "Jean-Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
     ],
+    null,
     [
      "Vanessa Sochat",
      "/whoweare#vanessa_sochat_"
     ],
+    null,
     [
      "Russell A. Poldrack",
      "/whoweare#russell_a_poldrack_"
-    ],
-    [
-     "Camille Maumet",
-     "/whoweare#camille_maumet_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 27,
+   "preprint": false,
    "projects": [
     "bids"
    ],
@@ -4773,7 +6299,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -4808,7 +6336,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 3,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -4833,15 +6363,25 @@
    "venue": null,
    "authors": [
     [
-     "Samuel Nastase",
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
     ],
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Ben Davis",
+     null
+    ],
+    [
+     "Uri Hasson",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -4860,6 +6400,10 @@
    "venue": null,
    "authors": [
     [
+     "J. Swaroop Guntupalli",
+     null
+    ],
+    [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
@@ -4868,11 +6412,21 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
+     "Andrew C. Connolly",
+     null
+    ],
+    [
+     "Peter J. Ramadge",
+     null
+    ],
+    [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 6,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -4897,7 +6451,19 @@
    "venue": null,
    "authors": [
     [
-     "Nikolaas N. Oosterhof",
+     "Andrew C. Connolly",
+     null
+    ],
+    [
+     "Long Sha",
+     null
+    ],
+    [
+     "J. Swaroop Guntupalli",
+     null
+    ],
+    [
+     "Nikolaas Oosterhof",
      "/whoweare#nikolaas_n_oosterhof_"
     ],
     [
@@ -4905,7 +6471,7 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Samuel Nastase",
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
     ],
     [
@@ -4913,11 +6479,25 @@
      "/whoweare#matteo_visconti_di_oleggio_castello_"
     ],
     [
+     "Hervé Abdi",
+     null
+    ],
+    [
+     "Barbara C. Jobst",
+     null
+    ],
+    [
+     "M. Ida Gobbini",
+     null
+    ],
+    [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 11,
+   "preprint": false,
    "projects": [],
    "people": [
     "nikolaas-oosterhof",
@@ -4943,7 +6523,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -4961,6 +6543,14 @@
    "venue": null,
    "authors": [
     [
+     "Stephen J. Eglen",
+     null
+    ],
+    [
+     "Ben Marwick",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
@@ -4968,12 +6558,15 @@
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
+    null,
     [
      "Jean-Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 14,
+   "preprint": true,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -4993,15 +6586,36 @@
    "venue": null,
    "authors": [
     [
+     "Joshua T. Vogelstein",
+     null
+    ],
+    [
+     "Brett Mensh",
+     null
+    ],
+    [
+     "Michael Häusser",
+     null
+    ],
+    null,
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
     [
      "Jean-Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
+    ],
+    null,
+    [
+     "Michael I. Miller",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 35,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -5020,31 +6634,56 @@
    "venue": null,
    "authors": [
     [
-     "Satrajit Ghosh",
+     "Krzysztof J. Gorgolewski",
+     null
+    ],
+    [
+     "Tibor Auer",
+     null
+    ],
+    [
+     "Vince D. Calhoun",
+     null
+    ],
+    null,
+    [
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
+    null,
     [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
+    null,
+    [
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ],
+    null,
     [
      "Jean-Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
     ],
+    null,
     [
      "Vanessa Sochat",
      "/whoweare#vanessa_sochat_"
     ],
+    null,
     [
      "Russell A. Poldrack",
      "/whoweare#russell_a_poldrack_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 26,
+   "preprint": true,
    "projects": [
     "bids"
    ],
@@ -5067,15 +6706,17 @@
    "url": "http://www.pymvpa.org/files/OHBM2016_Halchenko_resources.pdf",
    "date": "2016",
    "year": "2016",
-   "type": "paper",
-   "venue": null,
+   "type": "talk",
+   "venue": "Organization of Human Brain Mapping Annual Meeting, Tutorials, Geneva, Switzerland",
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Yaroslav. O Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -5089,12 +6730,16 @@
    "url": null,
    "date": "2016",
    "year": "2016",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Annual meeting of the Society for Neuroscience, Chicago, IL",
    "authors": [
     [
-     "Samuel Nastase",
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
+    ],
+    [
+     "J. Swaroop Guntupalli",
+     null
     ],
     [
      "James V. Haxby",
@@ -5105,7 +6750,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [
     "region-localization"
    ],
@@ -5126,8 +6773,8 @@
    "url": null,
    "date": "2016",
    "year": "2016",
-   "type": "paper",
-   "venue": null,
+   "type": "talk",
+   "venue": "Organization of Human Brain Mapping Annual Meeting, Geneva, Switzerland",
    "authors": [
     [
      "Yaroslav O. Halchenko",
@@ -5138,7 +6785,9 @@
      "/whoweare#matteo_visconti_di_oleggio_castello_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "duecredit"
    ],
@@ -5157,11 +6806,11 @@
    "url": "http://www.pymvpa.org/files/OHBM2016_Halchenko_datalad.pdf",
    "date": "2016",
    "year": "2016",
-   "type": "paper",
-   "venue": null,
+   "type": "talk",
+   "venue": "Organization of Human Brain Mapping Annual Meeting, Geneva, Switzerland",
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Yaroslav. O Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
@@ -5173,7 +6822,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 3,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -5198,8 +6849,12 @@
    "venue": null,
    "authors": [
     [
-     "Samuel Nastase",
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Andrew C. Connolly",
+     null
     ],
     [
      "Nikolaas N. Oosterhof",
@@ -5210,6 +6865,10 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
+     "J. Swaroop Guntupalli",
+     null
+    ],
+    [
      "Matteo Visconti di Oleggio Castello",
      "/whoweare#matteo_visconti_di_oleggio_castello_"
     ],
@@ -5218,11 +6877,17 @@
      "/whoweare#jason_gors_"
     ],
     [
+     "M. Ida Gobbini",
+     null
+    ],
+    [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 9,
+   "preprint": true,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -5241,7 +6906,7 @@
    "url": null,
    "date": "2015-10-17",
    "year": "2015",
-   "type": "paper",
+   "type": "poster",
    "venue": null,
    "authors": [
     [
@@ -5262,6 +6927,8 @@
     ]
    ],
    "authors_complete": false,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [
     "region-localization"
    ],
@@ -5291,7 +6958,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "neurodebian"
    ],
@@ -5318,7 +6987,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -5340,7 +7011,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -5371,7 +7044,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -5399,7 +7074,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -5418,23 +7095,33 @@
    "url": "http://f1000research.com/posters/4-299",
    "date": "2015",
    "year": "2015",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Organization of Human Brain Mapping Annual Meeting, Honolulu HI, USA",
    "authors": [
+    [
+     "Krzysztof Gorgolewski",
+     null
+    ],
+    [
+     "Kelsey Wheeler",
+     null
+    ],
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Jean-Baptiste Poline",
+     "Jean Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
     ],
     [
-     "Russell A. Poldrack",
+     "Russell Poldrack",
      "/whoweare#russell_a_poldrack_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [
     "openfmri"
    ],
@@ -5456,8 +7143,20 @@
    "venue": null,
    "authors": [
     [
+     "Long Sha",
+     null
+    ],
+    [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Herve Abdi",
+     null
+    ],
+    [
+     "J. Swaroop Guntupalli",
+     null
     ],
     [
      "Nikolaas N. Oosterhof",
@@ -5466,9 +7165,15 @@
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Andrew C. Connolly",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [],
    "people": [
     "james-haxby",
@@ -5484,15 +7189,17 @@
    "url": "http://www.pymvpa.org/files/OHBM2015_Halchenko.pdf",
    "date": "2015",
    "year": "2015",
-   "type": "paper",
-   "venue": null,
+   "type": "talk",
+   "venue": "Organization of Human Brain Mapping Annual Meeting, Honolulu HI, USA",
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Yaroslav. O Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -5511,12 +7218,20 @@
    "url": null,
    "date": "2015",
    "year": "2015",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Organization of Human Brain Mapping Annual Meeting, Honolulu HI, USA",
    "authors": [
     [
      "Satrajit Ghosh",
      "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Tibor Auer",
+     null
+    ],
+    [
+     "Krzysztof Gorgolewski",
+     null
     ],
     [
      "Yaroslav O. Halchenko",
@@ -5527,11 +7242,33 @@
      "/whoweare#michael_hanke_"
     ],
     [
-     "Russell A. Poldrack",
+     "Guillaume Flandin",
+     null
+    ],
+    [
+     "Nolan Nichols",
+     null
+    ],
+    [
+     "Russell Poldrack",
      "/whoweare#russell_a_poldrack_"
+    ],
+    [
+     "John Van Horn",
+     null
+    ],
+    [
+     "Daniel Marcus",
+     null
+    ],
+    [
+     "David Keator",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 11,
+   "preprint": false,
    "projects": [
     "nidm"
    ],
@@ -5552,13 +7289,22 @@
    "url": null,
    "date": "2015",
    "year": "2015",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Organization of Human Brain Mapping Annual Meeting, Honolulu HI, USA",
    "authors": [
     [
-     "Jean-Baptiste Poline",
+     "Jean Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
     ],
+    [
+     "Samir Das",
+     null
+    ],
+    [
+     "David Keator",
+     null
+    ],
+    null,
     [
      "Satrajit Ghosh",
      "/whoweare#satrajit_ghosh_"
@@ -5571,16 +7317,25 @@
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
+    null,
     [
-     "David N. Kennedy",
-     "/whoweare#david_n_kennedy_"
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
     ],
+    null,
     [
-     "Russell A. Poldrack",
+     "Russell Poldrack",
      "/whoweare#russell_a_poldrack_"
+    ],
+    null,
+    [
+     "David Kennedy",
+     "/whoweare#david_n_kennedy_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 31,
+   "preprint": false,
    "projects": [],
    "people": [
     "jean-baptiste-poline",
@@ -5611,7 +7366,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -5626,16 +7383,20 @@
    "url": null,
    "date": "2015",
    "year": "2015",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Annual meeting of the Society for Neuroscience, Chicago, IL",
    "authors": [
     [
      "Matteo Visconti di Oleggio Castello",
      "/whoweare#matteo_visconti_di_oleggio_castello_"
     ],
     [
-     "Samuel Nastase",
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
+    ],
+    [
+     "M. Ida Gobbini",
+     null
     ],
     [
      "James V. Haxby",
@@ -5646,7 +7407,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [],
    "people": [
     "matteo-visconti-di-oleggio-castello",
@@ -5663,11 +7426,11 @@
    "url": null,
    "date": "2015",
    "year": "2015",
-   "type": "paper",
-   "venue": null,
+   "type": "talk",
+   "venue": "Annual meeting of the Organization for Human Brain Mapping, Honolulu, HI",
    "authors": [
     [
-     "Samuel Nastase",
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
     ],
     [
@@ -5679,11 +7442,17 @@
      "/whoweare#james_v_haxby_"
     ],
     [
+     "M. Ida Gobbini",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -5700,11 +7469,11 @@
    "url": null,
    "date": "2015",
    "year": "2015",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Annual meeting of the Society for Neuroscience, Chicago, IL",
    "authors": [
     [
-     "Samuel Nastase",
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
     ],
     [
@@ -5716,15 +7485,25 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
+     "Andrew C. Connolly",
+     null
+    ],
+    [
      "Nikolaas N. Oosterhof",
      "/whoweare#nikolaas_n_oosterhof_"
+    ],
+    [
+     "M. Ida and Gobbini",
+     null
     ],
     [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -5742,31 +7521,52 @@
    "url": null,
    "date": "2015",
    "year": "2015",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Organization of Human Brain Mapping Annual Meeting, Honolulu HI, USA",
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Nolan Nichols",
+     null
+    ],
+    [
+     "David Keator",
+     null
+    ],
+    [
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ],
+    null,
+    [
+     "Yaroslav Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
+    null,
     [
-     "David N. Kennedy",
+     "Russell Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ],
+    null,
+    [
+     "David Kennedy",
      "/whoweare#david_n_kennedy_"
     ],
     [
-     "Jean-Baptiste Poline",
+     "Jean Baptiste Poline",
      "/whoweare#jeanbaptiste_poline_"
     ],
     [
-     "Russell A. Poldrack",
-     "/whoweare#russell_a_poldrack_"
+     "Kilian Pohl",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 16,
+   "preprint": false,
    "projects": [
     "nidm"
    ],
@@ -5800,7 +7600,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [],
    "people": [
     "michael-hanke",
@@ -5827,7 +7629,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -5855,7 +7659,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -5882,7 +7688,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "fail2ban"
    ],
@@ -5906,7 +7714,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -5937,7 +7747,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "datalad"
    ],
@@ -5957,12 +7769,16 @@
    "url": null,
    "date": "2014",
    "year": "2014",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Annual meeting of the Vision Sciences Society, St. Pete Beach, FL",
    "authors": [
     [
-     "Samuel Nastase",
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Andrew C. Connolly",
+     null
     ],
     [
      "Nikolaas N. Oosterhof",
@@ -5977,11 +7793,17 @@
      "/whoweare#jason_gors_"
     ],
     [
+     "M. Ida Gobbini",
+     null
+    ],
+    [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -5999,12 +7821,16 @@
    "url": null,
    "date": "2014",
    "year": "2014",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Annual meeting of the Organization for Human Brain Mapping, Hamburg, Germany",
    "authors": [
     [
-     "Samuel Nastase",
+     "Samuel A. Nastase",
      "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Andrew C. Connolly",
+     null
     ],
     [
      "Nikolaas N. Oosterhof",
@@ -6019,11 +7845,17 @@
      "/whoweare#jason_gors_"
     ],
     [
+     "M. Ida Gobbini",
+     null
+    ],
+    [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -6045,19 +7877,29 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Y. O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Michael Hanke",
+     "M. Hanke",
      "/whoweare#michael_hanke_"
     ],
     [
-     "James V. Haxby",
+     "J. V. Haxby",
      "/whoweare#james_v_haxby_"
+    ],
+    [
+     "S. J. Hanson",
+     null
+    ],
+    [
+     "C. S. Herrmann",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -6082,15 +7924,37 @@
    "venue": null,
    "authors": [
     [
-     "Jason Gors",
+     "Maria Ida Gobbini",
+     null
+    ],
+    [
+     "Jason D. Gors",
      "/whoweare#jason_gors_"
     ],
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Courtney Rogers",
+     null
+    ],
+    [
+     "J. Swaroop Guntupalli",
+     null
+    ],
+    [
+     "Howard Hughes",
+     null
+    ],
+    [
+     "Carlo Cipolli",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [],
    "people": [
     "jason-gors",
@@ -6109,6 +7973,26 @@
    "venue": null,
    "authors": [
     [
+     "Peter J. Kohler",
+     null
+    ],
+    [
+     "Sergey V. Fogelson",
+     null
+    ],
+    [
+     "Eric A. Reavis",
+     null
+    ],
+    [
+     "Ming Meng",
+     null
+    ],
+    [
+     "J. Swaroop Guntupalli",
+     null
+    ],
+    [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
@@ -6117,11 +8001,21 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
+     "Andrew C. Connolly",
+     null
+    ],
+    [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Peter U. Tse",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 10,
+   "preprint": false,
    "projects": [],
    "people": [
     "michael-hanke",
@@ -6149,7 +8043,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "debian"
    ],
@@ -6170,15 +8066,29 @@
    "venue": null,
    "authors": [
     [
-     "Jason Gors",
+     "M. Ida Gobbini",
+     null
+    ],
+    [
+     "Jason D. Gors",
      "/whoweare#jason_gors_"
     ],
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Howard C. Hughes",
+     null
+    ],
+    [
+     "Carlo Cipolli",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [],
    "people": [
     "jason-gors",
@@ -6201,7 +8111,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "neurodebian"
    ],
@@ -6245,6 +8157,8 @@
     ]
    ],
    "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -6277,7 +8191,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -6305,7 +8221,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "neurodebian"
    ],
@@ -6336,7 +8254,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "debian"
    ],
@@ -6357,6 +8277,14 @@
    "venue": null,
    "authors": [
     [
+     "Andrew C. Connolly",
+     null
+    ],
+    [
+     "J. Swaroop Guntupalli",
+     null
+    ],
+    [
      "Jason Gors",
      "/whoweare#jason_gors_"
     ],
@@ -6369,11 +8297,21 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
+     "Yu-Chien Wu",
+     null
+    ],
+    [
+     "Hervé Abdi",
+     null
+    ],
+    [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 8,
+   "preprint": false,
    "projects": [],
    "people": [
     "jason-gors",
@@ -6402,7 +8340,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -6434,7 +8374,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "neurodebian"
    ],
@@ -6454,23 +8396,33 @@
    "url": "http://haxbylab.dartmouth.edu/publications/HGG+12_sfn12_famfaces.png",
    "date": "2012",
    "year": "2012",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Society for Neuroscience Annual Meeting, New Orleans",
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Y. O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Jason Gors",
+     "J. Gors",
      "/whoweare#jason_gors_"
     ],
     [
-     "James V. Haxby",
+     "J. S. Guntupalli",
+     null
+    ],
+    [
+     "J. V. Haxby",
      "/whoweare#james_v_haxby_"
+    ],
+    [
+     "M. I. Gobbini",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -6494,7 +8446,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -6516,9 +8470,14 @@
      "/whoweare#jeanbaptiste_poline_"
     ],
     [
+     "Janis L. Breeze",
+     null
+    ],
+    [
      "Satrajit Ghosh",
      "/whoweare#satrajit_ghosh_"
     ],
+    null,
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
@@ -6527,16 +8486,20 @@
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
-    [
-     "David N. Kennedy",
-     "/whoweare#david_n_kennedy_"
-    ],
+    null,
     [
      "Russell A. Poldrack",
      "/whoweare#russell_a_poldrack_"
+    ],
+    null,
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 14,
+   "preprint": false,
    "projects": [],
    "people": [
     "jean-baptiste-poline",
@@ -6567,7 +8530,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -6591,19 +8556,41 @@
    "venue": null,
    "authors": [
     [
-     "James V. Haxby",
+     "James V. Haxby",
      "/whoweare#james_v_haxby_"
     ],
     [
-     "Yaroslav O. Halchenko",
+     "J. Swaroop Guntupalli",
+     null
+    ],
+    [
+     "Andrew C. Connolly",
+     null
+    ],
+    [
+     "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Bryan R. Conroy",
+     null
+    ],
+    [
+     "M. Ida Gobbini",
+     null
     ],
     [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
+    ],
+    [
+     "Peter J. Ramadge",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 8,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -6632,7 +8619,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "debian"
    ],
@@ -6660,7 +8649,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -6692,7 +8683,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "neurodebian"
    ],
@@ -6720,7 +8713,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "psychopy"
    ],
@@ -6753,6 +8748,8 @@
     ]
    ],
    "authors_complete": false,
+   "authors_count": 3,
+   "preprint": false,
    "projects": [
     "neurodebian"
    ],
@@ -6798,6 +8795,8 @@
     ]
    ],
    "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -6831,7 +8830,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -6851,19 +8852,33 @@
    "url": null,
    "date": "2011",
    "year": "2011",
-   "type": "paper",
-   "venue": null,
+   "type": "poster",
+   "venue": "Vision Sciences Society Annual Meeting, Naples, FL",
    "authors": [
+    [
+     "Andrew C. Connolly",
+     null
+    ],
+    [
+     "Yu-Chien Wu",
+     null
+    ],
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "J. Swaroop Guntupalli",
+     null
     ],
     [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -6882,15 +8897,37 @@
    "venue": null,
    "authors": [
     [
+     "Krzysztof Gorgolewski",
+     null
+    ],
+    [
+     "Christopher D. Burns",
+     null
+    ],
+    [
+     "Cindee Madison",
+     null
+    ],
+    [
+     "Dav Clark",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Satrajit Ghosh",
+     "Michael L. Waskom",
+     null
+    ],
+    [
+     "Satrajit S. Ghosh",
      "/whoweare#satrajit_ghosh_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [
     "nipype"
    ],
@@ -6919,7 +8956,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "neurodebian"
    ],
@@ -6943,6 +8982,14 @@
    "venue": null,
    "authors": [
     [
+     "Andreas Tille",
+     null
+    ],
+    [
+     "Steffen Moeller",
+     null
+    ],
+    [
      "Michael Hanke",
      "/whoweare#michael_hanke_"
     ],
@@ -6951,7 +8998,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [
     "debian-med"
    ],
@@ -6991,6 +9040,8 @@
     ]
    ],
    "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [
     "neurodebian"
    ],
@@ -7023,7 +9074,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "neurodebian"
    ],
@@ -7055,7 +9108,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "debian"
    ],
@@ -7097,6 +9152,8 @@
     ]
    ],
    "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7134,6 +9191,8 @@
     ]
    ],
    "authors_complete": true,
+   "authors_count": 3,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7165,7 +9224,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7210,6 +9271,8 @@
     ]
    ],
    "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7251,6 +9314,8 @@
     ]
    ],
    "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [
     "neurodebian"
    ],
@@ -7283,7 +9348,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7328,6 +9395,8 @@
     ]
    ],
    "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7352,15 +9421,33 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "J.D. Ramsey",
+     null
+    ],
+    [
+     "S.J. Hanson",
+     null
+    ],
+    [
+     "C. Hanson",
+     null
+    ],
+    [
+     "Y.O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Russell A. Poldrack",
+     "R.A. Poldrack",
      "/whoweare#russell_a_poldrack_"
+    ],
+    [
+     "C. Glymour",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 6,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -7389,9 +9476,15 @@
     [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Stefan Pollmann",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7426,9 +9519,15 @@
     [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Stefan Pollmann",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [
     "neurodebian"
    ],
@@ -7461,7 +9560,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7493,7 +9594,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7517,15 +9620,21 @@
    "venue": null,
    "authors": [
     [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Russell A. Poldrack",
-     "/whoweare#russell_a_poldrack_"
+     "Stephen José Hanson",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 3,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -7548,7 +9657,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 1,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7579,7 +9690,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7611,7 +9724,9 @@
      "/whoweare#michael_hanke_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7643,7 +9758,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7675,7 +9792,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7707,7 +9826,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7739,11 +9860,41 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
+     "Per B. Sederberg",
+     null
+    ],
+    [
+     "Emanuele Olivetti",
+     null
+    ],
+    [
+     "Ingo Fründ",
+     null
+    ],
+    [
+     "Jochem W. Rieger",
+     null
+    ],
+    [
+     "Christoph S. Herrmann",
+     null
+    ],
+    [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Stephen Jose Hanson",
+     null
+    ],
+    [
+     "Stefan Pollmann",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 10,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7776,11 +9927,25 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
+     "Per B. Sederberg",
+     null
+    ],
+    [
+     "Stephen José Hanson",
+     null
+    ],
+    [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Stefan Pollmann",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 6,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7817,7 +9982,9 @@
      "/whoweare#james_v_haxby_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 3,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7850,7 +10017,9 @@
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [
     "pymvpa"
    ],
@@ -7874,11 +10043,17 @@
    "venue": null,
    "authors": [
     [
+     "Stephen José Hanson",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -7896,11 +10071,17 @@
    "venue": null,
    "authors": [
     [
+     "Stephen José Hanson",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 2,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -7918,11 +10099,29 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "S. J. Hanson",
+     null
+    ],
+    [
+     "C. Hanson",
+     null
+    ],
+    [
+     "Y. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "T. Matsuka",
+     null
+    ],
+    [
+     "A. Zaimi",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -7940,11 +10139,25 @@
    "venue": null,
    "authors": [
     [
+     "Stephen José Hanson",
+     null
+    ],
+    [
+     "Rebbechi Rebecchi",
+     null
+    ],
+    [
+     "Catherine Hanson",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -7964,9 +10177,19 @@
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Stephen Jose Hanson",
+     null
+    ],
+    [
+     "Barak A. Pearlmutter",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 3,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -7984,11 +10207,37 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "S. J. Hanson",
+     null
+    ],
+    [
+     "T. Matsuka",
+     null
+    ],
+    [
+     "C. Hanson",
+     null
+    ],
+    [
+     "D. Rebbechi",
+     null
+    ],
+    [
+     "Y. O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "A. Zaimi",
+     null
+    ],
+    [
+     "B. A. Pearlmutter",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 7,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -8006,11 +10255,25 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Y. O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "B. A. Pearlmutter",
+     null
+    ],
+    [
+     "S. J. Hanson",
+     null
+    ],
+    [
+     "A. Zaimi",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -8028,11 +10291,21 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Y. O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "S. J. Hanson",
+     null
+    ],
+    [
+     "B. A. Pearlmutter",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 3,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -8050,11 +10323,33 @@
    "venue": null,
    "authors": [
     [
+     "Leonid I. Timchenko",
+     null
+    ],
+    [
+     "Yuri F. Kutaev",
+     null
+    ],
+    [
+     "Alexander A. Gertsiy",
+     null
+    ],
+    [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Lubov V. Zahoruiko",
+     null
+    ],
+    [
+     "Tamer Mansur",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 6,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -8072,11 +10367,33 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
+     "Leonid I. Timchenko",
+     null
+    ],
+    [
+     "Yuri F. Kutaev",
+     null
+    ],
+    [
+     "Alexander A. Gertsiy",
+     null
+    ],
+    [
+     "Lubov V. Zahoruiko",
+     null
+    ],
+    [
+     "Yaroslav O. Galchenko",
+     null
+    ],
+    [
+     "Tamer Mansur",
+     null
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 6,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -8094,11 +10411,25 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "L. I. Tymchenko",
+     null
+    ],
+    [
+     "J. Scorukova",
+     null
+    ],
+    [
+     "S. Markov",
+     null
+    ],
+    [
+     "Y. O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 4,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -8116,11 +10447,21 @@
    "venue": null,
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "T. B. Martinyuk",
+     null
+    ],
+    [
+     "A. V. Kogemiako",
+     null
+    ],
+    [
+     "Y. O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
+   "authors_complete": true,
+   "authors_count": 3,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
