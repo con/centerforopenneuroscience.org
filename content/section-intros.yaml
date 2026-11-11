@@ -20,7 +20,7 @@ whoweare:
 support:
   Institutional: >
     <div class="funder">
-      <h2><a href="https://www.dartmouth.edu/ccn/"><img src="/theme/img/3rd/ccn-logo_h100.png" alt="" /><span>Center for Cognitive Neuroscience, Dartmouth College</span></a></h2>
+      <h2 data-hidden-from-toc="true"><a href="https://www.dartmouth.edu/ccn/"><img src="/theme/img/3rd/ccn-logo_h100.png" alt="" /><span>Center for Cognitive Neuroscience, Dartmouth College</span></a></h2>
       <ul class="grants">
         <li><span class="grant-title">Hosting the group and providing gap funding</span></li>
       </ul>

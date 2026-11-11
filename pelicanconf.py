@@ -27,6 +27,12 @@ MARKDOWN = {
 
 import hashlib, os, sys
 sys.path.append(os.path.join(os.getcwd(), "jinjaext"))
+import importlib
+import table_of_contents
+# `make devserver` re-reads this file when it changes, but a plain import
+# is served from the module cache, so an edited extension stayed stale (the
+# headings stayed unlinked) until a restart; touching this file now does.
+importlib.reload(table_of_contents)
 from table_of_contents import TableOfContents as TOC
 
 def publications_version():

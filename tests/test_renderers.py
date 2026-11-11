@@ -206,14 +206,19 @@ def test_section_intros_are_present(whoweare, projects):
 
 
 @pytest.mark.ai_generated
-def test_relation_lists_need_more_than_one(projects):
-    """A list of one is not a list: con/annextube's only instrument is
-    con/annextube, and "Within it: STAMPED Principles" said nothing three
-    times over."""
-    for m in re.finditer(r'<ul class="component-list">(.*?)</ul>',
-                         projects, re.S):
-        assert len(re.findall(r"<li>", m.group(1))) != 1, \
-            "component list with exactly one entry"
+def test_relation_lists_never_list_the_project_itself(projects):
+    """annextube's only instrument is annextube, and "Components: annextube"
+    said nothing.  A list of one is fine otherwise: hiding every such list
+    also hid TR&D3 under ReproNim and OpenNeuroStudies under OpenNeuro."""
+    for entry in re.split(r'<div class="row">', projects)[1:]:
+        name = re.search(r"<h2[^>]*>(.*?)</h2>", entry, re.S)
+        if not name:
+            continue
+        name = re.sub(r"<[^>]+>", "", name.group(1)).strip()
+        for m in re.finditer(r'<ul class="component-list">(.*?)</ul>', entry, re.S):
+            items = [re.sub(r"<[^>]+>", "", i).split(":")[0].strip()
+                     for i in re.findall(r"<li>(.*?)</li>", m.group(1), re.S)]
+            assert items != [name], f"{name} lists only itself"
     # a component list must gloss its entries, not just name them
     lists = re.findall(r'<ul class="component-list">(.*?)</ul>', projects, re.S)
     assert lists, "no component lists rendered"
@@ -311,16 +316,16 @@ def test_components_and_collaborations_are_one_kind_of_list(projects):
                 for i in re.findall(r"<li>(.*?)</li>", block, re.S)]
 
     dandi = entry("dandi")
-    comps = listed(dandi, re.search(r"<summary>(\d+ components)", dandi).group(1))
+    comps = listed(dandi, re.search(r"<summary>(\d+ components?)", dandi).group(1))
     assert {"dandisets", "DANDI Compute", "backups2datalad"} <= set(comps)
     assert "<ul> <li>" not in dandi           # no hand-kept list left above them
     repronim = entry("repronim")
     assert listed(repronim, "2 collaborative projects") == ["DataLad", "OpenNeuro"]
     assert "DataLad" not in listed(repronim, re.search(
-        r"<summary>(\d+ components)", repronim).group(1))
+        r"<summary>(\d+ components?)", repronim).group(1))
     openneuro = entry("openneuro")
     assert "OpenNeuroStudies" in listed(openneuro, re.search(
-        r"<summary>(\d+ components)", openneuro).group(1))
+        r"<summary>(\d+ components?)", openneuro).group(1))
 
 
 # --- ordering -------------------------------------------------------------
@@ -1008,7 +1013,7 @@ def test_support_lists_every_grant_under_its_funder():
     # the CCN block is section copy, not a record, and must survive
     assert "ccn-logo" in out
     # every funder heading names the funder, logo or not
-    heads = re.findall(r'<h2>.*?</h2>', out)
+    heads = re.findall(r'<h2[^>]*>.*?</h2>', out)
     assert all("<span>" in h and ("<img" in h or "no-logo" in h) for h in heads)
     assert any("National Institutes of Health" in h for h in heads)
 
@@ -1420,3 +1425,34 @@ def test_a_heading_links_to_itself_and_the_sidebar_follows(served_site):
             assert 40 <= top <= 90, f"{page}: #{hook} landed at {top}px"
         assert not errors, errors
         browser.close()
+
+
+@pytest.mark.ai_generated
+def test_stamped_draws_on_projects_it_is_no_component_of(projects):
+    stamped = projects[projects.index('id="stamped"'):]
+    stamped = stamped[:stamped.index('<div class="row">')]
+    block = stamped[stamped.index("4 projects it draws on"):]
+    block = block[:block.index("</ul>")]
+    assert all(n in block for n in ("ReproNim", "DANDI", "EMBER", "OpenNeuro"))
+    for pid in ("repronim", "dandi", "ember", "openneuro"):
+        e = projects[projects.index(f'id="{pid}"'):]
+        assert "STAMPED Principles</a>:" not in e[:e.index('<div class="row">')]
+
+
+@pytest.mark.ai_generated
+def test_project_descriptions_link_records_by_pid_and_resolve_here(projects):
+    """The store writes href="xyzrins:projects/nwb"; none may reach the page."""
+    assert 'href="xyzrins:' not in projects
+    bids = projects[projects.index('id="bids"'):]
+    assert 'href="#nwb_"' in bids[:bids.index('<div class="row">')]
+
+
+@pytest.mark.ai_generated
+def test_support_is_in_sections_with_a_sidebar():
+    out = run("render_support.py").stdout
+    assert re.findall(r"<h1>(.*?)</h1>", out) == ["Institutional", "Federal", "Corporate"]
+    assert '<meta name="table_of_contents" content="true" />' in out
+    # a funder's heading is a link to the funder, so not a sidebar entry
+    assert '<h2 data-hidden-from-toc="true"><a href="https://www.nih.gov">' in out
+    corporate = out[out.index("<h1>Corporate</h1>"):]
+    assert "Meta" in corporate and "National Institutes of Health" not in corporate

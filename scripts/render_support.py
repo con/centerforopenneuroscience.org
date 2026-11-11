@@ -22,6 +22,10 @@ FUNDING = "FRAPO:Funding"
 # the funders' logos already in the theme; a funder without one gets its name
 LOGOS = {"ror:01cwqze88": "/theme/img/3rd/nih-logo.png",
          "ror:021nxhr62": "/theme/img/3rd/nsf-logo.gif"}
+# which section of the page a funder belongs in; the records do not say
+SECTOR = {"ror:01cwqze88": "Federal", "ror:021nxhr62": "Federal",
+          "xyzrins:organizations/meta": "Corporate"}
+SECTIONS = ["Institutional", "Federal", "Corporate"]
 # an award page that the identifier alone determines
 AWARD_URL = {"ror:021nxhr62": "https://www.nsf.gov/awardsearch/showAward?AWD_ID={}"}
 
@@ -74,6 +78,9 @@ def render():
         if not who or who[0] not in funders:
             skipped.append((f.stem, f"no known funder ({who})"))
             continue
+        if who[0] not in SECTOR:
+            skipped.append((f.stem, f"funder {who[0]} is in no section of SECTOR"))
+            continue
         grants.setdefault(who[0], []).append(g)
     funds = funded_projects(page_anchors())
     intros = (load_yaml(INTROS) if INTROS.exists() else {}).get("support", {})
@@ -85,17 +92,25 @@ def render():
            '    <meta name="order" content="5" />',
            '    <meta name="top_menu_name" content="Support" />',
            '    <meta name="show_as_selected" content="support" />',
-           '    <meta name="table_of_contents" content="false" />',
+           # the sidebar lists the sections; a funder's heading is a link to
+           # the funder, so it stays out of it
+           '    <meta name="table_of_contents" content="true" />',
            '    <meta name="description" content="Our supporters" />',
            '    <meta name="author" content="CON" />',
            '    <!-- GENERATED from con-site-specific by scripts/render_support.py',
            '         Edit the records, not this file. -->',
            '</head>', '', '<body>', '  <section>',
            '\t<p>Support for the center and its projects is provided by</p>']
+    out += ['\t<h1>Institutional</h1>']
     if intros.get("Institutional"):
         out.append(intros["Institutional"].rstrip())
-    # the funder with the most grants first
-    for pid in sorted(grants, key=lambda p: (-len(grants[p]), p)):
+    # by section; within one, the funder with the most grants first
+    order = sorted(grants, key=lambda p: (SECTIONS.index(SECTOR[p]), -len(grants[p]), p))
+    section = "Institutional"
+    for pid in order:
+        if SECTOR[pid] != section:
+            section = SECTOR[pid]
+            out.append(f'\t<h1>{section}</h1>')
         d = funders[pid]
         name = d.get("name") or d.get("display_label")
         logo = LOGOS.get(pid)
@@ -104,7 +119,8 @@ def render():
                  else '<span class="no-logo"></span>')
                 + f'<span>{html.escape(name)}</span>')
         out += ['\t<div class="funder">',
-                f'\t  <h2>{link_html(head, one(d, "foaf:homepage"))}</h2>',
+                f'\t  <h2 data-hidden-from-toc="true">'
+                f'{link_html(head, one(d, "foaf:homepage"))}</h2>',
                 '\t  <ul class="grants">']
         # newest first; an undated grant last
         for g in sorted(grants[pid], key=lambda g: ((g.get("generated_by") or {})

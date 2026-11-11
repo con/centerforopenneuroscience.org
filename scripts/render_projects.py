@@ -197,6 +197,25 @@ def subprojects_by_parent():
     return out
 
 
+PID_LINK = re.compile(r'href="(xyzrins:[^"]*)"')
+
+
+def pid_targets():
+    """record pid -> where a link to it lands, when not on this page: a
+    person with an entry on whoweare there, any record with a homepage on
+    its homepage."""
+    out = {}
+    for f in sorted(RECORDS.glob("*/*.yaml")):
+        d = yaml.safe_load(f.read_text())
+        if not isinstance(d, dict) or "pid" not in d:
+            continue
+        if d.get("schema_type") == "xyzri:XYZPerson" and one(d, "dlthings:tier") in TIERS:
+            out[d["pid"]] = "/whoweare#" + toc_hook(person_name(d))
+        elif one(d, "foaf:homepage"):
+            out[d["pid"]] = one(d, "foaf:homepage")
+    return out
+
+
 def collaborators_by_project():
     """Projects grouped by the project they name as a collaborator: the
     `influenced_by` with the "Collaborative project" role."""
@@ -209,7 +228,7 @@ def collaborators_by_project():
     return out
 
 
-def related_list(parts, noun, on_page):
+def related_list(parts, noun, on_page, plural=None):
     """An open "N <noun>s" disclosure listing records with their glosses.
 
     Every entry's components look the same: there used to be a bare
@@ -226,7 +245,7 @@ def related_list(parts, noun, on_page):
                     + '</li>')
     n = len(parts)
     return (['\t\t<details class="components" open="open">',
-             f'\t\t  <summary>{n} {noun}{"" if n == 1 else "s"}</summary>',
+             f'\t\t  <summary>{n} {noun if n == 1 else plural or noun + "s"}</summary>',
              '\t\t  <ul class="component-list">'] + rows
             + ['\t\t  </ul>', '\t\t</details>'])
 
@@ -376,6 +395,11 @@ def render():
     components = instruments_by_project()
     children = subprojects_by_parent()
     collaborators = collaborators_by_project()
+    elsewhere = pid_targets()
+    by_pid = {}
+    for f in sorted((RECORDS / "XYZProject").glob("*.yaml")):
+        rec = yaml.safe_load(f.read_text())
+        by_pid[rec["pid"]] = (f.stem, rec)
     # newest first, as publications() returns them
     pubs = {}
     for p in publications():
@@ -448,6 +472,17 @@ def render():
                               lambda m: 'href="#%s"' % legacy.get(m.group(1),
                                                                   m.group(1)),
                               rich)
+                # The store links one record to another by pid,
+                # href="xyzrins:projects/nwb"; here that is the entry on
+                # this page, a person's on whoweare, or else the homepage.
+                for target in PID_LINK.findall(rich):
+                    if target not in on_page and target not in elsewhere:
+                        sys.exit(f"{r['slug']}: description_html links to "
+                                 f"{target}, which has no entry or homepage")
+                rich = PID_LINK.sub(
+                    lambda m: 'href="%s"' % html.escape(
+                        "#" + on_page[m.group(1)] if m.group(1) in on_page
+                        else elsewhere[m.group(1)]), rich)
                 out.append(f'\t\t{rich}')
             else:
                 out.append(f'\t\t<p>{html.escape(d.get("description") or "")}</p>')
@@ -458,9 +493,11 @@ def render():
             # kind of list from DataLad's extensions.
             parts = ((children.get(d["pid"]) or [])
                      + (components.get(d["pid"]) or []))
-            # A list of one is not a list.  con/annextube's only instrument
-            # IS con/annextube, so "Components: con/annextube" said nothing.
-            if len(parts) > 1:
+            # An instrument that IS the project (annextube's) is already left
+            # out by instruments_by_project(); a list of one otherwise says
+            # something -- TR&D3 under ReproNim, OpenNeuroStudies under
+            # OpenNeuro -- and hiding it hid them.
+            if parts:
                 # A bare comma list of 13 repository names, at body weight,
                 # taught the reader nothing without hovering each one.  The
                 # page already has the right pattern for "a named thing plus
@@ -478,17 +515,23 @@ def render():
                     return i >= 0 and ":" in (rich or "")[i:i + len(nm) + 16]
                 parts = [(s, pr) for s, pr in parts
                          if not already_glossed(pr.get("name") or s)]
-            # Re-checked after the dedupe: DataLad's prose can gloss all but
-            # one, and a list of one is still not a list.  (This used to fall
-            # back to the un-deduped instrument list, which both undid the
-            # dedupe and, once sub-projects joined the list, dropped them.)
-            if len(parts) > 1:
+            # Re-checked after the dedupe, which can gloss them all.  (This
+            # used to fall back to the un-deduped instrument list, which both
+            # undid the dedupe and, once sub-projects joined it, dropped them.)
+            if parts:
                 out += related_list(parts, "component", on_page)
             # Projects run together with this one rather than within it:
             # OpenNeuro and DataLad with ReproNim.  One is a list here.
             if collaborators.get(d["pid"]):
                 out += related_list(collaborators[d["pid"]], "collaborative project",
                                     on_page)
+            # Projects it draws on without being part of them: an
+            # `influenced_by` with no role (STAMPED on ReproNim, DANDI, ...).
+            drawn = [by_pid[i["object"]] for i in d.get("influenced_by") or []
+                     if not i.get("roles") and i["object"] in by_pid]
+            if drawn:
+                out += related_list(drawn, "project it draws on", on_page,
+                                    plural="projects it draws on")
             # Closed, unlike a long component list: the description is the
             # content here, and the people are an index into whoweare.
             ppl = people_of(d, components.get(d["pid"]) or [])
