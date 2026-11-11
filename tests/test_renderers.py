@@ -293,17 +293,34 @@ def test_a_gloss_is_not_also_a_tooltip(projects):
 
 
 @pytest.mark.ai_generated
-def test_components_do_not_repeat_the_description(projects):
-    """A component the description already glosses -- DANDI's own bullet on
-    dandisets -- is better there than as a generated line; listing it again
-    is strictly worse.  (DataLad's bullets were the first case; they moved
-    into its components and publications.)"""
-    m = re.search(r"<h2[^>]*>DANDI</h2>(.*?)(?=<h2 )", projects, re.S)
-    body = m.group(1).split("component-list")[-1]
-    listed = {re.sub(r"<[^>]+>", "", i).split(":")[0].strip()
-              for i in re.findall(r"<li>(.*?)</li>", body, re.S)}
-    assert "dandisets" not in listed
-    assert "dandi-cli" in listed             # the rest still show
+def test_components_and_collaborations_are_one_kind_of_list(projects):
+    """EMBER and ReproNim had a bare "Components:" heading where DataLad and
+    DANDI had a disclosure; DANDI's description listed dandisets and DANDI
+    Compute by hand; OpenNeuro and DataLad read as ReproNim's components
+    though they are only run with it."""
+    assert "<strong>Components:</strong>" not in projects
+
+    def entry(pid):
+        e = projects[projects.index(f'id="{pid}"'):]
+        return e[:e.index('<div class="row">')]
+
+    def listed(e, summary):
+        block = e[e.index(f"{summary}</summary>"):]
+        block = block[:block.index("</ul>")]
+        return [re.sub(r"<[^>]+>", "", i).split(":")[0].strip()
+                for i in re.findall(r"<li>(.*?)</li>", block, re.S)]
+
+    dandi = entry("dandi")
+    comps = listed(dandi, re.search(r"<summary>(\d+ components)", dandi).group(1))
+    assert {"dandisets", "DANDI Compute", "backups2datalad"} <= set(comps)
+    assert "<ul> <li>" not in dandi           # no hand-kept list left above them
+    repronim = entry("repronim")
+    assert listed(repronim, "2 collaborative projects") == ["DataLad", "OpenNeuro"]
+    assert "DataLad" not in listed(repronim, re.search(
+        r"<summary>(\d+ components)", repronim).group(1))
+    openneuro = entry("openneuro")
+    assert "OpenNeuroStudies" in listed(openneuro, re.search(
+        r"<summary>(\d+ components)", openneuro).group(1))
 
 
 # --- ordering -------------------------------------------------------------
@@ -1377,3 +1394,29 @@ def test_objectives_list_and_filter_the_publications_that_serve_them():
                   r"<summary>(\d+) publications", out)
     assert int(m.group(1)) == sum("cross-standards-harmonization" in e["objectives"]
                                   for e in data["publications"])
+
+
+@pytest.mark.ai_generated
+def test_a_heading_links_to_itself_and_the_sidebar_follows(served_site):
+    """Clicking a heading puts it at the top, its #fragment in the address,
+    and the sidebar on it -- on a built page and on the publications that
+    publications.js renders."""
+    pw = pytest.importorskip("playwright.sync_api")
+    with pw.sync_playwright() as p:
+        browser = _browser(p)
+        pg = browser.new_page(viewport={"width": 1400, "height": 900})
+        errors = []
+        pg.on("pageerror", lambda e: errors.append(str(e)))
+        for page, hook in (("projects", "archives_"), ("whoweare", "partners_"),
+                           ("publications", "pub-talk")):
+            pg.goto(f"{served_site}/{page}")
+            pg.wait_for_selector(f"#{hook} > a.heading-link")
+            pg.eval_on_selector(f"#{hook} > a.heading-link", "a => a.click()")
+            pg.wait_for_function(
+                "h => document.querySelector('#full-toc li.active > a[href=\"#' + h + '\"]')",
+                arg=hook, timeout=5000)
+            assert pg.url.endswith("#" + hook)
+            top = pg.eval_on_selector(f"#{hook}", "e => e.getBoundingClientRect().top")
+            assert 40 <= top <= 90, f"{page}: #{hook} landed at {top}px"
+        assert not errors, errors
+        browser.close()

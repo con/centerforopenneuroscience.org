@@ -178,6 +178,9 @@
   // (from con/centerforopenneuroscience.org#94)
   $(document.body).off("click", ".bs-docs-sidebar a")
     .on("click", ".bs-docs-sidebar a", scroll_if_anchor);
+  // a heading links to itself: the same jump, so it lands where the
+  // sidebar's would and scrollspy follows
+  $(document.body).on("click", "a.heading-link", scroll_if_anchor);
   $("#fixed-toc").css("visibility", "hidden");
   $(document).ready(function() {
     window.setTimeout(function() {

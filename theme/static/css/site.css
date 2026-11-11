@@ -1202,3 +1202,15 @@ details .pub-more {
 	height: 34px;
 	width: auto;
 }
+
+/* A heading that links to itself (jinjaext/table_of_contents.py): it reads
+   as a heading, and shows a quiet # when pointed at */
+a.heading-link {
+	color: inherit;
+	text-decoration: none;
+}
+a.heading-link:hover::after {
+	content: " #";
+	color: #bbb;
+	font-weight: normal;
+}

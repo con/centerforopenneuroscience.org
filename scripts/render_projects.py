@@ -36,6 +36,8 @@ from conrecords import (
 SECTIONS = ["Software", "Archives", "Standards", "Initiatives", "Meetings",
             "Education", "Infrastructure"]
 # projects that lead their section whatever their date says
+# the entity role of a project run together with another, not within it
+COLLABORATIVE = "xyzrins:entity-roles/95aaecaf-895c-4c28-939f-26a1ec1b9356"
 LEAD = ["datalad", "dandi", "ember", "openneuro", "neurodebian", "pymvpa"]
 # records whose section the page did not assign, or which move to Archives
 SECTION_OVERRIDE = {"dandi": "Archives", "ember": "Archives",
@@ -195,6 +197,40 @@ def subprojects_by_parent():
     return out
 
 
+def collaborators_by_project():
+    """Projects grouped by the project they name as a collaborator: the
+    `influenced_by` with the "Collaborative project" role."""
+    out = {}
+    for f in sorted((RECORDS / "XYZProject").glob("*.yaml")):
+        d = yaml.safe_load(f.read_text())
+        for i in d.get("influenced_by") or []:
+            if COLLABORATIVE in (i.get("roles") or []):
+                out.setdefault(i["object"], []).append((f.stem, d))
+    return out
+
+
+def related_list(parts, noun, on_page):
+    """An open "N <noun>s" disclosure listing records with their glosses.
+
+    Every entry's components look the same: there used to be a bare
+    "Components:" heading for five or fewer and a disclosure for more,
+    which read as two different kinds of section.  `open`: the content is
+    the useful part, but a long list can still be folded away.
+    """
+    rows = []
+    for slug, pr in sorted(parts, key=lambda x: (x[1].get("name") or x[1].get("short_name")
+                                                 or x[0]).lower()):
+        gloss = pr.get("description") or ""
+        anchor = link_to(pr, slug, on_page, tip=not gloss)
+        rows.append(f'\t\t    <li>{anchor}' + (f': {html.escape(gloss)}' if gloss else '')
+                    + '</li>')
+    n = len(parts)
+    return (['\t\t<details class="components" open="open">',
+             f'\t\t  <summary>{n} {noun}{"" if n == 1 else "s"}</summary>',
+             '\t\t  <ul class="component-list">'] + rows
+            + ['\t\t  </ul>', '\t\t</details>'])
+
+
 def load():
     """Entries to render, and anything skipped for a reason worth hearing.
 
@@ -339,6 +375,7 @@ def render():
                for r in rows}
     components = instruments_by_project()
     children = subprojects_by_parent()
+    collaborators = collaborators_by_project()
     # newest first, as publications() returns them
     pubs = {}
     for p in publications():
@@ -446,27 +483,12 @@ def render():
             # back to the un-deduped instrument list, which both undid the
             # dedupe and, once sub-projects joined the list, dropped them.)
             if len(parts) > 1:
-                rows_ = []
-                for slug, pr in sorted(parts, key=lambda x: x[1].get("name") or x[0]):
-                    gloss = pr.get("description") or ""
-                    anchor = link_to(pr, slug, on_page, tip=not gloss)
-                    rows_.append(f'\t\t    <li>{anchor}'
-                                 + (f': {html.escape(gloss)}' if gloss else '')
-                                 + '</li>')
-                body = ['\t\t  <ul class="component-list">'] + rows_ + ['\t\t  </ul>']
-                if len(parts) > 5:
-                    # `open`: the content is the useful part.  Collapsed, a
-                    # reader saw "9 components" and no way to know whether
-                    # that mattered.  The disclosure stays, so a long list
-                    # can still be folded away.
-                    out.append('\t\t<details class="components" open="open">')
-                    out.append(f'\t\t  <summary>{len(parts)} components</summary>')
-                    out += body
-                    out.append('\t\t</details>')
-                else:
-                    out.append('\t\t<p class="components">'
-                               '<strong>Components:</strong></p>')
-                    out += body
+                out += related_list(parts, "component", on_page)
+            # Projects run together with this one rather than within it:
+            # OpenNeuro and DataLad with ReproNim.  One is a list here.
+            if collaborators.get(d["pid"]):
+                out += related_list(collaborators[d["pid"]], "collaborative project",
+                                    on_page)
             # Closed, unlike a long component list: the description is the
             # content here, and the people are an index into whoweare.
             ppl = people_of(d, components.get(d["pid"]) or [])

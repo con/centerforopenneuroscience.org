@@ -163,6 +163,24 @@ class TableOfContents:
         return "".join(out)
 
     @staticmethod
+    def link_to_itself(heading):
+        """Make a heading a link to its own #fragment.
+
+        Clicking it brings the heading to the top, where scrollspy syncs the
+        sidebar to it, and leaves its address in the location bar to copy.
+        A heading that already holds a link keeps it: links do not nest.
+        """
+        if heading.find(".//a") is not None:
+            return
+        a = ElementTree.Element("a", {"class": "heading-link",
+                                      "href": "#" + heading.attrib["id"]})
+        a.text, heading.text = heading.text, None
+        for child in list(heading):
+            heading.remove(child)
+            a.append(child)
+        heading.append(a)
+
+    @staticmethod
     def addTableOfContentsHooks(content, toc_info, active_page):
 
         if ( toc_info == None ):
@@ -188,6 +206,7 @@ class TableOfContents:
                           or element.tag == 'h3' )
                           and element.attrib.get("data-hidden-from-toc", "false") != "true" ):
                 element.attrib["id"] = TableOfContents.consume_existing_hook(element.text)
+                TableOfContents.link_to_itself(element)
 
             for child in element:
                 process(child)

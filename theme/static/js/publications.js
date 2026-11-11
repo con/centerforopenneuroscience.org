@@ -236,7 +236,9 @@
     function walk(groups, level) {
       var h = "h" + Math.min(level, 6);
       return groups.map(function (g) {
-        return "<" + h + ' id="' + esc(g.id) + '">' + esc(g.label) + " <small>"
+        // a link to itself, as the build makes every sidebar heading
+        return "<" + h + ' id="' + esc(g.id) + '"><a class="heading-link" href="#'
+          + esc(g.id) + '">' + esc(g.label) + "</a> <small>"
           + g.rows.length + "</small></" + h + ">"
           + (g.children ? walk(g.children, level + 1) : ul(g.rows));
       }).join("");
