@@ -143,7 +143,9 @@
     if ( $target.length ) {
       window.scrollTo(0, $target.offset().top - fromTop);
       if ( history && "pushState" in history ){
-        history.pushState({}, document.title, window.location.pathname + href);
+        // keep the query: /publications carries its filters there
+        history.pushState({}, document.title,
+                          window.location.pathname + window.location.search + href);
         return false;
       }
     }

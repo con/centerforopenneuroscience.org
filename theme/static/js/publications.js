@@ -11,10 +11,15 @@
  * or talk, year is 2020, 2015-2020, 2015- or -2005, and project and person
  * are the slugs of their records (datalad, yaroslav-halchenko).
  *
+ * render(el, f, {group: ["type", "year"]}) puts the matches under headings,
+ * one level per key, and returns those groups -- what sidebar() turns into
+ * the same left-hand menu the projects page gets from its headings.
+ *
  * Two uses on the site, both wired up on page load:
- *   - <div data-pub-app> becomes the whole searchable listing, its filters
- *     kept in the address (/publications?project=datalad&type=talk) so a
- *     filtered view can be linked to;
+ *   - <div data-pub-app> becomes the whole searchable listing, grouped by
+ *     type and then year with the sidebar to match, its filters kept in the
+ *     address (/publications?project=datalad&type=talk) so a filtered view
+ *     can be linked to;
  *   - <details data-pub-filter="project=datalad"> fills its .pub-slot with
  *     the matching entries the first time it is opened, so a page with many
  *     such lists fetches nothing until someone asks for one.
@@ -116,6 +121,52 @@
     }).join("&");
   }
 
+  /* -- grouping -------------------------------------------------------- */
+
+  /* key -> what an entry's value is, how it is labelled, how values sort */
+  var GROUPS = {
+    type: {of: function (e) { return e.type; },
+           label: function (v, data) { return data.types[v]; },
+           order: function (vs, data) {
+             var o = Object.keys(data.types);
+             return vs.sort(function (a, b) { return o.indexOf(a) - o.indexOf(b); });
+           }},
+    // newest first; undated last
+    year: {of: function (e) { return e.year || ""; },
+           label: function (v) { return v || "Undated"; },
+           order: function (vs) { return vs.sort().reverse(); }}
+  };
+
+  /* rows split by the first key, each part by the rest:
+     [{label, id, rows, children}, ...], or null for no keys */
+  function group(rows, data, keys, prefix) {
+    if (!keys || !keys.length) return null;
+    var g = GROUPS[keys[0]], parts = Object.create(null), values = [];
+    rows.forEach(function (e) {
+      var v = g.of(e);
+      if (!parts[v]) { parts[v] = []; values.push(v); }
+      parts[v].push(e);
+    });
+    return g.order(values, data).map(function (v) {
+      var id = (prefix || "pub") + "-" + (v || "undated");
+      return {label: g.label(v, data), id: id, rows: parts[v],
+              children: group(parts[v], data, keys.slice(1), id)};
+    });
+  }
+
+  /* the theme's sidebar markup, as jinjaext/table_of_contents.py writes it:
+     the first level, and under each the second, which the theme's CSS
+     shows for the section in view */
+  function sidebar(groups) {
+    return "<ul class='nav bs-docs-sidenav'>" + groups.map(function (g, i) {
+      return "<li" + (i ? "" : " class='active'") + "><a href='#" + esc(g.id) + "'>"
+        + esc(g.label) + "</a>" + (g.children ? "<ul class='nav'>"
+        + g.children.map(function (c) {
+          return "<li><a href='#" + esc(c.id) + "'>" + esc(c.label) + "</a></li>";
+        }).join("") + "</ul>" : "") + "</li>";
+    }).join("") + "</ul>";
+  }
+
   /* -- markup ---------------------------------------------------------- */
 
   function esc(s) {
@@ -128,9 +179,15 @@
     return href ? '<a href="' + esc(href) + '">' + esc(label) + "</a>" : esc(label);
   }
 
+  /* what it is -- paper, poster, talk -- where no heading says so */
+  function badge(e) {
+    return '<span class="pub-type pub-type-' + esc(e.type) + '">' + esc(e.type) + "</span> ";
+  }
+
   /* the same markup as render_publications.py's static list */
-  function entry(e, data) {
-    var bits = ['<span class="pub-title">' + link(e.title, e.url) + "</span>"];
+  function entry(e, data, typed) {
+    var bits = [(typed ? badge(e) : "")
+                + '<span class="pub-title">' + link(e.title, e.url) + "</span>"];
     var names = e.authors.map(function (a) { return link(a[0], a[1]); }).join(", ");
     if (names && !e.authors_complete) names = "Authors include " + names;
     var meta = [names, e.venue ? esc(e.venue) : "", e.year].filter(Boolean);
@@ -146,24 +203,30 @@
   }
 
   /* one line each, for the lists under a project or a person */
-  function brief(e, data) {
-    var note = [e.year, e.type === "paper" ? "" : e.type].filter(Boolean).join(", ");
-    return "<li>" + link(e.title, e.url)
-      + (note ? " <small>(" + esc(note) + ")</small>" : "") + "</li>";
+  function brief(e, data, typed) {
+    return "<li>" + (typed ? badge(e) : "") + link(e.title, e.url)
+      + (e.year ? " <small>(" + esc(e.year) + ")</small>" : "") + "</li>";
   }
 
+  /* opts.group: the keys to put headings for, outermost first (h2, h3, ...);
+     opts.brief: one line per entry */
   function list(rows, data, opts) {
     opts = opts || {};
-    var one = opts.brief ? brief : entry;
-    if (!opts.grouped) {
-      return '<ul class="publication-list">'
-        + rows.map(function (e) { return one(e, data); }).join("") + "</ul>";
+    var keys = opts.group || [], typed = keys.indexOf("type") < 0;
+    function ul(rs) {
+      return '<ul class="publication-list">' + rs.map(function (e) {
+        return (opts.brief ? brief : entry)(e, data, typed);
+      }).join("") + "</ul>";
     }
-    return Object.keys(data.types).map(function (t) {
-      var mine = rows.filter(function (e) { return e.type === t; });
-      return mine.length ? "<h2>" + esc(data.types[t]) + " <small>" + mine.length
-        + "</small></h2>" + list(mine, data, {brief: opts.brief}) : "";
-    }).join("");
+    function walk(groups, level) {
+      var h = "h" + Math.min(level, 6);
+      return groups.map(function (g) {
+        return "<" + h + ' id="' + esc(g.id) + '">' + esc(g.label) + " <small>"
+          + g.rows.length + "</small></" + h + ">"
+          + (g.children ? walk(g.children, level + 1) : ul(g.rows));
+      }).join("");
+    }
+    return keys.length ? walk(group(rows, data, keys), 2) : ul(rows);
   }
 
   /* Fill el with the entries matching f; resolves to how many there were. */
@@ -190,6 +253,18 @@
     }).join("");
   }
 
+  /* "3 publications (1 paper, 2 talks)", in the types' own order */
+  function summary(rows, data, of) {
+    var n = {}, parts = [];
+    rows.forEach(function (e) { n[e.type] = (n[e.type] || 0) + 1; });
+    Object.keys(data.types).forEach(function (t) {
+      if (n[t]) parts.push(n[t] + " " + t + (n[t] === 1 ? "" : "s"));
+    });
+    var total = of && of !== rows.length ? rows.length + " of " + of : String(rows.length);
+    return total + (of === 1 || (!of && rows.length === 1) ? " publication" : " publications")
+      + (parts.length ? " (" + parts.join(", ") + ")" : "");
+  }
+
   function counted(data, key, label) {
     var n = {};
     data.publications.forEach(function (e) {
@@ -200,8 +275,28 @@
     }).sort(function (a, b) { return fold(a[1]) < fold(b[1]) ? -1 : 1; });
   }
 
-  function mount(el) {
+  /* The theme's left column holds the sidebar; a page whose headings are
+     rendered here has none from the build, so make one.  Scrollspy marks
+     the section in view and affix pins it, as on the projects page. */
+  function sidebarHost(doc) {
+    var col = doc.querySelector(".bs-docs-container .col-md-3");
+    if (!col) return null;
+    var toc = doc.getElementById("full-toc");
+    if (!toc) {
+      toc = doc.createElement("div");
+      toc.id = "full-toc";
+      toc.className = "bs-docs-sidebar hidden-print affix-top hidden-xs hidden-sm";
+      toc.setAttribute("role", "complementary");
+      col.appendChild(toc);
+      if (root.jQuery && root.jQuery.fn.affix) root.jQuery(toc).affix();
+    }
+    return toc;
+  }
+
+  function mount(el, opts) {
     var f = parse(root.location.search);
+    var keys = (opts && opts.group) || ["type", "year"];
+    var toc = sidebarHost(root.document);
     return load(el.getAttribute("data-pub-src")).then(function (data) {
       var years = [];
       data.publications.forEach(function (e) {
@@ -231,11 +326,15 @@
         FIELDS.forEach(function (k) { f[k] = form.elements[k].value.trim(); });
         var q = query(f), rows = filter(data, f);
         root.history.replaceState(null, "", root.location.pathname + (q ? "?" + q : ""));
-        count.textContent = rows.length === data.publications.length
-          ? rows.length + " publications"
-          : rows.length + " of " + data.publications.length + " publications";
-        results.innerHTML = rows.length ? list(rows, data, {grouped: !f.type})
+        count.textContent = summary(rows, data, data.publications.length);
+        results.innerHTML = rows.length ? list(rows, data, {group: keys})
           : '<p class="pub-status">None match.</p>';
+        if (toc) {
+          toc.innerHTML = rows.length ? sidebar(group(rows, data, keys)) : "";
+          if (root.jQuery && root.jQuery.fn.scrollspy) {
+            root.jQuery(root.document.body).scrollspy("refresh");
+          }
+        }
       }
       form.addEventListener("input", function () {
         root.clearTimeout(timer);
@@ -251,6 +350,9 @@
         update();
       });
       update();
+      // the headings did not exist when the page tried to land on one
+      var target = root.location.hash && root.document.getElementById(root.location.hash.slice(1));
+      if (target) root.scrollTo(0, target.getBoundingClientRect().top + root.pageYOffset - 65);
     }, function (err) {
       // keep the static lists; say why there is no search
       el.insertAdjacentHTML("afterbegin", '<p class="pub-status">Search is unavailable: '
@@ -272,8 +374,8 @@
     });
   }
 
-  var api = {load: load, filter: filter, parse: parse, query: query, render: render,
-             mount: mount, init: init};
+  var api = {load: load, filter: filter, group: group, sidebar: sidebar, summary: summary, parse: parse,
+             query: query, render: render, mount: mount, init: init};
   if (typeof module !== "undefined" && module.exports) {
     module.exports = api;
   } else {

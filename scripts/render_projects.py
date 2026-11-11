@@ -24,6 +24,7 @@ from conrecords import (
     one,
     person_name,
     publication_projects,
+    publication_type,
     publications,
     publications_details,
     role_labels,
@@ -489,7 +490,8 @@ def render():
             # only when opened.
             mine = pubs.get(d["pid"]) or []
             if mine:
-                out += publications_details("project", d["pid"], len(mine), "\t\t")
+                out += publications_details("project", d["pid"],
+                                            [publication_type(p) for p in mine], "\t\t")
             out.append('\t  </div>')
     out += ['  </section>', '</body>', '', '</html>', '']
     return "\n".join(out), order, skipped

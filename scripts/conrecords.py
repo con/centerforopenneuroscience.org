@@ -114,17 +114,45 @@ def publication_date(d):
     """When it was given (a talk, a poster) or else issued, as YYYY[-MM[-DD]]."""
     gen = [g["at_time"] for g in d.get("generated_by") or [] if g.get("at_time")]
     when = str(gen[0] if gen else one(d, "dcterms:issued") or "")
-    return when.replace("/", "-")[:10] or None
+    # Zotero's dates come as 2022, 2022-03, 2022/03/01, 2009-5-12 and 12/2022
+    parts = [x for x in re.split(r"[-/]", when[:10]) if x]
+    if len(parts) == 2 and len(parts[1]) == 4:
+        parts.reverse()                                  # MM/YYYY
+    if not parts or len(parts[0]) != 4:
+        return when or None
+    return "-".join([parts[0]] + [x.zfill(2) for x in parts[1:3]])
 
 
 def publication_url(d):
-    """Its own page, else its DOI, else the first web address it carries."""
+    """Its own page, else its DOI, else the first web address it carries --
+    and for a talk with none of those, its slides or else its recording."""
     ids = d.get("identifiers") or []
     doi = next((i["notation"] for i in ids if i.get("schema_type") == "dlthings:DOI"), None)
     return (one(d, "foaf:homepage")
             or (f"https://doi.org/{doi}" if doi else None)
             or next((i["notation"] for i in ids
-                     if str(i.get("notation", "")).startswith("http")), None))
+                     if str(i.get("notation", "")).startswith("http")), None)
+            or one(d, "dcat:downloadURL")
+            or one(d, "schema:video"))
+
+
+# a publication's kind -> what a reader is told it is; anything else is a paper
+PUBLICATION_TYPES = {"fabio:ConferencePoster": "poster", "bibo:Slideshow": "talk"}
+# in the order a summary lists them
+TYPE_ORDER = ["paper", "poster", "talk"]
+
+
+def publication_type(d):
+    return PUBLICATION_TYPES.get(d.get("kind"), "paper")
+
+
+def publications_summary(types):
+    """["paper", "talk", "talk"] -> "3 publications (1 paper, 2 talks)"."""
+    n = len(types)
+    parts = [f"{types.count(t)} {t}{'' if types.count(t) == 1 else 's'}"
+             for t in TYPE_ORDER if t in types]
+    return (f"{n} {'publication' if n == 1 else 'publications'}"
+            + (f" ({', '.join(parts)})" if parts else ""))
 
 
 def publication_projects(d):
@@ -133,18 +161,18 @@ def publication_projects(d):
             if str(g.get("object", "")).startswith("xyzrins:projects/")]
 
 
-def publications_details(key, pid, n, indent, cls="publications"):
-    """A closed "N publications" list that publications.js fills when opened.
+def publications_details(key, pid, types, indent, cls="publications"):
+    """A closed "N publications (...)" list that publications.js fills when
+    opened.
 
-    key is the filter (project, person) and pid the record it names.  The
-    count is known here; the entries are fetched only once someone opens
-    it.  The link inside works without JavaScript too: to the publications
+    key is the filter (project, person), pid the record it names and types
+    the publication_type() of each of its publications.  The counts are
+    known here; the entries are fetched only once someone opens it.  The link inside works without JavaScript too: to the publications
     page, filtered the same way.
     """
     slug = pid.rsplit("/", 1)[-1]
     return [f'{indent}<details class="{cls}" data-pub-filter="{key}={slug}">',
-            f'{indent}  <summary>{n} {"publication" if n == 1 else "publications"}'
-            '</summary>',
+            f'{indent}  <summary>{publications_summary(types)}</summary>',
             f'{indent}  <div class="pub-slot"></div>',
             f'{indent}  <p class="pub-more"><a href="/publications?{key}={slug}">'
             'Search and filter them on the publications page</a></p>',

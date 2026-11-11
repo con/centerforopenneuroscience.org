@@ -32,6 +32,7 @@ from conrecords import (
     person_name,
     publication_date,
     publication_projects,
+    publication_type,
     publication_url,
     publications,
     toc_hook,
@@ -42,17 +43,9 @@ from render_whoweare import page_anchors
 # the slides themselves, which this page's talks link into
 TALKS_SITE = "https://datasets.datalad.org/centerforopenneuroscience/talks/"
 
-# section -> the record kinds it holds; anything else is a paper
-POSTERS = {"fabio:ConferencePoster"}
-TALKS = {"bibo:Slideshow"}
 SECTIONS = ["Papers and reports", "Posters", "Talks"]
-# section -> the `type` a filter takes
+# section -> the `type` a filter takes, publication_type()'s
 TYPE = {"Papers and reports": "paper", "Posters": "poster", "Talks": "talk"}
-
-
-def section_of(d):
-    return ("Posters" if d.get("kind") in POSTERS
-            else "Talks" if d.get("kind") in TALKS else "Papers and reports")
 
 
 def people():
@@ -125,7 +118,7 @@ def model():
         date = publication_date(d) or ""
         entries.append({
             "title": d["title"], "url": publication_url(d),
-            "date": date, "year": date[:4], "type": TYPE[section_of(d)],
+            "date": date, "year": date[:4], "type": publication_type(d),
             "venue": one(d, "bibo:presentedAt"),
             "authors": names, "authors_complete": complete,
             "projects": [slug(p) for p in mine], "people": who,

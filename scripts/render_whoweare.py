@@ -26,6 +26,7 @@ from conrecords import (
     attrs,
     one,
     person_name,
+    publication_type,
     publications,
     publications_details,
     role_labels,
@@ -249,11 +250,11 @@ def contact_links(d):
 def render():
     people, dates = load_people(), joined()
     leads, related = led_organizations(), related_projects()
-    # person pid -> how many publications name them
+    # person pid -> the type of each publication naming them
     authored = {}
     for p in publications():
         for who in {a.get("object") for a in p.get("attributed_to") or []}:
-            authored[who] = authored.get(who, 0) + 1
+            authored.setdefault(who, []).append(publication_type(p))
     rows, skipped = [], []
     # the order render() actually used, for --show-order
     order = []

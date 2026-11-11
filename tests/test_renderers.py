@@ -293,15 +293,16 @@ def test_a_gloss_is_not_also_a_tooltip(projects):
 
 @pytest.mark.ai_generated
 def test_components_do_not_repeat_the_description(projects):
-    """DataLad's prose bullets gloss datalad-container and datalad-fuse
-    better than a generated line can; listing them again is strictly worse."""
-    m = re.search(r"<h2[^>]*>DataLad</h2>(.*?)(?=<h2 )", projects, re.S)
+    """A component the description already glosses -- DANDI's own bullet on
+    dandisets -- is better there than as a generated line; listing it again
+    is strictly worse.  (DataLad's bullets were the first case; they moved
+    into its components and publications.)"""
+    m = re.search(r"<h2[^>]*>DANDI</h2>(.*?)(?=<h2 )", projects, re.S)
     body = m.group(1).split("component-list")[-1]
     listed = {re.sub(r"<[^>]+>", "", i).split(":")[0].strip()
               for i in re.findall(r"<li>(.*?)</li>", body, re.S)}
-    assert "datalad-container" not in listed
-    assert "datalad-fuse" not in listed
-    assert "datalad-crawler" in listed       # the rest still show
+    assert "dandisets" not in listed
+    assert "dandi-cli" in listed             # the rest still show
 
 
 # --- ordering -------------------------------------------------------------
@@ -1041,9 +1042,13 @@ def test_projects_page_lists_a_projects_publications(projects):
     entry = entry[:entry.index('<div class="row">')]
     pubs = entry[entry.index('<details class="publications"'):]
     assert 'data-pub-filter="project=datalad"' in pubs
-    n = int(re.search(r"<summary>(\d+) publications</summary>", pubs).group(1))
+    m = re.search(r"<summary>(\d+) publications \((.*?)\)</summary>", pubs)
     data = json.loads(run("render_publications.py", "--json").stdout)
-    assert n == sum("datalad" in e["projects"] for e in data["publications"])
+    mine = [e for e in data["publications"] if "datalad" in e["projects"]]
+    assert int(m.group(1)) == len(mine)
+    # and how many of each: a reader can tell papers from talks before opening
+    talks = sum(e["type"] == "talk" for e in mine)
+    assert f"{talks} talks" in m.group(2)
     # without JavaScript, the same filter on the publications page
     assert 'href="/publications?project=datalad"' in pubs
 
@@ -1053,7 +1058,7 @@ def test_whoweare_lists_a_persons_publications(whoweare):
     entry = whoweare[whoweare.index("<h3>Yaroslav O. Halchenko</h3>"):]
     entry = entry[:entry.index('<div class="row">')]
     m = re.search(r'data-pub-filter="person=yaroslav-halchenko">\s*'
-                  r'<summary>(\d+) publications</summary>', entry)
+                  r'<summary>(\d+) publications \(', entry)
     data = json.loads(run("render_publications.py", "--json").stdout)
     assert int(m.group(1)) == sum("yaroslav-halchenko" in e["people"]
                                   for e in data["publications"])
@@ -1156,6 +1161,14 @@ def test_publications_filter_and_load_on_demand_in_a_browser(served_site):
             arg=everything)
         assert "q=distributed%20system" in pg.url
         assert "DataLad: distributed system" in pg.inner_text(".pub-results")
+        # the sidebar follows the filtered groups, type then year, and a
+        # click on it keeps the filters in the address
+        tops = pg.eval_on_selector_all("#full-toc > ul > li > a",
+                                       "els => els.map(e => e.textContent)")
+        assert tops and set(tops) <= {"Papers and reports", "Posters", "Talks"}
+        year = pg.eval_on_selector("#full-toc li li > a", "e => e.getAttribute('href')")
+        pg.eval_on_selector("#full-toc li li > a", "e => e.click()")
+        assert pg.url.endswith("?q=distributed%20system" + year)
 
         for page, key in (("projects", "project=datalad"),
                           ("whoweare", "person=yaroslav-halchenko")):
@@ -1169,5 +1182,81 @@ def test_publications_filter_and_load_on_demand_in_a_browser(served_site):
             pg.eval_on_selector(d, "el => { el.open = true; }")
             pg.wait_for_selector(f"{d} .pub-slot li")
             assert len(pg.query_selector_all(f"{d} .pub-slot li")) == n
+            # a mixed list says what each entry is
+            assert len(pg.query_selector_all(f"{d} .pub-slot li .pub-type")) == n
         assert not errors, errors
         browser.close()
+
+
+@pytest.mark.ai_generated
+@pytest.mark.parametrize("issued,want", [("2022", "2022"), ("2022-03", "2022-03"),
+                                         ("2022/03/01", "2022-03-01"),
+                                         ("2009-5-12", "2009-05-12"),
+                                         ("12/2022", "2022-12")])
+def test_publication_dates_in_every_shape_zotero_gives(issued, want):
+    """`12/2022` once came out as the year "12/2" -- and as a sidebar entry."""
+    from conrecords import publication_date
+    d = {"attributes": [{"predicate": "dcterms:issued", "value": issued}]}
+    assert publication_date(d) == want
+
+
+@pytest.mark.ai_generated
+def test_every_publication_has_a_year_and_a_talk_without_slides_links_its_recording():
+    data = json.loads(run("render_publications.py", "--json").stdout)
+    assert all(re.fullmatch(r"\d{4}", e["year"]) for e in data["publications"])
+    talk = next(e for e in data["publications"]
+                if e["title"].startswith("DataLad-Registry: Bringing Benefits"))
+    assert talk["url"] == talk["video"]
+    assert "contube" in talk["url"]
+
+
+@pytest.mark.ai_generated
+def test_publications_summary_names_each_type():
+    from conrecords import publications_summary
+    assert publications_summary(["talk"]) == "1 publication (1 talk)"
+    assert (publications_summary(["talk", "paper", "talk"])
+            == "3 publications (1 paper, 2 talks)")
+
+
+@pytest.mark.ai_generated
+def test_datalad_lists_its_publications_and_components_not_its_description(projects):
+    """The hand-kept list under DataLad's description is gone: its papers are
+    in the publications list, its extensions among the components."""
+    entry = projects[projects.index('id="datalad"'):]
+    entry = entry[:entry.index('<div class="row">')]
+    assert "JOSS paper" not in entry
+    comps = entry[entry.index('class="components"'):]
+    assert "datalad-container" in comps and "datalad-fuse" in comps
+
+
+@pytest.mark.ai_generated
+def test_publications_js_groups_by_type_then_year(tmp_path):
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("no node")
+    data = tmp_path / "p.json"
+    data.write_text(run("render_publications.py", "--json").stdout)
+    js = r"""
+    const P = require(process.argv[1]);
+    const d = JSON.parse(require("fs").readFileSync(process.argv[2]));
+    const g = P.group(d.publications, d, ["type", "year"]);
+    console.log(JSON.stringify({
+      top: g.map(x => x.label),
+      years: g[0].children.map(x => x.label),
+      ids: g[2].children.slice(0, 1).map(x => x.id),
+      n: g.reduce((a, x) => a + x.children.reduce((b, y) => b + y.rows.length, 0), 0),
+      all: d.publications.length,
+      toc: P.sidebar(g),
+    }));
+    """
+    r = subprocess.run([node, "-e", js, str(HERE / "theme/static/js/publications.js"),
+                        str(data)], capture_output=True, text=True)
+    assert r.returncode == 0, r.stderr
+    got = json.loads(r.stdout)
+    assert got["top"] == ["Papers and reports", "Posters", "Talks"]
+    assert got["years"] == sorted(got["years"], reverse=True)
+    assert got["ids"][0].startswith("pub-talk-")
+    assert got["n"] == got["all"]
+    # the theme's sidebar markup: one nested list per type
+    assert got["toc"].startswith("<ul class='nav bs-docs-sidenav'>")
+    assert got["toc"].count("<ul class='nav'>") == 3
