@@ -1028,7 +1028,6 @@ def test_a_grant_without_a_known_funder_is_reported_not_silent(store_copy):
     assert "nsf-1429999" in p.stderr
 
 
-@pytest.mark.ai_generated
 def ours():
     """The publication records with a CON member among their authors: those
     the page lists."""
@@ -1039,12 +1038,15 @@ def ours():
                and a.get("value") in ("Centroids", "Emeritus")
                for a in d.get("attributes") or []):
             members.add(d["pid"])
-    out = []
-    for f in (STORE / "metadata/records/XYZPublication").glob("*.yaml"):
-        d = yaml.safe_load(f.read_text())
-        if any(a.get("object") in members for a in d.get("attributed_to") or []):
-            out.append(d)
-    return out
+    every = [yaml.safe_load(f.read_text())
+             for f in (STORE / "metadata/records/XYZPublication").glob("*.yaml")]
+    # a preprint whose published record names it is listed with that one
+    folded = {i["object"] for d in every for i in d.get("influenced_by") or []
+              if any(r.endswith("296e863e-7361-47ee-b337-e51a7e6bfe8d")
+                     for r in i.get("roles") or [])}
+    return [d for d in every
+            if any(a.get("object") in members for a in d.get("attributed_to") or [])
+            and d["pid"] not in folded]
 
 
 @pytest.mark.ai_generated
@@ -1094,14 +1096,19 @@ def test_publications_list_only_works_with_a_con_member():
 def test_publications_mark_preprints_and_shorten_long_author_lists():
     out = run("render_publications.py").stdout
     li = [x for x in out.split("<li>") if "Behaviorally-relevant features" in x]
-    # the preprint, its paper, and the paper's dataset
-    assert len(li) == 3
-    assert sum('<span class="pub-preprint">preprint</span>' in x for x in li) == 1
+    # the paper, linking its preprint and its data, and the dataset; the
+    # preprint itself is not listed apart, as a CV would not
+    assert len(li) == 2
+    paper = next(x for x in li if "s41467-026-76599-w" in x)
+    assert '<a class="pub-tag" href="https://doi.org/10.1101/2024.11.26.624178">[PREPRINT]</a>' in paper
+    assert "openneuro.org/datasets/ds007942" in paper and "[DATASET]" in paper
     datasets = out[out.index("<h2>Datasets</h2>"):]
-    assert "10.18112/openneuro.ds007942" in datasets or "ds007942" in datasets
+    assert "ds007942" in datasets
+    # a preprint with no published version yet is listed, and marked
+    stamped = next(x for x in out.split("<li>") if "STAMPED principles" in x)
+    assert '<span class="pub-preprint">preprint</span>' in stamped
     # 274 authors: the first, last and ours, with the count
-    census = next(x for x in out.split("<li>")
-                  if "cell census" in x and "preprint" not in x)
+    census = next(x for x in out.split("<li>") if "mammalian primary motor cortex" in x)
     assert "(274 authors)" in census and "&#8230;" in census
     assert '/whoweare#yaroslav_o_halchenko_' in census
     # a poster Zotero records as a poster is among the posters

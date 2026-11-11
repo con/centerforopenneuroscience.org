@@ -197,13 +197,18 @@
     return e.preprint ? ' <span class="pub-preprint">preprint</span>' : "";
   }
 
-  /* "(PDF) (📺 CONTube)" after the title, as the Talks site has them */
+  /* "(PDF) (📺 CONTube)" after the title, as the Talks site has them, and
+     "[PREPRINT] [DATASET]" as YOH's CV has them */
   function alts(e) {
     var out = [];
     if (e.pdf) out.push(["PDF", e.pdf]);
     if (e.video) out.push([(/contube/i.test(e.video) ? "\uD83D\uDCFA CONTube" : "\uD83D\uDCFA video"), e.video]);
+    var tags = e.preprint_url ? [["PREPRINT", e.preprint_url]] : [];
+    (e.dataset_urls || []).forEach(function (u) { tags.push(["DATASET", u]); });
     return out.map(function (a) {
       return ' (<a class="pub-alt" href="' + esc(a[1]) + '">' + esc(a[0]) + "</a>)";
+    }).join("") + tags.map(function (a) {
+      return ' <a class="pub-tag" href="' + esc(a[1]) + '">[' + a[0] + "]</a>";
     }).join("");
   }
 

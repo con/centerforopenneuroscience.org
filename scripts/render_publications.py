@@ -30,6 +30,8 @@ import unicodedata
 from conrecords import (
     RECORDS,
     TIERS,
+    all_publications,
+    datasets_of,
     is_preprint,
     load_yaml,
     one,
@@ -39,6 +41,7 @@ from conrecords import (
     publication_objectives,
     publication_projects,
     publication_type,
+    preprint_of,
     publication_url,
     publications,
     toc_hook,
@@ -152,6 +155,7 @@ def model():
     objs = {d["pid"]: (d["title"], "/objectives#" + toc_hook(d["title"]))
             for d in current_objectives()[0]}
     entries, used_projects, used_people = [], {}, {}
+    every = all_publications()
     for d in publications():
         listed, complete, count = authors(d, by_pid, by_name, names)
         mine = sorted((p for p in publication_projects(d) if p in projs),
@@ -174,7 +178,12 @@ def model():
             "projects": [slug(p) for p in mine], "people": who,
             "objectives": [slug(o) for o in publication_objectives(d, by_project)
                            if o in objs],
-            "pdf": one(d, "dcat:downloadURL"), "video": one(d, "schema:video")})
+            "pdf": one(d, "dcat:downloadURL"), "video": one(d, "schema:video"),
+            # the preprint it was, and the data it analyses, as links after
+            # the title
+            "preprint_url": publication_url(every[preprint_of(d)]) if preprint_of(d) else None,
+            "dataset_urls": [publication_url(every[p]) for p in datasets_of(d)
+                             if every[p]["kind"] == "fabio:Dataset"]})
     return {"types": {TYPE[s]: s for s in SECTIONS},
             "projects": dict(sorted(used_projects.items())),
             "people": dict(sorted(used_people.items())),
@@ -183,15 +192,20 @@ def model():
 
 
 def alts(e):
-    """"(PDF) (📺 CONTube)" after the title, as the Talks site has them."""
+    """"(PDF) (📺 CONTube)" after the title, as the Talks site has them, and
+    "[PREPRINT] [DATASET]" as YOH's CV has them."""
     out = []
     if e["pdf"]:
         out.append(("PDF", e["pdf"]))
     if e["video"]:
         out.append(("\U0001F4FA " + ("CONTube" if "contube" in e["video"].lower()
                                        else "video"), e["video"]))
-    return "".join(f' (<a class="pub-alt" href="{html.escape(h)}">{html.escape(t)}</a>)'
-                   for t, h in out)
+    tags = [("PREPRINT", e["preprint_url"])] if e["preprint_url"] else []
+    tags += [("DATASET", u) for u in e["dataset_urls"]]
+    return ("".join(f' (<a class="pub-alt" href="{html.escape(h)}">{html.escape(t)}</a>)'
+                    for t, h in out)
+            + "".join(f' <a class="pub-tag" href="{html.escape(h)}">[{t}]</a>'
+                      for t, h in tags))
 
 
 def preprint(e):

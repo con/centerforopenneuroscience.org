@@ -1196,6 +1196,14 @@ details .pub-more {
 	color: #999;
 }
 
+/* "[PREPRINT]" and "[DATASET]" after a published title */
+.pub-tag {
+	font-size: 0.8em;
+	letter-spacing: 0.03em;
+	white-space: nowrap;
+	color: #c27c3a;
+}
+
 /* "(PDF) (📺 CONTube)" after a title: quieter than the title itself */
 .pub-alt {
 	font-size: 0.9em;

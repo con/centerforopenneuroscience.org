@@ -112,9 +112,33 @@ def members():
     return out
 
 
+# the role a published record names its preprint with, in influenced_by
+PREPRINT_ROLE = "xyzrins:entity-roles/296e863e-7361-47ee-b337-e51a7e6bfe8d"
+
+
+def preprint_of(d):
+    """The pid of the preprint a published record names, or None."""
+    return next((i["object"] for i in d.get("influenced_by") or []
+                 if PREPRINT_ROLE in (i.get("roles") or [])), None)
+
+
+def datasets_of(d):
+    """The pids of the datasets a publication draws on."""
+    return [i["object"] for i in d.get("influenced_by") or []
+            if not i.get("roles")
+            and str(i.get("object", "")).startswith("xyzrins:publications/")]
+
+
+def all_publications():
+    """pid -> record, for every publication record, listed or not."""
+    return {d["pid"]: d for d in (load_yaml(f) for f in
+                                  sorted((RECORDS / "XYZPublication").glob("*.yaml")))}
+
+
 def publications():
     """Every publication with a CON member among its authors, newest first;
-    an undated one last.
+    an undated one last.  A preprint whose published version is here is not
+    one of them: the paper links to it instead, as a CV does.
 
     The store also holds works only an affiliated faculty member or a
     collaborator wrote -- imported with a project of theirs, or from their
@@ -125,10 +149,11 @@ def publications():
     lists each project's publications too, and render_publications imports
     render_projects for its anchors.
     """
-    ours = members()
-    out = [d for d in (load_yaml(f) for f in
-                       sorted((RECORDS / "XYZPublication").glob("*.yaml")))
-           if any(a.get("object") in ours for a in d.get("attributed_to") or [])]
+    ours, every = members(), all_publications().values()
+    published = {preprint_of(d) for d in every}
+    out = [d for d in every
+           if any(a.get("object") in ours for a in d.get("attributed_to") or [])
+           and d["pid"] not in published]
     return sorted(out, key=lambda d: (publication_date(d) or "", d["title"]),
                   reverse=True)
 
