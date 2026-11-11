@@ -1472,36 +1472,6 @@
    "video": null
   },
   {
-   "title": "BIDS Talk & Q&A for 2024 The Neuro – Irv and Helga Cooper Foundation International Prize",
-   "url": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/6QoFWqfIZDU",
-   "date": "2024-04",
-   "year": "2024",
-   "type": "talk",
-   "venue": "The Neuro – Irv and Helga Cooper Foundation International Prize",
-   "authors": [
-    [
-     "Ariel Rokem",
-     null
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ]
-   ],
-   "authors_complete": true,
-   "projects": [
-    "bids"
-   ],
-   "people": [
-    "yaroslav-halchenko"
-   ],
-   "objectives": [
-    "cross-standards-harmonization"
-   ],
-   "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/6QoFWqfIZDU"
-  },
-  {
    "title": "\"What's in the DataLad sandwich\" AKA DataLad \"ecosystem\"",
    "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2024-distribits-datalad.html",
    "date": "2024-04",
@@ -1753,6 +1723,36 @@
    ],
    "pdf": null,
    "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/eVFvvrmi_Sw"
+  },
+  {
+   "title": "BIDS Talk & Q&A for 2024 The Neuro – Irv and Helga Cooper Foundation International Prize",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/6QoFWqfIZDU",
+   "date": "2023-11-30",
+   "year": "2023",
+   "type": "talk",
+   "venue": "Open Science in Action Symposium, The Neuro, Montreal",
+   "authors": [
+    [
+     "Ariel Rokem",
+     null
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": true,
+   "projects": [
+    "bids"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "objectives": [
+    "cross-standards-harmonization"
+   ],
+   "pdf": null,
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/6QoFWqfIZDU"
   },
   {
    "title": "A comparison of neuroelectrophysiology databases",
@@ -3873,12 +3873,12 @@
    "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/RBaJn2Xtqzg"
   },
   {
-   "title": "(Neuro)Debian/Git/GitAnnex/DataLad: Distributions and Version Control",
+   "title": "Computational basis",
    "url": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/2Qm4krjaSfM",
-   "date": "2018-06",
+   "date": "2018-06-17",
    "year": "2018",
    "type": "talk",
-   "venue": "OHBM 2018 training course (ReproNim), Singapore",
+   "venue": "OHBM 2018 Educational Course: Hands on reproducible brain imaging, Singapore",
    "authors": [
     [
      "Yaroslav O. Halchenko",
