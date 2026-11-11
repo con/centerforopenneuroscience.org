@@ -6,6 +6,10 @@
   "dataset": "Datasets"
  },
  "projects": {
+  "bep020": [
+   "BEP020",
+   "/projects#bep020_"
+  ],
   "bids": [
    "BIDS",
    "/projects#brain_imaging_data_structure_bids_"
@@ -82,6 +86,10 @@
    "MRI Phantoms Afterlife",
    "/projects#mri_phantoms_afterlife_"
   ],
+  "neurobagel": [
+   "Neurobagel",
+   "https://github.com/neurobagel/bagel-cli"
+  ],
   "neurodebian": [
    "NeuroDebian",
    "/projects#neurodebian_"
@@ -89,6 +97,10 @@
   "nidm": [
    "NIDM",
    "/projects#nidm_"
+  ],
+  "nipoppy": [
+   "Nipoppy",
+   "https://github.com/nipoppy/nipoppy"
   ],
   "nipype": [
    "Nipype",
@@ -105,6 +117,10 @@
   "openfmri": [
    "OpenfMRI",
    "http://openfmri.org/"
+  ],
+  "openneuro": [
+   "OpenNeuro",
+   "/projects#openneuro_"
   ],
   "orinoco-lite": [
    "ORINOCO Lite",
@@ -232,6 +248,10 @@
    "Matteo Visconti di Oleggio Castello",
    "/whoweare#matteo_visconti_di_oleggio_castello_"
   ],
+  "matthew-brett": [
+   "Matthew Brett",
+   "/whoweare#matthew_brett_"
+  ],
   "michael-hanke": [
    "Michael Hanke",
    "/whoweare#michael_hanke_"
@@ -338,7 +358,90 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
+  },
+  {
+   "title": "Neurobagel: building an international network for distributed data discovery",
+   "url": "https://doi.org/10.31222/osf.io/x64tn_v2",
+   "date": "2026-10-27",
+   "year": "2026",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Sebastian Georg Wenzel Urchs",
+     null
+    ],
+    [
+     "Alyssa Dai",
+     null
+    ],
+    [
+     "Arman Jahanpour",
+     null
+    ],
+    null,
+    [
+     "Camille MAUMET",
+     "/whoweare#camille_maumet_"
+    ],
+    null,
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    null,
+    [
+     "Yaroslav O Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Satrajit S Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ],
+    null,
+    [
+     "Franco Pestilli",
+     "/whoweare#franco_pestilli_"
+    ],
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
+    ],
+    null,
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 38,
+   "preprint": true,
+   "projects": [
+    "neurobagel"
+   ],
+   "people": [
+    "camille-maumet",
+    "michael-hanke",
+    "yaroslav-halchenko",
+    "satrajit-ghosh",
+    "russell-poldrack",
+    "franco-pestilli",
+    "david-kennedy",
+    "jean-baptiste-poline"
+   ],
+   "objectives": [],
+   "pdf": null,
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON",
@@ -387,7 +490,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Beyond the Lab Website: Reusing Structured Research Metadata Across Lab Operations",
@@ -425,7 +530,9 @@
     "self-hosted-it"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Agent-friendly Provenance Capture with con-duct",
@@ -468,7 +575,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "STAMPED principles and their role in the age of AI-driven scientific software development",
@@ -496,7 +605,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Open Neuroscience Infrastructure for Intracranial EEG",
@@ -525,7 +636,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "STAMPED in Practice: Improving research skills through reproducible experiments",
@@ -568,7 +681,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/stamped-ai-study/exports/stamped-ai-poster.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Behaviorally-relevant features of observed actions dominate cortical representational geometry in natural vision",
@@ -626,7 +741,11 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/2024.11.26.624178",
+   "dataset_urls": [
+    "https://openneuro.org/datasets/ds007942/versions/1.0.0"
+   ]
   },
   {
    "title": "Go figure: transparency in neuroscience images preserves context and clarifies interpretation",
@@ -668,7 +787,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.48550/arxiv.2504.07824",
+   "dataset_urls": []
   },
   {
    "title": "mechababs: STAMPED execution of BIDS Apps at scale",
@@ -696,7 +817,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "BIDS 2.0",
@@ -724,7 +847,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Containers: BrainHack 2026 Mashup",
@@ -752,7 +877,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "STAMPED principles for reproducible research objects",
@@ -795,7 +922,62 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
+  },
+  {
+   "title": "Nipoppy: A framework for standardizing neuroimaging studies to facilitate international derived-data sharing",
+   "url": "https://doi.org/10.64898/2026.05.18.723593",
+   "date": "2026-05-21",
+   "year": "2026",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Nikhil Bhagwat",
+     null
+    ],
+    [
+     "Michelle Wang",
+     null
+    ],
+    [
+     "Mathieu Dugré",
+     null
+    ],
+    null,
+    [
+     "Austin Macdonald",
+     "/whoweare#austin_macdonald_"
+    ],
+    null,
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 32,
+   "preprint": true,
+   "projects": [
+    "nipoppy"
+   ],
+   "people": [
+    "austin-macdonald",
+    "yaroslav-halchenko",
+    "jean-baptiste-poline"
+   ],
+   "objectives": [],
+   "pdf": null,
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Guidelines for Reproducible Research (BBQS, 2026)",
@@ -828,7 +1010,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8NTWKHer5Zo"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8NTWKHer5Zo",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "ReproFlow & YODA: Structure your studies, observable and reproducible they become",
@@ -857,7 +1041,57 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/1XbTbJ_P2x0"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/1XbTbJ_P2x0",
+   "preprint_url": null,
+   "dataset_urls": []
+  },
+  {
+   "title": "Eye-Tracking-BIDS: the Brain Imaging Data Structure extended to gaze position and pupil data",
+   "url": "https://doi.org/10.64898/2026.02.03.703514",
+   "date": "2026-02-05",
+   "year": "2026",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Martin Szinte",
+     null
+    ],
+    [
+     "Dominik R. Bach",
+     null
+    ],
+    [
+     "Dejan Draschkow",
+     null
+    ],
+    null,
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Julia-Katharina Pfarr",
+     null
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 17,
+   "preprint": true,
+   "projects": [
+    "bep020"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "objectives": [
+    "cross-standards-harmonization"
+   ],
+   "pdf": null,
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "A few words of intro into AI assisted coding",
@@ -881,7 +1115,54 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
+  },
+  {
+   "title": "fMRIPrep Derivatives for SpaceTop",
+   "url": "https://openneuro.org/datasets/ds007070",
+   "date": "2026",
+   "year": "2026",
+   "type": "dataset",
+   "venue": null,
+   "authors": [
+    [
+     "Heejung Jung",
+     null
+    ],
+    [
+     "Maryam Amini",
+     null
+    ],
+    [
+     "Bethany J. Hung",
+     null
+    ],
+    null,
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Tor D. Wager",
+     "/whoweare#tor_d_wager_"
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 15,
+   "preprint": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "tor-wager"
+   ],
+   "objectives": [],
+   "pdf": null,
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Behaviorally-relevant features of observed actions dominate cortical representational geometry in natural vision",
@@ -939,7 +1220,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The Ecosystem of Standards in Neuroscience: Which Ones Are For You?",
@@ -1018,7 +1301,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "distribits 2025: panel discussion with Julia Katharina Pfarr",
@@ -1050,7 +1335,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/StRX3R7vSqU"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/StRX3R7vSqU",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Pragmatic YODA: overview of YODA principles and their wild life encounters",
@@ -1076,7 +1363,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/EuKVapscUQ4"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/EuKVapscUQ4",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "MRS-BIDS, an extension to the Brain Imaging Data Structure for magnetic resonance spectroscopy",
@@ -1128,7 +1417,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Spacetop: A multimodal fMRI dataset unifying naturalistic processes with a rich array of experimental tasks",
@@ -1171,7 +1462,11 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/2024.06.21.599974",
+   "dataset_urls": [
+    "https://openneuro.org/datasets/ds005256"
+   ]
   },
   {
    "title": "DICOM datasets for reproducible neuroimaging research across manufacturers and software versions",
@@ -1217,7 +1512,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Bridging the Scientific Knowledge Gap and Reproducibility: A Survey of Provenance, Assertion and Evidence Ontologies",
@@ -1266,7 +1563,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "A challenge on the way to Neuroscience Nirvana",
@@ -1290,107 +1589,54 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
-   "title": "Go Figure: Transparency in neuroscience images preserves context and clarifies interpretation",
-   "url": "https://doi.org/10.48550/arxiv.2504.07824",
+   "title": "MRIQC Derivatives for SpaceTop",
+   "url": "https://openneuro.org/datasets/ds006692",
    "date": "2025",
    "year": "2025",
-   "type": "paper",
+   "type": "dataset",
    "venue": null,
    "authors": [
-    [
-     "Paul A. Taylor",
-     null
-    ],
-    [
-     "Himanshu Aggarwal",
-     null
-    ],
-    [
-     "Peter Bandettini",
-     null
-    ],
-    null,
-    [
-     "Yaroslav Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    null,
-    [
-     "Gang Chen",
-     null
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 42,
-   "preprint": true,
-   "projects": [],
-   "people": [
-    "yaroslav-halchenko"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Behaviorally-relevant features of observed actions dominate cortical representational geometry in natural vision",
-   "url": "https://doi.org/10.1101/2024.11.26.624178",
-   "date": "2024-11",
-   "year": "2024",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Jane Han",
-     null
-    ],
-    [
-     "Vassiki Chauhan",
-     null
-    ],
-    [
-     "Rebecca Philip",
-     null
-    ],
-    [
-     "Morgan K. Taylor",
-     null
-    ],
     [
      "Heejung Jung",
      null
     ],
     [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "M. Ida Gobbini",
+     "Maryam Amini",
      null
     ],
     [
-     "James V. Haxby",
-     "/whoweare#james_v_haxby_"
+     "Bethany J. Hung",
+     null
     ],
+    null,
     [
-     "Samuel A. Nastase",
-     "/whoweare#samuel_nastase_"
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Tor D. Wager",
+     "/whoweare#tor_d_wager_"
     ]
    ],
    "authors_complete": true,
-   "authors_count": 9,
-   "preprint": true,
+   "authors_count": 15,
+   "preprint": false,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
-    "james-haxby",
-    "samuel-nastase"
+    "tor-wager"
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Neuroimaging article reexecution and reproduction assessment system",
@@ -1429,7 +1675,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "HeuDiConv — flexible DICOM conversion into structured directory layouts",
@@ -1518,7 +1766,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "SciOps from ReproNim",
@@ -1549,50 +1799,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/SZ96Q6pwJzQ"
-  },
-  {
-   "title": "A multimodal fMRI dataset unifying naturalistic processes with a rich array of experimental tasks",
-   "url": "https://doi.org/10.1101/2024.06.21.599974",
-   "date": "2024-06",
-   "year": "2024",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Heejung Jung",
-     null
-    ],
-    [
-     "Maryam Amini",
-     null
-    ],
-    [
-     "Bethany J Hunt",
-     null
-    ],
-    null,
-    [
-     "Yaroslav O Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    null,
-    [
-     "Tor D Wager",
-     "/whoweare#tor_d_wager_"
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 15,
-   "preprint": true,
-   "projects": [],
-   "people": [
-    "yaroslav-halchenko",
-    "tor-wager"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/SZ96Q6pwJzQ",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "DataLad-Registry: Bringing Benefits of Centrality to DataLad",
@@ -1625,7 +1834,9 @@
     "87be5fa3-80fb-4221-8406-2ddd40fb1fd1"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/_McJ1BtLsiQ"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/_McJ1BtLsiQ",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "distribits 2024: questions and panel discussion",
@@ -1670,7 +1881,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/SiTZWbjUIJI"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/SiTZWbjUIJI",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The Brain Imaging Data Structure (BIDS): an open community standard for neuroscience",
@@ -1698,7 +1911,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "\"What's in the DataLad sandwich\" AKA DataLad \"ecosystem\"",
@@ -1727,7 +1942,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/Mkb7qpYaL7o"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/Mkb7qpYaL7o",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "\"What's in the DataLad name\" AKA How come DataLad?",
@@ -1756,7 +1973,88 @@
     "scalable-neural-archiving"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
+  },
+  {
+   "title": "Proceedings of the OHBM Brainhack 2022",
+   "url": "https://doi.org/10.52294/001c.92760",
+   "date": "2024-03-18",
+   "year": "2024",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Stefano Moia",
+     null
+    ],
+    [
+     "Hao-Ting Wang",
+     null
+    ],
+    [
+     "Anibal S. Heinsfeld",
+     null
+    ],
+    null,
+    [
+     "Satrajit S. Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    null,
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    null,
+    [
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ],
+    null,
+    [
+     "Samuel A. Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    null,
+    [
+     "Benjamin Poldrack",
+     "/whoweare#benjamin_poldrack_"
+    ],
+    null,
+    [
+     "Adina S. Wagner",
+     "/whoweare#adina_wagner_"
+    ],
+    null,
+    [
+     "The Physiopy Community",
+     null
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 85,
+   "preprint": false,
+   "projects": [],
+   "people": [
+    "satrajit-ghosh",
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "camille-maumet",
+    "samuel-nastase",
+    "benjamin-poldrack",
+    "adina-wagner"
+   ],
+   "objectives": [],
+   "pdf": null,
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The past, present, and future of the brain imaging data structure (BIDS)",
@@ -1839,7 +2137,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.48550/arxiv.2309.05768",
+   "dataset_urls": []
   },
   {
    "title": "A reproducible and generalizable software workflow for analysis of large-scale neuroimaging data collections using BIDS Apps",
@@ -1903,7 +2203,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/2023.08.16.552472",
+   "dataset_urls": []
   },
   {
    "title": "Neurodesk: an accessible, flexible and portable data analysis environment for reproducible neuroimaging",
@@ -1957,7 +2259,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "SciOps: Achieving Productivity and Reliability in Data-Intensive Research",
@@ -2011,7 +2315,49 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
+  },
+  {
+   "title": "A multimodal fMRI dataset unifying naturalistic processes with a rich array of experimental tasks",
+   "url": "https://openneuro.org/datasets/ds005256",
+   "date": "2024",
+   "year": "2024",
+   "type": "dataset",
+   "venue": null,
+   "authors": [
+    [
+     "Heejung Jung",
+     null
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Maryam Amini",
+     null
+    ],
+    null,
+    [
+     "Tor D. Wager",
+     "/whoweare#tor_d_wager_"
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 15,
+   "preprint": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "tor-wager"
+   ],
+   "objectives": [],
+   "pdf": null,
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "DANDI components and architecture",
@@ -2040,7 +2386,9 @@
     "self-hosted-it"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/eVFvvrmi_Sw"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/eVFvvrmi_Sw",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "BIDS Talk & Q&A for 2024 The Neuro – Irv and Helga Cooper Foundation International Prize",
@@ -2072,7 +2420,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/6QoFWqfIZDU"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/6QoFWqfIZDU",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "A comparison of neuroelectrophysiology databases",
@@ -2139,7 +2489,9 @@
     "self-hosted-it"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.48550/arxiv.2306.15041",
+   "dataset_urls": []
   },
   {
    "title": "The PyMVPA BIDS-App: a robust multivariate pattern analysis pipeline for fMRI data",
@@ -2187,7 +2539,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Research Data Management & Data tracking",
@@ -2216,7 +2570,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/cYQWk8eQLlI"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/cYQWk8eQLlI",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "ReproCLInic, 2023-07-14: uploading data to NDA",
@@ -2245,7 +2601,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/wOXxV4u07DY"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/wOXxV4u07DY",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "ReproCLInic, 2023-07-07: several modalities in one BIDS dataset",
@@ -2275,7 +2633,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/NRMPkUS9Hkc"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/NRMPkUS9Hkc",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "OME-Zarr: a cloud-optimized bioimaging file format with international community support",
@@ -2323,7 +2683,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/2023.02.17.528834",
+   "dataset_urls": []
   },
   {
    "title": "DANDI: distributed archives for neurophysiology data integration",
@@ -2352,7 +2714,9 @@
     "self-hosted-it"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "DANDI: distributed archives for neurophysiology data integration",
@@ -2381,7 +2745,9 @@
     "self-hosted-it"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "BIDS 4 DICOM WG-16",
@@ -2409,7 +2775,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Align with the NMIND consortium for better neuroimaging",
@@ -2467,7 +2835,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "A guide to the BRAIN Initiative Cell Census Network data ecosystem",
@@ -2527,7 +2897,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/2022.10.26.513573",
+   "dataset_urls": []
   },
   {
    "title": "Building an Archive for Large-scale Neuroscience Data",
@@ -2556,137 +2928,9 @@
     "self-hosted-it"
    ],
    "pdf": null,
-   "video": null
-  },
-  {
-   "title": "OME-Zarr: a cloud-optimized bioimaging file format with international community support",
-   "url": "https://doi.org/10.1101/2023.02.17.528834",
-   "date": "2023-02",
-   "year": "2023",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Josh Moore",
-     null
-    ],
-    [
-     "Daniela Basurto-Lozada",
-     null
-    ],
-    [
-     "Sébastien Besson",
-     null
-    ],
-    null,
-    [
-     "Satrajit S. Ghosh",
-     "/whoweare#satrajit_ghosh_"
-    ],
-    null,
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    null,
-    [
-     "Jason R. Swedlow",
-     null
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 69,
-   "preprint": true,
-   "projects": [],
-   "people": [
-    "satrajit-ghosh",
-    "yaroslav-halchenko"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
-  },
-  {
-   "title": "The Past, Present, and Future of the Brain Imaging Data Structure (BIDS)",
-   "url": "https://doi.org/10.48550/arxiv.2309.05768",
-   "date": "2023",
-   "year": "2023",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Russell A. Poldrack",
-     "/whoweare#russell_a_poldrack_"
-    ],
-    [
-     "Christopher J. Markiewicz",
-     "/whoweare#chris_markiewicz_"
-    ],
-    [
-     "Stefan Appelhoff",
-     null
-    ],
-    null,
-    [
-     "Satrajit S. Ghosh",
-     "/whoweare#satrajit_ghosh_"
-    ],
-    null,
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    null,
-    [
-     "Dora Hermes",
-     "/whoweare#dora_hermes_"
-    ],
-    null,
-    [
-     "Horea-Ioan Ioanas",
-     "/whoweare#horeaioan_ioanas_"
-    ],
-    null,
-    [
-     "Camille Maumet",
-     "/whoweare#camille_maumet_"
-    ],
-    null,
-    [
-     "Franco Pestilli",
-     "/whoweare#franco_pestilli_"
-    ],
-    null,
-    [
-     "Jean-Baptiste Poline",
-     "/whoweare#jeanbaptiste_poline_"
-    ],
-    null,
-    [
-     "Krzysztof J. Gorgolewski",
-     null
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 114,
-   "preprint": false,
-   "projects": [
-    "bids"
-   ],
-   "people": [
-    "chris-markiewicz",
-    "satrajit-ghosh",
-    "yaroslav-halchenko",
-    "horea-ioanas",
-    "franco-pestilli",
-    "jean-baptiste-poline",
-    "russell-poldrack"
-   ],
-   "objectives": [
-    "cross-standards-harmonization"
-   ],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The Individualized Neural Tuning Model: Precise and generalizable cartography of functional architecture in individual brains",
@@ -2737,7 +2981,9 @@
     "translational-research-infrastructure"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/2022.05.15.492022",
+   "dataset_urls": []
   },
   {
    "title": "Dartmouth Brain Imaging Center (DBIC) QA data (weekly QA scans etc.)",
@@ -2769,7 +3015,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "TemplateFlow: FAIR-sharing of multi-scale, multi-species brain models",
@@ -2836,7 +3084,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/2021.02.10.430678",
+   "dataset_urls": []
   },
   {
    "title": "Open and reproducible neuroimaging: From study inception to publication",
@@ -2901,7 +3151,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.31219/osf.io/pu5vb",
+   "dataset_urls": []
   },
   {
    "title": "Working memory updating in individuals with bipolar and unipolar depression: fMRI study",
@@ -2965,7 +3217,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "DataLad: The Ecosystem for Everyone",
@@ -3026,7 +3280,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Towards the Big Data Neuroscience Nirvana",
@@ -3050,7 +3306,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "An Integrated and Trusted Scientific and Statistical Computing Core",
@@ -3074,7 +3332,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The interaction between depression diagnosis and BMI is related to altered activation pattern in the right inferior frontal gyrus and anterior cingulate cortex during food anticipation",
@@ -3122,58 +3382,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
-  },
-  {
-   "title": "The Individualized Neural Tuning Model: Precise and generalizable cartography of functional architecture in individual brains",
-   "url": "https://doi.org/10.1101/2022.05.15.492022",
-   "date": "2022-05",
-   "year": "2022",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Ma Feilong",
-     null
-    ],
-    [
-     "Samuel A. Nastase",
-     "/whoweare#samuel_nastase_"
-    ],
-    [
-     "Guo Jiahui",
-     null
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "M. Ida Gobbini",
-     null
-    ],
-    [
-     "James V. Haxby",
-     "/whoweare#james_v_haxby_"
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 6,
-   "preprint": true,
-   "projects": [
-    "hyperalignment-infrastructure"
-   ],
-   "people": [
-    "samuel-nastase",
-    "yaroslav-halchenko",
-    "james-haxby"
-   ],
-   "objectives": [
-    "rich-naturalistic-data",
-    "translational-research-infrastructure"
-   ],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/2021.02.17.21251922",
+   "dataset_urls": []
   },
   {
    "title": "Microscopy-BIDS: An Extension to the Brain Imaging Data Structure for Microscopy Data",
@@ -3226,67 +3437,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Open and reproducible neuroimaging: from study inception to publication",
-   "url": "https://doi.org/10.31219/osf.io/pu5vb",
-   "date": "2022-04",
-   "year": "2022",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Guiomar Niso",
-     null
-    ],
-    [
-     "Rotem Botvinik-Nezer",
-     null
-    ],
-    [
-     "Stefan Appelhoff",
-     null
-    ],
-    null,
-    [
-     "Yaroslav O Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    null,
-    [
-     "Christopher Johnson Markiewicz",
-     "/whoweare#chris_markiewicz_"
-    ],
-    null,
-    [
-     "Franco Pestilli",
-     "/whoweare#franco_pestilli_"
-    ],
-    null,
-    [
-     "Adina Svenja Wagner",
-     "/whoweare#adina_wagner_"
-    ],
-    null,
-    [
-     "Jochem Rieger",
-     null
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 23,
-   "preprint": true,
-   "projects": [],
-   "people": [
-    "yaroslav-halchenko",
-    "chris-markiewicz",
-    "franco-pestilli",
-    "adina-wagner"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The Relationship Between Default Mode and Dorsal Attention Networks Is Associated With Depressive Disorder Diagnosis and the Strength of Memory Representations Acquired Prior to the Resting State Scan",
@@ -3334,7 +3487,84 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
+  },
+  {
+   "title": "The OpenNeuro resource for sharing of neuroscience data",
+   "url": "https://doi.org/10.7554/elife.71774",
+   "date": "2021-10-18",
+   "year": "2021",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Christopher J Markiewicz",
+     null
+    ],
+    [
+     "Krzysztof J Gorgolewski",
+     null
+    ],
+    [
+     "Franklin Feingold",
+     null
+    ],
+    [
+     "Ross Blair",
+     null
+    ],
+    [
+     "Yaroslav O Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Eric Miller",
+     null
+    ],
+    [
+     "Nell Hardcastle",
+     null
+    ],
+    [
+     "Joe Wexler",
+     null
+    ],
+    [
+     "Oscar Esteban",
+     null
+    ],
+    [
+     "Mathias Goncalves",
+     null
+    ],
+    [
+     "Anita Jwa",
+     null
+    ],
+    [
+     "Russell Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 12,
+   "preprint": false,
+   "projects": [
+    "openneuro"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "russell-poldrack"
+   ],
+   "objectives": [
+    "87be5fa3-80fb-4221-8406-2ddd40fb1fd1"
+   ],
+   "pdf": null,
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/2021.06.28.450168",
+   "dataset_urls": []
   },
   {
    "title": "A multimodal cell census and atlas of the mammalian primary motor cortex",
@@ -3381,7 +3611,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/2020.10.19.343129",
+   "dataset_urls": []
   },
   {
    "title": "The “Narratives” fMRI dataset for evaluating models of naturalistic language comprehension",
@@ -3424,7 +3656,11 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/2020.12.23.424091",
+   "dataset_urls": [
+    "https://openneuro.org/datasets/ds002345"
+   ]
   },
   {
    "title": "A guide to DANDI, the BRAIN Initiative archive for publishing and sharing neurophysiology data",
@@ -3453,7 +3689,9 @@
     "self-hosted-it"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8OMLmUnc6Cs"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8OMLmUnc6Cs",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "DataLad: distributed system for joint management of code, data, and their relationship",
@@ -3556,7 +3794,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "IQ in Typical Development: A Mega-Analysis of the Historical Literature",
@@ -3607,7 +3847,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "White matter abnormalities in adults with bipolar disorder type-II and unipolar depression",
@@ -3663,7 +3905,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Brainhack: Developing a culture of open, inclusive, community-driven neuroscience",
@@ -3752,7 +3996,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.31234/osf.io/rytjq",
+   "dataset_urls": []
   },
   {
    "title": "DataLad - Research Data Management Made Easy",
@@ -3786,55 +4032,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2021-yale-datalad-intro.pdf",
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/pVrjRRrmKbY"
-  },
-  {
-   "title": "The interaction between lifetime depression severity and BMI is related to altered activation pattern in the right inferior frontal gyrus during food anticipation",
-   "url": "https://doi.org/10.1101/2021.02.17.21251922",
-   "date": "2021-02",
-   "year": "2021",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "A Manelis",
-     null
-    ],
-    [
-     "YO Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "S Satz",
-     null
-    ],
-    [
-     "R Ragozzino",
-     null
-    ],
-    [
-     "M Lucero",
-     null
-    ],
-    [
-     "HA Swartz",
-     null
-    ],
-    [
-     "MD Levine",
-     null
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 7,
-   "preprint": true,
-   "projects": [],
-   "people": [
-    "yaroslav-halchenko"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/pVrjRRrmKbY",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The Open Brain Consent: Informing research participants and obtaining consent to share brain imaging data",
@@ -3898,74 +4098,9 @@
     "87be5fa3-80fb-4221-8406-2ddd40fb1fd1"
    ],
    "pdf": null,
-   "video": null
-  },
-  {
-   "title": "TemplateFlow: a community archive of imaging templates and atlases for improved consistency in neuroimaging",
-   "url": "https://doi.org/10.1101/2021.02.10.430678",
-   "date": "2021-02",
-   "year": "2021",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Rastko Ciric",
-     null
-    ],
-    [
-     "William H. Thompson",
-     null
-    ],
-    [
-     "Romy Lorenz",
-     null
-    ],
-    [
-     "Mathias Goncalves",
-     null
-    ],
-    [
-     "Eilidh MacNicol",
-     null
-    ],
-    [
-     "Christopher J. Markiewicz",
-     "/whoweare#chris_markiewicz_"
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "Satrajit S. Ghosh",
-     "/whoweare#satrajit_ghosh_"
-    ],
-    [
-     "Krzysztof J. Gorgolewski",
-     null
-    ],
-    [
-     "Russell A. Poldrack",
-     "/whoweare#russell_a_poldrack_"
-    ],
-    [
-     "Oscar Esteban",
-     null
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 11,
-   "preprint": true,
-   "projects": [],
-   "people": [
-    "chris-markiewicz",
-    "yaroslav-halchenko",
-    "satrajit-ghosh",
-    "russell-poldrack"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.31234/osf.io/f6mnp",
+   "dataset_urls": []
   },
   {
    "title": "ReproMan – Execution and Environment Manager",
@@ -3993,7 +4128,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2021-abcd-repronim-reproman.pdf",
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/grIVFbYH7YE"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/grIVFbYH7YE",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "ABCD-ReproNim course, week 10: instructor Q&A",
@@ -4023,7 +4160,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/4pEOGYcbx64"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/4pEOGYcbx64",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "In defense of decentralized research data management",
@@ -4077,7 +4216,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Protocol for a machine learning algorithm predicting depressive disorders using the T1w/T2w ratio",
@@ -4125,55 +4266,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Aberrant levels of cortical myelin distinguish individuals with unipolar depression from healthy controls",
-   "url": "https://doi.org/10.1101/2021.02.25.21252472",
-   "date": "2021",
-   "year": "2021",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "David A.A. Baranger",
-     null
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "Skye Satz",
-     null
-    ],
-    [
-     "Rachel Ragozzino",
-     null
-    ],
-    [
-     "Satish Iyengar",
-     null
-    ],
-    [
-     "Holly A. Swartz",
-     null
-    ],
-    [
-     "Anna Manelis",
-     null
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 7,
-   "preprint": true,
-   "projects": [],
-   "people": [
-    "yaroslav-halchenko"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Aberrant levels of cortical myelin distinguish individuals with depressive disorders from healthy controls",
@@ -4221,7 +4316,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/2021.02.25.21252472",
+   "dataset_urls": []
   },
   {
    "title": "Reproducible Execution of Data Collection/Processing",
@@ -4250,50 +4347,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/dwBtrpI2iS0"
-  },
-  {
-   "title": "Narratives: fMRI data for evaluating models of naturalistic language comprehension",
-   "url": "https://doi.org/10.1101/2020.12.23.424091",
-   "date": "2020-12",
-   "year": "2020",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Samuel A. Nastase",
-     "/whoweare#samuel_nastase_"
-    ],
-    [
-     "Yun-Fei Liu",
-     null
-    ],
-    [
-     "Hanna Hillman",
-     null
-    ],
-    null,
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    null,
-    [
-     "Uri Hasson",
-     null
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 25,
-   "preprint": true,
-   "projects": [],
-   "people": [
-    "samuel-nastase",
-    "yaroslav-halchenko"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/dwBtrpI2iS0",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "A new virtue of phantom MRI data: explaining variance in human participant data",
@@ -4326,58 +4382,9 @@
     "87be5fa3-80fb-4221-8406-2ddd40fb1fd1"
    ],
    "pdf": null,
-   "video": null
-  },
-  {
-   "title": "The Open Brain Consent: Informing research participants and obtaining consent to share brain imaging data",
-   "url": "https://doi.org/10.31234/osf.io/f6mnp",
-   "date": "2020-07",
-   "year": "2020",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Elise Bannier",
-     null
-    ],
-    [
-     "Gareth Barker",
-     null
-    ],
-    [
-     "Valentina Borghesani",
-     null
-    ],
-    null,
-    [
-     "Yaroslav O Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    null,
-    [
-     "Matteo Visconti di Oleggio Castello",
-     "/whoweare#matteo_visconti_di_oleggio_castello_"
-    ],
-    null,
-    [
-     "Hua Zhu",
-     null
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 36,
-   "preprint": true,
-   "projects": [
-    "open-brain-consent"
-   ],
-   "people": [
-    "yaroslav-halchenko"
-   ],
-   "objectives": [
-    "87be5fa3-80fb-4221-8406-2ddd40fb1fd1"
-   ],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Analysis of task-based functional MRI data preprocessed with fMRIPrep",
@@ -4435,7 +4442,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/694364",
+   "dataset_urls": []
   },
   {
    "title": "Version control your data and computation using containers, DataLad and ReproMan, and reproducible they be!",
@@ -4463,7 +4472,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2020-repronim-containers-webinar.pdf",
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/ix3lC6HGo-Q"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/ix3lC6HGo-Q",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The Brain Imaging Data Structure (BIDS) Specification, Version 1.3.0",
@@ -4537,32 +4548,34 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
-   "title": "Analysis of task-based functional MRI data preprocessed with fMRIPrep",
-   "url": "https://doi.org/10.1101/694364",
-   "date": "2020",
+   "title": "SciPy 1.0: fundamental algorithms for scientific computing in Python",
+   "url": "https://doi.org/10.1038/s41592-019-0686-2",
+   "date": "2020-02-03",
    "year": "2020",
    "type": "paper",
    "venue": null,
    "authors": [
     [
-     "Oscar Esteban",
+     "Pauli Virtanen",
      null
     ],
     [
-     "Rastko Ciric",
+     "Ralf Gommers",
      null
     ],
     [
-     "Karolina Finc",
+     "Travis E. Oliphant",
      null
     ],
     null,
     [
-     "Christopher J. Markiewicz",
-     "/whoweare#chris_markiewicz_"
+     "Matthew Brett",
+     "/whoweare#matthew_brett_"
     ],
     null,
     [
@@ -4570,80 +4583,23 @@
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Satrajit S. Ghosh",
-     "/whoweare#satrajit_ghosh_"
-    ],
-    null,
-    [
-     "Russell A. Poldrack",
-     "/whoweare#russell_a_poldrack_"
-    ],
-    [
-     "Krzysztof J. Gorgolewski",
+     "Yoshiki Vázquez-Baeza",
      null
     ]
    ],
    "authors_complete": true,
-   "authors_count": 27,
-   "preprint": true,
+   "authors_count": 112,
+   "preprint": false,
    "projects": [],
    "people": [
-    "chris-markiewicz",
-    "yaroslav-halchenko",
-    "satrajit-ghosh",
-    "russell-poldrack"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
-  },
-  {
-   "title": "A multimodal cell census and atlas of the mammalian primary motor cortex",
-   "url": "https://doi.org/10.1101/2020.10.19.343129",
-   "date": "2020",
-   "year": "2020",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "BRAIN Initiative Cell Census Network (BICCN)",
-     null
-    ],
-    [
-     "Ricky S. Adkins",
-     null
-    ],
-    [
-     "Andrew I. Aldridge",
-     null
-    ],
-    null,
-    [
-     "Satrajit S. Ghosh",
-     "/whoweare#satrajit_ghosh_"
-    ],
-    null,
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    null,
-    [
-     "Brian Zingg",
-     null
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 258,
-   "preprint": true,
-   "projects": [],
-   "people": [
-    "satrajit-ghosh",
+    "matthew-brett",
     "yaroslav-halchenko"
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Taking control of your DICOM data: ReproIn/HeuDiConv tools",
@@ -4672,7 +4628,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2019-repronim-reproin-webinar.pdf",
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/j2SKX37-w4c"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/j2SKX37-w4c",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Making science more open and reproducible by design, tools can help",
@@ -4696,7 +4654,9 @@
    ],
    "objectives": [],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2019-brown-open-science.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Tales from the CON: A few studies of a curious mind",
@@ -4720,7 +4680,9 @@
    ],
    "objectives": [],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2019-umass-tales.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Open Science Tools from the Center for Open Neuroscience",
@@ -4744,7 +4706,9 @@
    ],
    "objectives": [],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2019-mind-con-tools.pdf",
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/Ao9ZIce7yn4"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/Ao9ZIce7yn4",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Functional ROI localization in a rich stimuli dataset requires non-GLM style approach",
@@ -4788,7 +4752,9 @@
     "translational-research-infrastructure"
    ],
    "pdf": "https://juser.fz-juelich.de/record/865045/files/OHBM_2019_Wagner.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "multimatch-gaze: The MultiMatch algorithm for gaze path comparison in Python",
@@ -4822,7 +4788,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "US-RSE Stories: Open up, Neuroscience! Here comes NeuroDebian",
@@ -4856,7 +4824,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The best of both worlds: using semantic web with JSON-LD. An example with NIDM-Results & DataLad",
@@ -4915,7 +4885,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "PyBIDS: Python tools for BIDS datasets",
@@ -4992,7 +4964,54 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
+  },
+  {
+   "title": "Narratives",
+   "url": "https://openneuro.org/datasets/ds002345",
+   "date": "2019",
+   "year": "2019",
+   "type": "dataset",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel A. Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Yun-Fei Liu",
+     null
+    ],
+    [
+     "Hanna Hillman",
+     null
+    ],
+    null,
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    null,
+    [
+     "Uri Hasson",
+     null
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 24,
+   "preprint": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "yaroslav-halchenko"
+   ],
+   "objectives": [],
+   "pdf": null,
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Fantastic containers and how to tame them",
@@ -5043,7 +5062,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Everything Matters: The ReproNim Perspective on Reproducible Neuroimaging",
@@ -5114,7 +5135,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.31219/osf.io/u78a6",
+   "dataset_urls": []
   },
   {
    "title": "Tools from Center for Open Neuroscience: be Open by Design",
@@ -5138,7 +5161,9 @@
    ],
    "objectives": [],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2018-mind-con-tools.pdf",
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/RBaJn2Xtqzg"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/RBaJn2Xtqzg",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Computational basis",
@@ -5167,36 +5192,106 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/2Qm4krjaSfM"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/2Qm4krjaSfM",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
-   "title": "Variability of the Neuroimaging results across OS, and how to avoid it",
+   "title": "Neural Responses to Naturalistic Clips of Behaving Animals in Two Different Task Contexts",
+   "url": "https://doi.org/10.3389/fnins.2018.00316",
+   "date": "2018-05-15",
+   "year": "2018",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel A. Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Andrew C. Connolly",
+     "/whoweare#andy_connolly_"
+    ],
+    [
+     "M. Ida Gobbini",
+     null
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "yaroslav-halchenko",
+    "james-haxby",
+    "andy-connolly"
+   ],
+   "objectives": [],
+   "pdf": null,
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/268144",
+   "dataset_urls": [
+    "https://openneuro.org/datasets/ds000233"
+   ]
+  },
+  {
+   "title": "Variability of the Neuroimaging Results Across OS, and How to Avoid it",
    "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2018-sobp-variability",
    "date": "2018-05",
    "year": "2018",
    "type": "talk",
-   "venue": "SOBP 2018",
+   "venue": "Annual meeting of the Biological Psychiatry",
    "authors": [
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Dorota Jarecka",
+     null
+    ],
+    [
+     "David Kennedy",
+     "/whoweare#david_n_kennedy_"
     ]
    ],
    "authors_complete": true,
-   "authors_count": 1,
+   "authors_count": 5,
    "preprint": false,
    "projects": [
     "neurodebian"
    ],
    "people": [
-    "yaroslav-halchenko"
+    "yaroslav-halchenko",
+    "satrajit-ghosh",
+    "jean-baptiste-poline",
+    "david-kennedy"
    ],
    "objectives": [
     "self-hosted-it",
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2018-sobp-variability.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "DataLad",
@@ -5225,7 +5320,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": null,
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/59CE6iOr45k"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/59CE6iOr45k",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Got Something, Commit Something",
@@ -5254,7 +5351,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2018-mcgill-datalad.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "YODA: YODA’s organigram on data analysis",
@@ -5304,55 +5403,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Variability of the Neuroimaging Results Across OS, and How to Avoid it",
-   "url": null,
-   "date": "2018",
-   "year": "2018",
-   "type": "talk",
-   "venue": "Annual meeting of the Biological Psychiatry",
-   "authors": [
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "Satrajit Ghosh",
-     "/whoweare#satrajit_ghosh_"
-    ],
-    [
-     "Jean-Baptiste Poline",
-     "/whoweare#jeanbaptiste_poline_"
-    ],
-    [
-     "Dorota Jarecka",
-     null
-    ],
-    [
-     "David Kennedy",
-     "/whoweare#david_n_kennedy_"
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 5,
-   "preprint": false,
-   "projects": [
-    "neurodebian"
-   ],
-   "people": [
-    "yaroslav-halchenko",
-    "satrajit-ghosh",
-    "jean-baptiste-poline",
-    "david-kennedy"
-   ],
-   "objectives": [
-    "self-hosted-it",
-    "97ded4aa-108d-4b84-8195-d6076dce63ce"
-   ],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Temporal dynamics and effective connectivity in the distributed system of familiar face processing",
@@ -5390,7 +5443,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "ReproIn: automatic generation of shareable, version-controlled BIDS datasets from MR scanners",
@@ -5450,7 +5505,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Pybids: Python tools for manipulation and analysis of BIDS datasets",
@@ -5517,7 +5574,54 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
+  },
+  {
+   "title": "Neural responses to naturalistic clips of behaving animals in two different task contexts",
+   "url": "https://openneuro.org/datasets/ds000233",
+   "date": "2018",
+   "year": "2018",
+   "type": "dataset",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel A. Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Andrew C. Connolly",
+     "/whoweare#andy_connolly_"
+    ],
+    [
+     "M. Ida Gobbini",
+     null
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": true,
+   "authors_count": 5,
+   "preprint": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "yaroslav-halchenko",
+    "james-haxby",
+    "andy-connolly"
+   ],
+   "objectives": [],
+   "pdf": null,
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "NICEMAN: NeuroImaging Computational Environments Manager",
@@ -5562,7 +5666,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Decoding the neural representation of observed social and nonsocial human actions",
@@ -5616,7 +5722,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "(Meta)Data and workflow management for your most important work and your daily routine",
@@ -5660,7 +5768,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "DataLad -- decentralized data distribution for consumption and sharing of scientific datasets",
@@ -5694,7 +5804,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2017-mind-datalad.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "DataLad -- decentralized data distribution for consumption and sharing of scientific datasets",
@@ -5728,7 +5840,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2017-nih-datalad.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "DataLad -- Decentralized Distribution and Sharing of Scientific Datasets",
@@ -5762,7 +5876,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2017-online-intensive-datalad.pdf",
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/5R-lFlFBciE"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/5R-lFlFBciE",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "DataLad -- decentralized data distribution for consumption and sharing of scientific datasets",
@@ -5796,7 +5912,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2017-dartmouth-datalad.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "A very simple, re-executable neuroimaging publication",
@@ -5852,68 +5970,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Attention Selectively Reshapes the Geometry of Distributed Semantic Representation",
-   "url": "https://doi.org/10.1093/cercor/bhx138",
-   "date": "2017-06-07",
-   "year": "2017",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Samuel A. Nastase",
-     "/whoweare#samuel_nastase_"
-    ],
-    [
-     "Andrew C. Connolly",
-     null
-    ],
-    [
-     "Nikolaas N. Oosterhof",
-     "/whoweare#nikolaas_n_oosterhof_"
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "J. Swaroop Guntupalli",
-     null
-    ],
-    [
-     "Matteo Visconti di Oleggio Castello",
-     "/whoweare#matteo_visconti_di_oleggio_castello_"
-    ],
-    [
-     "Jason Gors",
-     "/whoweare#jason_gors_"
-    ],
-    [
-     "M. Ida Gobbini",
-     null
-    ],
-    [
-     "James V. Haxby",
-     "/whoweare#james_v_haxby_"
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 9,
-   "preprint": false,
-   "projects": [],
-   "people": [
-    "samuel-nastase",
-    "nikolaas-oosterhof",
-    "yaroslav-halchenko",
-    "matteo-visconti-di-oleggio-castello",
-    "jason-gors",
-    "james-haxby"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Toward standard practices for sharing computer code and programs in neuroscience",
@@ -5956,7 +6015,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/045104",
+   "dataset_urls": []
   },
   {
    "title": "The Neural Representation Of Personally Familiar And Unfamiliar Faces In The Distributed System For Face Perception",
@@ -5998,49 +6059,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
-  },
-  {
-   "title": "The Neural Representation Of Personally Familiar And Unfamiliar Faces In The Distributed System For Face Perception",
-   "url": "https://doi.org/10.1101/138297",
-   "date": "2017",
-   "year": "2017",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Matteo Visconti di Oleggio Castello",
-     "/whoweare#matteo_visconti_di_oleggio_castello_"
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "J. Swaroop Guntupalli",
-     null
-    ],
-    [
-     "Jason D. Gors",
-     "/whoweare#jason_gors_"
-    ],
-    [
-     "M. Ida Gobbini",
-     null
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 5,
-   "preprint": true,
-   "projects": [],
-   "people": [
-    "matteo-visconti-di-oleggio-castello",
-    "yaroslav-halchenko",
-    "jason-gors"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/138297",
+   "dataset_urls": []
   },
   {
    "title": "Attention selectively reshapes the geometry of distributed semantic representation",
@@ -6101,7 +6122,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/045252",
+   "dataset_urls": []
   },
   {
    "title": "Localizing functional regions of interest based on responses to dynamic naturalistic stimuli",
@@ -6109,7 +6132,7 @@
    "date": "2016-11-12",
    "year": "2016",
    "type": "poster",
-   "venue": null,
+   "venue": "Annual meeting of the Society for Neuroscience, San Diego, CA",
    "authors": [
     [
      "Samuel A. Nastase",
@@ -6144,7 +6167,9 @@
     "translational-research-infrastructure"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "DataLad -- decentralized data distribution for consumption and sharing of scientific datasets",
@@ -6178,7 +6203,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2016-crcns-datalad.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Managing data should be as easy as managing code and software",
@@ -6207,7 +6234,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2016-data-ecosystem-1slide.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The brain imaging data structure, a format for organizing and describing outputs of neuroimaging experiments",
@@ -6284,18 +6313,20 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": "https://doi.org/10.1101/034561",
+   "dataset_urls": []
   },
   {
-   "title": "Resources for practicing PR4NI: pragmatic cursory overview",
+   "title": "Resources for practicing PR4NI – pragmatic cursory overview",
    "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2016-ohbm-pr4ni-resources",
    "date": "2016-06",
    "year": "2016",
    "type": "talk",
-   "venue": "OHBM 2016, Geneva, Switzerland",
+   "venue": "Organization of Human Brain Mapping Annual Meeting, Tutorials, Geneva, Switzerland",
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Yaroslav. O Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
@@ -6313,18 +6344,20 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2016-ohbm-pr4ni-resources.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
-   "title": "DataLad -- decentralized data distribution for consumption and sharing of scientific datasets",
+   "title": "DataLad – decentralized data distribution for consumption and sharing of scientific datasets",
    "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2016-ohbm-datalad",
    "date": "2016-06",
    "year": "2016",
    "type": "talk",
-   "venue": "OHBM 2016, Geneva, Switzerland",
+   "venue": "Organization of Human Brain Mapping Annual Meeting, Geneva, Switzerland",
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Yaroslav. O Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
@@ -6352,7 +6385,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2016-ohbm-datalad.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Cross-modal searchlight classification: Methodological challenges and recommended solutions",
@@ -6389,7 +6424,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "A Model of Representational Spaces in Human Cortex",
@@ -6440,7 +6477,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "How the human brain represents perceived dangerousness or \"predacity\" of animals",
@@ -6508,7 +6547,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The road to open neuroscience: from analysis methods to software platforms",
@@ -6532,50 +6573,9 @@
    ],
    "objectives": [],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2016-mrn-open-neuroscience.pdf",
-   "video": null
-  },
-  {
-   "title": "Towards standard practices for sharing computer code and programs in neuroscience",
-   "url": "https://doi.org/10.1101/045104",
-   "date": "2016",
-   "year": "2016",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Stephen J. Eglen",
-     null
-    ],
-    [
-     "Ben Marwick",
-     null
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "Michael Hanke",
-     "/whoweare#michael_hanke_"
-    ],
-    null,
-    [
-     "Jean-Baptiste Poline",
-     "/whoweare#jeanbaptiste_poline_"
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 14,
-   "preprint": true,
-   "projects": [],
-   "people": [
-    "yaroslav-halchenko",
-    "michael-hanke",
-    "jean-baptiste-poline"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "To the Cloud! A Grassroots Proposal to Accelerate Brain Science Discovery",
@@ -6623,150 +6623,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
-  },
-  {
-   "title": "The Brain Imaging Data Structure: a standard for organizing and describing outputs of neuroimaging experiments",
-   "url": "https://doi.org/10.1101/034561",
-   "date": "2016",
-   "year": "2016",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Krzysztof J. Gorgolewski",
-     null
-    ],
-    [
-     "Tibor Auer",
-     null
-    ],
-    [
-     "Vince D. Calhoun",
-     null
-    ],
-    null,
-    [
-     "Satrajit S. Ghosh",
-     "/whoweare#satrajit_ghosh_"
-    ],
-    null,
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    null,
-    [
-     "Michael Hanke",
-     "/whoweare#michael_hanke_"
-    ],
-    null,
-    [
-     "Camille Maumet",
-     "/whoweare#camille_maumet_"
-    ],
-    null,
-    [
-     "Jean-Baptiste Poline",
-     "/whoweare#jeanbaptiste_poline_"
-    ],
-    null,
-    [
-     "Vanessa Sochat",
-     "/whoweare#vanessa_sochat_"
-    ],
-    null,
-    [
-     "Russell A. Poldrack",
-     "/whoweare#russell_a_poldrack_"
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 26,
-   "preprint": true,
-   "projects": [
-    "bids"
-   ],
-   "people": [
-    "satrajit-ghosh",
-    "yaroslav-halchenko",
-    "michael-hanke",
-    "jean-baptiste-poline",
-    "vanessa-sochat",
-    "russell-poldrack"
-   ],
-   "objectives": [
-    "cross-standards-harmonization"
-   ],
-   "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Resources for practicing PR4NI – pragmatic cursory overview",
-   "url": "http://www.pymvpa.org/files/OHBM2016_Halchenko_resources.pdf",
-   "date": "2016",
-   "year": "2016",
-   "type": "talk",
-   "venue": "Organization of Human Brain Mapping Annual Meeting, Tutorials, Geneva, Switzerland",
-   "authors": [
-    [
-     "Yaroslav. O Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 1,
-   "preprint": false,
-   "projects": [],
-   "people": [
-    "yaroslav-halchenko"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Localizing functional regions of interest based on responses to dynamic naturalistic stimuli",
-   "url": null,
-   "date": "2016",
-   "year": "2016",
-   "type": "poster",
-   "venue": "Annual meeting of the Society for Neuroscience, Chicago, IL",
-   "authors": [
-    [
-     "Samuel A. Nastase",
-     "/whoweare#samuel_nastase_"
-    ],
-    [
-     "J. Swaroop Guntupalli",
-     null
-    ],
-    [
-     "James V. Haxby",
-     "/whoweare#james_v_haxby_"
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 4,
-   "preprint": false,
-   "projects": [
-    "region-localization"
-   ],
-   "people": [
-    "samuel-nastase",
-    "james-haxby",
-    "yaroslav-halchenko"
-   ],
-   "objectives": [
-    "rich-naturalistic-data",
-    "translational-research-infrastructure"
-   ],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "DueCredit - automagically collect citations for software, methods, and data you use",
@@ -6799,82 +6658,25 @@
     "87be5fa3-80fb-4221-8406-2ddd40fb1fd1"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
-   "title": "DataLad – decentralized data distribution for consumption and sharing of scientific datasets",
-   "url": "http://www.pymvpa.org/files/OHBM2016_Halchenko_datalad.pdf",
-   "date": "2016",
-   "year": "2016",
-   "type": "talk",
-   "venue": "Organization of Human Brain Mapping Annual Meeting, Geneva, Switzerland",
+   "title": "Finding cortical patches of shared representations: a comparison of clustering algorithms on representational geometries, and the effect of cross-validation to reduce physiological noise",
+   "url": null,
+   "date": "2015-10-17",
+   "year": "2015",
+   "type": "poster",
+   "venue": "Annual meeting of the Society for Neuroscience, Chicago, IL",
    "authors": [
-    [
-     "Yaroslav. O Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "Benjamin Poldrack",
-     "/whoweare#benjamin_poldrack_"
-    ],
-    [
-     "Michael Hanke",
-     "/whoweare#michael_hanke_"
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 3,
-   "preprint": false,
-   "projects": [
-    "datalad"
-   ],
-   "people": [
-    "yaroslav-halchenko",
-    "benjamin-poldrack",
-    "michael-hanke"
-   ],
-   "objectives": [
-    "97ded4aa-108d-4b84-8195-d6076dce63ce",
-    "scalable-neural-archiving"
-   ],
-   "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Attention selectively reshapes the geometry of distributed semantic representation",
-   "url": "https://doi.org/10.1101/045252",
-   "date": "2016",
-   "year": "2016",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Samuel A. Nastase",
-     "/whoweare#samuel_nastase_"
-    ],
-    [
-     "Andrew C. Connolly",
-     null
-    ],
-    [
-     "Nikolaas N. Oosterhof",
-     "/whoweare#nikolaas_n_oosterhof_"
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "J. Swaroop Guntupalli",
-     null
-    ],
     [
      "Matteo Visconti di Oleggio Castello",
      "/whoweare#matteo_visconti_di_oleggio_castello_"
     ],
     [
-     "Jason Gors",
-     "/whoweare#jason_gors_"
+     "Samuel A. Nastase",
+     "/whoweare#samuel_nastase_"
     ],
     [
      "M. Ida Gobbini",
@@ -6883,51 +6685,14 @@
     [
      "James V. Haxby",
      "/whoweare#james_v_haxby_"
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 9,
-   "preprint": true,
-   "projects": [],
-   "people": [
-    "samuel-nastase",
-    "nikolaas-oosterhof",
-    "yaroslav-halchenko",
-    "matteo-visconti-di-oleggio-castello",
-    "jason-gors",
-    "james-haxby"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Finding Cortical Patches of Shared Representations",
-   "url": null,
-   "date": "2015-10-17",
-   "year": "2015",
-   "type": "poster",
-   "venue": null,
-   "authors": [
-    [
-     "Matteo Visconti di Oleggio Castello",
-     "/whoweare#matteo_visconti_di_oleggio_castello_"
-    ],
-    [
-     "Samuel Nastase",
-     "/whoweare#samuel_nastase_"
-    ],
-    [
-     "James V. Haxby",
-     "/whoweare#james_v_haxby_"
     ],
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
-   "authors_complete": false,
-   "authors_count": 4,
+   "authors_complete": true,
+   "authors_count": 5,
    "preprint": false,
    "projects": [
     "region-localization"
@@ -6943,7 +6708,9 @@
     "translational-research-infrastructure"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Virtues of cognitive neuroscience: from brain function to software platforms (NeuroDebian)",
@@ -6972,7 +6739,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2015-hackathon-neurodebian.pdf",
-   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/Qxtco8tupdo"
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/Qxtco8tupdo",
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The road to open neuroscience: from analysis methods to software platforms",
@@ -6996,7 +6765,9 @@
    ],
    "objectives": [],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2015-sabanci-open-neuroscience.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Overview of statistical evaluation techniques adopted by publicly available MVPA toolboxes",
@@ -7004,10 +6775,10 @@
    "date": "2015-06",
    "year": "2015",
    "type": "talk",
-   "venue": "OHBM 2015, Honolulu HI",
+   "venue": "Organization of Human Brain Mapping Annual Meeting, Honolulu HI, USA",
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Yaroslav. O Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ]
    ],
@@ -7025,7 +6796,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2015-ohbm-signitools.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "PyMVPA Workshop 2015",
@@ -7059,7 +6832,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Virtues of cognitive neuroscience: from brain function to software platforms",
@@ -7088,7 +6863,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2015-dartmouth-cs-colloquium.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The impact of shared data in neuroimaging: the case of OpenfMRI.org",
@@ -7132,7 +6909,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The animacy continuum in the human ventral vision pathway",
@@ -7182,36 +6961,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Overview of statistical evaluation techniques adopted by publicly available MVPA toolboxes",
-   "url": "http://www.pymvpa.org/files/OHBM2015_Halchenko.pdf",
-   "date": "2015",
-   "year": "2015",
-   "type": "talk",
-   "venue": "Organization of Human Brain Mapping Annual Meeting, Honolulu HI, USA",
-   "authors": [
-    [
-     "Yaroslav. O Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 1,
-   "preprint": false,
-   "projects": [
-    "pymvpa"
-   ],
-   "people": [
-    "yaroslav-halchenko"
-   ],
-   "objectives": [
-    "translational-research-infrastructure",
-    "rich-naturalistic-data"
-   ],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "NIDM-Workflow - The Evolution of Provenance in Neuroimaging",
@@ -7282,7 +7034,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "How to make brain imaging research efficient and reproducible: building software and standards",
@@ -7347,7 +7101,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Four aspects to make science open \"by design\" and not as an after-thought",
@@ -7376,50 +7132,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Finding cortical patches of shared representations: a comparison of clustering algorithms on representational geometries, and the effect of cross-validation to reduce physiological noise",
-   "url": null,
-   "date": "2015",
-   "year": "2015",
-   "type": "poster",
-   "venue": "Annual meeting of the Society for Neuroscience, Chicago, IL",
-   "authors": [
-    [
-     "Matteo Visconti di Oleggio Castello",
-     "/whoweare#matteo_visconti_di_oleggio_castello_"
-    ],
-    [
-     "Samuel A. Nastase",
-     "/whoweare#samuel_nastase_"
-    ],
-    [
-     "M. Ida Gobbini",
-     null
-    ],
-    [
-     "James V. Haxby",
-     "/whoweare#james_v_haxby_"
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 5,
-   "preprint": false,
-   "projects": [],
-   "people": [
-    "matteo-visconti-di-oleggio-castello",
-    "samuel-nastase",
-    "james-haxby",
-    "yaroslav-halchenko"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Clustering cortical searchlights based on shared representational geometry",
@@ -7462,7 +7177,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Attention alters animal and action representation in highly-distributed functionally-defined cortical parcels",
@@ -7514,7 +7231,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Application of the Neuroimaging Data Model to Represent and Exchange Primary and Derived Data",
@@ -7581,7 +7300,9 @@
     "cross-standards-harmonization"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "A communication hub for a decentralized collaboration on studying real-life cognition",
@@ -7610,7 +7331,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "PyMVPA Workshop 2014",
@@ -7644,7 +7367,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "\"To make a world a better place\" or PyMVPA / NeuroDebian / ...",
@@ -7673,7 +7398,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2014-siemens-pymvpa-neurodebian.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Fail2Ban -- keep your boxes skiddie-free",
@@ -7699,7 +7426,9 @@
    ],
    "objectives": [],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2014-pycon-fail2ban.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "From statistical learning to an open-source, turnkey platform for neuroimaging",
@@ -7728,7 +7457,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2014-sri-neuroimaging.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Converging catalogues, warehouses, and deployment logistics into a federated 'data distribution'",
@@ -7762,7 +7493,9 @@
     "scalable-neural-archiving"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Attentional allocation locally warps representational space",
@@ -7814,7 +7547,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Attention locally modulates the discriminability of high-level, task-relevant representations",
@@ -7866,7 +7601,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Transmodal Analysis of Neural Signals",
@@ -7913,7 +7650,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Prioritized Detection of Personally Familiar Faces",
@@ -7962,7 +7701,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Pattern classification precedes region-average hemodynamic response in early visual cortex.",
@@ -8024,7 +7765,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Open is not enough: benefits from Debian as an integrated, community-driven computing platform",
@@ -8055,7 +7798,9 @@
    ],
    "objectives": [],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2013-sea-debian.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Processing of invisible social cues",
@@ -8096,7 +7841,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "NeuroDebian: from disjoint tools and data to robust turnkey platform for neuroimaging and beyond",
@@ -8125,7 +7872,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Investigation of the familiar face recognition model",
@@ -8133,26 +7882,26 @@
    "date": "2012-10",
    "year": "2012",
    "type": "poster",
-   "venue": "Society for Neuroscience Annual Meeting (SfN 2012)",
+   "venue": "Society for Neuroscience Annual Meeting, New Orleans",
    "authors": [
     [
-     "Yaroslav O. Halchenko",
+     "Y. O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
     ],
     [
-     "Jason Gors",
+     "J. Gors",
      "/whoweare#jason_gors_"
     ],
     [
-     "J. Swaroop Guntupalli",
+     "J. S. Guntupalli",
      null
     ],
     [
-     "James V. Haxby",
+     "J. V. Haxby",
      "/whoweare#james_v_haxby_"
     ],
     [
-     "M. Ida Gobbini",
+     "M. I. Gobbini",
      null
     ]
    ],
@@ -8172,7 +7921,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "PyMVPA Course -- Overture",
@@ -8206,7 +7957,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2012-pymvpa-course.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Applied NeuroDebian: Python in Neuroimaging",
@@ -8235,7 +7988,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2012-incf-neurodebian.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Debian Med: The ultimate operating system for medicine, pre-clinical research and bio-informatics",
@@ -8266,7 +8021,9 @@
    ],
    "objectives": [],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2012-hdi-debian-med.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Representation of biological classes in the human brain",
@@ -8321,7 +8078,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Environments for efficient contemporary research in neuroimaging",
@@ -8355,7 +8114,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2012-upenn-environments.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Open is not enough. Let's take the next step: An integrated, community-driven computing platform for neuroscience",
@@ -8389,49 +8150,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Investigation of the familiar face recognition model",
-   "url": "http://haxbylab.dartmouth.edu/publications/HGG+12_sfn12_famfaces.png",
-   "date": "2012",
-   "year": "2012",
-   "type": "poster",
-   "venue": "Society for Neuroscience Annual Meeting, New Orleans",
-   "authors": [
-    [
-     "Y. O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "J. Gors",
-     "/whoweare#jason_gors_"
-    ],
-    [
-     "J. S. Guntupalli",
-     null
-    ],
-    [
-     "J. V. Haxby",
-     "/whoweare#james_v_haxby_"
-    ],
-    [
-     "M. I. Gobbini",
-     null
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 5,
-   "preprint": false,
-   "projects": [],
-   "people": [
-    "yaroslav-halchenko",
-    "jason-gors",
-    "james-haxby"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Incorrect probabilities in Harvard-Oxford-sub Left hemisphere",
@@ -8455,7 +8176,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Data sharing in neuroimaging research",
@@ -8511,7 +8234,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Multivariate analysis strategies of neuroimaging data in PyMVPA",
@@ -8545,7 +8270,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2011-sfn-pymvpa.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "A Common, High-Dimensional Model of the Representational Space in Human Ventral Temporal Cortex",
@@ -8604,7 +8331,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "π's in Debian or Scientific Debian: NumPy, SciPy and beyond",
@@ -8630,7 +8359,9 @@
    ],
    "objectives": [],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2011-euroscipy-debian.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The virtues and sins of PyMVPA",
@@ -8664,7 +8395,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2011-euroscipy-pymvpa.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "More than batteries included: NeuroDebian",
@@ -8698,7 +8431,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2011-euroscipy-neurodebian.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "PsychoPy Workshop: Coding, Git, et al.",
@@ -8724,7 +8459,9 @@
    ],
    "objectives": [],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2011-psychopy-workshop.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "NeuroDebian: versatile platform for brain imaging research",
@@ -8763,7 +8500,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Unsupervised brain parcellation from functional neuroimaging data",
@@ -8811,7 +8550,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Searchlight whereabouts in PyMVPA",
@@ -8845,7 +8586,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2011-dartmouth-searchlight.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Scanning parameters for optimal decoding using a 32-channel head coil for fMRI",
@@ -8886,7 +8629,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Nipype: a flexible, lightweight and extensible neuroimaging data processing framework in python",
@@ -8937,7 +8682,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Neuroscience Runs on GNU/Linux",
@@ -8971,7 +8718,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Debian Med: Integrated software environment for all medical purposes based on Debian GNU/Linux",
@@ -9012,7 +8761,9 @@
     "self-hosted-it"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "An integrated community-driven computing platform for neuroscience",
@@ -9055,7 +8806,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Debian: The ultimate platform for neuroimaging research",
@@ -9089,7 +8842,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2010-debconf-neurodebian.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Citations infrastructure in Debian",
@@ -9120,7 +8875,9 @@
    ],
    "objectives": [],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2010-debconf-citations.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Transmodal Analysis of Neural Signals",
@@ -9167,7 +8924,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "PyMVPA 0.5: A Major Update of the Comprehensive Framework for Statistical Learning Analysis of Neural Data",
@@ -9205,7 +8964,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Advancing Neuroimaging Research with Predictive Multivariate Pattern Analysis",
@@ -9239,7 +9000,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Neural activity localization by predictive mapping between imaging modalities",
@@ -9286,7 +9049,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Improving efficiency in cognitive neuroscience research with NeuroDebian",
@@ -9329,7 +9094,9 @@
     "97ded4aa-108d-4b84-8195-d6076dce63ce"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "First PyMVPA Course Ever",
@@ -9363,7 +9130,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Statistical Learning Analysis in Neuroscience",
@@ -9410,7 +9179,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Six problems for causal inference from fMRI",
@@ -9455,7 +9226,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Statistical learning analysis in neuroscience: aiming for transparency",
@@ -9498,50 +9271,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Improving efficiency in cognitive neuroscience research with NeuroDebian",
-   "url": null,
-   "date": "2010",
-   "year": "2010",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Michael Hanke",
-     "/whoweare#michael_hanke_"
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "James V. Haxby",
-     "/whoweare#james_v_haxby_"
-    ],
-    [
-     "Stefan Pollmann",
-     null
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 4,
-   "preprint": false,
-   "projects": [
-    "neurodebian"
-   ],
-   "people": [
-    "michael-hanke",
-    "yaroslav-halchenko",
-    "james-haxby"
-   ],
-   "objectives": [
-    "self-hosted-it",
-    "97ded4aa-108d-4b84-8195-d6076dce63ce"
-   ],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "PyMVPA: Where we are now, and where we are going",
@@ -9575,7 +9307,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2009-pymvpa-extravaganza.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "An ecosystem of neuroimaging, statistical learning, and open-source software to make research more efficient, more open, and more fun",
@@ -9609,7 +9343,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2009-dartmouth-ecosystem.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Decoding the Large-Scale Structure of Brain Function by Classifying Mental States Across Individuals",
@@ -9642,7 +9378,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Predictive Decoding of Neural Data",
@@ -9671,7 +9409,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "PyMVPA: Fathom Brain Function through Multivariate Pattern Analysis",
@@ -9705,7 +9445,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2009-hawaii-pymvpa.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Reliable Decoding of Neural Data",
@@ -9739,7 +9481,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2009-nipy-decoding.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "PyMVPA: Fathom Brain Function with Multivariate Pattern Analysis",
@@ -9773,7 +9517,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2009-nipy-pymvpa.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Standing on the shoulders of giants: Multivariate pattern analysis in Python",
@@ -9807,7 +9553,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2009-bccn-pymvpa.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Modality-independent Analysis Of Neuroimaging Data With PyMVPA",
@@ -9841,7 +9589,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2009-tu-berlin-pymvpa.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "PyMVPA: A Unifying Approach to the Analysis of Neuroscientific Data",
@@ -9908,7 +9658,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "PyMVPA: A Python toolbox for multivariate pattern analysis of fMRI data",
@@ -9959,7 +9711,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "PyMVPA: A Python toolbox for machine-learning-based fMRI data analysis",
@@ -9998,7 +9752,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2008-cambridge-pymvpa.pdf",
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Classifier-based analysis toolbox for Neuroimaging",
@@ -10032,35 +9788,9 @@
     "rich-naturalistic-data"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2008-nipy-sprint-pymvpa.pdf",
-   "video": null
-  },
-  {
-   "title": "Brain Reading Using Full Brain Support Vector Machines for Object Recognition: There Is No \"Face\" Identification Area",
-   "url": "https://doi.org/10.1162/neco.2007.09-06-340",
-   "date": "2008-02",
-   "year": "2008",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Stephen José Hanson",
-     null
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 2,
-   "preprint": false,
-   "projects": [],
-   "people": [
-    "yaroslav-halchenko"
-   ],
-   "objectives": [],
-   "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Brain reading using full brain support vector machines for object recognition: there is no “face” identification area",
@@ -10088,7 +9818,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Bottom-up and top-down brain functional connectivity underlying comprehension of everyday visual action",
@@ -10128,7 +9860,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Dense mode clustering in brain maps",
@@ -10164,7 +9898,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Advanced Image Processing in Magnetic Resonance Imaging: fMRI, MRI, EEG, MEG",
@@ -10196,7 +9932,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Structural Equation Modeling of Neuroimaging Data: Exhaustive Search and Markov Chain Monte Carlo",
@@ -10244,7 +9982,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Fusion of functional brain imaging modalities via linear programming",
@@ -10280,7 +10020,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Fusion of Functional Brain Imaging Modalities using L-Norms Signal Reconstruction",
@@ -10312,7 +10054,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Method for image coordinate definition on extended laser paths",
@@ -10356,7 +10100,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Approach to parallel-hierarchical network learning for real-time image sequence recognition",
@@ -10400,7 +10146,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "Image Segmentation on the basis of spatial connected features",
@@ -10436,7 +10184,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   },
   {
    "title": "The model of associative processor for numerical data sorting",
@@ -10468,7 +10218,9 @@
    ],
    "objectives": [],
    "pdf": null,
-   "video": null
+   "video": null,
+   "preprint_url": null,
+   "dataset_urls": []
   }
  ]
 }
