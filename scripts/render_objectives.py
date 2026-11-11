@@ -25,9 +25,13 @@ import sys
 from conrecords import (
     RECORDS,
     load_yaml,
+    project_objectives,
     publication_date,
+    publication_objectives,
+    publication_type,
     publication_url,
     publications,
+    publications_details,
     toc_hook,
     write_page,
 )
@@ -153,6 +157,12 @@ def render_page():
     rows, skipped = objectives()
     projects = projects_by_objective()
     pubs = publications_by_objective()
+    # every publication serving an objective, through its projects too:
+    # the closed list publications.js fills, under the key reading
+    served, by_project = {}, project_objectives()
+    for p in publications():
+        for o in publication_objectives(p, by_project):
+            served.setdefault(o, []).append(publication_type(p))
     out = ['<html>', '', '<head>', '\t<title>Objectives</title>',
            '\t<meta name="url" content="objectives" />',
            '\t<meta name="save_as" content="objectives.html" />',
@@ -196,6 +206,8 @@ def render_page():
                     title = f'<a href="{html.escape(url)}">{title}</a>'
                 out.append(f'\t  <li>{title}' + (f' ({year})' if year else '') + '</li>')
             out.append('\t</ul>')
+        if served.get(d["pid"]):
+            out += publications_details("objective", d["pid"], served[d["pid"]], "\t")
     out += ['  </div>', '  </section>', '</body>', '', '</html>']
     return "\n".join(out) + "\n", skipped
 

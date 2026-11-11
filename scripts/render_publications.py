@@ -30,7 +30,9 @@ from conrecords import (
     load_yaml,
     one,
     person_name,
+    project_objectives,
     publication_date,
+    publication_objectives,
     publication_projects,
     publication_type,
     publication_url,
@@ -38,6 +40,7 @@ from conrecords import (
     toc_hook,
     write_page,
 )
+from render_objectives import objectives as current_objectives
 from render_whoweare import page_anchors
 
 # the slides themselves, which this page's talks link into
@@ -102,6 +105,10 @@ def model():
     projects and people they name, keyed by the slugs a filter takes."""
     by_pid, by_name = people()
     projs = projects()
+    by_project = project_objectives()
+    # the objectives the site shows, in its order, linked to their sections
+    objs = {d["pid"]: (d["title"], "/objectives#" + toc_hook(d["title"]))
+            for d in current_objectives()[0]}
     entries, used_projects, used_people = [], {}, {}
     for d in publications():
         names, complete = authors(d, by_pid, by_name)
@@ -122,10 +129,13 @@ def model():
             "venue": one(d, "bibo:presentedAt"),
             "authors": names, "authors_complete": complete,
             "projects": [slug(p) for p in mine], "people": who,
+            "objectives": [slug(o) for o in publication_objectives(d, by_project)
+                           if o in objs],
             "pdf": one(d, "dcat:downloadURL"), "video": one(d, "schema:video")})
     return {"types": {TYPE[s]: s for s in SECTIONS},
             "projects": dict(sorted(used_projects.items())),
             "people": dict(sorted(used_people.items())),
+            "objectives": {slug(o): v for o, v in objs.items()},
             "publications": entries}
 
 

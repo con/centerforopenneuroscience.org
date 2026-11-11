@@ -19,6 +19,7 @@ have caught, and none was caught by running them and looking at the output:
 
 One test per scar.
 """
+import hashlib
 import html
 import http.server
 import json
@@ -784,12 +785,13 @@ def test_top_menu_order(tmp_path):
     wrote. Distinct numbers, and a test that says what they are for."""
     out = _build(tmp_path)
     t = (out / "projects.html").read_text()
-    i = t.index("navbar-collapse")
+    # the menu itself, not the toggle button that targets it, which sits
+    # before the brand
+    i = t.index('id="navbar-collapse"')
     j = t.index("</ul>", i)
     # tags stripped: the off-site items end in icon <span>s
-    labels = [re.sub(r"<[^>]+>", "", m).strip() for m in
-              re.findall(r"<a [^>]*>(.*?)</a>", t[i:j], re.S)]
-    menu = [x for x in labels if x != "Center for Open Neuroscience"]
+    menu = [re.sub(r"<[^>]+>", "", m).strip() for m in
+            re.findall(r"<a [^>]*>(.*?)</a>", t[i:j], re.S)]
     assert menu == ["Who we are", "Projects", "Engage", "Support",
                     "Publications", "Hub", "CONTube"], menu
 
@@ -1106,6 +1108,8 @@ def test_publications_js_filters(tmp_path):
       since: d.publications.filter(e => e.year >= "2020").length,
       parsed: P.parse("?project=datalad&q=a+b&bogus=1"),
       query: P.query({q: "a b", type: "", person: "x"}),
+      objective: n({objective: "cross-standards-harmonization"}),
+      objectiveWant: d.publications.filter(e => e.objectives.includes("cross-standards-harmonization")).length,
     }));
     """
     r = subprocess.run([node, "-e", js, str(HERE / "theme/static/js/publications.js"),
@@ -1121,6 +1125,7 @@ def test_publications_js_filters(tmp_path):
     assert got["open"] == got["since"] > 0
     assert got["parsed"] == {"project": "datalad", "q": "a b"}
     assert got["query"] == "q=a%20b&person=x"
+    assert got["objective"] == got["objectiveWant"] > 0
 
 
 @pytest.mark.ai_generated
@@ -1327,3 +1332,48 @@ def test_publications_sidebar_survives_filtering_and_scrolling(served_site):
         assert pg.evaluate(visible)
         assert not problems, problems
         browser.close()
+
+
+@pytest.mark.ai_generated
+def test_navbar_brand_is_the_con_mark_and_the_menu_fits_one_row(served_site):
+    """The full name beside the brand icon plus a seventh menu item wrapped
+    the menu onto a second row.  The CON mark alone, named on hover."""
+    pw = pytest.importorskip("playwright.sync_api")
+    assert (HERE / "theme/static/img/logos/logo_con_white.svg").is_file()
+    with pw.sync_playwright() as p:
+        browser = _browser(p)
+        for width in (1400, 1280, 992, 800):
+            pg = browser.new_page(viewport={"width": width, "height": 700})
+            pg.goto(f"{served_site}/publications")
+            brand = pg.query_selector(".navbar-brand.con-brand")
+            assert brand.get_attribute("title") == "Center for Open Neuroscience"
+            assert pg.eval_on_selector(".con-brand img", "i => i.naturalWidth") > 0
+            h = pg.evaluate("() => document.querySelector('.navbar').offsetHeight")
+            assert h <= 60, f"{width}px: the navbar is {h}px tall -- wrapped"
+            pg.close()
+        browser.close()
+
+
+@pytest.mark.ai_generated
+def test_publications_are_cached_under_the_datas_own_version(tmp_path):
+    """A browser keeps the publications for its session; the corrected
+    years stayed unseen there because nothing told it the data changed."""
+    out = _build(tmp_path)
+    data = (HERE / "theme/static/data/publications.json").read_bytes()
+    want = hashlib.sha256(data).hexdigest()[:12]
+    page = (out / "publications.html").read_text()
+    assert f'publications.js" data-version="{want}"' in page
+
+
+@pytest.mark.ai_generated
+def test_objectives_list_and_filter_the_publications_that_serve_them():
+    data = json.loads(run("render_publications.py", "--json").stdout)
+    assert len(data["objectives"]) == 7
+    # through its projects: the BIDS paper serves the standards objective
+    bids = next(e for e in data["publications"] if "bids" in e["projects"])
+    assert "cross-standards-harmonization" in bids["objectives"]
+    out = run("render_objectives.py", "--page").stdout
+    m = re.search(r'data-pub-filter="objective=cross-standards-harmonization">\s*'
+                  r"<summary>(\d+) publications", out)
+    assert int(m.group(1)) == sum("cross-standards-harmonization" in e["objectives"]
+                                  for e in data["publications"])

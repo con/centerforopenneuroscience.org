@@ -25,12 +25,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
-		  <div class="hidden-xs hidden-sm">
-			<a class="navbar-brand" href="/">Center for Open Neuroscience</a>
-		  </div>
-		  <div class="hidden-md hidden-lg" style="font-size:12px">
-			<a class="navbar-brand" href="/">Center for Open Neuroscience</a>
-		  </div>
+		  <!-- the CON mark alone: the full name beside it, plus a seventh menu
+		       item, wrapped the menu onto a second row -->
+		  <a class="navbar-brand con-brand" href="/" title="Center for Open Neuroscience">
+			<img src="/theme/img/logos/logo_con_white.svg" alt="Center for Open Neuroscience" />
+		  </a>
 
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -122,7 +121,7 @@
   <script src="/theme/vendor/buddycloud-styles/dist/js/buddycloud-styles.js"></script>
   <script src="/theme/vendor/underscore/underscore-min.js"></script>
   <script src="/theme/js/jquery.visible.min.js"></script>
-  <script src="/theme/js/publications.js" defer></script>
+  <script src="/theme/js/publications.js" data-version="{{ publications_version() }}" defer></script>
 <script type="text/javascript">
   // The pinned sidebar would run over the footer, so it steps aside -- but
   // only when it actually would.  Hiding it whenever the footer was on

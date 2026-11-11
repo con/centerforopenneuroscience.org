@@ -8,8 +8,10 @@
  *
  * where q is free text (every word must occur in the title, authors, venue,
  * year or project names; case and accents ignored), type is paper, poster
- * or talk, year is 2020, 2015-2020, 2015- or -2005, and project and person
- * are the slugs of their records (datalad, yaroslav-halchenko).
+ * or talk, year is 2020, 2015-2020, 2015- or -2005, and project, person and
+ * objective are the slugs of their records (datalad, yaroslav-halchenko,
+ * open-science).  A publication serves the objectives it names and those of
+ * the projects behind it.
  *
  * render(el, f, {group: ["type", "year"]}) puts the matches under headings,
  * one level per key, and returns those groups -- what sidebar() turns into
@@ -28,8 +30,12 @@
 (function (root) {
   "use strict";
 
-  var SRC = "/theme/data/publications.json";
-  var FIELDS = ["q", "type", "year", "project", "person"];
+  // the data's version, a hash pelicanconf.py puts on the <script> tag: the
+  // cache key and the URL change whenever the publications do
+  var VERSION = (root.document && root.document.currentScript
+                 && root.document.currentScript.getAttribute("data-version")) || "";
+  var SRC = "/theme/data/publications.json" + (VERSION ? "?v=" + VERSION : "");
+  var FIELDS = ["q", "type", "year", "project", "person", "objective"];
   var loading = {};
 
   /* -- data ------------------------------------------------------------ */
@@ -93,6 +99,7 @@
       if (f.type && e.type !== f.type) return false;
       if (f.project && e.projects.indexOf(f.project) < 0) return false;
       if (f.person && e.people.indexOf(f.person) < 0) return false;
+      if (f.objective && (e.objectives || []).indexOf(f.objective) < 0) return false;
       if (f.year && !inYears(e.year, f.year)) return false;
       if (words.length) {
         var hay = haystack(e, data);
@@ -324,6 +331,13 @@
             counted(data, "projects", function (k) { return data.projects[k][0]; }), f.project) + "</select>"
         + '<select name="person" aria-label="Person">' + options("All people",
             counted(data, "people", function (k) { return data.people[k][0]; }), f.person) + "</select>"
+        // in the site's own order of objectives, not alphabetical
+        + '<select name="objective" aria-label="Objective">' + options("All objectives",
+            Object.keys(data.objectives || {}).map(function (k) {
+              var n = data.publications.filter(function (e) {
+                return (e.objectives || []).indexOf(k) >= 0; }).length;
+              return [k, data.objectives[k][0] + " (" + n + ")"];
+            }).filter(function (o) { return !/ \(0\)$/.test(o[1]); }), f.objective) + "</select>"
         + '<button type="reset" class="btn btn-default btn-sm">Clear</button>'
         + "</form>"
         + '<p class="pub-count" aria-live="polite"></p><div class="pub-results"></div>';

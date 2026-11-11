@@ -883,18 +883,22 @@ ul>.list-group-item:before {
    index into whoweare.  Same drawn marker as the components above.
    "N publications" is the same disclosure, an index into publications. */
 .projects details.people,
-.projects details.publications { margin: 0.4em 0; }
+.projects details.publications,
+.objectives details.publications { margin: 0.4em 0; }
 .projects details.people > summary,
-.projects details.publications > summary {
+.projects details.publications > summary,
+.objectives details.publications > summary {
   cursor: pointer;
   color: #777;
   font-size: 0.92em;
   list-style: none;
 }
 .projects details.people > summary::-webkit-details-marker,
-.projects details.publications > summary::-webkit-details-marker { display: none; }
+.projects details.publications > summary::-webkit-details-marker,
+.objectives details.publications > summary::-webkit-details-marker { display: none; }
 .projects details.people > summary::before,
-.projects details.publications > summary::before {
+.projects details.publications > summary::before,
+.objectives details.publications > summary::before {
   content: "\25B8";
   display: inline-block;
   width: 1em;
@@ -902,17 +906,22 @@ ul>.list-group-item:before {
   transition: transform .15s ease;
 }
 .projects details.people[open] > summary::before,
-.projects details.publications[open] > summary::before { transform: rotate(90deg); }
+.projects details.publications[open] > summary::before,
+.objectives details.publications[open] > summary::before { transform: rotate(90deg); }
 .projects details.people > summary:hover,
-.projects details.publications > summary:hover { color: #337ab7; }
+.projects details.publications > summary:hover,
+.objectives details.publications > summary:hover { color: #337ab7; }
 .projects ul.people-list,
-.projects ul.publication-list { margin: 0.4em 0 0.8em 0; }
+.projects ul.publication-list,
+.objectives ul.publication-list { margin: 0.4em 0 0.8em 0; }
 .projects ul.people-list > li,
-.projects ul.publication-list > li { font-size: 0.92em; color: #666; }
+.projects ul.publication-list > li,
+.objectives ul.publication-list > li { font-size: 0.92em; color: #666; }
 /* the components a role is held through, a publication's year; the theme
    letter-spaces <small> */
 .projects ul.people-list small,
-.projects ul.publication-list small {
+.projects ul.publication-list small,
+.objectives ul.publication-list small {
   font-family: inherit; letter-spacing: normal; font-size: 0.9em; color: #999;
 }
 
@@ -1018,6 +1027,15 @@ ul>.list-group-item:before {
   .navbar-nav > li > a {
     padding-left: 12px;
     padding-right: 12px;
+  }
+}
+/* On tablets (768-991px, where Bootstrap does not collapse the menu yet)
+   they fit beside the CON mark only smaller and tighter still. */
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-nav > li > a {
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 12px;
   }
 }
 
@@ -1168,4 +1186,19 @@ details .pub-more {
 .pub-alt {
 	font-size: 0.9em;
 	white-space: nowrap;
+}
+
+/* The navbar brand: the white CON mark (logo_con_white.svg) in place of the
+   theme's square icon and the name beside it */
+.navbar-inverse .navbar-brand.con-brand {
+	padding: 8px 15px;
+	height: 50px;
+}
+.navbar-inverse .navbar-brand.con-brand:before {
+	display: none;
+}
+.navbar-brand.con-brand img {
+	display: block;
+	height: 34px;
+	width: auto;
 }

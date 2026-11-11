@@ -146,6 +146,31 @@ def publication_type(d):
     return PUBLICATION_TYPES.get(d.get("kind"), "paper")
 
 
+OBJECTIVE = "xyzrins:objectives/"
+
+
+def project_objectives():
+    """project pid -> the objectives it currently serves."""
+    out = {}
+    for f in sorted((RECORDS / "XYZProject").glob("*.yaml")):
+        d = load_yaml(f)
+        out[d["pid"]] = [i["object"] for i in d.get("influenced_by") or []
+                         if str(i.get("object", "")).startswith(OBJECTIVE)
+                         and not i.get("ended")]
+    return out
+
+
+def publication_objectives(d, by_project):
+    """The objectives a publication serves: those it names itself, and
+    those of the projects that produced it.  Only two name one directly;
+    through their projects most do."""
+    out = [i["object"] for i in d.get("influenced_by") or []
+           if str(i.get("object", "")).startswith(OBJECTIVE)]
+    for p in publication_projects(d):
+        out += by_project.get(p, [])
+    return list(dict.fromkeys(out))
+
+
 def publications_summary(types):
     """["paper", "talk", "talk"] -> "3 publications (1 paper, 2 talks)"."""
     n = len(types)
