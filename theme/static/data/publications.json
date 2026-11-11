@@ -137,6 +137,10 @@
    "ReproNim/containers",
    "/projects#repronim_containers_"
   ],
+  "reprostim": [
+   "ReproStim",
+   "/projects#reprostim_"
+  ],
   "stamped-principles": [
    "STAMPED Principles",
    "/projects#stamped_principles_"
@@ -578,6 +582,44 @@
    "video": null
   },
   {
+   "title": "STAMPED principles for reproducible research objects",
+   "url": "https://doi.org/10.31222/osf.io/f3h82_v1",
+   "date": "2026-05-26",
+   "year": "2026",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Austin Macdonald",
+     "/whoweare#austin_macdonald_"
+    ],
+    [
+     "Cody Baker",
+     "/whoweare#cody_baker_"
+    ],
+    [
+     "Isaac To",
+     "/whoweare#isaac_to_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": true,
+   "projects": [
+    "stamped-principles"
+   ],
+   "people": [
+    "austin-macdonald",
+    "cody-baker",
+    "isaac-to",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
    "title": "Open neuroinformatics infrastructure ecosystem for federated multisite studies",
    "url": "https://doi.org/10.64898/2026.04.30.721944",
    "date": "2026-05-05",
@@ -644,6 +686,7 @@
    ],
    "authors_complete": false,
    "projects": [
+    "stamped-principles",
     "yoda"
    ],
    "people": [
@@ -1003,39 +1046,6 @@
    "video": null
   },
   {
-   "title": "Neuroimaging article reexecution and reproduction assessment system",
-   "url": "https://doi.org/10.3389/fninf.2024.1376022",
-   "date": "2024-7-22",
-   "year": "2024",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Horea-Ioan Ioanas",
-     "/whoweare#horeaioan_ioanas_"
-    ],
-    [
-     "Austin Macdonald",
-     "/whoweare#austin_macdonald_"
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ]
-   ],
-   "authors_complete": false,
-   "projects": [
-    "repronim"
-   ],
-   "people": [
-    "horea-ioanas",
-    "austin-macdonald",
-    "yaroslav-halchenko"
-   ],
-   "pdf": null,
-   "video": null
-  },
-  {
    "title": "Behaviorally-relevant features of observed actions dominate cortical representational geometry in natural vision",
    "url": "https://doi.org/10.1101/2024.11.26.624178",
    "date": "2024-11",
@@ -1062,6 +1072,39 @@
     "yaroslav-halchenko",
     "james-haxby",
     "samuel-nastase"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Neuroimaging article reexecution and reproduction assessment system",
+   "url": "https://doi.org/10.3389/fninf.2024.1376022",
+   "date": "2024-07-22",
+   "year": "2024",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Horea-Ioan Ioanas",
+     "/whoweare#horeaioan_ioanas_"
+    ],
+    [
+     "Austin Macdonald",
+     "/whoweare#austin_macdonald_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "repronim"
+   ],
+   "people": [
+    "horea-ioanas",
+    "austin-macdonald",
+    "yaroslav-halchenko"
    ],
    "pdf": null,
    "video": null
@@ -1159,7 +1202,8 @@
    ],
    "authors_complete": false,
    "projects": [
-    "repronim"
+    "repronim",
+    "reprostim"
    ],
    "people": [
     "yaroslav-halchenko"
@@ -1195,7 +1239,7 @@
   },
   {
    "title": "DataLad-Registry: Bringing Benefits of Centrality to DataLad",
-   "url": null,
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/_McJ1BtLsiQ",
    "date": "2024-04-05",
    "year": "2024",
    "type": "talk",
@@ -1246,7 +1290,7 @@
   },
   {
    "title": "BIDS Talk & Q&A for 2024 The Neuro – Irv and Helga Cooper Foundation International Prize",
-   "url": null,
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/6QoFWqfIZDU",
    "date": "2024-04",
    "year": "2024",
    "type": "talk",
@@ -1549,7 +1593,7 @@
   },
   {
    "title": "Research Data Management & Data tracking",
-   "url": null,
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/cYQWk8eQLlI",
    "date": "2023-07-22",
    "year": "2023",
    "type": "talk",
@@ -1894,17 +1938,13 @@
    "video": null
   },
   {
-   "title": "Microscopy-BIDS: An Extension to the Brain Imaging Data Structure for Microscopy Data",
-   "url": "https://doi.org/10.3389/fnins.2022.871228",
-   "date": "2022-4-19",
+   "title": "TemplateFlow: FAIR-sharing of multi-scale, multi-species brain models",
+   "url": "https://doi.org/10.1038/s41592-022-01681-2",
+   "date": "2022-12",
    "year": "2022",
    "type": "paper",
    "venue": null,
    "authors": [
-    [
-     "Satrajit Ghosh",
-     "/whoweare#satrajit_ghosh_"
-    ],
     [
      "Chris Markiewicz",
      "/whoweare#chris_markiewicz_"
@@ -1912,16 +1952,64 @@
     [
      "Yaroslav O. Halchenko",
      "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
     ]
    ],
    "authors_complete": false,
-   "projects": [
-    "bids"
-   ],
+   "projects": [],
    "people": [
-    "satrajit-ghosh",
     "chris-markiewicz",
-    "yaroslav-halchenko"
+    "yaroslav-halchenko",
+    "satrajit-ghosh",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Open and reproducible neuroimaging: From study inception to publication",
+   "url": "https://doi.org/10.1016/j.neuroimage.2022.119623",
+   "date": "2022-11",
+   "year": "2022",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Franco Pestilli",
+     "/whoweare#franco_pestilli_"
+    ],
+    [
+     "Adina Wagner",
+     "/whoweare#adina_wagner_"
+    ],
+    [
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "chris-markiewicz",
+    "franco-pestilli",
+    "adina-wagner",
+    "camille-maumet"
    ],
    "pdf": null,
    "video": null
@@ -2099,6 +2187,39 @@
    "video": null
   },
   {
+   "title": "Microscopy-BIDS: An Extension to the Brain Imaging Data Structure for Microscopy Data",
+   "url": "https://doi.org/10.3389/fnins.2022.871228",
+   "date": "2022-04-19",
+   "year": "2022",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "bids"
+   ],
+   "people": [
+    "satrajit-ghosh",
+    "chris-markiewicz",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
    "title": "Open and reproducible neuroimaging: from study inception to publication",
    "url": "https://doi.org/10.31219/osf.io/pu5vb",
    "date": "2022-04",
@@ -2183,7 +2304,7 @@
   },
   {
    "title": "A guide to DANDI, the BRAIN Initiative archive for publishing and sharing neurophysiology data",
-   "url": null,
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8OMLmUnc6Cs",
    "date": "2021-08-26",
    "year": "2021",
    "type": "talk",
@@ -2992,6 +3113,44 @@
    "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/Ao9ZIce7yn4"
   },
   {
+   "title": "Functional ROI localization in a rich stimuli dataset requires non-GLM style approach",
+   "url": "https://juser.fz-juelich.de/record/865045/files/OHBM_2019_Wagner.pdf",
+   "date": "2019-06",
+   "year": "2019",
+   "type": "paper",
+   "venue": "OHBM 2019, Rome, Italy",
+   "authors": [
+    [
+     "Adina Wagner",
+     "/whoweare#adina_wagner_"
+    ],
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": true,
+   "projects": [
+    "region-localization"
+   ],
+   "people": [
+    "adina-wagner",
+    "samuel-nastase",
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://juser.fz-juelich.de/record/865045/files/OHBM_2019_Wagner.pdf",
+   "video": null
+  },
+  {
    "title": "multimatch-gaze: The MultiMatch algorithm for gaze path comparison in Python",
    "url": "https://doi.org/10.21105/joss.01525",
    "date": "2019",
@@ -3261,7 +3420,7 @@
   },
   {
    "title": "(Neuro)Debian/Git/GitAnnex/DataLad: Distributions and Version Control",
-   "url": null,
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/2Qm4krjaSfM",
    "date": "2018-06",
    "year": "2018",
    "type": "talk",
@@ -3307,7 +3466,7 @@
   },
   {
    "title": "DataLad",
-   "url": null,
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/59CE6iOr45k",
    "date": "2018-03-02",
    "year": "2018",
    "type": "talk",
@@ -3382,6 +3541,7 @@
    ],
    "authors_complete": false,
    "projects": [
+    "datalad",
     "yoda"
    ],
    "people": [
@@ -3642,44 +3802,6 @@
    "video": null
   },
   {
-   "title": "A very simple, re-executable neuroimaging publication",
-   "url": "https://doi.org/10.12688/f1000research.10783.2",
-   "date": "2017-6-15",
-   "year": "2017",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Satrajit Ghosh",
-     "/whoweare#satrajit_ghosh_"
-    ],
-    [
-     "Jean-Baptiste Poline",
-     "/whoweare#jeanbaptiste_poline_"
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "David N. Kennedy",
-     "/whoweare#david_n_kennedy_"
-    ]
-   ],
-   "authors_complete": false,
-   "projects": [
-    "repronim"
-   ],
-   "people": [
-    "satrajit-ghosh",
-    "jean-baptiste-poline",
-    "yaroslav-halchenko",
-    "david-kennedy"
-   ],
-   "pdf": null,
-   "video": null
-  },
-  {
    "title": "DataLad -- decentralized data distribution for consumption and sharing of scientific datasets",
    "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2017-mind-datalad",
    "date": "2017-08",
@@ -3789,6 +3911,44 @@
     "michael-hanke"
    ],
    "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2017-dartmouth-datalad.pdf",
+   "video": null
+  },
+  {
+   "title": "A very simple, re-executable neuroimaging publication",
+   "url": "https://doi.org/10.12688/f1000research.10783.2",
+   "date": "2017-06-15",
+   "year": "2017",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "repronim"
+   ],
+   "people": [
+    "satrajit-ghosh",
+    "jean-baptiste-poline",
+    "yaroslav-halchenko",
+    "david-kennedy"
+   ],
+   "pdf": null,
    "video": null
   },
   {
@@ -7158,83 +7318,6 @@
    "projects": [],
    "people": [
     "yaroslav-halchenko"
-   ],
-   "pdf": null,
-   "video": null
-  },
-  {
-   "title": "TemplateFlow: FAIR-sharing of multi-scale, multi-species brain models",
-   "url": "https://doi.org/10.1038/s41592-022-01681-2",
-   "date": "12-2022",
-   "year": "12-2",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Chris Markiewicz",
-     "/whoweare#chris_markiewicz_"
-    ],
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "Satrajit Ghosh",
-     "/whoweare#satrajit_ghosh_"
-    ],
-    [
-     "Russell A. Poldrack",
-     "/whoweare#russell_a_poldrack_"
-    ]
-   ],
-   "authors_complete": false,
-   "projects": [],
-   "people": [
-    "chris-markiewicz",
-    "yaroslav-halchenko",
-    "satrajit-ghosh",
-    "russell-poldrack"
-   ],
-   "pdf": null,
-   "video": null
-  },
-  {
-   "title": "Open and reproducible neuroimaging: From study inception to publication",
-   "url": "https://doi.org/10.1016/j.neuroimage.2022.119623",
-   "date": "11-2022",
-   "year": "11-2",
-   "type": "paper",
-   "venue": null,
-   "authors": [
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ],
-    [
-     "Chris Markiewicz",
-     "/whoweare#chris_markiewicz_"
-    ],
-    [
-     "Franco Pestilli",
-     "/whoweare#franco_pestilli_"
-    ],
-    [
-     "Adina Wagner",
-     "/whoweare#adina_wagner_"
-    ],
-    [
-     "Camille Maumet",
-     "/whoweare#camille_maumet_"
-    ]
-   ],
-   "authors_complete": false,
-   "projects": [],
-   "people": [
-    "yaroslav-halchenko",
-    "chris-markiewicz",
-    "franco-pestilli",
-    "adina-wagner",
-    "camille-maumet"
    ],
    "pdf": null,
    "video": null
