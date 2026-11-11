@@ -27,11 +27,17 @@ AWARD_URL = {"ror:021nxhr62": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=
 
 
 def funded_projects(anchors):
-    """grant pid -> [(label, href or None), ...]."""
+    """grant pid -> [(label, href or None), ...].
+
+    Instruments (ReproIn, datalad-container, ...) name their funding the same
+    way projects do, so they are listed alongside them.
+    """
     out = {}
-    for f in sorted((RECORDS / "XYZProject").glob("*.yaml")):
+    for f in sorted([*(RECORDS / "XYZProject").glob("*.yaml"),
+                     *(RECORDS / "XYZInstrument").glob("*.yaml")]):
         d = load_yaml(f)
-        label = d.get("short_name") or d.get("display_label") or d.get("title") or f.stem
+        label = (d.get("short_name") or d.get("display_label") or d.get("title")
+                 or d.get("name") or f.stem)
         href = anchors.get(d["pid"]) or one(d, "foaf:homepage")
         for inf in d.get("influenced_by") or []:
             if FUNDING in (inf.get("roles") or []):

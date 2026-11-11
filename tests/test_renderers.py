@@ -981,6 +981,9 @@ def test_support_lists_every_grant_under_its_funder():
     nsf = out[out.index("nsf-logo"):]
     assert "showAward?AWD_ID=1429999" in nsf
     assert "reporter.nih.gov/project-details/8999833" in out
+    # instruments name their funding as projects do, and are listed too
+    repronim = next(li for li in out.split("<li>") if "2P41EB019936" in li)
+    assert "datalad-container" in repronim and "ReproIn" in repronim
     # the CCN block is section copy, not a record, and must survive
     assert "ccn-logo" in out
     # every funder heading names the funder, logo or not
