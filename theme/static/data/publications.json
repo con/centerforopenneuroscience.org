@@ -1,0 +1,7243 @@
+{
+ "types": {
+  "paper": "Papers and reports",
+  "poster": "Posters",
+  "talk": "Talks"
+ },
+ "projects": {
+  "bids": [
+   "BIDS",
+   "/projects#brain_imaging_data_structure_bids_"
+  ],
+  "bids-2-0": [
+   "BIDS 2.0",
+   "/projects#bids_20_"
+  ],
+  "con-duct": [
+   "duct",
+   "/projects#con_duct_"
+  ],
+  "dandi": [
+   "DANDI",
+   "/projects#dandi_"
+  ],
+  "datalad": [
+   "DataLad",
+   "/projects#datalad_"
+  ],
+  "datalad-registry": [
+   "DataLad-Registry",
+   "/projects#dataladregistry_"
+  ],
+  "debian": [
+   "Debian",
+   "https://www.debian.org"
+  ],
+  "debian-med": [
+   "Debian Med",
+   "https://www.debian.org/devel/debian-med/"
+  ],
+  "dicom": [
+   "DICOM",
+   "/projects#dicom_"
+  ],
+  "dicom-wg16": [
+   "DICOM WG-16",
+   "/projects#dicom_wg16_"
+  ],
+  "dicom-wg32": [
+   "DICOM WG-32",
+   "/projects#dicom_wg32_"
+  ],
+  "duecredit": [
+   "DueCredit",
+   "/projects#duecredit_"
+  ],
+  "fail2ban": [
+   "Fail2Ban",
+   "https://www.fail2ban.org"
+  ],
+  "hed": [
+   "HED",
+   "https://www.hedtags.org"
+  ],
+  "heudiconv": [
+   "HeuDiConv",
+   "/projects#heudiconv___reproin_"
+  ],
+  "hyperalignment-infrastructure": [
+   "Hyperalignment infrastructure",
+   null
+  ],
+  "mechababs": [
+   "mechababs",
+   "/projects#mechababs_"
+  ],
+  "mri-phantoms-afterlife": [
+   "MRI Phantoms Afterlife",
+   "/projects#mri_phantoms_afterlife_"
+  ],
+  "neurobagel": [
+   "Neurobagel",
+   "https://github.com/neurobagel/bagel-cli"
+  ],
+  "neurodebian": [
+   "NeuroDebian",
+   "/projects#neurodebian_"
+  ],
+  "nidm": [
+   "NIDM",
+   "/projects#nidm_"
+  ],
+  "nipoppy": [
+   "Nipoppy",
+   "https://github.com/nipoppy/nipoppy"
+  ],
+  "nipype": [
+   "Nipype",
+   "https://nipype.readthedocs.io/"
+  ],
+  "nwb": [
+   "NWB",
+   "/projects#nwb_"
+  ],
+  "open-brain-consent": [
+   "Open Brain Consent",
+   "/projects#open_brain_consent_"
+  ],
+  "openfmri": [
+   "OpenfMRI",
+   "http://openfmri.org/"
+  ],
+  "orinoco-lite": [
+   "ORINOCO Lite",
+   "/projects#orinoco_lite_"
+  ],
+  "psychopy": [
+   "PsychoPy",
+   "https://psychopy.org"
+  ],
+  "pymvpa": [
+   "PyMVPA",
+   "/projects#pymvpa_"
+  ],
+  "region-localization": [
+   "Region localization from rich data",
+   "/projects#highly_specific_region_localization_from_naturally_rich_data_"
+  ],
+  "reproman": [
+   "ReproMan",
+   "/projects#reproman_"
+  ],
+  "repronim": [
+   "ReproNim",
+   "/projects#repronim_"
+  ],
+  "repronim-containers": [
+   "ReproNim/containers",
+   "/projects#repronim_containers_"
+  ],
+  "stamped-principles": [
+   "STAMPED Principles",
+   "/projects#stamped_principles_"
+  ],
+  "yoda": [
+   "YODA",
+   "https://github.com/myyoda/myyoda"
+  ]
+ },
+ "people": {
+  "adina-wagner": [
+   "Adina Wagner",
+   "/whoweare#adina_wagner_"
+  ],
+  "andy-connolly": [
+   "Andy Connolly",
+   "/whoweare#andy_connolly_"
+  ],
+  "austin-macdonald": [
+   "Austin Macdonald",
+   "/whoweare#austin_macdonald_"
+  ],
+  "benjamin-poldrack": [
+   "Benjamin Poldrack",
+   "/whoweare#benjamin_poldrack_"
+  ],
+  "brock-wester": [
+   "Brock Wester",
+   null
+  ],
+  "camille-maumet": [
+   "Camille Maumet",
+   "/whoweare#camille_maumet_"
+  ],
+  "chris-cheng": [
+   "Chris Cheng",
+   "/whoweare#chris_cheng_"
+  ],
+  "chris-markiewicz": [
+   "Chris Markiewicz",
+   "/whoweare#chris_markiewicz_"
+  ],
+  "cody-baker": [
+   "Cody Baker",
+   "/whoweare#cody_baker_"
+  ],
+  "david-kennedy": [
+   "David N. Kennedy",
+   "/whoweare#david_n_kennedy_"
+  ],
+  "franco-pestilli": [
+   "Franco Pestilli",
+   "/whoweare#franco_pestilli_"
+  ],
+  "horea-ioanas": [
+   "Horea-Ioan Ioanas",
+   "/whoweare#horeaioan_ioanas_"
+  ],
+  "isaac-to": [
+   "Isaac To",
+   "/whoweare#isaac_to_"
+  ],
+  "james-haxby": [
+   "James V. Haxby",
+   "/whoweare#james_v_haxby_"
+  ],
+  "jason-gors": [
+   "Jason Gors",
+   "/whoweare#jason_gors_"
+  ],
+  "jean-baptiste-poline": [
+   "Jean-Baptiste Poline",
+   "/whoweare#jeanbaptiste_poline_"
+  ],
+  "jeremy-manning": [
+   "Jeremy Rothman Manning",
+   "/whoweare#jeremy_rothman_manning_"
+  ],
+  "john-lee": [
+   "John Lee",
+   "/whoweare#john_lee_"
+  ],
+  "john-wodder": [
+   "John Wodder",
+   "/whoweare#john_wodder_"
+  ],
+  "kyle-meyer": [
+   "Kyle Meyer",
+   "/whoweare#kyle_meyer_"
+  ],
+  "matteo-visconti-di-oleggio-castello": [
+   "Matteo Visconti di Oleggio Castello",
+   "/whoweare#matteo_visconti_di_oleggio_castello_"
+  ],
+  "michael-hanke": [
+   "Michael Hanke",
+   "/whoweare#michael_hanke_"
+  ],
+  "nikolaas-oosterhof": [
+   "Nikolaas N. Oosterhof",
+   "/whoweare#nikolaas_n_oosterhof_"
+  ],
+  "oliver-contier": [
+   "Oliver Contier",
+   "/whoweare#oliver_contier_"
+  ],
+  "oliver-ruebel": [
+   "Oliver Rübel",
+   "/whoweare#oliver_rübel_"
+  ],
+  "russell-poldrack": [
+   "Russell A. Poldrack",
+   "/whoweare#russell_a_poldrack_"
+  ],
+  "samuel-nastase": [
+   "Samuel Nastase",
+   "/whoweare#samuel_nastase_"
+  ],
+  "satrajit-ghosh": [
+   "Satrajit Ghosh",
+   "/whoweare#satrajit_ghosh_"
+  ],
+  "soichi-hayashi": [
+   "Soichi Hayashi",
+   "/whoweare#soichi_hayashi_"
+  ],
+  "tor-wager": [
+   "Tor D. Wager",
+   "/whoweare#tor_d_wager_"
+  ],
+  "vadim-melnik": [
+   "Vadim Melnik",
+   "/whoweare#vadim_melnik_"
+  ],
+  "vanessa-sochat": [
+   "Vanessa Sochat",
+   "/whoweare#vanessa_sochat_"
+  ],
+  "yaroslav-halchenko": [
+   "Yaroslav O. Halchenko",
+   "/whoweare#yaroslav_o_halchenko_"
+  ]
+ },
+ "publications": [
+  {
+   "title": "Benchmarking ITU-T T.261 against established codecs on extracellular electrophysiology, with a public comment on DICOM Supplement 253",
+   "url": "https://doi.org/10.5281/zenodo.23968879",
+   "date": "2026-11-05",
+   "year": "2026",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "dicom-wg32"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse-con-talk.html",
+   "date": "2026-10-19",
+   "year": "2026",
+   "type": "talk",
+   "venue": "US-RSE'26, the Research Software Engineers Conference",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Cody Baker",
+     "/whoweare#cody_baker_"
+    ],
+    [
+     "Austin Macdonald",
+     "/whoweare#austin_macdonald_"
+    ],
+    [
+     "Isaac To",
+     "/whoweare#isaac_to_"
+    ],
+    [
+     "John Lee",
+     "/whoweare#john_lee_"
+    ],
+    [
+     "Vadim Melnik",
+     "/whoweare#vadim_melnik_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "cody-baker",
+    "austin-macdonald",
+    "isaac-to",
+    "john-lee",
+    "vadim-melnik"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Beyond the Lab Website: Reusing Structured Research Metadata Across Lab Operations",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/orinoco-lite_poster.html",
+   "date": "2026-10-19",
+   "year": "2026",
+   "type": "poster",
+   "venue": "US-RSE'26, the Research Software Engineers Conference (poster session)",
+   "authors": [
+    [
+     "John Lee",
+     "/whoweare#john_lee_"
+    ],
+    [
+     "Isaac To",
+     "/whoweare#isaac_to_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "orinoco-lite"
+   ],
+   "people": [
+    "john-lee",
+    "isaac-to",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Agent-friendly Provenance Capture with con-duct",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.html",
+   "date": "2026-10-19",
+   "year": "2026",
+   "type": "poster",
+   "venue": "US-RSE'26, the Research Software Engineers Conference (poster session)",
+   "authors": [
+    [
+     "Austin Macdonald",
+     "/whoweare#austin_macdonald_"
+    ],
+    [
+     "Cody Baker",
+     "/whoweare#cody_baker_"
+    ],
+    [
+     "John Lee",
+     "/whoweare#john_lee_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "con-duct"
+   ],
+   "people": [
+    "austin-macdonald",
+    "cody-baker",
+    "john-lee",
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.pdf",
+   "video": null
+  },
+  {
+   "title": "STAMPED principles and their role in the age of AI-driven scientific software development",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-reproAI-MIT-STAMPED.html",
+   "date": "2026-10-16",
+   "year": "2026",
+   "type": "talk",
+   "venue": "Neuroimaging, Reproducibility and LLMs: Early promises and future questions -- a ReproNim workshop, MIT Building 46, Cambridge MA",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "stamped-principles"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Open Neuroscience Infrastructure for Intracranial EEG",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-dhmc-ieeg.html",
+   "date": "2026-10-09",
+   "year": "2026",
+   "type": "talk",
+   "venue": "Dartmouth/DH Human Intracranial Electrophysiology Consortium (monthly meeting, Zoom)",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Cody Baker",
+     "/whoweare#cody_baker_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "cody-baker"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "STAMPED in Practice: Improving research skills through reproducible experiments",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/stamped-ai-study/index.html",
+   "date": "2026-10",
+   "year": "2026",
+   "type": "poster",
+   "venue": "US-RSE'26, the Research Software Engineers Conference (poster session) -- not presented",
+   "authors": [
+    [
+     "John Lee",
+     "/whoweare#john_lee_"
+    ],
+    [
+     "Austin Macdonald",
+     "/whoweare#austin_macdonald_"
+    ],
+    [
+     "Cody Baker",
+     "/whoweare#cody_baker_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "stamped-principles"
+   ],
+   "people": [
+    "john-lee",
+    "austin-macdonald",
+    "cody-baker",
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/stamped-ai-study/exports/stamped-ai-poster.pdf",
+   "video": null
+  },
+  {
+   "title": "mechababs: STAMPED execution of BIDS Apps at scale",
+   "url": "https://github.com/con/talks/tree/master/2026-mcgill-mechababs",
+   "date": "2026-08-11",
+   "year": "2026",
+   "type": "talk",
+   "venue": "McGill neuroscience group",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "mechababs"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "BIDS 2.0",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-nih-bids2.0.html",
+   "date": "2026-06-02",
+   "year": "2026",
+   "type": "talk",
+   "venue": "NIMH Data Science & Sharing Team, Lunch & Learn",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "bids-2-0"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Containers: BrainHack 2026 Mashup",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-brainhack-containers-mashup.html",
+   "date": "2026-06",
+   "year": "2026",
+   "type": "talk",
+   "venue": "BrainHack 2026, containers session",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "repronim-containers"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Open neuroinformatics infrastructure ecosystem for federated multisite studies",
+   "url": "https://doi.org/10.64898/2026.04.30.721944",
+   "date": "2026-05-05",
+   "year": "2026",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "neurobagel",
+    "nipoppy"
+   ],
+   "people": [
+    "jean-baptiste-poline"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Guidelines for Reproducible Research (BBQS, 2026)",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-bbqs-stamped.pdf",
+   "date": "2026-03-11",
+   "year": "2026",
+   "type": "talk",
+   "venue": "BBQS (BRAIN Behavior Quantification and Synchronization) virtual workshop",
+   "authors": [
+    [
+     "Cody Baker",
+     "/whoweare#cody_baker_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "stamped-principles"
+   ],
+   "people": [
+    "cody-baker",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8NTWKHer5Zo"
+  },
+  {
+   "title": "ReproFlow & YODA: Structure your studies, observable and reproducible they become",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-repronim-YODA-BIDS-webinar.html",
+   "date": "2026-02-06",
+   "year": "2026",
+   "type": "talk",
+   "venue": "ReproNim webinar",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "yoda"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/1XbTbJ_P2x0"
+  },
+  {
+   "title": "A few words of intro into AI assisted coding",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2026-ca-origami-retreat-aicoding.html",
+   "date": "2026-02",
+   "year": "2026",
+   "type": "talk",
+   "venue": "CA Origami Retreat 2026",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The Ecosystem of Standards in Neuroscience: Which Ones Are For You?",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2025-sfn-poster-data-standards.pdf",
+   "date": "2025-11",
+   "year": "2025",
+   "type": "poster",
+   "venue": "Society for Neuroscience (SfN) 2025",
+   "authors": [
+    [
+     "Oliver Rübel",
+     "/whoweare#oliver_rübel_"
+    ],
+    [
+     "Cody Baker",
+     "/whoweare#cody_baker_"
+    ],
+    [
+     "Jyl Boline",
+     null
+    ],
+    [
+     "Kristofer Bouchard",
+     null
+    ],
+    [
+     "Andrew P. Davison",
+     null
+    ],
+    [
+     "Saskia de Vries",
+     null
+    ],
+    [
+     "Ben Dichter",
+     "/whoweare#ben_dichter_"
+    ],
+    [
+     "Andrey Fedorov",
+     null
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Tom Gillespie",
+     null
+    ],
+    [
+     "Jeffrey S. Grethe",
+     null
+    ],
+    [
+     "Nicole Guittari",
+     null
+    ],
+    [
+     "Sean N. Hatton",
+     null
+    ],
+    [
+     "Erik Johnson",
+     null
+    ],
+    [
+     "David Keator",
+     null
+    ],
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
+    ],
+    [
+     "Ryan Ly",
+     "/whoweare#ryan_ly_"
+    ],
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Peyman Najafi",
+     null
+    ],
+    [
+     "Stephen Nichols",
+     null
+    ],
+    [
+     "Franco Pestilli",
+     "/whoweare#franco_pestilli_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Samuel Prince",
+     null
+    ],
+    [
+     "Kay A. Robbins",
+     null
+    ],
+    [
+     "Chris Rorden",
+     null
+    ],
+    [
+     "Melissa Kline Struhl",
+     null
+    ],
+    [
+     "Nile E.S. Tregoning",
+     null
+    ],
+    [
+     "Adam L. Tyson",
+     null
+    ],
+    [
+     "Thomas Wachtler",
+     null
+    ],
+    [
+     "Brock Wester",
+     null
+    ],
+    [
+     "Helen Yi",
+     null
+    ],
+    [
+     "Lyuba Zehl",
+     null
+    ],
+    [
+     "Kaiwen Zhuang",
+     null
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": true,
+   "projects": [
+    "bids",
+    "dicom",
+    "hed",
+    "nidm",
+    "nwb"
+   ],
+   "people": [
+    "oliver-ruebel",
+    "yaroslav-halchenko",
+    "cody-baker"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Pragmatic YODA: overview of YODA principles and their wild life encounters",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2025-distribits-YODA.html",
+   "date": "2025-10",
+   "year": "2025",
+   "type": "talk",
+   "venue": "distribits 2025",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "yoda"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/EuKVapscUQ4"
+  },
+  {
+   "title": "MRS-BIDS, an extension to the Brain Imaging Data Structure for magnetic resonance spectroscopy",
+   "url": "https://doi.org/10.1038/s41597-025-05543-2",
+   "date": "2025-08-08",
+   "year": "2025",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "bids"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "chris-markiewicz"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Spacetop: A multimodal fMRI dataset unifying naturalistic processes with a rich array of experimental tasks",
+   "url": "https://doi.org/10.1038/s41597-025-05154-x",
+   "date": "2025-08",
+   "year": "2025",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Tor D. Wager",
+     "/whoweare#tor_d_wager_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "tor-wager"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "DICOM datasets for reproducible neuroimaging research across manufacturers and software versions",
+   "url": "https://doi.org/10.1038/s41597-025-05503-w",
+   "date": "2025-07",
+   "year": "2025",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "dicom"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Bridging the Scientific Knowledge Gap and Reproducibility: A Survey of Provenance, Assertion and Evidence Ontologies",
+   "url": "https://doi.org/10.1145/3701716.3715483",
+   "date": "2025-05-08",
+   "year": "2025",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "satrajit-ghosh"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "A challenge on the way to Neuroscience Nirvana",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2025-ca-origami-retreat.html",
+   "date": "2025-02",
+   "year": "2025",
+   "type": "talk",
+   "venue": "CA Origami Retreat 2025",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Go Figure: Transparency in neuroscience images preserves context and clarifies interpretation",
+   "url": "https://doi.org/10.48550/arxiv.2504.07824",
+   "date": "2025",
+   "year": "2025",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Neuroimaging article reexecution and reproduction assessment system",
+   "url": "https://doi.org/10.3389/fninf.2024.1376022",
+   "date": "2024-7-22",
+   "year": "2024",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Horea-Ioan Ioanas",
+     "/whoweare#horeaioan_ioanas_"
+    ],
+    [
+     "Austin Macdonald",
+     "/whoweare#austin_macdonald_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "repronim"
+   ],
+   "people": [
+    "horea-ioanas",
+    "austin-macdonald",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Behaviorally-relevant features of observed actions dominate cortical representational geometry in natural vision",
+   "url": "https://doi.org/10.1101/2024.11.26.624178",
+   "date": "2024-11",
+   "year": "2024",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "james-haxby",
+    "samuel-nastase"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "HeuDiConv — flexible DICOM conversion into structured directory layouts",
+   "url": "https://doi.org/10.21105/joss.05839",
+   "date": "2024-07-03",
+   "year": "2024",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "John Wodder",
+     "/whoweare#john_wodder_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Horea-Ioan Ioanas",
+     "/whoweare#horeaioan_ioanas_"
+    ],
+    [
+     "John Lee",
+     "/whoweare#john_lee_"
+    ],
+    [
+     "Isaac To",
+     "/whoweare#isaac_to_"
+    ],
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Austin Macdonald",
+     "/whoweare#austin_macdonald_"
+    ],
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "heudiconv"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "satrajit-ghosh",
+    "matteo-visconti-di-oleggio-castello",
+    "john-wodder",
+    "michael-hanke",
+    "horea-ioanas",
+    "john-lee",
+    "isaac-to",
+    "chris-markiewicz",
+    "austin-macdonald",
+    "david-kennedy",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "SciOps from ReproNim",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2024-repronim-reproflow-webinar/index.html",
+   "date": "2024-06",
+   "year": "2024",
+   "type": "talk",
+   "venue": "ReproNim webinar",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "repronim"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/SZ96Q6pwJzQ"
+  },
+  {
+   "title": "A multimodal fMRI dataset unifying naturalistic processes with a rich array of experimental tasks",
+   "url": "https://doi.org/10.1101/2024.06.21.599974",
+   "date": "2024-06",
+   "year": "2024",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Tor D. Wager",
+     "/whoweare#tor_d_wager_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "tor-wager"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "DataLad-Registry: Bringing Benefits of Centrality to DataLad",
+   "url": null,
+   "date": "2024-04-05",
+   "year": "2024",
+   "type": "talk",
+   "venue": "distribits 2024",
+   "authors": [
+    [
+     "Isaac To",
+     "/whoweare#isaac_to_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad-registry"
+   ],
+   "people": [
+    "isaac-to",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/_McJ1BtLsiQ"
+  },
+  {
+   "title": "The Brain Imaging Data Structure (BIDS): an open community standard for neuroscience",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/202404xx-NSF-POSE-BIDS.pdf",
+   "date": "2024-04",
+   "year": "2024",
+   "type": "talk",
+   "venue": "NSF POSE (Pathways to Enable Open-Source Ecosystems)",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "bids"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "BIDS Talk & Q&A for 2024 The Neuro – Irv and Helga Cooper Foundation International Prize",
+   "url": null,
+   "date": "2024-04",
+   "year": "2024",
+   "type": "talk",
+   "venue": "The Neuro – Irv and Helga Cooper Foundation International Prize",
+   "authors": [
+    [
+     "Ariel Rokem",
+     null
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": true,
+   "projects": [
+    "bids"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/6QoFWqfIZDU"
+  },
+  {
+   "title": "\"What's in the DataLad sandwich\" AKA DataLad \"ecosystem\"",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2024-distribits-datalad.html",
+   "date": "2024-04",
+   "year": "2024",
+   "type": "talk",
+   "venue": "distribits 2024",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/Mkb7qpYaL7o"
+  },
+  {
+   "title": "\"What's in the DataLad name\" AKA How come DataLad?",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2024-distribits-datalad-name.html",
+   "date": "2024-04",
+   "year": "2024",
+   "type": "talk",
+   "venue": "distribits 2024 (lightning talk)",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The past, present, and future of the brain imaging data structure (BIDS)",
+   "url": "https://doi.org/10.1162/imag_a_00103",
+   "date": "2024-03",
+   "year": "2024",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Horea-Ioan Ioanas",
+     "/whoweare#horeaioan_ioanas_"
+    ],
+    [
+     "Franco Pestilli",
+     "/whoweare#franco_pestilli_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ],
+    [
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "bids"
+   ],
+   "people": [
+    "chris-markiewicz",
+    "satrajit-ghosh",
+    "yaroslav-halchenko",
+    "horea-ioanas",
+    "franco-pestilli",
+    "jean-baptiste-poline",
+    "russell-poldrack",
+    "camille-maumet"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "A reproducible and generalizable software workflow for analysis of large-scale neuroimaging data collections using BIDS Apps",
+   "url": "https://doi.org/10.1162/imag_a_00074",
+   "date": "2024-01-25",
+   "year": "2024",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Austin Macdonald",
+     "/whoweare#austin_macdonald_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "austin-macdonald",
+    "michael-hanke",
+    "satrajit-ghosh"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Neurodesk: an accessible, flexible and portable data analysis environment for reproducible neuroimaging",
+   "url": "https://doi.org/10.1038/s41592-023-02145-x",
+   "date": "2024-01",
+   "year": "2024",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Franco Pestilli",
+     "/whoweare#franco_pestilli_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "satrajit-ghosh",
+    "yaroslav-halchenko",
+    "franco-pestilli"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "SciOps: Achieving Productivity and Reliability in Data-Intensive Research",
+   "url": "https://doi.org/10.48550/arxiv.2401.00077",
+   "date": "2024",
+   "year": "2024",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Franco Pestilli",
+     "/whoweare#franco_pestilli_"
+    ],
+    [
+     "Brock Wester",
+     null
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "satrajit-ghosh",
+    "franco-pestilli",
+    "brock-wester"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "A comparison of neuroelectrophysiology databases",
+   "url": "https://doi.org/10.1038/s41597-023-02614-0",
+   "date": "2023-10-19",
+   "year": "2023",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "dandi"
+   ],
+   "people": [
+    "satrajit-ghosh",
+    "yaroslav-halchenko",
+    "chris-markiewicz",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The PyMVPA BIDS-App: a robust multivariate pattern analysis pipeline for fMRI data",
+   "url": "https://doi.org/10.3389/fnins.2023.1233416",
+   "date": "2023-08-24",
+   "year": "2023",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Vanessa Sochat",
+     "/whoweare#vanessa_sochat_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "bids",
+    "pymvpa"
+   ],
+   "people": [
+    "vanessa-sochat",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Research Data Management & Data tracking",
+   "url": null,
+   "date": "2023-07-22",
+   "year": "2023",
+   "type": "talk",
+   "venue": "OHBM 2023 Educational Course: Open and Reproducible Neuroimaging, Montreal",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "repronim"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/cYQWk8eQLlI"
+  },
+  {
+   "title": "OME-Zarr: a cloud-optimized bioimaging file format with international community support",
+   "url": "https://doi.org/10.1007/s00418-023-02209-1",
+   "date": "2023-07",
+   "year": "2023",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "satrajit-ghosh",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "DANDI: distributed archives for neurophysiology data integration",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2023-brain-dandi-imgdatasrc.html",
+   "date": "2023-06",
+   "year": "2023",
+   "type": "talk",
+   "venue": "BRAIN Initiative Conference 2023 (short version)",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "dandi"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "DANDI: distributed archives for neurophysiology data integration",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2023-brain-dandi.html",
+   "date": "2023-06",
+   "year": "2023",
+   "type": "talk",
+   "venue": "BRAIN Initiative Conference 2023",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "dandi"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "BIDS 4 DICOM WG-16",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2023-bids-dicom.html",
+   "date": "2023-06",
+   "year": "2023",
+   "type": "talk",
+   "venue": "DICOM WG-16 meeting",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "dicom-wg16"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Align with the NMIND consortium for better neuroimaging",
+   "url": "https://doi.org/10.1038/s41562-023-01647-0",
+   "date": "2023-06",
+   "year": "2023",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "chris-markiewicz",
+    "yaroslav-halchenko",
+    "satrajit-ghosh",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "A guide to the BRAIN Initiative Cell Census Network data ecosystem",
+   "url": "https://doi.org/10.1371/journal.pbio.3002133",
+   "date": "2023-06",
+   "year": "2023",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Cody Baker",
+     "/whoweare#cody_baker_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Brock Wester",
+     null
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "satrajit-ghosh",
+    "cody-baker",
+    "yaroslav-halchenko",
+    "brock-wester"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Building an Archive for Large-scale Neuroscience Data",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2023-lbl-building-dandi.html",
+   "date": "2023-04",
+   "year": "2023",
+   "type": "talk",
+   "venue": "Lawrence Berkeley National Laboratory (LBL)",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "dandi"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "OME-Zarr: a cloud-optimized bioimaging file format with international community support",
+   "url": "https://doi.org/10.1101/2023.02.17.528834",
+   "date": "2023-02",
+   "year": "2023",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "satrajit-ghosh",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The Past, Present, and Future of the Brain Imaging Data Structure (BIDS)",
+   "url": "https://doi.org/10.48550/arxiv.2309.05768",
+   "date": "2023",
+   "year": "2023",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Horea-Ioan Ioanas",
+     "/whoweare#horeaioan_ioanas_"
+    ],
+    [
+     "Franco Pestilli",
+     "/whoweare#franco_pestilli_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "bids"
+   ],
+   "people": [
+    "chris-markiewicz",
+    "satrajit-ghosh",
+    "yaroslav-halchenko",
+    "horea-ioanas",
+    "franco-pestilli",
+    "jean-baptiste-poline",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The Individualized Neural Tuning Model: Precise and generalizable cartography of functional architecture in individual brains",
+   "url": "https://doi.org/10.1162/imag_a_00032",
+   "date": "2023",
+   "year": "2023",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "hyperalignment-infrastructure"
+   ],
+   "people": [
+    "samuel-nastase",
+    "yaroslav-halchenko",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Dartmouth Brain Imaging Center (DBIC) QA data (weekly QA scans etc.)",
+   "url": "https://doi.org/10.5281/zenodo.8253053",
+   "date": "2023",
+   "year": "2023",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Microscopy-BIDS: An Extension to the Brain Imaging Data Structure for Microscopy Data",
+   "url": "https://doi.org/10.3389/fnins.2022.871228",
+   "date": "2022-4-19",
+   "year": "2022",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "bids"
+   ],
+   "people": [
+    "satrajit-ghosh",
+    "chris-markiewicz",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Working memory updating in individuals with bipolar and unipolar depression: fMRI study",
+   "url": "https://doi.org/10.1038/s41398-022-02211-6",
+   "date": "2022-10",
+   "year": "2022",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "DataLad: The Ecosystem for Everyone",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/posters/crcns-2022-dataland.pdf",
+   "date": "2022-10",
+   "year": "2022",
+   "type": "poster",
+   "venue": "CRCNS 2022",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Adina Wagner",
+     "/whoweare#adina_wagner_"
+    ],
+    [
+     "Benjamin Poldrack",
+     "/whoweare#benjamin_poldrack_"
+    ],
+    [
+     "Stephan Heunis",
+     null
+    ],
+    [
+     "Michał Szczepanik",
+     null
+    ],
+    [
+     "John Wodder",
+     "/whoweare#john_wodder_"
+    ],
+    [
+     "Christian Moench",
+     null
+    ]
+   ],
+   "authors_complete": true,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "adina-wagner",
+    "benjamin-poldrack",
+    "john-wodder"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Towards the Big Data Neuroscience Nirvana",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2022-tx-big-neuroscience.html",
+   "date": "2022-09",
+   "year": "2022",
+   "type": "talk",
+   "venue": "ACNN Workshop 2022 (Texas), https://neurosciencenetwork.org/ACNN_Workshop_2022.html",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "An Integrated and Trusted Scientific and Statistical Computing Core",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2022-nih-compcore.html",
+   "date": "2022-09",
+   "year": "2022",
+   "type": "talk",
+   "venue": "NIH SSCR pitch",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The interaction between depression diagnosis and BMI is related to altered activation pattern in the right inferior frontal gyrus and anterior cingulate cortex during food anticipation",
+   "url": "https://doi.org/10.1002/brb3.2695",
+   "date": "2022-08",
+   "year": "2022",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The Individualized Neural Tuning Model: Precise and generalizable cartography of functional architecture in individual brains",
+   "url": "https://doi.org/10.1101/2022.05.15.492022",
+   "date": "2022-05",
+   "year": "2022",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "hyperalignment-infrastructure"
+   ],
+   "people": [
+    "samuel-nastase",
+    "yaroslav-halchenko",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Open and reproducible neuroimaging: from study inception to publication",
+   "url": "https://doi.org/10.31219/osf.io/pu5vb",
+   "date": "2022-04",
+   "year": "2022",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Franco Pestilli",
+     "/whoweare#franco_pestilli_"
+    ],
+    [
+     "Adina Wagner",
+     "/whoweare#adina_wagner_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "chris-markiewicz",
+    "franco-pestilli",
+    "adina-wagner"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The Relationship Between Default Mode and Dorsal Attention Networks Is Associated With Depressive Disorder Diagnosis and the Strength of Memory Representations Acquired Prior to the Resting State Scan",
+   "url": "https://doi.org/10.3389/fnhum.2022.749767",
+   "date": "2022-02",
+   "year": "2022",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The “Narratives” fMRI dataset for evaluating models of naturalistic language comprehension",
+   "url": "https://doi.org/10.1038/s41597-021-01033-3",
+   "date": "2021-09-28",
+   "year": "2021",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "A guide to DANDI, the BRAIN Initiative archive for publishing and sharing neurophysiology data",
+   "url": null,
+   "date": "2021-08-26",
+   "year": "2021",
+   "type": "talk",
+   "venue": "NWB User Days 2021 (HCK11)",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "dandi"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8OMLmUnc6Cs"
+  },
+  {
+   "title": "DataLad: distributed system for joint management of code, data, and their relationship",
+   "url": "https://doi.org/10.21105/joss.03262",
+   "date": "2021-07-01",
+   "year": "2021",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Kyle Meyer",
+     "/whoweare#kyle_meyer_"
+    ],
+    [
+     "Benjamin Poldrack",
+     "/whoweare#benjamin_poldrack_"
+    ],
+    [
+     "Adina Wagner",
+     "/whoweare#adina_wagner_"
+    ],
+    [
+     "Jason Gors",
+     "/whoweare#jason_gors_"
+    ],
+    [
+     "Vanessa Sochat",
+     "/whoweare#vanessa_sochat_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Soichi Hayashi",
+     "/whoweare#soichi_hayashi_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
+    ],
+    [
+     "Horea-Ioan Ioanas",
+     "/whoweare#horeaioan_ioanas_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "kyle-meyer",
+    "benjamin-poldrack",
+    "adina-wagner",
+    "jason-gors",
+    "vanessa-sochat",
+    "satrajit-ghosh",
+    "chris-markiewicz",
+    "soichi-hayashi",
+    "jean-baptiste-poline",
+    "david-kennedy",
+    "horea-ioanas",
+    "james-haxby",
+    "michael-hanke"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "IQ in Typical Development: A Mega-Analysis of the Historical Literature",
+   "url": "https://doi.org/10.1016/j.biopsych.2021.02.385",
+   "date": "2021-05",
+   "year": "2021",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "david-kennedy",
+    "satrajit-ghosh",
+    "jean-baptiste-poline",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "White matter abnormalities in adults with bipolar disorder type-II and unipolar depression",
+   "url": "https://doi.org/10.1038/s41598-021-87069-2",
+   "date": "2021-04",
+   "year": "2021",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Brainhack: Developing a culture of open, inclusive, community-driven neuroscience",
+   "url": "https://doi.org/10.1016/j.neuron.2021.04.001",
+   "date": "2021-04",
+   "year": "2021",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Horea-Ioan Ioanas",
+     "/whoweare#horeaioan_ioanas_"
+    ],
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
+    ],
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "satrajit-ghosh",
+    "yaroslav-halchenko",
+    "horea-ioanas",
+    "david-kennedy",
+    "chris-markiewicz",
+    "jean-baptiste-poline",
+    "matteo-visconti-di-oleggio-castello",
+    "camille-maumet"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "DataLad - Research Data Management Made Easy",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2021-yale-datalad-intro",
+   "date": "2021-03-25",
+   "year": "2021",
+   "type": "talk",
+   "venue": "Yale-ReproNim Training Activities (YRTA)",
+   "authors": [
+    [
+     "Adina Wagner",
+     "/whoweare#adina_wagner_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "adina-wagner",
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2021-yale-datalad-intro.pdf",
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/pVrjRRrmKbY"
+  },
+  {
+   "title": "The interaction between lifetime depression severity and BMI is related to altered activation pattern in the right inferior frontal gyrus during food anticipation",
+   "url": "https://doi.org/10.1101/2021.02.17.21251922",
+   "date": "2021-02",
+   "year": "2021",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The Open Brain Consent: Informing research participants and obtaining consent to share brain imaging data",
+   "url": "https://doi.org/10.1002/hbm.25351",
+   "date": "2021-02",
+   "year": "2021",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "open-brain-consent"
+   ],
+   "people": [
+    "satrajit-ghosh",
+    "yaroslav-halchenko",
+    "matteo-visconti-di-oleggio-castello",
+    "camille-maumet"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "TemplateFlow: a community archive of imaging templates and atlases for improved consistency in neuroimaging",
+   "url": "https://doi.org/10.1101/2021.02.10.430678",
+   "date": "2021-02",
+   "year": "2021",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "chris-markiewicz",
+    "yaroslav-halchenko",
+    "satrajit-ghosh",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "ReproMan – Execution and Environment Manager",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2021-abcd-repronim-reproman",
+   "date": "2021-02",
+   "year": "2021",
+   "type": "talk",
+   "venue": "ABCD-ReproNim course, week 10",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "reproman"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2021-abcd-repronim-reproman.pdf",
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/grIVFbYH7YE"
+  },
+  {
+   "title": "In defense of decentralized research data management",
+   "url": "https://doi.org/10.1515/nf-2020-0037",
+   "date": "2021-01-11",
+   "year": "2021",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Franco Pestilli",
+     "/whoweare#franco_pestilli_"
+    ],
+    [
+     "Adina Wagner",
+     "/whoweare#adina_wagner_"
+    ],
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "michael-hanke",
+    "franco-pestilli",
+    "adina-wagner",
+    "chris-markiewicz",
+    "jean-baptiste-poline",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Protocol for a machine learning algorithm predicting depressive disorders using the T1w/T2w ratio",
+   "url": "https://doi.org/10.1016/j.mex.2021.101595",
+   "date": "2021",
+   "year": "2021",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Aberrant levels of cortical myelin distinguish individuals with unipolar depression from healthy controls",
+   "url": "https://doi.org/10.1101/2021.02.25.21252472",
+   "date": "2021",
+   "year": "2021",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Reproducible Execution of Data Collection/Processing",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2020-repronim-reprocomp-webinar/index.html",
+   "date": "2020-12",
+   "year": "2020",
+   "type": "talk",
+   "venue": "ReproNim webinar",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "repronim"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/dwBtrpI2iS0"
+  },
+  {
+   "title": "Narratives: fMRI data for evaluating models of naturalistic language comprehension",
+   "url": "https://doi.org/10.1101/2020.12.23.424091",
+   "date": "2020-12",
+   "year": "2020",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "A new virtue of phantom MRI data: explaining variance in human participant data",
+   "url": "https://doi.org/10.12688/f1000research.24544.1",
+   "date": "2020-09-14",
+   "year": "2020",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Chris Cheng",
+     "/whoweare#chris_cheng_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "mri-phantoms-afterlife"
+   ],
+   "people": [
+    "chris-cheng",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The Open Brain Consent: Informing research participants and obtaining consent to share brain imaging data",
+   "url": "https://doi.org/10.31234/osf.io/f6mnp",
+   "date": "2020-07",
+   "year": "2020",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "open-brain-consent"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Version control your data and computation using containers, DataLad and ReproMan, and reproducible they be!",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2020-repronim-containers-webinar",
+   "date": "2020-06-05",
+   "year": "2020",
+   "type": "talk",
+   "venue": "ReproNim webinar",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "repronim-containers"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2020-repronim-containers-webinar.pdf",
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/ix3lC6HGo-Q"
+  },
+  {
+   "title": "A Gaussian Process Model of Human Electrocorticographic Data",
+   "url": "https://doi.org/10.1093/cercor/bhaa115",
+   "date": "2020-06-04",
+   "year": "2020",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Jeremy Rothman Manning",
+     "/whoweare#jeremy_rothman_manning_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "jeremy-manning"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The Brain Imaging Data Structure (BIDS) Specification, Version 1.3.0",
+   "url": "https://doi.org/10.5281/zenodo.3720628",
+   "date": "2020-04",
+   "year": "2020",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Vanessa Sochat",
+     "/whoweare#vanessa_sochat_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "bids"
+   ],
+   "people": [
+    "jean-baptiste-poline",
+    "satrajit-ghosh",
+    "vanessa-sochat",
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "david-kennedy",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Analysis of task-based functional MRI data preprocessed with fMRIPrep",
+   "url": "https://doi.org/10.1101/694364",
+   "date": "2020",
+   "year": "2020",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "chris-markiewicz",
+    "yaroslav-halchenko",
+    "satrajit-ghosh",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "A multimodal cell census and atlas of the mammalian primary motor cortex",
+   "url": "https://doi.org/10.1101/2020.10.19.343129",
+   "date": "2020",
+   "year": "2020",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "satrajit-ghosh",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Taking control of your DICOM data: ReproIn/HeuDiConv tools",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2019-repronim-reproin-webinar",
+   "date": "2019-12-06",
+   "year": "2019",
+   "type": "talk",
+   "venue": "ReproNim webinar",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "heudiconv"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2019-repronim-reproin-webinar.pdf",
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/j2SKX37-w4c"
+  },
+  {
+   "title": "Making science more open and reproducible by design, tools can help",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2019-brown-open-science",
+   "date": "2019-11",
+   "year": "2019",
+   "type": "talk",
+   "venue": "Brown University",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2019-brown-open-science.pdf",
+   "video": null
+  },
+  {
+   "title": "Tales from the CON: A few studies of a curious mind",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2019-umass-tales",
+   "date": "2019-09",
+   "year": "2019",
+   "type": "talk",
+   "venue": "UMass",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2019-umass-tales.pdf",
+   "video": null
+  },
+  {
+   "title": "Open Science Tools from the Center for Open Neuroscience",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2019-mind-con-tools",
+   "date": "2019-08",
+   "year": "2019",
+   "type": "talk",
+   "venue": "MIND 2019",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2019-mind-con-tools.pdf",
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/Ao9ZIce7yn4"
+  },
+  {
+   "title": "multimatch-gaze: The MultiMatch algorithm for gaze path comparison in Python",
+   "url": "https://doi.org/10.21105/joss.01525",
+   "date": "2019",
+   "year": "2019",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Adina Wagner",
+     "/whoweare#adina_wagner_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "adina-wagner",
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "US-RSE Stories: Open up, Neuroscience! Here comes NeuroDebian",
+   "url": "http://us-rse.org/rse-stories/2019/yaroslav/",
+   "date": "2019",
+   "year": "2019",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Vanessa Sochat",
+     "/whoweare#vanessa_sochat_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "neurodebian"
+   ],
+   "people": [
+    "vanessa-sochat",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The best of both worlds: using semantic web with JSON-LD. An example with NIDM-Results & DataLad",
+   "url": null,
+   "date": "2019",
+   "year": "2019",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad",
+    "nidm"
+   ],
+   "people": [
+    "satrajit-ghosh",
+    "yaroslav-halchenko",
+    "jean-baptiste-poline",
+    "michael-hanke",
+    "camille-maumet"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "PyBIDS: Python tools for BIDS datasets",
+   "url": "https://doi.org/10.21105/joss.01294",
+   "date": "2019",
+   "year": "2019",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Adina Wagner",
+     "/whoweare#adina_wagner_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "John Lee",
+     "/whoweare#john_lee_"
+    ],
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "bids"
+   ],
+   "people": [
+    "chris-markiewicz",
+    "yaroslav-halchenko",
+    "jean-baptiste-poline",
+    "adina-wagner",
+    "michael-hanke",
+    "john-lee",
+    "matteo-visconti-di-oleggio-castello",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Fantastic containers and how to tame them",
+   "url": "https://github.com/ReproNim/artwork/raw/master/posters/ohbm2019-containers.pdf",
+   "date": "2019",
+   "year": "2019",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Kyle Meyer",
+     "/whoweare#kyle_meyer_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "repronim-containers"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "kyle-meyer",
+    "satrajit-ghosh",
+    "michael-hanke"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Everything Matters: The ReproNim Perspective on Reproducible Neuroimaging",
+   "url": "https://www.frontiersin.org/articles/10.3389/fninf.2019.00001",
+   "date": "2019",
+   "year": "2019",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Kyle Meyer",
+     "/whoweare#kyle_meyer_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "repronim"
+   ],
+   "people": [
+    "david-kennedy",
+    "satrajit-ghosh",
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "kyle-meyer",
+    "jean-baptiste-poline"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Tools from Center for Open Neuroscience: be Open by Design",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2018-mind-con-tools",
+   "date": "2018-08",
+   "year": "2018",
+   "type": "talk",
+   "venue": "MIND 2018",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2018-mind-con-tools.pdf",
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/RBaJn2Xtqzg"
+  },
+  {
+   "title": "(Neuro)Debian/Git/GitAnnex/DataLad: Distributions and Version Control",
+   "url": null,
+   "date": "2018-06",
+   "year": "2018",
+   "type": "talk",
+   "venue": "OHBM 2018 training course (ReproNim), Singapore",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "repronim"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/2Qm4krjaSfM"
+  },
+  {
+   "title": "Variability of the Neuroimaging results across OS, and how to avoid it",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2018-sobp-variability",
+   "date": "2018-05",
+   "year": "2018",
+   "type": "talk",
+   "venue": "SOBP 2018",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "neurodebian"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2018-sobp-variability.pdf",
+   "video": null
+  },
+  {
+   "title": "DataLad",
+   "url": null,
+   "date": "2018-03-02",
+   "year": "2018",
+   "type": "talk",
+   "venue": "NIF NeuroTools Webinar",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/59CE6iOr45k"
+  },
+  {
+   "title": "Got Something, Commit Something",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2018-mcgill-datalad",
+   "date": "2018-03",
+   "year": "2018",
+   "type": "talk",
+   "venue": "NIF/NIH online cast, McGill",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2018-mcgill-datalad.pdf",
+   "video": null
+  },
+  {
+   "title": "YODA: YODA’s organigram on data analysis",
+   "url": "https://doi.org/10.7490/f1000research.1116363.1",
+   "date": "2018",
+   "year": "2018",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "Kyle Meyer",
+     "/whoweare#kyle_meyer_"
+    ],
+    [
+     "Benjamin Poldrack",
+     "/whoweare#benjamin_poldrack_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "yoda"
+   ],
+   "people": [
+    "michael-hanke",
+    "matteo-visconti-di-oleggio-castello",
+    "kyle-meyer",
+    "benjamin-poldrack",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Variability of the Neuroimaging Results Across OS, and How to Avoid it",
+   "url": null,
+   "date": "2018",
+   "year": "2018",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "neurodebian"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "satrajit-ghosh",
+    "jean-baptiste-poline",
+    "david-kennedy"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Temporal dynamics and effective connectivity in the distributed system of familiar face processing",
+   "url": null,
+   "date": "2018",
+   "year": "2018",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Oliver Contier",
+     "/whoweare#oliver_contier_"
+    ],
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "oliver-contier",
+    "matteo-visconti-di-oleggio-castello",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "ReproIn: automatic generation of shareable, version-controlled BIDS datasets from MR scanners",
+   "url": null,
+   "date": "2018",
+   "year": "2018",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "heudiconv"
+   ],
+   "people": [
+    "matteo-visconti-di-oleggio-castello",
+    "james-haxby",
+    "satrajit-ghosh",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Pybids: Python tools for manipulation and analysis of BIDS datasets",
+   "url": null,
+   "date": "2018",
+   "year": "2018",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "bids"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "chris-markiewicz",
+    "jean-baptiste-poline",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "NICEMAN: NeuroImaging Computational Environments Manager",
+   "url": null,
+   "date": "2018",
+   "year": "2018",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Kyle Meyer",
+     "/whoweare#kyle_meyer_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "reproman"
+   ],
+   "people": [
+    "kyle-meyer",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Decoding the neural representation of observed social and nonsocial human actions",
+   "url": null,
+   "date": "2018",
+   "year": "2018",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "yaroslav-halchenko",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "(Meta)Data and workflow management for your most important work and your daily routine",
+   "url": null,
+   "date": "2018",
+   "year": "2018",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Kyle Meyer",
+     "/whoweare#kyle_meyer_"
+    ],
+    [
+     "Benjamin Poldrack",
+     "/whoweare#benjamin_poldrack_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "michael-hanke",
+    "kyle-meyer",
+    "benjamin-poldrack",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "A very simple, re-executable neuroimaging publication",
+   "url": "https://doi.org/10.12688/f1000research.10783.2",
+   "date": "2017-6-15",
+   "year": "2017",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "repronim"
+   ],
+   "people": [
+    "satrajit-ghosh",
+    "jean-baptiste-poline",
+    "yaroslav-halchenko",
+    "david-kennedy"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "DataLad -- decentralized data distribution for consumption and sharing of scientific datasets",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2017-mind-datalad",
+   "date": "2017-08",
+   "year": "2017",
+   "type": "talk",
+   "venue": "MIND 2017, Dartmouth, Hanover",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2017-mind-datalad.pdf",
+   "video": null
+  },
+  {
+   "title": "DataLad -- decentralized data distribution for consumption and sharing of scientific datasets",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2017-nih-datalad",
+   "date": "2017-08",
+   "year": "2017",
+   "type": "talk",
+   "venue": "NIH, Bethesda",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2017-nih-datalad.pdf",
+   "video": null
+  },
+  {
+   "title": "DataLad -- Decentralized Distribution and Sharing of Scientific Datasets",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2017-online-intensive-datalad",
+   "date": "2017-08",
+   "year": "2017",
+   "type": "talk",
+   "venue": "Online intensive, from Dartmouth",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2017-online-intensive-datalad.pdf",
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/5R-lFlFBciE"
+  },
+  {
+   "title": "DataLad -- decentralized data distribution for consumption and sharing of scientific datasets",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2017-dartmouth-datalad",
+   "date": "2017-07",
+   "year": "2017",
+   "type": "talk",
+   "venue": "Dartmouth, Hanover",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2017-dartmouth-datalad.pdf",
+   "video": null
+  },
+  {
+   "title": "Toward standard practices for sharing computer code and programs in neuroscience",
+   "url": "https://doi.org/10.1038/nn.4550",
+   "date": "2017-06",
+   "year": "2017",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "jean-baptiste-poline"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The Neural Representation Of Personally Familiar And Unfamiliar Faces In The Distributed System For Face Perception",
+   "url": "https://doi.org/10.1038/s41598-017-12559-1",
+   "date": "2017",
+   "year": "2017",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Jason Gors",
+     "/whoweare#jason_gors_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "matteo-visconti-di-oleggio-castello",
+    "yaroslav-halchenko",
+    "jason-gors"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The Neural Representation Of Personally Familiar And Unfamiliar Faces In The Distributed System For Face Perception",
+   "url": "https://doi.org/10.1101/138297",
+   "date": "2017",
+   "year": "2017",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Jason Gors",
+     "/whoweare#jason_gors_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "matteo-visconti-di-oleggio-castello",
+    "yaroslav-halchenko",
+    "jason-gors"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Attention selectively reshapes the geometry of distributed semantic representation",
+   "url": "https://doi.org/10.1093/cercor/bhx138",
+   "date": "2017",
+   "year": "2017",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Nikolaas N. Oosterhof",
+     "/whoweare#nikolaas_n_oosterhof_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "Jason Gors",
+     "/whoweare#jason_gors_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "nikolaas-oosterhof",
+    "yaroslav-halchenko",
+    "matteo-visconti-di-oleggio-castello",
+    "jason-gors",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Localizing functional regions of interest based on responses to dynamic naturalistic stimuli",
+   "url": "https://f1000research.com/posters/5-2830",
+   "date": "2016-11-12",
+   "year": "2016",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "region-localization"
+   ],
+   "people": [
+    "samuel-nastase",
+    "james-haxby",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "DataLad -- decentralized data distribution for consumption and sharing of scientific datasets",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2016-crcns-datalad",
+   "date": "2016-10",
+   "year": "2016",
+   "type": "talk",
+   "venue": "CRCNS 2016, Paris, France",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2016-crcns-datalad.pdf",
+   "video": null
+  },
+  {
+   "title": "Managing data should be as easy as managing code and software",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2016-data-ecosystem-1slide",
+   "date": "2016-07",
+   "year": "2016",
+   "type": "talk",
+   "venue": "Open Data Ecosystem for Neuroscience, Washington DC",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2016-data-ecosystem-1slide.pdf",
+   "video": null
+  },
+  {
+   "title": "The brain imaging data structure, a format for organizing and describing outputs of neuroimaging experiments",
+   "url": "https://doi.org/10.1038/sdata.2016.44",
+   "date": "2016-06-21",
+   "year": "2016",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Vanessa Sochat",
+     "/whoweare#vanessa_sochat_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ],
+    [
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "bids"
+   ],
+   "people": [
+    "satrajit-ghosh",
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "jean-baptiste-poline",
+    "vanessa-sochat",
+    "russell-poldrack",
+    "camille-maumet"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Resources for practicing PR4NI: pragmatic cursory overview",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2016-ohbm-pr4ni-resources",
+   "date": "2016-06",
+   "year": "2016",
+   "type": "talk",
+   "venue": "OHBM 2016, Geneva, Switzerland",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2016-ohbm-pr4ni-resources.pdf",
+   "video": null
+  },
+  {
+   "title": "DataLad -- decentralized data distribution for consumption and sharing of scientific datasets",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2016-ohbm-datalad",
+   "date": "2016-06",
+   "year": "2016",
+   "type": "talk",
+   "venue": "OHBM 2016, Geneva, Switzerland",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Benjamin Poldrack",
+     "/whoweare#benjamin_poldrack_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "benjamin-poldrack",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2016-ohbm-datalad.pdf",
+   "video": null
+  },
+  {
+   "title": "Cross-modal searchlight classification: Methodological challenges and recommended solutions",
+   "url": "https://doi.org/10.1109/prni.2016.7552355",
+   "date": "2016-06",
+   "year": "2016",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "A Model of Representational Spaces in Human Cortex",
+   "url": "https://doi.org/10.1093/cercor/bhw068",
+   "date": "2016-06",
+   "year": "2016",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "How the human brain represents perceived dangerousness or \"predacity\" of animals",
+   "url": "https://doi.org/10.1523/jneurosci.3395-15.2016",
+   "date": "2016-05",
+   "year": "2016",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Nikolaas N. Oosterhof",
+     "/whoweare#nikolaas_n_oosterhof_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "nikolaas-oosterhof",
+    "yaroslav-halchenko",
+    "samuel-nastase",
+    "matteo-visconti-di-oleggio-castello",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The road to open neuroscience: from analysis methods to software platforms",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2016-mrn-open-neuroscience",
+   "date": "2016-04",
+   "year": "2016",
+   "type": "talk",
+   "venue": "MRN, Albuquerque",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2016-mrn-open-neuroscience.pdf",
+   "video": null
+  },
+  {
+   "title": "Towards standard practices for sharing computer code and programs in neuroscience",
+   "url": "https://doi.org/10.1101/045104",
+   "date": "2016",
+   "year": "2016",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "jean-baptiste-poline"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "To the Cloud! A Grassroots Proposal to Accelerate Brain Science Discovery",
+   "url": "https://doi.org/10.1016/j.neuron.2016.10.033",
+   "date": "2016",
+   "year": "2016",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "jean-baptiste-poline"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The Brain Imaging Data Structure: a standard for organizing and describing outputs of neuroimaging experiments",
+   "url": "https://doi.org/10.1101/034561",
+   "date": "2016",
+   "year": "2016",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Vanessa Sochat",
+     "/whoweare#vanessa_sochat_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "bids"
+   ],
+   "people": [
+    "satrajit-ghosh",
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "jean-baptiste-poline",
+    "vanessa-sochat",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Resources for practicing PR4NI – pragmatic cursory overview",
+   "url": "http://www.pymvpa.org/files/OHBM2016_Halchenko_resources.pdf",
+   "date": "2016",
+   "year": "2016",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Localizing functional regions of interest based on responses to dynamic naturalistic stimuli",
+   "url": null,
+   "date": "2016",
+   "year": "2016",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "region-localization"
+   ],
+   "people": [
+    "samuel-nastase",
+    "james-haxby",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "DueCredit - automagically collect citations for software, methods, and data you use",
+   "url": null,
+   "date": "2016",
+   "year": "2016",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "duecredit"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "matteo-visconti-di-oleggio-castello"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "DataLad – decentralized data distribution for consumption and sharing of scientific datasets",
+   "url": "http://www.pymvpa.org/files/OHBM2016_Halchenko_datalad.pdf",
+   "date": "2016",
+   "year": "2016",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Benjamin Poldrack",
+     "/whoweare#benjamin_poldrack_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "benjamin-poldrack",
+    "michael-hanke"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Attention selectively reshapes the geometry of distributed semantic representation",
+   "url": "https://doi.org/10.1101/045252",
+   "date": "2016",
+   "year": "2016",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Nikolaas N. Oosterhof",
+     "/whoweare#nikolaas_n_oosterhof_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "Jason Gors",
+     "/whoweare#jason_gors_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "nikolaas-oosterhof",
+    "yaroslav-halchenko",
+    "matteo-visconti-di-oleggio-castello",
+    "jason-gors",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Finding Cortical Patches of Shared Representations",
+   "url": null,
+   "date": "2015-10-17",
+   "year": "2015",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "region-localization"
+   ],
+   "people": [
+    "matteo-visconti-di-oleggio-castello",
+    "samuel-nastase",
+    "james-haxby",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Virtues of cognitive neuroscience: from brain function to software platforms (NeuroDebian)",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2015-hackathon-neurodebian",
+   "date": "2015-10",
+   "year": "2015",
+   "type": "talk",
+   "venue": "Hackathon",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "neurodebian"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2015-hackathon-neurodebian.pdf",
+   "video": "https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/Qxtco8tupdo"
+  },
+  {
+   "title": "The road to open neuroscience: from analysis methods to software platforms",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2015-sabanci-open-neuroscience",
+   "date": "2015-08",
+   "year": "2015",
+   "type": "talk",
+   "venue": "Sabanci University, Turkey",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2015-sabanci-open-neuroscience.pdf",
+   "video": null
+  },
+  {
+   "title": "Overview of statistical evaluation techniques adopted by publicly available MVPA toolboxes",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2015-ohbm-signitools",
+   "date": "2015-06",
+   "year": "2015",
+   "type": "talk",
+   "venue": "OHBM 2015, Honolulu HI",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2015-ohbm-signitools.pdf",
+   "video": null
+  },
+  {
+   "title": "PyMVPA Workshop 2015",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2015-york-pymvpa-workshop",
+   "date": "2015-05",
+   "year": "2015",
+   "type": "talk",
+   "venue": "PyMVPA Workshop 2015, University of York",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Virtues of cognitive neuroscience: from brain function to software platforms",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2015-dartmouth-cs-colloquium",
+   "date": "2015",
+   "year": "2015",
+   "type": "talk",
+   "venue": "CS Colloquium, Dartmouth",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2015-dartmouth-cs-colloquium.pdf",
+   "video": null
+  },
+  {
+   "title": "The impact of shared data in neuroimaging: the case of OpenfMRI.org",
+   "url": "http://f1000research.com/posters/4-299",
+   "date": "2015",
+   "year": "2015",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "openfmri"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "jean-baptiste-poline",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The animacy continuum in the human ventral vision pathway",
+   "url": "https://doi.org/10.1162/jocn_a_00733",
+   "date": "2015",
+   "year": "2015",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Nikolaas N. Oosterhof",
+     "/whoweare#nikolaas_n_oosterhof_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "james-haxby",
+    "nikolaas-oosterhof",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Overview of statistical evaluation techniques adopted by publicly available MVPA toolboxes",
+   "url": "http://www.pymvpa.org/files/OHBM2015_Halchenko.pdf",
+   "date": "2015",
+   "year": "2015",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "NIDM-Workflow - The Evolution of Provenance in Neuroimaging",
+   "url": null,
+   "date": "2015",
+   "year": "2015",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "nidm"
+   ],
+   "people": [
+    "satrajit-ghosh",
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "How to make brain imaging research efficient and reproducible: building software and standards",
+   "url": null,
+   "date": "2015",
+   "year": "2015",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "jean-baptiste-poline",
+    "satrajit-ghosh",
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "david-kennedy",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Four aspects to make science open \"by design\" and not as an after-thought",
+   "url": "https://doi.org/10.1186/s13742-015-0072-7",
+   "date": "2015",
+   "year": "2015",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Finding cortical patches of shared representations: a comparison of clustering algorithms on representational geometries, and the effect of cross-validation to reduce physiological noise",
+   "url": null,
+   "date": "2015",
+   "year": "2015",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "matteo-visconti-di-oleggio-castello",
+    "samuel-nastase",
+    "james-haxby",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Clustering cortical searchlights based on shared representational geometry",
+   "url": null,
+   "date": "2015",
+   "year": "2015",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "matteo-visconti-di-oleggio-castello",
+    "james-haxby",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Attention alters animal and action representation in highly-distributed functionally-defined cortical parcels",
+   "url": null,
+   "date": "2015",
+   "year": "2015",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Matteo Visconti di Oleggio Castello",
+     "/whoweare#matteo_visconti_di_oleggio_castello_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Nikolaas N. Oosterhof",
+     "/whoweare#nikolaas_n_oosterhof_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "matteo-visconti-di-oleggio-castello",
+    "yaroslav-halchenko",
+    "nikolaas-oosterhof",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Application of the Neuroimaging Data Model to Represent and Exchange Primary and Derived Data",
+   "url": null,
+   "date": "2015",
+   "year": "2015",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
+    ],
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "nidm"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "david-kennedy",
+    "jean-baptiste-poline",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "A communication hub for a decentralized collaboration on studying real-life cognition",
+   "url": "https://doi.org/10.12688/f1000research.6229.1",
+   "date": "2015",
+   "year": "2015",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "PyMVPA Workshop 2014",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2014-giessen-pymvpa-workshop",
+   "date": "2014-09",
+   "year": "2014",
+   "type": "talk",
+   "venue": "PyMVPA Workshop 2014, Justus-Liebig-Universität Giessen",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "\"To make a world a better place\" or PyMVPA / NeuroDebian / ...",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2014-siemens-pymvpa-neurodebian",
+   "date": "2014-07",
+   "year": "2014",
+   "type": "talk",
+   "venue": "Siemens, Princeton",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2014-siemens-pymvpa-neurodebian.pdf",
+   "video": null
+  },
+  {
+   "title": "Fail2Ban -- keep your boxes skiddie-free",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2014-pycon-fail2ban",
+   "date": "2014-04",
+   "year": "2014",
+   "type": "talk",
+   "venue": "PyCon 2014, Montreal, Canada",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "fail2ban"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2014-pycon-fail2ban.pdf",
+   "video": null
+  },
+  {
+   "title": "From statistical learning to an open-source, turnkey platform for neuroimaging",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2014-sri-neuroimaging",
+   "date": "2014-03",
+   "year": "2014",
+   "type": "talk",
+   "venue": "SRI 2014, Menlo Park, CA, USA",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2014-sri-neuroimaging.pdf",
+   "video": null
+  },
+  {
+   "title": "Converging catalogues, warehouses, and deployment logistics into a federated 'data distribution'",
+   "url": null,
+   "date": "2014",
+   "year": "2014",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "datalad"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Attentional allocation locally warps representational space",
+   "url": null,
+   "date": "2014",
+   "year": "2014",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Nikolaas N. Oosterhof",
+     "/whoweare#nikolaas_n_oosterhof_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Jason Gors",
+     "/whoweare#jason_gors_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "nikolaas-oosterhof",
+    "yaroslav-halchenko",
+    "jason-gors",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Attention locally modulates the discriminability of high-level, task-relevant representations",
+   "url": null,
+   "date": "2014",
+   "year": "2014",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Samuel Nastase",
+     "/whoweare#samuel_nastase_"
+    ],
+    [
+     "Nikolaas N. Oosterhof",
+     "/whoweare#nikolaas_n_oosterhof_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Jason Gors",
+     "/whoweare#jason_gors_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "samuel-nastase",
+    "nikolaas-oosterhof",
+    "yaroslav-halchenko",
+    "jason-gors",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Transmodal Analysis of Neural Signals",
+   "url": "http://arxiv.org/abs/1307.2150",
+   "date": "2013-07",
+   "year": "2013",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Prioritized Detection of Personally Familiar Faces",
+   "url": "https://doi.org/10.1371/journal.pone.0066620",
+   "date": "2013-06",
+   "year": "2013",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Jason Gors",
+     "/whoweare#jason_gors_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "jason-gors",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Pattern classification precedes region-average hemodynamic response in early visual cortex.",
+   "url": "https://doi.org/10.1016/j.neuroimage.2013.04.019",
+   "date": "2013-04",
+   "year": "2013",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Open is not enough: benefits from Debian as an integrated, community-driven computing platform",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2013-sea-debian",
+   "date": "2013-04",
+   "year": "2013",
+   "type": "talk",
+   "venue": "SEA 2013, UCAR, Boulder CO",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "debian"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2013-sea-debian.pdf",
+   "video": null
+  },
+  {
+   "title": "Processing of invisible social cues",
+   "url": "https://doi.org/10.1016/j.concog.2013.05.002",
+   "date": "2013",
+   "year": "2013",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Jason Gors",
+     "/whoweare#jason_gors_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "jason-gors",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "NeuroDebian: from disjoint tools and data to robust turnkey platform for neuroimaging and beyond",
+   "url": "http://www.youtube.com/watch?v=WhUrTRuMoFs",
+   "date": "2013",
+   "year": "2013",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "neurodebian"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Investigation of the familiar face recognition model",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/posters/sfn-2012-familiar-faces.pdf",
+   "date": "2012-10",
+   "year": "2012",
+   "type": "poster",
+   "venue": "Society for Neuroscience Annual Meeting (SfN 2012)",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Jason Gors",
+     "/whoweare#jason_gors_"
+    ],
+    [
+     "J. Swaroop Guntupalli",
+     null
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "M. Ida Gobbini",
+     null
+    ]
+   ],
+   "authors_complete": true,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "jason-gors",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "PyMVPA Course -- Overture",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2012-pymvpa-course",
+   "date": "2012-09",
+   "year": "2012",
+   "type": "talk",
+   "venue": "PyMVPA course, Magdeburg",
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2012-pymvpa-course.pdf",
+   "video": null
+  },
+  {
+   "title": "Applied NeuroDebian: Python in Neuroimaging",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2012-incf-neurodebian",
+   "date": "2012-09",
+   "year": "2012",
+   "type": "talk",
+   "venue": "INCF 2012, Munich, Germany",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "neurodebian"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2012-incf-neurodebian.pdf",
+   "video": null
+  },
+  {
+   "title": "Debian Med: The ultimate operating system for medicine, pre-clinical research and bio-informatics",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2012-hdi-debian-med",
+   "date": "2012-06",
+   "year": "2012",
+   "type": "talk",
+   "venue": "Health Data Initiative Forum III: The Health Datapalooza, Washington DC",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "debian"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2012-hdi-debian-med.pdf",
+   "video": null
+  },
+  {
+   "title": "Representation of biological classes in the human brain",
+   "url": "https://doi.org/10.1523/jneurosci.5547-11.2012",
+   "date": "2012-02",
+   "year": "2012",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Jason Gors",
+     "/whoweare#jason_gors_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "jason-gors",
+    "michael-hanke",
+    "yaroslav-halchenko",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Environments for efficient contemporary research in neuroimaging",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2012-upenn-environments",
+   "date": "2012-02",
+   "year": "2012",
+   "type": "talk",
+   "venue": "UPENN 2012, Philadelphia PA, USA",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2012-upenn-environments.pdf",
+   "video": null
+  },
+  {
+   "title": "Open is not enough. Let's take the next step: An integrated, community-driven computing platform for neuroscience",
+   "url": "https://doi.org/10.3389/fninf.2012.00022",
+   "date": "2012",
+   "year": "2012",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "neurodebian"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Investigation of the familiar face recognition model",
+   "url": "http://haxbylab.dartmouth.edu/publications/HGG+12_sfn12_famfaces.png",
+   "date": "2012",
+   "year": "2012",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Jason Gors",
+     "/whoweare#jason_gors_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "jason-gors",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Incorrect probabilities in Harvard-Oxford-sub Left hemisphere",
+   "url": "https://www.jiscmail.ac.uk/cgi-bin/webadmin?A2=fsl;e46ecc4c.1210",
+   "date": "2012",
+   "year": "2012",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Data sharing in neuroimaging research",
+   "url": "https://doi.org/10.3389/fninf.2012.00009",
+   "date": "2012",
+   "year": "2012",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Jean-Baptiste Poline",
+     "/whoweare#jeanbaptiste_poline_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "David N. Kennedy",
+     "/whoweare#david_n_kennedy_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "jean-baptiste-poline",
+    "satrajit-ghosh",
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "david-kennedy",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Multivariate analysis strategies of neuroimaging data in PyMVPA",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2011-sfn-pymvpa",
+   "date": "2011-11",
+   "year": "2011",
+   "type": "talk",
+   "venue": "SfN 2011, Washington DC, USA",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2011-sfn-pymvpa.pdf",
+   "video": null
+  },
+  {
+   "title": "A Common, High-Dimensional Model of the Representational Space in Human Ventral Temporal Cortex",
+   "url": "https://doi.org/10.1016/j.neuron.2011.08.026",
+   "date": "2011-10",
+   "year": "2011",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "james-haxby",
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "π's in Debian or Scientific Debian: NumPy, SciPy and beyond",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2011-euroscipy-debian",
+   "date": "2011-08",
+   "year": "2011",
+   "type": "talk",
+   "venue": "EuroScipy 2011, Paris, France",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "debian"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2011-euroscipy-debian.pdf",
+   "video": null
+  },
+  {
+   "title": "The virtues and sins of PyMVPA",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2011-euroscipy-pymvpa",
+   "date": "2011-08",
+   "year": "2011",
+   "type": "talk",
+   "venue": "EuroScipy 2011, Paris, France",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2011-euroscipy-pymvpa.pdf",
+   "video": null
+  },
+  {
+   "title": "More than batteries included: NeuroDebian",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2011-euroscipy-neurodebian",
+   "date": "2011-08",
+   "year": "2011",
+   "type": "talk",
+   "venue": "EuroScipy 2011, Python in Neuroscience satellite, Paris",
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "neurodebian"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2011-euroscipy-neurodebian.pdf",
+   "video": null
+  },
+  {
+   "title": "PsychoPy Workshop: Coding, Git, et al.",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2011-psychopy-workshop",
+   "date": "2011-07",
+   "year": "2011",
+   "type": "talk",
+   "venue": "PsychoPy workshop",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "psychopy"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2011-psychopy-workshop.pdf",
+   "video": null
+  },
+  {
+   "title": "NeuroDebian: versatile platform for brain imaging research",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/posters/hbm-2011-neurodebian.pdf",
+   "date": "2011-06",
+   "year": "2011",
+   "type": "poster",
+   "venue": "Organization for Human Brain Mapping Annual Meeting (HBM 2011)",
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "neurodebian"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Unsupervised brain parcellation from functional neuroimaging data",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/posters/cns-2011-parcellation.pdf",
+   "date": "2011-04",
+   "year": "2011",
+   "type": "poster",
+   "venue": "Cognitive Neuroscience Society Annual Meeting (CNS 2011)",
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "J. Swaroop Guntupalli",
+     null
+    ],
+    [
+     "Andy Connolly",
+     "/whoweare#andy_connolly_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": true,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko",
+    "andy-connolly",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Searchlight whereabouts in PyMVPA",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2011-dartmouth-searchlight",
+   "date": "2011-04",
+   "year": "2011",
+   "type": "talk",
+   "venue": "Brown bag talk, Dartmouth College",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2011-dartmouth-searchlight.pdf",
+   "video": null
+  },
+  {
+   "title": "Scanning parameters for optimal decoding using a 32-channel head coil for fMRI",
+   "url": null,
+   "date": "2011",
+   "year": "2011",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Nipype: a flexible, lightweight and extensible neuroimaging data processing framework in python",
+   "url": "https://doi.org/10.3389/fninf.2011.00013",
+   "date": "2011",
+   "year": "2011",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "nipype"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "satrajit-ghosh"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Neuroscience Runs on GNU/Linux",
+   "url": "https://doi.org/10.3389/fninf.2011.00008",
+   "date": "2011",
+   "year": "2011",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "neurodebian"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Debian Med: Integrated software environment for all medical purposes based on Debian GNU/Linux",
+   "url": null,
+   "date": "2011",
+   "year": "2011",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "debian-med"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "An integrated community-driven computing platform for neuroscience",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/posters/sfn-2010-neurodebian.pdf",
+   "date": "2010-11",
+   "year": "2010",
+   "type": "poster",
+   "venue": "Society for Neuroscience Annual Meeting (SfN 2010)",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Stefan Pollmann",
+     null
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": true,
+   "projects": [
+    "neurodebian"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "james-haxby",
+    "michael-hanke"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Debian: The ultimate platform for neuroimaging research",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2010-debconf-neurodebian",
+   "date": "2010-08",
+   "year": "2010",
+   "type": "talk",
+   "venue": "DebConf10, New York City",
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "neurodebian"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2010-debconf-neurodebian.pdf",
+   "video": null
+  },
+  {
+   "title": "Citations infrastructure in Debian",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2010-debconf-citations",
+   "date": "2010-08",
+   "year": "2010",
+   "type": "talk",
+   "venue": "DebConf10, New York City",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "debian"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2010-debconf-citations.pdf",
+   "video": null
+  },
+  {
+   "title": "Transmodal Analysis of Neural Signals",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/posters/caos-2010-transmodal.pdf",
+   "date": "2010-05-22",
+   "year": "2010",
+   "type": "poster",
+   "venue": "Fourth Annual Rovereto Workshop on Concepts, Actions and Objects (CAOS 2010)",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Stephen José Hanson",
+     null
+    ],
+    [
+     "Christoph S. Herrmann",
+     null
+    ]
+   ],
+   "authors_complete": true,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "PyMVPA 0.5: A Major Update of the Comprehensive Framework for Statistical Learning Analysis of Neural Data",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/posters/caos-2010-pymvpa.pdf",
+   "date": "2010-05-21",
+   "year": "2010",
+   "type": "poster",
+   "venue": "Fourth Annual Rovereto Workshop on Concepts, Actions and Objects (CAOS 2010)",
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Emanuele Olivetti",
+     null
+    ]
+   ],
+   "authors_complete": true,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Advancing Neuroimaging Research with Predictive Multivariate Pattern Analysis",
+   "url": "https://doi.org/10.2417/1200909.1683",
+   "date": "2010-05",
+   "year": "2010",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Neural activity localization by predictive mapping between imaging modalities",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/posters/cns-2010-predictive-mapping.pdf",
+   "date": "2010-04",
+   "year": "2010",
+   "type": "poster",
+   "venue": "Cognitive Neuroscience Society Annual Meeting (CNS 2010), Montréal",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Stephen José Hanson",
+     null
+    ],
+    [
+     "Christoph S. Herrmann",
+     null
+    ]
+   ],
+   "authors_complete": true,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Improving efficiency in cognitive neuroscience research with NeuroDebian",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/posters/cns-2010-neurodebian.pdf",
+   "date": "2010-04",
+   "year": "2010",
+   "type": "poster",
+   "venue": "Cognitive Neuroscience Society Annual Meeting (CNS 2010), Montréal",
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Stefan Pollmann",
+     null
+    ]
+   ],
+   "authors_complete": true,
+   "projects": [
+    "neurodebian"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "First PyMVPA Course Ever",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2010-pymvpa-course",
+   "date": "2010-03",
+   "year": "2010",
+   "type": "talk",
+   "venue": "First PyMVPA course, Department of Psychological and Brain Sciences, Dartmouth College",
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Statistical Learning Analysis in Neuroscience",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/posters/dartmouth-2010-pymvpa.pdf",
+   "date": "2010-01",
+   "year": "2010",
+   "type": "poster",
+   "venue": "Neuroscience Day 2010, Dartmouth College",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Stephen José Hanson",
+     null
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ],
+    [
+     "Stefan Pollmann",
+     null
+    ]
+   ],
+   "authors_complete": true,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Six problems for causal inference from fMRI",
+   "url": "https://doi.org/10.1016/j.neuroimage.2009.08.065",
+   "date": "2010-01",
+   "year": "2010",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Statistical learning analysis in neuroscience: aiming for transparency",
+   "url": "https://doi.org/10.3389/neuro.01.007.2010",
+   "date": "2010",
+   "year": "2010",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Improving efficiency in cognitive neuroscience research with NeuroDebian",
+   "url": null,
+   "date": "2010",
+   "year": "2010",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "neurodebian"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "PyMVPA: Where we are now, and where we are going",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2009-pymvpa-extravaganza",
+   "date": "2009-11",
+   "year": "2009",
+   "type": "talk",
+   "venue": "PyMVPA Extravaganza 2009, Dartmouth College",
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2009-pymvpa-extravaganza.pdf",
+   "video": null
+  },
+  {
+   "title": "An ecosystem of neuroimaging, statistical learning, and open-source software to make research more efficient, more open, and more fun",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2009-dartmouth-ecosystem",
+   "date": "2009-11",
+   "year": "2009",
+   "type": "talk",
+   "venue": "Dartmouth College",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2009-dartmouth-ecosystem.pdf",
+   "video": null
+  },
+  {
+   "title": "Decoding the Large-Scale Structure of Brain Function by Classifying Mental States Across Individuals",
+   "url": "https://doi.org/10.1111/j.1467-9280.2009.02460.x",
+   "date": "2009-10",
+   "year": "2009",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Predictive Decoding of Neural Data",
+   "url": "http://www.onerussian.com/Sci/thesis",
+   "date": "2009-05",
+   "year": "2009",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "PyMVPA: Fathom Brain Function through Multivariate Pattern Analysis",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2009-hawaii-pymvpa",
+   "date": "2009-04-17",
+   "year": "2009",
+   "type": "talk",
+   "venue": "Seminar Series in Machine Learning and Computational Biology, University of Hawaii",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2009-hawaii-pymvpa.pdf",
+   "video": null
+  },
+  {
+   "title": "Reliable Decoding of Neural Data",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2009-nipy-decoding",
+   "date": "2009-04",
+   "year": "2009",
+   "type": "talk",
+   "venue": "NiPy sprint",
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "yaroslav-halchenko",
+    "michael-hanke"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2009-nipy-decoding.pdf",
+   "video": null
+  },
+  {
+   "title": "PyMVPA: Fathom Brain Function with Multivariate Pattern Analysis",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2009-nipy-pymvpa",
+   "date": "2009-04",
+   "year": "2009",
+   "type": "talk",
+   "venue": "NiPy sprint",
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2009-nipy-pymvpa.pdf",
+   "video": null
+  },
+  {
+   "title": "Standing on the shoulders of giants: Multivariate pattern analysis in Python",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2009-bccn-pymvpa",
+   "date": "2009-01",
+   "year": "2009",
+   "type": "talk",
+   "venue": "Bernstein Center for Computational Neuroscience (BCCN)",
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2009-bccn-pymvpa.pdf",
+   "video": null
+  },
+  {
+   "title": "Modality-independent Analysis Of Neuroimaging Data With PyMVPA",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2009-tu-berlin-pymvpa",
+   "date": "2009-01",
+   "year": "2009",
+   "type": "talk",
+   "venue": "MKP talk at TU Berlin",
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2009-tu-berlin-pymvpa.pdf",
+   "video": null
+  },
+  {
+   "title": "PyMVPA: A Unifying Approach to the Analysis of Neuroscientific Data",
+   "url": "https://doi.org/10.3389/neuro.11.003.2009",
+   "date": "2009",
+   "year": "2009",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "PyMVPA: A Python toolbox for multivariate pattern analysis of fMRI data",
+   "url": "https://doi.org/10.1007/s12021-008-9041-y",
+   "date": "2009",
+   "year": "2009",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko",
+    "james-haxby"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "PyMVPA: A Python toolbox for machine-learning-based fMRI data analysis",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2008-cambridge-pymvpa",
+   "date": "2008-04",
+   "year": "2008",
+   "type": "talk",
+   "venue": "Talk in Cambridge",
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "James V. Haxby",
+     "/whoweare#james_v_haxby_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko",
+    "james-haxby"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2008-cambridge-pymvpa.pdf",
+   "video": null
+  },
+  {
+   "title": "Classifier-based analysis toolbox for Neuroimaging",
+   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2008-nipy-sprint-pymvpa",
+   "date": "2008-03",
+   "year": "2008",
+   "type": "talk",
+   "venue": "NiPy Code Sprint",
+   "authors": [
+    [
+     "Michael Hanke",
+     "/whoweare#michael_hanke_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [
+    "pymvpa"
+   ],
+   "people": [
+    "michael-hanke",
+    "yaroslav-halchenko"
+   ],
+   "pdf": "https://datasets.datalad.org/centerforopenneuroscience/talks/2008-nipy-sprint-pymvpa.pdf",
+   "video": null
+  },
+  {
+   "title": "Brain Reading Using Full Brain Support Vector Machines for Object Recognition: There Is No \"Face\" Identification Area",
+   "url": "https://doi.org/10.1162/neco.2007.09-06-340",
+   "date": "2008-02",
+   "year": "2008",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Brain reading using full brain support vector machines for object recognition: there is no “face” identification area",
+   "url": "https://doi.org/10.1162/neco.2007.09-06-340",
+   "date": "2008",
+   "year": "2008",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Bottom-up and top-down brain functional connectivity underlying comprehension of everyday visual action",
+   "url": "https://doi.org/10.1007/s00429-007-0160-2",
+   "date": "2007-12",
+   "year": "2007",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Dense mode clustering in brain maps",
+   "url": "https://doi.org/10.1016/j.mri.2007.03.013",
+   "date": "2007-11",
+   "year": "2007",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Advanced Image Processing in Magnetic Resonance Imaging: fMRI, MRI, EEG, MEG",
+   "url": "http://www.onerussian.com/Sci/fusion",
+   "date": "2005",
+   "year": "2005",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Structural Equation Modeling of Neuroimaging Data: Exhaustive Search and Markov Chain Monte Carlo",
+   "url": null,
+   "date": "2004",
+   "year": "2004",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Fusion of functional brain imaging modalities via linear programming",
+   "url": "http://www.onerussian.com/Sci/pubs/lpnfsi2003.pdf",
+   "date": "2004",
+   "year": "2004",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Fusion of Functional Brain Imaging Modalities using L-Norms Signal Reconstruction",
+   "url": null,
+   "date": "2004",
+   "year": "2004",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Method for image coordinate definition on extended laser paths",
+   "url": "https://doi.org/10.1117/12.388446",
+   "date": "2000",
+   "year": "2000",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Approach to parallel-hierarchical network learning for real-time image sequence recognition",
+   "url": "https://doi.org/10.1117/12.360283",
+   "date": "1999",
+   "year": "1999",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Image Segmentation on the basis of spatial connected features",
+   "url": null,
+   "date": "1998",
+   "year": "1998",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "The model of associative processor for numerical data sorting",
+   "url": null,
+   "date": "1997",
+   "year": "1997",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "TemplateFlow: FAIR-sharing of multi-scale, multi-species brain models",
+   "url": "https://doi.org/10.1038/s41592-022-01681-2",
+   "date": "12-2022",
+   "year": "12-2",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Satrajit Ghosh",
+     "/whoweare#satrajit_ghosh_"
+    ],
+    [
+     "Russell A. Poldrack",
+     "/whoweare#russell_a_poldrack_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "chris-markiewicz",
+    "yaroslav-halchenko",
+    "satrajit-ghosh",
+    "russell-poldrack"
+   ],
+   "pdf": null,
+   "video": null
+  },
+  {
+   "title": "Open and reproducible neuroimaging: From study inception to publication",
+   "url": "https://doi.org/10.1016/j.neuroimage.2022.119623",
+   "date": "11-2022",
+   "year": "11-2",
+   "type": "paper",
+   "venue": null,
+   "authors": [
+    [
+     "Yaroslav O. Halchenko",
+     "/whoweare#yaroslav_o_halchenko_"
+    ],
+    [
+     "Chris Markiewicz",
+     "/whoweare#chris_markiewicz_"
+    ],
+    [
+     "Franco Pestilli",
+     "/whoweare#franco_pestilli_"
+    ],
+    [
+     "Adina Wagner",
+     "/whoweare#adina_wagner_"
+    ],
+    [
+     "Camille Maumet",
+     "/whoweare#camille_maumet_"
+    ]
+   ],
+   "authors_complete": false,
+   "projects": [],
+   "people": [
+    "yaroslav-halchenko",
+    "chris-markiewicz",
+    "franco-pestilli",
+    "adina-wagner",
+    "camille-maumet"
+   ],
+   "pdf": null,
+   "video": null
+  }
+ ]
+}
