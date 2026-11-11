@@ -28,11 +28,11 @@
 		<details class="components" open="open">
 		  <summary>10 components</summary>
 		  <ul class="component-list">
+		    <li><a href="http://handbook.datalad.org">DataLad Handbook</a>: A hands-on course in data management with DataLad, written to be worked through rather than looked up.</li>
 		    <li><a href="https://github.com/datalad/datalad-container">datalad-container</a>: DataLad extension for working with computational containers</li>
 		    <li><a href="https://github.com/datalad/datalad-crawler">datalad-crawler</a>: DataLad extension for tracking web resources as datasets</li>
 		    <li><a href="https://github.com/datalad/datalad-deprecated">datalad-deprecated</a>: Retired DataLad functionality, kept available</li>
 		    <li><a href="https://github.com/datalad/datalad-fuse">datalad-fuse</a>: DataLad extension providing a FUSE filesystem view</li>
-		    <li><a href="http://handbook.datalad.org">DataLad Handbook</a>: A hands-on course in data management with DataLad, written to be worked through rather than looked up.</li>
 		    <li><a href="https://github.com/datalad/datalad-installer">datalad-installer</a>: Installation script for DataLad and its dependencies</li>
 		    <li><a href="https://github.com/datalad/datalad-metalad">datalad-metalad</a>: Next generation metadata handling for DataLad</li>
 		    <li><a href="https://github.com/datalad/datalad-neuroimaging">datalad-neuroimaging</a>: DataLad extension for neuroimaging data</li>
@@ -423,18 +423,20 @@
 		<figure>
 		  <a href="https://dandiarchive.org"><img src="/theme/img/projects/dandi/logo.png" alt="DANDI" class="pull-right" /></a>
 		</figure>
-		<p> <a href="https://dandiarchive.org">Distributed Archives for Neurophysiology Data Integration (DANDI)</a> is a platform for publishing, sharing, and processing neurophysiology data funded by the <a href="https://braininitiative.nih.gov/">BRAIN Initiative</a>. The platform is now available for data upload and distribution, and provides supplementary client tools to assist with introspection and organization of data following <a href="#nwb_">NWB standard</a>. </p> <ul> <li> <a href="https://github.com/dandi/dandisets">dandisets</a>: a <a href="#datalad_">DataLad</a> superdataset providing unified access to all public DANDI datasets, with individual dandisets also mirrored as DataLad datasets in the <a href="https://github.com/dandisets">dandisets</a> GitHub organization and their Zarr stores in <a href="https://github.com/dandizarrs">dandizarrs</a>. </li> <li> <a href="https://github.com/dandi-compute">DANDI Compute</a>: an experimental reproducible-computing initiative running processing pipelines directly on DANDI assets. The first campaign applies the <a href="https://github.com/AllenNeuralDynamics/aind-ephys-pipeline">AIND ephys pipeline</a> to electrophysiology dandisets, with orchestration code and a public job queue hosted in the <a href="https://github.com/dandi-compute">dandi-compute</a> GitHub organization. </li> </ul>
+		<p> <a href="https://dandiarchive.org">Distributed Archives for Neurophysiology Data Integration (DANDI)</a> is a platform for publishing, sharing, and processing neurophysiology data funded by the <a href="https://braininitiative.nih.gov/">BRAIN Initiative</a>. The platform is now available for data upload and distribution, and provides supplementary client tools to assist with introspection and organization of data following <a href="#nwb_">NWB standard</a>. </p>
 		<details class="components" open="open">
-		  <summary>15 components</summary>
+		  <summary>17 components</summary>
 		  <ul class="component-list">
-		    <li><a href="https://github.com/dandi/dandi-archive">DANDI Archive</a>: Software stack behind the DANDI archive: API, web client and validation, deployable as an independent instance.</li>
 		    <li><a href="https://github.com/dandi/access-page">access-page</a>: Visualizations of data usage for the DANDI Archive</li>
+		    <li><a href="https://github.com/dandi/backups2datalad">backups2datalad</a>: Mirrors the Dandisets, and their Zarrs, as git-annex/DataLad datasets; it creates and updates dandisets</li>
+		    <li><a href="https://github.com/dandi/dandi-archive">DANDI Archive</a>: Software stack behind the DANDI archive: API, web client and validation, deployable as an independent instance.</li>
+		    <li><a href="https://github.com/dandi-compute">DANDI Compute</a>: Runs processing pipelines directly on DANDI assets, rather than asking everyone to download them first. Orchestration, a submission client and a public queue; the first campaign puts the AIND ephys pipeline over electrophysiology dandisets.</li>
 		    <li><a href="https://github.com/dandi/dandi-api-webshots-tools">dandi-api-webshots-tools</a>: Tooling for the DANDI API webshots</li>
 		    <li><a href="https://github.com/dandi/dandi-cli">dandi-cli</a>: DANDI command line client</li>
-		    <li><a href="https://github.com/dandi-compute">DANDI Compute</a>: Runs processing pipelines directly on DANDI assets, rather than asking everyone to download them first. Orchestration, a submission client and a public queue; the first campaign puts the AIND ephys pipeline over electrophysiology dandisets.</li>
 		    <li><a href="https://github.com/dandi/dandi-hub">dandi-hub</a>: Infrastructure and code for the dandihub</li>
 		    <li><a href="https://github.com/dandi/dandi-schema">dandi-schema</a>: Schemata for the DANDI archive project</li>
 		    <li><a href="https://github.com/dandi/dandidav">dandidav</a>: WebDAV view to DANDI Archive</li>
+		    <li><a href="https://github.com/dandi/dandisets">dandisets</a>: Mirror of the Dandisets as DataLad datasets</li>
 		    <li><a href="https://github.com/dandi/dandisets-healthstatus">dandisets-healthstatus</a>: Healthchecks of dandisets and their tooling</li>
 		    <li><a href="https://github.com/dandi/dandisets-linkml-status-tools">dandisets-linkml-status-tools</a>: Reporting the status of the DANDI metadata translation</li>
 		    <li><a href="https://nwb2bids.readthedocs.io/">nwb2bids</a>: Reorganizes NWB files into a BIDS directory layout, so a dandiset can be read by the tooling that expects BIDS without being converted twice.</li>
@@ -450,12 +452,12 @@
 		    <li><a href="/whoweare#austin_macdonald_">Austin Macdonald</a> &#8212; Lead <small>(dandi-hub)</small></li>
 		    <li><a href="/whoweare#cody_baker_">Cody Baker</a> &#8212; Lead <small>(access-page, s3-log-extraction, s3-log-parser)</small></li>
 		    <li><a href="/whoweare#isaac_to_">Isaac To</a> &#8212; Contributor <small>(dandi-schema)</small>, Lead <small>(dandisets-linkml-status-tools, pydantic2linkml)</small></li>
-		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Principal investigator (PI), Lead <small>(dandi-cli, dandi-schema)</small></li>
+		    <li><a href="/whoweare#yaroslav_o_halchenko_">Yaroslav O. Halchenko</a> &#8212; Principal investigator (PI), Contributor <small>(backups2datalad)</small>, Lead <small>(dandi-cli, dandi-schema)</small></li>
 		    <li><a href="/whoweare#ben_dichter_">Ben Dichter</a> &#8212; Contributor</li>
 		    <li><a href="/whoweare#jacob_nesbitt_">Jacob Nesbitt</a> &#8212; Contributor <small>(DANDI Archive)</small></li>
 		    <li><a href="/whoweare#roni_choudhury_">Roni Choudhury</a> &#8212; Contributor <small>(DANDI Archive)</small></li>
 		    <li><a href="/whoweare#satrajit_ghosh_">Satrajit Ghosh</a> &#8212; Principal investigator (PI)</li>
-		    <li><a href="/whoweare#john_wodder_">John Wodder</a> &#8212; Lead <small>(dandi-api-webshots-tools, dandidav, dandisets, dandisets-healthstatus)</small></li>
+		    <li><a href="/whoweare#john_wodder_">John Wodder</a> &#8212; Lead <small>(backups2datalad, dandi-api-webshots-tools, dandidav, dandisets, dandisets-healthstatus)</small></li>
 		    <li><a href="/whoweare#mike_grauer_">Mike Grauer</a> &#8212; Contributor <small>(DANDI Archive)</small></li>
 		  </ul>
 		</details>
@@ -472,13 +474,15 @@
 		  <a href="https://emberarchive.org"><img src="/theme/img/projects/ember/logo.png" alt="EMBER" class="pull-right" /></a>
 		</figure>
 		<p> <a href="https://emberarchive.org">Ecosystem for Multi-modal Brain-behavior Experimentation and Research (EMBER)</a> is the <a href="https://braininitiative.nih.gov/">BRAIN Initiative</a> archive for multi-modal neurophysiological and behavioral data, supporting the <a href="https://braininitiative.nih.gov/research/systems-neuroscience/brain-behavior-quantification-and-synchronization-program">Brain Behavior Quantification and Synchronization (BBQS) Program</a>. The platform is being kick-started based on DANDI to provide data upload and distribution. CON is working on integration with DANDI and involved standards. </p> <figure> <a href="https://hearth.emberarchive.org"><img src="/theme/img/3rd/hearth_logo.svg" alt="HEARTH" class="pull-left" style="width:100px;padding-right:5px;margin-top:0em;" /></a> </figure> <p> <a href="https://hearth.emberarchive.org">HEARTH</a> is EMBER's companion suite of data management tools, providing apps for preparing media prior to submission and publication on EMBER. </p> <div style="display:flex;flex-wrap:wrap;gap:1em;margin:0.5em 0 1em;"> <div style="flex:1 1 260px;min-width:220px;display:flex;align-items:flex-start;gap:0.6em;"> <a href="https://hearth.emberarchive.org" style="flex:0 0 auto;"> <img src="/theme/img/3rd/hearth_clip_extractor_logo.svg" alt="Clip Extractor" style="width:36px;" /> </a> <p style="margin:0;"> <a href="https://hearth.emberarchive.org"><strong>Clip Extractor</strong></a><br /> for excerpting and preparing behavioral video clips for submission. </p> </div> <div style="flex:1 1 260px;min-width:220px;display:flex;align-items:flex-start;gap:0.6em;"> <a href="https://hearth.emberarchive.org" style="flex:0 0 auto;"> <img src="/theme/img/3rd/hearth_encoding_helper_logo.svg" alt="Encoding Helper" style="width:36px;" /> </a> <p style="margin:0;"> <a href="https://hearth.emberarchive.org"><strong>Encoding Helper</strong></a><br /> for analyzing and transcoding media prior to publication on EMBER. </p> </div> </div>
-		<p class="components"><strong>Components:</strong></p>
+		<details class="components" open="open">
+		  <summary>4 components</summary>
 		  <ul class="component-list">
 		    <li><a href="https://upload.brain-bbqs.org">BBQS uploader</a>: A drag-and-drop web app for BBQS teams to put files into an existing dandiset on the EMBER Archive, so contributing data does not require learning the command line first.</li>
-		    <li><a href="https://github.com/brain-bbqs/study-template">study-template</a>: A template for an EMBER study laid out as a BIDS study, so that data ingest starts from a structure the archive already understands rather than from a conversion afterwards.</li>
 		    <li><a href="https://pozu-project.github.io/pozu/">Pozu</a>: Pose labeling of EMBER video data in the browser, by whoever is willing to label it. Inspired by Galaxy Zoo: the bottleneck on pose estimation is annotated video, and a web page anyone can open is a cheaper way to get it than a pipeline only the lab can run.</li>
 		    <li><a href="#stamped_principles_">STAMPED Principles</a>: STAMPED is a set of seven principles, Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, and Distributability, for building research objects that others can trust, rerun, and build upon. Each principle is a spectrum from a practical minimum to an aspirational ideal, so adoption can be incremental and start from existing practice. STAMPED grew out of YODA and comes with an interactive checklist and worked examples.</li>
+		    <li><a href="https://github.com/brain-bbqs/study-template">study-template</a>: A template for an EMBER study laid out as a BIDS study, so that data ingest starts from a structure the archive already understands rather than from a conversion afterwards.</li>
 		  </ul>
+		</details>
 		<details class="people">
 		  <summary>3 people</summary>
 		  <ul class="people-list">
@@ -494,7 +498,14 @@
 		<figure>
 		  <a href="https://openneuro.org"><img src="/theme/img/projects/openneuro/logo.png" alt="OpenNeuro" class="pull-right" /></a>
 		</figure>
-		<p> <a href="https://openneuro.org">OpenNeuro</a> is likely the oldest and the most well known <a href="https://braininitiative.nih.gov/">BRAIN Initiative</a> archive for neuroimaging data. One of the exciting features of the project is that being inspired by our early <a href="https://datasets.datalad.org/?dir=/openfmri">DataLad crawling</a> of its <a href="https://openfmri.org/">OpenfMRI.org</a> precursor, it is now using <a href="https://git-annex.branchable.com">git-annex</a> directly as its core technology. CON is contributing in ensuring availability of recent versions of git-annex and DataLad, involved standardization efforts, and inter-archive collaborations. </p> <ul> <li> <a href="https://github.com/OpenNeuroStudies/OpenNeuroStudies">OpenNeuroStudies</a>: a <a href="#datalad_">DataLad</a> superdataset organising OpenNeuro datasets into BIDS Study structure together with their derivatives. </li> </ul>
+		<p> <a href="https://openneuro.org">OpenNeuro</a> is likely the oldest and the most well known <a href="https://braininitiative.nih.gov/">BRAIN Initiative</a> archive for neuroimaging data. One of the exciting features of the project is that being inspired by our early <a href="https://datasets.datalad.org/?dir=/openfmri">DataLad crawling</a> of its <a href="https://openfmri.org/">OpenfMRI.org</a> precursor, it is now using <a href="https://git-annex.branchable.com">git-annex</a> directly as its core technology. CON is contributing in ensuring availability of recent versions of git-annex and DataLad, involved standardization efforts, and inter-archive collaborations. </p>
+		<details class="components" open="open">
+		  <summary>2 components</summary>
+		  <ul class="component-list">
+		    <li><a href="https://github.com/OpenNeuroStudies/OpenNeuroStudies">OpenNeuroStudies</a>: A DataLad superdataset organising OpenNeuro datasets into BIDS Study structure together with their derivatives.</li>
+		    <li><a href="#stamped_principles_">STAMPED Principles</a>: STAMPED is a set of seven principles, Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, and Distributability, for building research objects that others can trust, rerun, and build upon. Each principle is a spectrum from a practical minimum to an aspirational ideal, so adoption can be incremental and start from existing practice. STAMPED grew out of YODA and comes with an interactive checklist and worked examples.</li>
+		  </ul>
+		</details>
 		<details class="people">
 		  <summary>3 people</summary>
 		  <ul class="people-list">
@@ -559,7 +570,8 @@
 		  <a href="http://bids.neuroimaging.io"><img src="/theme/img/projects/bids/logo.svg" alt="Brain Imaging Data Structure (BIDS)" class="pull-right" /></a>
 		</figure>
 		<p> <a href="http://bids.neuroimaging.io">BIDS</a> is a project lead by a steering group elected by the BIDS community to provide a simple and intuitive way to organize and describe your neuroimaging and behavioral data. </p> <ul> <li> <a href="https://github.com/bids-standard/bids-examples">Example (test) datasets</a> </li> <li> <a href="http://datasets.datalad.org/?dir=/openfmri">Historical OpenfMRI</a> and up-to-date <a href="http://datasets.datalad.org/?dir=/openneuro">OpenNeuro</a> Datasets in DataLad distribution. </li> <li> <a href="https://github.com/bids-dandisets">bids-dandisets</a>: a GitHub organization hosting individual DANDI dandisets converted to BIDS format using <a href="#nwb_">con/nwb2bids</a>, with a <a href="https://github.com/bids-dandisets/dashboard">conversion dashboard</a> tracking the status across all dandisets. </li> </ul>
-		<p class="components"><strong>Components:</strong></p>
+		<details class="components" open="open">
+		  <summary>5 components</summary>
 		  <ul class="component-list">
 		    <li><a href="#bep020_">BEP020</a>: Extends BIDS to eye-tracking data: gaze position, pupil size and the events detected from them. Merged into the specification in January 2026. Leads: Dejan Draschkow, Martin Szinte.</li>
 		    <li><a href="#bep028_">BEP028</a>: Extends BIDS to record how a derivative was produced -- the provenance layer, carrying forward NIDM-PROV. Leads: Satrajit Ghosh, Camille Maumet, Yaroslav Halchenko.</li>
@@ -567,6 +579,7 @@
 		    <li><a href="#bep044_">BEP044</a>: Extends BIDS to describe the stimuli presented during an experiment. Leads: Seyed Yahya Shirazi, Dora Hermes, Yaroslav Halchenko, Kay Robbins, Scott Makeig.</li>
 		    <li><a href="#bids_20_">BIDS 2.0</a>: The effort to work out what BIDS should change when backwards compatibility is no longer a constraint -- the breaking changes that a decade of 1.x could not make.</li>
 		  </ul>
+		</details>
 		<details class="people">
 		  <summary>7 people</summary>
 		  <ul class="people-list">
@@ -677,11 +690,13 @@
 		<h2 id="dicom">DICOM</h2>
 		<p class="project-meta"><small>Standards <span class="contact"><a href="https://www.dicomstandard.org" class="home" title="DICOM home page">DICOM home page</a></span></small></p>
 		<p>The standard for medical imaging data and its exchange, and the format every MRI scanner writes. Everything downstream -- BIDS layouts, HeuDiConv, ReproIn -- starts from what the scanner put in the DICOM header.</p>
-		<p class="components"><strong>Components:</strong></p>
+		<details class="components" open="open">
+		  <summary>2 components</summary>
 		  <ul class="component-list">
 		    <li><a href="#dicom_wg16_">DICOM WG-16</a>: The DICOM working group responsible for MR. Where the conventions that make a scanner&#x27;s output machine-readable are argued out, which is upstream of every BIDS conversion CON does.</li>
 		    <li><a href="#dicom_wg32_">DICOM WG-32</a>: The DICOM working group on imaging compression. CON&#x27;s interest is empirical: what lossy compression actually costs downstream analyses, which is what the compression-comparisons studies measure.</li>
 		  </ul>
+		</details>
 		<details class="people">
 		  <summary>1 person</summary>
 		  <ul class="people-list">
@@ -714,11 +729,13 @@
 		<h2 id="dicom-wg32">DICOM WG-32</h2>
 		<p class="project-meta"><small>Standards <span class="contact"><a href="https://www.dicomstandard.org/activity/wgs" class="home" title="DICOM WG-32 home page">DICOM WG-32 home page</a></span></small></p>
 		<p>The DICOM working group on imaging compression. CON&#x27;s interest is empirical: what lossy compression actually costs downstream analyses, which is what the compression-comparisons studies measure.</p>
-		<p class="components"><strong>Components:</strong></p>
+		<details class="components" open="open">
+		  <summary>2 components</summary>
 		  <ul class="component-list">
 		    <li><a href="https://github.com/dandi/compression-comparisons">compression-comparisons</a>: Reproducing and extending the DICOM WG-32 compression work: what lossy compression costs, measured rather than assumed.</li>
 		    <li><a href="https://github.com/dandi/compression-comparisons-t261-study">compression-comparisons-t261-study</a>: Reproduction of the compression-effects-on-spike-sorting paper, extended to the T.261 codec.</li>
 		  </ul>
+		</details>
 		<details class="people">
 		  <summary>1 person</summary>
 		  <ul class="people-list">
@@ -756,13 +773,20 @@
 		  <a href="http://repronim.org/"><img src="/theme/img/projects/repronim/logo.svg" alt="ReproNim" class="pull-right" /></a>
 		</figure>
 		<p>ReproNim: A Center for Reproducible Neuroimaging Computation. A P41 center building training, tools and standards so neuroimaging analyses can be reproduced.</p>
-		<p class="components"><strong>Components:</strong></p>
+		<details class="components" open="open">
+		  <summary>2 components</summary>
+		  <ul class="component-list">
+		    <li><a href="#stamped_principles_">STAMPED Principles</a>: STAMPED is a set of seven principles, Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, and Distributability, for building research objects that others can trust, rerun, and build upon. Each principle is a spectrum from a practical minimum to an aspirational ideal, so adoption can be incremental and start from existing practice. STAMPED grew out of YODA and comes with an interactive checklist and worked examples.</li>
+		    <li><a href="#repronim_trd3_">TR&amp;D3</a>: The technology research and development project within ReproNim that YOH leads at Dartmouth. In practice it is the tooling that makes a study reproducible end to end: capturing what the scanner and the stimulus computer actually did, converting it into standard layouts without a human in the loop, and re-running the analysis in a recorded environment.</li>
+		  </ul>
+		</details>
+		<details class="components" open="open">
+		  <summary>2 collaborative projects</summary>
 		  <ul class="component-list">
 		    <li><a href="#datalad_">DataLad</a>: A data management platform that adapts open-source software distribution models to address data-sharing limitations. Provides a versatile data management platform using git-annex for large data tracking built on Git.</li>
 		    <li><a href="#openneuro_">OpenNeuro</a>: One of the oldest and most well-known BRAIN Initiative archives for neuroimaging data. Uses git-annex as core technology, inspired by early DataLad crawling efforts. Successor to OpenfMRI.org.</li>
-		    <li><a href="#repronim_trd3_">TR&amp;D3</a>: The technology research and development project within ReproNim that YOH leads at Dartmouth. In practice it is the tooling that makes a study reproducible end to end: capturing what the scanner and the stimulus computer actually did, converting it into standard layouts without a human in the loop, and re-running the analysis in a recorded environment.</li>
-		    <li><a href="#stamped_principles_">STAMPED Principles</a>: STAMPED is a set of seven principles, Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, and Distributability, for building research objects that others can trust, rerun, and build upon. Each principle is a spectrum from a practical minimum to an aspirational ideal, so adoption can be incremental and start from existing practice. STAMPED grew out of YODA and comes with an interactive checklist and worked examples.</li>
 		  </ul>
+		</details>
 		<details class="people">
 		  <summary>3 people</summary>
 		  <ul class="people-list">
@@ -781,14 +805,16 @@
 		<h2 id="repronim-trd3">ReproNim TR&amp;D3</h2>
 		<p class="project-meta"><small>Initiatives <span class="contact"><a href="https://www.repronim.org/" class="home" title="TR&amp;D3 home page">TR&amp;D3 home page</a></span></small></p>
 		<p>The technology research and development project within ReproNim that YOH leads at Dartmouth. In practice it is the tooling that makes a study reproducible end to end: capturing what the scanner and the stimulus computer actually did, converting it into standard layouts without a human in the loop, and re-running the analysis in a recorded environment.</p>
-		<p class="components"><strong>Components:</strong></p>
+		<details class="components" open="open">
+		  <summary>5 components</summary>
 		  <ul class="component-list">
+		    <li><a href="https://github.com/con/duct">con/duct</a>: Lightweight wrapper that records execution time, CPU and memory usage of a command, for resource-aware reproducible runs.</li>
 		    <li><a href="https://github.com/ReproNim/reprostim/tree/master/Events">ReproEvents</a>: An event relay device: a single-board microcontroller running micropython that sits between the input peripherals a participant uses and the event recording system, so button presses are timestamped by hardware rather than by whatever the stimulus computer was doing.</li>
 		    <li><a href="https://github.com/ReproNim/reproin">ReproIn</a>: A convention and a setup for naming sequences at the scanner so that conversion to a shareable, version-controlled BIDS dataset needs no human in the loop. Runs on HeuDiConv; deployed at DBIC.</li>
 		    <li><a href="https://reproman.readthedocs.io">ReproMan</a>: Tool for creating and managing reproducible computation environments and executing analyses in them.</li>
-		    <li><a href="https://github.com/con/duct">con/duct</a>: Lightweight wrapper that records execution time, CPU and memory usage of a command, for resource-aware reproducible runs.</li>
 		    <li><a href="#repronim_containers_">ReproNim/containers</a>: ReproNim/containers is a DataLad dataset providing a ready-to-use &quot;distribution&quot; of containerized neuroimaging environments (Singularity images) for reproducible analysis. It collects a curated set of containers — including those used by HeuDiConv and the broader ReproNim ecosystem — and exposes them via the ///repronim/containers DataLad dataset path, making it trivial to pin and share exact software environments alongside data and workflows.</li>
 		  </ul>
+		</details>
 		<details class="people">
 		  <summary>5 people</summary>
 		  <ul class="people-list">
