@@ -789,7 +789,7 @@ def test_top_menu_order(tmp_path):
               re.findall(r"<a [^>]*>(.*?)</a>", t[i:j], re.S)]
     menu = [x for x in labels if x != "Center for Open Neuroscience"]
     assert menu == ["Who we are", "Projects", "Engage", "Support",
-                    "Talks", "Hub", "CONTube"], menu
+                    "Publications", "Hub", "CONTube"], menu
 
 
 @pytest.mark.ai_generated
@@ -1012,6 +1012,8 @@ def test_publications_lists_every_record_once_in_its_section():
     sections = dict(zip(heads, re.split(r"<h1>.*?</h1>", out)[1:]))
     assert "Ecosystem of Standards in Neuroscience" in sections["Posters"]
     assert "DataLad: distributed system" in sections["Papers and reports"]
+    # the Talks menu item is gone; its site is reached from here
+    assert "centerforopenneuroscience/talks/\">Talks site</a>" in sections["Talks"]
 
 
 @pytest.mark.ai_generated

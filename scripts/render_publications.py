@@ -31,6 +31,9 @@ from conrecords import (
 )
 from render_whoweare import page_anchors
 
+# the slides themselves, which this page's talks link into
+TALKS_SITE = "https://datasets.datalad.org/centerforopenneuroscience/talks/"
+
 # section -> the record kinds it holds; anything else is a paper
 POSTERS = {"fabio:ConferencePoster"}
 TALKS = {"bibo:Slideshow"}
@@ -113,9 +116,9 @@ def render():
     out = ['<html>', '', '<head>', '\t<title>Publications</title>',
            '\t<meta name="url" content="publications" />',
            '\t<meta name="save_as" content="publications.html" />',
-           '\t<meta name="show_in_top_menu" content="false" />',
-           # the menu sorts every page by it, shown or not
-           '\t<meta name="order" content="10" />',
+           # in the menu where the external Talks link was
+           '\t<meta name="show_in_top_menu" content="true" />',
+           '\t<meta name="order" content="6" />',
            '\t<meta name="show_as_selected" content="publications" />',
            '\t<meta name="table_of_contents" content="true" />',
            '\t<meta name="description" content="Papers, posters and talks, '
@@ -128,7 +131,11 @@ def render():
         mine = [d for d in rows if section_of(d) == sec]
         if not mine:
             continue
-        out += [f'\t<h1>{html.escape(sec)}</h1>', '\t<ul class="publication-list">']
+        out.append(f'\t<h1>{html.escape(sec)}</h1>')
+        if sec == "Talks":
+            out.append(f'\t<p>Slides of these and other talks are also collected '
+                       f'on our <a href="{TALKS_SITE}">Talks site</a>.</p>')
+        out.append('\t<ul class="publication-list">')
         out += [entry(d, by_pid, by_name, projs) for d in mine]
         out.append('\t</ul>')
     out += ['  </div>', '  </section>', '</body>', '', '</html>']
