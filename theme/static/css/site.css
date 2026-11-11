@@ -880,28 +880,39 @@ ul>.list-group-item:before {
 
 /* "N people": the reverse of whoweare's "related projects", closed by
    default because there the description is the content and this is an
-   index into whoweare.  Same drawn marker as the components above. */
-.projects details.people { margin: 0.4em 0; }
-.projects details.people > summary {
+   index into whoweare.  Same drawn marker as the components above.
+   "N publications" is the same disclosure, an index into publications. */
+.projects details.people,
+.projects details.publications { margin: 0.4em 0; }
+.projects details.people > summary,
+.projects details.publications > summary {
   cursor: pointer;
   color: #777;
   font-size: 0.92em;
   list-style: none;
 }
-.projects details.people > summary::-webkit-details-marker { display: none; }
-.projects details.people > summary::before {
+.projects details.people > summary::-webkit-details-marker,
+.projects details.publications > summary::-webkit-details-marker { display: none; }
+.projects details.people > summary::before,
+.projects details.publications > summary::before {
   content: "\25B8";
   display: inline-block;
   width: 1em;
   color: #999;
   transition: transform .15s ease;
 }
-.projects details.people[open] > summary::before { transform: rotate(90deg); }
-.projects details.people > summary:hover { color: #337ab7; }
-.projects ul.people-list { margin: 0.4em 0 0.8em 0; }
-.projects ul.people-list > li { font-size: 0.92em; color: #666; }
-/* the components a role is held through; the theme letter-spaces <small> */
-.projects ul.people-list small {
+.projects details.people[open] > summary::before,
+.projects details.publications[open] > summary::before { transform: rotate(90deg); }
+.projects details.people > summary:hover,
+.projects details.publications > summary:hover { color: #337ab7; }
+.projects ul.people-list,
+.projects ul.publication-list { margin: 0.4em 0 0.8em 0; }
+.projects ul.people-list > li,
+.projects ul.publication-list > li { font-size: 0.92em; color: #666; }
+/* the components a role is held through, a publication's year; the theme
+   letter-spaces <small> */
+.projects ul.people-list small,
+.projects ul.publication-list small {
   font-family: inherit; letter-spacing: normal; font-size: 0.9em; color: #999;
 }
 
@@ -1030,6 +1041,14 @@ ul>.list-group-item:before {
 	margin: 0 auto 0.3em auto;
 }
 
+/* objectives: publications that name the objective, after its projects */
+.objectives .objective-reading {
+	margin-bottom: 0.2em;
+}
+.objectives .objective-publications {
+	margin-bottom: 2em;
+}
+
 /* support: each funder's grants under its logo */
 .support .funder h2 {
 	font-size: 1.5em;
@@ -1055,6 +1074,17 @@ ul>.list-group-item:before {
 }
 .support .grant-meta,
 .support .grant-projects {
+	display: block;
+	font-size: 90%;
+	color: #666;
+}
+
+/* publications.html: each entry as a grant is on support.html */
+.publications ul.publication-list > li {
+	margin-bottom: 0.6em;
+}
+.publications .pub-meta,
+.publications .pub-projects {
 	display: block;
 	font-size: 90%;
 	color: #666;

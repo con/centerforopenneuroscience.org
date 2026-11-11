@@ -23,6 +23,10 @@ from conrecords import (
     TIERS,
     one,
     person_name,
+    publication_date,
+    publication_projects,
+    publication_url,
+    publications,
     role_labels,
     toc_hook,
     write_page,
@@ -335,6 +339,11 @@ def render():
                for r in rows}
     components = instruments_by_project()
     children = subprojects_by_parent()
+    # newest first, as publications() returns them
+    pubs = {}
+    for p in publications():
+        for pid in publication_projects(p):
+            pubs.setdefault(pid, []).append(p)
     intros = (yaml.safe_load(INTROS.read_text()) or {}).get("projects", {}) \
         if INTROS.exists() else {}
     out = ['<html>', '', '<head>', '\t<title>Projects</title>',
@@ -475,6 +484,23 @@ def render():
                         for r, v in roles)
                     out.append(f'\t\t    <li>{label}'
                                + (f' &#8212; {role}' if role else '') + '</li>')
+                out.append('\t\t  </ul>')
+                out.append('\t\t</details>')
+            # Closed like the people: an index into the publications page.
+            mine = pubs.get(d["pid"]) or []
+            if mine:
+                out.append('\t\t<details class="publications">')
+                out.append(f'\t\t  <summary>{len(mine)} '
+                           f'{"publication" if len(mine) == 1 else "publications"}'
+                           '</summary>')
+                out.append('\t\t  <ul class="publication-list">')
+                for p in mine:
+                    url, year = publication_url(p), (publication_date(p) or "")[:4]
+                    title = html.escape(p["title"])
+                    if url:
+                        title = f'<a href="{html.escape(url)}">{title}</a>'
+                    out.append(f'\t\t    <li>{title}'
+                               + (f' <small>({year})</small>' if year else '') + '</li>')
                 out.append('\t\t  </ul>')
                 out.append('\t\t</details>')
             out.append('\t  </div>')

@@ -31,7 +31,8 @@ PAGES = {"content/pages/whoweare.html": ["render_whoweare.py"],
          "content/pages/projects.html": ["render_projects.py"],
          "theme/templates/includes/objectives.html": ["render_objectives.py"],
          "content/pages/objectives.html": ["render_objectives.py", "--page"],
-         "content/pages/support.html": ["render_support.py"]}
+         "content/pages/support.html": ["render_support.py"],
+         "content/pages/publications.html": ["render_publications.py"]}
 
 
 def run(script, *args):

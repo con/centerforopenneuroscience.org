@@ -14,14 +14,23 @@ the same list, with the same filter, as the store's own homepage template.
 With --page, content/pages/objectives.html: each objective in full, followed
 by the projects that name it in their own `influenced_by`, linked the way
 whoweare links them -- to the project's entry on the projects page when it
-has one, to its own site otherwise.
+has one, to its own site otherwise.  Publications that name an objective in
+their own `influenced_by` follow its projects, as key reading for it.
 """
 import argparse
 import html
 import re
 import sys
 
-from conrecords import RECORDS, load_yaml, toc_hook, write_page
+from conrecords import (
+    RECORDS,
+    load_yaml,
+    publication_date,
+    publication_url,
+    publications,
+    toc_hook,
+    write_page,
+)
 from render_projects import logo_for
 from render_whoweare import page_anchors
 
@@ -130,9 +139,20 @@ def projects_by_objective():
     return {k: sorted(v, key=lambda r: r[0].lower()) for k, v in out.items()}
 
 
+def publications_by_objective():
+    """objective pid -> [publication record, ...], newest first."""
+    out = {}
+    for d in publications():
+        for inf in d.get("influenced_by") or []:
+            if inf["object"].startswith(PREFIX):
+                out.setdefault(inf["object"], []).append(d)
+    return out
+
+
 def render_page():
     rows, skipped = objectives()
     projects = projects_by_objective()
+    pubs = publications_by_objective()
     out = ['<html>', '', '<head>', '\t<title>Objectives</title>',
            '\t<meta name="url" content="objectives" />',
            '\t<meta name="save_as" content="objectives.html" />',
@@ -154,9 +174,8 @@ def render_page():
                 f'\t<p>{inline(first)}</p>']
         out += [f'\t<p class="pitch">{inline(p)}</p>' for p in rest]
         mine = projects.get(d["pid"]) or []
-        if not mine:
-            continue
-        out.append('\t<ul class="objective-projects">')
+        if mine:
+            out.append('\t<ul class="objective-projects">')
         for label, href, logo, note in mine:
             img = f'<img src="{html.escape(logo)}" alt="" />' if logo else ''
             name = f'{img}<span>{html.escape(label)}</span>'
@@ -164,7 +183,19 @@ def render_page():
                 tip = f' title="{html.escape(note)}"' if note else ''
                 name = f'<a href="{html.escape(href)}"{tip}>{name}</a>'
             out.append(f'\t  <li>{name}</li>')
-        out.append('\t</ul>')
+        if mine:
+            out.append('\t</ul>')
+        reading = pubs.get(d["pid"]) or []
+        if reading:
+            out += ['\t<p class="objective-reading"><strong>Read more:</strong></p>',
+                    '\t<ul class="objective-publications">']
+            for p in reading:
+                url, year = publication_url(p), (publication_date(p) or "")[:4]
+                title = html.escape(p["title"])
+                if url:
+                    title = f'<a href="{html.escape(url)}">{title}</a>'
+                out.append(f'\t  <li>{title}' + (f' ({year})' if year else '') + '</li>')
+            out.append('\t</ul>')
     out += ['  </div>', '  </section>', '</body>', '', '</html>']
     return "\n".join(out) + "\n", skipped
 

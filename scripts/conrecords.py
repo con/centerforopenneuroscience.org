@@ -98,6 +98,41 @@ def toc_hook(text):
 
 
 
+def publications():
+    """Every publication record, newest first; an undated one last.
+
+    Here rather than in render_publications.py because the projects page
+    lists each project's publications too, and render_publications imports
+    render_projects for its anchors.
+    """
+    out = [load_yaml(f) for f in sorted((RECORDS / "XYZPublication").glob("*.yaml"))]
+    return sorted(out, key=lambda d: (publication_date(d) or "", d["title"]),
+                  reverse=True)
+
+
+def publication_date(d):
+    """When it was given (a talk, a poster) or else issued, as YYYY[-MM[-DD]]."""
+    gen = [g["at_time"] for g in d.get("generated_by") or [] if g.get("at_time")]
+    when = str(gen[0] if gen else one(d, "dcterms:issued") or "")
+    return when.replace("/", "-")[:10] or None
+
+
+def publication_url(d):
+    """Its own page, else its DOI, else the first web address it carries."""
+    ids = d.get("identifiers") or []
+    doi = next((i["notation"] for i in ids if i.get("schema_type") == "dlthings:DOI"), None)
+    return (one(d, "foaf:homepage")
+            or (f"https://doi.org/{doi}" if doi else None)
+            or next((i["notation"] for i in ids
+                     if str(i.get("notation", "")).startswith("http")), None))
+
+
+def publication_projects(d):
+    """The projects that produced it: its `generated_by`, less CON itself."""
+    return [g["object"] for g in d.get("generated_by") or []
+            if str(g.get("object", "")).startswith("xyzrins:projects/")]
+
+
 def write_page(markup, out, skipped):
     """Write a generated page, or refuse to.
 

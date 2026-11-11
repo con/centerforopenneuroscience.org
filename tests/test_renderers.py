@@ -81,7 +81,7 @@ def store_copy(tmp_path):
 @pytest.mark.parametrize("page", [["render_whoweare.py"], ["render_projects.py"],
                                   ["render_objectives.py"],
                                   ["render_objectives.py", "--page"],
-                                  ["render_support.py"]])
+                                  ["render_support.py"], ["render_publications.py"]])
 def test_output_is_well_formed_xml(page):
     """The ToC extension parses with strict ElementTree and, on a parse
     error, returns the page UNCHANGED -- so one malformed tag silently drops
@@ -1000,3 +1000,48 @@ def test_a_grant_without_a_known_funder_is_reported_not_silent(store_copy):
     f.write_text(yaml.safe_dump(d))
     p = run("render_support.py", store=store_copy, expect=2)
     assert "nsf-1429999" in p.stderr
+
+
+@pytest.mark.ai_generated
+def test_publications_lists_every_record_once_in_its_section():
+    out = run("render_publications.py").stdout
+    records = list((STORE / "metadata/records/XYZPublication").glob("*.yaml"))
+    assert out.count('<span class="pub-title">') == len(records)
+    heads = re.findall(r"<h1>(.*?)</h1>", out)
+    assert heads == ["Papers and reports", "Posters", "Talks"]
+    sections = dict(zip(heads, re.split(r"<h1>.*?</h1>", out)[1:]))
+    assert "Ecosystem of Standards in Neuroscience" in sections["Posters"]
+    assert "DataLad: distributed system" in sections["Papers and reports"]
+
+
+@pytest.mark.ai_generated
+def test_a_publication_names_its_projects_and_a_partial_author_list_says_so():
+    out = run("render_publications.py").stdout
+    joss = next(li for li in out.split("<li>") if "DataLad: distributed system" in li)
+    # generated_by DataLad, which has an entry on the projects page
+    assert re.search(r'Projects: <a href="/projects#datalad_">DataLad</a>', joss)
+    assert "https://doi.org/10.21105/joss.03262" in joss
+    # the record names only the authors with person records
+    assert "Authors include " in joss
+    # a record with the full bibo:authorList shows it as it is
+    poster = next(li for li in out.split("<li>") if "Ecosystem of Standards" in li)
+    assert "Authors include" not in poster and "Lyuba Zehl" in poster
+
+
+@pytest.mark.ai_generated
+def test_projects_page_lists_a_projects_publications(projects):
+    entry = projects[projects.index('id="datalad"'):]
+    entry = entry[:entry.index('<div class="row">')]
+    pubs = entry[entry.index('<details class="publications">'):]
+    assert "DataLad: distributed system" in pubs
+    assert re.search(r"<summary>\d+ publications</summary>", pubs)
+
+
+@pytest.mark.ai_generated
+def test_a_publication_naming_an_objective_is_listed_under_it():
+    out = run("render_objectives.py", "--page").stdout
+    heads = re.findall(r"<h2>(.*?)</h2>", out)
+    sections = dict(zip(heads, re.split(r"<h2>.*?</h2>", out)[1:]))
+    connect = sections["Connect tools, standards, and communities"]
+    assert "Ecosystem of Standards in Neuroscience" in connect
+    assert "Ecosystem of Standards" not in sections["Preserve research artifacts"]
