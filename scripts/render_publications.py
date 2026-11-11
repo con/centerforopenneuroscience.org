@@ -11,9 +11,17 @@ A record names only the authors who have person records, unless it carries
 the full `bibo:authorList`.  Without the full list the entry says "Authors
 include", so a paper with thirty authors does not read as written by the two
 the store knows.
+
+With --json, theme/static/data/publications.json: the same entries, and the
+projects and people they name, for theme/static/js/publications.js to search
+and filter in the browser -- the whole publications page, and the lists that
+open under a project on the projects page and a person on whoweare.  The
+HTML page keeps the plain lists as what a reader without JavaScript gets.
 """
 import argparse
 import html
+import json
+import pathlib
 import sys
 
 from conrecords import (
@@ -38,6 +46,8 @@ TALKS_SITE = "https://datasets.datalad.org/centerforopenneuroscience/talks/"
 POSTERS = {"fabio:ConferencePoster"}
 TALKS = {"bibo:Slideshow"}
 SECTIONS = ["Papers and reports", "Posters", "Talks"]
+# section -> the `type` a filter takes
+TYPE = {"Papers and reports": "paper", "Posters": "poster", "Talks": "talk"}
 
 
 def section_of(d):
@@ -74,45 +84,77 @@ def link(label, href):
     return f'<a href="{html.escape(href)}">{label}</a>' if href else label
 
 
+def slug(pid):
+    """`xyzrins:persons/jane-doe` -> `jane-doe`: what a filter is given."""
+    return pid.rsplit("/", 1)[-1]
+
+
 def authors(d, by_pid, by_name):
+    """[(name, href or None), ...], and whether that is the full list."""
     full = one(d, "bibo:authorList")
     if full:
-        return [link(n.strip(), by_name.get(n.strip()))
-                for n in full.split(";") if n.strip()]
+        return [(n.strip(), by_name.get(n.strip()))
+                for n in full.split(";") if n.strip()], True
     seen, out = set(), []
     for a in d.get("attributed_to") or []:
         who = a.get("object")
         if who in by_pid and who not in seen:
             seen.add(who)
-            out.append(link(*by_pid[who]))
-    return out
+            out.append(by_pid[who])
+    return out, False
 
 
-def entry(d, by_pid, by_name, projs):
-    bits = [f'<span class="pub-title">{link(d["title"], publication_url(d))}</span>']
-    names = ", ".join(authors(d, by_pid, by_name))
-    if names and not one(d, "bibo:authorList"):
+def model():
+    """Everything both outputs show: the entries, newest first, and the
+    projects and people they name, keyed by the slugs a filter takes."""
+    by_pid, by_name = people()
+    projs = projects()
+    entries, used_projects, used_people = [], {}, {}
+    for d in publications():
+        names, complete = authors(d, by_pid, by_name)
+        mine = sorted((p for p in publication_projects(d) if p in projs),
+                      key=lambda p: projs[p][0].lower())
+        who = []
+        for a in d.get("attributed_to") or []:
+            pid = a.get("object")
+            if pid in by_pid and slug(pid) not in who:
+                who.append(slug(pid))
+                used_people[slug(pid)] = by_pid[pid]
+        for p in mine:
+            used_projects[slug(p)] = projs[p]
+        date = publication_date(d) or ""
+        entries.append({
+            "title": d["title"], "url": publication_url(d),
+            "date": date, "year": date[:4], "type": TYPE[section_of(d)],
+            "venue": one(d, "bibo:presentedAt"),
+            "authors": names, "authors_complete": complete,
+            "projects": [slug(p) for p in mine], "people": who,
+            "pdf": one(d, "dcat:downloadURL"), "video": one(d, "schema:video")})
+    return {"types": {TYPE[s]: s for s in SECTIONS},
+            "projects": dict(sorted(used_projects.items())),
+            "people": dict(sorted(used_people.items())),
+            "publications": entries}
+
+
+def entry(e, projs):
+    bits = [f'<span class="pub-title">{link(e["title"], e["url"])}</span>']
+    names = ", ".join(link(*a) for a in e["authors"])
+    if names and not e["authors_complete"]:
         names = "Authors include " + names
-    meta = [names,
-            html.escape(one(d, "bibo:presentedAt") or ""),
-            (publication_date(d) or "")[:4]]
-    extra = [link(label, one(d, pred)) for label, pred in
-             (("PDF", "dcat:downloadURL"), ("video", "schema:video")) if one(d, pred)]
+    meta = [names, html.escape(e["venue"] or ""), e["year"]]
+    extra = [link(label, e[key]) for label, key in
+             (("PDF", "pdf"), ("video", "video")) if e[key]]
     meta = [m for m in meta if m] + extra
     if meta:
         bits.append(f'<span class="pub-meta">{" &#183; ".join(meta)}</span>')
-    mine = sorted((projs[p] for p in publication_projects(d) if p in projs),
-                  key=lambda r: r[0].lower())
-    if mine:
+    if e["projects"]:
         bits.append('<span class="pub-projects">Projects: '
-                    + ", ".join(link(*p) for p in mine) + '</span>')
+                    + ", ".join(link(*projs[p]) for p in e["projects"]) + '</span>')
     return '\t\t<li>' + ' '.join(bits) + '</li>'
 
 
 def render():
-    by_pid, by_name = people()
-    projs = projects()
-    rows = publications()
+    m = model()
     out = ['<html>', '', '<head>', '\t<title>Publications</title>',
            '\t<meta name="url" content="publications" />',
            '\t<meta name="save_as" content="publications.html" />',
@@ -120,33 +162,50 @@ def render():
            '\t<meta name="show_in_top_menu" content="true" />',
            '\t<meta name="order" content="6" />',
            '\t<meta name="show_as_selected" content="publications" />',
-           '\t<meta name="table_of_contents" content="true" />',
+           # the filters replace the sidebar: a type filter is its sections
+           '\t<meta name="table_of_contents" content="false" />',
            '\t<meta name="description" content="Papers, posters and talks, '
            'and the projects behind them" />',
            '\t<meta name="author" content="CON" />',
            '\t<!-- GENERATED from con-site-specific by scripts/render_publications.py',
            '\t     Edit the records, not this file. -->',
-           '</head>', '', '<body>', '  <section>', '  <div id="publications">']
+           '</head>', '', '<body>', '  <section>',
+           f'\t<p class="pub-intro">Slides of our talks are also collected on our '
+           f'<a href="{TALKS_SITE}">Talks site</a>.</p>',
+           # publications.js replaces the lists below with the filterable
+           # view of the same records; without JavaScript they are the page
+           '  <div id="publications" data-pub-app="">']
     for sec in SECTIONS:
-        mine = [d for d in rows if section_of(d) == sec]
+        mine = [e for e in m["publications"] if e["type"] == TYPE[sec]]
         if not mine:
             continue
-        out.append(f'\t<h1>{html.escape(sec)}</h1>')
-        if sec == "Talks":
-            out.append(f'\t<p>Slides of these and other talks are also collected '
-                       f'on our <a href="{TALKS_SITE}">Talks site</a>.</p>')
-        out.append('\t<ul class="publication-list">')
-        out += [entry(d, by_pid, by_name, projs) for d in mine]
+        out += [f'\t<h2>{html.escape(sec)}</h2>', '\t<ul class="publication-list">']
+        out += [entry(e, m["projects"]) for e in mine]
         out.append('\t</ul>')
     out += ['  </div>', '  </section>', '</body>', '', '</html>']
     return "\n".join(out) + "\n", []
+
+
+def render_json():
+    """The records publications.js filters, fetched once per browser session."""
+    return json.dumps(model(), indent=1, ensure_ascii=False) + "\n"
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--out")
+    ap.add_argument("--json", action="store_true",
+                    help="write the records as JSON for publications.js instead")
     a = ap.parse_args()
+    if a.json:
+        text = render_json()
+        if a.out:
+            pathlib.Path(a.out).write_text(text)
+            print(f"wrote {a.out}")
+        else:
+            print(text, end="")
+        return 0
     markup, skipped = render()
     return write_page(markup, a.out, skipped)
 

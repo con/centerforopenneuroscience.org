@@ -38,6 +38,7 @@ flowchart TB
     THEME["theme/static/img/KIND/SLUG/"]
     PAGES["content/pages/whoweare.html<br/>content/pages/projects.html<br/>content/pages/objectives.html<br/>content/pages/support.html<br/>content/pages/publications.html<br/><i>a page fragment: headings, ids, prose</i>"]
     OBJ["theme/templates/includes/objectives.html<br/><i>the front page's objectives</i>"]
+    PUBJ["theme/static/data/publications.json<br/><i>fetched by theme/static/js/publications.js<br/>to search and filter in the browser</i>"]
     TOC["jinjaext/table_of_contents.py<br/><i>rewrites every id to a text hook<br/>and builds the sidebar tree</i>"]
     OUT["output/projects.html · output/whoweare.html<br/><i>the page a browser sees</i>"]
     DECK["../talks<br/><i>the Acknowledgements slide</i>"]
@@ -57,6 +58,7 @@ flowchart TB
   SUB -->|"<b>datalad run</b><br/>render_whoweare.py"| PAGES
   SUB -->|"<b>datalad run</b><br/>render_projects.py"| PAGES
   SUB -->|"<b>datalad run</b><br/>render_objectives.py"| OBJ
+  SUB -->|"<b>datalad run</b><br/>render_publications.py --json"| PUBJ
   SUB -->|"<b>datalad run</b><br/>render_objectives.py --page<br/>render_support.py<br/>render_publications.py"| PAGES
   SUB -->|"render_ack_projects.py"| DECK
   INTRO --> PAGES
@@ -79,18 +81,19 @@ flowchart TB
 
 ## Which command alters what
 
-| command                                   | reads                                                                              | writes                                                                             | run under         |
-| ----------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ----------------- |
-| **`sync_assets_to_theme.py --write`**     | submodule `content/`                                                               | `theme/static/img/{projects,instruments,organizations}/`, `theme/static/img/team/` | **`datalad run`** |
-| **`render_whoweare.py --out …`**          | submodule `metadata/records/`, submodule `content/`, `content/section-intros.yaml` | `content/pages/whoweare.html`                                                      | **`datalad run`** |
-| **`render_projects.py --out …`**          | the same three                                                                     | `content/pages/projects.html`                                                      | **`datalad run`** |
-| **`render_objectives.py --out …`**        | submodule `metadata/records/`                                                      | `theme/templates/includes/objectives.html`                                         | **`datalad run`** |
-| **`render_objectives.py --page --out …`** | submodule `metadata/records/`                                                      | `content/pages/objectives.html`                                                    | **`datalad run`** |
-| **`render_support.py --out …`**           | submodule `metadata/records/`, `content/section-intros.yaml`                       | `content/pages/support.html`                                                       | **`datalad run`** |
-| **`render_publications.py --out …`**      | submodule `metadata/records/`                                                      | `content/pages/publications.html`                                                  | **`datalad run`** |
-| `render_ack_projects.py`                  | submodule `metadata/records/`, `content/selections/`                               | the deck's generated block (stdout, or `--out`)                                    | by hand           |
-| `pelican content -o output`               | `content/`, `theme/`, `jinjaext/`                                                  | `output/`                                                                          | build step        |
-| `pytest tests/`                           | scripts, records, a throwaway build                                                | nothing                                                                            | gate              |
+| command                                     | reads                                                                              | writes                                                                             | run under         |
+| ------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ----------------- |
+| **`sync_assets_to_theme.py --write`**       | submodule `content/`                                                               | `theme/static/img/{projects,instruments,organizations}/`, `theme/static/img/team/` | **`datalad run`** |
+| **`render_whoweare.py --out …`**            | submodule `metadata/records/`, submodule `content/`, `content/section-intros.yaml` | `content/pages/whoweare.html`                                                      | **`datalad run`** |
+| **`render_projects.py --out …`**            | the same three                                                                     | `content/pages/projects.html`                                                      | **`datalad run`** |
+| **`render_objectives.py --out …`**          | submodule `metadata/records/`                                                      | `theme/templates/includes/objectives.html`                                         | **`datalad run`** |
+| **`render_objectives.py --page --out …`**   | submodule `metadata/records/`                                                      | `content/pages/objectives.html`                                                    | **`datalad run`** |
+| **`render_support.py --out …`**             | submodule `metadata/records/`, `content/section-intros.yaml`                       | `content/pages/support.html`                                                       | **`datalad run`** |
+| **`render_publications.py --out …`**        | submodule `metadata/records/`                                                      | `content/pages/publications.html`                                                  | **`datalad run`** |
+| **`render_publications.py --json --out …`** | submodule `metadata/records/`                                                      | `theme/static/data/publications.json`                                              | **`datalad run`** |
+| `render_ack_projects.py`                    | submodule `metadata/records/`, `content/selections/`                               | the deck's generated block (stdout, or `--out`)                                    | by hand           |
+| `pelican content -o output`                 | `content/`, `theme/`, `jinjaext/`                                                  | `output/`                                                                          | build step        |
+| `pytest tests/`                             | scripts, records, a throwaway build                                                | nothing                                                                            | gate              |
 
 There is a third consumer, and it lives in the store rather than here: the
 records also project **their own site**, through `projection.yaml` and

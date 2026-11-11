@@ -133,6 +133,24 @@ def publication_projects(d):
             if str(g.get("object", "")).startswith("xyzrins:projects/")]
 
 
+def publications_details(key, pid, n, indent, cls="publications"):
+    """A closed "N publications" list that publications.js fills when opened.
+
+    key is the filter (project, person) and pid the record it names.  The
+    count is known here; the entries are fetched only once someone opens
+    it.  The link inside works without JavaScript too: to the publications
+    page, filtered the same way.
+    """
+    slug = pid.rsplit("/", 1)[-1]
+    return [f'{indent}<details class="{cls}" data-pub-filter="{key}={slug}">',
+            f'{indent}  <summary>{n} {"publication" if n == 1 else "publications"}'
+            '</summary>',
+            f'{indent}  <div class="pub-slot"></div>',
+            f'{indent}  <p class="pub-more"><a href="/publications?{key}={slug}">'
+            'Search and filter them on the publications page</a></p>',
+            f'{indent}</details>']
+
+
 def write_page(markup, out, skipped):
     """Write a generated page, or refuse to.
 

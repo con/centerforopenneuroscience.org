@@ -23,10 +23,9 @@ from conrecords import (
     TIERS,
     one,
     person_name,
-    publication_date,
     publication_projects,
-    publication_url,
     publications,
+    publications_details,
     role_labels,
     toc_hook,
     write_page,
@@ -486,23 +485,11 @@ def render():
                                + (f' &#8212; {role}' if role else '') + '</li>')
                 out.append('\t\t  </ul>')
                 out.append('\t\t</details>')
-            # Closed like the people: an index into the publications page.
+            # Closed like the people; filled from the publications' JSON
+            # only when opened.
             mine = pubs.get(d["pid"]) or []
             if mine:
-                out.append('\t\t<details class="publications">')
-                out.append(f'\t\t  <summary>{len(mine)} '
-                           f'{"publication" if len(mine) == 1 else "publications"}'
-                           '</summary>')
-                out.append('\t\t  <ul class="publication-list">')
-                for p in mine:
-                    url, year = publication_url(p), (publication_date(p) or "")[:4]
-                    title = html.escape(p["title"])
-                    if url:
-                        title = f'<a href="{html.escape(url)}">{title}</a>'
-                    out.append(f'\t\t    <li>{title}'
-                               + (f' <small>({year})</small>' if year else '') + '</li>')
-                out.append('\t\t  </ul>')
-                out.append('\t\t</details>')
+                out += publications_details("project", d["pid"], len(mine), "\t\t")
             out.append('\t  </div>')
     out += ['  </section>', '</body>', '', '</html>', '']
     return "\n".join(out), order, skipped

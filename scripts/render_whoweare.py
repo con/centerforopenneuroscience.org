@@ -26,6 +26,8 @@ from conrecords import (
     attrs,
     one,
     person_name,
+    publications,
+    publications_details,
     role_labels,
     toc_hook,
     write_page,
@@ -247,6 +249,11 @@ def contact_links(d):
 def render():
     people, dates = load_people(), joined()
     leads, related = led_organizations(), related_projects()
+    # person pid -> how many publications name them
+    authored = {}
+    for p in publications():
+        for who in {a.get("object") for a in p.get("attributed_to") or []}:
+            authored[who] = authored.get(who, 0) + 1
     rows, skipped = [], []
     # the order render() actually used, for --show-order
     order = []
@@ -345,6 +352,10 @@ def render():
                     out.append(f'\t\t    <li>{label}{role}</li>')
                 out.append('\t\t  </ul>')
                 out.append('\t\t</details>')
+            if authored.get(r["pid"]):
+                out.extend(publications_details(
+                    "person", r["pid"], authored[r["pid"]], "\t\t",
+                    "col-md-9 col-sm-9 publications"))
             out.append('\t  </div>')
 
     for tier in TIERS:

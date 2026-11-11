@@ -21,6 +21,7 @@ One test per scar.
 """
 import html
 import http.server
+import json
 import os
 import pathlib
 import re
@@ -677,7 +678,7 @@ def test_menu_sidebar_entries_and_cross_page_links_in_a_browser(served_site):
             ".navbar-collapse a[href^='/']",
             "els => els.map(e => [e.textContent.trim(), e.getAttribute('href')])")
         assert [t for t, _ in menu] == ["Who we are", "Projects", "Engage",
-                                        "Support"], menu
+                                        "Support", "Publications"], menu
         for text, href in menu:
             pg.goto(f"{served_site}/index.html")
             with pg.expect_navigation():
@@ -1007,13 +1008,15 @@ def test_publications_lists_every_record_once_in_its_section():
     out = run("render_publications.py").stdout
     records = list((STORE / "metadata/records/XYZPublication").glob("*.yaml"))
     assert out.count('<span class="pub-title">') == len(records)
-    heads = re.findall(r"<h1>(.*?)</h1>", out)
+    heads = re.findall(r"<h2>(.*?)</h2>", out)
     assert heads == ["Papers and reports", "Posters", "Talks"]
-    sections = dict(zip(heads, re.split(r"<h1>.*?</h1>", out)[1:]))
+    sections = dict(zip(heads, re.split(r"<h2>.*?</h2>", out)[1:]))
     assert "Ecosystem of Standards in Neuroscience" in sections["Posters"]
     assert "DataLad: distributed system" in sections["Papers and reports"]
     # the Talks menu item is gone; its site is reached from here
-    assert "centerforopenneuroscience/talks/\">Talks site</a>" in sections["Talks"]
+    assert "centerforopenneuroscience/talks/\">Talks site</a>" in out
+    # the static lists are what publications.js replaces
+    assert 'data-pub-app=""' in out
 
 
 @pytest.mark.ai_generated
@@ -1032,11 +1035,87 @@ def test_a_publication_names_its_projects_and_a_partial_author_list_says_so():
 
 @pytest.mark.ai_generated
 def test_projects_page_lists_a_projects_publications(projects):
+    """The count is on the page; the entries come from the JSON when the
+    list is opened, so the two must agree."""
     entry = projects[projects.index('id="datalad"'):]
     entry = entry[:entry.index('<div class="row">')]
-    pubs = entry[entry.index('<details class="publications">'):]
-    assert "DataLad: distributed system" in pubs
-    assert re.search(r"<summary>\d+ publications</summary>", pubs)
+    pubs = entry[entry.index('<details class="publications"'):]
+    assert 'data-pub-filter="project=datalad"' in pubs
+    n = int(re.search(r"<summary>(\d+) publications</summary>", pubs).group(1))
+    data = json.loads(run("render_publications.py", "--json").stdout)
+    assert n == sum("datalad" in e["projects"] for e in data["publications"])
+    # without JavaScript, the same filter on the publications page
+    assert 'href="/publications?project=datalad"' in pubs
+
+
+@pytest.mark.ai_generated
+def test_whoweare_lists_a_persons_publications(whoweare):
+    entry = whoweare[whoweare.index("<h3>Yaroslav O. Halchenko</h3>"):]
+    entry = entry[:entry.index('<div class="row">')]
+    m = re.search(r'data-pub-filter="person=yaroslav-halchenko">\s*'
+                  r'<summary>(\d+) publications</summary>', entry)
+    data = json.loads(run("render_publications.py", "--json").stdout)
+    assert int(m.group(1)) == sum("yaroslav-halchenko" in e["people"]
+                                  for e in data["publications"])
+
+
+@pytest.mark.ai_generated
+def test_publications_json_holds_every_record_and_what_it_names():
+    data = json.loads(run("render_publications.py", "--json").stdout)
+    records = list((STORE / "metadata/records/XYZPublication").glob("*.yaml"))
+    assert len(data["publications"]) == len(records)
+    dates = [e["date"] for e in data["publications"]]
+    assert dates == sorted(dates, reverse=True)
+    for e in data["publications"]:
+        assert e["type"] in data["types"]
+        assert set(e["projects"]) <= set(data["projects"])
+        assert set(e["people"]) <= set(data["people"])
+    joss = next(e for e in data["publications"]
+                if e["title"].startswith("DataLad: distributed system"))
+    assert "datalad" in joss["projects"] and not joss["authors_complete"]
+    assert data["projects"]["datalad"] == ["DataLad", "/projects#datalad_"]
+
+
+@pytest.mark.ai_generated
+def test_publications_js_filters(tmp_path):
+    """The filter publications.js applies in the browser, run under node."""
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("no node")
+    data = tmp_path / "p.json"
+    data.write_text(run("render_publications.py", "--json").stdout)
+    js = r"""
+    const P = require(process.argv[1]);
+    const d = JSON.parse(require("fs").readFileSync(process.argv[2]));
+    const n = f => P.filter(d, f).length, all = d.publications.length;
+    console.log(JSON.stringify({
+      all, none: n({}),
+      talk: n({type: "talk"}),
+      talks: d.publications.filter(e => e.type === "talk").length,
+      datalad: n({project: "datalad"}),
+      words: n({q: "DATALAD distributed"}),
+      accent: n({q: "Halchenko"}) === n({q: "halchénko"}),
+      range: n({year: "2015-2020"}),
+      inrange: d.publications.filter(e => e.year >= "2015" && e.year <= "2020").length,
+      open: n({year: "2020-"}),
+      since: d.publications.filter(e => e.year >= "2020").length,
+      parsed: P.parse("?project=datalad&q=a+b&bogus=1"),
+      query: P.query({q: "a b", type: "", person: "x"}),
+    }));
+    """
+    r = subprocess.run([node, "-e", js, str(HERE / "theme/static/js/publications.js"),
+                        str(data)], capture_output=True, text=True)
+    assert r.returncode == 0, r.stderr
+    got = json.loads(r.stdout)
+    assert got["none"] == got["all"]
+    assert got["talk"] == got["talks"] > 0
+    assert got["datalad"] > 5
+    assert 1 <= got["words"] < got["datalad"] + 5
+    assert got["accent"]
+    assert got["range"] == got["inrange"] > 0
+    assert got["open"] == got["since"] > 0
+    assert got["parsed"] == {"project": "datalad", "q": "a b"}
+    assert got["query"] == "q=a%20b&person=x"
 
 
 @pytest.mark.ai_generated
@@ -1047,3 +1126,48 @@ def test_a_publication_naming_an_objective_is_listed_under_it():
     connect = sections["Connect tools, standards, and communities"]
     assert "Ecosystem of Standards in Neuroscience" in connect
     assert "Ecosystem of Standards" not in sections["Preserve research artifacts"]
+
+
+@pytest.mark.ai_generated
+def test_publications_filter_and_load_on_demand_in_a_browser(served_site):
+    """publications.js, where it runs: the listing narrows as one types and
+    keeps its filters in the address; the list under a project or a person
+    fetches nothing until opened, and then shows as many as its summary
+    says."""
+    pw = pytest.importorskip("playwright.sync_api")
+    with pw.sync_playwright() as p:
+        browser = _browser(p)
+        pg = browser.new_page(viewport={"width": 1280, "height": 900})
+        errors, fetched = [], []
+        pg.on("pageerror", lambda e: errors.append(str(e)))
+        pg.on("request", lambda r: fetched.append(r.url))
+
+        pg.goto(f"{served_site}/publications?project=datalad")
+        pg.wait_for_selector(".pub-filters")
+        assert pg.input_value("select[name=project]") == "datalad"
+        some = len(pg.query_selector_all(".pub-results li"))
+        assert 5 < some < 100
+        pg.select_option("select[name=project]", "")
+        everything = len(pg.query_selector_all(".pub-results li"))
+        assert everything > some
+        pg.fill("input[name=q]", "distributed system")
+        pg.wait_for_function(
+            "n => document.querySelectorAll('.pub-results li').length < n",
+            arg=everything)
+        assert "q=distributed%20system" in pg.url
+        assert "DataLad: distributed system" in pg.inner_text(".pub-results")
+
+        for page, key in (("projects", "project=datalad"),
+                          ("whoweare", "person=yaroslav-halchenko")):
+            fetched.clear()
+            pg.goto(f"{served_site}/{page}")
+            pg.wait_for_load_state("load")
+            assert not [u for u in fetched if u.endswith(".json")], \
+                f"{page}: fetched the publications before any list was opened"
+            d = f'details[data-pub-filter="{key}"]'
+            n = int(pg.inner_text(f"{d} > summary").split()[0])
+            pg.eval_on_selector(d, "el => { el.open = true; }")
+            pg.wait_for_selector(f"{d} .pub-slot li")
+            assert len(pg.query_selector_all(f"{d} .pub-slot li")) == n
+        assert not errors, errors
+        browser.close()
