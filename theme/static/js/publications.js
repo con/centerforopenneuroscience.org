@@ -7,10 +7,10 @@
  *   CONPublications.filter(data, {q, type, year, project, person})
  *
  * where q is free text (every word must occur in the title, authors, venue,
- * year or project names; case and accents ignored), type is paper, poster
- * or talk, year is 2020, 2015-2020, 2015- or -2005, and project, person and
- * objective are the slugs of their records (datalad, yaroslav-halchenko,
- * open-science).  A publication serves the objectives it names and those of
+ * year or project names, or "preprint"; case and accents ignored), type is
+ * paper, poster, talk or dataset, year is 2020, 2015-2020, 2015- or -2005,
+ * and project, person and objective are the slugs of their records
+ * (datalad, yaroslav-halchenko, open-science).  A publication serves the objectives it names and those of
  * the projects behind it.
  *
  * render(el, f, {group: ["type", "year"]}) puts the matches under headings,
@@ -75,7 +75,8 @@
   function haystack(e, data) {
     if (e._hay === undefined) {
       var bits = [e.title, e.venue, e.year, (data.types || {})[e.type]];
-      (e.authors || []).forEach(function (a) { bits.push(a[0]); });
+      if (e.preprint) bits.push("preprint");
+      (e.authors || []).forEach(function (a) { if (a) bits.push(a[0]); });
       (e.projects || []).forEach(function (p) {
         bits.push(p, (data.projects[p] || [])[0]);
       });
@@ -191,6 +192,11 @@
     return '<span class="pub-type pub-type-' + esc(e.type) + '">' + esc(e.type) + "</span> ";
   }
 
+  /* a paper not (yet) peer reviewed */
+  function preprint(e) {
+    return e.preprint ? ' <span class="pub-preprint">preprint</span>' : "";
+  }
+
   /* "(PDF) (📺 CONTube)" after the title, as the Talks site has them */
   function alts(e) {
     var out = [];
@@ -204,9 +210,13 @@
   /* the same markup as render_publications.py's static list */
   function entry(e, data, typed) {
     var bits = [(typed ? badge(e) : "")
-                + '<span class="pub-title">' + link(e.title, e.url) + alts(e) + "</span>"];
-    var names = e.authors.map(function (a) { return link(a[0], a[1]); }).join(", ");
+                + '<span class="pub-title">' + link(e.title, e.url) + preprint(e)
+                + alts(e) + "</span>"];
+    var names = e.authors.map(function (a) {
+      return a === null ? "&#8230;" : link(a[0], a[1]);
+    }).join(", ");
     if (names && !e.authors_complete) names = "Authors include " + names;
+    else if (e.authors.indexOf(null) >= 0) names += " (" + e.authors_count + " authors)";
     var meta = [names, e.venue ? esc(e.venue) : "", e.year].filter(Boolean);
     if (meta.length) bits.push('<span class="pub-meta">' + meta.join(" &#183; ") + "</span>");
     if (e.projects.length) {
@@ -219,7 +229,7 @@
 
   /* one line each, for the lists under a project or a person */
   function brief(e, data, typed) {
-    return "<li>" + (typed ? badge(e) : "") + link(e.title, e.url) + alts(e)
+    return "<li>" + (typed ? badge(e) : "") + link(e.title, e.url) + preprint(e) + alts(e)
       + (e.year ? " <small>(" + esc(e.year) + ")</small>" : "") + "</li>";
   }
 

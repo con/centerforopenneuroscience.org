@@ -1029,12 +1029,30 @@ def test_a_grant_without_a_known_funder_is_reported_not_silent(store_copy):
 
 
 @pytest.mark.ai_generated
+def ours():
+    """The publication records with a CON member among their authors: those
+    the page lists."""
+    members = set()
+    for f in (STORE / "metadata/records/XYZPerson").glob("*.yaml"):
+        d = yaml.safe_load(f.read_text())
+        if any(a.get("predicate") == "dlthings:tier"
+               and a.get("value") in ("Centroids", "Emeritus")
+               for a in d.get("attributes") or []):
+            members.add(d["pid"])
+    out = []
+    for f in (STORE / "metadata/records/XYZPublication").glob("*.yaml"):
+        d = yaml.safe_load(f.read_text())
+        if any(a.get("object") in members for a in d.get("attributed_to") or []):
+            out.append(d)
+    return out
+
+
+@pytest.mark.ai_generated
 def test_publications_lists_every_record_once_in_its_section():
     out = run("render_publications.py").stdout
-    records = list((STORE / "metadata/records/XYZPublication").glob("*.yaml"))
-    assert out.count('<span class="pub-title">') == len(records)
+    assert out.count('<span class="pub-title">') == len(ours())
     heads = re.findall(r"<h2>(.*?)</h2>", out)
-    assert heads == ["Papers and reports", "Posters", "Talks"]
+    assert heads == ["Papers and reports", "Posters", "Talks", "Datasets"]
     sections = dict(zip(heads, re.split(r"<h2>.*?</h2>", out)[1:]))
     assert "Ecosystem of Standards in Neuroscience" in sections["Posters"]
     assert "DataLad: distributed system" in sections["Papers and reports"]
@@ -1051,11 +1069,44 @@ def test_a_publication_names_its_projects_and_a_partial_author_list_says_so():
     # generated_by DataLad, which has an entry on the projects page
     assert re.search(r'Projects: <a href="/projects#datalad_">DataLad</a>', joss)
     assert "https://doi.org/10.21105/joss.03262" in joss
-    # the record names only the authors with person records
-    assert "Authors include " in joss
+    # its full list, from Crossref: no "Authors include"
+    assert "Authors include" not in joss and "Benjamin Poldrack" in joss
+    # this record names only the authors with person records
+    partial = next(li for li in out.split("<li>") if "NeuroDebian: versatile platform" in li)
+    assert "Authors include " in partial
     # a record with the full bibo:authorList shows it as it is
     poster = next(li for li in out.split("<li>") if "Ecosystem of Standards" in li)
-    assert "Authors include" not in poster and "Lyuba Zehl" in poster
+    assert "Authors include" not in poster and "(34 authors)" in poster
+    assert "Oliver Rübel" in poster and "Yaroslav O. Halchenko" in poster
+
+
+@pytest.mark.ai_generated
+def test_publications_list_only_works_with_a_con_member():
+    """The page says affiliated faculty and collaborators are listed only for
+    works joint with CON members; a preprint of Poline's alone is not."""
+    out = run("render_publications.py").stdout
+    assert "federated multisite studies" not in out
+    assert "Gaussian Process Model of Human Electrocorticographic" not in out
+    assert '<a href="/whoweare#collaborators_">collaborators</a>' in out
+
+
+@pytest.mark.ai_generated
+def test_publications_mark_preprints_and_shorten_long_author_lists():
+    out = run("render_publications.py").stdout
+    li = [x for x in out.split("<li>") if "Behaviorally-relevant features" in x]
+    # the preprint, its paper, and the paper's dataset
+    assert len(li) == 3
+    assert sum('<span class="pub-preprint">preprint</span>' in x for x in li) == 1
+    datasets = out[out.index("<h2>Datasets</h2>"):]
+    assert "10.18112/openneuro.ds007942" in datasets or "ds007942" in datasets
+    # 274 authors: the first, last and ours, with the count
+    census = next(x for x in out.split("<li>")
+                  if "cell census" in x and "preprint" not in x)
+    assert "(274 authors)" in census and "&#8230;" in census
+    assert '/whoweare#yaroslav_o_halchenko_' in census
+    # a poster Zotero records as a poster is among the posters
+    posters = out[out.index("<h2>Posters</h2>"):out.index("<h2>Talks</h2>")]
+    assert "Fantastic containers and how to tame them" in posters
 
 
 @pytest.mark.ai_generated
@@ -1091,8 +1142,7 @@ def test_whoweare_lists_a_persons_publications(whoweare):
 @pytest.mark.ai_generated
 def test_publications_json_holds_every_record_and_what_it_names():
     data = json.loads(run("render_publications.py", "--json").stdout)
-    records = list((STORE / "metadata/records/XYZPublication").glob("*.yaml"))
-    assert len(data["publications"]) == len(records)
+    assert len(data["publications"]) == len(ours())
     dates = [e["date"] for e in data["publications"]]
     assert dates == sorted(dates, reverse=True)
     for e in data["publications"]:
@@ -1101,7 +1151,7 @@ def test_publications_json_holds_every_record_and_what_it_names():
         assert set(e["people"]) <= set(data["people"])
     joss = next(e for e in data["publications"]
                 if e["title"].startswith("DataLad: distributed system"))
-    assert "datalad" in joss["projects"] and not joss["authors_complete"]
+    assert "datalad" in joss["projects"] and joss["authors_complete"]
     assert data["projects"]["datalad"] == ["DataLad", "/projects#datalad_"]
 
 
@@ -1282,13 +1332,13 @@ def test_publications_js_groups_by_type_then_year(tmp_path):
                         str(data)], capture_output=True, text=True)
     assert r.returncode == 0, r.stderr
     got = json.loads(r.stdout)
-    assert got["top"] == ["Papers and reports", "Posters", "Talks"]
+    assert got["top"] == ["Papers and reports", "Posters", "Talks", "Datasets"]
     assert got["years"] == sorted(got["years"], reverse=True)
     assert got["ids"][0].startswith("pub-talk-")
     assert got["n"] == got["all"]
     # the theme's sidebar markup: one nested list per type
     assert got["toc"].startswith("<ul class='nav bs-docs-sidenav'>")
-    assert got["toc"].count("<ul class='nav'>") == 3
+    assert got["toc"].count("<ul class='nav'>") == 4
 
 
 @pytest.mark.ai_generated
@@ -1330,7 +1380,7 @@ def test_publications_sidebar_survives_filtering_and_scrolling(served_site):
         pg.click("button[type=reset]")
         pg.wait_for_timeout(600)
         assert pg.evaluate(visible), "Clear did not bring the sidebar back"
-        assert pg.evaluate(tops) == ["Papers and reports", "Posters", "Talks"]
+        assert pg.evaluate(tops) == ["Papers and reports", "Posters", "Talks", "Datasets"]
 
         pg.select_option("select[name=type]", "talk")
         pg.wait_for_timeout(300)

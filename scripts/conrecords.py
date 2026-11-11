@@ -39,6 +39,10 @@ INTROS = HERE / "content/section-intros.yaml"
 # render_whoweare already imports render_projects.
 TIERS = ["Centroids", "Collaborators", "Affiliated Faculty", "Emeritus",
          "Emeritus Collaborators"]
+# the tiers of CON's own members, past and present: a publication is listed
+# only with one of them among its authors -- an affiliated faculty member's or
+# a collaborator's own work is theirs to list
+MEMBER_TIERS = {"Centroids", "Emeritus"}
 
 
 def attrs(d, pred):
@@ -98,14 +102,33 @@ def toc_hook(text):
 
 
 
+def members():
+    """The pids of CON's members, past and present."""
+    out = set()
+    for f in sorted((RECORDS / "XYZPerson").glob("*.yaml")):
+        d = load_yaml(f)
+        if one(d, "dlthings:tier") in MEMBER_TIERS:
+            out.add(d["pid"])
+    return out
+
+
 def publications():
-    """Every publication record, newest first; an undated one last.
+    """Every publication with a CON member among its authors, newest first;
+    an undated one last.
+
+    The store also holds works only an affiliated faculty member or a
+    collaborator wrote -- imported with a project of theirs, or from their
+    own bibliography -- and the publications page says those are not
+    listed.  Filtering here keeps every count and list that says so.
 
     Here rather than in render_publications.py because the projects page
     lists each project's publications too, and render_publications imports
     render_projects for its anchors.
     """
-    out = [load_yaml(f) for f in sorted((RECORDS / "XYZPublication").glob("*.yaml"))]
+    ours = members()
+    out = [d for d in (load_yaml(f) for f in
+                       sorted((RECORDS / "XYZPublication").glob("*.yaml")))
+           if any(a.get("object") in ours for a in d.get("attributed_to") or [])]
     return sorted(out, key=lambda d: (publication_date(d) or "", d["title"]),
                   reverse=True)
 
@@ -137,13 +160,20 @@ def publication_url(d):
 
 
 # a publication's kind -> what a reader is told it is; anything else is a paper
-PUBLICATION_TYPES = {"fabio:ConferencePoster": "poster", "bibo:Slideshow": "talk"}
+PUBLICATION_TYPES = {"fabio:ConferencePoster": "poster", "bibo:Slideshow": "talk",
+                     "fabio:Dataset": "dataset"}
 # in the order a summary lists them
-TYPE_ORDER = ["paper", "poster", "talk"]
+TYPE_ORDER = ["paper", "poster", "talk", "dataset"]
 
 
 def publication_type(d):
     return PUBLICATION_TYPES.get(d.get("kind"), "paper")
+
+
+def is_preprint(d):
+    """A paper not (yet) peer reviewed: still listed among the papers, and
+    marked as what it is."""
+    return d.get("kind") == "fabio:Preprint"
 
 
 OBJECTIVE = "xyzrins:objectives/"

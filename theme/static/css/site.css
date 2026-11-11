@@ -1175,6 +1175,20 @@ details .pub-more {
 }
 .pub-type-talk { background: #c27c3a; }
 .pub-type-poster { background: #6a9a5b; }
+.pub-type-dataset { background: #5b7fa8; }
+/* a paper not (yet) peer reviewed: marked, quieter than a type badge */
+.pub-preprint {
+	display: inline-block;
+	padding: 0 0.35em;
+	border: 1px solid #b9a26b;
+	border-radius: 3px;
+	font-size: 0.72em;
+	line-height: 1.5;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	vertical-align: 0.15em;
+	color: #8a7440;
+}
 /* the year headings under a type */
 .publications .pub-results h3 small {
 	font-family: inherit;
