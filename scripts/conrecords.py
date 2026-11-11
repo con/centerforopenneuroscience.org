@@ -167,15 +167,17 @@ def publications_details(key, pid, types, indent, cls="publications"):
 
     key is the filter (project, person), pid the record it names and types
     the publication_type() of each of its publications.  The counts are
-    known here; the entries are fetched only once someone opens it.  The link inside works without JavaScript too: to the publications
-    page, filtered the same way.
+    known here; the entries are fetched only once someone opens it.  The
+    link inside, above the entries, works without JavaScript too: to the
+    publications page, filtered the same way.
     """
     slug = pid.rsplit("/", 1)[-1]
     return [f'{indent}<details class="{cls}" data-pub-filter="{key}={slug}">',
             f'{indent}  <summary>{publications_summary(types)}</summary>',
-            f'{indent}  <div class="pub-slot"></div>',
+            # first, so that a long list need not be scrolled past to reach it
             f'{indent}  <p class="pub-more"><a href="/publications?{key}={slug}">'
             'Search and filter them on the publications page</a></p>',
+            f'{indent}  <div class="pub-slot"></div>',
             f'{indent}</details>']
 
 

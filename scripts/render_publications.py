@@ -129,15 +129,24 @@ def model():
             "publications": entries}
 
 
+def alts(e):
+    """"(PDF) (📺 CONTube)" after the title, as the Talks site has them."""
+    out = []
+    if e["pdf"]:
+        out.append(("PDF", e["pdf"]))
+    if e["video"]:
+        out.append(("\U0001F4FA " + ("CONTube" if "contube" in e["video"].lower()
+                                       else "video"), e["video"]))
+    return "".join(f' (<a class="pub-alt" href="{html.escape(h)}">{html.escape(t)}</a>)'
+                   for t, h in out)
+
+
 def entry(e, projs):
-    bits = [f'<span class="pub-title">{link(e["title"], e["url"])}</span>']
+    bits = [f'<span class="pub-title">{link(e["title"], e["url"])}{alts(e)}</span>']
     names = ", ".join(link(*a) for a in e["authors"])
     if names and not e["authors_complete"]:
         names = "Authors include " + names
-    meta = [names, html.escape(e["venue"] or ""), e["year"]]
-    extra = [link(label, e[key]) for label, key in
-             (("PDF", "pdf"), ("video", "video")) if e[key]]
-    meta = [m for m in meta if m] + extra
+    meta = [m for m in (names, html.escape(e["venue"] or ""), e["year"]) if m]
     if meta:
         bits.append(f'<span class="pub-meta">{" &#183; ".join(meta)}</span>')
     if e["projects"]:
@@ -164,7 +173,9 @@ def render():
            '\t     Edit the records, not this file. -->',
            '</head>', '', '<body>', '  <section>',
            f'\t<p class="pub-intro">Slides of our talks are also collected on our '
-           f'<a href="{TALKS_SITE}">Talks site</a>.</p>',
+           f'<a href="{TALKS_SITE}">Talks site</a>.  For '
+           f'<a href="/whoweare#{toc_hook("Affiliated Faculty")}">affiliated faculty</a> and '
+           'collaborators, only their works joint with CON members are listed.</p>',
            # publications.js replaces the lists below with the filterable
            # view of the same records; without JavaScript they are the page
            '  <div id="publications" data-pub-app="">']

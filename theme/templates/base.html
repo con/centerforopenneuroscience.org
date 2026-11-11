@@ -124,13 +124,33 @@
   <script src="/theme/js/jquery.visible.min.js"></script>
   <script src="/theme/js/publications.js" defer></script>
 <script type="text/javascript">
+  // The pinned sidebar would run over the footer, so it steps aside -- but
+  // only when it actually would.  Hiding it whenever the footer was on
+  // screen emptied the left column of every short page: a filtered
+  // /publications lost its sidebar on the first scroll.  It is measured
+  // shown (and re-hidden in the same task, so nothing flickers), because a
+  // hidden one has no box to measure.
+  function sidebar_avoids_footer() {
+    var toc = document.getElementById("full-toc"),
+        foot = document.querySelector(".background-contact");
+    if ( !toc || !foot ) return;
+    var $toc = $(toc), shown = $toc.is(":visible");
+    $toc.stop(true, true).show();
+    var overlaps = toc.getBoundingClientRect().bottom > foot.getBoundingClientRect().top;
+    if ( overlaps ) {
+      if ( shown ) { $toc.fadeOut(200, "linear"); } else { $toc.hide(); }
+    }
+    else if ( !shown ) {
+      $toc.hide().fadeIn(200, "linear");
+    }
+  }
+  window.sidebar_avoids_footer = sidebar_avoids_footer;
   $(window).scroll(function() {
+    sidebar_avoids_footer();
     if ( $(".background-contact").visible(true) ){
-      $("#full-toc").fadeOut(200, "linear");
       $("#habla_panel_div").fadeOut(200, "linear");
     }
     else{
-      $("#full-toc").fadeIn(200, "linear");
       $("#habla_panel_div").fadeIn(200, "linear");
     }
   });

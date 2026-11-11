@@ -1184,6 +1184,8 @@ def test_publications_filter_and_load_on_demand_in_a_browser(served_site):
             assert len(pg.query_selector_all(f"{d} .pub-slot li")) == n
             # a mixed list says what each entry is
             assert len(pg.query_selector_all(f"{d} .pub-slot li .pub-type")) == n
+            # and links each recording, as the Talks site does
+            assert pg.query_selector_all(f"{d} .pub-slot li a.pub-alt[href*=contube]")
         assert not errors, errors
         browser.close()
 
@@ -1260,3 +1262,68 @@ def test_publications_js_groups_by_type_then_year(tmp_path):
     # the theme's sidebar markup: one nested list per type
     assert got["toc"].startswith("<ul class='nav bs-docs-sidenav'>")
     assert got["toc"].count("<ul class='nav'>") == 3
+
+
+@pytest.mark.ai_generated
+def test_a_talk_names_its_slides_and_recording_after_its_title():
+    out = run("render_publications.py").stdout
+    li = next(x for x in out.split("<li>") if "DataLad - Research Data Management" in x)
+    title = li[li.index('class="pub-title"'):li.index("</span>")]
+    assert '>PDF</a>)' in title and "CONTube</a>)" in title
+
+
+@pytest.mark.ai_generated
+def test_publications_sidebar_survives_filtering_and_scrolling(served_site):
+    """A short filtered list (?q=YODA) let the footer into view, and the
+    theme hid the sidebar whenever the footer showed -- on the first
+    scroll, and for good after Clear.  Filter, scroll, clear, pick from the
+    dropdowns and the sidebar, and watch the console the whole time."""
+    pw = pytest.importorskip("playwright.sync_api")
+    visible = ("() => { const t = document.getElementById('full-toc');"
+               " return !!t && getComputedStyle(t).display !== 'none'"
+               " && t.getBoundingClientRect().height > 0; }")
+    tops = ("() => [...document.querySelectorAll('#full-toc > ul > li > a')]"
+            ".map(a => a.textContent)")
+    with pw.sync_playwright() as p:
+        browser = _browser(p)
+        pg = browser.new_page(viewport={"width": 1280, "height": 900})
+        problems = []
+        pg.on("pageerror", lambda e: problems.append(str(e)))
+        pg.on("console", lambda m: m.type in ("error", "warning")
+              and problems.append(f"{m.type}: {m.text}"))
+
+        pg.goto(f"{served_site}/publications?q=YODA")
+        pg.wait_for_selector(".pub-results li")
+        assert pg.evaluate(visible)
+        pg.mouse.move(700, 500)
+        pg.mouse.wheel(0, 400)
+        pg.wait_for_timeout(600)
+        assert pg.evaluate(visible), "the sidebar went away on a short page"
+
+        pg.click("button[type=reset]")
+        pg.wait_for_timeout(600)
+        assert pg.evaluate(visible), "Clear did not bring the sidebar back"
+        assert pg.evaluate(tops) == ["Papers and reports", "Posters", "Talks"]
+
+        pg.select_option("select[name=type]", "talk")
+        pg.wait_for_timeout(300)
+        assert pg.evaluate(tops) == ["Talks"]
+        pg.select_option("select[name=type]", "")
+        pg.fill("input[name=q]", "datalad")
+        pg.wait_for_timeout(400)
+        assert pg.evaluate(visible)
+        for href in pg.eval_on_selector_all("#full-toc a",
+                                            "els => els.map(a => a.getAttribute('href'))")[:6]:
+            pg.eval_on_selector(f"#full-toc a[href='{href}']", "a => a.click()")
+            pg.wait_for_timeout(250)
+            assert pg.url.endswith("?q=datalad" + href), pg.url
+            assert pg.evaluate(visible)
+        # scrolled to the very bottom the sidebar may step aside for the
+        # footer, and comes back on the way up
+        pg.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+        pg.wait_for_timeout(500)
+        pg.evaluate("window.scrollTo(0, 0)")
+        pg.wait_for_timeout(500)
+        assert pg.evaluate(visible)
+        assert not problems, problems
+        browser.close()

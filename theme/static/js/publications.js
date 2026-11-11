@@ -184,15 +184,23 @@
     return '<span class="pub-type pub-type-' + esc(e.type) + '">' + esc(e.type) + "</span> ";
   }
 
+  /* "(PDF) (📺 CONTube)" after the title, as the Talks site has them */
+  function alts(e) {
+    var out = [];
+    if (e.pdf) out.push(["PDF", e.pdf]);
+    if (e.video) out.push([(/contube/i.test(e.video) ? "\uD83D\uDCFA CONTube" : "\uD83D\uDCFA video"), e.video]);
+    return out.map(function (a) {
+      return ' (<a class="pub-alt" href="' + esc(a[1]) + '">' + esc(a[0]) + "</a>)";
+    }).join("");
+  }
+
   /* the same markup as render_publications.py's static list */
   function entry(e, data, typed) {
     var bits = [(typed ? badge(e) : "")
-                + '<span class="pub-title">' + link(e.title, e.url) + "</span>"];
+                + '<span class="pub-title">' + link(e.title, e.url) + alts(e) + "</span>"];
     var names = e.authors.map(function (a) { return link(a[0], a[1]); }).join(", ");
     if (names && !e.authors_complete) names = "Authors include " + names;
     var meta = [names, e.venue ? esc(e.venue) : "", e.year].filter(Boolean);
-    if (e.pdf) meta.push(link("PDF", e.pdf));
-    if (e.video) meta.push(link("video", e.video));
     if (meta.length) bits.push('<span class="pub-meta">' + meta.join(" &#183; ") + "</span>");
     if (e.projects.length) {
       bits.push('<span class="pub-projects">Projects: ' + e.projects.map(function (p) {
@@ -204,7 +212,7 @@
 
   /* one line each, for the lists under a project or a person */
   function brief(e, data, typed) {
-    return "<li>" + (typed ? badge(e) : "") + link(e.title, e.url)
+    return "<li>" + (typed ? badge(e) : "") + link(e.title, e.url) + alts(e)
       + (e.year ? " <small>(" + esc(e.year) + ")</small>" : "") + "</li>";
   }
 
@@ -334,6 +342,9 @@
           if (root.jQuery && root.jQuery.fn.scrollspy) {
             root.jQuery(root.document.body).scrollspy("refresh");
           }
+          // the page changed length under a sidebar placed for the old one:
+          // let affix and base.html's footer check look again
+          if (root.jQuery) root.jQuery(root).trigger("scroll");
         }
       }
       form.addEventListener("input", function () {
