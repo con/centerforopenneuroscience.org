@@ -333,6 +333,16 @@
     };
   }
 
+  // How much a node grows with its links.  A thing with a few links grows
+  // by 1.8 per square root of them, as it always did, so the smallest dots
+  // are unchanged; but the growth levels off towards GROWTH, so that the
+  // one person on three hundred papers is a large dot and not a plate that
+  // covers its neighbours.
+  var GROWTH = 20;
+  function bulk(links) {
+    return GROWTH * (1 - Math.exp(-1.8 * Math.sqrt(links) / GROWTH));
+  }
+
   function trim(text, n) {
     return text.length > n ? text.slice(0, n - 1).trimEnd() + "…" : text;
   }
@@ -500,7 +510,7 @@
         var at = old[n.id] || [Math.cos(angle) * r, Math.sin(angle) * r];
         graph.addNode(n.id, {
           x: at[0], y: at[1],
-          size: (isRoot ? 6 : 0) + (small ? 7 : 3) + 1.8 * Math.sqrt(degree[n.id] || 0),
+          size: (isRoot ? 6 : 0) + (small ? 7 : 3) + bulk(degree[n.id] || 0),
           label: trim(n.label, isRoot ? 60 : 38),
           color: TYPE_COLOR[n.type] || "#888",
           // alone, the root is ringed; among several sources the ring
