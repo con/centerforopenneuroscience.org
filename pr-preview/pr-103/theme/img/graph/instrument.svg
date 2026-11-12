@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Yaroslav Halchenko <yaroslav.o.halchenko@dartmouth.edu>
+     SPDX-License-Identifier: MIT
+
+     Generated with Claude Code
+
+     The mark of a "instrument" in the site's graphs (theme/static/js/con-graph.js),
+     drawn for this site.  White, to sit on the dot of the type's colour. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="96" height="96" fill="#ffffff">
+  <title>Code brackets</title>
+  <path d="M9.400 16.600 4.800 12l4.600-4.600L8 6l-6 6 6 6zm5.200 0 4.600-4.600-4.600-4.600L16 6l6 6-6 6z"/>
+</svg>

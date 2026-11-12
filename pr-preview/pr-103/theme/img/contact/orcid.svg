@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ORCID iD icon. Original mark by ORCID, distributed under CC BY 4.0.
+     White recolor to match the existing white-on-cyan contact icon set. -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32"
+	 enable-background="new 0 0 32 32" xml:space="preserve">
+<g id="ORCID">
+	<rect fill="none" width="32" height="32"/>
+	<path fill="#FFFFFF" d="M16,4C9.373,4,4,9.373,4,16c0,6.628,5.373,12,12,12s12-5.372,12-12C28,9.373,22.627,4,16,4z
+		 M11.072,21.969H9.611V12.05h1.461V21.969z M10.341,11.061c-0.523,0-0.948-0.422-0.948-0.945c0-0.523,0.425-0.949,0.948-0.949
+		c0.523,0,0.948,0.426,0.948,0.949C11.289,10.639,10.864,11.061,10.341,11.061z M22.466,16.997c0,3.158-2.282,4.972-5.322,4.972
+		h-3.371V12.05h3.371C20.046,12.05,22.466,13.927,22.466,16.997z M16.972,13.366h-1.738v7.287h1.738c2.475,0,3.989-1.391,3.989-3.656
+		C20.961,15.117,19.629,13.366,16.972,13.366z"/>
+</g>
+</svg>
