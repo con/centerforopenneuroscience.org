@@ -1,0 +1,158 @@
+/* The graphs drawn by theme/js/con-graph.js; loaded by it, on first use. */
+.con-graph {
+  --cg-ink: #1a1a19;
+  --cg-ink-2: #5d5c56;
+  --cg-line: #dddcd6;
+  --cg-surface: #fbfbf9;
+  color: var(--cg-ink);
+  font-size: 13px;
+  line-height: 1.4;
+}
+.con-graph .cg-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+  padding: 0 0 8px;
+}
+.con-graph .cg-group { display: inline-flex; align-items: center; gap: 4px 10px; flex-wrap: wrap; }
+.con-graph .cg-label { color: var(--cg-ink-2); }
+.con-graph .cg-check { font-weight: normal; margin: 0; cursor: pointer; white-space: nowrap; }
+.con-graph .cg-check input { margin: 0 2px 0 0; vertical-align: -1px; }
+.con-graph .cg-search {
+  width: 260px;
+  max-width: 100%;
+  padding: 4px 8px;
+  border: 1px solid #bdbcb5;
+  border-radius: 4px;
+  font-size: 13px;
+  background: #fff;
+}
+.con-graph .cg-btn {
+  padding: 3px 9px;
+  border: 1px solid #bdbcb5;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--cg-ink);
+  font-size: 12px;
+  cursor: pointer;
+}
+.con-graph .cg-btn:hover { border-color: #77766f; }
+.con-graph .cg-btn.cg-on { background: var(--cg-ink); border-color: var(--cg-ink); color: #fff; }
+.con-graph .cg-count { color: var(--cg-ink-2); margin-left: auto; white-space: nowrap; }
+.con-graph .cg-open { white-space: nowrap; }
+
+.con-graph .cg-stage {
+  position: relative;
+  border: 1px solid var(--cg-line);
+  border-radius: 6px;
+  background: var(--cg-surface);
+  overflow: hidden;
+}
+.con-graph .cg-canvas { width: 100%; height: 420px; }
+.con-graph-full .cg-canvas { height: calc(100vh - 230px); min-height: 460px; }
+.con-graph .cg-status {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cg-ink-2);
+  pointer-events: none;
+}
+.con-graph .cg-status[hidden] { display: none; }
+
+.con-graph .cg-legend,
+.con-graph .cg-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--cg-line);
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+.con-graph .cg-legend { left: 8px; bottom: 8px; padding: 6px 10px; }
+.con-graph-compact .cg-legend {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 16px;
+  margin-top: 6px;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: none;
+}
+.con-graph-compact .cg-n { margin-left: 0; padding-left: 0; }
+.con-graph-compact .cg-rings {
+  display: flex;
+  gap: 2px 14px;
+  flex-basis: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.con-graph .cg-legend:empty { display: none; }
+.con-graph .cg-type { display: flex; align-items: center; gap: 6px; margin: 0; font-weight: normal; cursor: pointer; }
+.con-graph .cg-type input { margin: 0; }
+.con-graph .cg-n { color: var(--cg-ink-2); margin-left: auto; padding-left: 10px; font-variant-numeric: tabular-nums; }
+.con-graph .cg-dot {
+  display: inline-block;
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.con-graph .cg-rings { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--cg-line); color: var(--cg-ink-2); }
+.con-graph .cg-ring-row { display: flex; align-items: center; gap: 6px; }
+.con-graph .cg-rings .cg-dot { width: 12px; height: 12px; background: #b9b8b1; }
+.con-graph .cg-ring-home { border: 1px solid #fff; box-shadow: 0 0 0 1px var(--cg-line); }
+.con-graph .cg-ring-other { border: 3px solid #77766f; }
+.con-graph .cg-ring-shared { border: 4px solid #1a1a19; }
+
+.con-graph .cg-card {
+  top: 8px;
+  right: 8px;
+  width: 280px;
+  max-width: calc(100% - 16px);
+  max-height: calc(100% - 16px);
+  overflow: auto;
+  padding: 10px 12px;
+}
+.con-graph .cg-card[hidden] { display: none; }
+.con-graph .cg-close {
+  float: right;
+  border: 0;
+  background: none;
+  color: var(--cg-ink-2);
+  cursor: pointer;
+  padding: 0 0 4px 8px;
+}
+.con-graph .cg-kind { display: flex; align-items: center; gap: 6px; color: var(--cg-ink-2); font-size: 12px; }
+.con-graph .cg-title { font-size: 15px; font-weight: 600; margin: 2px 0 6px; overflow-wrap: anywhere; }
+.con-graph .cg-links { display: flex; flex-wrap: wrap; gap: 2px 14px; margin-bottom: 8px; }
+.con-graph .cg-near { margin-top: 8px; }
+.con-graph .cg-near summary { cursor: pointer; color: var(--cg-ink-2); }
+.con-graph .cg-near ul { list-style: none; margin: 2px 0 0; padding: 0; }
+.con-graph .cg-item {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: none;
+  padding: 1px 0;
+  text-align: left;
+  color: #23527c;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.con-graph .cg-item:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .con-graph .cg-card { width: auto; left: 8px; max-height: 55%; }
+  .con-graph .cg-count { margin-left: 0; }
+}
+
+/* whoweare: the graph of one person, under their entry. */
+.whoweare details.graph .con-graph { margin: 8px 0 4px; }
