@@ -11,7 +11,8 @@ DEFAULT_LANG = 'en'
 
 DIRECT_TEMPLATES = ['index']
 
-STATIC_PATHS = [ 'img', 'CNAME' ]
+# graph/graph.json is what theme/js/con-graph.js draws from
+STATIC_PATHS = [ 'img', 'CNAME', 'graph' ]
 
 THEME = 'theme'
 

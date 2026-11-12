@@ -815,7 +815,7 @@ def test_top_menu_order(tmp_path):
     menu = [re.sub(r"<[^>]+>", "", m).strip() for m in
             re.findall(r"<a [^>]*>(.*?)</a>", t[i:j], re.S)]
     assert menu == ["Who we are", "Projects", "Engage", "Support",
-                    "Publications", "Hub", "CONTube"], menu
+                    "Publications", "Explore", "Hub", "CONTube"], menu
 
 
 @pytest.mark.ai_generated

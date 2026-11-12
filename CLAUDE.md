@@ -78,6 +78,20 @@ linkchecker --check-extern -f .linkcheckerrc -t 1 http://localhost:8000
    - `fix_code_blocks.py` - Code block processing
    - Used for the projects page rendering
 
+3. **Graph** (`/explore/` and the per-person graphs on `/whoweare`)
+   - `scripts/render_graph.py` (logic in `scripts/congraph.py`) writes
+     `content/graph/graph.json`: CON's records joined with the graphs of the
+     other sites listed in `content/graph-sources.yaml`. It is part of
+     `make project`; do not edit the JSON by hand.
+   - Other sites' graphs are read from copies in `sourcedata/graphs/`;
+     `make fetch-graphs` refreshes them, `scripts/render_graph.py --report`
+     lists which nodes were joined across sites and why.
+   - `theme/static/js/con-graph.js` is the only renderer: any element with
+     `data-con-graph` (plus `data-root`, `data-depth`, `data-sources`,
+     `data-controls`) becomes a graph filtered from that one file. Its
+     libraries are bundled in `theme/static/vendor/con-graph/`
+     (`make graph-vendor`, see `theme/graph-vendor/README.md`).
+
 ### Development Workflow
 
 1. Content is written as HTML files in `content/pages/`

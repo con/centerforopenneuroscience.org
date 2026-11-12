@@ -30,7 +30,8 @@ DROPBOX_DIR=~/Dropbox/Public/
 # an absolute path there is not reproducible on another checkout.
 STORE=sourcedata/con-site-specific
 PROJECTION_INPUTS=-i $(STORE)/metadata/records -i $(STORE)/content \
-                  -i content/section-intros.yaml
+                  -i content/section-intros.yaml \
+                  -i content/graph-sources.yaml -i sourcedata/graphs
 # theme/static/img/{projects,instruments,organizations} and
 # theme/static/img/team are exactly what sync_assets_to_theme.py writes.  The parent
 # directory is NOT declared: it also holds 3rd/, banners/, logos/ and
@@ -44,6 +45,7 @@ PROJECTION_OUTPUTS=-o content/pages/whoweare.html \
                    -o content/pages/support.html \
                    -o content/pages/publications.html \
                    -o theme/static/data/publications.json \
+                   -o content/graph/graph.json \
                    -o theme/static/img/projects \
                    -o theme/static/img/instruments \
                    -o theme/static/img/organizations -o theme/static/img/team
@@ -70,6 +72,8 @@ help:
 	@echo 'Usage:                                                                 '
 	@echo '   make project                     project con-site-specific -> pages '
 	@echo '   make run-project                 the same, under datalad run         '
+	@echo '   make fetch-graphs                refresh other sites'"'"' cached graphs '
+	@echo '   make graph-vendor                rebuild the bundled graph libraries'
 	@echo '   make html                        (re)generate the web site          '
 	@echo '   make clean                       remove the generated files         '
 	@echo '   make regenerate                  regenerate files upon modification '
@@ -103,6 +107,20 @@ project:
 	$(PY) scripts/render_publications.py --out content/pages/publications.html
 	mkdir -p theme/static/data
 	$(PY) scripts/render_publications.py --json --out theme/static/data/publications.json
+	$(PY) scripts/render_graph.py --out content/graph/graph.json
+
+# The graphs of the sites ours is joined with (content/graph-sources.yaml)
+# are read from copies under sourcedata/graphs/, so that `make project`
+# stays offline and reproducible.  This refreshes the copies; review what
+# the refresh joins with `scripts/render_graph.py --report`, then re-run the
+# projection.
+fetch-graphs:
+	$(PY) scripts/fetch_graphs.py
+
+# sigma.js + graphology in one file, for theme/static/js/con-graph.js.
+# Needs node; only to be run when a library version changes.
+graph-vendor:
+	cd theme/graph-vendor && npm ci && npm run build
 
 # The same, with provenance: one commit carrying the command, the store it
 # read and the files it wrote, which `datalad rerun` can replay.
@@ -209,4 +227,4 @@ ifeq ($(TRAVIS_PULL_REQUEST), false)
 	ghp-import -n $(OUTPUTDIR)
 	@git push -fq https://${GH_TOKEN}@github.com/$(TRAVIS_REPO_SLUG).git gh-pages > /dev/null
 endif
-.PHONY: dev-sitediff-report.md project run-project html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
+.PHONY: fetch-graphs graph-vendor dev-sitediff-report.md project run-project html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github

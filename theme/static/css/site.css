@@ -1241,3 +1241,12 @@ a.heading-link:hover::after {
 .pub-doi {
 	overflow-wrap: anywhere;
 }
+/* ------------------------------------------------------------------ */
+/* explore.html -- the graph page (the graph itself: css/con-graph.css) */
+
+/* Here and not in con-graph.css, which arrives with the graph: the page
+   must not jump when it does.  The navbar is fixed and ~100px tall. */
+.explore-page { padding-top: 28px; padding-bottom: 24px; }
+.explore-page h1 { margin: 0 0 6px; font-size: 28px; }
+.explore-page .lead { font-size: 15px; margin-bottom: 12px; color: #5d5c56; }
+.explore-page [data-con-graph] { min-height: 500px; }

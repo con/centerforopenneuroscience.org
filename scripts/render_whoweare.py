@@ -17,6 +17,7 @@ import html
 import re
 import sys
 
+import congraph
 import render_projects  # for the projects page's own anchors
 from conrecords import (
     INTROS,
@@ -279,6 +280,7 @@ def render():
         for who in {a.get("object") for a in p.get("attributed_to") or []}:
             authored.setdefault(who, []).append(publication_type(p))
     targets = pid_links()
+    graph = congraph.build()[0]
     rows, skipped = [], []
     # the order render() actually used, for --show-order
     order = []
@@ -388,6 +390,20 @@ def render():
                 out.extend(publications_details(
                     "person", r["pid"], authored[r["pid"]], "\t\t",
                     "col-md-9 col-sm-9 publications"))
+            # The same links as a picture, and one hop further on request:
+            # con-graph.js draws it from graph.json when the reader opens
+            # it.  The counts are CON's own things, which is what it opens
+            # on; Psychoinformatics' can be switched on inside.
+            node = congraph._qualify(r["pid"], "con")
+            near = congraph.neighbourhood(graph, node, "con")
+            if near:
+                out.append('\t\t<details class="col-md-9 col-sm-9 related graph">')
+                out.append(f'\t\t  <summary>Graph ({congraph.summary(near)})'
+                           f'</summary>')
+                out.append(f'\t\t  <div data-con-graph="" data-controls="compact" '
+                           f'data-sources="con" data-root="{html.escape(node)}" '
+                           f'data-depth="1"></div>')
+                out.append('\t\t</details>')
             out.append('\t  </div>')
 
     for tier in TIERS:

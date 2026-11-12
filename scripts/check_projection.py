@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Check that the committed pages are what the pinned record store renders.
 
-whoweare.html, projects.html, objectives.html, support.html and the front
-page's objectives are generated from sourcedata/con-site-specific
+whoweare.html, projects.html, objectives.html, support.html, the front
+page's objectives and graph/graph.json are generated from sourcedata/con-site-specific
 (`make run-project`), and the theme holds copies of the store's logos and
 portraits.  Advancing the store without re-running the projection leaves the
 site describing an older store, with nothing to notice it.  This renders each of them into a temporary
@@ -33,7 +33,8 @@ PAGES = {"content/pages/whoweare.html": ["render_whoweare.py"],
          "content/pages/objectives.html": ["render_objectives.py", "--page"],
          "content/pages/support.html": ["render_support.py"],
          "content/pages/publications.html": ["render_publications.py"],
-         "theme/static/data/publications.json": ["render_publications.py", "--json"]}
+         "theme/static/data/publications.json": ["render_publications.py", "--json"],
+         "content/graph/graph.json": ["render_graph.py"]}
 
 
 def run(script, *args):

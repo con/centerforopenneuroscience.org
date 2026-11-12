@@ -1,0 +1,30 @@
+# Which graphs /explore/ and the per-person graphs are made of.
+#
+# scripts/render_graph.py joins them into content/graph/graph.json; see
+# scripts/congraph.py for how two sites' nodes are recognised as one thing.
+# The first source is this site: its labels and links win in a joined node.
+sources:
+  - id: con
+    label: CON
+    base_url: https://centerforopenneuroscience.org
+    # read from the record store (sourcedata/con-site-specific), not a file
+    records: true
+    match_local_paths: true
+
+  - id: psyinf
+    label: Psychoinformatics
+    base_url: https://www.psychoinformatics.de
+    # the site's own graph, as its /explore page loads it
+    graph_url: https://www.psychoinformatics.de/graph.json
+    # the copy under sourcedata/graphs/ that the build reads;
+    # `make fetch-graphs` refreshes it
+    cache: psyinf.json
+    # The two sites name shared people, projects and objectives alike
+    # (persons/adina-wagner, projects/datalad, objectives/<same uuid>).
+    match_local_paths: true
+
+# Pairs of node ids that are one thing although nothing above says so.
+same_as: []
+
+# Pairs that must stay apart although a key matched.
+distinct: []
