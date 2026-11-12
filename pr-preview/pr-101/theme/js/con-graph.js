@@ -1,4 +1,14 @@
-/* SPDX-License-Identifier: MIT
+/* SPDX-FileCopyrightText: 2026 Yaroslav Halchenko <yaroslav.o.halchenko@dartmouth.edu>
+ * SPDX-License-Identifier: MIT
+ *
+ * Generated with Claude Code
+ *
+ * Written for this site.  It draws with the libraries that
+ * things-graph-renderer (the graph.js of www-from-model sites, by the
+ * Psychoinformatics group) is built from -- sigma.js, graphology and its
+ * ForceAtlas2 layout -- and reads the graph.json those sites publish, but
+ * contains no code of that renderer.  The libraries' own licences are in
+ * theme/vendor/con-graph/LICENSES.txt.
  *
  * One renderer for every graph on the site.
  *
