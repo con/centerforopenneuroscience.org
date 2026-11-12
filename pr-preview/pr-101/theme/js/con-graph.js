@@ -335,6 +335,7 @@
     };
     var hiddenTypes = {};
     var unavailable = {};   // sources that could not be loaded at all
+    var stopRotating = function () {};
     // what is drawn besides the dots; kept when the view is rebuilt
     var showEdges = true, showLabels = true;
     var selected = null, hovered = null;
@@ -416,13 +417,19 @@
         from = { pointer: pointerAngle(e), camera: sigma.getCamera().getState().angle };
         canvas.style.cursor = "grabbing";
       }, true);
-      window.addEventListener("mousemove", function (e) {
+      function move(e) {
         if (!from || !sigma) return;
         sigma.getCamera().setState({ angle: from.camera + ROTATE_SIGN * (pointerAngle(e) - from.pointer) });
-      });
-      window.addEventListener("mouseup", function () {
+      }
+      function up() {
         if (from) { from = null; canvas.style.cursor = ""; }
-      });
+      }
+      window.addEventListener("mousemove", move);
+      window.addEventListener("mouseup", up);
+      stopRotating = function () {
+        window.removeEventListener("mousemove", move);
+        window.removeEventListener("mouseup", up);
+      };
     }
 
     // -- state in the address, so a view can be linked to (full page only)
@@ -820,7 +827,20 @@
       });
     }
 
+    // Give back what the drawing holds.  A browser allows a page only some
+    // sixteen WebGL contexts and a graph takes a few, so a page of forty
+    // expanders must not keep those of the ones the reader has closed: past
+    // the limit the oldest drawing simply goes blank.
+    function destroy() {
+      if (layoutTimer) cancelAnimationFrame(layoutTimer);
+      if (sigma) sigma.kill();
+      sigma = graph = null;
+      stopRotating();
+      host.textContent = "";
+    }
+
     return {
+      destroy: destroy,
       focus: focus, select: select, view: view,
       // where a node is drawn, in canvas pixels (for tests)
       _at: function (id) { return sigma.graphToViewport(graph.getNodeAttributes(id)); }
@@ -844,8 +864,13 @@
       if (host.conGraph) return;
       var fold = host.closest("details");
       function go() { if (!host.conGraph) host.conGraph = render(host, options(host)); }
-      if (fold && !fold.open) {
-        fold.addEventListener("toggle", function () { if (fold.open) go(); });
+      if (fold) {
+        // drawn while open, released when closed
+        fold.addEventListener("toggle", function () {
+          if (fold.open) go();
+          else if (host.conGraph) { host.conGraph.destroy(); host.conGraph = null; }
+        });
+        if (fold.open) go();
       } else {
         go();
       }
