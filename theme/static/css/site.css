@@ -1021,12 +1021,22 @@ ul>.list-group-item:before {
   margin-left: .15em;
 }
 
-/* Seven top-level items fit one row on lg screens only with a little
+/* Eight top-level items fit one row on lg screens only with a little
    less than Bootstrap's 15px horizontal padding per link. */
 @media (min-width: 1200px) {
   .navbar-nav > li > a {
     padding-left: 12px;
     padding-right: 12px;
+  }
+}
+/* Between the two (992-1199px) the container is 970px: eight items, since
+   Explore joined them, need 9px and a size less than the full 16px to stay
+   on one row beside the CON mark. */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .navbar-nav > li > a {
+    padding-left: 9px;
+    padding-right: 9px;
+    font-size: 15px;
   }
 }
 /* On tablets (768-991px, where Bootstrap does not collapse the menu yet)
