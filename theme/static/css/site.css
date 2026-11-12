@@ -1236,3 +1236,8 @@ a.heading-link:hover::after {
 	color: #bbb;
 	font-weight: normal;
 }
+
+/* "doi:10.1038/..." closing an entry's line; long ones may break anywhere */
+.pub-doi {
+	overflow-wrap: anywhere;
+}

@@ -201,6 +201,18 @@ def is_preprint(d):
     return d.get("kind") == "fabio:Preprint"
 
 
+def publication_doi(d):
+    """Its DOI, also where the store has it only as a doi.org address."""
+    for i in d.get("identifiers") or []:
+        n = str(i.get("notation", ""))
+        if i.get("schema_type") == "dlthings:DOI":
+            return n
+        m = re.match(r"https?://(?:dx\.)?doi\.org/(10\..+)$", n)
+        if m:
+            return m.group(1)
+    return None
+
+
 def accession(d):
     """A dataset's identifier in its archive, as OPENNEURO:ds000241 or
     DANDI:000027."""

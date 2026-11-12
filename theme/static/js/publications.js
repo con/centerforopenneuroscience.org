@@ -74,7 +74,7 @@
 
   function haystack(e, data) {
     if (e._hay === undefined) {
-      var bits = [e.title, e.venue, e.accession, e.year, (data.types || {})[e.type]];
+      var bits = [e.title, e.venue, e.accession, e.doi, e.year, (data.types || {})[e.type]];
       if (e.preprint) bits.push("preprint");
       (e.authors || []).forEach(function (a) { if (a) bits.push(a[0]); });
       (e.projects || []).forEach(function (p) {
@@ -222,8 +222,10 @@
     }).join(", ");
     if (names && !e.authors_complete) names = "Authors include " + names;
     else if (e.authors.indexOf(null) >= 0) names += " (" + e.authors_count + " authors)";
+    var doi = e.doi ? '<a class="pub-doi" href="https://doi.org/' + esc(e.doi) + '">doi:'
+      + esc(e.doi) + "</a>" : "";
     var meta = [names, e.venue ? esc(e.venue) : "", e.accession ? esc(e.accession) : "",
-                e.year].filter(Boolean);
+                e.year, doi].filter(Boolean);
     if (meta.length) bits.push('<span class="pub-meta">' + meta.join(" &#183; ") + "</span>");
     if (e.projects.length) {
       bits.push('<span class="pub-projects">Projects: ' + e.projects.map(function (p) {

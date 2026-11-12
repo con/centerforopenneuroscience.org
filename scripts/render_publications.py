@@ -39,6 +39,7 @@ from conrecords import (
     person_name,
     project_objectives,
     publication_date,
+    publication_doi,
     publication_objectives,
     publication_projects,
     publication_type,
@@ -176,7 +177,7 @@ def model():
             "venue": one(d, "bibo:presentedAt"),
             "authors": listed, "authors_complete": complete,
             "authors_count": count, "preprint": is_preprint(d),
-            "accession": accession(d),
+            "accession": accession(d), "doi": publication_doi(d),
             "projects": [slug(p) for p in mine], "people": who,
             "objectives": [slug(o) for o in publication_objectives(d, by_project)
                            if o in objs],
@@ -229,8 +230,11 @@ def entry(e, projs):
     bits = [f'<span class="pub-title">{link(e["title"], e["url"])}{preprint(e)}'
             f'{alts(e)}</span>']
     names_ = names(e)
+    # the DOI last, to tell the work apart from any other
+    doi = (f'<a class="pub-doi" href="https://doi.org/{html.escape(e["doi"])}">'
+           f'doi:{html.escape(e["doi"])}</a>') if e["doi"] else ""
     meta = [m for m in (names_, html.escape(e["venue"] or ""), html.escape(e["accession"] or ""),
-                        e["year"]) if m]
+                        e["year"], doi) if m]
     if meta:
         bits.append(f'<span class="pub-meta">{" &#183; ".join(meta)}</span>')
     if e["projects"]:

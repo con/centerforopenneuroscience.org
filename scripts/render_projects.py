@@ -396,6 +396,20 @@ def render():
     children = subprojects_by_parent()
     collaborators = collaborators_by_project()
     elsewhere = pid_targets()
+
+    def pid_links(rich, where):
+        """The store links one record to another by pid,
+        href="xyzrins:projects/nwb"; here that is the entry on this page, a
+        person's on whoweare, or else the homepage."""
+        for target in PID_LINK.findall(rich):
+            if target not in on_page and target not in elsewhere:
+                sys.exit(f"{where}: description_html links to "
+                         f"{target}, which has no entry or homepage")
+        return PID_LINK.sub(
+            lambda m: 'href="%s"' % html.escape(
+                "#" + on_page[m.group(1)] if m.group(1) in on_page
+                else elsewhere[m.group(1)]), rich)
+
     by_pid = {}
     for f in sorted((RECORDS / "XYZProject").glob("*.yaml")):
         rec = yaml.safe_load(f.read_text())
@@ -433,7 +447,7 @@ def render():
                       [r["started"] for r in group]))
         out.append(f'\t<h1>{html.escape(sec)}</h1>')
         if intros.get(sec):
-            out.append(f'\t  {intros[sec].strip()}')
+            out.append(f'\t  {pid_links(intros[sec].strip(), sec)}')
         for r in group:
             d = r["d"]
             name = d.get("display_label") or d.get("title") or r["slug"]
@@ -472,18 +486,7 @@ def render():
                               lambda m: 'href="#%s"' % legacy.get(m.group(1),
                                                                   m.group(1)),
                               rich)
-                # The store links one record to another by pid,
-                # href="xyzrins:projects/nwb"; here that is the entry on
-                # this page, a person's on whoweare, or else the homepage.
-                for target in PID_LINK.findall(rich):
-                    if target not in on_page and target not in elsewhere:
-                        sys.exit(f"{r['slug']}: description_html links to "
-                                 f"{target}, which has no entry or homepage")
-                rich = PID_LINK.sub(
-                    lambda m: 'href="%s"' % html.escape(
-                        "#" + on_page[m.group(1)] if m.group(1) in on_page
-                        else elsewhere[m.group(1)]), rich)
-                out.append(f'\t\t{rich}')
+                out.append(f'\t\t{pid_links(rich, r["slug"])}')
             else:
                 out.append(f'\t\t<p>{html.escape(d.get("description") or "")}</p>')
             # One list, whatever the record calls the relationship.

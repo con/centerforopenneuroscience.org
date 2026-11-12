@@ -193,7 +193,9 @@ def related_projects():
         for name, href, roles in rows:
             seen = merged.setdefault(name, (href, []))[1]
             seen += [r for r in roles if r not in seen]
-        out[who] = sorted((n, h, r) for n, (h, r) in merged.items())
+        # by name whatever its case: "annextube" among the A's, not after Z
+        out[who] = sorted(((n, h, r) for n, (h, r) in merged.items()),
+                          key=lambda x: (x[0].casefold(), x[0]))
     return out
 
 

@@ -10,7 +10,7 @@
 
 projects:
   Meetings: >
-    For over a decade, CON and its projects are presented annually with exhibits at the annual meetings of the <a href="https://www.humanbrainmapping.org">Organization for Human Brain Mapping (OHBM) Society</a> and the <a href="https://www.sfn.org">Society for Neuroscience</a>. In collaboration with <a href="/whoweare#soichi_hayashi_" class="centroid">Soichi Hayashi</a> and <a href="https://github.com/datalad-datasets/ohbm2020-posters/graphs/contributors">other wonderful people</a> we proudly saved the first ever virtual OHBM 2020 by providing a <a href="https://datalad-datasets.github.io/ohbm2020-posters/#/">virtual posters venue</a>.
+    For over a decade, CON and its projects are presented annually with exhibits at the annual meetings of the <a href="https://www.humanbrainmapping.org">Organization for Human Brain Mapping (OHBM) Society</a> and the <a href="https://www.sfn.org">Society for Neuroscience</a>. In collaboration with <a href="/whoweare#soichi_hayashi_" class="centroid">Soichi Hayashi</a> and <a href="https://github.com/datalad-datasets/ohbm2020-posters/graphs/contributors">other wonderful people</a> we proudly saved the first ever virtual OHBM 2020 by providing a <a href="xyzrins:projects/ohbm2020-posters">virtual posters venue</a>.
 
 whoweare:
   Collaborating projects: >

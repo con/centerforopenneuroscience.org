@@ -1521,3 +1521,29 @@ def test_support_is_in_sections_with_a_sidebar():
     assert '<h2 data-hidden-from-toc="true"><a href="https://www.nih.gov">' in out
     corporate = out[out.index("<h1>Corporate</h1>"):]
     assert "Meta" in corporate and "National Institutes of Health" not in corporate
+
+
+@pytest.mark.ai_generated
+def test_related_projects_sort_regardless_of_case(whoweare):
+    """"annextube" belongs among the A's, not after every capitalized name."""
+    for body in re.findall(r'<ul class="related-list">(.*?)</ul>', whoweare, re.S):
+        names = [re.sub(r"<[^>]+>", "", i).split(" &#8212;")[0]
+                 for i in re.findall(r"<li>(.*?)</li>", body, re.S)]
+        assert names == sorted(names, key=str.casefold), names
+
+
+@pytest.mark.ai_generated
+def test_section_intro_links_a_project_by_pid(projects):
+    """The OHBM 2020 virtual posters link to their own entry on the page."""
+    assert ('<a href="#ohbm_2020_posters_">virtual posters venue</a>') in projects
+    assert 'href="xyzrins:' not in projects
+
+
+@pytest.mark.ai_generated
+def test_publications_end_with_their_doi():
+    out = run("render_publications.py").stdout
+    paper = next(x for x in out.split("<li>") if "s41467-026-76599-w" in x)
+    meta = re.search(r'<span class="pub-meta">(.*?)</span>', paper).group(1)
+    assert meta.endswith(
+        '<a class="pub-doi" href="https://doi.org/10.1038/s41467-026-76599-w">'
+        'doi:10.1038/s41467-026-76599-w</a>')
