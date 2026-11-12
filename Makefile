@@ -31,7 +31,7 @@ DROPBOX_DIR=~/Dropbox/Public/
 STORE=sourcedata/con-site-specific
 PROJECTION_INPUTS=-i $(STORE)/metadata/records -i $(STORE)/content \
                   -i content/section-intros.yaml \
-                  -i content/graph-sources.yaml -i sourcedata/graphs
+                  -i content/graph-sources.yaml
 # theme/static/img/{projects,instruments,organizations} and
 # theme/static/img/team are exactly what sync_assets_to_theme.py writes.  The parent
 # directory is NOT declared: it also holds 3rd/, banners/, logos/ and
@@ -109,11 +109,10 @@ project:
 	$(PY) scripts/render_publications.py --json --out theme/static/data/publications.json
 	$(PY) scripts/render_graph.py --out content/graph/graph.json
 
-# The graphs of the sites ours is joined with (content/graph-sources.yaml)
-# are read from copies under sourcedata/graphs/, so that `make project`
-# stays offline and reproducible.  This refreshes the copies; review what
-# the refresh joins with `scripts/render_graph.py --report`, then re-run the
-# projection.
+# The browser loads other sites' graphs (content/graph-sources.yaml) from
+# those sites; content/graph/<site>.json is a saved copy it falls back to
+# when one cannot be reached.  This refreshes the copies.  Review what joins
+# with `scripts/render_graph.py --report`.
 fetch-graphs:
 	$(PY) scripts/fetch_graphs.py
 

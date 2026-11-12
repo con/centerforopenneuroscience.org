@@ -27,12 +27,19 @@ from test_renderers import _browser, run, served_site  # noqa: E402,F401 -- fixt
 pytestmark = pytest.mark.ai_generated
 
 CON = {"id": "con", "match_local_paths": True}
-PSY = {"id": "psyinf", "match_local_paths": True}
+PSY = {"id": "psyinf", "match_local_paths": True, "base_url": "https://psy.example"}
 
 
-def node(pid, kind="person", label=None, keys=(), links=()):
+def node(pid, kind="person", label=None, keys=(), links=(), paths=True):
+    """A node as con_graph() or external_graph() hands it to merge()."""
     return {"id": pid, "label": label or pid, "type": kind,
-            "keys": set(keys), "links": list(links)}
+            "keys": set(keys) | congraph._own_keys(pid, paths),
+            "links": list(links)}
+
+
+def theirs(pid, kind="person", label=None, keys=(), paths=True):
+    """Another site's node: also reachable by its pid."""
+    return node(pid, kind, label, set(keys) | {"pid:" + pid}, paths=paths)
 
 
 def graph(nodes, edges=()):
@@ -47,8 +54,8 @@ def test_same_local_path_is_one_thing():
     a = graph([node("xyzrins:persons/a", label="Ada Lovelace"),
                node("xyzrins:projects/p", "project")],
               [("xyzrins:projects/p", "xyzrins:persons/a", "associated_with")])
-    b = graph([node("xyzrins:persons/a", label="A.Lovelace"),
-               node("xyzrins:projects/q", "project")],
+    b = graph([theirs("xyzrins:persons/a", label="A.Lovelace"),
+               theirs("xyzrins:projects/q", "project")],
               [("xyzrins:projects/q", "xyzrins:persons/a", "associated_with")])
     merged, joins = congraph.merge([(CON, a), (PSY, b)])
     got = ids(merged)
@@ -59,7 +66,7 @@ def test_same_local_path_is_one_thing():
     # both projects now hang off the one person
     assert {(e["s"], e["t"]) for e in merged["edges"]} == {
         ("con:projects/p", "con:persons/a"), ("psyinf:projects/q", "con:persons/a")}
-    assert [j[2] for j in joins] == ["path:persons/a"]
+    assert joins == [("con:persons/a", "psyinf:persons/a", "path:persons/a")]
 
 
 def test_site_roots_are_never_joined():
@@ -67,7 +74,7 @@ def test_site_roots_are_never_joined():
     a = graph([node("xyzrins:.", "project", "CON"), node("xyzrins:persons/a")],
               [("xyzrins:.", "xyzrins:persons/a", "associated_with")])
     b = graph([node("xyzrins:.", "project", "Psychoinformatics"),
-               node("xyzrins:persons/a")],
+               theirs("xyzrins:persons/a")],
               [("xyzrins:.", "xyzrins:persons/a", "associated_with")])
     got = ids(congraph.merge([(CON, a), (PSY, b)])[0])
     assert got["con:."]["sources"] == ["con"]
@@ -79,8 +86,8 @@ def test_global_identifier_joins_differently_named_records():
     a = graph([node("xyzrins:persons/yoh", keys={"orcid:0000-0003-3456-2493"}),
                node("xyzrins:projects/p", "project")],
               [("xyzrins:projects/p", "xyzrins:persons/yoh", "associated_with")])
-    b = graph([node("orcid:0000-0003-3456-2493"),
-               node("xyzrins:projects/q", "project")],
+    b = graph([theirs("orcid:0000-0003-3456-2493"),
+               theirs("xyzrins:projects/q", "project")],
               [("xyzrins:projects/q", "orcid:0000-0003-3456-2493", "associated_with")])
     got = ids(congraph.merge([(CON, a), (PSY, b)])[0])
     assert got["con:persons/yoh"]["sources"] == ["con", "psyinf"]
@@ -89,39 +96,68 @@ def test_global_identifier_joins_differently_named_records():
 def test_a_path_does_not_join_across_types_or_without_consent():
     a = graph([node("xyzrins:things/x", "project"), node("xyzrins:persons/a")],
               [("xyzrins:things/x", "xyzrins:persons/a", "associated_with")])
-    b = graph([node("xyzrins:things/x", "instrument"), node("xyzrins:persons/a")],
+    b = graph([theirs("xyzrins:things/x", "instrument"), theirs("xyzrins:persons/a")],
               [("xyzrins:things/x", "xyzrins:persons/a", "attributed_to")])
     got = ids(congraph.merge([(CON, a), (PSY, b)])[0])
     assert "psyinf:things/x" in got, "a project was joined with an instrument"
-    shy = dict(PSY, match_local_paths=False)
-    got = ids(congraph.merge([(CON, a), (shy, b)])[0])
+    shy = graph([theirs("xyzrins:things/x", "instrument", paths=False),
+                 theirs("xyzrins:persons/a", paths=False)], b["edges"])
+    got = ids(congraph.merge([(CON, a), (PSY, shy)])[0])
     assert "psyinf:persons/a" in got, "joined by path although the source declined"
 
 
-def test_distinct_vetoes_and_same_as_forces():
-    a = graph([node("xyzrins:persons/a"), node("xyzrins:persons/b"),
-               node("xyzrins:projects/p", "project")],
-              [("xyzrins:projects/p", "xyzrins:persons/a", "associated_with"),
-               ("xyzrins:projects/p", "xyzrins:persons/b", "associated_with")])
-    b = graph([node("xyzrins:persons/a"), node("xyzrins:persons/bee"),
-               node("xyzrins:projects/q", "project")],
-              [("xyzrins:projects/q", "xyzrins:persons/a", "associated_with"),
-               ("xyzrins:projects/q", "xyzrins:persons/bee", "associated_with")])
-    got = ids(congraph.merge(
-        [(CON, a), (PSY, b)],
-        same_as=[["con:persons/b", "psyinf:persons/bee"]],
-        distinct=[["con:persons/a", "psyinf:persons/a"]])[0])
-    assert "psyinf:persons/a" in got
-    assert got["con:persons/b"]["sources"] == ["con", "psyinf"]
+def test_exact_mappings_join_differently_named_records():
+    """Our slug, their UUID: the record says they are one thing."""
+    a = graph([node("xyzrins:projects/distribits", "project",
+                    keys={"pid:xyzrins:projects/a605"}),
+               node("xyzrins:persons/a")],
+              [("xyzrins:projects/distribits", "xyzrins:persons/a", "associated_with")])
+    b = graph([theirs("xyzrins:projects/a605", "project"), theirs("xyzrins:persons/b")],
+              [("xyzrins:projects/a605", "xyzrins:persons/b", "associated_with")])
+    merged, joins = congraph.merge([(CON, a), (PSY, b)])
+    got = ids(merged)
+    assert got["con:projects/distribits"]["sources"] == ["con", "psyinf"]
+    assert "psyinf:projects/a605" not in got
+    assert ("con:projects/distribits", "psyinf:projects/a605",
+            "pid:xyzrins:projects/a605") in joins
 
 
-def test_a_thing_nothing_links_to_is_left_out():
+def test_exact_mappings_are_read_from_the_iri():
+    ns = "https://concepts.datalad.org/s/demo-research-information/ns/"
+    assert congraph._mapped({"exact_mappings": [
+        ns + "organizations/fzj", "https://ror.org/02nv7yv05",
+        "http://purl.obolibrary.org/obo/OMRSE_00000087"]}) == {
+            "xyzrins:organizations/fzj", "ror:02nv7yv05"}
+
+
+def test_a_sites_own_records_are_never_joined_with_each_other():
+    """A preprint and its article share a title and are two records; the
+    same talk was given in four places.  Fusing them lost publications."""
+    t = {"title:one title"}
+    a = graph([node("xyzrins:publications/preprint", "publication", keys=t),
+               node("xyzrins:publications/article", "publication", keys=t),
+               node("xyzrins:persons/a")],
+              [("xyzrins:publications/preprint", "xyzrins:persons/a", "attributed_to"),
+               ("xyzrins:publications/article", "xyzrins:persons/a", "attributed_to")])
+    got = ids(congraph.merge([(CON, a)])[0])
+    assert {"con:publications/preprint", "con:publications/article"} <= set(got)
+    # ... and a title that names two of ours cannot say which one theirs is
+    b = graph([theirs("xyzrins:publications/uuid", "publication", keys=t),
+               theirs("xyzrins:persons/b")],
+              [("xyzrins:publications/uuid", "xyzrins:persons/b", "attributed_to")])
+    merged, joins = congraph.merge([(CON, a), (PSY, b)])
+    assert "psyinf:publications/uuid" in ids(merged) and not joins
+
+
+def test_a_thing_nothing_links_to_is_left_out_unless_asked():
     a = graph([node("xyzrins:persons/a"), node("xyzrins:persons/lonely"),
                node("xyzrins:projects/p", "project")],
               [("xyzrins:projects/p", "xyzrins:persons/a", "associated_with"),
                ("xyzrins:projects/p", "xyzrins:persons/nobody", "associated_with")])
-    got = ids(congraph.merge([(CON, a)])[0])
-    assert set(got) == {"con:persons/a", "con:projects/p"}
+    assert set(ids(congraph.merge([(CON, a)])[0])) == {
+        "con:persons/a", "con:projects/p"}
+    # graph.json keeps it: another site's node may be joined with it
+    assert "con:persons/lonely" in ids(congraph.merge([(CON, a)], prune=False)[0])
 
 
 def test_neighbourhood_counts_one_source():
@@ -138,6 +174,22 @@ def test_neighbourhood_counts_one_source():
     assert congraph.summary({"project": 1, "person": 2}) == "1 project, 2 people"
 
 
+def test_a_source_can_be_limited_to_what_is_near_its_root():
+    raw = {"nodes": [{"id": "xyzrins:.", "type": "project", "label": "Lab", "url": "/."},
+                     {"id": "xyzrins:persons/a", "type": "person", "label": "A", "url": "/persons/a"},
+                     {"id": "xyzrins:publications/p", "type": "publication", "label": "P", "url": None},
+                     {"id": "xyzrins:persons/far", "type": "person", "label": "Far", "url": None}],
+           "edges": [{"source": "xyzrins:.", "target": "xyzrins:persons/a"},
+                     {"source": "xyzrins:publications/p", "target": "xyzrins:persons/a"},
+                     {"source": "xyzrins:publications/p", "target": "xyzrins:persons/far"}]}
+    assert len(congraph.external_graph(PSY, raw)["nodes"]) == 4
+    near = congraph.external_graph(dict(PSY, within=2), raw)
+    assert {n["id"] for n in near["nodes"]} == {
+        "xyzrins:.", "xyzrins:persons/a", "xyzrins:publications/p"}
+    assert near["nodes"][0]["links"] == [{"k": "psyinf", "href": "https://psy.example/"}]
+    assert "pid:xyzrins:persons/a" in near["nodes"][1]["keys"]
+
+
 # --- the graph this repo actually ships --------------------------------
 
 @pytest.fixture(scope="module")
@@ -150,24 +202,34 @@ def test_committed_graph_is_what_the_store_renders():
         "content/graph/graph.json is stale: run `make project`")
 
 
-def test_the_graph_is_closed_and_typed(shipped):
+def test_the_graph_is_ours_alone_closed_and_typed(shipped):
+    """Nothing of another site is built into graph.json: the browser loads
+    theirs from them.  The file names where, and where the saved copy is."""
     known = {n["id"] for n in shipped["nodes"]}
-    sources = {s["id"] for s in shipped["sources"]}
     assert len(known) == len(shipped["nodes"]), "duplicate node ids"
     for n in shipped["nodes"]:
         assert n["type"] in shipped["types"]
-        assert n["sources"] and set(n["sources"]) <= sources
+        assert n["sources"] == ["con"]
     for e in shipped["edges"]:
-        assert e["s"] in known and e["t"] in known
+        assert e["s"] in known and e["t"] in known and e["sources"] == ["con"]
+    others = shipped["sources"][1:]
+    assert others, "no other site to join with"
+    for src in others:
+        assert src["graph_url"].startswith("https://")
+        saved = congraph.CACHE_DIR / src["fallback"]
+        assert saved.is_file(), f"no saved copy of {src['id']}'s graph"
+        assert "xyzrins:." in {n["id"] for n in json.loads(saved.read_text())["nodes"]}
 
 
-def test_the_sites_meet(shipped):
+def test_the_sites_meet():
     """The point of the joint view: the people and projects we share."""
-    got = {n["id"]: n["sources"] for n in shipped["nodes"]}
+    got = {n["id"]: n["sources"] for n in congraph.joined()[0]["nodes"]}
     for pid in ("con:persons/yaroslav-halchenko", "con:persons/michael-hanke",
                 "con:projects/datalad",
                 # by exact_mappings in the record: a slug here, a UUID there
-                "con:projects/distribits", "con:instruments/datalad-container"):
+                "con:projects/distribits", "con:instruments/datalad-container",
+                # ... and a ROR here, a local record there
+                "ror:02nv7yv05"):
         assert got[pid] == ["con", "psyinf"], f"{pid} is not shared"
     assert got["con:."] == ["con"]
 
@@ -217,49 +279,36 @@ def test_opened_graph_shows_what_its_summary_counted(served_site):  # noqa: F811
         shown = int(re.match(r"\d+", fold.locator(".cg-count").inner_text())[0])
         # the root itself is drawn but is not one of the things linked to it
         assert shown == promised + 1
-        pg.goto(f"{served_site}/explore/#sources=con,psyinf&root=con:projects/datalad")
-        pg.wait_for_selector(".cg-count")
-        assert pg.locator(".cg-rings").count() == 1
         assert not errors, errors
         browser.close()
 
 
-def test_exact_mappings_join_differently_named_records():
-    """Our slug, their UUID: the record says they are one thing."""
-    a = graph([dict(node("xyzrins:projects/distribits", "project"),
-                    maps={"xyzrins:projects/a605"}),
-               node("xyzrins:persons/a")],
-              [("xyzrins:projects/distribits", "xyzrins:persons/a", "associated_with")])
-    b = graph([node("xyzrins:projects/a605", "project"), node("xyzrins:persons/b")],
-              [("xyzrins:projects/a605", "xyzrins:persons/b", "associated_with")])
-    merged, joins = congraph.merge([(CON, a), (PSY, b)])
-    got = ids(merged)
-    assert got["con:projects/distribits"]["sources"] == ["con", "psyinf"]
-    assert "psyinf:projects/a605" not in got
-    assert ("con:projects/distribits", "psyinf:projects/a605", "exact_mappings") in joins
-
-
-def test_exact_mappings_are_read_from_the_iri():
-    ns = "https://concepts.datalad.org/s/demo-research-information/ns/"
-    assert congraph._mapped({"exact_mappings": [
-        ns + "organizations/fzj", "https://ror.org/02nv7yv05",
-        "http://purl.obolibrary.org/obo/OMRSE_00000087"]}) == {
-            "xyzrins:organizations/fzj", "ror:02nv7yv05"}
-
-
-def test_a_source_can_be_limited_to_what_is_near_its_root(tmp_path, monkeypatch):
-    raw = {"nodes": [{"id": "xyzrins:.", "type": "project", "label": "Lab", "url": "/."},
-                     {"id": "xyzrins:persons/a", "type": "person", "label": "A", "url": "/persons/a"},
-                     {"id": "xyzrins:publications/p", "type": "publication", "label": "P", "url": None},
-                     {"id": "xyzrins:persons/far", "type": "person", "label": "Far", "url": None}],
-           "edges": [{"source": "xyzrins:.", "target": "xyzrins:persons/a"},
-                     {"source": "xyzrins:publications/p", "target": "xyzrins:persons/a"},
-                     {"source": "xyzrins:publications/p", "target": "xyzrins:persons/far"}]}
-    (tmp_path / "x.json").write_text(json.dumps(raw))
-    monkeypatch.setattr(congraph, "CACHE_DIR", tmp_path)
-    src = {"id": "x", "base_url": "https://example.org/", "cache": "x.json"}
-    assert len(congraph.external_graph(src)["nodes"]) == 4
-    near = congraph.external_graph(dict(src, within=2))
-    assert {n["id"] for n in near["nodes"]} == {
-        "xyzrins:.", "xyzrins:persons/a", "xyzrins:publications/p"}
-    assert near["nodes"][0]["links"] == [{"k": "x", "href": "https://example.org/"}]
+def test_the_browser_joins_another_site_as_python_does(served_site):  # noqa: F811
+    """con-graph.js loads the other site's graph and joins it itself; the
+    rules live twice, here and in congraph.merge().  With the site out of
+    reach it must fall back to the saved copy, say so, and join exactly the
+    nodes Python joins from that copy."""
+    pw = pytest.importorskip("playwright.sync_api")
+    want = sorted(n["id"] for n in congraph.joined()[0]["nodes"]
+                  if len(n["sources"]) > 1)
+    assert len(want) > 20
+    with pw.sync_playwright() as p:
+        browser = _browser(p)
+        pg = browser.new_page(viewport={"width": 1400, "height": 900})
+        errors = []
+        pg.on("pageerror", lambda e: errors.append(str(e)))
+        # never the real site from a test: unreachable is the case to check
+        pg.route(re.compile(r"^https?://(?!127\.0\.0\.1)"), lambda r: r.abort())
+        pg.goto(f"{served_site}/explore/#sources=con,psyinf&root=con:projects/datalad")
+        pg.wait_for_selector(".cg-rings")
+        got = pg.evaluate("""async () => {
+            const d = await CONGraph.load();
+            return {how: d.loaded.psyinf,
+                    shared: d.nodes.filter(n => n.sources.length > 1)
+                                   .map(n => n.id).sort()};
+        }""")
+        assert got["how"] == "saved"
+        assert "saved copy" in pg.locator(".cg-note").inner_text()
+        assert got["shared"] == want
+        assert not errors, errors
+        browser.close()

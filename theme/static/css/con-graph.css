@@ -184,3 +184,6 @@
 /* the site's own list styling would put a bullet beside each neighbour */
 .con-graph .cg-near li { list-style: none; margin: 0; padding: 0; }
 .con-graph .cg-near li::before { content: none; }
+
+/* another site's part came from our saved copy, or not at all */
+.con-graph .cg-note { color: #8a5a00; font-size: 12px; }

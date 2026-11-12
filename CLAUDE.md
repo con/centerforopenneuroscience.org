@@ -80,17 +80,23 @@ linkchecker --check-extern -f .linkcheckerrc -t 1 http://localhost:8000
 
 3. **Graph** (`/explore/` and the per-person graphs on `/whoweare`)
    - `scripts/render_graph.py` (logic in `scripts/congraph.py`) writes
-     `content/graph/graph.json`: CON's records joined with the graphs of the
-     other sites listed in `content/graph-sources.yaml`. It is part of
-     `make project`; do not edit the JSON by hand.
-   - Other sites' graphs are read from copies in `sourcedata/graphs/`;
-     `make fetch-graphs` refreshes them, `scripts/render_graph.py --report`
-     lists which nodes were joined across sites and why.
+     `content/graph/graph.json`, CON's graph, from the record store. It is
+     part of `make project`; do not edit the JSON by hand.
+   - Other sites' graphs (`content/graph-sources.yaml`) are NOT built in:
+     the browser loads each from its own site and joins it with ours.
+     `content/graph/<site>.json` is a saved copy used only when that site
+     is unreachable; `make fetch-graphs` refreshes it.
+   - Which of their nodes is the same thing as ours is decided by keys
+     (shared pid or local path, ORCID/DOI/ROR, a publication's title, and
+     `exact_mappings` in the con-site-specific record). The rules are
+     documented in `scripts/congraph.py` and implemented twice, there and
+     in `con-graph.js`; a browser test keeps the two in step.
+     `scripts/render_graph.py --report` lists what joins.
    - `theme/static/js/con-graph.js` is the only renderer: any element with
      `data-con-graph` (plus `data-root`, `data-depth`, `data-sources`,
-     `data-controls`) becomes a graph filtered from that one file. Its
-     libraries are bundled in `theme/static/vendor/con-graph/`
-     (`make graph-vendor`, see `theme/graph-vendor/README.md`).
+     `data-controls`) becomes a graph. Its libraries are bundled in
+     `theme/static/vendor/con-graph/` (`make graph-vendor`, see
+     `theme/graph-vendor/README.md`).
 
 ### Development Workflow
 

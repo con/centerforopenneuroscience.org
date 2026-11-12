@@ -280,7 +280,7 @@ def render():
         for who in {a.get("object") for a in p.get("attributed_to") or []}:
             authored.setdefault(who, []).append(publication_type(p))
     targets = pid_links()
-    graph = congraph.build()[0]
+    graph = congraph.build()
     rows, skipped = [], []
     # the order render() actually used, for --show-order
     order = []

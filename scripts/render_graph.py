@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Write content/graph/graph.json: CON's things joined with other sites'.
+"""Write content/graph/graph.json: the graph of CON's things.
 
-The sources are listed in content/graph-sources.yaml.  CON's own graph comes
-from the record store; every other one from its cached `graph.json` under
-sourcedata/graphs/ (refreshed by scripts/fetch_graphs.py), so this script
-never touches the network and renders the same file from the same inputs.
+It is built from the record store alone.  The graphs of the other sites in
+content/graph-sources.yaml are loaded by the browser from those sites; this
+file only names them and gives every CON node the keys by which their nodes
+are recognised as the same thing (see scripts/congraph.py).
 
-`--report` prints which nodes of different sources were joined, and why.
-That list is the thing to review when a source is added or refreshed.
+`--report` joins CON's graph with the saved copy of each other site's and
+prints which nodes were unified, and why -- what a reader will see joined.
+That list is the thing to review when a mapping is added or a copy
+refreshed.
 """
 import argparse
 import collections
@@ -24,8 +26,8 @@ def main():
     ap.add_argument("--report", action="store_true",
                     help="list the cross-source joins instead of the graph")
     a = ap.parse_args()
-    graph, joins = congraph.build()
     if a.report:
+        graph, joins = congraph.joined()
         labels = {n["id"]: n for n in graph["nodes"]}
         for kept, other, why in sorted(joins, key=lambda j: (j[2].split(":")[0], j[0])):
             n = labels.get(kept)
@@ -36,6 +38,7 @@ def main():
         for srcs, k in sorted(per.items()):
             print(f'{k:5d} nodes in {" + ".join(srcs)}', file=sys.stderr)
         return 0
+    graph = congraph.build()
     text = congraph.dumps(graph)
     if a.out:
         pathlib.Path(a.out).parent.mkdir(parents=True, exist_ok=True)

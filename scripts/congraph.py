@@ -1,42 +1,45 @@
 # SPDX-FileCopyrightText: 2026 Yaroslav Halchenko <yaroslav.o.halchenko@dartmouth.edu>
 # SPDX-License-Identifier: MIT
-"""The graph of CON's things, alone and joined with other sites' graphs.
+"""The graph of CON's things, and how it meets other sites' graphs.
 
-One file, `content/graph/graph.json`, feeds every graph on the site.  The
-front end (`theme/static/js/con-graph.js`) only filters it: by source, by
-node type and by distance from a root.  Everything that needs judgement --
-which records are nodes, where a node links to, which node of another site
-is the same thing -- is decided here, at build time, where it can be tested
-and reviewed in a diff.
+`content/graph/graph.json` is CON's graph, built here from the record store.
+Every graph on the site is drawn from it by `theme/static/js/con-graph.js`,
+which filters it by node type and by distance from a root.
+
+Another site's graph is NOT part of that file.  When a reader asks for it,
+the browser loads that site's own `graph.json` from that site -- so it is as
+current as the site is -- and falls back to the copy under `content/graph/`
+(refreshed by `scripts/fetch_graphs.py`) only when the site cannot be
+reached.  What this module contributes to the join is the half we own: for
+every CON node, the `keys` by which a node of another site is recognised as
+the same thing.  The browser derives the other site's keys from its nodes
+with the same rules and joins nodes of the same type that share one.
 
 Node and edge selection follows `code/pool2graph.py` of www-from-model, the
-producer of the `graph.json` behind dev.centerforopenneuroscience.org/explore
-and psychoinformatics.de, so the three graphs describe the same kinds of
-things.  Two differences: an edge keeps the name of the field it came from,
-and a thing nothing links to is left out, because a lone dot explains nothing.
+producer of the `graph.json` behind psychoinformatics.de, so the graphs
+describe the same kinds of things.  Two differences: an edge keeps the name
+of the field it came from, and a thing nothing links to is left out.
 
-Identity across sites.  Every ORINOCO site names its own records
-`xyzrins:<class>/<slug>`: the prefix means "this site", so the same pid on
-two sites is two claims, and `xyzrins:.` is each site's own root.  Local pids
-are therefore rewritten to `<source>:<class>/<slug>`, and two nodes of the
-same type are joined when they share
+Keys.  Every ORINOCO site names its own records `xyzrins:<class>/<slug>`,
+one namespace shared by all of them; `xyzrins:.` is each site's own root.
 
-* a global identifier: the pid itself (`orcid:`, `ror:`, `doi:`) or one the
-  record carries (ORCID, DOI, ROR);
-* the local path, when the source allows it (`match_local_paths`): the sites
-  share people, projects and objectives and name them alike -- CON's seven
-  objectives carry the very UUIDs they have at psychoinformatics.de.  The
-  root is never matched this way;
-* the title, for publications, since the upstream `graph.json` has no DOIs;
-* an `exact_mappings` entry (`skos:exactMatch`) in one of our records that
-  names the other site's record -- the curated way to say "same thing" when
-  the two stores minted different pids (see "The same thing in another
-  store" in con-site-specific's docs/metadata-curation.md);
-* an explicit `same_as` pair in `content/graph-sources.yaml`, for a join
-  that is about the graph rather than a fact worth a record.
+* `pid:<pid>` -- a global pid is its own key (`pid:ror:02nv7yv05`), and an
+  `exact_mappings` entry (`skos:exactMatch`) in one of our records is a key
+  for the record it names (`pid:xyzrins:projects/a605574d-...`).  That is
+  the curated way to say "same thing" when two stores minted different
+  pids; see "The same thing in another store" in con-site-specific's
+  docs/metadata-curation.md.  Every node of another site has `pid:<its
+  pid>`.
+* `path:<class>/<slug>` -- the local pid, when the source allows it
+  (`match_local_paths`): the sites share people, projects and objectives
+  and name them alike.  Never the root.
+* `orcid:`, `doi:`, `ror:` -- identifiers a record carries.
+* `title:<normalised>` -- for publications, since the upstream graph.json
+  has no DOIs.
 
-`distinct` in that file vetoes a wrong join.  `render_graph.py --report`
-lists every join made, with the key that made it.
+`merge()` is the same join in Python.  The site does not use its result; it
+is what `render_graph.py --report` runs over the saved copy to show what the
+browser will join, and what the tests pin the JavaScript against.
 """
 import json
 import re
@@ -47,7 +50,8 @@ from conrecords import HERE, RECORDS, TIERS, attrs, one, person_name, toc_hook, 
 
 SOURCES_FILE = HERE / "content/graph-sources.yaml"
 GRAPH_FILE = HERE / "content/graph/graph.json"
-CACHE_DIR = HERE / "sourcedata/graphs"
+# saved copies of other sites' graphs, served as the fallback
+CACHE_DIR = HERE / "content/graph"
 
 LOCAL = "xyzrins:"
 # IRI prefix -> CURIE prefix, for reading `exact_mappings`.  `xyzrins:` is
@@ -106,6 +110,18 @@ def _mapped(d):
             if str(iri).startswith(prefix):
                 out.add(curie + str(iri)[len(prefix):])
     return out
+
+
+def _own_keys(pid, match_paths):
+    """The keys a node has by its pid alone; the same rule for every site,
+    and the one con-graph.js applies to another site's nodes."""
+    if not pid.startswith(LOCAL):
+        # a global pid is also the identifier it is made of: our record of
+        # a person carries `orcid:0000-...`, theirs may be named by it
+        return {"pid:" + pid, pid}
+    if match_paths and pid != LOCAL + ".":
+        return {"path:" + pid[len(LOCAL):]}
+    return set()
 
 
 def _label(kind, d, stem):
@@ -175,8 +191,10 @@ def con_graph():
             d = yaml.safe_load(f.read_text())
             pid = d["pid"]
             nodes[pid] = {"id": pid, "label": _label(kind, d, f.stem),
-                          "type": kind, "keys": _keys(kind, d),
-                          "maps": _mapped(d),
+                          "type": kind,
+                          "keys": (_keys(kind, d)
+                                   | {"pid:" + m for m in _mapped(d)}
+                                   | _own_keys(pid, True)),
                           "links": _links(kind, d, anchors)}
             for field in EDGE_FIELDS:
                 for rel in d.get(field) or []:
@@ -189,20 +207,24 @@ def con_graph():
     return {"nodes": list(nodes.values()), "edges": edges}
 
 
-# --- other sites' graphs, from their cached graph.json -----------------
+# --- another site's graph, in the form its graph.json has --------------
 
-def external_graph(src):
-    """A cached upstream `graph.json` in the neutral form.
+def external_graph(src, raw=None):
+    """A site's `graph.json` (the saved copy unless `raw` is given) as
+    nodes with keys.  con-graph.js does the same to the live file.
 
     Upstream nodes are `{id, label, type, size, url}` with `url` relative to
     that site.  `ids` is optional: global identifiers (`doi:...`,
     `orcid:...`) of the thing, which pool2graph.py does not emit yet.
     """
-    raw = json.loads((CACHE_DIR / src["cache"]).read_text())
+    if raw is None:
+        raw = json.loads((CACHE_DIR / src["fallback"]).read_text())
     base = src["base_url"].rstrip("/")
     nodes = []
     for n in raw["nodes"]:
-        keys = set()
+        # unlike ours, another site's node is always reachable by its pid:
+        # that is what an exact_mappings entry of ours names
+        keys = {"pid:" + n["id"]} | _own_keys(n["id"], src.get("match_local_paths"))
         for k in n.get("ids") or []:
             scheme, _, rest = k.partition(":")
             keys.add("doi:" + norm_doi(rest) if scheme == "doi" else k)
@@ -232,141 +254,100 @@ def external_graph(src):
     return {"nodes": nodes, "edges": edges}
 
 
-# --- joining them ------------------------------------------------------
+# --- the join, as the browser makes it ---------------------------------
 
 def load_sources():
-    cfg = yaml.safe_load(SOURCES_FILE.read_text())
-    return cfg["sources"], cfg.get("same_as") or [], cfg.get("distinct") or []
+    return yaml.safe_load(SOURCES_FILE.read_text())["sources"]
 
 
 def _qualify(pid, source):
     return source + ":" + pid[len(LOCAL):] if pid.startswith(LOCAL) else pid
 
 
-def merge(graphs, same_as=(), distinct=()):
+def merge(graphs, prune=True):
     """Join `[(source, graph), ...]` into one graph; the first source wins.
 
-    "Wins" is about presentation only -- label, id, link order -- so the
-    site's own source goes first.  Returns `(graph, joins)`; `joins` records
-    which nodes were unified and by which key.
+    A node joins the node of an EARLIER source that has its type and shares
+    a key with it, and otherwise is added under `<source>:<path>` (or its
+    global pid).  Two nodes of one source are never joined: a site's own
+    records are distinct by definition, and ours do share keys -- a preprint
+    and its article have one title, as does a talk given in four places.
+    For the same reason a key that several nodes of a source share points
+    at none of them: a title cannot tell which of the two is meant.
+
+    "Wins" is about presentation -- id, label, link order -- so the site's
+    own source goes first.  Returns `(graph, joins)`; `joins` records which
+    nodes were unified and by which key.  With `prune`, a node no edge
+    reaches is left out.
     """
-    parent, order = {}, []
-
-    def find(x):
-        while parent[x] != x:
-            parent[x] = parent[parent[x]]
-            x = parent[x]
-        return x
-
-    veto = {frozenset(p) for p in distinct}
-    members = {}                    # union root -> [qualified ids]
-    by_key, info, joins = {}, {}, []
-    match_paths = {s["id"]: s.get("match_local_paths", False)
-                   for s, _ in graphs}
-
-    def union(a, b, why):
-        ra, rb = find(a), find(b)
-        if ra == rb:
-            return
-        if any(frozenset((x, y)) in veto
-               for x in members[ra] for y in members[rb]):
-            return
-        if info[ra]["type"] != info[rb]["type"]:
-            return
-        # keep the earlier one as the representative
-        if order.index(ra) > order.index(rb):
-            ra, rb = rb, ra
-        parent[rb] = ra
-        members[ra] += members.pop(rb)
-        joins.append((ra, rb, why))
-
+    by_key, nodes, joins, edges = {}, {}, [], {}
     for src, g in graphs:
-        sid = src["id"]
+        sid, local, mine = src["id"], {}, {}
         for n in g["nodes"]:
-            qid = _qualify(n["id"], sid)
-            if qid in parent:       # a global pid seen in an earlier source
-                info[qid]["sources"].append(sid)
-                info[qid]["links"] += n["links"]
-                info[qid]["keys"] |= n["keys"]
-                joins.append((qid, qid, "pid"))
+            hit = next(((k, by_key[(n["type"], k)]) for k in sorted(n["keys"])
+                        if by_key.get((n["type"], k))), None)
+            if hit:
+                node = nodes[hit[1]]
+                joins.append((node["id"], _qualify(n["id"], sid), hit[0]))
             else:
-                parent[qid] = qid
-                order.append(qid)
-                members[qid] = [qid]
-                info[qid] = dict(n, id=qid, sources=[sid],
-                                 links=list(n["links"]), keys=set(n["keys"]))
-            keys = set(n["keys"])
-            if not n["id"].startswith(LOCAL):
-                keys.add(n["id"])
-            elif match_paths[sid] is not False and n["id"] != LOCAL + ".":
-                keys.add("path:" + n["id"][len(LOCAL):])
-            for k in sorted(keys):
-                # a path only joins nodes of sources that both allow it
-                if k.startswith("path:") and not match_paths[sid]:
-                    continue
-                if k in by_key:
-                    union(by_key[k], qid, k)
-                else:
-                    by_key[k] = qid
-    # what a record says is the same thing in another store
-    for src, g in graphs:
-        for n in g["nodes"]:
-            for other in sorted(n.get("maps") or ()):
-                for target_src, _ in graphs:
-                    target = _qualify(other, target_src["id"])
-                    if target in parent:
-                        union(_qualify(n["id"], src["id"]), target,
-                              "exact_mappings")
-    for a, b in same_as:
-        if a in parent and b in parent:
-            union(a, b, "same_as")
-
-    out_nodes = {}
-    for qid in order:
-        r = find(qid)
-        if r not in out_nodes:
-            i = info[r]
-            out_nodes[r] = {"id": r, "label": i["label"], "type": i["type"],
-                            "sources": [], "links": []}
-        node, i = out_nodes[r], info[qid]
-        node["sources"] += [s for s in i["sources"] if s not in node["sources"]]
-        node["links"] += [x for x in i["links"] if x not in node["links"]]
-
-    out_edges = {}
-    for src, g in graphs:
-        sid = src["id"]
+                node = {"id": _qualify(n["id"], sid), "label": n["label"],
+                        "type": n["type"], "sources": [], "links": []}
+                nodes[node["id"]] = node
+            if sid not in node["sources"]:
+                node["sources"].append(sid)
+            node["links"] += [x for x in n["links"] if x not in node["links"]]
+            for k in n["keys"]:
+                # None marks a key two of this source's nodes share
+                seen = mine.setdefault((n["type"], k), node["id"])
+                if seen != node["id"]:
+                    mine[(n["type"], k)] = None
+            local[n["id"]] = node["id"]
+        # only now do this source's keys become visible, to later sources
+        for k, target in mine.items():
+            if k not in by_key:
+                by_key[k] = target
         for s, t, kind in g["edges"]:
-            s, t = _qualify(s, sid), _qualify(t, sid)
-            if s not in parent or t not in parent:
+            s, t = local.get(s), local.get(t)
+            if not s or not t or s == t:
                 continue            # the target is not a node: as upstream
-            s, t = find(s), find(t)
-            if s == t:
-                continue
-            e = out_edges.setdefault((s, t), {"s": s, "t": t, "type": kind,
-                                              "sources": []})
+            e = edges.setdefault((s, t), {"s": s, "t": t, "type": kind,
+                                          "sources": []})
             if sid not in e["sources"]:
                 e["sources"].append(sid)
+    linked = {x for e in edges.values() for x in (e["s"], e["t"])}
+    return ({"nodes": [n for n in nodes.values()
+                       if not prune or n["id"] in linked],
+             "edges": list(edges.values())}, joins)
 
-    linked = {x for e in out_edges.values() for x in (e["s"], e["t"])}
-    nodes = [n for n in out_nodes.values() if n["id"] in linked]
-    return {"nodes": nodes, "edges": list(out_edges.values())}, joins
+
+SOURCE_FIELDS = ("id", "label", "base_url", "graph_url", "fallback",
+                 "within", "match_local_paths")
 
 
 def build():
-    """The joined graph as it is written to graph.json, and its joins."""
-    sources, same_as, distinct = load_sources()
-    graphs = []
-    for src in sources:
-        graphs.append((src, con_graph() if src.get("records")
-                       else external_graph(src)))
-    graph, joins = merge(graphs, same_as, distinct)
-    graph = {
-        "sources": [{k: s[k] for k in ("id", "label", "base_url") if k in s}
-                    for s in sources],
-        "types": TYPES,
-        **graph,
-    }
-    return graph, joins
+    """CON's graph as it is written to graph.json."""
+    sources = load_sources()
+    home = con_graph()
+    # Unpruned: a record nothing of ours links to may be the one another
+    # site's node is joined with (FZJ is: none of our people is recorded as
+    # working there, Psychoinformatics' are).  The browser leaves out what
+    # is still unlinked in the view it draws.
+    graph, _ = merge([(sources[0], home)], prune=False)
+    keys = {_qualify(n["id"], sources[0]["id"]): sorted(n["keys"])
+            for n in home["nodes"]}
+    for n in graph["nodes"]:
+        n["keys"] = keys[n["id"]]
+    return {"sources": [{k: s[k] for k in SOURCE_FIELDS if k in s}
+                        for s in sources],
+            "types": TYPES, **graph}
+
+
+def joined():
+    """CON's graph joined with the saved copy of every other source: what
+    the browser shows when none of the sites can be reached."""
+    sources = load_sources()
+    return merge([(sources[0], con_graph())]
+                 + [(s, external_graph(s)) for s in sources[1:]])
 
 
 def dumps(graph):
