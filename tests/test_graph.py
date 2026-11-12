@@ -165,7 +165,9 @@ def test_the_sites_meet(shipped):
     """The point of the joint view: the people and projects we share."""
     got = {n["id"]: n["sources"] for n in shipped["nodes"]}
     for pid in ("con:persons/yaroslav-halchenko", "con:persons/michael-hanke",
-                "con:projects/datalad"):
+                "con:projects/datalad",
+                # by exact_mappings in the record: a slug here, a UUID there
+                "con:projects/distribits", "con:instruments/datalad-container"):
         assert got[pid] == ["con", "psyinf"], f"{pid} is not shared"
     assert got["con:."] == ["con"]
 
@@ -220,3 +222,44 @@ def test_opened_graph_shows_what_its_summary_counted(served_site):  # noqa: F811
         assert pg.locator(".cg-rings").count() == 1
         assert not errors, errors
         browser.close()
+
+
+def test_exact_mappings_join_differently_named_records():
+    """Our slug, their UUID: the record says they are one thing."""
+    a = graph([dict(node("xyzrins:projects/distribits", "project"),
+                    maps={"xyzrins:projects/a605"}),
+               node("xyzrins:persons/a")],
+              [("xyzrins:projects/distribits", "xyzrins:persons/a", "associated_with")])
+    b = graph([node("xyzrins:projects/a605", "project"), node("xyzrins:persons/b")],
+              [("xyzrins:projects/a605", "xyzrins:persons/b", "associated_with")])
+    merged, joins = congraph.merge([(CON, a), (PSY, b)])
+    got = ids(merged)
+    assert got["con:projects/distribits"]["sources"] == ["con", "psyinf"]
+    assert "psyinf:projects/a605" not in got
+    assert ("con:projects/distribits", "psyinf:projects/a605", "exact_mappings") in joins
+
+
+def test_exact_mappings_are_read_from_the_iri():
+    ns = "https://concepts.datalad.org/s/demo-research-information/ns/"
+    assert congraph._mapped({"exact_mappings": [
+        ns + "organizations/fzj", "https://ror.org/02nv7yv05",
+        "http://purl.obolibrary.org/obo/OMRSE_00000087"]}) == {
+            "xyzrins:organizations/fzj", "ror:02nv7yv05"}
+
+
+def test_a_source_can_be_limited_to_what_is_near_its_root(tmp_path, monkeypatch):
+    raw = {"nodes": [{"id": "xyzrins:.", "type": "project", "label": "Lab", "url": "/."},
+                     {"id": "xyzrins:persons/a", "type": "person", "label": "A", "url": "/persons/a"},
+                     {"id": "xyzrins:publications/p", "type": "publication", "label": "P", "url": None},
+                     {"id": "xyzrins:persons/far", "type": "person", "label": "Far", "url": None}],
+           "edges": [{"source": "xyzrins:.", "target": "xyzrins:persons/a"},
+                     {"source": "xyzrins:publications/p", "target": "xyzrins:persons/a"},
+                     {"source": "xyzrins:publications/p", "target": "xyzrins:persons/far"}]}
+    (tmp_path / "x.json").write_text(json.dumps(raw))
+    monkeypatch.setattr(congraph, "CACHE_DIR", tmp_path)
+    src = {"id": "x", "base_url": "https://example.org/", "cache": "x.json"}
+    assert len(congraph.external_graph(src)["nodes"]) == 4
+    near = congraph.external_graph(dict(src, within=2))
+    assert {n["id"] for n in near["nodes"]} == {
+        "xyzrins:.", "xyzrins:persons/a", "xyzrins:publications/p"}
+    assert near["nodes"][0]["links"] == [{"k": "x", "href": "https://example.org/"}]

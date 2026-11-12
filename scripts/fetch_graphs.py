@@ -6,6 +6,13 @@ to its `cache` file.  The build reads only the cache, so the site renders
 without the network and a refresh shows up as a diff to review -- run
 `scripts/render_graph.py --report` afterwards to see what it joined.
 
+`--from-pool-dump FILE` builds the graph from a dump of the site's pool
+instead (JSON lines, one record each, as `dtc get-records <api> public`
+writes them): the records www-from-model's `code/pool2graph.py` turns into
+the site's graph.json, read the same way, plus what that script leaves out
+and a join across sites needs -- each thing's DOI, ORCID or ROR -- and
+people's full names.  It needs `--source`.
+
 `--from-hugo-content DIR` is for a site whose graph.json cannot be reached:
 it rebuilds an equivalent graph from a checkout of that site's Hugo sources
 (the `content/` tree of a www-from-model site), which carry the same pids
@@ -96,20 +103,79 @@ def from_hugo_content(root):
     return {"nodes": list(nodes.values()), "edges": kept}
 
 
+POOL_CLASSES = {"xyzri:XYZInstrument": "instrument",
+                "xyzri:XYZOrganization": "organization",
+                "xyzri:XYZPerson": "person", "xyzri:XYZProject": "project",
+                "xyzri:XYZPublication": "publication",
+                "xyzri:XYZTopic": "topic", "xyzri:XYZObjective": "objective",
+                "xyzri:XYZDataset": "dataset"}
+ID_SCHEMES = {"DOI": "doi", "ORCID": "orcid", "ROR": "ror"}
+
+
+def from_pool_dump(path):
+    """pool2graph.py's graph, with identifiers, from a dump of the pool."""
+    nodes, edges = {}, {}
+    for line in pathlib.Path(path).read_text().splitlines():
+        rec = json.loads(line)
+        kind = POOL_CLASSES.get(rec.get("schema_type"))
+        pid = rec.get("pid")
+        if not kind or not pid or pid in nodes:
+            continue
+        attr = {a.get("predicate"): a.get("value")
+                for a in rec.get("attributes") or []}
+        tags = rec.get("annotations") or {}
+        if rec.get("family_name"):
+            label = f'{rec.get("given_name", "")} {rec["family_name"]}'.strip()
+        else:
+            label = (rec.get("short_name") or rec.get("name")
+                     or rec.get("title") or attr.get("dcterms:title")
+                     or rec.get("display_label") or pid)
+        override = tags.get("xyzrins:annotation-tags/psyinf-ns-id")
+        if isinstance(override, dict):
+            override = override.get("annotation_value")
+        url = ("/" + override if override
+               else "/" + pid[len("xyzrins:"):] if pid.startswith("xyzrins:")
+               else None)
+        ids = []
+        for ident in rec.get("identifiers") or []:
+            scheme = ID_SCHEMES.get(str(ident.get("schema_type", "")).split(":")[-1])
+            if scheme and ident.get("notation"):
+                ids.append(f'{scheme}:{str(ident["notation"]).strip()}')
+        node = {"id": pid, "label": label, "type": kind, "size": 1, "url": url}
+        if ids:
+            node["ids"] = sorted(set(ids))
+        nodes[pid] = node
+        for field in congraph.EDGE_FIELDS:
+            for rel in rec.get(field) or []:
+                target = rel.get("object") if isinstance(rel, dict) else rel
+                if target:
+                    edges.setdefault((pid, target), field)
+    kept = []
+    for (s, t), field in edges.items():
+        if s in nodes and t in nodes:
+            nodes[t]["size"] += 1
+            kept.append({"id": f"e{len(kept)}", "source": s, "target": t,
+                         "type": field})
+    return {"nodes": list(nodes.values()), "edges": kept}
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--source", help="only this source id")
     ap.add_argument("--from-hugo-content", metavar="DIR")
+    ap.add_argument("--from-pool-dump", metavar="FILE")
     a = ap.parse_args()
-    if a.from_hugo_content and not a.source:
-        ap.error("--from-hugo-content needs --source")
+    if (a.from_hugo_content or a.from_pool_dump) and not a.source:
+        ap.error("--from-hugo-content and --from-pool-dump need --source")
     sources, _, _ = congraph.load_sources()
     done = 0
     for src in sources:
         if "cache" not in src or (a.source and src["id"] != a.source):
             continue
-        if a.from_hugo_content:
+        if a.from_pool_dump:
+            graph = from_pool_dump(a.from_pool_dump)
+        elif a.from_hugo_content:
             graph = from_hugo_content(a.from_hugo_content)
         else:
             req = urllib.request.Request(src["graph_url"],

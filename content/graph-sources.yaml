@@ -17,13 +17,22 @@ sources:
     # the site's own graph, as its /explore page loads it
     graph_url: https://www.psychoinformatics.de/graph.json
     # the copy under sourcedata/graphs/ that the build reads;
-    # `make fetch-graphs` refreshes it
+    # `make fetch-graphs` refreshes it.  The current copy was built from a
+    # dump of the pool's public records instead, which also carries DOIs and
+    # ORCIDs:  scripts/fetch_graphs.py --source psyinf --from-pool-dump \
+    #            <con/visidata-demos>/psychoinformatics-1/data.jsonl
     cache: psyinf.json
+    # The pool holds every publication of the institute; keep what lies
+    # within two links of the site's root -- the group's people and
+    # projects, and what those made -- which is what the site itself shows.
+    within: 2
     # The two sites name shared people, projects and objectives alike
     # (persons/adina-wagner, projects/datalad, objectives/<same uuid>).
     match_local_paths: true
 
 # Pairs of node ids that are one thing although nothing above says so.
+# Prefer `exact_mappings` in the con-site-specific record; this is for a
+# join that is only about the graph.
 same_as: []
 
 # Pairs that must stay apart although a key matched.

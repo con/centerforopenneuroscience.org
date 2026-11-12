@@ -28,7 +28,12 @@ same type are joined when they share
   objectives carry the very UUIDs they have at psychoinformatics.de.  The
   root is never matched this way;
 * the title, for publications, since the upstream `graph.json` has no DOIs;
-* an explicit `same_as` pair in `content/graph-sources.yaml`.
+* an `exact_mappings` entry (`skos:exactMatch`) in one of our records that
+  names the other site's record -- the curated way to say "same thing" when
+  the two stores minted different pids (see "The same thing in another
+  store" in con-site-specific's docs/metadata-curation.md);
+* an explicit `same_as` pair in `content/graph-sources.yaml`, for a join
+  that is about the graph rather than a fact worth a record.
 
 `distinct` in that file vetoes a wrong join.  `render_graph.py --report`
 lists every join made, with the key that made it.
@@ -45,6 +50,14 @@ GRAPH_FILE = HERE / "content/graph/graph.json"
 CACHE_DIR = HERE / "sourcedata/graphs"
 
 LOCAL = "xyzrins:"
+# IRI prefix -> CURIE prefix, for reading `exact_mappings`.  `xyzrins:` is
+# one namespace shared by every store built on the demo schema.
+IRI_PREFIXES = {
+    "https://concepts.datalad.org/s/demo-research-information/ns/": LOCAL,
+    "https://ror.org/": "ror:",
+    "https://orcid.org/": "orcid:",
+    "https://doi.org/": "doi:",
+}
 # class directory -> node type; the order is the order of the legend
 NODE_CLASSES = {
     "XYZPerson": "person",
@@ -84,6 +97,16 @@ def norm_orcid(value):
 
 
 # --- CON's own graph, from the record store ----------------------------
+
+def _mapped(d):
+    """The pids of other stores' records that `exact_mappings` names."""
+    out = set()
+    for iri in d.get("exact_mappings") or []:
+        for prefix, curie in IRI_PREFIXES.items():
+            if str(iri).startswith(prefix):
+                out.add(curie + str(iri)[len(prefix):])
+    return out
+
 
 def _label(kind, d, stem):
     if kind == "person":
@@ -153,6 +176,7 @@ def con_graph():
             pid = d["pid"]
             nodes[pid] = {"id": pid, "label": _label(kind, d, f.stem),
                           "type": kind, "keys": _keys(kind, d),
+                          "maps": _mapped(d),
                           "links": _links(kind, d, anchors)}
             for field in EDGE_FIELDS:
                 for rel in d.get(field) or []:
@@ -191,9 +215,21 @@ def external_graph(src):
                           "href": base + ("/" if url == "/." else url)})
         nodes.append({"id": n["id"], "label": n.get("label") or n["id"],
                       "type": n["type"], "keys": keys, "links": links})
-    return {"nodes": nodes,
-            "edges": [(e["source"], e["target"], e.get("type") or "")
-                      for e in raw["edges"]]}
+    edges = [(e["source"], e["target"], e.get("type") or "")
+             for e in raw["edges"]]
+    if src.get("within"):
+        # Only what lies this many links from the site's root: a pool holds
+        # more than its site shows (Psychoinformatics' has 850 publications
+        # of the whole institute; two links from the root are the group's
+        # people and projects and what those made).
+        near, frontier = {LOCAL + "."}, {LOCAL + "."}
+        for _ in range(int(src["within"])):
+            frontier = ({t for s, t, _k in edges if s in frontier}
+                        | {s for s, t, _k in edges if t in frontier}) - near
+            near |= frontier
+        nodes = [n for n in nodes if n["id"] in near]
+        edges = [e for e in edges if e[0] in near and e[1] in near]
+    return {"nodes": nodes, "edges": edges}
 
 
 # --- joining them ------------------------------------------------------
@@ -272,6 +308,15 @@ def merge(graphs, same_as=(), distinct=()):
                     union(by_key[k], qid, k)
                 else:
                     by_key[k] = qid
+    # what a record says is the same thing in another store
+    for src, g in graphs:
+        for n in g["nodes"]:
+            for other in sorted(n.get("maps") or ()):
+                for target_src, _ in graphs:
+                    target = _qualify(other, target_src["id"])
+                    if target in parent:
+                        union(_qualify(n["id"], src["id"]), target,
+                              "exact_mappings")
     for a, b in same_as:
         if a in parent and b in parent:
             union(a, b, "same_as")
