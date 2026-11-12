@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Yaroslav Halchenko <yaroslav.o.halchenko@dartmouth.edu>
+     SPDX-License-Identifier: MIT
+
+     Generated with Claude Code
+
+     The mark of a publication that also has a preprint in the site's graphs (theme/static/js/con-graph.js),
+     drawn for this site: the page, with
+     the earlier sheet showing behind it.  White, to sit on the dot of the type's colour. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="96" height="96" fill="#ffffff">
+  <title>A page of text with another sheet behind it</title>
+  <path d="M9 1.500h7l5.500 5.500v11.500a2 2 0 0 1-2 2H18V9.300L12.700 4H7V3.500a2 2 0 0 1 2-2z"/>
+  <path fill-rule="evenodd" d="M4.500 5.500h7.300l4.700 4.700V20.500a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2zm6.300 1.600v4h4zM5 14v1.500h8.500V14zm0 3.300v1.500h8.500v-1.500z"/>
+</svg>

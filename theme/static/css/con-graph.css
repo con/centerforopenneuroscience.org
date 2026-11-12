@@ -195,3 +195,12 @@
 
 /* a type's swatch, in the legend and on a node's card: its dot with its mark */
 .con-graph .cg-dot.cg-icon { width: 16px; height: 16px; }
+
+/* a paper's preprint, on its card; and the legend's line for such papers */
+.con-graph .cg-preprints { display: flex; flex-wrap: wrap; gap: 2px 8px; margin-bottom: 8px; }
+.con-graph .cg-preprints a { overflow-wrap: anywhere; }
+.con-graph .cg-variant {
+  display: flex; align-items: center; gap: 6px;
+  margin: 2px 0 0 19px; color: var(--cg-ink-2);
+}
+.con-graph-compact .cg-variant { margin: 0; }

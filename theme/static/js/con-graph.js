@@ -63,6 +63,15 @@
   function icon(type) {
     return TYPE_COLOR[type] ? BASE + "theme/img/graph/" + type + ".svg" : null;
   }
+  // A paper that was a preprint first is one node (scripts/congraph.py folds
+  // the two records), and says so: its page has another sheet behind it.
+  function iconOf(n) {
+    return n.preprints ? BASE + "theme/img/graph/publication-preprint.svg" : icon(n.type);
+  }
+  function swatch(n) {
+    return el("span", { "class": "cg-dot cg-icon", style: "background:" + TYPE_COLOR[n.type] +
+      " url('" + iconOf(n) + "') center/68% no-repeat" });
+  }
   var TYPE_LABEL = {
     person: "People", project: "Projects", publication: "Publications",
     instrument: "Software & instruments", dataset: "Datasets",
@@ -518,7 +527,7 @@
           borderColor: isRoot && !multi ? INK : ring.color,
           borderSize: isRoot && !multi ? 0.3 : ring.size,
           kind: n.type,
-          image: icon(n.type),
+          image: iconOf(n),
           pictoColor: "#ffffff",
           forceLabel: isRoot,
           zIndex: isRoot ? 2 : 1
@@ -801,6 +810,14 @@
           el("span", { "class": "cg-n", text: String(counts[t]) })
         ]));
       });
+      var folded = part.nodes.filter(function (n) { return n.preprints; });
+      if (folded.length && !hiddenTypes.publication) {
+        legend.appendChild(el("div", { "class": "cg-variant" }, [
+          swatch(folded[0]),
+          el("span", { text: "published, with its preprint" }),
+          el("span", { "class": "cg-n", text: String(folded.length) })
+        ]));
+      }
       if (view.sources.length > 1) {
         var home = data.sources[0].label;
         var others = view.sources.filter(function (s) { return s !== data.sources[0].id; });
@@ -825,7 +842,7 @@
         onclick: function () { select(null); }
       }));
       card.appendChild(el("div", { "class": "cg-kind" }, [
-        el("span", { "class": "cg-dot cg-icon", style: "background:" + TYPE_COLOR[n.type] + " url('" + icon(n.type) + "') center/68% no-repeat" }),
+        swatch(n),
         el("span", { text: n.type + (data.sources.length > 1
           ? " · " + n.sources.map(function (s) { return data.sourceLabel[s] || s; }).join(" + ") : "") })
       ]));
@@ -835,6 +852,15 @@
         links.appendChild(el("a", { href: href(l), text: linkLabel(l) }));
       });
       if (n.links.length) card.appendChild(links);
+      if (n.preprints) {
+        var pre = el("div", { "class": "cg-preprints" }, [
+          el("span", { "class": "cg-label", text: n.preprints.length > 1 ? "Preprints" : "Preprint" })
+        ]);
+        n.preprints.forEach(function (x) {
+          pre.appendChild(x.href ? el("a", { href: x.href, text: x.label }) : el("span", { text: x.label }));
+        });
+        card.appendChild(pre);
+      }
       if (n.id !== view.root) {
         card.appendChild(el("button", {
           type: "button", "class": "cg-btn", text: "Show only its links",

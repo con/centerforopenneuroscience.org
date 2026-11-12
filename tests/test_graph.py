@@ -330,3 +330,37 @@ def test_every_type_has_its_mark():
         assert mark.is_file(), f"no mark for {kind}"
         text = mark.read_text()
         assert "<title>" in text and 'fill="#ffffff"' in text
+
+
+def test_a_paper_and_its_preprint_are_one_node(shipped):
+    """The store keeps a preprint and its article as two records; drawn as
+    two dots of one title they read as a duplicate.  The article's node
+    stands for both, lists the preprint, and can be joined by either."""
+    got = {n["id"]: n for n in shipped["nodes"]}
+    article = got["con:publications/doi-10-1162-imag-a-00074"]
+    assert "con:publications/doi-10-1101-2023-08-16-552472" not in got
+    assert article["preprints"] == [{
+        "label": "doi:10.1101/2023.08.16.552472",
+        "href": "https://doi.org/10.1101/2023.08.16.552472"}]
+    assert {"doi:10.1101/2023.08.16.552472", "doi:10.1162/imag_a_00074"} <= set(article["keys"])
+    # nobody the preprint named is lost
+    authors = {e["t"] for e in shipped["edges"] if e["s"] == article["id"]}
+    assert "con:persons/austin-macdonald" in authors
+    assert (HERE / "theme/static/img/graph/publication-preprint.svg").is_file()
+
+
+def test_folding_keeps_the_preprints_links_and_drops_the_pair():
+    nodes = {"A": {"id": "A", "label": "Paper", "type": "publication", "keys": {"doi:a"}, "links": []},
+             "P": {"id": "P", "label": "Paper", "type": "publication", "keys": {"doi:p"}, "links": []},
+             "X": {"id": "X", "label": "X", "type": "person", "keys": set(), "links": []}}
+    records = {"A": {"pid": "A", "influenced_by": [
+                   {"object": "P", "roles": ["xyzrins:entity-roles/296e863e-7361-47ee-b337-e51a7e6bfe8d"]}]},
+               "P": {"pid": "P", "identifiers": [{"schema_type": "dlthings:DOI", "notation": "10.1/p"}]},
+               "X": {"pid": "X"}}
+    edges = congraph._fold_preprints(
+        nodes, [("A", "P", "influenced_by"), ("P", "X", "attributed_to"),
+                ("A", "X", "attributed_to")], records)
+    assert set(nodes) == {"A", "X"}
+    assert edges == [("A", "X", "attributed_to")]
+    assert nodes["A"]["keys"] == {"doi:a", "doi:p"}
+    assert nodes["A"]["preprints"] == [{"label": "doi:10.1/p", "href": "https://doi.org/10.1/p"}]

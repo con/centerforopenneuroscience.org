@@ -53,7 +53,9 @@ import re
 import unicodedata
 
 import render_projects
-from conrecords import HERE, RECORDS, TIERS, attrs, one, person_name, toc_hook, yaml
+from conrecords import (HERE, RECORDS, TIERS, attrs, one, person_name,
+                        preprint_of, publication_doi, publication_url, toc_hook,
+                        yaml)
 
 SOURCES_FILE = HERE / "content/graph-sources.yaml"
 GRAPH_FILE = HERE / "content/graph/graph.json"
@@ -192,11 +194,12 @@ def con_graph():
                "/projects#" + toc_hook(r["d"].get("display_label")
                                        or r["d"].get("title") or r["slug"])
                for r in render_projects.load()[0]}
-    nodes, edges = {}, []
+    nodes, edges, records = {}, [], {}
     for cls, kind in NODE_CLASSES.items():
         for f in sorted((RECORDS / cls).glob("*.yaml")):
             d = yaml.safe_load(f.read_text())
             pid = d["pid"]
+            records[pid] = d
             nodes[pid] = {"id": pid, "label": _label(kind, d, f.stem),
                           "type": kind,
                           "keys": (_keys(kind, d)
@@ -211,7 +214,44 @@ def con_graph():
     root = nodes.get(LOCAL + ".")
     if root:
         root["label"] = "CON"
+    edges = _fold_preprints(nodes, edges, records)
     return {"nodes": list(nodes.values()), "edges": edges}
+
+
+def _fold_preprints(nodes, edges, records):
+    """One node for a paper and the preprint it was.
+
+    The store keeps the two as two records, rightly, and the published one
+    names the other (`influenced_by`, Preprint role).  Drawn as two dots
+    they read as a duplicate: the same title twice, on the same authors.
+    So the preprint's node goes, as its entry goes from the publications
+    page, and the paper's node takes over
+
+    * its links -- an author or a project recorded only on the preprint
+      still reaches the paper;
+    * its keys -- another site that holds only the preprint, or holds the
+      paper under the title the two share, joins this one node;
+    * a `preprints` entry, which the node's card lists and its mark shows.
+    """
+    into = {}
+    for pid, d in records.items():
+        was = preprint_of(d)
+        if was in nodes and pid in nodes and was != pid:
+            into[was] = pid
+    for was, pid in into.items():
+        gone, kept, d = nodes.pop(was), nodes[pid], records[was]
+        kept["keys"] |= gone["keys"]
+        doi = publication_doi(d)
+        kept.setdefault("preprints", []).append({
+            "label": ("doi:" + doi) if doi else gone["label"],
+            "href": publication_url(d)})
+    seen, out = set(), []
+    for s, t, field in edges:
+        s, t = into.get(s, s), into.get(t, t)
+        if s != t and (s, t, field) not in seen:
+            seen.add((s, t, field))
+            out.append((s, t, field))
+    return out
 
 
 # --- another site's graph, in the form its graph.json has --------------
@@ -299,6 +339,8 @@ def merge(graphs, prune=True):
             else:
                 node = {"id": _qualify(n["id"], sid), "label": n["label"],
                         "type": n["type"], "sources": [], "links": []}
+                if n.get("preprints"):
+                    node["preprints"] = n["preprints"]
                 nodes[node["id"]] = node
             if sid not in node["sources"]:
                 node["sources"].append(sid)
