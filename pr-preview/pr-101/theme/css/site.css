@@ -702,11 +702,6 @@ ul>.list-group-item:before {
   font-weight: 500;
 }
 
-.support .supporter {
-	display: inline;
-	margin: 1em;
-}
-
 .support .btn-default {
 	display: none;
 }
@@ -733,6 +728,11 @@ ul>.list-group-item:before {
 
 .itembox p {
     text-align: center;
+}
+
+/* objective headings on the front page lead to the objectives page */
+.itembox .itembox-heading a {
+	color: inherit;
 }
 
 .website-licenses {
@@ -880,28 +880,48 @@ ul>.list-group-item:before {
 
 /* "N people": the reverse of whoweare's "related projects", closed by
    default because there the description is the content and this is an
-   index into whoweare.  Same drawn marker as the components above. */
-.projects details.people { margin: 0.4em 0; }
-.projects details.people > summary {
+   index into whoweare.  Same drawn marker as the components above.
+   "N publications" is the same disclosure, an index into publications. */
+.projects details.people,
+.projects details.publications,
+.objectives details.publications { margin: 0.4em 0; }
+.projects details.people > summary,
+.projects details.publications > summary,
+.objectives details.publications > summary {
   cursor: pointer;
   color: #777;
   font-size: 0.92em;
   list-style: none;
 }
-.projects details.people > summary::-webkit-details-marker { display: none; }
-.projects details.people > summary::before {
+.projects details.people > summary::-webkit-details-marker,
+.projects details.publications > summary::-webkit-details-marker,
+.objectives details.publications > summary::-webkit-details-marker { display: none; }
+.projects details.people > summary::before,
+.projects details.publications > summary::before,
+.objectives details.publications > summary::before {
   content: "\25B8";
   display: inline-block;
   width: 1em;
   color: #999;
   transition: transform .15s ease;
 }
-.projects details.people[open] > summary::before { transform: rotate(90deg); }
-.projects details.people > summary:hover { color: #337ab7; }
-.projects ul.people-list { margin: 0.4em 0 0.8em 0; }
-.projects ul.people-list > li { font-size: 0.92em; color: #666; }
-/* the components a role is held through; the theme letter-spaces <small> */
-.projects ul.people-list small {
+.projects details.people[open] > summary::before,
+.projects details.publications[open] > summary::before,
+.objectives details.publications[open] > summary::before { transform: rotate(90deg); }
+.projects details.people > summary:hover,
+.projects details.publications > summary:hover,
+.objectives details.publications > summary:hover { color: #337ab7; }
+.projects ul.people-list,
+.projects ul.publication-list,
+.objectives ul.publication-list { margin: 0.4em 0 0.8em 0; }
+.projects ul.people-list > li,
+.projects ul.publication-list > li,
+.objectives ul.publication-list > li { font-size: 0.92em; color: #666; }
+/* the components a role is held through, a publication's year; the theme
+   letter-spaces <small> */
+.projects ul.people-list small,
+.projects ul.publication-list small,
+.objectives ul.publication-list small {
   font-family: inherit; letter-spacing: normal; font-size: 0.9em; color: #999;
 }
 
@@ -911,26 +931,37 @@ ul>.list-group-item:before {
 /* Both sit under the description, in the same 9-column measure, so they
    read as a continuation of the person rather than a new column. */
 .whoweare .leads,
-.whoweare details.related { margin-top: .35em; font-size: 90%; }
+.whoweare details.related,
+.whoweare details.publications { margin-top: .35em; font-size: 90%; }
 .whoweare .leads strong { font-weight: 600; }
 
 /* The disclosure triangle is drawn rather than relied upon: Safari and
    older WebKit render the native marker inconsistently inside a float
    context, which is the same reason the projects page draws its own. */
-.whoweare details.related > summary {
+.whoweare details.related > summary,
+.whoweare details.publications > summary {
   cursor: pointer; list-style: none; color: #777;
 }
-.whoweare details.related > summary::-webkit-details-marker { display: none; }
-.whoweare details.related > summary::before {
+.whoweare details.related > summary::-webkit-details-marker,
+.whoweare details.publications > summary::-webkit-details-marker { display: none; }
+.whoweare details.related > summary::before,
+.whoweare details.publications > summary::before {
   content: "\25B8"; display: inline-block; width: 1em; color: #999;
   transition: transform .12s ease-out;
 }
-.whoweare details.related[open] > summary::before { transform: rotate(90deg); }
-.whoweare details.related > summary:hover { color: #333; }
-.whoweare ul.related-list {
+.whoweare details.related[open] > summary::before,
+.whoweare details.publications[open] > summary::before { transform: rotate(90deg); }
+.whoweare details.related > summary:hover,
+.whoweare details.publications > summary:hover { color: #333; }
+.whoweare ul.related-list,
+.whoweare ul.publication-list {
   margin: .2em 0 .4em 0; padding-left: 1.6em; list-style: disc;
 }
-.whoweare ul.related-list li { color: #666; }
+.whoweare ul.related-list li,
+.whoweare ul.publication-list li { color: #666; }
+.whoweare ul.publication-list small {
+  font-family: inherit; letter-spacing: normal; font-size: 0.9em; color: #999;
+}
 
 /* A strip entry that has no logo is a bare text link among floated images.
    Give it the same visual weight and, crucially, something to separate it
@@ -998,6 +1029,15 @@ ul>.list-group-item:before {
     padding-right: 12px;
   }
 }
+/* On tablets (768-991px, where Bootstrap does not collapse the menu yet)
+   they fit beside the CON mark only smaller and tighter still. */
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-nav > li > a {
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 12px;
+  }
+}
 
 /* the organization strips: logos of mixed shapes float in rows, and with
    no gap below them one row's logos touch the next row's */
@@ -1006,6 +1046,201 @@ ul>.list-group-item:before {
 	margin-bottom: 20px;
 }
 
+/* objectives: the projects behind each, as a strip of logo-and-name tiles */
+.objectives .objective-projects {
+	list-style: none;
+	padding: 0;
+	margin: 0.5em 0 2em 0;
+}
+.objectives .objective-projects li {
+	display: inline-block;
+	vertical-align: top;
+	width: 8em;
+	margin: 0 0.5em 1em 0;
+	text-align: center;
+	font-size: 90%;
+}
+.objectives .objective-projects li:before {
+	display: none;
+}
+.objectives .objective-projects img {
+	display: block;
+	max-width: 6em;
+	max-height: 3em;
+	margin: 0 auto 0.3em auto;
+}
+
+/* objectives: publications that name the objective, after its projects */
+.objectives .objective-reading {
+	margin-bottom: 0.2em;
+}
+.objectives .objective-publications {
+	margin-bottom: 2em;
+}
+
+/* support: each funder's grants under its logo */
+.support .funder h2 {
+	font-size: 1.5em;
+	margin: 1.5em 0 0.5em 0;
+}
+/* logos of any shape share one slot, so the names line up after them;
+   a funder without a logo keeps the slot empty */
+.support .funder h2 img,
+.support .funder h2 .no-logo {
+	display: inline-block;
+	width: 150px;
+	height: 48px;
+	object-fit: contain;
+	object-position: center;
+	vertical-align: middle;
+	margin-right: 0.6em;
+}
+.support .funder h2 span {
+	vertical-align: middle;
+}
+.support .grants li {
+	margin-bottom: 0.6em;
+}
+.support .grant-meta,
+.support .grant-projects {
+	display: block;
+	font-size: 90%;
+	color: #666;
+}
+
+/* publications.html: each entry as a grant is on support.html */
+.publications ul.publication-list > li {
+	margin-bottom: 0.6em;
+}
+.publications .pub-meta,
+.publications .pub-projects {
+	display: block;
+	font-size: 90%;
+	color: #666;
+}
+
+/* publications.js: the filters over the listing, and what it says while
+   loading or when nothing matches; the link to the filtered listing under
+   a project or a person */
+/* the page opens with a paragraph, not a heading whose margin would clear
+   the fixed navbar */
+.publications .pub-intro {
+	margin-top: 40px;
+}
+.publications .pub-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	margin: 1em 0 0.5em 0;
+}
+.publications .pub-filters input[type=search] {
+	flex: 1 1 18em;
+	min-width: 0;
+	padding: 0.3em 0.5em;
+}
+.publications .pub-filters select {
+	flex: 0 1 auto;
+	max-width: 100%;
+}
+.publications .pub-count,
+.pub-status {
+	color: #777;
+	font-size: 90%;
+}
+.publications .pub-results h2 small {
+	font-family: inherit;
+	letter-spacing: normal;
+	color: #999;
+}
+details .pub-more {
+	font-size: 0.92em;
+	margin: 0.2em 0 0 0;
+}
+
+/* what an entry is, where no heading says so: the lists under a project or
+   a person mix papers, posters and talks */
+.pub-type {
+	display: inline-block;
+	min-width: 3.6em;
+	padding: 0 0.4em;
+	border-radius: 3px;
+	font-size: 0.75em;
+	line-height: 1.6;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	vertical-align: 0.1em;
+	color: #fff;
+	background: #8a9bb0;
+}
+.pub-type-talk { background: #c27c3a; }
+.pub-type-poster { background: #6a9a5b; }
+.pub-type-dataset { background: #5b7fa8; }
+/* a paper not (yet) peer reviewed: marked, quieter than a type badge */
+.pub-preprint {
+	display: inline-block;
+	padding: 0 0.35em;
+	border: 1px solid #b9a26b;
+	border-radius: 3px;
+	font-size: 0.72em;
+	line-height: 1.5;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	vertical-align: 0.15em;
+	color: #8a7440;
+}
+/* the year headings under a type */
+.publications .pub-results h3 small {
+	font-family: inherit;
+	letter-spacing: normal;
+	color: #999;
+}
+
+/* "[PREPRINT]" and "[DATASET]" after a published title */
+.pub-tag {
+	font-size: 0.8em;
+	letter-spacing: 0.03em;
+	white-space: nowrap;
+	color: #c27c3a;
+}
+
+/* "(PDF) (📺 CONTube)" after a title: quieter than the title itself */
+.pub-alt {
+	font-size: 0.9em;
+	white-space: nowrap;
+}
+
+/* The navbar brand: the white CON mark (logo_con_white.svg) in place of the
+   theme's square icon and the name beside it */
+.navbar-inverse .navbar-brand.con-brand {
+	padding: 8px 15px;
+	height: 50px;
+}
+.navbar-inverse .navbar-brand.con-brand:before {
+	display: none;
+}
+.navbar-brand.con-brand img {
+	display: block;
+	height: 34px;
+	width: auto;
+}
+
+/* A heading that links to itself (jinjaext/table_of_contents.py): it reads
+   as a heading, and shows a quiet # when pointed at */
+a.heading-link {
+	color: inherit;
+	text-decoration: none;
+}
+a.heading-link:hover::after {
+	content: " #";
+	color: #bbb;
+	font-weight: normal;
+}
+
+/* "doi:10.1038/..." closing an entry's line; long ones may break anywhere */
+.pub-doi {
+	overflow-wrap: anywhere;
+}
 /* ------------------------------------------------------------------ */
 /* explore.html -- the graph page (the graph itself: css/con-graph.css) */
 

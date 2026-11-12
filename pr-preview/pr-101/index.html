@@ -24,12 +24,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
-		  <div class="hidden-xs hidden-sm">
-			<a class="navbar-brand" href="/centerforopenneuroscience.org/pr-preview/pr-101/">Center for Open Neuroscience</a>
-		  </div>
-		  <div class="hidden-md hidden-lg" style="font-size:12px">
-			<a class="navbar-brand" href="/centerforopenneuroscience.org/pr-preview/pr-101/">Center for Open Neuroscience</a>
-		  </div>
+		  <!-- the CON mark alone: the full name beside it, plus a seventh menu
+		       item, wrapped the menu onto a second row -->
+		  <a class="navbar-brand con-brand" href="/centerforopenneuroscience.org/pr-preview/pr-101/" title="Center for Open Neuroscience">
+			<img src="/centerforopenneuroscience.org/pr-preview/pr-101/theme/img/logos/logo_con_white.svg" alt="Center for Open Neuroscience" />
+		  </a>
 
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -55,13 +54,13 @@
                   </a>
               </li>
               <li  >
-                  <a href="/centerforopenneuroscience.org/pr-preview/pr-101/explore/" >
-                          Explore
+                  <a href="/centerforopenneuroscience.org/pr-preview/pr-101/publications" >
+                          Publications
                   </a>
               </li>
-              <li>
-                  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/" title="Talks (external site)">
-                      Talks <span class="glyphicon glyphicon-new-window nav-ext-icon" aria-hidden="true"></span>
+              <li  >
+                  <a href="/centerforopenneuroscience.org/pr-preview/pr-101/explore/" >
+                          Explore
                   </a>
               </li>
               <li>
@@ -204,6 +203,70 @@
 	</div>
   </div>
 
+  <h1>Objectives</h1>
+  <div class="itembox">
+	<div class="row">
+	  <div class="col-md-4 col-sm-4">
+		<div class="itembox-heading">
+		  <a href="/centerforopenneuroscience.org/pr-preview/pr-101/objectives#promote_open_science_through_shared_data_and_collaboration_"><span>Promote open science through shared data and collaboration</span></a>
+		</div>
+		<p>We share our own code and data openly, run and support public data archives, and develop the data standards that let labs share and combine their studies.</p>
+		<p class="pitch">Much research data never leaves the lab that collected it. Results are then hard to check, and questions that need larger or more diverse samples go unanswered.</p>
+	  </div>
+	  <div class="col-md-4 col-sm-4">
+		<div class="itembox-heading">
+		  <a href="/centerforopenneuroscience.org/pr-preview/pr-101/objectives#connect_tools_standards_and_communities_"><span>Connect tools, standards, and communities</span></a>
+		</div>
+		<p>We work across data standards, such as <a href="https://bids.neuroimaging.io">BIDS</a>, <a href="https://www.nwb.org">NWB</a>, and <a href="https://www.dicomstandard.org">DICOM</a>, and across research initiatives, so that data, tools, and conventions from one community can be used in another.</p>
+		<p class="pitch">Standards and initiatives often grow up separately. The same data then has to be converted again for each one, and solutions found in one community rarely reach the next.</p>
+	  </div>
+	  <div class="col-md-4 col-sm-4">
+		<div class="itembox-heading">
+		  <a href="/centerforopenneuroscience.org/pr-preview/pr-101/objectives#preserve_research_artifacts_"><span>Preserve research artifacts</span></a>
+		</div>
+		<p>We are building tools and practices that keep data, code, recordings, and other research materials findable and recoverable, with copies in more than one place.</p>
+		<p class="pitch">A paper is only part of the work. The data, code, and notes behind it are easily lost when a service shuts down, a link breaks, or a project ends.</p>
+	  </div>
+	</div>
+  </div>
+  <div class="itembox">
+	<div class="row">
+	  <div class="col-md-4 col-sm-4">
+		<div class="itembox-heading">
+		  <a href="/centerforopenneuroscience.org/pr-preview/pr-101/objectives#selfhosted_research_tools_and_services_"><span>Self-hosted research tools and services</span></a>
+		</div>
+		<p>We are making research software and services that groups can run on their own computers, such as <a href="https://neuro.debian.net">NeuroDebian</a>, <a href="https://www.debian.org/devel/debian-med/">Debian Med</a>, <a href="https://dandiarchive.org">DANDI</a>, and <a href="https://github.com/ORINOCO-Lite">ORINOCO Lite</a>; <a href="https://con.github.io/serve/">con/serve</a> collects how to run them.</p>
+		<p class="pitch">Many research groups depend on tools and services they do not control. When a provider changes its terms or shuts down, a group can lose the services its work depends on, and sometimes its data.</p>
+	  </div>
+	  <div class="col-md-4 col-sm-4">
+		<div class="itembox-heading">
+		  <a href="/centerforopenneuroscience.org/pr-preview/pr-101/objectives#turn_research_ideas_into_working_tools_"><span>Turn research ideas into working tools</span></a>
+		</div>
+		<p>We turn published methods into turnkey software that researchers can install, inspect, and run on their own data. <a href="http://pymvpa.org">PyMVPA</a>, our framework for machine learning analyses of brain imaging data, was one of the first to do this for neuroscience.</p>
+		<p class="pitch">Many new methods are described in papers but never released as usable software, so other researchers cannot try them.</p>
+	  </div>
+	  <div class="col-md-4 col-sm-4">
+		<div class="itembox-heading">
+		  <a href="/centerforopenneuroscience.org/pr-preview/pr-101/objectives#understand_brain_function_during_everyday_experiences_"><span>Understand brain function during everyday experiences</span></a>
+		</div>
+		<p>We are developing ways to analyze brain activity and behavior recorded during rich experiences, such as watching a film. Hyperalignment, which aligns such responses across people, was first implemented in <a href="http://pymvpa.org">PyMVPA</a>; this work builds on <a href="https://www.psychoinformatics.de/objectives/b6e7dfb2-3534-487e-bd8a-d2f58ec47e47/">Psychoinformatics&#x27; work on naturalistic studies</a>.</p>
+		<p class="pitch">Films combine images, sound, and events that unfold over time. Most analysis methods were made for simple, controlled tasks, so much of what such recordings contain goes unused.</p>
+	  </div>
+	</div>
+  </div>
+  <div class="itembox">
+	<div class="row">
+	  <div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4">
+		<div class="itembox-heading">
+		  <a href="/centerforopenneuroscience.org/pr-preview/pr-101/objectives#build_tools_for_reproducible_shareable_science_"><span>Build tools for reproducible, shareable science</span></a>
+		</div>
+		<p>We are building tools that record which data and software produced each result, so an analysis can be rerun, checked, and shared.</p>
+		<p class="pitch">Analyses often depend on manual steps, unrecorded software versions, and files that change without notice. Others then cannot repeat the results, and even the original authors may struggle to.</p>
+	  </div>
+	</div>
+  </div>  <p class="text-center"><a href="/centerforopenneuroscience.org/pr-preview/pr-101/objectives">The projects behind each objective</a>
+    &#183; <a href="/centerforopenneuroscience.org/pr-preview/pr-101/publications">Our publications</a></p>
+
     <div class="row clearfix">
       <div class="col-md-3 column">
         </div>
@@ -315,14 +378,35 @@
   <script src="/centerforopenneuroscience.org/pr-preview/pr-101/theme/vendor/buddycloud-styles/dist/js/buddycloud-styles.js"></script>
   <script src="/centerforopenneuroscience.org/pr-preview/pr-101/theme/vendor/underscore/underscore-min.js"></script>
   <script src="/centerforopenneuroscience.org/pr-preview/pr-101/theme/js/jquery.visible.min.js"></script>
+  <script src="/centerforopenneuroscience.org/pr-preview/pr-101/theme/js/publications.js" data-version="fe027e304166" defer></script>
 <script type="text/javascript">
+  // The pinned sidebar would run over the footer, so it steps aside -- but
+  // only when it actually would.  Hiding it whenever the footer was on
+  // screen emptied the left column of every short page: a filtered
+  // /publications lost its sidebar on the first scroll.  It is measured
+  // shown (and re-hidden in the same task, so nothing flickers), because a
+  // hidden one has no box to measure.
+  function sidebar_avoids_footer() {
+    var toc = document.getElementById("full-toc"),
+        foot = document.querySelector(".background-contact");
+    if ( !toc || !foot ) return;
+    var $toc = $(toc), shown = $toc.is(":visible");
+    $toc.stop(true, true).show();
+    var overlaps = toc.getBoundingClientRect().bottom > foot.getBoundingClientRect().top;
+    if ( overlaps ) {
+      if ( shown ) { $toc.fadeOut(200, "linear"); } else { $toc.hide(); }
+    }
+    else if ( !shown ) {
+      $toc.hide().fadeIn(200, "linear");
+    }
+  }
+  window.sidebar_avoids_footer = sidebar_avoids_footer;
   $(window).scroll(function() {
+    sidebar_avoids_footer();
     if ( $(".background-contact").visible(true) ){
-      $("#full-toc").fadeOut(200, "linear");
       $("#habla_panel_div").fadeOut(200, "linear");
     }
     else{
-      $("#full-toc").fadeIn(200, "linear");
       $("#habla_panel_div").fadeIn(200, "linear");
     }
   });
@@ -338,7 +422,9 @@
     if ( $target.length ) {
       window.scrollTo(0, $target.offset().top - fromTop);
       if ( history && "pushState" in history ){
-        history.pushState({}, document.title, window.location.pathname + href);
+        // keep the query: /publications carries its filters there
+        history.pushState({}, document.title,
+                          window.location.pathname + window.location.search + href);
         return false;
       }
     }
@@ -352,6 +438,9 @@
   // (from con/centerforopenneuroscience.org#94)
   $(document.body).off("click", ".bs-docs-sidebar a")
     .on("click", ".bs-docs-sidebar a", scroll_if_anchor);
+  // a heading links to itself: the same jump, so it lands where the
+  // sidebar's would and scrollspy follows
+  $(document.body).on("click", "a.heading-link", scroll_if_anchor);
   $("#fixed-toc").css("visibility", "hidden");
   $(document).ready(function() {
     window.setTimeout(function() {

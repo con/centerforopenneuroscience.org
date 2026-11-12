@@ -48,6 +48,8 @@
     organization: "Organizations", objective: "Objectives", topic: "Topics"
   };
   var PLURAL = { person: "people" };
+  // which way sigma's camera angle turns the drawing, so it follows the hand
+  var ROTATE_SIGN = 1;
   var FADED = "#e4e3df";
   var EDGE = "#d9d8d2";
   var INK = "#1a1a19";
@@ -211,16 +213,20 @@
     var legend = el("div", { "class": "cg-legend" });
     var card = el("div", { "class": "cg-card", hidden: "" });
     var status = el("div", { "class": "cg-status", text: "Loading the graph…" });
+    var hint = el("div", { "class": "cg-hint",
+      text: "Drag to move \u00b7 scroll to zoom \u00b7 Shift-drag to rotate" });
     stage.appendChild(canvas);
     // over the drawing where there is room, under it where there is not
     if (!compact) stage.appendChild(legend);
     stage.appendChild(card);
     stage.appendChild(status);
+    stage.appendChild(hint);
     host.appendChild(toolbar);
     host.appendChild(stage);
     if (compact) host.appendChild(legend);
 
     if (!compact) readHash();
+    rotateWithShiftDrag();
 
     load().then(function (d) {
       data = d;
@@ -232,6 +238,33 @@
       status.textContent = "The graph could not be shown: " + err.message;
       status.hidden = false;
     });
+
+    // Sigma pans on drag and zooms on scroll but has no way to turn the
+    // drawing with a mouse (only with two fingers on a touch screen).  With
+    // Shift held, a drag turns it about the centre of the canvas instead.
+    // Listening in the capture phase keeps sigma from also panning.
+    function rotateWithShiftDrag() {
+      var from = null;
+      function pointerAngle(e) {
+        var box = canvas.getBoundingClientRect();
+        return Math.atan2(e.clientY - (box.top + box.height / 2),
+                          e.clientX - (box.left + box.width / 2));
+      }
+      canvas.addEventListener("mousedown", function (e) {
+        if (!e.shiftKey || e.button !== 0 || !sigma) return;
+        e.stopPropagation();
+        e.preventDefault();
+        from = { pointer: pointerAngle(e), camera: sigma.getCamera().getState().angle };
+        canvas.style.cursor = "grabbing";
+      }, true);
+      window.addEventListener("mousemove", function (e) {
+        if (!from || !sigma) return;
+        sigma.getCamera().setState({ angle: from.camera + ROTATE_SIGN * (pointerAngle(e) - from.pointer) });
+      });
+      window.addEventListener("mouseup", function () {
+        if (from) { from = null; canvas.style.cursor = ""; }
+      });
+    }
 
     // -- state in the address, so a view can be linked to (full page only)
 
@@ -262,6 +295,7 @@
       var old = {};
       if (graph) graph.forEachNode(function (id, a) { old[id] = [a.x, a.y]; });
       if (layoutTimer) cancelAnimationFrame(layoutTimer);
+      var turned = sigma ? sigma.getCamera().getState().angle : 0;
       if (sigma) sigma.kill();
       selected = hovered = null;
 
@@ -330,6 +364,7 @@
         nodeReducer: nodeReducer,
         edgeReducer: edgeReducer
       });
+      if (turned) sigma.getCamera().setState({ angle: turned });
       sigma.on("enterNode", function (e) { hovered = e.node; canvas.style.cursor = "pointer"; sigma.refresh({ skipIndexation: true }); });
       sigma.on("leaveNode", function () { hovered = null; canvas.style.cursor = ""; sigma.refresh({ skipIndexation: true }); });
       sigma.on("clickNode", function (e) { select(e.node); });
@@ -511,6 +546,22 @@
       legend.textContent = "";
       var counts = {};
       part.nodes.forEach(function (n) { counts[n.type] = (counts[n.type] || 0) + 1; });
+      if (Object.keys(counts).length > 1) {
+        var setAll = function (on) {
+          hiddenTypes = {};
+          if (!on) Object.keys(counts).forEach(function (t) { hiddenTypes[t] = true; });
+          if (!on && selected) select(null);
+          drawLegend(part);
+          sigma.refresh();
+        };
+        legend.appendChild(el("div", { "class": "cg-allnone" }, [
+          el("button", { type: "button", "class": "cg-link", text: "all",
+            title: "Show every type", onclick: function () { setAll(true); } }),
+          el("button", { type: "button", "class": "cg-link", text: "none",
+            title: "Hide every type, then tick the ones you want",
+            onclick: function () { setAll(false); } })
+        ]));
+      }
       data.types.forEach(function (t) {
         if (!counts[t]) return;
         var box = el("input", { type: "checkbox", onchange: function () {
@@ -591,7 +642,11 @@
       });
     }
 
-    return { focus: focus, select: select, view: view };
+    return {
+      focus: focus, select: select, view: view,
+      // where a node is drawn, in canvas pixels (for tests)
+      _at: function (id) { return sigma.graphToViewport(graph.getNodeAttributes(id)); }
+    };
   }
 
   // --- finding the graphs a page declares ---------------------------------

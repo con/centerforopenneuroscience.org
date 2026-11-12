@@ -156,3 +156,27 @@
 
 /* whoweare: the graph of one person, under their entry. */
 .whoweare details.graph .con-graph { margin: 8px 0 4px; }
+
+/* "all / none" above the type checkboxes */
+.con-graph .cg-allnone { display: flex; gap: 10px; margin-bottom: 2px; color: var(--cg-ink-2); }
+.con-graph-compact .cg-allnone { margin: 0; }
+.con-graph .cg-link {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: #23527c;
+  font-size: 12px;
+  cursor: pointer;
+}
+.con-graph .cg-link:hover { text-decoration: underline; }
+
+/* how to move around, in the corner nothing else uses */
+.con-graph .cg-hint {
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+  color: #8a8982;
+  font-size: 11px;
+  pointer-events: none;
+}
+@media (max-width: 640px) { .con-graph .cg-hint { display: none; } }

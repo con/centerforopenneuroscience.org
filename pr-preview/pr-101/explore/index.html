@@ -24,12 +24,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
-		  <div class="hidden-xs hidden-sm">
-			<a class="navbar-brand" href="/centerforopenneuroscience.org/pr-preview/pr-101/">Center for Open Neuroscience</a>
-		  </div>
-		  <div class="hidden-md hidden-lg" style="font-size:12px">
-			<a class="navbar-brand" href="/centerforopenneuroscience.org/pr-preview/pr-101/">Center for Open Neuroscience</a>
-		  </div>
+		  <!-- the CON mark alone: the full name beside it, plus a seventh menu
+		       item, wrapped the menu onto a second row -->
+		  <a class="navbar-brand con-brand" href="/centerforopenneuroscience.org/pr-preview/pr-101/" title="Center for Open Neuroscience">
+			<img src="/centerforopenneuroscience.org/pr-preview/pr-101/theme/img/logos/logo_con_white.svg" alt="Center for Open Neuroscience" />
+		  </a>
 
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -54,14 +53,14 @@
                           Support
                   </a>
               </li>
+              <li  >
+                  <a href="/centerforopenneuroscience.org/pr-preview/pr-101/publications" >
+                          Publications
+                  </a>
+              </li>
               <li class="active" >
                   <a href="/centerforopenneuroscience.org/pr-preview/pr-101/explore/" >
                           Explore
-                  </a>
-              </li>
-              <li>
-                  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/" title="Talks (external site)">
-                      Talks <span class="glyphicon glyphicon-new-window nav-ext-icon" aria-hidden="true"></span>
                   </a>
               </li>
               <li>
@@ -131,14 +130,35 @@
   <script src="/centerforopenneuroscience.org/pr-preview/pr-101/theme/vendor/buddycloud-styles/dist/js/buddycloud-styles.js"></script>
   <script src="/centerforopenneuroscience.org/pr-preview/pr-101/theme/vendor/underscore/underscore-min.js"></script>
   <script src="/centerforopenneuroscience.org/pr-preview/pr-101/theme/js/jquery.visible.min.js"></script>
+  <script src="/centerforopenneuroscience.org/pr-preview/pr-101/theme/js/publications.js" data-version="fe027e304166" defer></script>
 <script type="text/javascript">
+  // The pinned sidebar would run over the footer, so it steps aside -- but
+  // only when it actually would.  Hiding it whenever the footer was on
+  // screen emptied the left column of every short page: a filtered
+  // /publications lost its sidebar on the first scroll.  It is measured
+  // shown (and re-hidden in the same task, so nothing flickers), because a
+  // hidden one has no box to measure.
+  function sidebar_avoids_footer() {
+    var toc = document.getElementById("full-toc"),
+        foot = document.querySelector(".background-contact");
+    if ( !toc || !foot ) return;
+    var $toc = $(toc), shown = $toc.is(":visible");
+    $toc.stop(true, true).show();
+    var overlaps = toc.getBoundingClientRect().bottom > foot.getBoundingClientRect().top;
+    if ( overlaps ) {
+      if ( shown ) { $toc.fadeOut(200, "linear"); } else { $toc.hide(); }
+    }
+    else if ( !shown ) {
+      $toc.hide().fadeIn(200, "linear");
+    }
+  }
+  window.sidebar_avoids_footer = sidebar_avoids_footer;
   $(window).scroll(function() {
+    sidebar_avoids_footer();
     if ( $(".background-contact").visible(true) ){
-      $("#full-toc").fadeOut(200, "linear");
       $("#habla_panel_div").fadeOut(200, "linear");
     }
     else{
-      $("#full-toc").fadeIn(200, "linear");
       $("#habla_panel_div").fadeIn(200, "linear");
     }
   });
@@ -154,7 +174,9 @@
     if ( $target.length ) {
       window.scrollTo(0, $target.offset().top - fromTop);
       if ( history && "pushState" in history ){
-        history.pushState({}, document.title, window.location.pathname + href);
+        // keep the query: /publications carries its filters there
+        history.pushState({}, document.title,
+                          window.location.pathname + window.location.search + href);
         return false;
       }
     }
@@ -168,6 +190,9 @@
   // (from con/centerforopenneuroscience.org#94)
   $(document.body).off("click", ".bs-docs-sidebar a")
     .on("click", ".bs-docs-sidebar a", scroll_if_anchor);
+  // a heading links to itself: the same jump, so it lands where the
+  // sidebar's would and scrollspy follows
+  $(document.body).on("click", "a.heading-link", scroll_if_anchor);
   $("#fixed-toc").css("visibility", "hidden");
   $(document).ready(function() {
     window.setTimeout(function() {
