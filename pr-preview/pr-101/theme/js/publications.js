@@ -34,7 +34,22 @@
   // cache key and the URL change whenever the publications do
   var VERSION = (root.document && root.document.currentScript
                  && root.document.currentScript.getAttribute("data-version")) || "";
-  var SRC = "/theme/data/publications.json" + (VERSION ? "?v=" + VERSION : "");
+  // Beside this script, wherever the site is served from: a pull-request
+  // preview lives under /centerforopenneuroscience.org/pr-preview/pr-N/,
+  // where "/theme/data/..." is a 404 -- only href= and src= attributes are
+  // rewritten for a preview (scripts/rewrite_preview_paths.py), not a URL
+  // inside a script.
+  var HERE = (root.document && root.document.currentScript
+              && root.document.currentScript.src) || "/theme/js/publications.js";
+  var SRC = HERE.replace(/js\/publications\.js.*$/, "data/publications.json")
+            + (VERSION ? "?v=" + VERSION : "");
+  // ...and for the same reason the links the data carries ("/whoweare#x")
+  // are taken from the site's root, not the host's.  "" in production.
+  var SITE = HERE.replace(/^[a-z]+:\/\/[^/]+/, "")
+                 .replace(/\/theme\/js\/publications\.js.*$/, "");
+  function local(href) {
+    return href && href.charAt(0) === "/" && href.charAt(1) !== "/" ? SITE + href : href;
+  }
   var FIELDS = ["q", "type", "year", "project", "person", "objective"];
   var loading = {};
 
@@ -184,7 +199,7 @@
   }
 
   function link(label, href) {
-    return href ? '<a href="' + esc(href) + '">' + esc(label) + "</a>" : esc(label);
+    return href ? '<a href="' + esc(local(href)) + '">' + esc(label) + "</a>" : esc(label);
   }
 
   /* what it is -- paper, poster, talk -- where no heading says so */
@@ -206,9 +221,9 @@
     var tags = e.preprint_url ? [["PREPRINT", e.preprint_url]] : [];
     (e.datasets || []).forEach(function (t) { tags.push(t); });
     return out.map(function (a) {
-      return ' (<a class="pub-alt" href="' + esc(a[1]) + '">' + esc(a[0]) + "</a>)";
+      return ' (<a class="pub-alt" href="' + esc(local(a[1])) + '">' + esc(a[0]) + "</a>)";
     }).join("") + tags.map(function (a) {
-      return ' <a class="pub-tag" href="' + esc(a[1]) + '">[' + esc(a[0]) + "]</a>";
+      return ' <a class="pub-tag" href="' + esc(local(a[1])) + '">[' + esc(a[0]) + "]</a>";
     }).join("");
   }
 
