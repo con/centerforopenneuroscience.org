@@ -180,3 +180,7 @@
   pointer-events: none;
 }
 @media (max-width: 640px) { .con-graph .cg-hint { display: none; } }
+
+/* the site's own list styling would put a bullet beside each neighbour */
+.con-graph .cg-near li { list-style: none; margin: 0; padding: 0; }
+.con-graph .cg-near li::before { content: none; }

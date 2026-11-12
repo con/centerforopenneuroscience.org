@@ -198,6 +198,8 @@
       shared: false
     };
     var hiddenTypes = {};
+    // what is drawn besides the dots; kept when the view is rebuilt
+    var showEdges = true, showLabels = true;
     var selected = null, hovered = null;
     var sigma = null, graph = null, layoutTimer = null;
     var data = null;
@@ -358,6 +360,7 @@
         labelColor: { color: "#3b3a37" },
         labelDensity: small ? 3 : 0.9,
         labelRenderedSizeThreshold: small ? 0 : 7,
+        renderLabels: showLabels,
         zIndex: true,
         minCameraRatio: 0.05,
         maxCameraRatio: 3,
@@ -424,6 +427,9 @@
       if (centre) {
         if (s === centre || t === centre) { out.color = "#6b6a64"; out.size = 1.5; out.zIndex = 2; }
         else out.hidden = true;
+      } else if (!showEdges) {
+        // links off: only those of the node under the pointer, or selected
+        out.hidden = true;
       }
       return out;
     }
@@ -532,6 +538,14 @@
           }));
         }
       }
+      var draw = el("span", { "class": "cg-group" }, [el("span", { "class": "cg-label", text: "Draw" })]);
+      draw.appendChild(check("links", showEdges, function (on) {
+        showEdges = on; sigma.refresh({ skipIndexation: true });
+      }, "Lines between linked things; when off, only those of the dot you point at or select"));
+      draw.appendChild(check("labels", showLabels, function (on) {
+        showLabels = on; sigma.setSetting("renderLabels", on);
+      }, "Names next to the dots; when off, a name shows when you point at a dot"));
+      toolbar.appendChild(draw);
       var count = el("span", { "class": "cg-count", text: part.nodes.length + " things, " + part.edges.length + " links" });
       toolbar.appendChild(count);
       if (compact) {
