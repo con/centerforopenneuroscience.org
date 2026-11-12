@@ -2,9 +2,14 @@
  *
  * One renderer for every graph on the site.
  *
- * All of them draw from the same file, graph/graph.json, written by
- * scripts/render_graph.py: CON's things joined with those of other sites.
- * A graph on a page is that file seen through a filter -- which sources,
+ * All of them draw from graph/graph.json, CON's graph, written by
+ * scripts/render_graph.py.  Another site's graph (Psychoinformatics') is not
+ * in that file: when a reader ticks it, its own graph.json is loaded from
+ * that site and joined with ours here, so it is as current as that site.
+ * A saved copy beside ours (graph/<site>.json) is used only when the site
+ * cannot be reached.
+ *
+ * A graph on a page is that data seen through a filter -- which sources,
  * how far from which root -- declared in the markup:
  *
  *   <div data-con-graph                       the whole graph, all controls
@@ -17,9 +22,10 @@
  * forty collapsed graphs on a page cost nothing; the libraries and the data
  * are fetched once, on first use.  From script: CONGraph.render(el, options).
  *
- * The join across sites, the links of a node and the counts are computed at
- * build time (scripts/congraph.py).  Nothing here decides what is the same
- * thing as what; it filters, lays out and draws.
+ * Which node of another site is the same thing as one of ours is decided
+ * by keys: ours are computed at build time (scripts/congraph.py, which
+ * documents the rules and has the same join in Python for the tests and
+ * for `render_graph.py --report`); theirs are derived in join() below.
  */
 (function () {
   "use strict";
@@ -116,7 +122,137 @@
     data.nodes.forEach(function (n) { data.byId[n.id] = n; });
     data.sourceLabel = {};
     data.sources.forEach(function (s) { data.sourceLabel[s.id] = s.label; });
+    data.edgeAt = {};
+    data.edges.forEach(function (e) { data.edgeAt[e.s + "|" + e.t] = e; });
+    // "type|key" -> node id, for joining other sites' nodes with ours.  A
+    // key two of our own nodes share (a preprint and its article have one
+    // title) points at neither: null.
+    data.byKey = {};
+    data.loaded = {};     // source id -> "live" | "saved"
+    publishKeys(data, data.nodes.map(function (n) { return [n, n.keys || []]; }));
     return data;
+  }
+
+  // Make one source's keys visible to the sources joined after it.
+  function publishKeys(data, pairs) {
+    var mine = {};
+    pairs.forEach(function (p) {
+      p[1].forEach(function (k) {
+        var at = p[0].type + "|" + k;
+        if (!(at in mine)) mine[at] = p[0].id;
+        else if (mine[at] !== p[0].id) mine[at] = null;
+      });
+    });
+    Object.keys(mine).forEach(function (at) {
+      if (!(at in data.byKey)) data.byKey[at] = mine[at];
+    });
+  }
+
+  // --- another site's graph: loaded from that site, joined with ours ------
+
+  var LOCAL = "xyzrins:";   // the pid namespace every ORINOCO site shares
+
+  function fetchJSON(url, ms) {
+    var stop = new AbortController();
+    var timer = setTimeout(function () { stop.abort(); }, ms);
+    return fetch(url, { signal: stop.signal }).then(function (r) {
+      if (!r.ok) throw new Error(url + ": " + r.status);
+      return r.json();
+    }).finally(function () { clearTimeout(timer); });
+  }
+
+  var joining = {};
+
+  function addSource(data, id) {
+    if (joining[id]) return joining[id];
+    var src = data.sources.filter(function (s) { return s.id === id; })[0];
+    if (!src || !src.graph_url) return Promise.resolve();
+    joining[id] = fetchJSON(src.graph_url, 10000).then(function (raw) {
+      return { raw: raw, how: "live" };
+    }, function () {
+      // the site is down, slow, or no longer lets us read it: our copy
+      return fetchJSON(BASE + "graph/" + src.fallback, 20000).then(function (raw) {
+        return { raw: raw, how: "saved" };
+      });
+    }).then(function (got) {
+      join(data, src, got.raw);
+      data.loaded[id] = got.how;
+    });
+    joining[id].catch(function () { delete joining[id]; });   // may be retried
+    return joining[id];
+  }
+
+  function normTitle(text) {
+    return (text || "").normalize("NFKD").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  }
+
+  // The keys of a node of another site; scripts/congraph.py:external_graph()
+  // is the same rule, and documents it.
+  function keysOf(n, src) {
+    var keys = ["pid:" + n.id];
+    if (n.id.indexOf(LOCAL) !== 0) keys.push(n.id);
+    else if (src.match_local_paths && n.id !== LOCAL + ".") keys.push("path:" + n.id.slice(LOCAL.length));
+    (n.ids || []).forEach(function (k) {
+      keys.push(k.indexOf("doi:") === 0
+        ? "doi:" + k.slice(4).replace(/^(https?:\/\/(dx\.)?doi\.org\/|doi:)/i, "").toLowerCase()
+        : k);
+    });
+    if (n.type === "publication" && n.label) keys.push("title:" + normTitle(n.label));
+    return keys.sort();
+  }
+
+  // Join a site's graph.json ({nodes: [{id, label, type, url}], edges:
+  // [{source, target}]}) into ours; scripts/congraph.py:merge() in Python.
+  function join(data, src, raw) {
+    var nodes = raw.nodes, edges = raw.edges;
+    if (src.within) {
+      // only what lies this many links from that site's root
+      var near = {}, frontier = {};
+      near[LOCAL + "."] = frontier[LOCAL + "."] = true;
+      for (var d = 0; d < src.within; d++) {
+        var next = {};
+        edges.forEach(function (e) {
+          if (frontier[e.source] && !near[e.target]) next[e.target] = true;
+          if (frontier[e.target] && !near[e.source]) next[e.source] = true;
+        });
+        Object.keys(next).forEach(function (id) { near[id] = true; });
+        frontier = next;
+      }
+      nodes = nodes.filter(function (n) { return near[n.id]; });
+      edges = edges.filter(function (e) { return near[e.source] && near[e.target]; });
+    }
+    var base = src.base_url.replace(/\/$/, "");
+    var local = {}, pairs = [];
+    nodes.forEach(function (n) {
+      var keys = keysOf(n, src), node = null;
+      for (var i = 0; i < keys.length && !node; i++) {
+        var hit = data.byKey[n.type + "|" + keys[i]];
+        if (hit) node = data.byId[hit];
+      }
+      if (!node) {
+        node = {
+          id: n.id.indexOf(LOCAL) === 0 ? src.id + ":" + n.id.slice(LOCAL.length) : n.id,
+          label: n.label || n.id, type: n.type, sources: [], links: []
+        };
+        data.nodes.push(node);
+        data.byId[node.id] = node;
+      }
+      if (node.sources.indexOf(src.id) < 0) node.sources.push(src.id);
+      if (n.url) node.links.push({ k: src.id, href: base + (n.url === "/." ? "/" : n.url) });
+      local[n.id] = node.id;
+      pairs.push([node, keys]);
+    });
+    publishKeys(data, pairs);
+    edges.forEach(function (e) {
+      var s = local[e.source], t = local[e.target];
+      if (!s || !t || s === t) return;
+      var edge = data.edgeAt[s + "|" + t];
+      if (!edge) {
+        edge = data.edgeAt[s + "|" + t] = { s: s, t: t, type: e.type || "", sources: [] };
+        data.edges.push(edge);
+      }
+      if (edge.sources.indexOf(src.id) < 0) edge.sources.push(src.id);
+    });
   }
 
   // --- the filter: the one place a view of the graph is decided ----------
@@ -198,6 +334,7 @@
       shared: false
     };
     var hiddenTypes = {};
+    var unavailable = {};   // sources that could not be loaded at all
     // what is drawn besides the dots; kept when the view is rebuilt
     var showEdges = true, showLabels = true;
     var selected = null, hovered = null;
@@ -234,12 +371,32 @@
       data = d;
       view.sources = view.sources.filter(function (s) { return data.sourceLabel[s]; });
       if (!view.sources.length) view.sources = [data.sources[0].id];
+      return withSources();
+    }).then(function () {
       if (view.root && !data.byId[view.root]) view.root = null;
       rebuild();
     }).catch(function (err) {
       status.textContent = "The graph could not be shown: " + err.message;
       status.hidden = false;
     });
+
+    // Load and join whatever other sites the view asks for.  One that can
+    // be had neither from its site nor from our copy is dropped from the
+    // view, and the reader is told.
+    function withSources() {
+      var home = data.sources[0].id;
+      var need = view.sources.filter(function (id) { return id !== home && !data.loaded[id]; });
+      if (!need.length) return Promise.resolve();
+      status.textContent = "Loading " + need.map(function (id) { return data.sourceLabel[id]; }).join(", ") + "\u2026";
+      status.hidden = false;
+      return Promise.all(need.map(function (id) {
+        return addSource(data, id).catch(function () {
+          view.sources = view.sources.filter(function (x) { return x !== id; });
+          if (view.sources.length < 2) view.shared = false;
+          unavailable[id] = true;
+        });
+      }));
+    }
 
     // Sigma pans on drag and zooms on scroll but has no way to turn the
     // drawing with a mouse (only with two fingers on a touch screen).  With
@@ -511,7 +668,7 @@
             if (!next.length) next = [s.id];          // never an empty graph
             view.sources = next;
             if (next.length < 2) view.shared = false;
-            rebuild();
+            withSources().then(rebuild);
           }));
         });
         if (!compact && view.sources.length > 1) {
@@ -538,6 +695,13 @@
           }));
         }
       }
+      // where another site's part came from, when it is not that site
+      data.sources.slice(1).forEach(function (s) {
+        var note = unavailable[s.id] ? s.label + " could not be loaded"
+          : view.sources.indexOf(s.id) >= 0 && data.loaded[s.id] === "saved"
+            ? s.label + ": site not reachable, showing our saved copy" : null;
+        if (note) toolbar.appendChild(el("span", { "class": "cg-note", text: note }));
+      });
       var draw = el("span", { "class": "cg-group" }, [el("span", { "class": "cg-label", text: "Draw" })]);
       draw.appendChild(check("links", showEdges, function (on) {
         showEdges = on; sigma.refresh({ skipIndexation: true });
