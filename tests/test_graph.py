@@ -253,14 +253,16 @@ def test_links_into_this_site_land_on_a_heading(shipped):
     assert not bad, bad
 
 
-def test_whoweare_offers_a_graph_per_person(shipped):
-    page = (HERE / "content/pages/whoweare.html").read_text()
+@pytest.mark.parametrize("page,least", [("whoweare", 20), ("projects", 20)])
+def test_people_and_projects_each_offer_a_graph(shipped, page, least):
+    text = (HERE / f"content/pages/{page}.html").read_text()
     known = {n["id"] for n in shipped["nodes"]}
-    roots = re.findall(r'data-root="([^"]+)"', page)
-    assert len(roots) > 20
+    roots = re.findall(r'data-root="([^"]+)"', text)
+    assert len(roots) > least
+    assert len(set(roots)) == len(roots), "the same graph offered twice"
     assert set(roots) <= known, set(roots) - known
-    m = re.search(r"<summary>Graph \((\d+) projects?, (\d+) publications?", page)
-    assert m, "no 'Graph (N projects, M publications, ...)' summary"
+    assert re.search(r"<summary>Graph \(\d+ (people|person|projects?), ", text), (
+        "no 'Graph (N ..., M ...)' summary")
 
 
 def test_opened_graph_shows_what_its_summary_counted(served_site):  # noqa: F811
@@ -271,14 +273,16 @@ def test_opened_graph_shows_what_its_summary_counted(served_site):  # noqa: F811
         pg = browser.new_page(viewport={"width": 1400, "height": 900})
         errors = []
         pg.on("pageerror", lambda e: errors.append(str(e)))
-        pg.goto(f"{served_site}/whoweare")
-        fold = pg.locator("details.graph").first
-        promised = sum(int(x) for x in re.findall(r"\d+", fold.locator("summary").inner_text()))
-        fold.locator("summary").click()
-        pg.wait_for_selector("details.graph .cg-count")
-        shown = int(re.match(r"\d+", fold.locator(".cg-count").inner_text())[0])
-        # the root itself is drawn but is not one of the things linked to it
-        assert shown == promised + 1
+        for page in ("whoweare", "projects"):
+            pg.goto(f"{served_site}/{page}")
+            fold = pg.locator("details.graph").first
+            promised = sum(int(x) for x in re.findall(
+                r"\d+", fold.locator("summary").inner_text()))
+            fold.locator("summary").click()
+            pg.wait_for_selector("details.graph .cg-count")
+            shown = int(re.match(r"\d+", fold.locator(".cg-count").inner_text())[0])
+            # the root itself is drawn but is not one of the things linked to it
+            assert shown == promised + 1, page
         assert not errors, errors
         browser.close()
 

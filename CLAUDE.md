@@ -78,7 +78,7 @@ linkchecker --check-extern -f .linkcheckerrc -t 1 http://localhost:8000
    - `fix_code_blocks.py` - Code block processing
    - Used for the projects page rendering
 
-3. **Graph** (`/explore/` and the per-person graphs on `/whoweare`)
+3. **Graph** (`/explore/`, and a graph per person on `/whoweare` and per project on `/projects`)
    - `scripts/render_graph.py` (logic in `scripts/congraph.py`) writes
      `content/graph/graph.json`, CON's graph, from the record store. It is
      part of `make project`; do not edit the JSON by hand.

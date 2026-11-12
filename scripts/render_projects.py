@@ -375,6 +375,9 @@ def anchor_of(d, slug):
 
 
 def render():
+    # here, not at the top: congraph reads this module for the page's anchors
+    import congraph
+    graph = congraph.build()
     rows, skipped = load()
     order = []                 # the order render() actually used, for --show-order
     # A component or sub-project that has its OWN entry on this page should
@@ -560,6 +563,19 @@ def render():
             if mine:
                 out += publications_details("project", d["pid"],
                                             [publication_type(p) for p in mine], "\t\t")
+            # The same people, components and publications as a picture,
+            # and one hop further on request: con-graph.js draws it from
+            # graph.json when the reader opens it, as on whoweare.
+            node = congraph._qualify(d["pid"], "con")
+            near = congraph.neighbourhood(graph, node, "con")
+            if near:
+                out.append('\t\t<details class="graph">')
+                out.append(f'\t\t  <summary>Graph ({congraph.summary(near)})'
+                           f'</summary>')
+                out.append(f'\t\t  <div data-con-graph="" data-controls="compact" '
+                           f'data-sources="con" data-root="{html.escape(node)}" '
+                           f'data-depth="1"></div>')
+                out.append('\t\t</details>')
             out.append('\t  </div>')
     out += ['  </section>', '</body>', '', '</html>', '']
     return "\n".join(out), order, skipped
