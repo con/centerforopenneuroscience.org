@@ -58,6 +58,11 @@
     objective: "#008300",
     topic: "#e34948"
   };
+  // ... and its mark, so that colour is not the only thing telling a paper
+  // from a person: theme/img/graph/<type>.svg, white, drawn on the dot.
+  function icon(type) {
+    return TYPE_COLOR[type] ? BASE + "theme/img/graph/" + type + ".svg" : null;
+  }
   var TYPE_LABEL = {
     person: "People", project: "Projects", publication: "Publications",
     instrument: "Software & instruments", dataset: "Datasets",
@@ -347,7 +352,7 @@
     var unavailable = {};   // sources that could not be loaded at all
     var stopRotating = function () {};
     // what is drawn besides the dots; kept when the view is rebuilt
-    var showEdges = true, showLabels = true;
+    var showEdges = true, showLabels = true, showIcons = true;
     var selected = null, hovered = null;
     var sigma = null, graph = null, layoutTimer = null;
     var data = null;
@@ -495,7 +500,7 @@
         var at = old[n.id] || [Math.cos(angle) * r, Math.sin(angle) * r];
         graph.addNode(n.id, {
           x: at[0], y: at[1],
-          size: (isRoot ? 6 : 0) + (small ? 5 : 3) + 1.8 * Math.sqrt(degree[n.id] || 0),
+          size: (isRoot ? 6 : 0) + (small ? 7 : 3) + 1.8 * Math.sqrt(degree[n.id] || 0),
           label: trim(n.label, isRoot ? 60 : 38),
           color: TYPE_COLOR[n.type] || "#888",
           // alone, the root is ringed; among several sources the ring
@@ -503,6 +508,8 @@
           borderColor: isRoot && !multi ? INK : ring.color,
           borderSize: isRoot && !multi ? 0.3 : ring.size,
           kind: n.type,
+          image: icon(n.type),
+          pictoColor: "#ffffff",
           forceLabel: isRoot,
           zIndex: isRoot ? 2 : 1
         });
@@ -519,13 +526,22 @@
       sigma = new V.Sigma(graph, canvas, {
         defaultNodeType: "bordered",
         nodeProgramClasses: {
-          bordered: V.createNodeBorderProgram({
-            borders: [
-              { size: { attribute: "borderSize", defaultValue: 0.12 },
-                color: { attribute: "borderColor" } },
-              { size: { fill: true }, color: { attribute: "color" } }
-            ]
-          })
+          // two layers: the disc in the type's colour with the ring of its
+          // source, then the type's mark on it
+          bordered: V.createNodeCompoundProgram([
+            V.createNodeBorderProgram({
+              borders: [
+                { size: { attribute: "borderSize", defaultValue: 0.12 },
+                  color: { attribute: "borderColor" } },
+                { size: { fill: true }, color: { attribute: "color" } }
+              ]
+            }),
+            V.createNodeImageProgram({
+              drawingMode: "color", colorAttribute: "pictoColor",
+              padding: 0.28, keepWithinCircle: true, correctCentering: true,
+              size: { mode: "force", value: 128 }
+            })
+          ])
         },
         // few links can afford to be seen; a thousand must recede
         defaultEdgeColor: small ? "#b3b2ab" : EDGE,
@@ -582,9 +598,10 @@
     function nodeReducer(id, a) {
       var out = Object.assign({}, a);
       if (hiddenTypes[a.kind]) { out.hidden = true; return out; }
+      if (!showIcons) out.pictoColor = a.color;      // the mark melts into its dot
       var centre = hovered || selected;
       if (centre && centre !== id && !graph.areNeighbors(centre, id)) {
-        out.color = FADED; out.borderColor = FADED; out.label = ""; out.zIndex = 0;
+        out.color = FADED; out.borderColor = FADED; out.pictoColor = FADED; out.label = ""; out.zIndex = 0;
       } else if (centre) {
         out.forceLabel = true; out.zIndex = 3;
       }
@@ -726,6 +743,9 @@
       draw.appendChild(check("labels", showLabels, function (on) {
         showLabels = on; sigma.setSetting("renderLabels", on);
       }, "Names next to the dots; when off, a name shows when you point at a dot"));
+      draw.appendChild(check("icons", showIcons, function (on) {
+        showIcons = on; sigma.refresh({ skipIndexation: true });
+      }, "The mark of each type on its dot"));
       toolbar.appendChild(draw);
       var count = el("span", { "class": "cg-count", text: part.nodes.length + " things, " + part.edges.length + " links" });
       toolbar.appendChild(count);
@@ -766,7 +786,7 @@
         box.checked = !hiddenTypes[t];
         legend.appendChild(el("label", { "class": "cg-type" }, [
           box,
-          el("span", { "class": "cg-dot", style: "background:" + TYPE_COLOR[t] }),
+          el("span", { "class": "cg-dot cg-icon", style: "background:" + TYPE_COLOR[t] + " url('" + icon(t) + "') center/68% no-repeat" }),
           el("span", { text: TYPE_LABEL[t] || t }),
           el("span", { "class": "cg-n", text: String(counts[t]) })
         ]));
@@ -795,7 +815,7 @@
         onclick: function () { select(null); }
       }));
       card.appendChild(el("div", { "class": "cg-kind" }, [
-        el("span", { "class": "cg-dot", style: "background:" + TYPE_COLOR[n.type] }),
+        el("span", { "class": "cg-dot cg-icon", style: "background:" + TYPE_COLOR[n.type] + " url('" + icon(n.type) + "') center/68% no-repeat" }),
         el("span", { text: n.type + (data.sources.length > 1
           ? " · " + n.sources.map(function (s) { return data.sourceLabel[s] || s; }).join(" + ") : "") })
       ]));

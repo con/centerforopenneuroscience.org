@@ -92,6 +92,8 @@ linkchecker --check-extern -f .linkcheckerrc -t 1 http://localhost:8000
      documented in `scripts/congraph.py` and implemented twice, there and
      in `con-graph.js`; a browser test keeps the two in step.
      `scripts/render_graph.py --report` lists what joins.
+   - A node is a dot in its type's colour carrying the type's mark
+     (`theme/static/img/graph/<type>.svg`); a ring tells its source.
    - `theme/static/js/con-graph.js` is the only renderer: any element with
      `data-con-graph` (plus `data-root`, `data-depth`, `data-sources`,
      `data-controls`) becomes a graph. Its libraries are bundled in
