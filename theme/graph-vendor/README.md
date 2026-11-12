@@ -7,7 +7,7 @@ JavaScript toolchain to build.  The code that uses them,
 bundled: edit it directly.
 
 `theme/static/vendor/con-graph/LICENSES.txt` reproduces the licence of each
-bundled package (six, all MIT); the build regenerates it from what esbuild
+bundled package (all MIT); the build regenerates it from what esbuild
 actually bundled, so it cannot fall behind the bundle.
 
 Rebuild the bundle only to change a library version:

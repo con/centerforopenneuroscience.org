@@ -318,3 +318,15 @@ def test_the_browser_joins_another_site_as_python_does(served_site):  # noqa: F8
         assert got["shared"] == want
         assert not errors, errors
         browser.close()
+
+
+def test_every_type_has_its_mark():
+    """con-graph.js draws theme/img/graph/<type>.svg on a node's dot; a
+    missing file is a blank dot in the browser, not an error anywhere."""
+    js = (HERE / "theme/static/js/con-graph.js").read_text()
+    assert '"theme/img/graph/" + type + ".svg"' in js
+    for kind in congraph.TYPES:
+        mark = HERE / "theme/static/img/graph" / f"{kind}.svg"
+        assert mark.is_file(), f"no mark for {kind}"
+        text = mark.read_text()
+        assert "<title>" in text and 'fill="#ffffff"' in text

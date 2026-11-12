@@ -192,3 +192,6 @@
 
 /* another site's part came from our saved copy, or not at all */
 .con-graph .cg-note { color: #8a5a00; font-size: 12px; }
+
+/* a type's swatch, in the legend and on a node's card: its dot with its mark */
+.con-graph .cg-dot.cg-icon { width: 16px; height: 16px; }

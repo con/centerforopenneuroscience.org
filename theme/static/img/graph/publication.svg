@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Yaroslav Halchenko <yaroslav.o.halchenko@dartmouth.edu>
+     SPDX-License-Identifier: MIT
+
+     Generated with Claude Code
+
+     The mark of a "publication" in the site's graphs (theme/static/js/con-graph.js),
+     drawn for this site.  White, to sit on the dot of the type's colour. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="96" height="96" fill="#ffffff">
+  <title>A page of text</title>
+  <path fill-rule="evenodd" d="M6 2h8l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.500V8h4.500zM7 12v1.500h10V12zm0 3.500V17h10v-1.500z"/>
+</svg>

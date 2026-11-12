@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Yaroslav Halchenko <yaroslav.o.halchenko@dartmouth.edu>
+     SPDX-License-Identifier: MIT
+
+     Generated with Claude Code
+
+     The mark of a "person" in the site's graphs (theme/static/js/con-graph.js),
+     drawn for this site.  White, to sit on the dot of the type's colour. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="96" height="96" fill="#ffffff">
+  <title>A person</title>
+  <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.400 3.600-8 8-8s8 3.600 8 8z"/>
+</svg>
