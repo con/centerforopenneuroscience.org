@@ -702,7 +702,7 @@ def test_menu_sidebar_entries_and_cross_page_links_in_a_browser(served_site):
             ".navbar-collapse a[href^='/']",
             "els => els.map(e => [e.textContent.trim(), e.getAttribute('href')])")
         assert [t for t, _ in menu] == ["Who we are", "Projects", "Engage",
-                                        "Support", "Publications"], menu
+                                        "Support", "Publications", "Explore"], menu
         for text, href in menu:
             pg.goto(f"{served_site}/index.html")
             with pg.expect_navigation():
