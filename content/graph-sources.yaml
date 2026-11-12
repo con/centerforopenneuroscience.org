@@ -20,6 +20,11 @@ sources:
     # a saved copy under content/graph/, used only when the site cannot be
     # reached; `make fetch-graphs` refreshes it
     fallback: psyinf.json
+    # That copy is THEIR data, redistributed here unmodified.  Neither the
+    # site nor ORINOCO-Lite/www-from-model states a licence for it, so
+    # keeping it in this repository rests on their say-so: ask before
+    # relying on it, or drop `fallback` and the file -- the joint view then
+    # simply needs their site to be up.
     # The two sites name shared people, projects and objectives alike
     # (persons/adina-wagner, projects/datalad, objectives/<same uuid>).
     match_local_paths: true

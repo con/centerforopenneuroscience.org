@@ -3,7 +3,7 @@
   "private": true,
   "description": "Third-party libraries behind theme/static/js/con-graph.js, bundled into one file",
   "scripts": {
-    "build": "esbuild entry.js --bundle --minify --format=iife --legal-comments=none --banner:js=\"/*! sigma.js 3.0.2, graphology 0.26.0, graphology-layout-forceatlas2 0.10.1, @sigma/node-border 3.0.0 -- MIT licensed; built from theme/graph-vendor */\" --outfile=../static/vendor/con-graph/vendor.min.js"
+    "build": "esbuild entry.js --bundle --minify --format=iife --legal-comments=none --banner:js=\"/*! sigma.js 3.0.2, graphology 0.26.0, graphology-layout-forceatlas2 0.10.1, @sigma/node-border 3.0.0 -- MIT licensed; built from theme/graph-vendor */\" --metafile=meta.json --outfile=../static/vendor/con-graph/vendor.min.js && node licenses.js"
   },
   "dependencies": {
     "@sigma/node-border": "3.0.0",

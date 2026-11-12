@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2026 Yaroslav Halchenko <yaroslav.o.halchenko@dartmouth.edu>
 # SPDX-License-Identifier: MIT
+#
+# Generated with Claude Code
 """The graph of CON's things, and how it meets other sites' graphs.
 
 `content/graph/graph.json` is CON's graph, built here from the record store.
@@ -17,8 +19,13 @@ with the same rules and joins nodes of the same type that share one.
 
 Node and edge selection follows `code/pool2graph.py` of www-from-model, the
 producer of the `graph.json` behind psychoinformatics.de, so the graphs
-describe the same kinds of things.  Two differences: an edge keeps the name
-of the field it came from, and a thing nothing links to is left out.
+describe the same kinds of things: the same eight record classes are nodes
+and the same seven fields are edges.  That choice, and the shape of the
+file another site publishes (`{nodes: [{id, label, type, size, url}],
+edges: [{source, target}]}`), are what this module takes from it; none of
+its code is here -- it reads a pool's JSON lines, this reads our YAML
+records.  Two differences: an edge keeps the name of the field it came
+from, and a thing nothing links to is left out.
 
 Keys.  Every ORINOCO site names its own records `xyzrins:<class>/<slug>`,
 one namespace shared by all of them; `xyzrins:.` is each site's own root.

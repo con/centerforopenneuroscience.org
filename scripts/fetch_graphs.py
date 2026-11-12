@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Yaroslav Halchenko <yaroslav.o.halchenko@dartmouth.edu>
+# SPDX-License-Identifier: MIT
+#
+# Generated with Claude Code
 """Refresh the saved copies of other sites' graphs under content/graph/.
 
 The browser loads another site's graph from that site (`graph_url` in

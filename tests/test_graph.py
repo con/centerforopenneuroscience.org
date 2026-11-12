@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2026 Yaroslav Halchenko <yaroslav.o.halchenko@dartmouth.edu>
 # SPDX-License-Identifier: MIT
+#
+# Generated with Claude Code
 """Tests for the graph: what is joined with what, and where a node leads.
 
 The join across sites is the part a reader cannot check by looking -- a wrong
