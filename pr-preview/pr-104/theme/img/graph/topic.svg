@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Yaroslav Halchenko <yaroslav.o.halchenko@dartmouth.edu>
+     SPDX-License-Identifier: MIT
+
+     Generated with Claude Code
+
+     The mark of a "topic" in the site's graphs (theme/static/js/con-graph.js),
+     drawn for this site.  White, to sit on the dot of the type's colour. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="96" height="96" fill="#ffffff">
+  <title>A hash sign</title>
+  <path fill-rule="evenodd" d="M9 3 8.300 8H4v2h4l-.600 4H3v2h4.100L6.400 21h2l.700-5h4l-.700 5h2l.700-5H20v-2h-4.600l.600-4H20V8h-3.700L17 3h-2l-.700 5h-4L11 3zm1 7h4l-.600 4h-4z"/>
+</svg>
