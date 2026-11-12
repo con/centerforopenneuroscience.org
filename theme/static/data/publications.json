@@ -349,6 +349,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": "10.5281/zenodo.23968879",
    "projects": [
     "dicom-wg32"
    ],
@@ -426,6 +427,7 @@
    "authors_count": 38,
    "preprint": true,
    "accession": null,
+   "doi": "10.31222/osf.io/x64tn_v2",
    "projects": [
     "neurobagel"
    ],
@@ -482,6 +484,7 @@
    "authors_count": 6,
    "preprint": false,
    "accession": null,
+   "doi": "10.5281/zenodo.22783261",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -522,6 +525,7 @@
    "authors_count": 3,
    "preprint": false,
    "accession": null,
+   "doi": "10.5281/zenodo.22834595",
    "projects": [
     "orinoco-lite"
    ],
@@ -567,6 +571,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": "10.5281/zenodo.22833930",
    "projects": [
     "con-duct"
    ],
@@ -601,6 +606,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "stamped-principles"
    ],
@@ -636,6 +642,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -676,6 +683,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": "10.5281/zenodo.22833915",
    "projects": [
     "stamped-principles"
    ],
@@ -742,6 +750,7 @@
    "authors_count": 9,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41467-026-76599-w",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -794,6 +803,7 @@
    "authors_count": 42,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41592-026-03206-7",
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -821,6 +831,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "mechababs"
    ],
@@ -852,6 +863,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "bids-2-0"
    ],
@@ -883,6 +895,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "repronim-containers"
    ],
@@ -926,6 +939,7 @@
    "authors_count": 4,
    "preprint": true,
    "accession": null,
+   "doi": "10.31222/osf.io/f3h82_v1",
    "projects": [
     "stamped-principles"
    ],
@@ -983,6 +997,7 @@
    "authors_count": 32,
    "preprint": true,
    "accession": null,
+   "doi": "10.64898/2026.05.18.723593",
    "projects": [
     "nipoppy"
    ],
@@ -1018,6 +1033,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "stamped-principles"
    ],
@@ -1050,6 +1066,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "stamped-principles",
     "yoda"
@@ -1100,6 +1117,7 @@
    "authors_count": 17,
    "preprint": true,
    "accession": null,
+   "doi": "10.64898/2026.02.03.703514",
    "projects": [
     "bep020"
    ],
@@ -1131,6 +1149,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -1176,6 +1195,7 @@
    "authors_count": 15,
    "preprint": false,
    "accession": "OPENNEURO:ds007070",
+   "doi": "10.18112/openneuro.ds007070.v1.0.0",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -1236,6 +1256,7 @@
    "authors_count": 9,
    "preprint": false,
    "accession": "OPENNEURO:ds007942",
+   "doi": "10.18112/openneuro.ds007942.v1.0.0",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -1310,6 +1331,7 @@
    "authors_count": 34,
    "preprint": false,
    "accession": null,
+   "doi": "10.5281/zenodo.18333007",
    "projects": [
     "bids",
     "dicom",
@@ -1351,6 +1373,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "distribits"
    ],
@@ -1382,6 +1405,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "yoda"
    ],
@@ -1434,6 +1458,7 @@
    "authors_count": 23,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41597-025-05543-2",
    "projects": [
     "bids"
    ],
@@ -1484,6 +1509,7 @@
    "authors_count": 15,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41597-025-05154-x",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -1535,6 +1561,7 @@
    "authors_count": 24,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41597-025-05503-w",
    "projects": [
     "dicom"
    ],
@@ -1590,6 +1617,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": "10.1145/3701716.3715483",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -1618,6 +1646,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -1663,6 +1692,7 @@
    "authors_count": 15,
    "preprint": false,
    "accession": "OPENNEURO:ds006692",
+   "doi": "10.18112/openneuro.ds006692.v1.0.0",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -1699,6 +1729,7 @@
    "authors_count": 3,
    "preprint": false,
    "accession": null,
+   "doi": "10.3389/fninf.2024.1376022",
    "projects": [
     "repronim"
    ],
@@ -1782,6 +1813,7 @@
    "authors_count": 27,
    "preprint": false,
    "accession": null,
+   "doi": "10.21105/joss.05839",
    "projects": [
     "heudiconv"
    ],
@@ -1825,6 +1857,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "repronim",
     "reprostim"
@@ -1863,6 +1896,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad-registry"
    ],
@@ -1907,6 +1941,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad",
     "distribits"
@@ -1943,6 +1978,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "bids"
    ],
@@ -1974,6 +2010,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -2006,6 +2043,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -2085,6 +2123,7 @@
    "authors_count": 85,
    "preprint": false,
    "accession": null,
+   "doi": "10.52294/001c.92760",
    "projects": [],
    "people": [
     "satrajit-ghosh",
@@ -2166,6 +2205,7 @@
    "authors_count": 115,
    "preprint": false,
    "accession": null,
+   "doi": "10.1162/imag_a_00103",
    "projects": [
     "bids"
    ],
@@ -2236,6 +2276,7 @@
    "authors_count": 20,
    "preprint": false,
    "accession": null,
+   "doi": "10.1162/imag_a_00074",
    "projects": [
     "datalad"
    ],
@@ -2299,6 +2340,7 @@
    "authors_count": 52,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41592-023-02145-x",
    "projects": [],
    "people": [
     "satrajit-ghosh",
@@ -2355,6 +2397,7 @@
    "authors_count": 19,
    "preprint": true,
    "accession": null,
+   "doi": "10.48550/arxiv.2401.00077",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -2398,6 +2441,7 @@
    "authors_count": 15,
    "preprint": false,
    "accession": "OPENNEURO:ds005256",
+   "doi": "10.18112/openneuro.ds005256.v1.0.0",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -2426,6 +2470,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "dandi"
    ],
@@ -2462,6 +2507,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "bids"
    ],
@@ -2528,6 +2574,7 @@
    "authors_count": 25,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41597-023-02614-0",
    "projects": [
     "dandi"
    ],
@@ -2579,6 +2626,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": "10.3389/fnins.2023.1233416",
    "projects": [
     "bids",
     "pymvpa"
@@ -2614,6 +2662,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "repronim"
    ],
@@ -2646,6 +2695,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "repronim"
    ],
@@ -2678,6 +2728,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "bids",
     "repronim"
@@ -2734,6 +2785,7 @@
    "authors_count": 69,
    "preprint": false,
    "accession": null,
+   "doi": "10.1007/s00418-023-02209-1",
    "projects": [],
    "people": [
     "satrajit-ghosh",
@@ -2762,6 +2814,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "dandi"
    ],
@@ -2794,6 +2847,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "dandi"
    ],
@@ -2826,6 +2880,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "dicom-wg16"
    ],
@@ -2888,6 +2943,7 @@
    "authors_count": 15,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41562-023-01647-0",
    "projects": [],
    "people": [
     "chris-markiewicz",
@@ -2951,6 +3007,7 @@
    "authors_count": 103,
    "preprint": false,
    "accession": null,
+   "doi": "10.1371/journal.pbio.3002133",
    "projects": [],
    "people": [
     "satrajit-ghosh",
@@ -2981,6 +3038,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "dandi"
    ],
@@ -3033,6 +3091,7 @@
    "authors_count": 6,
    "preprint": false,
    "accession": null,
+   "doi": "10.1162/imag_a_00032",
    "projects": [
     "hyperalignment-infrastructure"
    ],
@@ -3075,6 +3134,7 @@
    "authors_count": 3,
    "preprint": false,
    "accession": null,
+   "doi": "10.5281/zenodo.8253053",
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -3142,6 +3202,7 @@
    "authors_count": 11,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41592-022-01681-2",
    "projects": [],
    "people": [
     "chris-markiewicz",
@@ -3209,6 +3270,7 @@
    "authors_count": 23,
    "preprint": false,
    "accession": null,
+   "doi": "10.1016/j.neuroimage.2022.119623",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -3280,6 +3342,7 @@
    "authors_count": 11,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41398-022-02211-6",
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -3335,6 +3398,7 @@
    "authors_count": 8,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -3371,6 +3435,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -3398,6 +3463,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -3449,6 +3515,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": "10.1002/brb3.2695",
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -3499,6 +3566,7 @@
    "authors_count": 17,
    "preprint": false,
    "accession": null,
+   "doi": "10.3389/fnins.2022.871228",
    "projects": [
     "bids"
    ],
@@ -3556,6 +3624,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": "10.3389/fnhum.2022.749767",
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -3627,6 +3696,7 @@
    "authors_count": 12,
    "preprint": false,
    "accession": null,
+   "doi": "10.7554/elife.71774",
    "projects": [
     "openneuro"
    ],
@@ -3681,6 +3751,7 @@
    "authors_count": 274,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41586-021-03950-0",
    "projects": [],
    "people": [
     "satrajit-ghosh",
@@ -3727,6 +3798,7 @@
    "authors_count": 25,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41597-021-01033-3",
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -3760,6 +3832,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "dandi"
    ],
@@ -3853,6 +3926,7 @@
    "authors_count": 31,
    "preprint": false,
    "accession": null,
+   "doi": "10.21105/joss.03262",
    "projects": [
     "datalad"
    ],
@@ -3922,6 +3996,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": "10.1016/j.biopsych.2021.02.385",
    "projects": [],
    "people": [
     "david-kennedy",
@@ -3984,6 +4059,7 @@
    "authors_count": 9,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41598-021-87069-2",
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -4068,6 +4144,7 @@
    "authors_count": 219,
    "preprint": false,
    "accession": null,
+   "doi": "10.1016/j.neuron.2021.04.001",
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -4107,6 +4184,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -4173,6 +4251,7 @@
    "authors_count": 36,
    "preprint": false,
    "accession": null,
+   "doi": "10.1002/hbm.25351",
    "projects": [
     "open-brain-consent"
    ],
@@ -4207,6 +4286,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "reproman"
    ],
@@ -4238,6 +4318,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "reproman",
     "repronim"
@@ -4291,6 +4372,7 @@
    "authors_count": 6,
    "preprint": false,
    "accession": null,
+   "doi": "10.1515/nf-2020-0037",
    "projects": [
     "datalad"
    ],
@@ -4352,6 +4434,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": "10.1016/j.mex.2021.101595",
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -4408,6 +4491,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": "OPENNEURO:ds003653",
+   "doi": "10.18112/openneuro.ds003653.v1.0.0",
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -4459,6 +4543,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": "10.1016/j.nicl.2021.102790",
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -4491,6 +4576,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "repronim"
    ],
@@ -4527,6 +4613,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": "10.12688/f1000research.24544.1",
    "projects": [
     "mri-phantoms-afterlife"
    ],
@@ -4590,6 +4677,7 @@
    "authors_count": 27,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41596-020-0327-3",
    "projects": [],
    "people": [
     "chris-markiewicz",
@@ -4620,6 +4708,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "repronim-containers"
    ],
@@ -4691,6 +4780,7 @@
    "authors_count": 20,
    "preprint": false,
    "accession": null,
+   "doi": "10.5281/zenodo.3720628",
    "projects": [
     "bids"
    ],
@@ -4750,6 +4840,7 @@
    "authors_count": 112,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41592-019-0686-2",
    "projects": [],
    "people": [
     "matthew-brett",
@@ -4778,6 +4869,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "heudiconv"
    ],
@@ -4810,6 +4902,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -4837,6 +4930,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -4864,6 +4958,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -4903,6 +4998,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "region-localization"
    ],
@@ -4946,6 +5042,7 @@
    "authors_count": 3,
    "preprint": false,
    "accession": null,
+   "doi": "10.21105/joss.01525",
    "projects": [],
    "people": [
     "adina-wagner",
@@ -4979,6 +5076,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "neurodebian"
    ],
@@ -5036,6 +5134,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad",
     "nidm"
@@ -5116,6 +5215,7 @@
    "authors_count": 31,
    "preprint": false,
    "accession": null,
+   "doi": "10.21105/joss.01294",
    "projects": [
     "bids"
    ],
@@ -5172,6 +5272,7 @@
    "authors_count": 24,
    "preprint": false,
    "accession": "OPENNEURO:ds002345",
+   "doi": "10.18112/openneuro.ds002345.v1.0.0",
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -5220,6 +5321,7 @@
    "authors_count": 6,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "repronim-containers"
    ],
@@ -5291,6 +5393,7 @@
    "authors_count": 22,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "repronim"
    ],
@@ -5328,6 +5431,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -5383,6 +5487,7 @@
    "authors_count": 8,
    "preprint": false,
    "accession": "OPENNEURO:ds000241",
+   "doi": null,
    "projects": [],
    "people": [
     "andy-connolly",
@@ -5430,6 +5535,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": "OPENNEURO:ds001297",
+   "doi": null,
    "projects": [],
    "people": [
     "matteo-visconti-di-oleggio-castello",
@@ -5459,6 +5565,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "repronim"
    ],
@@ -5507,6 +5614,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": "10.3389/fnins.2018.00316",
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -5558,6 +5666,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "neurodebian"
    ],
@@ -5593,6 +5702,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -5625,6 +5735,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -5673,6 +5784,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": "10.7490/f1000research.1116363.1",
    "projects": [
     "datalad",
     "yoda"
@@ -5722,6 +5834,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "oliver-contier",
@@ -5779,6 +5892,7 @@
    "authors_count": 8,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "heudiconv"
    ],
@@ -5849,6 +5963,7 @@
    "authors_count": 15,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "bids"
    ],
@@ -5900,6 +6015,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": "OPENNEURO:ds000233",
+   "doi": "10.18112/openneuro.ds000233.v4",
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -5946,6 +6062,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "reproman"
    ],
@@ -6006,6 +6123,7 @@
    "authors_count": 8,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -6047,6 +6165,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -6086,6 +6205,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -6123,6 +6243,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -6160,6 +6281,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -6197,6 +6319,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -6254,6 +6377,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": "10.12688/f1000research.10783.2",
    "projects": [
     "repronim"
    ],
@@ -6306,6 +6430,7 @@
    "authors_count": 14,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/nn.4550",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -6351,6 +6476,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/s41598-017-12559-1",
    "projects": [],
    "people": [
     "matteo-visconti-di-oleggio-castello",
@@ -6417,6 +6543,7 @@
    "authors_count": 9,
    "preprint": false,
    "accession": null,
+   "doi": "10.1093/cercor/bhx138",
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -6461,6 +6588,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": "10.7490/f1000research.1113507.1",
    "projects": [
     "region-localization"
    ],
@@ -6499,6 +6627,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -6532,6 +6661,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -6607,6 +6737,7 @@
    "authors_count": 27,
    "preprint": false,
    "accession": null,
+   "doi": "10.1038/sdata.2016.44",
    "projects": [
     "bids"
    ],
@@ -6644,6 +6775,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -6684,6 +6816,7 @@
    "authors_count": 3,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -6730,6 +6863,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": "10.1109/prni.2016.7552355",
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -6778,6 +6912,7 @@
    "authors_count": 6,
    "preprint": false,
    "accession": null,
+   "doi": "10.1093/cercor/bhw068",
    "projects": [
     "pymvpa"
    ],
@@ -6852,6 +6987,7 @@
    "authors_count": 11,
    "preprint": false,
    "accession": null,
+   "doi": "10.1523/jneurosci.3395-15.2016",
    "projects": [],
    "people": [
     "nikolaas-oosterhof",
@@ -6883,6 +7019,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -6933,6 +7070,7 @@
    "authors_count": 35,
    "preprint": false,
    "accession": null,
+   "doi": "10.1016/j.neuron.2016.10.033",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -6965,6 +7103,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "duecredit"
    ],
@@ -7013,6 +7152,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "region-localization"
    ],
@@ -7048,6 +7188,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "neurodebian"
    ],
@@ -7080,6 +7221,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -7107,6 +7249,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -7143,6 +7286,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -7176,6 +7320,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -7224,6 +7369,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "openfmri"
    ],
@@ -7279,6 +7425,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": "10.1162/jocn_a_00733",
    "projects": [],
    "people": [
     "james-haxby",
@@ -7348,6 +7495,7 @@
    "authors_count": 11,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "nidm"
    ],
@@ -7418,6 +7566,7 @@
    "authors_count": 31,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "jean-baptiste-poline",
@@ -7454,6 +7603,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": "10.1186/s13742-015-0072-7",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -7498,6 +7648,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -7552,6 +7703,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -7618,6 +7770,7 @@
    "authors_count": 16,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "nidm"
    ],
@@ -7657,6 +7810,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": "10.12688/f1000research.6229.1",
    "projects": [],
    "people": [
     "michael-hanke",
@@ -7689,6 +7843,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -7722,6 +7877,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -7754,6 +7910,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "fail2ban"
    ],
@@ -7783,6 +7940,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -7819,6 +7977,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "datalad"
    ],
@@ -7876,6 +8035,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -7931,6 +8091,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "samuel-nastase",
@@ -7978,6 +8139,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -8036,6 +8198,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": "10.1371/journal.pone.0066620",
    "projects": [],
    "people": [
     "jason-gors",
@@ -8100,6 +8263,7 @@
    "authors_count": 10,
    "preprint": false,
    "accession": null,
+   "doi": "10.1016/j.neuroimage.2013.04.019",
    "projects": [],
    "people": [
     "michael-hanke",
@@ -8133,6 +8297,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "debian"
    ],
@@ -8179,6 +8344,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": "10.1016/j.concog.2013.05.002",
    "projects": [],
    "people": [
     "jason-gors",
@@ -8207,6 +8373,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "neurodebian"
    ],
@@ -8255,6 +8422,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -8293,6 +8461,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -8326,6 +8495,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "neurodebian"
    ],
@@ -8362,6 +8532,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "debian"
    ],
@@ -8420,6 +8591,7 @@
    "authors_count": 8,
    "preprint": false,
    "accession": null,
+   "doi": "10.1523/jneurosci.5547-11.2012",
    "projects": [],
    "people": [
     "jason-gors",
@@ -8459,6 +8631,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -8496,6 +8669,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": "10.3389/fninf.2012.00022",
    "projects": [
     "neurodebian"
    ],
@@ -8529,6 +8703,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -8583,6 +8758,7 @@
    "authors_count": 14,
    "preprint": false,
    "accession": null,
+   "doi": "10.3389/fninf.2012.00009",
    "projects": [],
    "people": [
     "jean-baptiste-poline",
@@ -8619,6 +8795,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -8680,6 +8857,7 @@
    "authors_count": 8,
    "preprint": false,
    "accession": null,
+   "doi": "10.1016/j.neuron.2011.08.026",
    "projects": [
     "pymvpa"
    ],
@@ -8714,6 +8892,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "debian"
    ],
@@ -8747,6 +8926,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -8784,6 +8964,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "neurodebian"
    ],
@@ -8817,6 +8998,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "psychopy"
    ],
@@ -8854,6 +9036,7 @@
    "authors_count": 3,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "neurodebian"
    ],
@@ -8904,6 +9087,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -8943,6 +9127,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -8992,6 +9177,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -9044,6 +9230,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": "10.3389/fninf.2011.00013",
    "projects": [
     "nipype"
    ],
@@ -9078,6 +9265,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": "10.3389/fninf.2011.00008",
    "projects": [
     "neurodebian"
    ],
@@ -9123,6 +9311,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "debian-med"
    ],
@@ -9167,6 +9356,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "neurodebian"
    ],
@@ -9205,6 +9395,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "neurodebian"
    ],
@@ -9242,6 +9433,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "debian"
    ],
@@ -9288,6 +9480,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -9330,6 +9523,7 @@
    "authors_count": 3,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -9367,6 +9561,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": "10.2417/1200909.1683",
    "projects": [
     "pymvpa"
    ],
@@ -9416,6 +9611,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -9462,6 +9658,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "neurodebian"
    ],
@@ -9500,6 +9697,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -9549,6 +9747,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -9603,6 +9802,7 @@
    "authors_count": 6,
    "preprint": false,
    "accession": null,
+   "doi": "10.1016/j.neuroimage.2009.08.065",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -9643,6 +9843,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": "10.3389/neuro.01.007.2010",
    "projects": [
     "pymvpa"
    ],
@@ -9681,6 +9882,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -9718,6 +9920,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -9759,6 +9962,7 @@
    "authors_count": 3,
    "preprint": false,
    "accession": null,
+   "doi": "10.1111/j.1467-9280.2009.02460.x",
    "projects": [],
    "people": [
     "yaroslav-halchenko",
@@ -9787,6 +9991,7 @@
    "authors_count": 1,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -9823,6 +10028,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -9860,6 +10066,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -9897,6 +10104,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -9934,6 +10142,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -9971,6 +10180,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -10040,6 +10250,7 @@
    "authors_count": 10,
    "preprint": false,
    "accession": null,
+   "doi": "10.3389/neuro.11.003.2009",
    "projects": [
     "pymvpa"
    ],
@@ -10094,6 +10305,7 @@
    "authors_count": 6,
    "preprint": false,
    "accession": null,
+   "doi": "10.1007/s12021-008-9041-y",
    "projects": [
     "pymvpa"
    ],
@@ -10136,6 +10348,7 @@
    "authors_count": 3,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -10174,6 +10387,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [
     "pymvpa"
    ],
@@ -10211,6 +10425,7 @@
    "authors_count": 2,
    "preprint": false,
    "accession": null,
+   "doi": "10.1162/neco.2007.09-06-340",
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -10254,6 +10469,7 @@
    "authors_count": 5,
    "preprint": false,
    "accession": null,
+   "doi": "10.1007/s00429-007-0160-2",
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -10293,6 +10509,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": "10.1016/j.mri.2007.03.013",
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -10328,6 +10545,7 @@
    "authors_count": 3,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -10379,6 +10597,7 @@
    "authors_count": 7,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -10418,6 +10637,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -10453,6 +10673,7 @@
    "authors_count": 3,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -10500,6 +10721,7 @@
    "authors_count": 6,
    "preprint": false,
    "accession": null,
+   "doi": "10.1117/12.388446",
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -10547,6 +10769,7 @@
    "authors_count": 6,
    "preprint": false,
    "accession": null,
+   "doi": "10.1117/12.360283",
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -10586,6 +10809,7 @@
    "authors_count": 4,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
@@ -10621,6 +10845,7 @@
    "authors_count": 3,
    "preprint": false,
    "accession": null,
+   "doi": null,
    "projects": [],
    "people": [
     "yaroslav-halchenko"
