@@ -74,7 +74,7 @@
 
   function haystack(e, data) {
     if (e._hay === undefined) {
-      var bits = [e.title, e.venue, e.year, (data.types || {})[e.type]];
+      var bits = [e.title, e.venue, e.accession, e.year, (data.types || {})[e.type]];
       if (e.preprint) bits.push("preprint");
       (e.authors || []).forEach(function (a) { if (a) bits.push(a[0]); });
       (e.projects || []).forEach(function (p) {
@@ -198,17 +198,17 @@
   }
 
   /* "(PDF) (📺 CONTube)" after the title, as the Talks site has them, and
-     "[PREPRINT] [DATASET]" as YOH's CV has them */
+     "[PREPRINT] [OPENNEURO:ds000233]" as YOH's CV has them */
   function alts(e) {
     var out = [];
     if (e.pdf) out.push(["PDF", e.pdf]);
     if (e.video) out.push([(/contube/i.test(e.video) ? "\uD83D\uDCFA CONTube" : "\uD83D\uDCFA video"), e.video]);
     var tags = e.preprint_url ? [["PREPRINT", e.preprint_url]] : [];
-    (e.dataset_urls || []).forEach(function (u) { tags.push(["DATASET", u]); });
+    (e.datasets || []).forEach(function (t) { tags.push(t); });
     return out.map(function (a) {
       return ' (<a class="pub-alt" href="' + esc(a[1]) + '">' + esc(a[0]) + "</a>)";
     }).join("") + tags.map(function (a) {
-      return ' <a class="pub-tag" href="' + esc(a[1]) + '">[' + a[0] + "]</a>";
+      return ' <a class="pub-tag" href="' + esc(a[1]) + '">[' + esc(a[0]) + "]</a>";
     }).join("");
   }
 
@@ -222,7 +222,8 @@
     }).join(", ");
     if (names && !e.authors_complete) names = "Authors include " + names;
     else if (e.authors.indexOf(null) >= 0) names += " (" + e.authors_count + " authors)";
-    var meta = [names, e.venue ? esc(e.venue) : "", e.year].filter(Boolean);
+    var meta = [names, e.venue ? esc(e.venue) : "", e.accession ? esc(e.accession) : "",
+                e.year].filter(Boolean);
     if (meta.length) bits.push('<span class="pub-meta">' + meta.join(" &#183; ") + "</span>");
     if (e.projects.length) {
       bits.push('<span class="pub-projects">Projects: ' + e.projects.map(function (p) {

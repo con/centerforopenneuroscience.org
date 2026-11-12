@@ -201,6 +201,13 @@ def is_preprint(d):
     return d.get("kind") == "fabio:Preprint"
 
 
+def accession(d):
+    """A dataset's identifier in its archive, as OPENNEURO:ds000241 or
+    DANDI:000027."""
+    return next((i["notation"] for i in d.get("identifiers") or []
+                 if re.match(r"(OPENNEURO|DANDI):\S+$", str(i.get("notation", "")))), None)
+
+
 OBJECTIVE = "xyzrins:objectives/"
 
 

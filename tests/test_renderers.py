@@ -1101,9 +1101,17 @@ def test_publications_mark_preprints_and_shorten_long_author_lists():
     assert len(li) == 2
     paper = next(x for x in li if "s41467-026-76599-w" in x)
     assert '<a class="pub-tag" href="https://doi.org/10.1101/2024.11.26.624178">[PREPRINT]</a>' in paper
-    assert "openneuro.org/datasets/ds007942" in paper and "[DATASET]" in paper
+    assert ('<a class="pub-tag" href="https://openneuro.org/datasets/ds007942/versions/1.0.0">'
+            '[OPENNEURO:ds007942]</a>') in paper
     datasets = out[out.index("<h2>Datasets</h2>"):]
-    assert "ds007942" in datasets
+    assert "OPENNEURO:ds007942" in datasets
+    # a dataset OpenNeuro released before it minted DOIs, by its accession,
+    # after the paper it backs
+    ak6 = next(x for x in datasets.split("<li>") if "openneuro.org/datasets/ds000241" in x)
+    assert "OPENNEURO:ds000241" in ak6
+    classes = next(x for x in out.split("<li>")
+                   if "Representation of biological classes" in x)
+    assert "[OPENNEURO:ds000241]</a>" in classes
     # a preprint with no published version yet is listed, and marked
     stamped = next(x for x in out.split("<li>") if "STAMPED principles" in x)
     assert '<span class="pub-preprint">preprint</span>' in stamped

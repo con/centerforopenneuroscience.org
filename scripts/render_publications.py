@@ -30,6 +30,7 @@ import unicodedata
 from conrecords import (
     RECORDS,
     TIERS,
+    accession,
     all_publications,
     datasets_of,
     is_preprint,
@@ -175,6 +176,7 @@ def model():
             "venue": one(d, "bibo:presentedAt"),
             "authors": listed, "authors_complete": complete,
             "authors_count": count, "preprint": is_preprint(d),
+            "accession": accession(d),
             "projects": [slug(p) for p in mine], "people": who,
             "objectives": [slug(o) for o in publication_objectives(d, by_project)
                            if o in objs],
@@ -182,8 +184,8 @@ def model():
             # the preprint it was, and the data it analyses, as links after
             # the title
             "preprint_url": publication_url(every[preprint_of(d)]) if preprint_of(d) else None,
-            "dataset_urls": [publication_url(every[p]) for p in datasets_of(d)
-                             if every[p]["kind"] == "fabio:Dataset"]})
+            "datasets": [(accession(every[p]) or "DATASET", publication_url(every[p]))
+                         for p in datasets_of(d) if every[p]["kind"] == "fabio:Dataset"]})
     return {"types": {TYPE[s]: s for s in SECTIONS},
             "projects": dict(sorted(used_projects.items())),
             "people": dict(sorted(used_people.items())),
@@ -193,7 +195,7 @@ def model():
 
 def alts(e):
     """"(PDF) (📺 CONTube)" after the title, as the Talks site has them, and
-    "[PREPRINT] [DATASET]" as YOH's CV has them."""
+    "[PREPRINT] [OPENNEURO:ds000233]" as YOH's CV has them."""
     out = []
     if e["pdf"]:
         out.append(("PDF", e["pdf"]))
@@ -201,10 +203,10 @@ def alts(e):
         out.append(("\U0001F4FA " + ("CONTube" if "contube" in e["video"].lower()
                                        else "video"), e["video"]))
     tags = [("PREPRINT", e["preprint_url"])] if e["preprint_url"] else []
-    tags += [("DATASET", u) for u in e["dataset_urls"]]
+    tags += [tuple(t) for t in e["datasets"]]
     return ("".join(f' (<a class="pub-alt" href="{html.escape(h)}">{html.escape(t)}</a>)'
                     for t, h in out)
-            + "".join(f' <a class="pub-tag" href="{html.escape(h)}">[{t}]</a>'
+            + "".join(f' <a class="pub-tag" href="{html.escape(h)}">[{html.escape(t)}]</a>'
                       for t, h in tags))
 
 
@@ -227,7 +229,8 @@ def entry(e, projs):
     bits = [f'<span class="pub-title">{link(e["title"], e["url"])}{preprint(e)}'
             f'{alts(e)}</span>']
     names_ = names(e)
-    meta = [m for m in (names_, html.escape(e["venue"] or ""), e["year"]) if m]
+    meta = [m for m in (names_, html.escape(e["venue"] or ""), html.escape(e["accession"] or ""),
+                        e["year"]) if m]
     if meta:
         bits.append(f'<span class="pub-meta">{" &#183; ".join(meta)}</span>')
     if e["projects"]:
