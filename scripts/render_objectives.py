@@ -28,7 +28,7 @@ from conrecords import (
     project_objectives,
     publication_date,
     publication_objectives,
-    publication_type,
+    publication_label,
     publication_url,
     publications,
     publications_details,
@@ -162,7 +162,7 @@ def render_page():
     served, by_project = {}, project_objectives()
     for p in publications():
         for o in publication_objectives(p, by_project):
-            served.setdefault(o, []).append(publication_type(p))
+            served.setdefault(o, []).append(publication_label(p))
     out = ['<html>', '', '<head>', '\t<title>Objectives</title>',
            '\t<meta name="url" content="objectives" />',
            '\t<meta name="save_as" content="objectives.html" />',

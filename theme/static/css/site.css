@@ -1167,15 +1167,17 @@ details .pub-more {
 	margin: 0.2em 0 0 0;
 }
 
-/* what an entry is, where no heading says so: the lists under a project or
-   a person mix papers, posters and talks */
+/* What an entry is: a label on every publication, wherever it is listed
+   -- the publications page, the list under a person or a project, a
+   node's card in a graph -- and on each thing in a "related" list. */
 .pub-type {
 	display: inline-block;
 	min-width: 3.6em;
 	padding: 0 0.4em;
+	border: 1px solid transparent;
 	border-radius: 3px;
 	font-size: 0.75em;
-	line-height: 1.6;
+	line-height: 1.5;
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 0.03em;
@@ -1186,18 +1188,17 @@ details .pub-more {
 .pub-type-talk { background: #c27c3a; }
 .pub-type-poster { background: #6a9a5b; }
 .pub-type-dataset { background: #5b7fa8; }
-/* a paper not (yet) peer reviewed: marked, quieter than a type badge */
-.pub-preprint {
-	display: inline-block;
-	padding: 0 0.35em;
-	border: 1px solid #b9a26b;
-	border-radius: 3px;
-	font-size: 0.72em;
-	line-height: 1.5;
-	text-transform: uppercase;
-	letter-spacing: 0.03em;
-	vertical-align: 0.15em;
-	color: #8a7440;
+.pub-type-project { background: #b0683f; }
+.pub-type-instrument { background: #a8882e; }
+/* the preprint a published paper was: filled, for it is settled, and a link */
+.pub-type-preprint { background: #a08a4f; }
+a.pub-type, a.pub-type:hover, a.pub-type:focus { color: #fff; text-decoration: none; }
+a.pub-type:hover, a.pub-type:focus { background: #7d6a38; }
+/* a paper not (yet) published: PREPRINT in place of PAPER, and open */
+.pub-type-open {
+	background: transparent;
+	border-color: #a08a4f;
+	color: #7d6a38;
 }
 /* the year headings under a type */
 .publications .pub-results h3 small {
@@ -1206,7 +1207,7 @@ details .pub-more {
 	color: #999;
 }
 
-/* "[PREPRINT]" and "[DATASET]" after a published title */
+/* "[OPENNEURO:ds000233]", the data a paper analyses, after its title */
 .pub-tag {
 	font-size: 0.8em;
 	letter-spacing: 0.03em;

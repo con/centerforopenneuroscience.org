@@ -24,7 +24,7 @@ from conrecords import (
     one,
     person_name,
     publication_projects,
-    publication_type,
+    publication_label,
     publications,
     publications_details,
     role_labels,
@@ -562,7 +562,7 @@ def render():
             mine = pubs.get(d["pid"]) or []
             if mine:
                 out += publications_details("project", d["pid"],
-                                            [publication_type(p) for p in mine], "\t\t")
+                                            [publication_label(p) for p in mine], "\t\t")
             # The same people, components and publications as a picture,
             # and one hop further on request: con-graph.js draws it from
             # graph.json when the reader opens it, as on whoweare.

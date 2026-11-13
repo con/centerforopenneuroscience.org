@@ -1100,7 +1100,12 @@ def test_publications_mark_preprints_and_shorten_long_author_lists():
     # preprint itself is not listed apart, as a CV would not
     assert len(li) == 2
     paper = next(x for x in li if "s41467-026-76599-w" in x)
-    assert '<a class="pub-tag" href="https://doi.org/10.1101/2024.11.26.624178">[PREPRINT]</a>' in paper
+    # PAPER, then a filled PREPRINT that links to the preprint it was
+    assert paper.startswith(
+        '<span class="pub-type pub-type-paper">paper</span> '
+        '<a class="pub-type pub-type-preprint" '
+        'href="https://doi.org/10.1101/2024.11.26.624178"')
+    assert "pub-type-open" not in paper and "[PREPRINT]" not in paper
     assert ('<a class="pub-tag" href="https://openneuro.org/datasets/ds007942/versions/1.0.0">'
             '[OPENNEURO:ds007942]</a>') in paper
     datasets = out[out.index("<h2>Datasets</h2>"):]
@@ -1112,9 +1117,16 @@ def test_publications_mark_preprints_and_shorten_long_author_lists():
     classes = next(x for x in out.split("<li>")
                    if "Representation of biological classes" in x)
     assert "[OPENNEURO:ds000241]</a>" in classes
-    # a preprint with no published version yet is listed, and marked
+    # a preprint with no published version yet is listed, and says so IN
+    # PLACE of "paper", open rather than filled
     stamped = next(x for x in out.split("<li>") if "STAMPED principles" in x)
-    assert '<span class="pub-preprint">preprint</span>' in stamped
+    assert stamped.startswith(
+        '<span class="pub-type pub-type-preprint pub-type-open">preprint</span> ')
+    assert "pub-type-paper" not in stamped
+    # every entry says what it is, under a heading that says it too
+    entries = [x for x in out.split("<li>")[1:] if 'class="pub-title"' in x]
+    assert entries and all(x.startswith('<span class="pub-type pub-type-')
+                           for x in entries)
     # 274 authors: the first, last and ours, with the count
     census = next(x for x in out.split("<li>") if "mammalian primary motor cortex" in x)
     assert "(274 authors)" in census and "&#8230;" in census
@@ -1275,7 +1287,8 @@ def test_publications_filter_and_load_on_demand_in_a_browser(served_site):
             pg.wait_for_selector(f"{d} .pub-slot li")
             assert len(pg.query_selector_all(f"{d} .pub-slot li")) == n
             # a mixed list says what each entry is
-            assert len(pg.query_selector_all(f"{d} .pub-slot li .pub-type")) == n
+            assert len(pg.query_selector_all(
+                f"{d} .pub-slot li > .pub-type:first-child")) == n
             # and links each recording, as the Talks site does
             assert pg.query_selector_all(f"{d} .pub-slot li a.pub-alt[href*=contube]")
         assert not errors, errors
@@ -1360,7 +1373,8 @@ def test_publications_js_groups_by_type_then_year(tmp_path):
 def test_a_talk_names_its_slides_and_recording_after_its_title():
     out = run("render_publications.py").stdout
     li = next(x for x in out.split("<li>") if "DataLad - Research Data Management" in x)
-    title = li[li.index('class="pub-title"'):li.index("</span>")]
+    start = li.index('class="pub-title"')
+    title = li[start:li.index("</span>", start)]
     assert '>PDF</a>)' in title and "CONTube</a>)" in title
 
 
@@ -1527,7 +1541,9 @@ def test_support_is_in_sections_with_a_sidebar():
 def test_related_projects_sort_regardless_of_case(whoweare):
     """"annextube" belongs among the A's, not after every capitalized name."""
     for body in re.findall(r'<ul class="related-list">(.*?)</ul>', whoweare, re.S):
-        names = [re.sub(r"<[^>]+>", "", i).split(" &#8212;")[0]
+        # less the label that says what each is
+        names = [re.sub(r"<[^>]+>", "", re.sub(r'<span class="pub-type[^>]*>[^<]*</span> ',
+                                               "", i)).split(" &#8212;")[0]
                  for i in re.findall(r"<li>(.*?)</li>", body, re.S)]
         assert names == sorted(names, key=str.casefold), names
 
