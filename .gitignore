@@ -17,3 +17,6 @@ output/
 cache/
 __pycache__/
 dev-sitediff-report*
+.npm/
+.tox/
+.venv/

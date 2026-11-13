@@ -1,0 +1,112 @@
+version = 1
+
+# What the project states (README.md, the footer of every page): the design
+# comes from buddycloud.com under Apache-2.0, and the content of the website
+# is CC-BY-3.0.  Files that carry their own SPDX header (the graph and the
+# newer scripts, MIT) keep it: "closest" lets a header win over these blocks.
+# Later blocks win over earlier ones.
+
+# The repository began as a fork of buddycloud.com: the site generator's
+# configuration, the Jinja and Markdown extensions, templates and styles.
+[[annotations]]
+path = "**"
+precedence = "closest"
+SPDX-FileCopyrightText = [
+    "2011-2014 buddycloud and contributors",
+    "2015-2026 Center for Open Neuroscience and contributors",
+]
+SPDX-License-Identifier = "Apache-2.0"
+
+# Website content: pages, the data they are rendered from, and images.
+[[annotations]]
+path = [
+    "content/**",
+    "theme/static/data/**",
+    "theme/static/img/**",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "2015-2026 Center for Open Neuroscience and respective authors"
+SPDX-License-Identifier = "CC-BY-3.0"
+
+# Logos of other projects, organizations and services: theirs, not relicensed.
+[[annotations]]
+path = [
+    "theme/static/img/3rd/**",
+    "theme/static/img/contact/buddycloud.svg",
+    "theme/static/img/contact/facebook.svg",
+    "theme/static/img/contact/github.svg",
+    "theme/static/img/contact/googleplus.svg",
+    "theme/static/img/contact/linkedin.svg",
+    "theme/static/img/contact/mastodon.svg",
+    "theme/static/img/contact/orcid.svg",
+    "theme/static/img/contact/ror-icon-rgb.svg",
+    "theme/static/img/contact/twitter.svg",
+    "theme/static/img/instruments/**",
+    "theme/static/img/organizations/**",
+    "theme/static/img/projects/**",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "Respective owners"
+SPDX-License-Identifier = "LicenseRef-third-party-logos"
+
+# Another site's graph, saved unmodified; see content/graph-sources.yaml.
+[[annotations]]
+path = "content/graph/psyinf.json"
+precedence = "override"
+SPDX-FileCopyrightText = "Psychoinformatics lab (https://www.psychoinformatics.de) and respective authors"
+SPDX-License-Identifier = "LicenseRef-psyinf-graph"
+
+# Vendored libraries, each under the licence it ships with.
+[[annotations]]
+path = "theme/static/vendor/buddycloud-styles/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2012-2014 buddycloud and contributors"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "theme/static/vendor/bootstrap/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2011-2014 Twitter, Inc"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "theme/static/vendor/jquery/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2014 jQuery Foundation and other contributors"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "theme/static/vendor/underscore/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2009-2013 Jeremy Ashkenas, DocumentCloud"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "theme/static/vendor/raphael/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2008-2010 Dmitry Baranovskiy"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "theme/static/vendor/ace/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2010 Ajax.org B.V."
+SPDX-License-Identifier = "BSD-3-Clause"
+
+[[annotations]]
+path = "theme/static/js/jquery.visible.min.js"
+precedence = "override"
+SPDX-FileCopyrightText = "2012 Digital Fusion (Sam Sehnert)"
+SPDX-License-Identifier = "MIT"
+
+# sigma.js, graphology and what they pull in, bundled by `make graph-vendor`;
+# LICENSES.txt beside the bundle reproduces each package's own notice.
+[[annotations]]
+path = "theme/static/vendor/con-graph/**"
+precedence = "override"
+SPDX-FileCopyrightText = [
+    "2013-2025 Alexis Jacomy, Guillaume Plique, Benoît Simard",
+    "2016-2021 Guillaume Plique",
+    "Joyent, Inc. and other Node contributors",
+]
+SPDX-License-Identifier = "MIT"

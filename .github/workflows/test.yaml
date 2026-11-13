@@ -6,7 +6,7 @@ name: Test
 #     so a store bump without `make run-project` fails here, not in production;
 #   - the generators' tests, including the browser tests that click through
 #     the top menu, every sidebar section and entry, and the cross-page links;
-#   - lint.
+#   - lint, and that every file states its licence (`tox -e reuse`).
 # Runs on every pull request, including from forks: it needs no secrets and
 # deploys nothing (gh-pages-preview.yaml does that).
 
@@ -63,6 +63,9 @@ jobs:
 
       - name: Lint
         run: tox -e lint
+
+      - name: Copyright and licence of every file (REUSE)
+        run: tox -e reuse
 
       - name: Test generators and navigation (Chromium)
         env:
