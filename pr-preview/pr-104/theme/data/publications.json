@@ -204,6 +204,10 @@
    "David N. Kennedy",
    "/whoweare#david_n_kennedy_"
   ],
+  "dora-hermes": [
+   "Dora Hermes",
+   "/whoweare#dora_hermes_"
+  ],
   "franco-pestilli": [
    "Franco Pestilli",
    "/whoweare#franco_pestilli_"
@@ -267,6 +271,10 @@
   "oliver-ruebel": [
    "Oliver Rübel",
    "/whoweare#oliver_rübel_"
+  ],
+  "roni-choudhury": [
+   "Roni Choudhury",
+   "/whoweare#roni_choudhury_"
   ],
   "russell-poldrack": [
    "Russell A. Poldrack",
@@ -2582,7 +2590,8 @@
     "satrajit-ghosh",
     "yaroslav-halchenko",
     "chris-markiewicz",
-    "russell-poldrack"
+    "russell-poldrack",
+    "dora-hermes"
    ],
    "objectives": [
     "87be5fa3-80fb-4221-8406-2ddd40fb1fd1",
@@ -2799,39 +2808,6 @@
   },
   {
    "title": "DANDI: distributed archives for neurophysiology data integration",
-   "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2023-brain-dandi-imgdatasrc.html",
-   "date": "2023-06",
-   "year": "2023",
-   "type": "talk",
-   "venue": "BRAIN Initiative Conference 2023 (short version)",
-   "authors": [
-    [
-     "Yaroslav O. Halchenko",
-     "/whoweare#yaroslav_o_halchenko_"
-    ]
-   ],
-   "authors_complete": true,
-   "authors_count": 1,
-   "preprint": false,
-   "accession": null,
-   "doi": null,
-   "projects": [
-    "dandi"
-   ],
-   "people": [
-    "yaroslav-halchenko"
-   ],
-   "objectives": [
-    "87be5fa3-80fb-4221-8406-2ddd40fb1fd1",
-    "self-hosted-it"
-   ],
-   "pdf": null,
-   "video": null,
-   "preprint_url": null,
-   "datasets": []
-  },
-  {
-   "title": "DANDI: distributed archives for neurophysiology data integration",
    "url": "https://datasets.datalad.org/centerforopenneuroscience/talks/2023-brain-dandi.html",
    "date": "2023-06",
    "year": "2023",
@@ -3013,7 +2989,8 @@
     "satrajit-ghosh",
     "cody-baker",
     "yaroslav-halchenko",
-    "brock-wester"
+    "brock-wester",
+    "roni-choudhury"
    ],
    "objectives": [],
    "pdf": null,
@@ -5341,7 +5318,7 @@
   },
   {
    "title": "Everything Matters: The ReproNim Perspective on Reproducible Neuroimaging",
-   "url": "https://www.frontiersin.org/articles/10.3389/fninf.2019.00001",
+   "url": "https://doi.org/10.3389/fninf.2019.00001",
    "date": "2019",
    "year": "2019",
    "type": "paper",
@@ -5393,7 +5370,7 @@
    "authors_count": 22,
    "preprint": false,
    "accession": null,
-   "doi": null,
+   "doi": "10.3389/fninf.2019.00001",
    "projects": [
     "repronim"
    ],

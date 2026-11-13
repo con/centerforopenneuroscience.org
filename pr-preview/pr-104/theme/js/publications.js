@@ -202,24 +202,37 @@
     return href ? '<a href="' + esc(local(href)) + '">' + esc(label) + "</a>" : esc(label);
   }
 
-  /* what it is -- paper, poster, talk -- where no heading says so */
-  function badge(e) {
-    return '<span class="pub-type pub-type-' + esc(e.type) + '">' + esc(e.type) + "</span> ";
-  }
+  /* What an entry is, said the same way wherever it is shown -- on the
+     publications page (under a heading that says it too), in the list
+     under a person or a project, and on a node's card in a graph:
 
-  /* a paper not (yet) peer reviewed */
-  function preprint(e) {
-    return e.preprint ? ' <span class="pub-preprint">preprint</span>' : "";
+       PAPER  POSTER  TALK  DATASET   what it is, filled
+       PREPRINT (outlined)            in place of PAPER, for a paper not
+                                      (yet) published: the label is open
+                                      because the matter is
+       PAPER PREPRINT (both filled)   a published paper that was a preprint;
+                                      the second label links to it
+
+     scripts/render_publications.py:labels() writes the same markup for the
+     page as built. */
+  function labels(e) {
+    if (e.preprint) {
+      return '<span class="pub-type pub-type-preprint pub-type-open">preprint</span> ';
+    }
+    var type = e.type || "publication";
+    return '<span class="pub-type pub-type-' + esc(type) + '">' + esc(type) + "</span> "
+      + (e.preprint_url ? '<a class="pub-type pub-type-preprint" href="'
+         + esc(local(e.preprint_url)) + '" title="Its preprint">preprint</a> ' : "");
   }
 
   /* "(PDF) (📺 CONTube)" after the title, as the Talks site has them, and
-     "[PREPRINT] [OPENNEURO:ds000233]" as YOH's CV has them */
+     the data it analyses, "[OPENNEURO:ds000233]", as YOH's CV has it.  Its
+     preprint is not here: that is one of its labels. */
   function alts(e) {
     var out = [];
     if (e.pdf) out.push(["PDF", e.pdf]);
     if (e.video) out.push([(/contube/i.test(e.video) ? "\uD83D\uDCFA CONTube" : "\uD83D\uDCFA video"), e.video]);
-    var tags = e.preprint_url ? [["PREPRINT", e.preprint_url]] : [];
-    (e.datasets || []).forEach(function (t) { tags.push(t); });
+    var tags = (e.datasets || []).slice();
     return out.map(function (a) {
       return ' (<a class="pub-alt" href="' + esc(local(a[1])) + '">' + esc(a[0]) + "</a>)";
     }).join("") + tags.map(function (a) {
@@ -228,9 +241,8 @@
   }
 
   /* the same markup as render_publications.py's static list */
-  function entry(e, data, typed) {
-    var bits = [(typed ? badge(e) : "")
-                + '<span class="pub-title">' + link(e.title, e.url) + preprint(e)
+  function entry(e, data) {
+    var bits = [labels(e) + '<span class="pub-title">' + link(e.title, e.url)
                 + alts(e) + "</span>"];
     var names = e.authors.map(function (a) {
       return a === null ? "&#8230;" : link(a[0], a[1]);
@@ -251,8 +263,8 @@
   }
 
   /* one line each, for the lists under a project or a person */
-  function brief(e, data, typed) {
-    return "<li>" + (typed ? badge(e) : "") + link(e.title, e.url) + preprint(e) + alts(e)
+  function brief(e) {
+    return "<li>" + labels(e) + link(e.title, e.url) + alts(e)
       + (e.year ? " <small>(" + esc(e.year) + ")</small>" : "") + "</li>";
   }
 
@@ -260,10 +272,10 @@
      opts.brief: one line per entry */
   function list(rows, data, opts) {
     opts = opts || {};
-    var keys = opts.group || [], typed = keys.indexOf("type") < 0;
+    var keys = opts.group || [];
     function ul(rs) {
       return '<ul class="publication-list">' + rs.map(function (e) {
-        return (opts.brief ? brief : entry)(e, data, typed);
+        return (opts.brief ? brief : entry)(e, data);
       }).join("") + "</ul>";
     }
     function walk(groups, level) {
@@ -305,9 +317,18 @@
 
   /* "3 publications (1 paper, 2 talks)", in the types' own order */
   function summary(rows, data, of) {
-    var n = {}, parts = [];
-    rows.forEach(function (e) { n[e.type] = (n[e.type] || 0) + 1; });
+    // by what each entry's label says: an open preprint is a "preprint",
+    // not one of the "papers" (conrecords.py:publication_label())
+    var n = {}, parts = [], order = [];
+    rows.forEach(function (e) {
+      var t = e.preprint ? "preprint" : e.type;
+      n[t] = (n[t] || 0) + 1;
+    });
     Object.keys(data.types).forEach(function (t) {
+      order.push(t);
+      if (t === "paper") order.push("preprint");
+    });
+    order.forEach(function (t) {
       if (n[t]) parts.push(n[t] + " " + t + (n[t] === 1 ? "" : "s"));
     });
     var total = of && of !== rows.length ? rows.length + " of " + of : String(rows.length);
@@ -435,7 +456,10 @@
   }
 
   var api = {load: load, filter: filter, group: group, sidebar: sidebar, summary: summary, parse: parse,
-             query: query, render: render, mount: mount, init: init};
+             query: query, render: render, mount: mount, init: init,
+             // for a node's card in a graph (js/con-graph.js): the same
+             // labels and tags as a list entry has
+             labels: labels, tags: alts};
   if (typeof module !== "undefined" && module.exports) {
     module.exports = api;
   } else {
