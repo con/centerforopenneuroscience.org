@@ -74,7 +74,7 @@
   }
   var TYPE_LABEL = {
     person: "People", project: "Projects", publication: "Publications",
-    instrument: "Software & instruments", dataset: "Datasets",
+    instrument: "Instruments", dataset: "Datasets",
     organization: "Organizations", objective: "Objectives", topic: "Topics"
   };
   var PLURAL = { person: "people" };
@@ -299,6 +299,16 @@
     var edges = data.edges.filter(function (e) {
       return shown(e.sources) && keep[e.s] && keep[e.t];
     });
+    // The site itself is not one of the things around a person or a project
+    // of the site: everybody here is in CON and every project is its part,
+    // which the page already says -- and through it everything would be
+    // "one step further" from everything.  It is drawn in the whole graph
+    // and when it is the root.  (congraph.py:neighbourhood() counts so.)
+    var home = data.sources[0].id + ":.";
+    if (view.root && view.root !== home && keep[view.root] && keep[home]) {
+      delete keep[home];
+      edges = edges.filter(function (e) { return e.s !== home && e.t !== home; });
+    }
     if (view.root && keep[view.root]) {
       var near = {};
       near[view.root] = 0;
@@ -841,26 +851,33 @@
         type: "button", "class": "cg-close", "aria-label": "Close", text: "✕",
         onclick: function () { select(null); }
       }));
-      card.appendChild(el("div", { "class": "cg-kind" }, [
-        swatch(n),
-        el("span", { text: n.type + (data.sources.length > 1
-          ? " · " + n.sources.map(function (s) { return data.sourceLabel[s] || s; }).join(" + ") : "") })
-      ]));
+      // What it is.  A publication or a dataset says it as it does in
+      // every list of the site -- PAPER, PREPRINT, TALK, ... with the
+      // preprint a paper was linked from its label, and the data it
+      // analyses from a tag -- by the very function those lists use.
+      var pubs = window.CONPublications;
+      var entry = n.kind ? {
+        type: n.kind, preprint: n.preprint,
+        preprint_url: n.preprints && n.preprints[0].href, datasets: n.datasets
+      } : null;
+      var what = el("span", { "class": "cg-what" });
+      if (entry && pubs && pubs.labels) what.innerHTML = pubs.labels(entry);
+      else what.textContent = (n.kind || n.type) + " ";
+      var from = data.sources.length > 1
+        ? n.sources.map(function (s) { return data.sourceLabel[s] || s; }).join(" + ") : "";
+      card.appendChild(el("div", { "class": "cg-kind" },
+        [swatch(n), what, from ? el("span", { text: from }) : null]));
       card.appendChild(el("div", { "class": "cg-title", text: n.label }));
       var links = el("div", { "class": "cg-links" });
       n.links.forEach(function (l) {
         links.appendChild(el("a", { href: href(l), text: linkLabel(l) }));
       });
-      if (n.links.length) card.appendChild(links);
-      if (n.preprints) {
-        var pre = el("div", { "class": "cg-preprints" }, [
-          el("span", { "class": "cg-label", text: n.preprints.length > 1 ? "Preprints" : "Preprint" })
-        ]);
-        n.preprints.forEach(function (x) {
-          pre.appendChild(x.href ? el("a", { href: x.href, text: x.label }) : el("span", { text: x.label }));
-        });
-        card.appendChild(pre);
+      if (entry && entry.datasets && pubs && pubs.tags) {
+        var tags = el("span", { "class": "cg-tags" });
+        tags.innerHTML = pubs.tags({ datasets: entry.datasets });
+        links.appendChild(tags);
       }
+      if (links.childNodes.length) card.appendChild(links);
       if (n.id !== view.root) {
         card.appendChild(el("button", {
           type: "button", "class": "cg-btn", text: "Show only its links",

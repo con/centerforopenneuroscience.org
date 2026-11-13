@@ -342,6 +342,8 @@ def test_a_paper_and_its_preprint_are_one_node(shipped):
     assert article["preprints"] == [{
         "label": "doi:10.1101/2023.08.16.552472",
         "href": "https://doi.org/10.1101/2023.08.16.552472"}]
+    # ... and its card says PAPER, PREPRINT as every list of the site does
+    assert article["kind"] == "paper" and "preprint" not in article
     assert {"doi:10.1101/2023.08.16.552472", "doi:10.1162/imag_a_00074"} <= set(article["keys"])
     # nobody the preprint named is lost
     authors = {e["t"] for e in shipped["edges"] if e["s"] == article["id"]}
@@ -364,3 +366,99 @@ def test_folding_keeps_the_preprints_links_and_drops_the_pair():
     assert edges == [("A", "X", "attributed_to")]
     assert nodes["A"]["keys"] == {"doi:a", "doi:p"}
     assert nodes["A"]["preprints"] == [{"label": "doi:10.1/p", "href": "https://doi.org/10.1/p"}]
+
+
+# --- one account of a person, three times ------------------------------
+#
+# Under a person whoweare has "N related (...)", "N publications (...)" and
+# "Graph (...)".  They once disagreed in four ways at once: the graph
+# counted CON itself as one of the person's projects; the related list
+# merged a project and an instrument of one name; a dataset with a DOI was
+# a "publication" in the graph and a "dataset" in the list; and the graph
+# drew papers the site does not list.  A reader cannot tell which of three
+# numbers to believe, so they are held equal here, for everybody.
+
+def _people():
+    import render_whoweare
+    from conrecords import publication_people, publication_type, publications
+    related = render_whoweare.related_projects()
+    authored = {}
+    for p in publications():
+        for who in publication_people(p):
+            authored.setdefault(who, []).append(publication_type(p))
+    return related, authored
+
+
+def test_a_persons_lists_and_graph_count_the_same_things(shipped):
+    related, authored = _people()
+    people = [n["id"] for n in shipped["nodes"] if n["type"] == "person"]
+    assert len(people) > 40
+    for node in people:
+        pid = "xyzrins:" + node[len("con:"):]
+        kinds = [k for k, *_ in related.get(pid) or []]
+        types = authored.get(pid) or []
+        near = congraph.neighbourhood(shipped, node, "con")
+        got = {k: near.get(k, 0) for k in ("project", "instrument", "dataset", "publication")}
+        assert got == {
+            "project": kinds.count("project"),
+            "instrument": kinds.count("instrument"),
+            # those among the related things and those among the publications
+            "dataset": kinds.count("dataset") + types.count("dataset"),
+            "publication": len(types) - types.count("dataset"),
+        }, node
+
+
+def test_the_three_summaries_under_a_person_agree(shipped):
+    """The same, as a reader sees it: YOH's numbers in the page itself."""
+    page = (HERE / "content/pages/whoweare.html").read_text()
+    at = page.index('data-root="con:persons/yaroslav-halchenko"')
+    block = page[page.rindex("<h3>", 0, at):at]
+    def read(prefix):
+        m = re.search(r"<summary>" + prefix + r"\((.*?)\)</summary>", block)
+        assert m, (prefix, block[-900:])
+        return {re.sub(r"s$", "", w): int(n) for n, w in re.findall(r"(\d+) (\w+)", m[1])}
+    rel, pub, gra = read(r"\d+ related "), read(r"\d+ publications "), read("Graph ")
+    assert {k: gra.get(k, 0) for k in ("project", "instrument", "dataset", "publication")} == {
+        "project": rel["project"], "instrument": rel["instrument"],
+        "dataset": rel["dataset"] + pub["dataset"],
+        "publication": sum(v for k, v in pub.items() if k != "dataset")}
+    # an open preprint is counted as it is labelled, not among the papers
+    assert pub["preprint"] > 0 and pub["paper"] > pub["preprint"]
+
+
+def test_the_site_itself_is_not_among_what_surrounds_its_people():
+    g = {"sources": [{"id": "con"}],
+         "nodes": [{"id": "con:.", "type": "project", "sources": ["con"]},
+                   {"id": "con:persons/a", "type": "person", "sources": ["con"]},
+                   {"id": "con:projects/p", "type": "project", "sources": ["con"]}],
+         "edges": [{"s": "con:.", "t": "con:persons/a", "sources": ["con"]},
+                   {"s": "con:projects/p", "t": "con:persons/a", "sources": ["con"]},
+                   {"s": "con:projects/p", "t": "con:.", "sources": ["con"]}]}
+    assert congraph.neighbourhood(g, "con:persons/a", "con") == {"project": 1}
+    # ... but everything is around the site when the site is what is asked for
+    assert congraph.neighbourhood(g, "con:.", "con") == {"project": 1, "person": 1}
+
+
+def test_a_dataset_with_a_doi_is_a_dataset_and_only_listed_works_are_drawn(shipped):
+    from conrecords import all_publications, publications
+    got = {n["id"]: n for n in shipped["nodes"]}
+    listed = {"con:" + d["pid"][len("xyzrins:"):]: d for d in publications()}
+    drawn = {i for i in got if i.startswith("con:publications/")}
+    assert drawn == set(listed), (drawn ^ set(listed))
+    for i, d in listed.items():
+        want = "dataset" if d.get("kind") == "fabio:Dataset" else "publication"
+        assert got[i]["type"] == want, i
+        assert got[i]["kind"] in ("paper", "poster", "talk", "dataset")
+    # a preprint nothing has superseded is PREPRINT on its card, as in the lists
+    open_ = [n for n in got.values() if n.get("preprint")]
+    assert open_ and all(all_publications()["xyzrins:" + n["id"][4:]]["kind"] == "fabio:Preprint"
+                         for n in open_)
+
+
+def test_related_summary_names_each_kind():
+    import render_whoweare
+    s = render_whoweare.related_summary
+    assert s(["project"]) == "1 related project"
+    assert s(["project", "project"]) == "2 related projects"
+    assert s(["project", "instrument", "instrument", "dataset"]) == (
+        "4 related (1 project, 2 instruments, 1 dataset)")

@@ -41,6 +41,7 @@ from conrecords import (
     publication_date,
     publication_doi,
     publication_objectives,
+    publication_people,
     publication_projects,
     publication_type,
     preprint_of,
@@ -163,8 +164,7 @@ def model():
         mine = sorted((p for p in publication_projects(d) if p in projs),
                       key=lambda p: projs[p][0].lower())
         who = []
-        for a in d.get("attributed_to") or []:
-            pid = a.get("object")
+        for pid in publication_people(d):
             if pid in by_pid and slug(pid) not in who:
                 who.append(slug(pid))
                 used_people[slug(pid)] = by_pid[pid]
@@ -194,25 +194,34 @@ def model():
             "publications": entries}
 
 
+def labels(e):
+    """What an entry is, as theme/static/js/publications.js:labels() says it
+    wherever a publication is shown: its type, filled; an open PREPRINT in
+    place of PAPER for one not (yet) published; and for a published paper
+    that was a preprint, a second, filled PREPRINT that links to it."""
+    if e["preprint"]:
+        return '<span class="pub-type pub-type-preprint pub-type-open">preprint</span> '
+    out = f'<span class="pub-type pub-type-{e["type"]}">{e["type"]}</span> '
+    if e["preprint_url"]:
+        out += (f'<a class="pub-type pub-type-preprint" href="{html.escape(e["preprint_url"])}"'
+                ' title="Its preprint">preprint</a> ')
+    return out
+
+
 def alts(e):
     """"(PDF) (📺 CONTube)" after the title, as the Talks site has them, and
-    "[PREPRINT] [OPENNEURO:ds000233]" as YOH's CV has them."""
+    the data it analyses, "[OPENNEURO:ds000233]", as YOH's CV has it."""
     out = []
     if e["pdf"]:
         out.append(("PDF", e["pdf"]))
     if e["video"]:
         out.append(("\U0001F4FA " + ("CONTube" if "contube" in e["video"].lower()
                                        else "video"), e["video"]))
-    tags = [("PREPRINT", e["preprint_url"])] if e["preprint_url"] else []
-    tags += [tuple(t) for t in e["datasets"]]
+    tags = [tuple(t) for t in e["datasets"]]
     return ("".join(f' (<a class="pub-alt" href="{html.escape(h)}">{html.escape(t)}</a>)'
                     for t, h in out)
             + "".join(f' <a class="pub-tag" href="{html.escape(h)}">[{html.escape(t)}]</a>'
                       for t, h in tags))
-
-
-def preprint(e):
-    return ' <span class="pub-preprint">preprint</span>' if e["preprint"] else ""
 
 
 def names(e):
@@ -227,7 +236,7 @@ def names(e):
 
 
 def entry(e, projs):
-    bits = [f'<span class="pub-title">{link(e["title"], e["url"])}{preprint(e)}'
+    bits = [f'{labels(e)}<span class="pub-title">{link(e["title"], e["url"])}'
             f'{alts(e)}</span>']
     names_ = names(e)
     # the DOI last, to tell the work apart from any other

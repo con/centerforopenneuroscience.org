@@ -27,7 +27,8 @@ from conrecords import (
     attrs,
     one,
     person_name,
-    publication_type,
+    publication_people,
+    publication_label,
     publications,
     publications_details,
     role_labels,
@@ -169,9 +170,9 @@ def related_projects():
     """
     labels, anchors = role_labels(), page_anchors()
     out = {}
-    for cls, slot in (("XYZProject", "associated_with"),
-                      ("XYZInstrument", "attributed_to"),
-                      ("XYZDataset", "attributed_to")):
+    for cls, slot, kind in (("XYZProject", "associated_with", "project"),
+                            ("XYZInstrument", "attributed_to", "instrument"),
+                            ("XYZDataset", "attributed_to", "dataset")):
         for f in sorted((RECORDS / cls).glob("*.yaml")):
             d = yaml.safe_load(f.read_text())
             if d["pid"] == "xyzrins:.":
@@ -186,18 +187,37 @@ def related_projects():
                 if not who.startswith("xyzrins:persons/"):
                     continue
                 roles = [labels.get(x, x) for x in (a.get("roles") or [])]
-                out.setdefault(who, []).append((name, href, roles))
-    # one entry per project: a person may hold several associations with the
-    # same project over time (Adina was an intern here, then a contributor)
+                out.setdefault(who, []).append((d["pid"], kind, name, href, roles))
+    # one entry per thing: a person may hold several associations with the
+    # same project over time (Adina was an intern here, then a contributor).
+    # Per RECORD, not per name: DataLad the project and DataLad the software
+    # are two things -- two dots in the person's graph -- and merging them
+    # by name made this list one shorter than the graph beside it.
     for who, rows in out.items():
         merged = {}
-        for name, href, roles in rows:
-            seen = merged.setdefault(name, (href, []))[1]
+        for pid, kind, name, href, roles in rows:
+            seen = merged.setdefault(pid, (kind, name, href, []))[3]
             seen += [r for r in roles if r not in seen]
         # by name whatever its case: "annextube" among the A's, not after Z
-        out[who] = sorted(((n, h, r) for n, (h, r) in merged.items()),
-                          key=lambda x: (x[0].casefold(), x[0]))
+        out[who] = sorted(merged.values(),
+                          key=lambda x: (x[1].casefold(), x[1], KINDS.index(x[0])))
     return out
+
+
+# what a related thing is, in the order a summary names them
+KINDS = ["project", "instrument", "dataset"]
+
+
+def related_summary(kinds):
+    """["project", "project", "instrument"] ->
+    "3 related (2 projects, 1 instrument)"; "N related projects" when
+    projects are all there is, as most lists are."""
+    n = len(kinds)
+    if set(kinds) <= {"project"}:
+        return f"{n} related project{'' if n == 1 else 's'}"
+    parts = [f"{kinds.count(k)} {k}{'' if kinds.count(k) == 1 else 's'}"
+             for k in KINDS if k in kinds]
+    return f"{n} related ({', '.join(parts)})"
 
 
 def org_strips():
@@ -277,8 +297,8 @@ def render():
     # person pid -> the type of each publication naming them
     authored = {}
     for p in publications():
-        for who in {a.get("object") for a in p.get("attributed_to") or []}:
-            authored.setdefault(who, []).append(publication_type(p))
+        for who in publication_people(p):
+            authored.setdefault(who, []).append(publication_label(p))
     targets = pid_links()
     graph = congraph.build()
     rows, skipped = [], []
@@ -372,10 +392,10 @@ def render():
                 # opens its component lists because they ARE the content
                 # there; here the description is.
                 out.append('\t\t<details class="col-md-9 col-sm-9 related">')
-                out.append(f'\t\t  <summary>{len(mine)} related project'
-                           f'{"" if len(mine) == 1 else "s"}</summary>')
+                out.append(f'\t\t  <summary>'
+                           f'{related_summary([k for k, *_ in mine])}</summary>')
                 out.append('\t\t  <ul class="related-list">')
-                for name, href, roles in mine:
+                for kind, name, href, roles in mine:
                     role = (" &#8212; " + html.escape(", ".join(roles))
                             if roles else "")
                     # a record with neither a page entry nor a homepage still
@@ -383,7 +403,10 @@ def render():
                     label = (f'<a href="{html.escape(href)}">'
                              f'{html.escape(name)}</a>' if href
                              else html.escape(name))
-                    out.append(f'\t\t    <li>{label}{role}</li>')
+                    # what it is, on every entry, as a publication says
+                    # what it is in the list below
+                    out.append(f'\t\t    <li><span class="pub-type pub-type-{kind}">'
+                               f'{kind}</span> {label}{role}</li>')
                 out.append('\t\t  </ul>')
                 out.append('\t\t</details>')
             if authored.get(r["pid"]):

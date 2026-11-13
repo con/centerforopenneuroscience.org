@@ -53,9 +53,10 @@ import re
 import unicodedata
 
 import render_projects
-from conrecords import (HERE, RECORDS, TIERS, attrs, one, person_name,
-                        preprint_of, publication_doi, publication_url, toc_hook,
-                        yaml)
+from conrecords import (HERE, RECORDS, TIERS, accession, attrs, datasets_of,
+                        is_preprint, one, person_name, preprint_of,
+                        publication_doi, publication_type, publication_url,
+                        publications, toc_hook, yaml)
 
 SOURCES_FILE = HERE / "content/graph-sources.yaml"
 GRAPH_FILE = HERE / "content/graph/graph.json"
@@ -87,6 +88,14 @@ EDGE_FIELDS = ("associated_with", "attributed_to", "generated_by",
                "delegated_by", "influenced_by", "part_of", "about")
 # plural used in "12 projects"; `person` is the irregular one
 PLURAL = {"person": "people"}
+# The order a "Graph (...)" summary names the types in: that of the two
+# lists it sits under on whoweare and projects -- the related projects,
+# instruments and datasets, then the publications -- and after them what
+# only the graph shows.
+SUMMARY_ORDER = ["project", "instrument", "dataset", "publication",
+                 "organization", "person", "objective", "topic"]
+# what a node may carry besides id, label, type, sources and links
+EXTRA = ("kind", "preprint", "preprints", "datasets")
 
 
 def plural(kind, n):
@@ -194,18 +203,37 @@ def con_graph():
                "/projects#" + toc_hook(r["d"].get("display_label")
                                        or r["d"].get("title") or r["slug"])
                for r in render_projects.load()[0]}
-    nodes, edges, records = {}, [], {}
+    nodes, edges, records, works = {}, [], {}, set()
     for cls, kind in NODE_CLASSES.items():
         for f in sorted((RECORDS / cls).glob("*.yaml")):
             d = yaml.safe_load(f.read_text())
             pid = d["pid"]
             records[pid] = d
+            if cls == "XYZPublication":
+                works.add(pid)
+                # A dataset with a DOI is a publication record of kind
+                # fabio:Dataset (con-site-specific's curation rules), and
+                # the publications page lists it under Datasets.  Here it
+                # is what it is: a dataset, beside those that are
+                # XYZDataset records.
+                if d.get("kind") == "fabio:Dataset":
+                    kind = "dataset"
+                else:
+                    kind = NODE_CLASSES[cls]
             nodes[pid] = {"id": pid, "label": _label(kind, d, f.stem),
                           "type": kind,
                           "keys": (_keys(kind, d)
                                    | {"pid:" + m for m in _mapped(d)}
                                    | _own_keys(pid, True)),
                           "links": _links(kind, d, anchors)}
+            if cls == "XYZPublication":
+                # what the publications page and the lists say of it, for
+                # the same labels on its card: publications.js:labels()
+                nodes[pid]["kind"] = publication_type(d)
+                if is_preprint(d):
+                    nodes[pid]["preprint"] = True
+            elif cls == "XYZDataset":
+                nodes[pid]["kind"] = "dataset"
             for field in EDGE_FIELDS:
                 for rel in d.get(field) or []:
                     target = rel.get("object") if isinstance(rel, dict) else rel
@@ -215,6 +243,21 @@ def con_graph():
     if root:
         root["label"] = "CON"
     edges = _fold_preprints(nodes, edges, records)
+    # The publications the site lists, and no others: the publications page
+    # leaves out a work no CON member wrote (conrecords.publications()), and
+    # a dot here for a paper that is in no list beside it is the mismatch a
+    # reader notices.  After the fold, so that a listed paper keeps what
+    # its preprint brought.
+    listed = {d["pid"]: d for d in publications()}
+    for pid in works - set(listed):
+        nodes.pop(pid, None)
+    for pid, d in listed.items():
+        if pid in nodes:
+            data = [[accession(records[p]) or "DATASET", publication_url(records[p])]
+                    for p in datasets_of(d)
+                    if records.get(p, {}).get("kind") == "fabio:Dataset"]
+            if data:
+                nodes[pid]["datasets"] = data
     return {"nodes": list(nodes.values()), "edges": edges}
 
 
@@ -339,8 +382,7 @@ def merge(graphs, prune=True):
             else:
                 node = {"id": _qualify(n["id"], sid), "label": n["label"],
                         "type": n["type"], "sources": [], "links": []}
-                if n.get("preprints"):
-                    node["preprints"] = n["preprints"]
+                node.update({k: n[k] for k in EXTRA if n.get(k)})
                 nodes[node["id"]] = node
             if sid not in node["sources"]:
                 node["sources"].append(sid)
@@ -425,6 +467,12 @@ def neighbourhood(graph, root, source=None):
              if source is None or source in n["sources"]}
     if root not in types:
         return {}
+    # The site itself is not one of the things around a person or a project
+    # of the site: everybody here is in CON and every project is its part,
+    # which the page they are on already says.  (As filterGraph() has it.)
+    home = _home_root(graph)
+    if root != home:
+        types.pop(home, None)
     near = set()
     for e in graph["edges"]:
         if source is not None and source not in e["sources"]:
@@ -436,7 +484,13 @@ def neighbourhood(graph, root, source=None):
     counts = {}
     for n in near:
         counts[types[n]] = counts.get(types[n], 0) + 1
-    return {t: counts[t] for t in TYPES if t in counts}
+    return {t: counts[t] for t in SUMMARY_ORDER if t in counts}
+
+
+def _home_root(graph):
+    """The node that is the site's own root project, `con:.`."""
+    sources = graph.get("sources")
+    return (sources[0]["id"] + ":" + ".") if sources else None
 
 
 def summary(counts):

@@ -11,6 +11,7 @@ re-derived the sort order and silently disagreed with the page once the
 renderer learned to group children under their parent, and the same shape of
 bug was sitting in `render_whoweare.py`.  One copy, imported.
 """
+import functools
 import os
 import pathlib
 import re
@@ -129,10 +130,31 @@ def datasets_of(d):
             and str(i.get("object", "")).startswith("xyzrins:publications/")]
 
 
+@functools.lru_cache(maxsize=None)
 def all_publications():
     """pid -> record, for every publication record, listed or not."""
     return {d["pid"]: d for d in (load_yaml(f) for f in
                                   sorted((RECORDS / "XYZPublication").glob("*.yaml")))}
+
+
+def with_preprint(d):
+    """A published record and the preprint it was, as one work.
+
+    The site shows the two as one entry -- in every list, and as one node in
+    a graph -- so whoever wrote it and whatever project produced it are
+    those of either record.  The store knows authors only as far as each
+    record names them, and a co-author or a project is sometimes named on
+    the preprint alone.
+    """
+    was = all_publications().get(preprint_of(d))
+    return [d, was] if was else [d]
+
+
+def publication_people(d):
+    """The pids of those it is attributed to, on it or on its preprint."""
+    return list(dict.fromkeys(a.get("object") for r in with_preprint(d)
+                              for a in r.get("attributed_to") or []
+                              if a.get("object")))
 
 
 def publications():
@@ -152,7 +174,7 @@ def publications():
     ours, every = members(), all_publications().values()
     published = {preprint_of(d) for d in every}
     out = [d for d in every
-           if any(a.get("object") in ours for a in d.get("attributed_to") or [])
+           if any(who in ours for who in publication_people(d))
            and d["pid"] not in published]
     return sorted(out, key=lambda d: (publication_date(d) or "", d["title"]),
                   reverse=True)
@@ -188,11 +210,18 @@ def publication_url(d):
 PUBLICATION_TYPES = {"fabio:ConferencePoster": "poster", "bibo:Slideshow": "talk",
                      "fabio:Dataset": "dataset"}
 # in the order a summary lists them
-TYPE_ORDER = ["paper", "poster", "talk", "dataset"]
+TYPE_ORDER = ["paper", "preprint", "poster", "talk", "dataset"]
 
 
 def publication_type(d):
     return PUBLICATION_TYPES.get(d.get("kind"), "paper")
+
+
+def publication_label(d):
+    """What its label says, which is what a summary counts: its type, but
+    "preprint" for a paper not (yet) published -- the label that entry
+    wears in place of "paper", so "5 papers" must not include it."""
+    return "preprint" if is_preprint(d) else publication_type(d)
 
 
 def is_preprint(d):
@@ -246,7 +275,8 @@ def publication_objectives(d, by_project):
 
 
 def publications_summary(types):
-    """["paper", "talk", "talk"] -> "3 publications (1 paper, 2 talks)"."""
+    """["paper", "talk", "talk"] -> "3 publications (1 paper, 2 talks)".
+    Of publication_label()s: an open preprint is counted as one."""
     n = len(types)
     parts = [f"{types.count(t)} {t}{'' if types.count(t) == 1 else 's'}"
              for t in TYPE_ORDER if t in types]
@@ -255,9 +285,11 @@ def publications_summary(types):
 
 
 def publication_projects(d):
-    """The projects that produced it: its `generated_by`, less CON itself."""
-    return [g["object"] for g in d.get("generated_by") or []
-            if str(g.get("object", "")).startswith("xyzrins:projects/")]
+    """The projects that produced it: its `generated_by` and its preprint's,
+    less CON itself."""
+    return list(dict.fromkeys(
+        g["object"] for r in with_preprint(d) for g in r.get("generated_by") or []
+        if str(g.get("object", "")).startswith("xyzrins:projects/")))
 
 
 def publications_details(key, pid, types, indent, cls="publications"):
@@ -265,7 +297,7 @@ def publications_details(key, pid, types, indent, cls="publications"):
     opened.
 
     key is the filter (project, person), pid the record it names and types
-    the publication_type() of each of its publications.  The counts are
+    the publication_label() of each of its publications.  The counts are
     known here; the entries are fetched only once someone opens it.  The
     link inside, above the entries, works without JavaScript too: to the
     publications page, filtered the same way.
