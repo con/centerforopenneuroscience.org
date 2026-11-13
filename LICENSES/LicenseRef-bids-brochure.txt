@@ -1,0 +1,7 @@
+BIDS brochure
+
+theme/static/img/trifolds/brochure_bids.png shows the brochure of the Brain
+Imaging Data Structure (BIDS), prepared, as far as is remembered, by Chris
+Gorgolewski for the BIDS community and meant to be handed out and passed on.
+No license was stated for it; it is reproduced here on that understanding
+and is NOT covered by the licenses of the rest of this repository.

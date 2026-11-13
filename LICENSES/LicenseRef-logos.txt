@@ -1,0 +1,9 @@
+Logos and marks of projects, organizations and services
+
+These files are logos, wordmarks and icons of projects, organizations and
+services, among them projects of the Center for Open Neuroscience itself.
+Each belongs to its owner and stays under its owner's terms; it is
+reproduced here only to identify what it stands for and is NOT covered by
+the licenses of the rest of this repository.  No rights are granted here; to
+reuse one, consult its owner's terms.  Where a logo is known to carry a
+license of its own, REUSE.toml states that license instead of this one.

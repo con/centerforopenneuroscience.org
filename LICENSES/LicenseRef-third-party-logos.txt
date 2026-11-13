@@ -1,8 +1,0 @@
-Third-party logos and marks
-
-These files are logos, wordmarks and icons of projects, organizations and
-services other than the Center for Open Neuroscience.  They are the property
-of their respective owners, are reproduced here only to identify those
-projects, organizations and services, and are NOT covered by the licenses of
-the rest of this repository.  No rights to them are granted here; to reuse
-one, consult its owner's terms.

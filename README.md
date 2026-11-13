@@ -19,8 +19,8 @@ the texts.  In short:
 - files with their own `SPDX-License-Identifier` header (the graph, newer
   scripts): MIT, as the header says;
 - vendored libraries (`theme/static/vendor/`): each under its own license;
-- logos of other projects and organizations belong to their owners and are
-  not relicensed here.
+- logos of projects and organizations belong to their owners, and portraits
+  to the people pictured: neither is relicensed here.
 
 A new file needs no header unless it differs from what `REUSE.toml` says for
 its location.  `tox -e reuse` checks that every file is covered.

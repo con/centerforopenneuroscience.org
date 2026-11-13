@@ -6,18 +6,66 @@ version = 1
 # newer scripts, MIT) keep it: "closest" lets a header win over these blocks.
 # Later blocks win over earlier ones.
 
-# The repository began as a fork of buddycloud.com: the site generator's
-# configuration, the Jinja and Markdown extensions, templates and styles.
+# The repository began as a fork of buddycloud.com (its last commit here is
+# of 2015-07-10): the site generator's configuration, the Jinja and Markdown
+# extensions, templates and styles.
 [[annotations]]
 path = "**"
 precedence = "closest"
 SPDX-FileCopyrightText = [
-    "2011-2014 buddycloud and contributors",
+    "2011-2015 Buddycloud Ltd. and contributors",
     "2015-2026 Center for Open Neuroscience and contributors",
 ]
 SPDX-License-Identifier = "Apache-2.0"
 
-# Website content: pages, the data they are rendered from, and images.
+# Added after the fork; nothing of buddycloud's in them.
+[[annotations]]
+path = [
+    ".datalad/**",
+    ".gitattributes",
+    ".github/**",
+    ".gitmodules",
+    ".linkcheckerrc",
+    ".specify/**",
+    "ASSOCIATIONS-MOVED.md",
+    "CLAUDE.md",
+    "REUSE.toml",
+    "containers/**",
+    "ruff.toml",
+    "scripts/**",
+    "tests/**",
+    "theme/graph-vendor/**",
+    "theme/static/js/publications.js",
+    "theme/templates/includes/objectives.html",
+    "tox.ini",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "2015-2026 Center for Open Neuroscience and contributors"
+SPDX-License-Identifier = "Apache-2.0"
+
+# From the pelican-bootstrap3 theme as buddycloud imported it in December
+# 2013, when its LICENSE was the WTFPL (upstream went to MIT in August 2014).
+# No template includes them any more.
+[[annotations]]
+path = [
+    "theme/templates/includes/addthis.html",
+    "theme/templates/includes/article_info.html",
+    "theme/templates/includes/comment_count.html",
+    "theme/templates/includes/comments.html",
+    "theme/templates/includes/disqus_script.html",
+    "theme/templates/includes/github.html",
+    "theme/templates/includes/sidebar.html",
+    "theme/templates/includes/taglist.html",
+    "theme/templates/includes/translations.html",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "2013 Daan Debie <debie.daan@gmail.com>"
+SPDX-License-Identifier = "WTFPL"
+
+# Website content: pages, the data they are rendered from, and images.  The
+# pages of people, projects, objectives, support and publications,
+# theme/static/data/publications.json and content/graph/graph.json are
+# generated from the records in sourcedata/con-site-specific.
 [[annotations]]
 path = [
     "content/**",
@@ -28,7 +76,41 @@ precedence = "closest"
 SPDX-FileCopyrightText = "2015-2026 Center for Open Neuroscience and respective authors"
 SPDX-License-Identifier = "CC-BY-3.0"
 
-# Logos of other projects, organizations and services: theirs, not relicensed.
+# The icons of buddycloud's set that are no one's mark, and the four drawn
+# after them in 2015.
+[[annotations]]
+path = [
+    "theme/static/img/contact/blog.svg",
+    "theme/static/img/contact/cv.svg",
+    "theme/static/img/contact/email.svg",
+    "theme/static/img/contact/home.svg",
+    "theme/static/img/contact/phone.svg",
+    "theme/static/img/contact/research.svg",
+]
+precedence = "override"
+SPDX-FileCopyrightText = [
+    "2014-2015 Buddycloud Ltd. and contributors",
+    "2015 Center for Open Neuroscience and contributors",
+]
+SPDX-License-Identifier = "Apache-2.0"
+
+# Portraits: of the people pictured; origin and terms not established.
+[[annotations]]
+path = "theme/static/img/team/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Respective individuals and photographers"
+SPDX-License-Identifier = "LicenseRef-portraits"
+
+# The BIDS brochure is not ours; the other trifolds and handouts are, and
+# stay with the content above.
+[[annotations]]
+path = "theme/static/img/trifolds/brochure_bids.png"
+precedence = "override"
+SPDX-FileCopyrightText = "Chris Gorgolewski and the BIDS community"
+SPDX-License-Identifier = "LicenseRef-bids-brochure"
+
+# Logos of projects, organizations and services, CON's own projects among
+# them: each its owner's, under its owner's terms.
 [[annotations]]
 path = [
     "theme/static/img/3rd/**",
@@ -38,7 +120,6 @@ path = [
     "theme/static/img/contact/googleplus.svg",
     "theme/static/img/contact/linkedin.svg",
     "theme/static/img/contact/mastodon.svg",
-    "theme/static/img/contact/orcid.svg",
     "theme/static/img/contact/ror-icon-rgb.svg",
     "theme/static/img/contact/twitter.svg",
     "theme/static/img/instruments/**",
@@ -47,32 +128,99 @@ path = [
 ]
 precedence = "override"
 SPDX-FileCopyrightText = "Respective owners"
-SPDX-License-Identifier = "LicenseRef-third-party-logos"
+SPDX-License-Identifier = "LicenseRef-logos"
+
+# Logos that state a licence of their own, in the file or beside its source.
+[[annotations]]
+path = [
+    "theme/static/img/projects/debian/logo.svg",
+    "theme/static/img/projects/debian-med/logo.svg",
+    "theme/static/img/projects/debian-python-team/logo.svg",
+    "theme/static/img/projects/debian-science/logo.svg",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "1999 Software in the Public Interest, Inc."
+SPDX-License-Identifier = "CC-BY-SA-3.0"
+
+[[annotations]]
+path = "theme/static/img/projects/nipype/logo.svg"
+precedence = "override"
+SPDX-FileCopyrightText = "Arno Klein (original artwork), Michael Hanke (SVG)"
+SPDX-License-Identifier = "CC-BY-SA-3.0"
+
+# per content/projects/nipoppy/COPYING-logo.txt in sourcedata/con-site-specific
+[[annotations]]
+path = "theme/static/img/projects/nipoppy/logo.svg"
+precedence = "override"
+SPDX-FileCopyrightText = "2022 NeuroDataScience"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "theme/static/img/contact/orcid.svg"
+precedence = "override"
+SPDX-FileCopyrightText = "ORCID"
+SPDX-License-Identifier = "CC-BY-4.0"
 
 # Another site's graph, saved unmodified; see content/graph-sources.yaml.
 [[annotations]]
 path = "content/graph/psyinf.json"
 precedence = "override"
-SPDX-FileCopyrightText = "Psychoinformatics lab (https://www.psychoinformatics.de) and respective authors"
+SPDX-FileCopyrightText = "2025-2026 Psychoinformatics group (https://www.psychoinformatics.de) and respective authors"
 SPDX-License-Identifier = "LicenseRef-psyinf-graph"
 
 # Vendored libraries, each under the licence it ships with.
 [[annotations]]
 path = "theme/static/vendor/buddycloud-styles/**"
 precedence = "override"
-SPDX-FileCopyrightText = "2012-2014 buddycloud and contributors"
+SPDX-FileCopyrightText = "2012-2014 Buddycloud Ltd. and contributors"
 SPDX-License-Identifier = "Apache-2.0"
 
+# ... which carries the code of Bootstrap's documentation, CC-BY-3.0 by its
+# own header, alone in three files and mixed into the built stylesheet,
+[[annotations]]
+path = [
+    "theme/static/vendor/buddycloud-styles/dist/js/buddycloud-styles.js",
+    "theme/static/vendor/buddycloud-styles/src/js/buddycloud-styles.js",
+    "theme/static/vendor/buddycloud-styles/src/sass/vendor/_docs.min.scss",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "2011-2014 Twitter, Inc."
+SPDX-License-Identifier = "CC-BY-3.0"
+
+[[annotations]]
+path = "theme/static/vendor/buddycloud-styles/dist/css/buddycloud-styles.css"
+precedence = "override"
+SPDX-FileCopyrightText = [
+    "2012-2014 Buddycloud Ltd. and contributors",
+    "2011-2014 Twitter, Inc.",
+]
+SPDX-License-Identifier = "Apache-2.0 AND CC-BY-3.0"
+
+# ... and highlight.js.
+[[annotations]]
+path = [
+    "theme/static/vendor/buddycloud-styles/dist/js/vendor/highlight.min.js",
+    "theme/static/vendor/buddycloud-styles/src/js/vendor/highlight.min.js",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "2006 Ivan Sagalaev"
+SPDX-License-Identifier = "BSD-3-Clause"
+
+# with normalize.css and the Glyphicons Halflings font, both under its licence
 [[annotations]]
 path = "theme/static/vendor/bootstrap/**"
 precedence = "override"
-SPDX-FileCopyrightText = "2011-2014 Twitter, Inc"
+SPDX-FileCopyrightText = [
+    "2011-2014 Twitter, Inc",
+    "Nicolas Gallagher and Jonathan Neal (normalize.css)",
+    "Jan Kovařík (Glyphicons Halflings)",
+]
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
 path = "theme/static/vendor/jquery/**"
 precedence = "override"
-SPDX-FileCopyrightText = "2014 jQuery Foundation and other contributors"
+SPDX-FileCopyrightText = "2005-2014 jQuery Foundation, Inc. and other contributors"
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
@@ -82,21 +230,9 @@ SPDX-FileCopyrightText = "2009-2013 Jeremy Ashkenas, DocumentCloud"
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
-path = "theme/static/vendor/raphael/**"
-precedence = "override"
-SPDX-FileCopyrightText = "2008-2010 Dmitry Baranovskiy"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = "theme/static/vendor/ace/**"
-precedence = "override"
-SPDX-FileCopyrightText = "2010 Ajax.org B.V."
-SPDX-License-Identifier = "BSD-3-Clause"
-
-[[annotations]]
 path = "theme/static/js/jquery.visible.min.js"
 precedence = "override"
-SPDX-FileCopyrightText = "2012 Digital Fusion (Sam Sehnert)"
+SPDX-FileCopyrightText = "2012 Digital Fusion (author: Sam Sehnert)"
 SPDX-License-Identifier = "MIT"
 
 # sigma.js, graphology and what they pull in, bundled by `make graph-vendor`;

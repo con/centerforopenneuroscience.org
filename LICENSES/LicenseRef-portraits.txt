@@ -1,0 +1,7 @@
+Portraits
+
+These files are portraits (or avatars) of people, shown to identify them on
+the website.  Each belongs to the person pictured or to its photographer;
+their origin and terms have not been established, so they are NOT covered by
+the licenses of the rest of this repository and no rights are granted here.
+To reuse one, ask the person pictured.
