@@ -6,7 +6,7 @@ name: Test
 #     so a store bump without `make run-project` fails here, not in production;
 #   - the generators' tests, including the browser tests that click through
 #     the top menu, every sidebar section and entry, and the cross-page links;
-#   - lint.
+#   - lint, and that every file states its licence (`tox -e reuse`).
 # Runs on every pull request, including from forks: it needs no secrets and
 # deploys nothing (gh-pages-preview.yaml does that).
 
@@ -52,8 +52,23 @@ jobs:
           store=sourcedata/con-site-specific
           git -C $store fetch origin git-annex:refs/remotes/origin/git-annex
           git -C $store annex init
-          git -C $store annex enableremote hub-storage
-          git -C $store annex get content
+          # two public copies: CON's own hub, tried first, and the DataLad
+          # Hub sibling the store declares (hub-storage), which may be down
+          # or hang without failing the job
+          git -C $store remote add hub-con \
+              https://hub.centerforopenneuroscience.org/con/con-site-specific.git
+          git -C $store config remote.hub-con.annex-cost 50
+          timeout 60 git -C $store annex enableremote hub-storage \
+              || echo "::warning::hub-storage could not be enabled"
+          # either hub has spells of 502s and timeouts which outlast
+          # per-file retries, so make quick passes instead; files already
+          # fetched are skipped on the next pass
+          for attempt in 1 2 3 4 5 6; do
+            git -C $store -c annex.retry=1 annex get content && break
+            [ $attempt -lt 6 ] || exit 1
+            echo "::warning::annex get of the store content failed (attempt $attempt); retrying in 60s"
+            sleep 60
+          done
 
       - name: Pages match the pinned store
         run: tox -e projection
@@ -63,6 +78,9 @@ jobs:
 
       - name: Lint
         run: tox -e lint
+
+      - name: Copyright and licence of every file (REUSE)
+        run: tox -e reuse
 
       - name: Test generators and navigation (Chromium)
         env:

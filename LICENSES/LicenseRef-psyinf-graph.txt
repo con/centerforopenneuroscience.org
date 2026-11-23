@@ -1,0 +1,8 @@
+Psychoinformatics graph (saved copy)
+
+content/graph/psyinf.json is an unmodified copy of
+https://www.psychoinformatics.de/graph.json, kept only as a fallback for
+when that site cannot be reached.  It is the data of its authors, who have
+not stated a license for it; it is NOT covered by the licenses of the rest of
+this repository and no rights to it are granted here.  To reuse it, ask its
+authors.
