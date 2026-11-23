@@ -53,7 +53,14 @@ jobs:
           git -C $store fetch origin git-annex:refs/remotes/origin/git-annex
           git -C $store annex init
           git -C $store annex enableremote hub-storage
-          git -C $store annex get content
+          # that hub has spells of 502s and timeouts which outlast
+          # annex.retry; files already fetched are skipped on the next pass
+          for attempt in 1 2 3 4 5 6; do
+            git -C $store annex get content && break
+            [ $attempt -lt 6 ] || exit 1
+            echo "::warning::annex get from hub-storage failed (attempt $attempt); retrying in 60s"
+            sleep 60
+          done
 
       - name: Pages match the pinned store
         run: tox -e projection
