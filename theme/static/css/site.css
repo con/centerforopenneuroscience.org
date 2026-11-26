@@ -1275,3 +1275,62 @@ a.heading-link:hover::after {
 .projects details.graph[open] > summary::before { transform: rotate(90deg); }
 .projects details.graph > summary:hover { color: #337ab7; }
 .projects details.graph .con-graph { margin: 8px 0 4px; }
+
+/* The search button in the navbar: the magnifier alone on a row of words,
+   named only where the menu is a column (phones) and to screen readers. */
+@media (min-width: 768px) {
+  .con-search-nav .con-search-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+}
+
+/* The search box (#con-search in base.html, filled by
+   theme/js/con-search.js): below the fixed navbar, and never taller than
+   the window -- the hits scroll inside it so the field stays in view. */
+#con-search .modal-dialog { margin-top: 70px; }
+#con-search .modal-body { padding: 20px; }
+#con-search .close { position: absolute; top: 0; right: 6px; }
+.con-search-status {
+  margin: 10px 2px 0;
+  min-height: 1.4em;
+  font-size: 13px;
+  color: #777;
+}
+.con-search-hits {
+  margin: 0;
+  max-height: calc(100vh - 230px);
+  overflow-y: auto;
+}
+.con-search-hits li + li { border-top: 1px solid #eee; }
+a.con-search-hit {
+  display: block;
+  padding: 9px 8px;
+  color: #333;
+  font-size: 15px;
+  line-height: 1.4;
+}
+a.con-search-hit:hover, a.con-search-hit:focus {
+  background: #f2f6fa;
+  text-decoration: none;
+  outline: 0;
+}
+.con-search-title { font-weight: 600; color: #337ab7; }
+/* the page a heading is on */
+.con-search-page { color: #999; font-size: 13px; }
+.con-search-page:before { content: " \2014  "; }
+.con-search-text { display: block; margin-top: 2px; font-size: 13px; color: #555; }
+.con-search-hit mark { background: #fff3b0; color: inherit; padding: 0 1px; }
+/* kinds the publication lists have no colour for */
+.pub-type-person { background: #5f8f8a; }
+.pub-type-objective { background: #8a6fa8; }
+.pub-type-organization { background: #7a8a5a; }
+/* Bootstrap lets the collapsed menu of a fixed navbar grow to 340px and
+   scrolls the rest: eight items filled that, and Search, the ninth, was
+   out of sight below them. */
+@media (max-width: 767px) {
+  .navbar-fixed-top .navbar-collapse { max-height: calc(100vh - 50px); }
+}

@@ -60,6 +60,7 @@ linkchecker --check-extern -f .linkcheckerrc -t 1 http://localhost:8000
 - `output/` - Generated static site (do not edit directly)
 - `jinjaext/` - Custom Jinja extensions for table of contents
 - `mdext/` - Custom Markdown extensions
+- `plugins/` - Pelican plugins (the search index)
 
 ### Key Technologies
 
@@ -99,6 +100,20 @@ linkchecker --check-extern -f .linkcheckerrc -t 1 http://localhost:8000
      `data-controls`) becomes a graph. Its libraries are bundled in
      `theme/static/vendor/con-graph/` (`make graph-vendor`, see
      `theme/graph-vendor/README.md`).
+
+4. **Search** (the magnifier in the navbar)
+   - `plugins/con_search.py`, a Pelican plugin (standard library only),
+     reads the built pages back on every build and writes
+     `output/search.json`: one entry per heading that has an id, and one
+     per publication (from `publications.json`).  An entry's kind (person,
+     project...) is the type of the graph node linking to that heading.
+   - `theme/static/js/con-search.js` fills `#con-search` (`base.html`) from
+     it with MiniSearch (`theme/static/vendor/minisearch/`); both are
+     fetched when the box is first opened, and the search runs in the
+     browser.
+   - What must not be found is marked `data-search-ignore` in `base.html`
+     or listed in `EXCLUDE` in the plugin.  Ranking and typo tolerance are
+     the `searchOptions` in `con-search.js`.
 
 ### Development Workflow
 
