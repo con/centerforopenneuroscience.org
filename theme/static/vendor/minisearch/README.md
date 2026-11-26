@@ -1,4 +1,4 @@
-MiniSearch 7.2.0 (MIT), https://github.com/lucaong/minisearch
+MiniSearch 7.2.0 (MIT, see LICENSE.txt), https://github.com/lucaong/minisearch
 
 `minisearch.js` is `dist/umd/index.js` of the npm package, unmodified:
 

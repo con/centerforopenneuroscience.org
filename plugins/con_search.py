@@ -1,4 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Yaroslav Halchenko <yaroslav.o.halchenko@dartmouth.edu>
 # SPDX-License-Identifier: MIT
+#
+# Generated with Claude Code
 """Pelican plugin: write the search box's index, `<output>/search.json`.
 
 After Pelican has written the site, this reads the pages back and lists
@@ -28,6 +31,7 @@ The entries, as short keys because there are hundreds of them:
 import json
 import pathlib
 import re
+import urllib.parse
 from html.parser import HTMLParser
 
 from pelican import signals
@@ -45,8 +49,9 @@ EXCLUDE = [
     ("details", "related"), ("details", "people"),
     # indexed one entry per publication instead, see publications()
     (None, "data-pub-app"),
-    # a person's "E-Mail", "GitHub", "ORCID"...: link labels, the same for all
-    ("div", "contact"),
+    # a person's "E-Mail", "GitHub", "ORCID", a project's "home page",
+    # "source"...: link labels, the same for all
+    ("div", "contact"), ("span", "contact"),
 ]
 # put where a block starts or ends; not something a page can contain
 BREAK = "\x00"
@@ -84,16 +89,22 @@ class Sections(HTMLParser):
         self.open = []            # the elements we are inside of
         self.ignored = None       # depth of the element being left out
         self.heading = None       # depth of the id'd heading being read
-        self.in_title = False
+        self.in_title = False     # the first <title>; an <svg> may have one
+        self.titled = False
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
-        if tag == "title":
-            self.in_title = True
+        if tag == "title" and not self.titled:
+            self.in_title = self.titled = True
         if tag not in VOID:
             self.open.append(tag)
         if self.ignored is not None:
             return
+        if self.heading is not None and tag in BLOCK:
+            self.sections[-1][1] += " "       # "Foo<br>Bar" is two words
+        # a logo is the only mention of many a lab or partner
+        if tag == "img" and attrs.get("alt"):
+            self.handle_data(f" {attrs['alt']} ")
         classes = (attrs.get("class") or "").split()
         if (tag in NOT_TEXT or "data-search-ignore" in attrs
                 or any((t is None and c in attrs) or (t == tag and c in classes)
@@ -111,8 +122,12 @@ class Sections(HTMLParser):
         if tag == "title":
             self.in_title = False
         # Pages are not all well-formed (a stray </br>, an unclosed <p>):
-        # an end tag closes the nearest such element, or nothing.
-        if tag not in self.open:
+        # an end tag closes the nearest such element, or nothing -- and
+        # inside what is left out, nothing outside of it, or a stray </p>
+        # there would end the leaving out.
+        inside = (self.open if self.ignored is None
+                  else self.open[self.ignored - 1:])
+        if tag not in inside:
             return
         while self.open.pop() != tag:
             pass
@@ -163,7 +178,10 @@ def publications(data):
         authors = ", ".join(a[0] if a else "…"
                             for a in pub.get("authors") or [])
         about = [authors, pub.get("venue") or "", str(pub.get("year") or "")]
-        yield {"u": pub.get("url") or "/publications", "t": pub["title"],
+        yield {"u": pub.get("url")
+               # one without an address of its own: the list, narrowed to it
+               or "/publications?q=" + urllib.parse.quote(pub["title"]),
+               "t": pub["title"],
                # as the site labels it: a paper not (yet) published is a preprint
                "k": "preprint" if pub.get("preprint") else pub.get("type") or "paper",
                "x": " · ".join(p for p in about if p)}

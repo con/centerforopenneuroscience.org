@@ -1,4 +1,7 @@
-/* SPDX-License-Identifier: MIT
+/* SPDX-FileCopyrightText: 2026 Yaroslav Halchenko <yaroslav.o.halchenko@dartmouth.edu>
+ * SPDX-License-Identifier: MIT
+ *
+ * Generated with Claude Code
  *
  * The search box: the magnifier in the navbar (any [data-con-search]), or
  * "/" or Ctrl/Cmd+K, opens #con-search (base.html).
@@ -21,10 +24,11 @@
   var ROOT = new URL((script && script.src || "/theme/js/con-search.js")
                      .replace(/theme\/js\/con-search\.js.*$/, ""),
                      window.location.href);
+  var failed = "";                // why the index is not there, if it is not
   var SHOWN = 30;                 // hits listed; the rest are counted
   var AROUND = 90;                // characters of text either side of a match
-  // what an entry is called; a publication's kinds are styled by site.css
-  // (.pub-type-*) as on the rest of the site
+  // what an entry is called; styled by site.css (.pub-type-*) as the
+  // labels on the rest of the site are
   var KIND = { page: "page", section: "section", person: "person",
                project: "project", instrument: "software",
                organization: "group", objective: "objective",
@@ -35,7 +39,13 @@
       input = document.getElementById("con-search-input"),
       status = document.getElementById("con-search-status"),
       list = document.getElementById("con-search-hits");
-  var entries = null, index = null, loading = null;
+  var entries = null, index = null, loading = null, opener = null;
+
+  // "rubel" finds Rübel and "julich" Jülich: letters without their marks,
+  // in what is indexed and in what is typed alike
+  function fold(term) {
+    return term.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
 
   function loadScript(src) {
     return new Promise(function (resolve, reject) {
@@ -59,9 +69,10 @@
       index = new window.MiniSearch({
         idField: "i",
         fields: ["t", "x"],
+        processTerm: fold,
         searchOptions: {
-          // every word has to be there; the last may still be being typed,
-          // and a longer one may be a letter off
+          // every word has to be there, or a word it begins (it may still
+          // be being typed); a longer one may be a letter off
           combineWith: "AND",
           prefix: true,
           fuzzy: function (term) { return term.length > 4 ? 0.2 : 0; },
@@ -80,8 +91,8 @@
         return { i: i, t: e.t, x: e.x };
       }));
     }).catch(function (err) {
-      loading = null;                       // may be retried on the next opening
-      status.textContent = "The search could not be loaded (" + err.message + ").";
+      loading = null;                       // retried on the next keystroke
+      failed = "The search could not be loaded (" + err.message + ").";
       throw err;
     });
     return loading;
@@ -98,14 +109,17 @@
   // are the words of the entry that matched, not the ones typed: "repro"
   // finds "reproducible", and that is what gets marked.
   function marked(parent, text, terms) {
-    var at = 0, m, re = terms.length && new RegExp(
+    // matched in the text without its marks, which is as long: one letter
+    // of the entries' (NFC) text gives one
+    var plain = fold(text), same = plain.length === text.length;
+    var at = 0, m, re = same && terms.length && new RegExp(
         "(?:^|[^\\p{L}\\p{N}])(" + terms.map(function (t) {
           return t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
         }).join("|") + ")(?![\\p{L}\\p{N}])", "giu");
-    while (re && (m = re.exec(text))) {
+    while (re && (m = re.exec(plain))) {
       var start = m.index + m[0].length - m[1].length;
       parent.appendChild(document.createTextNode(text.slice(at, start)));
-      parent.appendChild(el("mark", "", m[1]));
+      parent.appendChild(el("mark", "", text.slice(start, start + m[1].length)));
       at = start + m[1].length;
       re.lastIndex = at;
     }
@@ -115,29 +129,38 @@
 
   // the part of a text around its first match, cut at word boundaries
   function excerpt(text, terms) {
-    var lower = text.toLowerCase(), first = -1;
-    terms.forEach(function (t) {
-      var i = lower.search(new RegExp(
-          "(?:^|[^\\p{L}\\p{N}])" + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "u"));
-      if (i >= 0 && (first < 0 || i < first)) first = i;
-    });
+    var lower = fold(text), first = -1;
     if (text.length <= 2 * AROUND) return text;
-    var from = Math.max(0, first - AROUND), to = Math.min(text.length, from + 2 * AROUND);
-    if (from > 0) from = text.indexOf(" ", from) + 1;
-    if (to < text.length) to = text.lastIndexOf(" ", to);
+    if (lower.length === text.length) {
+      terms.forEach(function (t) {
+        var i = lower.search(new RegExp(
+            "(?:^|[^\\p{L}\\p{N}])" + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") +
+            "(?![\\p{L}\\p{N}])", "u"));
+        if (i >= 0 && (first < 0 || i < first)) first = i;
+      });
+    }
+    // a window around the match, moved back from the end of the text so
+    // that it stays as wide, and cut at spaces where there are any
+    var from = Math.max(0, Math.min(first - AROUND, text.length - 2 * AROUND)),
+        to = Math.min(text.length, from + 2 * AROUND), cut;
+    if (from > 0 && (cut = text.indexOf(" ", from)) >= 0 && cut < to) from = cut + 1;
+    if (to < text.length && (cut = text.lastIndexOf(" ", to)) > from) to = cut;
     return (from > 0 ? "… " : "") + text.slice(from, to) +
            (to < text.length ? " …" : "");
   }
 
+  // elsewhere on the web, or on this site wherever it is served from
   function address(u) {
-    return /^[a-z]+:/i.test(u) ? u : ROOT.pathname + u.replace(/^\//, "");
+    return /^https?:\/\//i.test(u) ? u : ROOT.pathname + u.replace(/^\/+/, "");
   }
 
   function hit(found) {
     var e = entries[found.id], li = el("li"),
         a = el("a", "con-search-hit");
     a.href = address(e.u);
-    a.appendChild(el("span", "pub-type pub-type-" + e.k, KIND[e.k] || e.k));
+    // a paper not (yet) published is labelled as in the lists: open
+    a.appendChild(el("span", "pub-type pub-type-" + e.k +
+                     (e.k === "preprint" ? " pub-type-open" : ""), KIND[e.k] || e.k));
     a.appendChild(document.createTextNode(" "));
     marked(a.appendChild(el("span", "con-search-title")), e.t, found.terms);
     if (e.p) a.appendChild(el("span", "con-search-page", e.p));
@@ -152,7 +175,11 @@
   function search() {
     var q = input.value.trim();
     list.textContent = "";
-    if (!index || !q) {
+    if (!index) {
+      status.textContent = loading ? "Loading\u2026" : failed;
+      return;
+    }
+    if (!q) {
       status.textContent = "";
       return;
     }
@@ -166,9 +193,11 @@
   }
 
   function open() {
+    if (!$modal.hasClass("in")) opener = document.activeElement;
     $modal.modal("show");
     input.focus();
-    load().then(search, function () {});
+    load().then(search, search);
+    search();
   }
 
   $(document).on("click", "[data-con-search]", function (e) {
@@ -181,13 +210,26 @@
   // or the hidden field keeps the focus for a moment, and a "/" pressed
   // right after Escape counts as typed into it
   $modal.on("hide.bs.modal", function () { input.blur(); });
-  input.addEventListener("input", search);
+  // back to where the reader was: Bootstrap 3 only does this for boxes
+  // opened by data-toggle
+  $modal.on("hidden.bs.modal", function () {
+    if (opener && opener.focus && document.contains(opener)) opener.focus();
+    opener = null;
+  });
+  input.addEventListener("input", function () {
+    // a failed load is tried again by whoever keeps typing
+    if (!index && !loading) load().then(search, search);
+    search();
+  });
 
   $(document).on("keydown", function (e) {
     var t = e.target, typing = t && (t.isContentEditable ||
         /^(input|textarea|select)$/i.test(t.tagName));
-    if ((e.key === "/" && !typing && !e.ctrlKey && !e.metaKey && !e.altKey) ||
-        (e.key.toLowerCase() === "k" && (e.ctrlKey || e.metaKey) && !e.altKey)) {
+    // a keydown may come without a key: Chrome sends one when an autofill
+    // entry is chosen, as in the filter of /publications
+    var key = e.key || "";
+    if ((key === "/" && !typing && !e.ctrlKey && !e.metaKey && !e.altKey) ||
+        (key.toLowerCase() === "k" && (e.ctrlKey || e.metaKey) && !e.altKey)) {
       e.preventDefault();
       open();
     }

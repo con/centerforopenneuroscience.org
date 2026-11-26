@@ -108,7 +108,8 @@ def test_every_heading_one_can_link_to_is_an_entry(site, entries):
         page, anchor = u.split("#")
         html_ = (site / (page.strip("/") + ".html")).read_text()
         assert f'id="{anchor}"' in html_, u
-    assert len(indexed) >= len(entries) - 30, "many entries share an address"
+    assert len(local) == sum("#" in e["u"] for e in entries
+                             if e["u"].startswith("/")), "an anchor indexed twice"
 
 
 def test_every_publication_is_an_entry(entries):
@@ -116,6 +117,15 @@ def test_every_publication_is_an_entry(entries):
     titles = [e["t"] for e in entries
               if e["k"] in ("paper", "preprint", "talk", "poster", "dataset")]
     assert sorted(titles) == sorted(p["title"] for p in pubs["publications"])
+
+
+def test_a_publication_without_an_address_leads_to_the_list_narrowed_to_it():
+    entry, = con_search.publications({"publications": [
+        {"title": 'A "B" & C', "url": None, "type": "paper", "year": 2020,
+         "preprint": True, "authors": [["X Y", None], None]}]})
+    assert entry == {"u": "/publications?q=A%20%22B%22%20%26%20C",
+                     "t": 'A "B" & C', "k": "preprint",
+                     "x": "X Y, \u2026 \u00b7 2020"}
 
 
 def test_an_entry_is_the_kind_of_thing_the_graph_says(entries):
@@ -139,6 +149,11 @@ def test_what_is_not_content_is_not_indexed(entries):
     datalad = next(e for e in entries if e["u"] == "/projects#datalad_")
     assert "DataLad is" in datalad["x"]
     assert "John Wodder" not in datalad["x"], "the folded list of its people"
+    assert "home page" not in datalad["x"], "the labels of its links"
+    # a lab that is only a logo is found by the logo's name
+    labs = next(e for e in entries
+                if e["u"] == "/whoweare#collaborating_labs__groups_")
+    assert labs["x"], "the logos' alt texts"
     # blocks are set apart, not run together: "...Developer" + "Works on..."
     wodder = next(e for e in entries if e["u"] == "/whoweare#john_wodder_")
     assert wodder["x"].startswith("Software Developer \u00b7 Works on")
@@ -155,6 +170,10 @@ def test_sections_survive_markup_that_is_not_well_formed():
       <h3 id="b_">Second</h3><div data-pub-app=""><li>a paper</div>delta
       </body></html>"""
     got = list(con_search.sections(page, "/p", {"/p#b_": "person"}))
+    # a stray end tag inside what is left out does not end the leaving out
+    stray = "<html><body><p>in<div data-search-ignore><b>x</b></p>y</div>out"
+    assert [e["x"] for e in con_search.sections(stray, "/p", {})] == [
+        "in \u00b7 out"]
     assert got == [
         {"u": "/p", "t": "A page", "k": "page", "x": "intro"},
         {"u": "/p#a_", "t": "First one", "p": "A page", "k": "section",
@@ -193,6 +212,8 @@ def test_a_search_finds_the_section_the_person_and_the_publication(site):
         assert hits[0][2].startswith("https://doi.org/")
         # a letter off still finds it
         assert search(pg, "heudicnov")[0][2] == "/projects#heudiconv___reproin_"
+        # a letter typed without its mark finds the one with it
+        assert "Oliver R\u00fcbel" in [t for _, t, _ in search(pg, "rubel")]
         # what is only in the navbar, the sidebar or the footer is not a hit
         assert search(pg, "maynard") == []
         assert "Nothing found" in pg.inner_text("#con-search-status")
@@ -208,6 +229,10 @@ def test_a_search_finds_the_section_the_person_and_the_publication(site):
         assert pg.evaluate("document.activeElement.id") == "con-search-input"
         pg.keyboard.press("Escape")
         pg.wait_for_selector("#con-search", state="hidden")
+        # the focus is back on what opened the box
+        assert pg.evaluate("document.activeElement.hasAttribute('data-con-search')")
+        # a keydown without a key (Chrome's autofill sends one) is not ours
+        pg.evaluate("document.dispatchEvent(new Event('keydown', {bubbles: true}))")
         pg.keyboard.press("/")
         pg.wait_for_selector("#con-search-input", state="visible")
         search(pg, "datalad")
@@ -215,6 +240,30 @@ def test_a_search_finds_the_section_the_person_and_the_publication(site):
             pg.keyboard.press("Enter")
         assert pg.url.endswith("/projects#datalad_")
         assert not errors, errors
+        browser.close()
+
+
+def test_a_failed_load_is_said_and_tried_again(site):
+    """The first keystroke used to wipe the message, leaving a field that
+    answered nothing; and only reopening the box tried again."""
+    pw = pytest.importorskip("playwright.sync_api")
+    with serve(site) as url, pw.sync_playwright() as p:
+        browser = _browser(p)
+        pg = browser.new_page(viewport={"width": 1280, "height": 900})
+        pg.goto(f"{url}/engage")
+        pg.route("**/search.json", lambda route: route.abort())
+        pg.click("[data-con-search]")
+        pg.wait_for_function("document.getElementById('con-search-status')"
+                             ".textContent.includes('could not be loaded')")
+        # a keystroke tries again, and says so again
+        pg.keyboard.type("d")
+        pg.wait_for_function("document.getElementById('con-search-status')"
+                             ".textContent.includes('could not be loaded')")
+        assert pg.inner_text("#con-search-hits") == ""
+        pg.unroute("**/search.json")
+        pg.keyboard.type("atalad")
+        pg.wait_for_selector("#con-search-hits a")
+        assert "results" in pg.inner_text("#con-search-status")
         browser.close()
 
 
