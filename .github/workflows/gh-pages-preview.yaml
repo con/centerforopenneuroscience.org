@@ -49,7 +49,7 @@ jobs:
             # for the annxed content -- we do not autoenable that remote
             git remote add --fetch datasets.datalad.org \
                 http://datasets.datalad.org/centerforopenneuroscience/con.org/.git/
-            pip install pelican markdown git-annex
+            pip install pelican markdown 'pagefind[bin]~=1.6' git-annex
             git annex get theme/static
 
       - name: Validate content HTML (XML well-formedness)

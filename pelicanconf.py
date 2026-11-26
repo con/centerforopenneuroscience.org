@@ -60,7 +60,9 @@ JINJA_FILTERS = {
 
 # GOOGLE_ANALYTICS = "TODO"
 
-PLUGINS = []
+# plugins/con_search.py indexes the built site for the search box
+PLUGIN_PATHS = ['plugins']
+PLUGINS = ['con_search']
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True

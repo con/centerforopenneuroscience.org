@@ -10,7 +10,8 @@ under CC BY 3.0 license.
 
 ## HOWTO
 
-Install pelican (e.g. `pip install pelican`).
+Install pelican and Pagefind, which indexes the site for its search box
+(e.g. `pip install pelican 'pagefind[bin]~=1.6'`).
 You might need to get files using `git-annex` so do `git annex get *`.
 To start serving while developing
 
