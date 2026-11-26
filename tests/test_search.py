@@ -9,6 +9,7 @@ and the box is drawn by a script that is fetched only when it is opened --
 so neither a page missing from the index nor a hit that leads nowhere shows
 up in a build log.  These build the site and search it in a browser.
 """
+import asyncio
 import contextlib
 import http.server
 import json
@@ -100,13 +101,34 @@ def test_every_page_and_every_publication_is_indexed(site):
         len(pages) + len(pubs["publications"]))
 
 
+def test_a_page_pagefind_skips_fails_the_build(site, tmp_path):
+    """It skips a page without an <html> element and exits 0, and what it
+    reports for a directory is the files it was given, not those it read:
+    the check has to count what was written."""
+    out = tmp_path / "site"
+    shutil.copytree(site, out)
+    (out / "bare.html").write_text("<head><title>x</title></head><p>bare</p>")
+    with pytest.raises(SystemExit, match="233 expected"):
+        asyncio.run(con_search.build(
+            out, HERE / "theme/static/data/publications.json"))
+
+
+def test_a_publication_without_an_address_leads_to_the_list_narrowed_to_it():
+    (_, page), = con_search.publications({"publications": [
+        {"title": 'A "B" & C', "url": None, "type": "paper", "year": 2020,
+         "preprint": True, "authors": [["X Y", None], None]}]})
+    assert 'href="/publications?q=A%20%22B%22%20%26%20C"' in page
+    assert '<span data-pagefind-meta="type">preprint</span>' in page
+    assert '<span data-pagefind-meta="year">2020</span>' in page
+    assert "A &quot;B&quot; &amp; C</p>" in page
+
+
 def test_rebuilding_leaves_one_index(site, tmp_path):
     """Pagefind names its files by content and removes none: without a
     clean-up every rebuild of output/ would add another index to upload."""
     out = tmp_path / "site"
     shutil.copytree(site, out)
     (out / "pagefind/fragment/stale.pf_fragment").write_text("old")
-    import asyncio
     asyncio.run(con_search.build(
         out, HERE / "theme/static/data/publications.json"))
     assert not (out / "pagefind/fragment/stale.pf_fragment").exists()
@@ -147,8 +169,16 @@ def test_a_search_finds_the_section_the_person_and_the_publication(site):
         assert "maynard" not in pg.inner_text(
             "#con-search .pagefind-ui__results").lower()
 
+        # two talks of one title are told apart by what is under them
+        search(pg, "neurobagel international network")
+        assert "preprint" in pg.inner_text("#con-search .pagefind-ui__results").lower()
+
         pg.keyboard.press("Escape")
         pg.wait_for_selector("#con-search", state="hidden")
+        # the focus is back on what opened the box
+        assert pg.evaluate("document.activeElement.hasAttribute('data-con-search')")
+        # a keydown without a key (Chrome's autofill sends one) is not ours
+        pg.evaluate("document.dispatchEvent(new Event('keydown', {bubbles: true}))")
         pg.keyboard.press("/")
         pg.wait_for_selector("#con-search input", state="visible")
         assert not errors, errors

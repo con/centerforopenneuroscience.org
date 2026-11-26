@@ -21,7 +21,8 @@ What is indexed:
   Python wrapper waits 0.1s for every answer: 224 publications took 24s
   of each build.  A directory is one call.)
 
-Needs the `pagefind` binary: `pip install 'pagefind[bin]'`.
+Needs the `pagefind` binary: `pip install 'pagefind[bin]~=1.6'` (pinned
+because con-search.js and its styles lean on that version's UI).
 """
 import asyncio
 import html
@@ -29,6 +30,7 @@ import json
 import pathlib
 import shutil
 import tempfile
+import urllib.parse
 
 from pelican import signals
 
@@ -59,29 +61,42 @@ def pages(out):
 
 def publications(data):
     """(file name, page) for every publication in publications.json."""
-    kinds = data.get("types", {})
     for n, pub in enumerate(data.get("publications", [])):
         title = pub.get("title")
         if not title:
             continue
         authors = ", ".join(a[0] for a in pub.get("authors") or [] if a)
-        about = [kinds.get(pub.get("type"), pub.get("type") or ""),
-                 authors, pub.get("venue") or "", str(pub.get("year") or "")]
+        about = [authors, pub.get("venue") or ""]
         about = html.escape(" \u00b7 ".join(p for p in about if p))
-        href = html.escape(pub.get("url") or "/publications", quote=True)
+        # Its type and year are shown under the hit: several talks share a
+        # title, and the excerpt of a title match is the title again.
+        tags = "".join(
+            f'<span data-pagefind-meta="{key}">{html.escape(value)}</span> '
+            for key, value in (
+                # as the site labels it: a paper not (yet) published is a preprint
+                ("type", "preprint" if pub.get("preprint") else pub.get("type") or ""),
+                               ("year", str(pub.get("year") or ""))) if value)
+        # one without an address of its own: the list, narrowed to it
+        href = html.escape(
+            pub.get("url")
+            or "/publications?q=" + urllib.parse.quote(title), quote=True)
         yield f"{n:04d}.html", (
             # the title is not a heading: Pagefind weighs an <h1> sevenfold,
             # and a query for "datalad" then listed eight talks before the
             # project
             '<html lang="en"><body data-pagefind-weight="0.3">'
             f'<p data-pagefind-meta="title">{html.escape(title)}</p>'
-            f'<p>{about}</p><a data-pagefind-meta="href[href]" href="{href}">'
-            "</a></body></html>")
+            f'<p>{about}</p><p>{tags}</p>'
+            f'<a data-pagefind-meta="href[href]" href="{href}"></a>'
+            "</body></html>")
 
 
 async def build(out, pubs_json):
     try:
         from pagefind.index import IndexConfig, PagefindIndex
+        from pagefind.service import get_executable
+        if get_executable() is None:      # the package without its binary
+            raise ImportError("no pagefind binary")
     except ImportError as exc:
         raise SystemExit(
             "The search index needs Pagefind: pip install 'pagefind[bin]'"
@@ -98,17 +113,27 @@ async def build(out, pubs_json):
             data = json.loads(pubs_json.read_text(encoding="utf-8"))
             for name, page in publications(data):
                 (records / name).write_text(page, encoding="utf-8")
+        site = list(pages(out))
+        if not site or any(c in p for p in site for c in "{},"):
+            raise SystemExit(f"Search index: cannot list these pages for "
+                             f"Pagefind: {site}")
         async with PagefindIndex(config=config) as index:
-            site = await index.add_directory(
-                str(out), glob="{" + ",".join(pages(out)) + "}")
-            pubs = await index.add_directory(tmp)
-    print(f"Search index: {site['page_count']} pages, "
-          f"{pubs['page_count']} publications -> {target}")
-    # a page Pagefind cannot read (no <html> element, say) is skipped
-    # without an error, and would simply never be found
-    if site["page_count"] != len(list(pages(out))):
-        raise SystemExit(f"Search index: only {site['page_count']} of "
-                         f"{len(list(pages(out)))} pages were indexed")
+            await index.add_directory(str(out), glob="{" + ",".join(site) + "}")
+            await index.add_directory(tmp)
+        expected = len(site) + len(list(records.iterdir()))
+    # A page Pagefind cannot read (one without an <html> element, say) is
+    # skipped without an error, and would simply never be found.  What it
+    # reports per directory is the files it was given, so count what it
+    # wrote.
+    entry = json.loads((target / "pagefind-entry.json").read_text())
+    indexed = sum(lang["page_count"] for lang in entry["languages"].values())
+    print(f"Search index: {indexed} entries ({len(site)} pages, "
+          f"{expected - len(site)} publications) -> {target}")
+    if indexed != expected:
+        raise SystemExit(
+            f"Search index: {indexed} entries indexed, {expected} expected "
+            f"-- a page without an <html> element is skipped; run "
+            f"`python -m pagefind --site {out} --verbose` to see which")
 
 
 def index_site(pelican):

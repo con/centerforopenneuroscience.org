@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- what a search hit on this page is called; without it Pagefind takes
        the first <h1>, which on /support is "Institutional" -->
-  <meta data-pagefind-meta="title[content]" content="{{ self.title() }}">
+  <meta name="search-title" data-pagefind-meta="title[content]" content="{{ self.title()|e }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">

@@ -20,7 +20,7 @@
                      .replace(/theme\/js\/con-search\.js.*$/, ""),
                      window.location.href);
   var $modal = $("#con-search"), box = document.getElementById("con-search-box");
-  var loading = null;
+  var loading = null, styles = null, opener = null;
 
   function add(tag, attrs) {
     return new Promise(function (resolve, reject) {
@@ -44,11 +44,14 @@
   }
 
   function load() {
-    loading = loading || Promise.all([
+    styles = styles || Promise.all([
       add("link", { rel: "stylesheet", href: ROOT + "pagefind/pagefind-ui.css" }),
-      add("link", { rel: "stylesheet", href: ROOT + "theme/css/con-search.css" }),
-      add("script", { src: ROOT + "pagefind/pagefind-ui.js" })
+      add("link", { rel: "stylesheet", href: ROOT + "theme/css/con-search.css" })
+    ]).catch(function () { /* unstyled is still usable */ });
+    loading = loading || Promise.all([
+      add("script", { src: ROOT + "pagefind/pagefind-ui.js" }), styles
     ]).then(function () {
+      box.textContent = "";                 // the message of a failed attempt
       new window.PagefindUI({
         element: box,
         bundlePath: ROOT.pathname + "pagefind/",
@@ -81,6 +84,7 @@
   function input() { return box.querySelector("input"); }
 
   function open() {
+    if (!$modal.hasClass("in")) opener = document.activeElement;
     $modal.modal("show");
     load().then(function () { if (input()) input().focus(); });
   }
@@ -92,12 +96,21 @@
     open();
   });
   $modal.on("shown.bs.modal", function () { if (input()) input().focus(); });
+  // back to where the reader was: Bootstrap 3 only does this for boxes
+  // opened by data-toggle
+  $modal.on("hidden.bs.modal", function () {
+    if (opener && opener.focus && document.contains(opener)) opener.focus();
+    opener = null;
+  });
 
   $(document).on("keydown", function (e) {
     var t = e.target, typing = t && (t.isContentEditable ||
         /^(input|textarea|select)$/i.test(t.tagName));
-    if ((e.key === "/" && !typing && !e.ctrlKey && !e.metaKey && !e.altKey) ||
-        (e.key.toLowerCase() === "k" && (e.ctrlKey || e.metaKey) && !e.altKey)) {
+    // a keydown may come without a key: Chrome sends one when an autofill
+    // entry is chosen, as in the filter of /publications
+    var key = e.key || "";
+    if ((key === "/" && !typing && !e.ctrlKey && !e.metaKey && !e.altKey) ||
+        (key.toLowerCase() === "k" && (e.ctrlKey || e.metaKey) && !e.altKey)) {
       e.preventDefault();
       open();
     }

@@ -104,7 +104,7 @@ linkchecker --check-extern -f .linkcheckerrc -t 1 http://localhost:8000
 4. **Search** (the magnifier in the navbar)
    - `plugins/con_search.py`, a Pelican plugin, runs [Pagefind](https://pagefind.app)
      over the built site on every build and writes `output/pagefind/`
-     (index and UI).  Needs `pip install 'pagefind[bin]'`.
+     (index and UI).  Needs `pip install 'pagefind[bin]~=1.6'`.
    - `theme/static/js/con-search.js` opens it in `#con-search` (`base.html`);
      nothing is fetched until then, and the search runs in the browser.
    - A page is split into hits at its headings that have an id.  Each
