@@ -1,0 +1,22 @@
+/* The search box (#con-search in base.html, opened by theme/js/con-search.js):
+   Pagefind's own UI, fitted to the site.  Loaded when the box is first opened. */
+#con-search {
+  --pagefind-ui-scale: .8;
+  --pagefind-ui-primary: #337ab7;
+  --pagefind-ui-text: #333;
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 4px;
+  --pagefind-ui-font: inherit;
+}
+/* below the fixed navbar, and never taller than the window: the results
+   scroll inside the box so the field stays in view */
+#con-search .modal-dialog { margin-top: 70px; }
+#con-search .modal-body { padding: 20px 20px 10px; }
+#con-search .close { position: absolute; top: 2px; right: 8px; }
+#con-search .pagefind-ui__drawer {
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+}
+#con-search .pagefind-ui__result { padding: 14px 0; }
+#con-search .pagefind-ui__result-link { color: #337ab7; }
+#con-search mark { background: #fff3b0; color: inherit; padding: 0 1px; }
