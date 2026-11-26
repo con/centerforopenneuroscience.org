@@ -60,6 +60,7 @@ linkchecker --check-extern -f .linkcheckerrc -t 1 http://localhost:8000
 - `output/` - Generated static site (do not edit directly)
 - `jinjaext/` - Custom Jinja extensions for table of contents
 - `mdext/` - Custom Markdown extensions
+- `plugins/` - Pelican plugins (the search index)
 
 ### Key Technologies
 
@@ -99,6 +100,17 @@ linkchecker --check-extern -f .linkcheckerrc -t 1 http://localhost:8000
      `data-controls`) becomes a graph. Its libraries are bundled in
      `theme/static/vendor/con-graph/` (`make graph-vendor`, see
      `theme/graph-vendor/README.md`).
+
+4. **Search** (the magnifier in the navbar)
+   - `plugins/con_search.py`, a Pelican plugin, runs [Pagefind](https://pagefind.app)
+     over the built site on every build and writes `output/pagefind/`
+     (index and UI).  Needs `pip install 'pagefind[bin]'`.
+   - `theme/static/js/con-search.js` opens it in `#con-search` (`base.html`);
+     nothing is fetched until then, and the search runs in the browser.
+   - A page is split into hits at its headings that have an id.  Each
+     publication is a record of its own, from `publications.json`.
+   - What must not be found is marked `data-pagefind-ignore` in
+     `base.html` or listed in `EXCLUDE` in the plugin.
 
 ### Development Workflow
 

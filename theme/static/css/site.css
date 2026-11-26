@@ -1275,3 +1275,21 @@ a.heading-link:hover::after {
 .projects details.graph[open] > summary::before { transform: rotate(90deg); }
 .projects details.graph > summary:hover { color: #337ab7; }
 .projects details.graph .con-graph { margin: 8px 0 4px; }
+
+/* The search button in the navbar: the magnifier alone on a row of words,
+   named only where the menu is a column (phones) and to screen readers. */
+@media (min-width: 768px) {
+  .con-search-nav .con-search-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+}
+/* Bootstrap lets the collapsed menu of a fixed navbar grow to 340px and
+   scrolls the rest: eight items filled that, and Search, the ninth, was
+   out of sight below them. */
+@media (max-width: 767px) {
+  .navbar-fixed-top .navbar-collapse { max-height: calc(100vh - 50px); }
+}
