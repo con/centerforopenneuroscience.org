@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">fscacher</title>
+  <desc id="desc">A lowercase f formed from a fingerprint, representing file identity and remembered function results.</desc>
+  <g fill="none" stroke="#087E8B" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M46 144V99a82 82 0 0 1 164 0v34c0 43-22 73-47 90"/>
+    <path d="M74 176V99a54 54 0 0 1 108 0v34c0 31-15 56-33 71"/>
+    <path d="M102 205V99a26 26 0 0 1 52 0m-52 29h46"/>
+  </g>
+</svg>
