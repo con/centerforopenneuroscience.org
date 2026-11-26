@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
   <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +16,7 @@
   {% block morestyles %} {% endblock %}
 </head>
 <body class="{{ active_page }}" style="overflow-y: scroll;">
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-search-ignore>
   <div class="container">
       <div class="navbar-header" href="#">
           <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -59,6 +60,14 @@
                       CONTube <span class="glyphicon glyphicon-new-window nav-ext-icon" aria-hidden="true"></span>
                   </a>
               </li>
+              <!-- opens the search box, see theme/js/con-search.js; the
+                   icon alone, as the row has no room for a ninth word -->
+              <li class="con-search-nav">
+                  <a href="#" role="button" data-con-search title="Search this site (press /)">
+                      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                      <span class="con-search-label">Search</span>
+                  </a>
+              </li>
           </ul>
       {% endif %}
       </div>
@@ -67,7 +76,7 @@
 {% if content_layout == "column" %}
 <div class="container bs-docs-container">
   <div class="row">
-      <div class="col-md-3 col-sm-3">
+      <div class="col-md-3 col-sm-3" data-search-ignore>
       {% block table_of_contents %}
       {% endblock %}
       </div>
@@ -76,7 +85,7 @@
           {% block content %}
           {% endblock %}
 {% if content_layout == "column" %}
-          <span class="pull-right">
+          <span class="pull-right" data-search-ignore>
               <a class="btn btn-default" role="button" href="javascript:window.scrollTo(0,0);">Back to Top</a>
           </span>
       </div>
@@ -86,7 +95,7 @@
 {% if active_page != "index" %}
 <div class="index">
 {% endif %}
-<div class="background-contact">
+<div class="background-contact" data-search-ignore>
   <div class="container" id="contact">
     <div class="row">
       <div class="col-md-8">
@@ -211,8 +220,28 @@
 <!-- draws every [data-con-graph] on the page; fetches its libraries and
      graph/graph.json only when there is one to draw -->
 <script src="/theme/js/con-graph.js"></script>
+<!-- The search box.  Its index (search.json, written by
+     plugins/con_search.py when the site is built) and MiniSearch are
+     fetched when it is first opened; the search itself runs in the browser.
+     What is marked data-search-ignore is left out of the index. -->
+<div class="modal" id="con-search" tabindex="-1" role="dialog" aria-label="Search this site" data-search-ignore>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <input type="search" id="con-search-input" class="form-control input-lg"
+               placeholder="Search people, projects, publications&hellip;"
+               aria-label="Search this site" aria-controls="con-search-hits"
+               autocomplete="off" spellcheck="false">
+        <p id="con-search-status" class="con-search-status" role="status" aria-live="polite"></p>
+        <ul id="con-search-hits" class="con-search-hits list-unstyled"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/theme/js/con-search.js"></script>
 {% block morescripts %} {% endblock %}
-<div class="website-licenses">
+<div class="website-licenses" data-search-ignore>
   Center For Open Neuroscience is not directly affiliated with <a href="http://centerforopenscience.org">COS (Center For Open Science)</a>.
   <br>
   Website content is copyright of respective authors and released under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> license.  Website design is based on <a href="https://github.com/buddycloud/buddycloud.com">buddycloud.com</a>, released under Apache 2.0 license.
