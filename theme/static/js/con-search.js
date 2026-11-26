@@ -1,4 +1,7 @@
-/* SPDX-License-Identifier: MIT
+/* SPDX-FileCopyrightText: 2026 Yaroslav Halchenko <yaroslav.o.halchenko@dartmouth.edu>
+ * SPDX-License-Identifier: MIT
+ *
+ * Generated with Claude Code
  *
  * The search box: the magnifier in the navbar (any [data-con-search]), or
  * "/" or Ctrl/Cmd+K, opens #con-search (base.html) with Pagefind's UI in it.

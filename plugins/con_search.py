@@ -1,4 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Yaroslav Halchenko <yaroslav.o.halchenko@dartmouth.edu>
 # SPDX-License-Identifier: MIT
+#
+# Generated with Claude Code
 """Pelican plugin: index the built site for the search box (Pagefind).
 
 After Pelican has written the site, this writes `<output>/pagefind/`: the
